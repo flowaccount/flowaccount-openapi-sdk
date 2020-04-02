@@ -1,0 +1,55 @@
+# # SimpleDocumentResponseAllOfData
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**record_id** | **int** | id ของเอกสาร | [optional] [default to 0]
+**document_id** | **int** | id ของเอกสาร | [optional] [default to 0]
+**document_serial** | **string** | เลขที่เอกสาร | [optional] 
+**contact_code** | **string** | รหัส ลูกค้า/ผู้จำหน่าย | [optional] 
+**contact_name** | **string** | ชื่อ ลูกค้า/ผู้จำหน่าย &lt;br&gt; &lt;ex&gt;Example: บริษัท ลูกค้า จำกัด, คุณลูกค้า ซื้อประจำ&lt;/ex&gt; | [optional] 
+**contact_address** | **string** | ที่อยู่ ลูกค้า/ผู้จำหน่าย | [optional] 
+**contact_tax_id** | **string** | เลขประจำตัวผู้เสียภาษี ลูกค้า หรือ ผู้จำหน่าย/ลูกค้า &lt;br&gt; (ถ้ามีจำเป็นต้องครบ 13 หลัก) &lt;br&gt; &lt;ex&gt;Example: 1234567890123 &lt;/ex&gt; | [optional] 
+**contact_branch** | **string** | สำนักงาน/สาขา | [optional] 
+**contact_person** | **string** | ชื่อผู้ติดต่อ | [optional] 
+**contact_email** | **string** | อีเมลผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: contact@email.com&lt;/ex&gt; | [optional] 
+**contact_number** | **string** | เบอร์มือถือผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: 099-999-9999&lt;/ex&gt; | [optional] 
+**contact_zip_code** | **string** | รหัสไปรษณีย์ติดต่อ | [optional] 
+**contact_group** | **int** | ประผู้ติดต่อ &lt;br&gt; 1 &#x3D; บุคคลธรรมดา &lt;br&gt; 3 &#x3D; นิติบุคคล | [optional] [default to 1]
+**published_on** | [**\DateTime**](\DateTime.md) | วันที่เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
+**credit_type** | **int** | รูปแบบเครดิต &lt;br&gt; 1 &#x3D; เครดิต (วัน) &lt;br&gt; 3 &#x3D; เงินสด  &lt;br&gt; 5 &#x3D; เครดิต (ไม่แสดงวันที่ครบกำหนด) | [optional] [default to 1]
+**credit_days** | **int** | จำนวนวันที่ให้เครดิต &lt;br&gt; &lt;ex&gt;Example: 30&lt;/ex&gt; | [optional] [default to 0]
+**due_date** | [**\DateTime**](\DateTime.md) | วันครบกำหนดเอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
+**sales_name** | **string** | ชื่อผู้สร้างเอกสาร หรือ ชื่อพนักงานขาย &lt;br&gt; &lt;ex&gt;Example: sale@email.com or Mr.Sale Shop&lt;/ex&gt; | [optional] [default to 'อีเมล หรือ ชื่อผู้สร้างเอกสาร']
+**project_name** | **string** | ชื่อโปรเจค | [optional] 
+**reference** | **string** | เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง &lt;br&gt; &lt;ex&gt;Example: INV2020010001&lt;/ex&gt; | [optional] 
+**is_vat_inclusive** | **bool** | มูลค่าเอกสารรวมภาษีแล้วหรือไม่ | [optional] [default to false]
+**use_receipt_deduction** | **bool** | เปิดใช้งานฟังก์ชั่น ปรับลดท้ายเอกสาร &lt;br&gt; (เฉพาะเอกสารใบกำกับภาษี / ใบเสร็จรับเงิน และ ใบเสร็จรับเงิน) | [optional] [default to false]
+**sub_total** | **float** | มูลค่ารวมเป็นเงิน | [optional] [default to 0]
+**discount_percentage** | **int** | มูลค่าส่วนลดเป็นเปอร์เซ็นต์ | [optional] [default to 0]
+**discount_amount** | **float** | มูลค่าส่วนลดเป็นจำนวน (บาท) | [optional] [default to 0]
+**total_after_discount** | **float** | มูลค่าหลังหักส่วนลด | [optional] 
+**total_without_vat** | **float** | มูลค่าไม่รวมภาษีมูลค่าเพิ่ม | [optional] 
+**is_vat** | **bool** | มูลค่าหลังหักส่วนลด มีภาษีมูลค่าเพิ่ม 7% | [optional] [default to false]
+**vat_amount** | **float** | ภาษีมูลค่าเพิ่ม | [optional] 
+**grand_total** | **float** | จำนวนเงินรวมทั้งสิ้น (รวมภาษีมูลค่าเพิ่ม 7% แล้ว) | [optional] 
+**document_show_withholding_tax** | **bool** | แสดงหรือไม่แสดง หัก ณ ที่จ่ายท้ายเอกสาร | [optional] [default to false]
+**document_withholding_tax_percentage** | **int** | ภาษี ณ ที่จ่าย (%) | [optional] [default to 0]
+**document_deduction_type** | **int** | ประเภทรายการปรับลด &lt;br&gt; 1 &#x3D; ส่วนลดพิเศษ &lt;br&gt; 3 &#x3D; ค่านายหน้าและส่วนแบ่งการขาย &lt;br&gt; 5 &#x3D; ค่าดำเนินการ &lt;br&gt; 7 &#x3D; ปัดเศษ &lt;br&gt; (เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน) | [optional] [default to 0]
+**document_deduction_amount** | **float** | จำนวนเงินยอดรายการปรับลด &lt;br&gt; (เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน) | [optional] [default to 0]
+**remarks** | **string** | หมายเหตุเอกสาร | [optional] 
+**internal_notes** | **string** | โน๊ตภายในบริษัท | [optional] 
+**show_signature_or_stamp** | **bool** | ลายเซ็นอิเล็กทรอนิกส์และตรายาง | [optional] [default to true]
+**items** | [**\OpenAPI\Client\Model\SimpleProductItem[]**](SimpleProductItem.md) | รายการสินค้าใช้งานสำหรับเอกสาร Simple Document | [optional] 
+**referenced_to_me** | [**\OpenAPI\Client\Model\ReferencedToMe[]**](ReferencedToMe.md) | ข้อมูลเอกสารปลายทางที่อ้างอิง ถึง เอกสารฉบับนี้ | [optional] 
+**referenced_by_me** | [**\OpenAPI\Client\Model\ReferencedByMe[]**](ReferencedByMe.md) | เอกสารต้นทางที่อ้างอิง ถึง เอกสารฉบับนี้ | [optional] 
+**payments** | [**\OpenAPI\Client\Model\PaymentDocumentResponse[]**](PaymentDocumentResponse.md) | ข้อมูลการเก็บเงินและจ่ายเงินของเอกสาร &lt;br&gt; ข้อมูลการเก็บเงิน: &lt;br&gt;1. ใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice) &lt;br&gt; 2. ใบเสร็จรับเงิน (Receipt) &lt;br&gt; 3. ใบกำกับภาษี/ใบเสร็จรับเงิน (Cash Invoice) &lt;br&gt; ข้อมูลการจ่ายเงิน: &lt;br&gt;1. เอกสารใบรับสินค้า (Receiving Inventory) | [optional] 
+**status** | **int** | เลขสถานะเอกสารฉบับนี้ | [optional] 
+**status_string** | **int** | ชื่อสถานะเอกสารฉบับนี้ | [optional] 
+**document_type** | **int** | เลขประเภทเอกสารฉบับนี้ | [optional] 
+**allow_delete** | **bool** | สามารถลบเอกสาร :&lt;br&gt; true &#x3D; ลบได้ &lt;br&gt; false &#x3D; ลบไม่ได้ | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
+

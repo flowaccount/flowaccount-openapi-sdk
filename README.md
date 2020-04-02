@@ -1,2 +1,3 @@
 # flowaccount-openapi-sdk
-FlowAccount OpenAPI SDK
+FlowAccount OpenAPI SDK.
+
