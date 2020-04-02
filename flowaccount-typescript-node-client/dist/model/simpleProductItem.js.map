@@ -1,0 +1,1 @@
+{"version":3,"file":"simpleProductItem.js","sourceRoot":"","sources":["../../model/simpleProductItem.ts"],"names":[],"mappings":";;AAYA,+CAA4C;AAE5C,uBAA+B,SAAQ,yBAAW;IAO9C,MAAM,CAAC,mBAAmB;QACtB,OAAO,KAAK,CAAC,mBAAmB,EAAE,CAAC,MAAM,CAAC,iBAAiB,CAAC,gBAAgB,CAAC,CAAC;IAClF,CAAC;;AAPM,+BAAa,GAAuB,SAAS,CAAC;AAE9C,kCAAgB,GAA0D,EAChF,CAAC;AALN,8CAUC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"sendEmailCoppiesAllOf.js","sourceRoot":"","sources":["../../model/sendEmailCoppiesAllOf.ts"],"names":[],"mappings":";;AAaA;IAeI,MAAM,CAAC,mBAAmB;QACtB,OAAO,qBAAqB,CAAC,gBAAgB,CAAC;IAClD,CAAC;;AAXM,mCAAa,GAAuB,SAAS,CAAC;AAE9C,sCAAgB,GAA0D;IAC7E;QACI,MAAM,EAAE,QAAQ;QAChB,UAAU,EAAE,QAAQ;QACpB,MAAM,EAAE,SAAS;KACpB;CAAK,CAAC;AAbf,sDAkBC"}

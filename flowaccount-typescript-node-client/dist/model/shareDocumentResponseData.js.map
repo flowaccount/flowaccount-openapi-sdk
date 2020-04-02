@@ -1,0 +1,1 @@
+{"version":3,"file":"shareDocumentResponseData.js","sourceRoot":"","sources":["../../model/shareDocumentResponseData.ts"],"names":[],"mappings":";;AAgBA;IAeI,MAAM,CAAC,mBAAmB;QACtB,OAAO,yBAAyB,CAAC,gBAAgB,CAAC;IACtD,CAAC;;AAXM,uCAAa,GAAuB,SAAS,CAAC;AAE9C,0CAAgB,GAA0D;IAC7E;QACI,MAAM,EAAE,MAAM;QACd,UAAU,EAAE,MAAM;QAClB,MAAM,EAAE,QAAQ;KACnB;CAAK,CAAC;AAbf,8DAkBC"}

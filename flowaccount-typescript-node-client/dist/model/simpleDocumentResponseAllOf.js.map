@@ -1,0 +1,1 @@
+{"version":3,"file":"simpleDocumentResponseAllOf.js","sourceRoot":"","sources":["../../model/simpleDocumentResponseAllOf.ts"],"names":[],"mappings":";;AAcA;IAYI,MAAM,CAAC,mBAAmB;QACtB,OAAO,2BAA2B,CAAC,gBAAgB,CAAC;IACxD,CAAC;;AAXM,yCAAa,GAAuB,SAAS,CAAC;AAE9C,4CAAgB,GAA0D;IAC7E;QACI,MAAM,EAAE,MAAM;QACd,UAAU,EAAE,MAAM;QAClB,MAAM,EAAE,iCAAiC;KAC5C;CAAK,CAAC;AAVf,kEAeC"}
