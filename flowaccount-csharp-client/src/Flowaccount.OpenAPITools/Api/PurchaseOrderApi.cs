@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -102,7 +102,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of AttachmentResponse</returns>
         ApiResponse<AttachmentResponse> PurchasesOrdersIdAttachmentPostWithHttpInfo (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get purchase order document.
+        /// Delete purchase order document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
@@ -114,7 +114,7 @@ namespace Flowaccount.OpenAPITools.Api
         DeleteResponse PurchasesOrdersIdDelete (string authorization, string id);
 
         /// <summary>
-        /// Get purchase order document.
+        /// Delete purchase order document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
@@ -147,6 +147,31 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> PurchasesOrdersIdGetWithHttpInfo (string authorization, string id);
+        /// <summary>
+        /// Edit purchase order document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>InlineDocumentResponse</returns>
+        InlineDocumentResponse PurchasesOrdersIdPut (string authorization, string id, InlineDocument inlineDocument);
+
+        /// <summary>
+        /// Edit purchase order document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>ApiResponse of InlineDocumentResponse</returns>
+        ApiResponse<InlineDocumentResponse> PurchasesOrdersIdPutWithHttpInfo (string authorization, string id, InlineDocument inlineDocument);
         /// <summary>
         /// Change status of purchase order document.
         /// </summary>
@@ -321,7 +346,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (AttachmentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AttachmentResponse>> PurchasesOrdersIdAttachmentPostAsyncWithHttpInfo (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get purchase order document.
+        /// Delete purchase order document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
@@ -333,7 +358,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<DeleteResponse> PurchasesOrdersIdDeleteAsync (string authorization, string id);
 
         /// <summary>
-        /// Get purchase order document.
+        /// Delete purchase order document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
@@ -366,6 +391,31 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersIdGetAsyncWithHttpInfo (string authorization, string id);
+        /// <summary>
+        /// Edit purchase order document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of InlineDocumentResponse</returns>
+        System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersIdPutAsync (string authorization, string id, InlineDocument inlineDocument);
+
+        /// <summary>
+        /// Edit purchase order document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersIdPutAsyncWithHttpInfo (string authorization, string id, InlineDocument inlineDocument);
         /// <summary>
         /// Change status of purchase order document.
         /// </summary>
@@ -1055,7 +1105,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
+        /// Delete purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1068,7 +1118,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
+        /// Delete purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1127,7 +1177,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
+        /// Delete purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1141,7 +1191,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
+        /// Delete purchase order document. ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1336,6 +1386,179 @@ namespace Flowaccount.OpenAPITools.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PurchasesOrdersIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Edit purchase order document. แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>InlineDocumentResponse</returns>
+        public InlineDocumentResponse PurchasesOrdersIdPut (string authorization, string id, InlineDocument inlineDocument)
+        {
+             ApiResponse<InlineDocumentResponse> localVarResponse = PurchasesOrdersIdPutWithHttpInfo(authorization, id, inlineDocument);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit purchase order document. แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>ApiResponse of InlineDocumentResponse</returns>
+        public ApiResponse<InlineDocumentResponse> PurchasesOrdersIdPutWithHttpInfo (string authorization, string id, InlineDocument inlineDocument)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling PurchaseOrderApi->PurchasesOrdersIdPut");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling PurchaseOrderApi->PurchasesOrdersIdPut");
+            // verify the required parameter 'inlineDocument' is set
+            if (inlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'inlineDocument' when calling PurchaseOrderApi->PurchasesOrdersIdPut");
+
+            var localVarPath = "/purchases-orders/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (inlineDocument != null && inlineDocument.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineDocument); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineDocument; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PurchasesOrdersIdPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Edit purchase order document. แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of InlineDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersIdPutAsync (string authorization, string id, InlineDocument inlineDocument)
+        {
+             ApiResponse<InlineDocumentResponse> localVarResponse = await PurchasesOrdersIdPutAsyncWithHttpInfo(authorization, id, inlineDocument);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Edit purchase order document. แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersIdPutAsyncWithHttpInfo (string authorization, string id, InlineDocument inlineDocument)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling PurchaseOrderApi->PurchasesOrdersIdPut");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling PurchaseOrderApi->PurchasesOrdersIdPut");
+            // verify the required parameter 'inlineDocument' is set
+            if (inlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'inlineDocument' when calling PurchaseOrderApi->PurchasesOrdersIdPut");
+
+            var localVarPath = "/purchases-orders/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (inlineDocument != null && inlineDocument.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineDocument); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineDocument; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PurchasesOrdersIdPut", localVarResponse);
                 if (exception != null) throw exception;
             }
 

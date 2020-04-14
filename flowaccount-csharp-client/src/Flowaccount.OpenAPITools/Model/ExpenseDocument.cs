@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Flowaccount.OpenAPITools.Client.OpenAPIDateConverter;
 
@@ -28,6 +29,9 @@ namespace Flowaccount.OpenAPITools.Model
     /// ExpenseDocument
     /// </summary>
     [DataContract]
+    [JsonConverter(typeof(JsonSubtypes), "ExpenseStructureType")]
+    [JsonSubtypes.KnownSubType(typeof(ExpenseSimpleDocument), "ExpenseSimpleDocument")]
+    [JsonSubtypes.KnownSubType(typeof(ExpenseInlineDocument), "ExpenseInlineDocument")]
     public partial class ExpenseDocument :  IEquatable<ExpenseDocument>, IValidatableObject
     {
         /// <summary>
@@ -57,7 +61,6 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="projectName">ชื่อโปรเจค.</param>
         /// <param name="reference">เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง &lt;br&gt; &lt;ex&gt;Example: INV2020010001&lt;/ex&gt;.</param>
         /// <param name="isVatInclusive">มูลค่าเอกสารรวมภาษีแล้วหรือไม่ (default to false).</param>
-        /// <param name="items">items.</param>
         /// <param name="subTotal">มูลค่ารวมเป็นเงิน (required) (default to 0M).</param>
         /// <param name="discountPercentage">มูลค่าส่วนลดเป็นเปอร์เซ็นต์ (default to 0).</param>
         /// <param name="discountAmount">มูลค่าส่วนลดเป็นจำนวน (บาท) (default to 0M).</param>
@@ -68,7 +71,8 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="remarks">หมายเหตุเอกสาร.</param>
         /// <param name="internalNotes">โน๊ตภายในบริษัท.</param>
         /// <param name="showSignatureOrStamp">ลายเซ็นอิเล็กทรอนิกส์และตรายาง (default to true).</param>
-        public ExpenseDocument(string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, List<ExpenseSimpleProductItem> items = default(List<ExpenseSimpleProductItem>), decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true)
+        /// <param name="expenseStructureType">expenseStructureType.</param>
+        public ExpenseDocument(string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, string expenseStructureType = default(string))
         {
             // to ensure "contactName" is required (not null)
             if (contactName == null)
@@ -120,6 +124,7 @@ namespace Flowaccount.OpenAPITools.Model
                 this.GrandTotal = grandTotal;
             }
             
+            this.ExpenseStructureType = expenseStructureType;
             this.DocumentSerial = documentSerial;
             this.ContactCode = contactCode;
             this.ContactAddress = contactAddress;
@@ -177,7 +182,6 @@ namespace Flowaccount.OpenAPITools.Model
             {
                 this.IsVatInclusive = isVatInclusive;
             }
-            this.Items = items;
             // use default value if no "discountPercentage" provided
             if (discountPercentage == null)
             {
@@ -217,6 +221,7 @@ namespace Flowaccount.OpenAPITools.Model
             {
                 this.ShowSignatureOrStamp = showSignatureOrStamp;
             }
+            this.ExpenseStructureType = expenseStructureType;
         }
         
         /// <summary>
@@ -355,12 +360,6 @@ namespace Flowaccount.OpenAPITools.Model
         public bool IsVatInclusive { get; set; }
 
         /// <summary>
-        /// Gets or Sets Items
-        /// </summary>
-        [DataMember(Name="items", EmitDefaultValue=true)]
-        public List<ExpenseSimpleProductItem> Items { get; set; }
-
-        /// <summary>
         /// มูลค่ารวมเป็นเงิน
         /// </summary>
         /// <value>มูลค่ารวมเป็นเงิน</value>
@@ -431,6 +430,12 @@ namespace Flowaccount.OpenAPITools.Model
         public bool ShowSignatureOrStamp { get; set; }
 
         /// <summary>
+        /// Gets or Sets ExpenseStructureType
+        /// </summary>
+        [DataMember(Name="expenseStructureType", EmitDefaultValue=true)]
+        public string ExpenseStructureType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -457,7 +462,6 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  ProjectName: ").Append(ProjectName).Append("\n");
             sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("  IsVatInclusive: ").Append(IsVatInclusive).Append("\n");
-            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  SubTotal: ").Append(SubTotal).Append("\n");
             sb.Append("  DiscountPercentage: ").Append(DiscountPercentage).Append("\n");
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
@@ -468,6 +472,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  Remarks: ").Append(Remarks).Append("\n");
             sb.Append("  InternalNotes: ").Append(InternalNotes).Append("\n");
             sb.Append("  ShowSignatureOrStamp: ").Append(ShowSignatureOrStamp).Append("\n");
+            sb.Append("  ExpenseStructureType: ").Append(ExpenseStructureType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -598,12 +603,6 @@ namespace Flowaccount.OpenAPITools.Model
                     this.IsVatInclusive.Equals(input.IsVatInclusive))
                 ) && 
                 (
-                    this.Items == input.Items ||
-                    this.Items != null &&
-                    input.Items != null &&
-                    this.Items.SequenceEqual(input.Items)
-                ) && 
-                (
                     this.SubTotal == input.SubTotal ||
                     (this.SubTotal != null &&
                     this.SubTotal.Equals(input.SubTotal))
@@ -652,6 +651,11 @@ namespace Flowaccount.OpenAPITools.Model
                     this.ShowSignatureOrStamp == input.ShowSignatureOrStamp ||
                     (this.ShowSignatureOrStamp != null &&
                     this.ShowSignatureOrStamp.Equals(input.ShowSignatureOrStamp))
+                ) && 
+                (
+                    this.ExpenseStructureType == input.ExpenseStructureType ||
+                    (this.ExpenseStructureType != null &&
+                    this.ExpenseStructureType.Equals(input.ExpenseStructureType))
                 );
         }
 
@@ -702,8 +706,6 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Reference.GetHashCode();
                 if (this.IsVatInclusive != null)
                     hashCode = hashCode * 59 + this.IsVatInclusive.GetHashCode();
-                if (this.Items != null)
-                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.SubTotal != null)
                     hashCode = hashCode * 59 + this.SubTotal.GetHashCode();
                 if (this.DiscountPercentage != null)
@@ -724,6 +726,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.InternalNotes.GetHashCode();
                 if (this.ShowSignatureOrStamp != null)
                     hashCode = hashCode * 59 + this.ShowSignatureOrStamp.GetHashCode();
+                if (this.ExpenseStructureType != null)
+                    hashCode = hashCode * 59 + this.ExpenseStructureType.GetHashCode();
                 return hashCode;
             }
         }
@@ -734,6 +738,16 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             yield break;
         }

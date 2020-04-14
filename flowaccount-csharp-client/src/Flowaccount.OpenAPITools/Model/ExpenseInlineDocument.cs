@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -28,7 +28,7 @@ namespace Flowaccount.OpenAPITools.Model
     /// ExpenseInlineDocument
     /// </summary>
     [DataContract]
-    public partial class ExpenseInlineDocument :  IEquatable<ExpenseInlineDocument>, IValidatableObject
+    public partial class ExpenseInlineDocument : ExpenseDocument,  IEquatable<ExpenseInlineDocument>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpenseInlineDocument" /> class.
@@ -38,151 +38,17 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpenseInlineDocument" /> class.
         /// </summary>
-        /// <param name="documentSerial">เลขที่เอกสาร.</param>
-        /// <param name="contactCode">รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า.</param>
-        /// <param name="contactName">ชื่อ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า (required).</param>
-        /// <param name="contactAddress">ที่อยู่ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า.</param>
-        /// <param name="contactTaxId">เลขประจำตัวผู้เสียภาษี ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า &lt;br&gt; (ถ้ามีจำเป็นต้องครบ 13 หลัก) &lt;br&gt; &lt;ex&gt;Example: 1234567890123 &lt;/ex&gt;.</param>
-        /// <param name="contactBranch">สำนักงาน/สาขา.</param>
-        /// <param name="contactPerson">ชื่อผู้ติดต่อ.</param>
-        /// <param name="contactEmail">อีเมลผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: email@email.com&lt;/ex&gt;.</param>
-        /// <param name="contactNumber">เบอร์มือถือผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: 099-999-9999&lt;/ex&gt;.</param>
-        /// <param name="contactZipCode">รหัสไปรษณีย์ติดต่อ.</param>
-        /// <param name="contactGroup">ประผู้ติดต่อ &lt;br&gt; 1 &#x3D; บุคคลธรรมดา &lt;br&gt; 3 &#x3D; นิติบุคคล (default to 1).</param>
-        /// <param name="publishedOn">วันที่เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; (required).</param>
-        /// <param name="creditType">รูปแบบเครดิต &lt;br&gt; 1 &#x3D; เครดิต (วัน) &lt;br&gt; 3 &#x3D; เงินสด  &lt;br&gt; 5 &#x3D; เครดิต (ไม่แสดงวันที่ครบกำหนด) (default to 1).</param>
-        /// <param name="creditDays">จำนวนวันที่ให้เครดิต (default to 0).</param>
-        /// <param name="dueDate">วันครบกำหนดเอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;.</param>
-        /// <param name="salesName">ชื่อผู้สร้างเอกสาร หรือ ชื่อพนักงานขาย &lt;br&gt; &lt;ex&gt;Example: sale@email.com or Mr.Sale Shop&lt;/ex&gt; (default to &quot;อีเมล หรือ ชื่อผู้สร้างเอกสาร&quot;).</param>
-        /// <param name="projectName">ชื่อโปรเจค.</param>
-        /// <param name="reference">เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง.</param>
-        /// <param name="isVatInclusive">มูลค่าเอกสารรวมภาษีแล้วหรือไม่ (default to false).</param>
+        /// <param name="items">รายการสินค้าใช้งานสำหรับเอกสาร Inline Expense.</param>
         /// <param name="discountType">รูปแบบส่วนลดในเอกสาร กรณีใช้รูปแบบ Inline ส่วนลด หรือ ภาษี แยกตามรายการสินค้า &lt;br&gt; สามารถเลือกรูปแบบส่วนลดได้ &lt;br&gt; 1 &#x3D;  เปอร์เซ็นต์ &lt;br&gt; 3 &#x3D; จำนวน (บาท) (default to 1).</param>
         /// <param name="useInlineDiscount">inline discount ใช้งานส่วนลด แยกตามรายการสินค้า (default to true).</param>
         /// <param name="useInlineVat">inline vat ใช้งานส่วนลดและภาษี แยกตามรายการสินค้า.</param>
-        /// <param name="items">items.</param>
-        /// <param name="subTotal">มูลค่ารวมเป็นเงิน (required) (default to 0M).</param>
-        /// <param name="discountAmount">มูลค่าส่วนลดเป็นจำนวน (บาท) (default to 0M).</param>
-        /// <param name="totalAfterDiscount">มูลค่าหลังหักส่วนลด (required).</param>
         /// <param name="exemptAmount">ยอดขายที่ยกเว้นภาษีมูลค่าเพิ่ม (default to 0M).</param>
         /// <param name="vatableAmount">ยอดขายที่คิดภาษีมูลค่าเพิ่ม (default to 0M).</param>
-        /// <param name="isVat">มูลค่าหลังหักส่วนลด มีีภาษีมูลค่าเพิ่ม 7% (default to false).</param>
-        /// <param name="vatAmount">ภาษีมูลค่าเพิ่ม.</param>
-        /// <param name="grandTotal">จำนวนเงินรวมทั้งสิ้น (รวมภาษีมูลค่าเพิ่ม 7% แล้ว) (required).</param>
-        /// <param name="remarks">หมายเหตุเอกสาร.</param>
-        /// <param name="internalNotes">โน๊ตภายในบริษัท.</param>
-        /// <param name="showSignatureOrStamp">ลายเซ็นอิเล็กทรอนิกส์และตรายาง (default to true).</param>
-        public ExpenseInlineDocument(string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, int discountType = 1, bool useInlineDiscount = true, bool useInlineVat = default(bool), List<ExpenseInlineProductItem> items = default(List<ExpenseInlineProductItem>), decimal subTotal = 0M, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), decimal? exemptAmount = 0M, decimal? vatableAmount = 0M, bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true)
+        public ExpenseInlineDocument(List<ExpenseInlineProductItem> items = default(List<ExpenseInlineProductItem>), int discountType = 1, bool useInlineDiscount = true, bool useInlineVat = default(bool), decimal? exemptAmount = 0M, decimal? vatableAmount = 0M, string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, string expenseStructureType = default(string)) : base(documentSerial, contactCode, contactName, contactAddress, contactTaxId, contactBranch, contactPerson, contactEmail, contactNumber, contactZipCode, contactGroup, publishedOn, creditType, creditDays, dueDate, salesName, projectName, reference, isVatInclusive, subTotal, discountPercentage, discountAmount, totalAfterDiscount, isVat, vatAmount, grandTotal, remarks, internalNotes, showSignatureOrStamp, expenseStructureType)
         {
-            // to ensure "contactName" is required (not null)
-            if (contactName == null)
-            {
-                throw new InvalidDataException("contactName is a required property for ExpenseInlineDocument and cannot be null");
-            }
-            else
-            {
-                this.ContactName = contactName;
-            }
-            
-            // to ensure "publishedOn" is required (not null)
-            if (publishedOn == null)
-            {
-                throw new InvalidDataException("publishedOn is a required property for ExpenseInlineDocument and cannot be null");
-            }
-            else
-            {
-                this.PublishedOn = publishedOn;
-            }
-            
-            // to ensure "subTotal" is required (not null)
-            if (subTotal == null)
-            {
-                throw new InvalidDataException("subTotal is a required property for ExpenseInlineDocument and cannot be null");
-            }
-            else
-            {
-                this.SubTotal = subTotal;
-            }
-            
-            // to ensure "totalAfterDiscount" is required (not null)
-            if (totalAfterDiscount == null)
-            {
-                throw new InvalidDataException("totalAfterDiscount is a required property for ExpenseInlineDocument and cannot be null");
-            }
-            else
-            {
-                this.TotalAfterDiscount = totalAfterDiscount;
-            }
-            
             this.ExemptAmount = exemptAmount;
             this.VatableAmount = vatableAmount;
-            // to ensure "grandTotal" is required (not null)
-            if (grandTotal == null)
-            {
-                throw new InvalidDataException("grandTotal is a required property for ExpenseInlineDocument and cannot be null");
-            }
-            else
-            {
-                this.GrandTotal = grandTotal;
-            }
-            
-            this.DocumentSerial = documentSerial;
-            this.ContactCode = contactCode;
-            this.ContactAddress = contactAddress;
-            this.ContactTaxId = contactTaxId;
-            this.ContactBranch = contactBranch;
-            this.ContactPerson = contactPerson;
-            this.ContactEmail = contactEmail;
-            this.ContactNumber = contactNumber;
-            this.ContactZipCode = contactZipCode;
-            // use default value if no "contactGroup" provided
-            if (contactGroup == null)
-            {
-                this.ContactGroup = 1;
-            }
-            else
-            {
-                this.ContactGroup = contactGroup;
-            }
-            // use default value if no "creditType" provided
-            if (creditType == null)
-            {
-                this.CreditType = 1;
-            }
-            else
-            {
-                this.CreditType = creditType;
-            }
-            // use default value if no "creditDays" provided
-            if (creditDays == null)
-            {
-                this.CreditDays = 0;
-            }
-            else
-            {
-                this.CreditDays = creditDays;
-            }
-            this.DueDate = dueDate;
-            // use default value if no "salesName" provided
-            if (salesName == null)
-            {
-                this.SalesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร";
-            }
-            else
-            {
-                this.SalesName = salesName;
-            }
-            this.ProjectName = projectName;
-            this.Reference = reference;
-            // use default value if no "isVatInclusive" provided
-            if (isVatInclusive == null)
-            {
-                this.IsVatInclusive = false;
-            }
-            else
-            {
-                this.IsVatInclusive = isVatInclusive;
-            }
+            this.Items = items;
             // use default value if no "discountType" provided
             if (discountType == null)
             {
@@ -202,16 +68,6 @@ namespace Flowaccount.OpenAPITools.Model
                 this.UseInlineDiscount = useInlineDiscount;
             }
             this.UseInlineVat = useInlineVat;
-            this.Items = items;
-            // use default value if no "discountAmount" provided
-            if (discountAmount == null)
-            {
-                this.DiscountAmount = 0M;
-            }
-            else
-            {
-                this.DiscountAmount = discountAmount;
-            }
             // use default value if no "exemptAmount" provided
             if (exemptAmount == null)
             {
@@ -230,163 +86,14 @@ namespace Flowaccount.OpenAPITools.Model
             {
                 this.VatableAmount = vatableAmount;
             }
-            // use default value if no "isVat" provided
-            if (isVat == null)
-            {
-                this.IsVat = false;
-            }
-            else
-            {
-                this.IsVat = isVat;
-            }
-            this.VatAmount = vatAmount;
-            this.Remarks = remarks;
-            this.InternalNotes = internalNotes;
-            // use default value if no "showSignatureOrStamp" provided
-            if (showSignatureOrStamp == null)
-            {
-                this.ShowSignatureOrStamp = true;
-            }
-            else
-            {
-                this.ShowSignatureOrStamp = showSignatureOrStamp;
-            }
         }
         
         /// <summary>
-        /// เลขที่เอกสาร
+        /// รายการสินค้าใช้งานสำหรับเอกสาร Inline Expense
         /// </summary>
-        /// <value>เลขที่เอกสาร</value>
-        [DataMember(Name="documentSerial", EmitDefaultValue=true)]
-        public string DocumentSerial { get; set; }
-
-        /// <summary>
-        /// รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า
-        /// </summary>
-        /// <value>รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า</value>
-        [DataMember(Name="contactCode", EmitDefaultValue=true)]
-        public string ContactCode { get; set; }
-
-        /// <summary>
-        /// ชื่อ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า
-        /// </summary>
-        /// <value>ชื่อ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า</value>
-        [DataMember(Name="contactName", EmitDefaultValue=true)]
-        public string ContactName { get; set; }
-
-        /// <summary>
-        /// ที่อยู่ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า
-        /// </summary>
-        /// <value>ที่อยู่ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า</value>
-        [DataMember(Name="contactAddress", EmitDefaultValue=true)]
-        public string ContactAddress { get; set; }
-
-        /// <summary>
-        /// เลขประจำตัวผู้เสียภาษี ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า &lt;br&gt; (ถ้ามีจำเป็นต้องครบ 13 หลัก) &lt;br&gt; &lt;ex&gt;Example: 1234567890123 &lt;/ex&gt;
-        /// </summary>
-        /// <value>เลขประจำตัวผู้เสียภาษี ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า &lt;br&gt; (ถ้ามีจำเป็นต้องครบ 13 หลัก) &lt;br&gt; &lt;ex&gt;Example: 1234567890123 &lt;/ex&gt;</value>
-        [DataMember(Name="contactTaxId", EmitDefaultValue=true)]
-        public string ContactTaxId { get; set; }
-
-        /// <summary>
-        /// สำนักงาน/สาขา
-        /// </summary>
-        /// <value>สำนักงาน/สาขา</value>
-        [DataMember(Name="contactBranch", EmitDefaultValue=true)]
-        public string ContactBranch { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้ติดต่อ
-        /// </summary>
-        /// <value>ชื่อผู้ติดต่อ</value>
-        [DataMember(Name="contactPerson", EmitDefaultValue=true)]
-        public string ContactPerson { get; set; }
-
-        /// <summary>
-        /// อีเมลผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: email@email.com&lt;/ex&gt;
-        /// </summary>
-        /// <value>อีเมลผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: email@email.com&lt;/ex&gt;</value>
-        [DataMember(Name="contactEmail", EmitDefaultValue=true)]
-        public string ContactEmail { get; set; }
-
-        /// <summary>
-        /// เบอร์มือถือผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: 099-999-9999&lt;/ex&gt;
-        /// </summary>
-        /// <value>เบอร์มือถือผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: 099-999-9999&lt;/ex&gt;</value>
-        [DataMember(Name="contactNumber", EmitDefaultValue=true)]
-        public string ContactNumber { get; set; }
-
-        /// <summary>
-        /// รหัสไปรษณีย์ติดต่อ
-        /// </summary>
-        /// <value>รหัสไปรษณีย์ติดต่อ</value>
-        [DataMember(Name="contactZipCode", EmitDefaultValue=true)]
-        public string ContactZipCode { get; set; }
-
-        /// <summary>
-        /// ประผู้ติดต่อ &lt;br&gt; 1 &#x3D; บุคคลธรรมดา &lt;br&gt; 3 &#x3D; นิติบุคคล
-        /// </summary>
-        /// <value>ประผู้ติดต่อ &lt;br&gt; 1 &#x3D; บุคคลธรรมดา &lt;br&gt; 3 &#x3D; นิติบุคคล</value>
-        [DataMember(Name="contactGroup", EmitDefaultValue=true)]
-        public int ContactGroup { get; set; }
-
-        /// <summary>
-        /// วันที่เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;
-        /// </summary>
-        /// <value>วันที่เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;</value>
-        [DataMember(Name="publishedOn", EmitDefaultValue=true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime PublishedOn { get; set; }
-
-        /// <summary>
-        /// รูปแบบเครดิต &lt;br&gt; 1 &#x3D; เครดิต (วัน) &lt;br&gt; 3 &#x3D; เงินสด  &lt;br&gt; 5 &#x3D; เครดิต (ไม่แสดงวันที่ครบกำหนด)
-        /// </summary>
-        /// <value>รูปแบบเครดิต &lt;br&gt; 1 &#x3D; เครดิต (วัน) &lt;br&gt; 3 &#x3D; เงินสด  &lt;br&gt; 5 &#x3D; เครดิต (ไม่แสดงวันที่ครบกำหนด)</value>
-        [DataMember(Name="creditType", EmitDefaultValue=true)]
-        public int CreditType { get; set; }
-
-        /// <summary>
-        /// จำนวนวันที่ให้เครดิต
-        /// </summary>
-        /// <value>จำนวนวันที่ให้เครดิต</value>
-        [DataMember(Name="creditDays", EmitDefaultValue=true)]
-        public int CreditDays { get; set; }
-
-        /// <summary>
-        /// วันครบกำหนดเอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;
-        /// </summary>
-        /// <value>วันครบกำหนดเอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;</value>
-        [DataMember(Name="dueDate", EmitDefaultValue=true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime DueDate { get; set; }
-
-        /// <summary>
-        /// ชื่อผู้สร้างเอกสาร หรือ ชื่อพนักงานขาย &lt;br&gt; &lt;ex&gt;Example: sale@email.com or Mr.Sale Shop&lt;/ex&gt;
-        /// </summary>
-        /// <value>ชื่อผู้สร้างเอกสาร หรือ ชื่อพนักงานขาย &lt;br&gt; &lt;ex&gt;Example: sale@email.com or Mr.Sale Shop&lt;/ex&gt;</value>
-        [DataMember(Name="salesName", EmitDefaultValue=true)]
-        public string SalesName { get; set; }
-
-        /// <summary>
-        /// ชื่อโปรเจค
-        /// </summary>
-        /// <value>ชื่อโปรเจค</value>
-        [DataMember(Name="projectName", EmitDefaultValue=true)]
-        public string ProjectName { get; set; }
-
-        /// <summary>
-        /// เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง
-        /// </summary>
-        /// <value>เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง</value>
-        [DataMember(Name="reference", EmitDefaultValue=true)]
-        public string Reference { get; set; }
-
-        /// <summary>
-        /// มูลค่าเอกสารรวมภาษีแล้วหรือไม่
-        /// </summary>
-        /// <value>มูลค่าเอกสารรวมภาษีแล้วหรือไม่</value>
-        [DataMember(Name="isVatInclusive", EmitDefaultValue=true)]
-        public bool IsVatInclusive { get; set; }
+        /// <value>รายการสินค้าใช้งานสำหรับเอกสาร Inline Expense</value>
+        [DataMember(Name="items", EmitDefaultValue=true)]
+        public List<ExpenseInlineProductItem> Items { get; set; }
 
         /// <summary>
         /// รูปแบบส่วนลดในเอกสาร กรณีใช้รูปแบบ Inline ส่วนลด หรือ ภาษี แยกตามรายการสินค้า &lt;br&gt; สามารถเลือกรูปแบบส่วนลดได้ &lt;br&gt; 1 &#x3D;  เปอร์เซ็นต์ &lt;br&gt; 3 &#x3D; จำนวน (บาท)
@@ -410,33 +117,6 @@ namespace Flowaccount.OpenAPITools.Model
         public bool UseInlineVat { get; set; }
 
         /// <summary>
-        /// Gets or Sets Items
-        /// </summary>
-        [DataMember(Name="items", EmitDefaultValue=true)]
-        public List<ExpenseInlineProductItem> Items { get; set; }
-
-        /// <summary>
-        /// มูลค่ารวมเป็นเงิน
-        /// </summary>
-        /// <value>มูลค่ารวมเป็นเงิน</value>
-        [DataMember(Name="subTotal", EmitDefaultValue=true)]
-        public decimal SubTotal { get; set; }
-
-        /// <summary>
-        /// มูลค่าส่วนลดเป็นจำนวน (บาท)
-        /// </summary>
-        /// <value>มูลค่าส่วนลดเป็นจำนวน (บาท)</value>
-        [DataMember(Name="discountAmount", EmitDefaultValue=true)]
-        public decimal DiscountAmount { get; set; }
-
-        /// <summary>
-        /// มูลค่าหลังหักส่วนลด
-        /// </summary>
-        /// <value>มูลค่าหลังหักส่วนลด</value>
-        [DataMember(Name="totalAfterDiscount", EmitDefaultValue=true)]
-        public decimal TotalAfterDiscount { get; set; }
-
-        /// <summary>
         /// ยอดขายที่ยกเว้นภาษีมูลค่าเพิ่ม
         /// </summary>
         /// <value>ยอดขายที่ยกเว้นภาษีมูลค่าเพิ่ม</value>
@@ -451,48 +131,6 @@ namespace Flowaccount.OpenAPITools.Model
         public decimal? VatableAmount { get; set; }
 
         /// <summary>
-        /// มูลค่าหลังหักส่วนลด มีีภาษีมูลค่าเพิ่ม 7%
-        /// </summary>
-        /// <value>มูลค่าหลังหักส่วนลด มีีภาษีมูลค่าเพิ่ม 7%</value>
-        [DataMember(Name="isVat", EmitDefaultValue=true)]
-        public bool IsVat { get; set; }
-
-        /// <summary>
-        /// ภาษีมูลค่าเพิ่ม
-        /// </summary>
-        /// <value>ภาษีมูลค่าเพิ่ม</value>
-        [DataMember(Name="vatAmount", EmitDefaultValue=true)]
-        public decimal VatAmount { get; set; }
-
-        /// <summary>
-        /// จำนวนเงินรวมทั้งสิ้น (รวมภาษีมูลค่าเพิ่ม 7% แล้ว)
-        /// </summary>
-        /// <value>จำนวนเงินรวมทั้งสิ้น (รวมภาษีมูลค่าเพิ่ม 7% แล้ว)</value>
-        [DataMember(Name="grandTotal", EmitDefaultValue=true)]
-        public decimal GrandTotal { get; set; }
-
-        /// <summary>
-        /// หมายเหตุเอกสาร
-        /// </summary>
-        /// <value>หมายเหตุเอกสาร</value>
-        [DataMember(Name="remarks", EmitDefaultValue=true)]
-        public string Remarks { get; set; }
-
-        /// <summary>
-        /// โน๊ตภายในบริษัท
-        /// </summary>
-        /// <value>โน๊ตภายในบริษัท</value>
-        [DataMember(Name="internalNotes", EmitDefaultValue=true)]
-        public string InternalNotes { get; set; }
-
-        /// <summary>
-        /// ลายเซ็นอิเล็กทรอนิกส์และตรายาง
-        /// </summary>
-        /// <value>ลายเซ็นอิเล็กทรอนิกส์และตรายาง</value>
-        [DataMember(Name="showSignatureOrStamp", EmitDefaultValue=true)]
-        public bool ShowSignatureOrStamp { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -500,40 +138,13 @@ namespace Flowaccount.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ExpenseInlineDocument {\n");
-            sb.Append("  DocumentSerial: ").Append(DocumentSerial).Append("\n");
-            sb.Append("  ContactCode: ").Append(ContactCode).Append("\n");
-            sb.Append("  ContactName: ").Append(ContactName).Append("\n");
-            sb.Append("  ContactAddress: ").Append(ContactAddress).Append("\n");
-            sb.Append("  ContactTaxId: ").Append(ContactTaxId).Append("\n");
-            sb.Append("  ContactBranch: ").Append(ContactBranch).Append("\n");
-            sb.Append("  ContactPerson: ").Append(ContactPerson).Append("\n");
-            sb.Append("  ContactEmail: ").Append(ContactEmail).Append("\n");
-            sb.Append("  ContactNumber: ").Append(ContactNumber).Append("\n");
-            sb.Append("  ContactZipCode: ").Append(ContactZipCode).Append("\n");
-            sb.Append("  ContactGroup: ").Append(ContactGroup).Append("\n");
-            sb.Append("  PublishedOn: ").Append(PublishedOn).Append("\n");
-            sb.Append("  CreditType: ").Append(CreditType).Append("\n");
-            sb.Append("  CreditDays: ").Append(CreditDays).Append("\n");
-            sb.Append("  DueDate: ").Append(DueDate).Append("\n");
-            sb.Append("  SalesName: ").Append(SalesName).Append("\n");
-            sb.Append("  ProjectName: ").Append(ProjectName).Append("\n");
-            sb.Append("  Reference: ").Append(Reference).Append("\n");
-            sb.Append("  IsVatInclusive: ").Append(IsVatInclusive).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  DiscountType: ").Append(DiscountType).Append("\n");
             sb.Append("  UseInlineDiscount: ").Append(UseInlineDiscount).Append("\n");
             sb.Append("  UseInlineVat: ").Append(UseInlineVat).Append("\n");
-            sb.Append("  Items: ").Append(Items).Append("\n");
-            sb.Append("  SubTotal: ").Append(SubTotal).Append("\n");
-            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
-            sb.Append("  TotalAfterDiscount: ").Append(TotalAfterDiscount).Append("\n");
             sb.Append("  ExemptAmount: ").Append(ExemptAmount).Append("\n");
             sb.Append("  VatableAmount: ").Append(VatableAmount).Append("\n");
-            sb.Append("  IsVat: ").Append(IsVat).Append("\n");
-            sb.Append("  VatAmount: ").Append(VatAmount).Append("\n");
-            sb.Append("  GrandTotal: ").Append(GrandTotal).Append("\n");
-            sb.Append("  Remarks: ").Append(Remarks).Append("\n");
-            sb.Append("  InternalNotes: ").Append(InternalNotes).Append("\n");
-            sb.Append("  ShowSignatureOrStamp: ").Append(ShowSignatureOrStamp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -542,7 +153,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -567,177 +178,37 @@ namespace Flowaccount.OpenAPITools.Model
             if (input == null)
                 return false;
 
-            return 
-                (
-                    this.DocumentSerial == input.DocumentSerial ||
-                    (this.DocumentSerial != null &&
-                    this.DocumentSerial.Equals(input.DocumentSerial))
-                ) && 
-                (
-                    this.ContactCode == input.ContactCode ||
-                    (this.ContactCode != null &&
-                    this.ContactCode.Equals(input.ContactCode))
-                ) && 
-                (
-                    this.ContactName == input.ContactName ||
-                    (this.ContactName != null &&
-                    this.ContactName.Equals(input.ContactName))
-                ) && 
-                (
-                    this.ContactAddress == input.ContactAddress ||
-                    (this.ContactAddress != null &&
-                    this.ContactAddress.Equals(input.ContactAddress))
-                ) && 
-                (
-                    this.ContactTaxId == input.ContactTaxId ||
-                    (this.ContactTaxId != null &&
-                    this.ContactTaxId.Equals(input.ContactTaxId))
-                ) && 
-                (
-                    this.ContactBranch == input.ContactBranch ||
-                    (this.ContactBranch != null &&
-                    this.ContactBranch.Equals(input.ContactBranch))
-                ) && 
-                (
-                    this.ContactPerson == input.ContactPerson ||
-                    (this.ContactPerson != null &&
-                    this.ContactPerson.Equals(input.ContactPerson))
-                ) && 
-                (
-                    this.ContactEmail == input.ContactEmail ||
-                    (this.ContactEmail != null &&
-                    this.ContactEmail.Equals(input.ContactEmail))
-                ) && 
-                (
-                    this.ContactNumber == input.ContactNumber ||
-                    (this.ContactNumber != null &&
-                    this.ContactNumber.Equals(input.ContactNumber))
-                ) && 
-                (
-                    this.ContactZipCode == input.ContactZipCode ||
-                    (this.ContactZipCode != null &&
-                    this.ContactZipCode.Equals(input.ContactZipCode))
-                ) && 
-                (
-                    this.ContactGroup == input.ContactGroup ||
-                    (this.ContactGroup != null &&
-                    this.ContactGroup.Equals(input.ContactGroup))
-                ) && 
-                (
-                    this.PublishedOn == input.PublishedOn ||
-                    (this.PublishedOn != null &&
-                    this.PublishedOn.Equals(input.PublishedOn))
-                ) && 
-                (
-                    this.CreditType == input.CreditType ||
-                    (this.CreditType != null &&
-                    this.CreditType.Equals(input.CreditType))
-                ) && 
-                (
-                    this.CreditDays == input.CreditDays ||
-                    (this.CreditDays != null &&
-                    this.CreditDays.Equals(input.CreditDays))
-                ) && 
-                (
-                    this.DueDate == input.DueDate ||
-                    (this.DueDate != null &&
-                    this.DueDate.Equals(input.DueDate))
-                ) && 
-                (
-                    this.SalesName == input.SalesName ||
-                    (this.SalesName != null &&
-                    this.SalesName.Equals(input.SalesName))
-                ) && 
-                (
-                    this.ProjectName == input.ProjectName ||
-                    (this.ProjectName != null &&
-                    this.ProjectName.Equals(input.ProjectName))
-                ) && 
-                (
-                    this.Reference == input.Reference ||
-                    (this.Reference != null &&
-                    this.Reference.Equals(input.Reference))
-                ) && 
-                (
-                    this.IsVatInclusive == input.IsVatInclusive ||
-                    (this.IsVatInclusive != null &&
-                    this.IsVatInclusive.Equals(input.IsVatInclusive))
-                ) && 
-                (
-                    this.DiscountType == input.DiscountType ||
-                    (this.DiscountType != null &&
-                    this.DiscountType.Equals(input.DiscountType))
-                ) && 
-                (
-                    this.UseInlineDiscount == input.UseInlineDiscount ||
-                    (this.UseInlineDiscount != null &&
-                    this.UseInlineDiscount.Equals(input.UseInlineDiscount))
-                ) && 
-                (
-                    this.UseInlineVat == input.UseInlineVat ||
-                    (this.UseInlineVat != null &&
-                    this.UseInlineVat.Equals(input.UseInlineVat))
-                ) && 
+            return base.Equals(input) && 
                 (
                     this.Items == input.Items ||
                     this.Items != null &&
                     input.Items != null &&
                     this.Items.SequenceEqual(input.Items)
-                ) && 
+                ) && base.Equals(input) && 
                 (
-                    this.SubTotal == input.SubTotal ||
-                    (this.SubTotal != null &&
-                    this.SubTotal.Equals(input.SubTotal))
-                ) && 
+                    this.DiscountType == input.DiscountType ||
+                    (this.DiscountType != null &&
+                    this.DiscountType.Equals(input.DiscountType))
+                ) && base.Equals(input) && 
                 (
-                    this.DiscountAmount == input.DiscountAmount ||
-                    (this.DiscountAmount != null &&
-                    this.DiscountAmount.Equals(input.DiscountAmount))
-                ) && 
+                    this.UseInlineDiscount == input.UseInlineDiscount ||
+                    (this.UseInlineDiscount != null &&
+                    this.UseInlineDiscount.Equals(input.UseInlineDiscount))
+                ) && base.Equals(input) && 
                 (
-                    this.TotalAfterDiscount == input.TotalAfterDiscount ||
-                    (this.TotalAfterDiscount != null &&
-                    this.TotalAfterDiscount.Equals(input.TotalAfterDiscount))
-                ) && 
+                    this.UseInlineVat == input.UseInlineVat ||
+                    (this.UseInlineVat != null &&
+                    this.UseInlineVat.Equals(input.UseInlineVat))
+                ) && base.Equals(input) && 
                 (
                     this.ExemptAmount == input.ExemptAmount ||
                     (this.ExemptAmount != null &&
                     this.ExemptAmount.Equals(input.ExemptAmount))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.VatableAmount == input.VatableAmount ||
                     (this.VatableAmount != null &&
                     this.VatableAmount.Equals(input.VatableAmount))
-                ) && 
-                (
-                    this.IsVat == input.IsVat ||
-                    (this.IsVat != null &&
-                    this.IsVat.Equals(input.IsVat))
-                ) && 
-                (
-                    this.VatAmount == input.VatAmount ||
-                    (this.VatAmount != null &&
-                    this.VatAmount.Equals(input.VatAmount))
-                ) && 
-                (
-                    this.GrandTotal == input.GrandTotal ||
-                    (this.GrandTotal != null &&
-                    this.GrandTotal.Equals(input.GrandTotal))
-                ) && 
-                (
-                    this.Remarks == input.Remarks ||
-                    (this.Remarks != null &&
-                    this.Remarks.Equals(input.Remarks))
-                ) && 
-                (
-                    this.InternalNotes == input.InternalNotes ||
-                    (this.InternalNotes != null &&
-                    this.InternalNotes.Equals(input.InternalNotes))
-                ) && 
-                (
-                    this.ShowSignatureOrStamp == input.ShowSignatureOrStamp ||
-                    (this.ShowSignatureOrStamp != null &&
-                    this.ShowSignatureOrStamp.Equals(input.ShowSignatureOrStamp))
                 );
         }
 
@@ -749,75 +220,19 @@ namespace Flowaccount.OpenAPITools.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
-                if (this.DocumentSerial != null)
-                    hashCode = hashCode * 59 + this.DocumentSerial.GetHashCode();
-                if (this.ContactCode != null)
-                    hashCode = hashCode * 59 + this.ContactCode.GetHashCode();
-                if (this.ContactName != null)
-                    hashCode = hashCode * 59 + this.ContactName.GetHashCode();
-                if (this.ContactAddress != null)
-                    hashCode = hashCode * 59 + this.ContactAddress.GetHashCode();
-                if (this.ContactTaxId != null)
-                    hashCode = hashCode * 59 + this.ContactTaxId.GetHashCode();
-                if (this.ContactBranch != null)
-                    hashCode = hashCode * 59 + this.ContactBranch.GetHashCode();
-                if (this.ContactPerson != null)
-                    hashCode = hashCode * 59 + this.ContactPerson.GetHashCode();
-                if (this.ContactEmail != null)
-                    hashCode = hashCode * 59 + this.ContactEmail.GetHashCode();
-                if (this.ContactNumber != null)
-                    hashCode = hashCode * 59 + this.ContactNumber.GetHashCode();
-                if (this.ContactZipCode != null)
-                    hashCode = hashCode * 59 + this.ContactZipCode.GetHashCode();
-                if (this.ContactGroup != null)
-                    hashCode = hashCode * 59 + this.ContactGroup.GetHashCode();
-                if (this.PublishedOn != null)
-                    hashCode = hashCode * 59 + this.PublishedOn.GetHashCode();
-                if (this.CreditType != null)
-                    hashCode = hashCode * 59 + this.CreditType.GetHashCode();
-                if (this.CreditDays != null)
-                    hashCode = hashCode * 59 + this.CreditDays.GetHashCode();
-                if (this.DueDate != null)
-                    hashCode = hashCode * 59 + this.DueDate.GetHashCode();
-                if (this.SalesName != null)
-                    hashCode = hashCode * 59 + this.SalesName.GetHashCode();
-                if (this.ProjectName != null)
-                    hashCode = hashCode * 59 + this.ProjectName.GetHashCode();
-                if (this.Reference != null)
-                    hashCode = hashCode * 59 + this.Reference.GetHashCode();
-                if (this.IsVatInclusive != null)
-                    hashCode = hashCode * 59 + this.IsVatInclusive.GetHashCode();
+                int hashCode = base.GetHashCode();
+                if (this.Items != null)
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.DiscountType != null)
                     hashCode = hashCode * 59 + this.DiscountType.GetHashCode();
                 if (this.UseInlineDiscount != null)
                     hashCode = hashCode * 59 + this.UseInlineDiscount.GetHashCode();
                 if (this.UseInlineVat != null)
                     hashCode = hashCode * 59 + this.UseInlineVat.GetHashCode();
-                if (this.Items != null)
-                    hashCode = hashCode * 59 + this.Items.GetHashCode();
-                if (this.SubTotal != null)
-                    hashCode = hashCode * 59 + this.SubTotal.GetHashCode();
-                if (this.DiscountAmount != null)
-                    hashCode = hashCode * 59 + this.DiscountAmount.GetHashCode();
-                if (this.TotalAfterDiscount != null)
-                    hashCode = hashCode * 59 + this.TotalAfterDiscount.GetHashCode();
                 if (this.ExemptAmount != null)
                     hashCode = hashCode * 59 + this.ExemptAmount.GetHashCode();
                 if (this.VatableAmount != null)
                     hashCode = hashCode * 59 + this.VatableAmount.GetHashCode();
-                if (this.IsVat != null)
-                    hashCode = hashCode * 59 + this.IsVat.GetHashCode();
-                if (this.VatAmount != null)
-                    hashCode = hashCode * 59 + this.VatAmount.GetHashCode();
-                if (this.GrandTotal != null)
-                    hashCode = hashCode * 59 + this.GrandTotal.GetHashCode();
-                if (this.Remarks != null)
-                    hashCode = hashCode * 59 + this.Remarks.GetHashCode();
-                if (this.InternalNotes != null)
-                    hashCode = hashCode * 59 + this.InternalNotes.GetHashCode();
-                if (this.ShowSignatureOrStamp != null)
-                    hashCode = hashCode * 59 + this.ShowSignatureOrStamp.GetHashCode();
                 return hashCode;
             }
         }
@@ -829,6 +244,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

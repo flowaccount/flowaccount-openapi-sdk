@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -38,7 +38,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="useInlineVat">inline vat ใช้งานส่วนลดและภาษี แยกตามรายการสินค้า.</param>
         /// <param name="exemptAmount">ยอดขายที่ยกเว้นภาษีมูลค่าเพิ่ม (default to 0M).</param>
         /// <param name="vatableAmount">ยอดขายที่คิดภาษีมูลค่าเพิ่ม (default to 0M).</param>
-        /// <param name="items">รายการสินค้าใช้งานสำหรับเอกสาร Simple.</param>
+        /// <param name="items">รายการสินค้าใช้งานสำหรับเอกสาร Inline.</param>
         /// <param name="documentReference">สำหรับอัพเกรดเอกสาร โดยอ้างอิงเอกสารต้นทาง (ยกเว้นเอกสารใบเสนอราคา).</param>
         public InlineDocumentAllOf(int discountType = 1, bool useInlineDiscount = true, bool useInlineVat = default(bool), decimal? exemptAmount = 0M, decimal? vatableAmount = 0M, List<InlineProductItem> items = default(List<InlineProductItem>), List<UpgradeDocument> documentReference = default(List<UpgradeDocument>))
         {
@@ -121,9 +121,9 @@ namespace Flowaccount.OpenAPITools.Model
         public decimal? VatableAmount { get; set; }
 
         /// <summary>
-        /// รายการสินค้าใช้งานสำหรับเอกสาร Simple
+        /// รายการสินค้าใช้งานสำหรับเอกสาร Inline
         /// </summary>
-        /// <value>รายการสินค้าใช้งานสำหรับเอกสาร Simple</value>
+        /// <value>รายการสินค้าใช้งานสำหรับเอกสาร Inline</value>
         [DataMember(Name="items", EmitDefaultValue=true)]
         public List<InlineProductItem> Items { get; set; }
 

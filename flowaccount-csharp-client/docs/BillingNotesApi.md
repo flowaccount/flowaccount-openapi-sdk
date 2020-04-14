@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**BillingNotesEmailDocumentPost**](BillingNotesApi.md#billingnotesemaildocumentpost) | **POST** /billing-notes/email-document | Send email billing notes document.
 [**BillingNotesGet**](BillingNotesApi.md#billingnotesget) | **GET** /billing-notes | Get list all billing notes documents.
 [**BillingNotesIdAttachmentPost**](BillingNotesApi.md#billingnotesidattachmentpost) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes document.
-[**BillingNotesIdDelete**](BillingNotesApi.md#billingnotesiddelete) | **DELETE** /billing-notes/{id} | Get billing notes document.
+[**BillingNotesIdDelete**](BillingNotesApi.md#billingnotesiddelete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**BillingNotesIdGet**](BillingNotesApi.md#billingnotesidget) | **GET** /billing-notes/{id} | Get billing notes document.
+[**BillingNotesIdPut**](BillingNotesApi.md#billingnotesidput) | **PUT** /billing-notes/{id} | Edit billing notes document.
 [**BillingNotesIdStatusKeyStatusIdPost**](BillingNotesApi.md#billingnotesidstatuskeystatusidpost) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
 [**BillingNotesInlinePost**](BillingNotesApi.md#billingnotesinlinepost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 [**BillingNotesPost**](BillingNotesApi.md#billingnotespost) | **POST** /billing-notes | Create billing notes document.
@@ -265,7 +266,7 @@ No authorization required
 
 > DeleteResponse BillingNotesIdDelete (string authorization, string id)
 
-Get billing notes document.
+Delete billing notes document.
 
 ลบ เอกสารใบวางบิล ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอวางบิล 
 
@@ -291,7 +292,7 @@ namespace Example
 
             try
             {
-                // Get billing notes document.
+                // Delete billing notes document.
                 DeleteResponse result = apiInstance.BillingNotesIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -404,6 +405,87 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BillingNotesIdPut
+
+> InlineDocumentResponse BillingNotesIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit billing notes document.
+
+แก้ไขข้อมูลเอกสารใบวางบิล ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอวางบิล (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class BillingNotesIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new BillingNotesApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit billing notes document.
+                InlineDocumentResponse result = apiInstance.BillingNotesIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling BillingNotesApi.BillingNotesIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

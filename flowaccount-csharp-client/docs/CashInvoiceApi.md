@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**CashInvoicesEmailDocumentPost**](CashInvoiceApi.md#cashinvoicesemaildocumentpost) | **POST** /cash-invoices/email-document | Send email cash invoices document.
 [**CashInvoicesGet**](CashInvoiceApi.md#cashinvoicesget) | **GET** /cash-invoices | Get list all cash invoices documents
 [**CashInvoicesIdAttachmentPost**](CashInvoiceApi.md#cashinvoicesidattachmentpost) | **POST** /cash-invoices/{id}/attachment | Add Attachment to cash invoices document.
-[**CashInvoicesIdDelete**](CashInvoiceApi.md#cashinvoicesiddelete) | **DELETE** /cash-invoices/{id} | Get cash invoices document.
+[**CashInvoicesIdDelete**](CashInvoiceApi.md#cashinvoicesiddelete) | **DELETE** /cash-invoices/{id} | Delete cash invoices document.
 [**CashInvoicesIdGet**](CashInvoiceApi.md#cashinvoicesidget) | **GET** /cash-invoices/{id} | Get cash invoices document.
 [**CashInvoicesIdPaymentPost**](CashInvoiceApi.md#cashinvoicesidpaymentpost) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
+[**CashInvoicesIdPut**](CashInvoiceApi.md#cashinvoicesidput) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
 [**CashInvoicesIdStatusKeyStatusIdPost**](CashInvoiceApi.md#cashinvoicesidstatuskeystatusidpost) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
 [**CashInvoicesInlinePost**](CashInvoiceApi.md#cashinvoicesinlinepost) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 [**CashInvoicesPost**](CashInvoiceApi.md#cashinvoicespost) | **POST** /cash-invoices | Create cash invoices document.
@@ -266,7 +267,7 @@ No authorization required
 
 > DeleteResponse CashInvoicesIdDelete (string authorization, string id)
 
-Get cash invoices document.
+Delete cash invoices document.
 
 ลบ เอกสารใบกำกับ/ใบเสร็จรับเงิน (เงินสด) ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -292,7 +293,7 @@ namespace Example
 
             try
             {
-                // Get cash invoices document.
+                // Delete cash invoices document.
                 DeleteResponse result = apiInstance.CashInvoicesIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -422,11 +423,11 @@ No authorization required
 
 ## CashInvoicesIdPaymentPost
 
-> InlineDocumentResponse CashInvoicesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
+> InlineDocumentResponse CashInvoicesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
 
 Change paid status of cash invoices document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด)
+เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -447,12 +448,12 @@ namespace Example
             var apiInstance = new CashInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var paymentDocument = new PaymentDocument(); // PaymentDocument | 
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
             try
             {
                 // Change paid status of cash invoices document.
-                InlineDocumentResponse result = apiInstance.CashInvoicesIdPaymentPost(authorization, id, paymentDocument);
+                InlineDocumentResponse result = apiInstance.CashInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -473,7 +474,88 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **paymentDocument** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CashInvoicesIdPut
+
+> InlineDocumentResponse CashInvoicesIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit cash invoices document.
+
+แก้ไขข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class CashInvoicesIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new CashInvoiceApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit cash invoices document.
+                InlineDocumentResponse result = apiInstance.CashInvoicesIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CashInvoiceApi.CashInvoicesIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
 
 ### Return type
 

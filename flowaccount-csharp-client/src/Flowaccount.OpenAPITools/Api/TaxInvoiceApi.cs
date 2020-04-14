@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -102,7 +102,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of AttachmentResponse</returns>
         ApiResponse<AttachmentResponse> TaxInvoicesIdAttachmentPostWithHttpInfo (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get tax invoices document.
+        /// Delete tax invoices document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
@@ -114,7 +114,7 @@ namespace Flowaccount.OpenAPITools.Api
         DeleteResponse TaxInvoicesIdDelete (string authorization, string id);
 
         /// <summary>
-        /// Get tax invoices document.
+        /// Delete tax invoices document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
@@ -151,27 +151,52 @@ namespace Flowaccount.OpenAPITools.Api
         /// Change paid status of tax-invoice document.
         /// </summary>
         /// <remarks>
-        /// เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument);
+        InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Change paid status of tax-invoice document.
         /// </summary>
         /// <remarks>
-        /// เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> TaxInvoicesIdPaymentPostWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument);
+        ApiResponse<InlineDocumentResponse> TaxInvoicesIdPaymentPostWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
+        /// Edit tax invoices document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>InlineDocumentResponse</returns>
+        InlineDocumentResponse TaxInvoicesIdPut (string authorization, string id, InlineDocument inlineDocument);
+
+        /// <summary>
+        /// Edit tax invoices document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>ApiResponse of InlineDocumentResponse</returns>
+        ApiResponse<InlineDocumentResponse> TaxInvoicesIdPutWithHttpInfo (string authorization, string id, InlineDocument inlineDocument);
         /// <summary>
         /// Change status of tax invoices document.
         /// </summary>
@@ -346,7 +371,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (AttachmentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AttachmentResponse>> TaxInvoicesIdAttachmentPostAsyncWithHttpInfo (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get tax invoices document.
+        /// Delete tax invoices document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
@@ -358,7 +383,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<DeleteResponse> TaxInvoicesIdDeleteAsync (string authorization, string id);
 
         /// <summary>
-        /// Get tax invoices document.
+        /// Delete tax invoices document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
@@ -395,27 +420,52 @@ namespace Flowaccount.OpenAPITools.Api
         /// Change paid status of tax-invoice document.
         /// </summary>
         /// <remarks>
-        /// เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPaymentPostAsync (string authorization, string id, PaymentDocument paymentDocument);
+        System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPaymentPostAsync (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Change paid status of tax-invoice document.
         /// </summary>
         /// <remarks>
-        /// เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
+        /// Edit tax invoices document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of InlineDocumentResponse</returns>
+        System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPutAsync (string authorization, string id, InlineDocument inlineDocument);
+
+        /// <summary>
+        /// Edit tax invoices document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPutAsyncWithHttpInfo (string authorization, string id, InlineDocument inlineDocument);
         /// <summary>
         /// Change status of tax invoices document.
         /// </summary>
@@ -1105,7 +1155,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
+        /// Delete tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1118,7 +1168,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
+        /// Delete tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1177,7 +1227,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
+        /// Delete tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1191,7 +1241,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
+        /// Delete tax invoices document. ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1395,28 +1445,28 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
+        public InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = TaxInvoicesIdPaymentPostWithHttpInfo(authorization, id, paymentDocument);
+             ApiResponse<InlineDocumentResponse> localVarResponse = TaxInvoicesIdPaymentPostWithHttpInfo(authorization, id, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> TaxInvoicesIdPaymentPostWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument)
+        public ApiResponse<InlineDocumentResponse> TaxInvoicesIdPaymentPostWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1424,9 +1474,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling TaxInvoiceApi->TaxInvoicesIdPaymentPost");
-            // verify the required parameter 'paymentDocument' is set
-            if (paymentDocument == null)
-                throw new ApiException(400, "Missing required parameter 'paymentDocument' when calling TaxInvoiceApi->TaxInvoicesIdPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling TaxInvoiceApi->TaxInvoicesIdPaymentPost");
 
             var localVarPath = "/tax-invoices/{id}/payment";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1452,13 +1502,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (paymentDocument != null && paymentDocument.GetType() != typeof(byte[]))
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(paymentDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = paymentDocument; // byte array
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
             }
 
 
@@ -1481,29 +1531,29 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPaymentPostAsync (string authorization, string id, PaymentDocument paymentDocument)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPaymentPostAsync (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await TaxInvoicesIdPaymentPostAsyncWithHttpInfo(authorization, id, paymentDocument);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await TaxInvoicesIdPaymentPostAsyncWithHttpInfo(authorization, id, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1511,9 +1561,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling TaxInvoiceApi->TaxInvoicesIdPaymentPost");
-            // verify the required parameter 'paymentDocument' is set
-            if (paymentDocument == null)
-                throw new ApiException(400, "Missing required parameter 'paymentDocument' when calling TaxInvoiceApi->TaxInvoicesIdPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling TaxInvoiceApi->TaxInvoicesIdPaymentPost");
 
             var localVarPath = "/tax-invoices/{id}/payment";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1539,13 +1589,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (paymentDocument != null && paymentDocument.GetType() != typeof(byte[]))
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(paymentDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = paymentDocument; // byte array
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
             }
 
 
@@ -1559,6 +1609,179 @@ namespace Flowaccount.OpenAPITools.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("TaxInvoicesIdPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Edit tax invoices document. แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>InlineDocumentResponse</returns>
+        public InlineDocumentResponse TaxInvoicesIdPut (string authorization, string id, InlineDocument inlineDocument)
+        {
+             ApiResponse<InlineDocumentResponse> localVarResponse = TaxInvoicesIdPutWithHttpInfo(authorization, id, inlineDocument);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit tax invoices document. แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>ApiResponse of InlineDocumentResponse</returns>
+        public ApiResponse<InlineDocumentResponse> TaxInvoicesIdPutWithHttpInfo (string authorization, string id, InlineDocument inlineDocument)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling TaxInvoiceApi->TaxInvoicesIdPut");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling TaxInvoiceApi->TaxInvoicesIdPut");
+            // verify the required parameter 'inlineDocument' is set
+            if (inlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'inlineDocument' when calling TaxInvoiceApi->TaxInvoicesIdPut");
+
+            var localVarPath = "/tax-invoices/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (inlineDocument != null && inlineDocument.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineDocument); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineDocument; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TaxInvoicesIdPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Edit tax invoices document. แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of InlineDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPutAsync (string authorization, string id, InlineDocument inlineDocument)
+        {
+             ApiResponse<InlineDocumentResponse> localVarResponse = await TaxInvoicesIdPutAsyncWithHttpInfo(authorization, id, inlineDocument);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Edit tax invoices document. แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="inlineDocument"></param>
+        /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPutAsyncWithHttpInfo (string authorization, string id, InlineDocument inlineDocument)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling TaxInvoiceApi->TaxInvoicesIdPut");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling TaxInvoiceApi->TaxInvoicesIdPut");
+            // verify the required parameter 'inlineDocument' is set
+            if (inlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'inlineDocument' when calling TaxInvoiceApi->TaxInvoicesIdPut");
+
+            var localVarPath = "/tax-invoices/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (inlineDocument != null && inlineDocument.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineDocument); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineDocument; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TaxInvoicesIdPut", localVarResponse);
                 if (exception != null) throw exception;
             }
 

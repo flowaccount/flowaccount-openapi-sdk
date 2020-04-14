@@ -2,7 +2,7 @@
 <!--
 FlowAccount Open API
 
-FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
 
 The version of the OpenAPI document: 2-oas3
 Contact: developer@flowaccount.com
@@ -81,7 +81,7 @@ Contact: developer@flowaccount.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\Flowaccount.OpenAPITools\Flowaccount.OpenAPITools.csproj">
-          <Project>{C12C5C63-D468-4BFD-9CE0-F0DCF4C5BB12}</Project>
+          <Project>{DC6F3176-4155-4F06-9CA3-F093F68FC028}</Project>
           <Name>Flowaccount.OpenAPITools</Name>
       </ProjectReference>
   </ItemGroup>

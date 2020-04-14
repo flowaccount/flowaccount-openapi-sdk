@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Flowaccount.OpenAPITools.Client.OpenAPIDateConverter;
 
@@ -28,6 +29,7 @@ namespace Flowaccount.OpenAPITools.Model
     /// เก็บเงิน
     /// </summary>
     [DataContract]
+    [JsonConverter(typeof(JsonSubtypes), "PaymentStructureType")]
     public partial class PaymentDocument :  IEquatable<PaymentDocument>, IValidatableObject
     {
         /// <summary>
@@ -38,6 +40,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentDocument" /> class.
         /// </summary>
+        /// <param name="paymentStructureType">paymentStructureType (required).</param>
         /// <param name="documentId">id เอกสาร (required).</param>
         /// <param name="paymentDate">วันที่รับชำระเงิน / วันที่ชำระเงิน รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; (required).</param>
         /// <param name="collected">จำนวนเงินยอดรับสุทธิ (required) (default to 0M).</param>
@@ -47,17 +50,28 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="withheldAmount">จำนวน ยอดหัก ณ ที่จ่าย (default to 0M).</param>
         /// <param name="paymentCharge">ค่าธรรมเนียม ที่ชำระโดยการโอนเงิน หรือ เช็ค &lt;br&gt; (เฉพาะเอกสารค่าใช้จ่าย) (default to 0M).</param>
         /// <param name="paymentMethod">ประเภทการเก็บเงิน &lt;br&gt; 1 &#x3D; เงินสด &lt;br&gt; 3 &#x3D; เช็ค &lt;br&gt; 5 &#x3D; โอนเงิน &lt;br&gt; 7 &#x3D; บัตรเครดิต (required) (default to 1).</param>
-        /// <param name="transferBankAccountId">ธนาคารที่ใช้รับชำระเงิน ธนาคารที่ชำระเงิน (default to 0).</param>
-        /// <param name="bankAccountId">บัญชีธนาคารที่ใช้รับชำระเงิน &lt;br&gt; &lt;ex&gt;Example: 1012013014&lt;/ex&gt; (default to 0).</param>
+        /// <param name="transferBankAccountId">ธนาคารที่ใช้รับชำระเงิน ธนาคารที่ชำระเงิน &lt;br&gt; 1 &#x3D; ธนาคารกรุงเทพ &lt;br&gt; 2 &#x3D; ธนาคารกสิกรไทย &lt;br&gt; 3 &#x3D; ธนาคารกรุงไทย &lt;br&gt; 4 &#x3D; ธนาคารทหารไทย &lt;br&gt; 5 &#x3D; ธนาคารไทยพาณิชย์ &lt;br&gt; 6 &#x3D; ธนาคารสแตนดาร์ดชาร์เตอร์ด &lt;br&gt; 7 &#x3D; ธนาคารซีไอเอ็มบี ไทย &lt;br&gt; 8 &#x3D; ธนาคารยูโอบี &lt;br&gt; 10 &#x3D; ธนาคารกรุงศรีอยุธยา &lt;br&gt; 11 &#x3D; ธนาคารออมสิน &lt;br&gt; 12 &#x3D; ธนาคารธนชาต &lt;br&gt; 13 &#x3D; ธนาคารแลนด์ แอนด์ เฮ้าส์ &lt;br&gt; 14 &#x3D; ธนาคารเกียรตินาคิน &lt;br&gt; 15 &#x3D; ธนาคารซิตี้แบงก์ &lt;br&gt; 16 &#x3D; ธนาคารทิสโก้ &lt;br&gt; 53 &#x3D; ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร &lt;br&gt; 54 &#x3D; ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย &lt;br&gt; 55 &#x3D; ธนาคารอาคารสงเคราะห์ &lt;br&gt; 56 &#x3D; ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย &lt;br&gt; 57 &#x3D; ธนาคารอิสลามแห่งประเทศไทย &lt;br&gt; 58 &#x3D; ธนาคารแห่งประเทศจีน (ไทย) &lt;br&gt; 59 &#x3D; ธนาคารไอซีบีซี (ไทย) &lt;br&gt; 60 &#x3D; ธนาคารเมกะ สากลพาณิชย์ &lt;br&gt; 61 &#x3D; ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น &lt;br&gt; 62 &#x3D; ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) &lt;br&gt; 63 &#x3D; ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น &lt;br&gt; 64 &#x3D; ธนาคารไทยเครดิต เพื่อรายย่อย  (default to 0).</param>
+        /// <param name="bankAccountId">บัญชีธนาคารที่ใช้รับชำระเงิน &lt;br&gt;สามารถ GET มาได้จาก My Company &gt; Bank Account &lt;br&gt; &lt;ex&gt;Example: 12345&lt;/ex&gt; (default to 0).</param>
         /// <param name="chequeDate">วันที่หน้าเช็ค รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;.</param>
         /// <param name="chequeNumber">เลขที่เช็คธนาคาร &lt;br&gt; &lt;ex&gt;Example: 122-122-122&lt;/ex&gt;.</param>
         /// <param name="chequeBankAccountId">ธนาคารที่ระบุหน้าเช็ค &lt;br&gt; 1 &#x3D; ธนาคารกรุงเทพ &lt;br&gt; 2 &#x3D; ธนาคารกสิกรไทย &lt;br&gt; 3 &#x3D; ธนาคารกรุงไทย &lt;br&gt; 4 &#x3D; ธนาคารทหารไทย &lt;br&gt; 5 &#x3D; ธนาคารไทยพาณิชย์ &lt;br&gt; 6 &#x3D; ธนาคารสแตนดาร์ดชาร์เตอร์ด &lt;br&gt; 7 &#x3D; ธนาคารซีไอเอ็มบี ไทย &lt;br&gt; 8 &#x3D; ธนาคารยูโอบี &lt;br&gt; 10 &#x3D; ธนาคารกรุงศรีอยุธยา &lt;br&gt; 11 &#x3D; ธนาคารออมสิน &lt;br&gt; 12 &#x3D; ธนาคารธนชาต &lt;br&gt; 13 &#x3D; ธนาคารแลนด์ แอนด์ เฮ้าส์ &lt;br&gt; 14 &#x3D; ธนาคารเกียรตินาคิน &lt;br&gt; 15 &#x3D; ธนาคารซิตี้แบงก์ &lt;br&gt; 16 &#x3D; ธนาคารทิสโก้ &lt;br&gt; 53 &#x3D; ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร &lt;br&gt; 54 &#x3D; ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย &lt;br&gt; 55 &#x3D; ธนาคารอาคารสงเคราะห์ &lt;br&gt; 56 &#x3D; ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย &lt;br&gt; 57 &#x3D; ธนาคารอิสลามแห่งประเทศไทย &lt;br&gt; 58 &#x3D; ธนาคารแห่งประเทศจีน (ไทย) &lt;br&gt; 59 &#x3D; ธนาคารไอซีบีซี (ไทย) &lt;br&gt; 60 &#x3D; ธนาคารเมกะ สากลพาณิชย์ &lt;br&gt; 61 &#x3D; ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น &lt;br&gt; 62 &#x3D; ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) &lt;br&gt; 63 &#x3D; ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น &lt;br&gt; 64 &#x3D; ธนาคารไทยเครดิต เพื่อรายย่อย  (default to 0).</param>
         /// <param name="creditCardBankAccountId">ธนาคารที่ชำระด้วยบัตรเครดิต &lt;br&gt; 1 &#x3D; ธนาคารกรุงเทพ &lt;br&gt; 2 &#x3D; ธนาคารกสิกรไทย &lt;br&gt; 3 &#x3D; ธนาคารกรุงไทย &lt;br&gt; 4 &#x3D; ธนาคารทหารไทย &lt;br&gt; 5 &#x3D; ธนาคารไทยพาณิชย์ &lt;br&gt; 6 &#x3D; ธนาคารสแตนดาร์ดชาร์เตอร์ด &lt;br&gt; 7 &#x3D; ธนาคารซีไอเอ็มบี ไทย &lt;br&gt; 8 &#x3D; ธนาคารยูโอบี &lt;br&gt; 10 &#x3D; ธนาคารกรุงศรีอยุธยา &lt;br&gt; 11 &#x3D; ธนาคารออมสิน &lt;br&gt; 12 &#x3D; ธนาคารธนชาต &lt;br&gt; 13 &#x3D; ธนาคารแลนด์ แอนด์ เฮ้าส์ &lt;br&gt; 14 &#x3D; ธนาคารเกียรตินาคิน &lt;br&gt; 15 &#x3D; ธนาคารซิตี้แบงก์ &lt;br&gt; 16 &#x3D; ธนาคารทิสโก้ &lt;br&gt; 53 &#x3D; ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร &lt;br&gt; 54 &#x3D; ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย &lt;br&gt; 55 &#x3D; ธนาคารอาคารสงเคราะห์ &lt;br&gt; 56 &#x3D; ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย &lt;br&gt; 57 &#x3D; ธนาคารอิสลามแห่งประเทศไทย &lt;br&gt; 58 &#x3D; ธนาคารแห่งประเทศจีน (ไทย) &lt;br&gt; 59 &#x3D; ธนาคารไอซีบีซี (ไทย) &lt;br&gt; 60 &#x3D; ธนาคารเมกะ สากลพาณิชย์ &lt;br&gt; 61 &#x3D; ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น &lt;br&gt; 62 &#x3D; ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) &lt;br&gt; 63 &#x3D; ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น &lt;br&gt; 64 &#x3D; ธนาคารไทยเครดิต เพื่อรายย่อย  (default to 0).</param>
-        /// <param name="paymentRemarks">หมายเหตุ การรับชำระเงิน หรือ จ่ายเงิน.</param>
+        /// <param name="paymentRemarks">หมายเหตุ การรับชำระเงิน หรือ ชำระเงิน.</param>
         /// <param name="remainingCollectedType">สาเหตุเงินขาด เงินเกิน &lt;br&gt; 51 &#x3D; เงินขาดหรือเงินกิน &lt;br&gt; 55 &#x3D; ค่าธรรมเนียมธนาคาร  (default to 0).</param>
         /// <param name="remainingCollected">จำนวน ยอดเงินขาด หรือ เงินเกิน (default to 0M).</param>
-        public PaymentDocument(long documentId = default(long), DateTime paymentDate = default(DateTime), decimal collected = 0M, long paymentDeductionType = 0, decimal paymentDeductionAmount = 0M, long withheldPercentage = 0, decimal withheldAmount = 0M, decimal paymentCharge = 0M, long paymentMethod = 1, long transferBankAccountId = 0, long bankAccountId = 0, DateTime chequeDate = default(DateTime), string chequeNumber = default(string), long chequeBankAccountId = 0, long creditCardBankAccountId = 0, string paymentRemarks = default(string), long remainingCollectedType = 0, decimal remainingCollected = 0M)
+        public PaymentDocument(string paymentStructureType = default(string), long documentId = default(long), DateTime paymentDate = default(DateTime), decimal collected = 0M, long paymentDeductionType = 0, decimal paymentDeductionAmount = 0M, long withheldPercentage = 0, decimal withheldAmount = 0M, decimal paymentCharge = 0M, long paymentMethod = 1, long transferBankAccountId = 0, long bankAccountId = 0, DateTime chequeDate = default(DateTime), string chequeNumber = default(string), long chequeBankAccountId = 0, long creditCardBankAccountId = 0, string paymentRemarks = default(string), long remainingCollectedType = 0, decimal remainingCollected = 0M)
         {
+            // to ensure "paymentStructureType" is required (not null)
+            if (paymentStructureType == null)
+            {
+                throw new InvalidDataException("paymentStructureType is a required property for PaymentDocument and cannot be null");
+            }
+            else
+            {
+                this.PaymentStructureType = paymentStructureType;
+            }
+            
+            this.PaymentStructureType = paymentStructureType;
             // to ensure "documentId" is required (not null)
             if (documentId == null)
             {
@@ -203,6 +217,12 @@ namespace Flowaccount.OpenAPITools.Model
         }
         
         /// <summary>
+        /// Gets or Sets PaymentStructureType
+        /// </summary>
+        [DataMember(Name="paymentStructureType", EmitDefaultValue=true)]
+        public string PaymentStructureType { get; set; }
+
+        /// <summary>
         /// id เอกสาร
         /// </summary>
         /// <value>id เอกสาร</value>
@@ -267,16 +287,16 @@ namespace Flowaccount.OpenAPITools.Model
         public long PaymentMethod { get; set; }
 
         /// <summary>
-        /// ธนาคารที่ใช้รับชำระเงิน ธนาคารที่ชำระเงิน
+        /// ธนาคารที่ใช้รับชำระเงิน ธนาคารที่ชำระเงิน &lt;br&gt; 1 &#x3D; ธนาคารกรุงเทพ &lt;br&gt; 2 &#x3D; ธนาคารกสิกรไทย &lt;br&gt; 3 &#x3D; ธนาคารกรุงไทย &lt;br&gt; 4 &#x3D; ธนาคารทหารไทย &lt;br&gt; 5 &#x3D; ธนาคารไทยพาณิชย์ &lt;br&gt; 6 &#x3D; ธนาคารสแตนดาร์ดชาร์เตอร์ด &lt;br&gt; 7 &#x3D; ธนาคารซีไอเอ็มบี ไทย &lt;br&gt; 8 &#x3D; ธนาคารยูโอบี &lt;br&gt; 10 &#x3D; ธนาคารกรุงศรีอยุธยา &lt;br&gt; 11 &#x3D; ธนาคารออมสิน &lt;br&gt; 12 &#x3D; ธนาคารธนชาต &lt;br&gt; 13 &#x3D; ธนาคารแลนด์ แอนด์ เฮ้าส์ &lt;br&gt; 14 &#x3D; ธนาคารเกียรตินาคิน &lt;br&gt; 15 &#x3D; ธนาคารซิตี้แบงก์ &lt;br&gt; 16 &#x3D; ธนาคารทิสโก้ &lt;br&gt; 53 &#x3D; ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร &lt;br&gt; 54 &#x3D; ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย &lt;br&gt; 55 &#x3D; ธนาคารอาคารสงเคราะห์ &lt;br&gt; 56 &#x3D; ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย &lt;br&gt; 57 &#x3D; ธนาคารอิสลามแห่งประเทศไทย &lt;br&gt; 58 &#x3D; ธนาคารแห่งประเทศจีน (ไทย) &lt;br&gt; 59 &#x3D; ธนาคารไอซีบีซี (ไทย) &lt;br&gt; 60 &#x3D; ธนาคารเมกะ สากลพาณิชย์ &lt;br&gt; 61 &#x3D; ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น &lt;br&gt; 62 &#x3D; ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) &lt;br&gt; 63 &#x3D; ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น &lt;br&gt; 64 &#x3D; ธนาคารไทยเครดิต เพื่อรายย่อย 
         /// </summary>
-        /// <value>ธนาคารที่ใช้รับชำระเงิน ธนาคารที่ชำระเงิน</value>
+        /// <value>ธนาคารที่ใช้รับชำระเงิน ธนาคารที่ชำระเงิน &lt;br&gt; 1 &#x3D; ธนาคารกรุงเทพ &lt;br&gt; 2 &#x3D; ธนาคารกสิกรไทย &lt;br&gt; 3 &#x3D; ธนาคารกรุงไทย &lt;br&gt; 4 &#x3D; ธนาคารทหารไทย &lt;br&gt; 5 &#x3D; ธนาคารไทยพาณิชย์ &lt;br&gt; 6 &#x3D; ธนาคารสแตนดาร์ดชาร์เตอร์ด &lt;br&gt; 7 &#x3D; ธนาคารซีไอเอ็มบี ไทย &lt;br&gt; 8 &#x3D; ธนาคารยูโอบี &lt;br&gt; 10 &#x3D; ธนาคารกรุงศรีอยุธยา &lt;br&gt; 11 &#x3D; ธนาคารออมสิน &lt;br&gt; 12 &#x3D; ธนาคารธนชาต &lt;br&gt; 13 &#x3D; ธนาคารแลนด์ แอนด์ เฮ้าส์ &lt;br&gt; 14 &#x3D; ธนาคารเกียรตินาคิน &lt;br&gt; 15 &#x3D; ธนาคารซิตี้แบงก์ &lt;br&gt; 16 &#x3D; ธนาคารทิสโก้ &lt;br&gt; 53 &#x3D; ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร &lt;br&gt; 54 &#x3D; ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย &lt;br&gt; 55 &#x3D; ธนาคารอาคารสงเคราะห์ &lt;br&gt; 56 &#x3D; ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย &lt;br&gt; 57 &#x3D; ธนาคารอิสลามแห่งประเทศไทย &lt;br&gt; 58 &#x3D; ธนาคารแห่งประเทศจีน (ไทย) &lt;br&gt; 59 &#x3D; ธนาคารไอซีบีซี (ไทย) &lt;br&gt; 60 &#x3D; ธนาคารเมกะ สากลพาณิชย์ &lt;br&gt; 61 &#x3D; ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น &lt;br&gt; 62 &#x3D; ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) &lt;br&gt; 63 &#x3D; ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น &lt;br&gt; 64 &#x3D; ธนาคารไทยเครดิต เพื่อรายย่อย </value>
         [DataMember(Name="transferBankAccountId", EmitDefaultValue=true)]
         public long TransferBankAccountId { get; set; }
 
         /// <summary>
-        /// บัญชีธนาคารที่ใช้รับชำระเงิน &lt;br&gt; &lt;ex&gt;Example: 1012013014&lt;/ex&gt;
+        /// บัญชีธนาคารที่ใช้รับชำระเงิน &lt;br&gt;สามารถ GET มาได้จาก My Company &gt; Bank Account &lt;br&gt; &lt;ex&gt;Example: 12345&lt;/ex&gt;
         /// </summary>
-        /// <value>บัญชีธนาคารที่ใช้รับชำระเงิน &lt;br&gt; &lt;ex&gt;Example: 1012013014&lt;/ex&gt;</value>
+        /// <value>บัญชีธนาคารที่ใช้รับชำระเงิน &lt;br&gt;สามารถ GET มาได้จาก My Company &gt; Bank Account &lt;br&gt; &lt;ex&gt;Example: 12345&lt;/ex&gt;</value>
         [DataMember(Name="bankAccountId", EmitDefaultValue=true)]
         public long BankAccountId { get; set; }
 
@@ -310,9 +330,9 @@ namespace Flowaccount.OpenAPITools.Model
         public long CreditCardBankAccountId { get; set; }
 
         /// <summary>
-        /// หมายเหตุ การรับชำระเงิน หรือ จ่ายเงิน
+        /// หมายเหตุ การรับชำระเงิน หรือ ชำระเงิน
         /// </summary>
-        /// <value>หมายเหตุ การรับชำระเงิน หรือ จ่ายเงิน</value>
+        /// <value>หมายเหตุ การรับชำระเงิน หรือ ชำระเงิน</value>
         [DataMember(Name="paymentRemarks", EmitDefaultValue=true)]
         public string PaymentRemarks { get; set; }
 
@@ -338,6 +358,7 @@ namespace Flowaccount.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentDocument {\n");
+            sb.Append("  PaymentStructureType: ").Append(PaymentStructureType).Append("\n");
             sb.Append("  DocumentId: ").Append(DocumentId).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  Collected: ").Append(Collected).Append("\n");
@@ -390,6 +411,11 @@ namespace Flowaccount.OpenAPITools.Model
                 return false;
 
             return 
+                (
+                    this.PaymentStructureType == input.PaymentStructureType ||
+                    (this.PaymentStructureType != null &&
+                    this.PaymentStructureType.Equals(input.PaymentStructureType))
+                ) && 
                 (
                     this.DocumentId == input.DocumentId ||
                     (this.DocumentId != null &&
@@ -491,6 +517,8 @@ namespace Flowaccount.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.PaymentStructureType != null)
+                    hashCode = hashCode * 59 + this.PaymentStructureType.GetHashCode();
                 if (this.DocumentId != null)
                     hashCode = hashCode * 59 + this.DocumentId.GetHashCode();
                 if (this.PaymentDate != null)

@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**QuotationsEmailDocumentPost**](QuotationsApi.md#quotationsemaildocumentpost) | **POST** /quotations/email-document | Send email quotations document.
 [**QuotationsGet**](QuotationsApi.md#quotationsget) | **GET** /quotations | Get list all quotations documents.
 [**QuotationsIdAttachmentPost**](QuotationsApi.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Add Attachment to quotations document.
-[**QuotationsIdDelete**](QuotationsApi.md#quotationsiddelete) | **DELETE** /quotations/{id} | Get quotations document.
+[**QuotationsIdDelete**](QuotationsApi.md#quotationsiddelete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**QuotationsIdGet**](QuotationsApi.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document.
+[**QuotationsIdPut**](QuotationsApi.md#quotationsidput) | **PUT** /quotations/{id} | Edit quotations document.
 [**QuotationsIdStatusKeyStatusIdPost**](QuotationsApi.md#quotationsidstatuskeystatusidpost) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
 [**QuotationsInlinePost**](QuotationsApi.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 [**QuotationsPost**](QuotationsApi.md#quotationspost) | **POST** /quotations | Create quotations document.
@@ -265,7 +266,7 @@ No authorization required
 
 > DeleteResponse QuotationsIdDelete (string authorization, string id)
 
-Get quotations document.
+Delete quotations document.
 
 ลบ เอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
 
@@ -291,7 +292,7 @@ namespace Example
 
             try
             {
-                // Get quotations document.
+                // Delete quotations document.
                 DeleteResponse result = apiInstance.QuotationsIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -404,6 +405,87 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## QuotationsIdPut
+
+> InlineDocumentResponse QuotationsIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit quotations document.
+
+แก้ไขข้อมูลเอกสารใบเสนอราคา ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class QuotationsIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new QuotationsApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit quotations document.
+                InlineDocumentResponse result = apiInstance.QuotationsIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling QuotationsApi.QuotationsIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

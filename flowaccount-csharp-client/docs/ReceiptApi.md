@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**ReceiptsEmailDocumentPost**](ReceiptApi.md#receiptsemaildocumentpost) | **POST** /receipts/email-document | Send email receipt document.
 [**ReceiptsGet**](ReceiptApi.md#receiptsget) | **GET** /receipts | Get list all receipt documents
 [**ReceiptsIdAttachmentPost**](ReceiptApi.md#receiptsidattachmentpost) | **POST** /receipts/{id}/attachment | Add Attachment to receipt document.
-[**ReceiptsIdDelete**](ReceiptApi.md#receiptsiddelete) | **DELETE** /receipts/{id} | Get receipt document.
+[**ReceiptsIdDelete**](ReceiptApi.md#receiptsiddelete) | **DELETE** /receipts/{id} | Delete receipt document.
 [**ReceiptsIdGet**](ReceiptApi.md#receiptsidget) | **GET** /receipts/{id} | Get receipt document.
 [**ReceiptsIdPaymentPost**](ReceiptApi.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
+[**ReceiptsIdPut**](ReceiptApi.md#receiptsidput) | **PUT** /receipts/{id} | Edit receipt document.
 [**ReceiptsIdStatusKeyStatusIdPost**](ReceiptApi.md#receiptsidstatuskeystatusidpost) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
 [**ReceiptsInlinePost**](ReceiptApi.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 [**ReceiptsPost**](ReceiptApi.md#receiptspost) | **POST** /receipts | Create cash receipt document.
@@ -266,7 +267,7 @@ No authorization required
 
 > DeleteResponse ReceiptsIdDelete (string authorization, string id)
 
-Get receipt document.
+Delete receipt document.
 
 ลบ เอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -292,7 +293,7 @@ namespace Example
 
             try
             {
-                // Get receipt document.
+                // Delete receipt document.
                 DeleteResponse result = apiInstance.ReceiptsIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -422,11 +423,11 @@ No authorization required
 
 ## ReceiptsIdPaymentPost
 
-> InlineDocumentResponse ReceiptsIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
+> InlineDocumentResponse ReceiptsIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
 
 Change paid status of receipt document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบเสร็จรับเงิน
+เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -447,12 +448,12 @@ namespace Example
             var apiInstance = new ReceiptApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var paymentDocument = new PaymentDocument(); // PaymentDocument | 
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
             try
             {
                 // Change paid status of receipt document.
-                InlineDocumentResponse result = apiInstance.ReceiptsIdPaymentPost(authorization, id, paymentDocument);
+                InlineDocumentResponse result = apiInstance.ReceiptsIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -473,7 +474,88 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **paymentDocument** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReceiptsIdPut
+
+> InlineDocumentResponse ReceiptsIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit receipt document.
+
+แก้ไขข้อมูลเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class ReceiptsIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new ReceiptApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit receipt document.
+                InlineDocumentResponse result = apiInstance.ReceiptsIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ReceiptApi.ReceiptsIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
 
 ### Return type
 

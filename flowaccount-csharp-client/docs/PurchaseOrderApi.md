@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**PurchasesOrdersEmailDocumentPost**](PurchaseOrderApi.md#purchasesordersemaildocumentpost) | **POST** /purchases-orders/email-document | Send email purchase order document.
 [**PurchasesOrdersGet**](PurchaseOrderApi.md#purchasesordersget) | **GET** /purchases-orders | Get list all purchase order documents.
 [**PurchasesOrdersIdAttachmentPost**](PurchaseOrderApi.md#purchasesordersidattachmentpost) | **POST** /purchases-orders/{id}/attachment | Add Attachment to purchase order document.
-[**PurchasesOrdersIdDelete**](PurchaseOrderApi.md#purchasesordersiddelete) | **DELETE** /purchases-orders/{id} | Get purchase order document.
+[**PurchasesOrdersIdDelete**](PurchaseOrderApi.md#purchasesordersiddelete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**PurchasesOrdersIdGet**](PurchaseOrderApi.md#purchasesordersidget) | **GET** /purchases-orders/{id} | Get purchase order document.
+[**PurchasesOrdersIdPut**](PurchaseOrderApi.md#purchasesordersidput) | **PUT** /purchases-orders/{id} | Edit purchase order document.
 [**PurchasesOrdersIdStatusKeyStatusIdPost**](PurchaseOrderApi.md#purchasesordersidstatuskeystatusidpost) | **POST** /purchases-orders/{id}/status-key/{statusId} | Change status of purchase order document.
 [**PurchasesOrdersInlinePost**](PurchaseOrderApi.md#purchasesordersinlinepost) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
 [**PurchasesOrdersPost**](PurchaseOrderApi.md#purchasesorderspost) | **POST** /purchases-orders | Create purchase order document.
@@ -265,7 +266,7 @@ No authorization required
 
 > DeleteResponse PurchasesOrdersIdDelete (string authorization, string id)
 
-Get purchase order document.
+Delete purchase order document.
 
 ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
 
@@ -291,7 +292,7 @@ namespace Example
 
             try
             {
-                // Get purchase order document.
+                // Delete purchase order document.
                 DeleteResponse result = apiInstance.PurchasesOrdersIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -404,6 +405,87 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurchasesOrdersIdPut
+
+> InlineDocumentResponse PurchasesOrdersIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit purchase order document.
+
+แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class PurchasesOrdersIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new PurchaseOrderApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit purchase order document.
+                InlineDocumentResponse result = apiInstance.PurchasesOrdersIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling PurchaseOrderApi.PurchasesOrdersIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

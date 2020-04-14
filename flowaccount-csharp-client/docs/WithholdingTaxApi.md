@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**WithholdingTaxesEmailDocumentPost**](WithholdingTaxApi.md#withholdingtaxesemaildocumentpost) | **POST** /withholding-taxes/email-document | Send email withholding tax document.
 [**WithholdingTaxesGet**](WithholdingTaxApi.md#withholdingtaxesget) | **GET** /withholding-taxes | Get list all withholding tax documents.
 [**WithholdingTaxesIdAttachmentPost**](WithholdingTaxApi.md#withholdingtaxesidattachmentpost) | **POST** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
-[**WithholdingTaxesIdDelete**](WithholdingTaxApi.md#withholdingtaxesiddelete) | **DELETE** /withholding-taxes/{id} | Get withholding tax document.
+[**WithholdingTaxesIdDelete**](WithholdingTaxApi.md#withholdingtaxesiddelete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**WithholdingTaxesIdGet**](WithholdingTaxApi.md#withholdingtaxesidget) | **GET** /withholding-taxes/{id} | Get withholding tax document.
+[**WithholdingTaxesIdPut**](WithholdingTaxApi.md#withholdingtaxesidput) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
 [**WithholdingTaxesIdStatusKeyStatusIdPost**](WithholdingTaxApi.md#withholdingtaxesidstatuskeystatusidpost) | **POST** /withholding-taxes/{id}/status-key/{statusId} | Change status of withholding tax document.
 [**WithholdingTaxesPost**](WithholdingTaxApi.md#withholdingtaxespost) | **POST** /withholding-taxes | Create withholding tax document.
 [**WithholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
@@ -264,7 +265,7 @@ No authorization required
 
 > DeleteResponse WithholdingTaxesIdDelete (string authorization, string id)
 
-Get withholding tax document.
+Delete withholding tax document.
 
 ลบ เอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -290,7 +291,7 @@ namespace Example
 
             try
             {
-                // Get withholding tax document.
+                // Delete withholding tax document.
                 DeleteResponse result = apiInstance.WithholdingTaxesIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -403,6 +404,87 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## WithholdingTaxesIdPut
+
+> WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument)
+
+Edit withholding tax document.
+
+แก้ไขข้อมูลเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class WithholdingTaxesIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new WithholdingTaxApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var withholidingTaxDocument = new WithholidingTaxDocument(); // WithholidingTaxDocument | 
+
+            try
+            {
+                // Edit withholding tax document.
+                WithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesIdPut(authorization, id, withholidingTaxDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling WithholdingTaxApi.WithholdingTaxesIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **withholidingTaxDocument** | [**WithholidingTaxDocument**](WithholidingTaxDocument.md)|  | 
+
+### Return type
+
+[**WithholidingTaxDocumentResponse**](WithholidingTaxDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

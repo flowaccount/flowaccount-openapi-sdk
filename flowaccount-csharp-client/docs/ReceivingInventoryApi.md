@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**PurchasesEmailDocumentPost**](ReceivingInventoryApi.md#purchasesemaildocumentpost) | **POST** /purchases/email-document | Send email receiving inventory document.
 [**PurchasesGet**](ReceivingInventoryApi.md#purchasesget) | **GET** /purchases | Get list all receiving inventory documents.
 [**PurchasesIdAttachmentPost**](ReceivingInventoryApi.md#purchasesidattachmentpost) | **POST** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
-[**PurchasesIdDelete**](ReceivingInventoryApi.md#purchasesiddelete) | **DELETE** /purchases/{id} | Get receiving inventory document.
+[**PurchasesIdDelete**](ReceivingInventoryApi.md#purchasesiddelete) | **DELETE** /purchases/{id} | Delete receiving inventory document.
 [**PurchasesIdGet**](ReceivingInventoryApi.md#purchasesidget) | **GET** /purchases/{id} | Get receiving inventory document.
+[**PurchasesIdPaymentPost**](ReceivingInventoryApi.md#purchasesidpaymentpost) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
+[**PurchasesIdPut**](ReceivingInventoryApi.md#purchasesidput) | **PUT** /purchases/{id} | Edit receiving inventory document.
 [**PurchasesIdStatusKeyStatusIdPost**](ReceivingInventoryApi.md#purchasesidstatuskeystatusidpost) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
 [**PurchasesInlinePost**](ReceivingInventoryApi.md#purchasesinlinepost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 [**PurchasesPost**](ReceivingInventoryApi.md#purchasespost) | **POST** /purchases | Create receiving inventory document.
@@ -265,7 +267,7 @@ No authorization required
 
 > DeleteResponse PurchasesIdDelete (string authorization, string id)
 
-Get receiving inventory document.
+Delete receiving inventory document.
 
 ลบ เอกสารใบรับสินค้า ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
 
@@ -291,7 +293,7 @@ namespace Example
 
             try
             {
-                // Get receiving inventory document.
+                // Delete receiving inventory document.
                 DeleteResponse result = apiInstance.PurchasesIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -419,6 +421,168 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PurchasesIdPaymentPost
+
+> InlineDocumentResponse PurchasesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+
+Change paid status of receiving inventory document.
+
+ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class PurchasesIdPaymentPostExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new ReceivingInventoryApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+
+            try
+            {
+                // Change paid status of receiving inventory document.
+                InlineDocumentResponse result = apiInstance.PurchasesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ReceivingInventoryApi.PurchasesIdPaymentPost: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurchasesIdPut
+
+> InlineDocumentResponse PurchasesIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit receiving inventory document.
+
+แก้ไขข้อมูลเอกสารใบรับสินค้า ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class PurchasesIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new ReceivingInventoryApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit receiving inventory document.
+                InlineDocumentResponse result = apiInstance.PurchasesIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ReceivingInventoryApi.PurchasesIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PurchasesIdStatusKeyStatusIdPost
 
 > InlineDocumentResponse PurchasesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
@@ -446,7 +610,7 @@ namespace Example
             var apiInstance = new ReceivingInventoryApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId
-            var statusId = statusId_example;  // string | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
+            var statusId = statusId_example;  // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
 
             try
             {
@@ -472,7 +636,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId | 
- **statusId** | **string**| เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก | 
+ **statusId** | **string**| เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก | 
 
 ### Return type
 

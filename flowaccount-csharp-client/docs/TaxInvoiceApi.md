@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**TaxInvoicesEmailDocumentPost**](TaxInvoiceApi.md#taxinvoicesemaildocumentpost) | **POST** /tax-invoices/email-document | Send Email tax invoice document
 [**TaxInvoicesGet**](TaxInvoiceApi.md#taxinvoicesget) | **GET** /tax-invoices | Get list all tax invocie documents.
 [**TaxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxinvoicesidattachmentpost) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
-[**TaxInvoicesIdDelete**](TaxInvoiceApi.md#taxinvoicesiddelete) | **DELETE** /tax-invoices/{id} | Get tax invoices document.
+[**TaxInvoicesIdDelete**](TaxInvoiceApi.md#taxinvoicesiddelete) | **DELETE** /tax-invoices/{id} | Delete tax invoices document.
 [**TaxInvoicesIdGet**](TaxInvoiceApi.md#taxinvoicesidget) | **GET** /tax-invoices/{id} | Get tax invoices document.
 [**TaxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxinvoicesidpaymentpost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
+[**TaxInvoicesIdPut**](TaxInvoiceApi.md#taxinvoicesidput) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
 [**TaxInvoicesIdStatusKeyStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatuskeystatusidpost) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
 [**TaxInvoicesInlinePost**](TaxInvoiceApi.md#taxinvoicesinlinepost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**TaxInvoicesPost**](TaxInvoiceApi.md#taxinvoicespost) | **POST** /tax-invoices | Create tax invocie document.
@@ -266,7 +267,7 @@ No authorization required
 
 > DeleteResponse TaxInvoicesIdDelete (string authorization, string id)
 
-Get tax invoices document.
+Delete tax invoices document.
 
 ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
 
@@ -292,7 +293,7 @@ namespace Example
 
             try
             {
-                // Get tax invoices document.
+                // Delete tax invoices document.
                 DeleteResponse result = apiInstance.TaxInvoicesIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -422,11 +423,11 @@ No authorization required
 
 ## TaxInvoicesIdPaymentPost
 
-> InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
+> InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
 
 Change paid status of tax-invoice document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -447,12 +448,12 @@ namespace Example
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var paymentDocument = new PaymentDocument(); // PaymentDocument | 
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
             try
             {
                 // Change paid status of tax-invoice document.
-                InlineDocumentResponse result = apiInstance.TaxInvoicesIdPaymentPost(authorization, id, paymentDocument);
+                InlineDocumentResponse result = apiInstance.TaxInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -473,7 +474,88 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **paymentDocument** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TaxInvoicesIdPut
+
+> InlineDocumentResponse TaxInvoicesIdPut (string authorization, string id, InlineDocument inlineDocument)
+
+Edit tax invoices document.
+
+แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class TaxInvoicesIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new TaxInvoiceApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var inlineDocument = new InlineDocument(); // InlineDocument | 
+
+            try
+            {
+                // Edit tax invoices document.
+                InlineDocumentResponse result = apiInstance.TaxInvoicesIdPut(authorization, id, inlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
 
 ### Return type
 

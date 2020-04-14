@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **ProjectName** | **string** | ชื่อโปรเจค | [optional] 
 **Reference** | **string** | เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง &lt;br&gt; &lt;ex&gt;Example: INV2020010001&lt;/ex&gt; | [optional] 
 **IsVatInclusive** | **bool** | มูลค่าเอกสารรวมภาษีแล้วหรือไม่ | [optional] [default to false]
-**Items** | [**List&lt;ExpenseSimpleProductItem&gt;**](ExpenseSimpleProductItem.md) |  | [optional] 
 **SubTotal** | **decimal** | มูลค่ารวมเป็นเงิน | [default to 0M]
 **DiscountPercentage** | **int** | มูลค่าส่วนลดเป็นเปอร์เซ็นต์ | [optional] [default to 0]
 **DiscountAmount** | **decimal** | มูลค่าส่วนลดเป็นจำนวน (บาท) | [optional] [default to 0M]
@@ -35,6 +34,7 @@ Name | Type | Description | Notes
 **Remarks** | **string** | หมายเหตุเอกสาร | [optional] 
 **InternalNotes** | **string** | โน๊ตภายในบริษัท | [optional] 
 **ShowSignatureOrStamp** | **bool** | ลายเซ็นอิเล็กทรอนิกส์และตรายาง | [optional] [default to true]
+**ExpenseStructureType** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

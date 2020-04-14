@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -108,8 +108,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ProductResponse</returns>
-        ProductResponse ProductsIdPut (string authorization, string id);
+        ProductResponse ProductsIdPut (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Update products.
@@ -120,8 +121,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ApiResponse of ProductResponse</returns>
-        ApiResponse<ProductResponse> ProductsIdPutWithHttpInfo (string authorization, string id);
+        ApiResponse<ProductResponse> ProductsIdPutWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         /// <summary>
         /// Create products.
         /// </summary>
@@ -130,9 +132,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ProductResponse</returns>
-        ProductResponse ProductsPost (string authorization, Product product);
+        ProductResponse ProductsPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Create products.
@@ -142,9 +144,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ApiResponse of ProductResponse</returns>
-        ApiResponse<ProductResponse> ProductsPostWithHttpInfo (string authorization, Product product);
+        ApiResponse<ProductResponse> ProductsPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -231,8 +233,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ProductResponse</returns>
-        System.Threading.Tasks.Task<ProductResponse> ProductsIdPutAsync (string authorization, string id);
+        System.Threading.Tasks.Task<ProductResponse> ProductsIdPutAsync (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Update products.
@@ -243,8 +246,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ApiResponse (ProductResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsIdPutAsyncWithHttpInfo (string authorization, string id);
+        System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsIdPutAsyncWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         /// <summary>
         /// Create products.
         /// </summary>
@@ -253,9 +257,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ProductResponse</returns>
-        System.Threading.Tasks.Task<ProductResponse> ProductsPostAsync (string authorization, Product product);
+        System.Threading.Tasks.Task<ProductResponse> ProductsPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Create products.
@@ -265,9 +269,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ApiResponse (ProductResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsPostAsyncWithHttpInfo (string authorization, Product product);
+        System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         #endregion Asynchronous Operations
     }
 
@@ -844,10 +848,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ProductResponse</returns>
-        public ProductResponse ProductsIdPut (string authorization, string id)
+        public ProductResponse ProductsIdPut (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<ProductResponse> localVarResponse = ProductsIdPutWithHttpInfo(authorization, id);
+             ApiResponse<ProductResponse> localVarResponse = ProductsIdPutWithHttpInfo(authorization, id, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
         }
 
@@ -857,8 +862,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ApiResponse of ProductResponse</returns>
-        public ApiResponse<ProductResponse> ProductsIdPutWithHttpInfo (string authorization, string id)
+        public ApiResponse<ProductResponse> ProductsIdPutWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -866,6 +872,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ProductsApi->ProductsIdPut");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ProductsApi->ProductsIdPut");
 
             var localVarPath = "/products/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -877,6 +886,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -890,6 +900,14 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
 
 
             // make the HTTP request
@@ -916,10 +934,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ProductResponse</returns>
-        public async System.Threading.Tasks.Task<ProductResponse> ProductsIdPutAsync (string authorization, string id)
+        public async System.Threading.Tasks.Task<ProductResponse> ProductsIdPutAsync (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<ProductResponse> localVarResponse = await ProductsIdPutAsyncWithHttpInfo(authorization, id);
+             ApiResponse<ProductResponse> localVarResponse = await ProductsIdPutAsyncWithHttpInfo(authorization, id, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
 
         }
@@ -930,8 +949,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">เลข Id Product</param>
         /// <param name="id"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ApiResponse (ProductResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsIdPutAsyncWithHttpInfo (string authorization, string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsIdPutAsyncWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -939,6 +959,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ProductsApi->ProductsIdPut");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ProductsApi->ProductsIdPut");
 
             var localVarPath = "/products/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -950,6 +973,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -963,6 +987,14 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
 
 
             // make the HTTP request
@@ -988,11 +1020,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ProductResponse</returns>
-        public ProductResponse ProductsPost (string authorization, Product product)
+        public ProductResponse ProductsPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<ProductResponse> localVarResponse = ProductsPostWithHttpInfo(authorization, product);
+             ApiResponse<ProductResponse> localVarResponse = ProductsPostWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
         }
 
@@ -1001,16 +1033,16 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>ApiResponse of ProductResponse</returns>
-        public ApiResponse<ProductResponse> ProductsPostWithHttpInfo (string authorization, Product product)
+        public ApiResponse<ProductResponse> ProductsPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ProductsApi->ProductsPost");
-            // verify the required parameter 'product' is set
-            if (product == null)
-                throw new ApiException(400, "Missing required parameter 'product' when calling ProductsApi->ProductsPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ProductsApi->ProductsPost");
 
             var localVarPath = "/products";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1035,13 +1067,13 @@ namespace Flowaccount.OpenAPITools.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (product != null && product.GetType() != typeof(byte[]))
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(product); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = product; // byte array
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
             }
 
 
@@ -1068,11 +1100,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ProductResponse</returns>
-        public async System.Threading.Tasks.Task<ProductResponse> ProductsPostAsync (string authorization, Product product)
+        public async System.Threading.Tasks.Task<ProductResponse> ProductsPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<ProductResponse> localVarResponse = await ProductsPostAsyncWithHttpInfo(authorization, product);
+             ApiResponse<ProductResponse> localVarResponse = await ProductsPostAsyncWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
 
         }
@@ -1082,16 +1114,16 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="product"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
         /// <returns>Task of ApiResponse (ProductResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsPostAsyncWithHttpInfo (string authorization, Product product)
+        public async System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ProductsApi->ProductsPost");
-            // verify the required parameter 'product' is set
-            if (product == null)
-                throw new ApiException(400, "Missing required parameter 'product' when calling ProductsApi->ProductsPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ProductsApi->ProductsPost");
 
             var localVarPath = "/products";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1116,13 +1148,13 @@ namespace Flowaccount.OpenAPITools.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (product != null && product.GetType() != typeof(byte[]))
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(product); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = product; // byte array
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
             }
 
 

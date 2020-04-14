@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -144,7 +144,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of AttachmentResponse</returns>
         ApiResponse<AttachmentResponse> ExpensesIdAttachmentPostWithHttpInfo (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get expenses document.
+        /// Delete expenses document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
@@ -156,7 +156,7 @@ namespace Flowaccount.OpenAPITools.Api
         DeleteResponse ExpensesIdDelete (string authorization, string id);
 
         /// <summary>
-        /// Get expenses document.
+        /// Delete expenses document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
@@ -193,27 +193,52 @@ namespace Flowaccount.OpenAPITools.Api
         /// Change paid status of expenses document.
         /// </summary>
         /// <remarks>
-        /// จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>ExpenseDocumentResponse</returns>
-        ExpenseDocumentResponse ExpensesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument);
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ExpenseSimpleDocumentResponse</returns>
+        ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Change paid status of expenses document.
         /// </summary>
         /// <remarks>
-        /// จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>ApiResponse of ExpenseDocumentResponse</returns>
-        ApiResponse<ExpenseDocumentResponse> ExpensesIdPaymentPostWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument);
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
+        ApiResponse<ExpenseSimpleDocumentResponse> ExpensesIdPaymentPostWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
+        /// Edit expenses document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>ExpenseInlineDocumentResponse</returns>
+        ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
+
+        /// <summary>
+        /// Edit expenses document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
+        ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
         /// <summary>
         /// Change status of expenses document.
         /// </summary>
@@ -270,9 +295,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>ExpenseDocumentResponse</returns>
-        ExpenseDocumentResponse ExpensesPost (string authorization, ExpenseDocument expenseDocument);
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>ExpenseSimpleDocumentResponse</returns>
+        ExpenseSimpleDocumentResponse ExpensesPost (string authorization, ExpenseSimpleDocument expenseSimpleDocument);
 
         /// <summary>
         /// Create expenses document.
@@ -282,9 +307,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>ApiResponse of ExpenseDocumentResponse</returns>
-        ApiResponse<ExpenseDocumentResponse> ExpensesPostWithHttpInfo (string authorization, ExpenseDocument expenseDocument);
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
+        ApiResponse<ExpenseSimpleDocumentResponse> ExpensesPostWithHttpInfo (string authorization, ExpenseSimpleDocument expenseSimpleDocument);
         /// <summary>
         /// Share link expenses documents.
         /// </summary>
@@ -430,7 +455,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (AttachmentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AttachmentResponse>> ExpensesIdAttachmentPostAsyncWithHttpInfo (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
-        /// Get expenses document.
+        /// Delete expenses document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
@@ -442,7 +467,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<DeleteResponse> ExpensesIdDeleteAsync (string authorization, string id);
 
         /// <summary>
-        /// Get expenses document.
+        /// Delete expenses document.
         /// </summary>
         /// <remarks>
         /// ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
@@ -479,27 +504,52 @@ namespace Flowaccount.OpenAPITools.Api
         /// Change paid status of expenses document.
         /// </summary>
         /// <remarks>
-        /// จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>Task of ExpenseDocumentResponse</returns>
-        System.Threading.Tasks.Task<ExpenseDocumentResponse> ExpensesIdPaymentPostAsync (string authorization, string id, PaymentDocument paymentDocument);
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ExpenseSimpleDocumentResponse</returns>
+        System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesIdPaymentPostAsync (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
 
         /// <summary>
         /// Change paid status of expenses document.
         /// </summary>
         /// <remarks>
-        /// จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>Task of ApiResponse (ExpenseDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExpenseDocumentResponse>> ExpensesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument);
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
+        /// Edit expenses document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>Task of ExpenseInlineDocumentResponse</returns>
+        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdPutAsync (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
+
+        /// <summary>
+        /// Edit expenses document.
+        /// </summary>
+        /// <remarks>
+        /// แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
         /// <summary>
         /// Change status of expenses document.
         /// </summary>
@@ -556,9 +606,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>Task of ExpenseDocumentResponse</returns>
-        System.Threading.Tasks.Task<ExpenseDocumentResponse> ExpensesPostAsync (string authorization, ExpenseDocument expenseDocument);
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>Task of ExpenseSimpleDocumentResponse</returns>
+        System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesPostAsync (string authorization, ExpenseSimpleDocument expenseSimpleDocument);
 
         /// <summary>
         /// Create expenses document.
@@ -568,9 +618,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>Task of ApiResponse (ExpenseDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExpenseDocumentResponse>> ExpensesPostAsyncWithHttpInfo (string authorization, ExpenseDocument expenseDocument);
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesPostAsyncWithHttpInfo (string authorization, ExpenseSimpleDocument expenseSimpleDocument);
         /// <summary>
         /// Share link expenses documents.
         /// </summary>
@@ -1455,7 +1505,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
+        /// Delete expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1468,7 +1518,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
+        /// Delete expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1527,7 +1577,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
+        /// Delete expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1541,7 +1591,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
+        /// Delete expenses document. ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ &lt;br&gt; ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1745,28 +1795,28 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of expenses document. จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>ExpenseDocumentResponse</returns>
-        public ExpenseDocumentResponse ExpensesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ExpenseSimpleDocumentResponse</returns>
+        public ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<ExpenseDocumentResponse> localVarResponse = ExpensesIdPaymentPostWithHttpInfo(authorization, id, paymentDocument);
+             ApiResponse<ExpenseSimpleDocumentResponse> localVarResponse = ExpensesIdPaymentPostWithHttpInfo(authorization, id, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Change paid status of expenses document. จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>ApiResponse of ExpenseDocumentResponse</returns>
-        public ApiResponse<ExpenseDocumentResponse> ExpensesIdPaymentPostWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument)
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
+        public ApiResponse<ExpenseSimpleDocumentResponse> ExpensesIdPaymentPostWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1774,9 +1824,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ExpensesApi->ExpensesIdPaymentPost");
-            // verify the required parameter 'paymentDocument' is set
-            if (paymentDocument == null)
-                throw new ApiException(400, "Missing required parameter 'paymentDocument' when calling ExpensesApi->ExpensesIdPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ExpensesApi->ExpensesIdPaymentPost");
 
             var localVarPath = "/expenses/{id}/payment";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1802,13 +1852,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (paymentDocument != null && paymentDocument.GetType() != typeof(byte[]))
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(paymentDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = paymentDocument; // byte array
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
             }
 
 
@@ -1825,35 +1875,35 @@ namespace Flowaccount.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExpenseDocumentResponse>(localVarStatusCode,
+            return new ApiResponse<ExpenseSimpleDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ExpenseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseDocumentResponse)));
+                (ExpenseSimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseSimpleDocumentResponse)));
         }
 
         /// <summary>
-        /// Change paid status of expenses document. จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>Task of ExpenseDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<ExpenseDocumentResponse> ExpensesIdPaymentPostAsync (string authorization, string id, PaymentDocument paymentDocument)
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ExpenseSimpleDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesIdPaymentPostAsync (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
-             ApiResponse<ExpenseDocumentResponse> localVarResponse = await ExpensesIdPaymentPostAsyncWithHttpInfo(authorization, id, paymentDocument);
+             ApiResponse<ExpenseSimpleDocumentResponse> localVarResponse = await ExpensesIdPaymentPostAsyncWithHttpInfo(authorization, id, UNKNOWN_BASE_TYPE);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Change paid status of expenses document. จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId หรือ documentId</param>
-        /// <param name="paymentDocument"></param>
-        /// <returns>Task of ApiResponse (ExpenseDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExpenseDocumentResponse>> ExpensesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, PaymentDocument paymentDocument)
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesIdPaymentPostAsyncWithHttpInfo (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1861,9 +1911,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ExpensesApi->ExpensesIdPaymentPost");
-            // verify the required parameter 'paymentDocument' is set
-            if (paymentDocument == null)
-                throw new ApiException(400, "Missing required parameter 'paymentDocument' when calling ExpensesApi->ExpensesIdPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ExpensesApi->ExpensesIdPaymentPost");
 
             var localVarPath = "/expenses/{id}/payment";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1889,13 +1939,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (paymentDocument != null && paymentDocument.GetType() != typeof(byte[]))
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(paymentDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = paymentDocument; // byte array
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
             }
 
 
@@ -1912,9 +1962,182 @@ namespace Flowaccount.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExpenseDocumentResponse>(localVarStatusCode,
+            return new ApiResponse<ExpenseSimpleDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ExpenseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseDocumentResponse)));
+                (ExpenseSimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseSimpleDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Edit expenses document. แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>ExpenseInlineDocumentResponse</returns>
+        public ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        {
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesIdPutWithHttpInfo(authorization, id, expenseInlineDocument);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit expenses document. แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
+        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesIdPut");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ExpensesApi->ExpensesIdPut");
+            // verify the required parameter 'expenseInlineDocument' is set
+            if (expenseInlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'expenseInlineDocument' when calling ExpensesApi->ExpensesIdPut");
+
+            var localVarPath = "/expenses/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (expenseInlineDocument != null && expenseInlineDocument.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseInlineDocument); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = expenseInlineDocument; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExpensesIdPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExpenseInlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ExpenseInlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseInlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Edit expenses document. แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>Task of ExpenseInlineDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdPutAsync (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        {
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesIdPutAsyncWithHttpInfo(authorization, id, expenseInlineDocument);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Edit expenses document. แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="id">ID เอกสารใช้ recordId</param>
+        /// <param name="expenseInlineDocument"></param>
+        /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesIdPut");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ExpensesApi->ExpensesIdPut");
+            // verify the required parameter 'expenseInlineDocument' is set
+            if (expenseInlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'expenseInlineDocument' when calling ExpensesApi->ExpensesIdPut");
+
+            var localVarPath = "/expenses/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (expenseInlineDocument != null && expenseInlineDocument.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseInlineDocument); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = expenseInlineDocument; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExpensesIdPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExpenseInlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ExpenseInlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseInlineDocumentResponse)));
         }
 
         /// <summary>
@@ -2240,11 +2463,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>ExpenseDocumentResponse</returns>
-        public ExpenseDocumentResponse ExpensesPost (string authorization, ExpenseDocument expenseDocument)
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>ExpenseSimpleDocumentResponse</returns>
+        public ExpenseSimpleDocumentResponse ExpensesPost (string authorization, ExpenseSimpleDocument expenseSimpleDocument)
         {
-             ApiResponse<ExpenseDocumentResponse> localVarResponse = ExpensesPostWithHttpInfo(authorization, expenseDocument);
+             ApiResponse<ExpenseSimpleDocumentResponse> localVarResponse = ExpensesPostWithHttpInfo(authorization, expenseSimpleDocument);
              return localVarResponse.Data;
         }
 
@@ -2253,16 +2476,16 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>ApiResponse of ExpenseDocumentResponse</returns>
-        public ApiResponse<ExpenseDocumentResponse> ExpensesPostWithHttpInfo (string authorization, ExpenseDocument expenseDocument)
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
+        public ApiResponse<ExpenseSimpleDocumentResponse> ExpensesPostWithHttpInfo (string authorization, ExpenseSimpleDocument expenseSimpleDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesPost");
-            // verify the required parameter 'expenseDocument' is set
-            if (expenseDocument == null)
-                throw new ApiException(400, "Missing required parameter 'expenseDocument' when calling ExpensesApi->ExpensesPost");
+            // verify the required parameter 'expenseSimpleDocument' is set
+            if (expenseSimpleDocument == null)
+                throw new ApiException(400, "Missing required parameter 'expenseSimpleDocument' when calling ExpensesApi->ExpensesPost");
 
             var localVarPath = "/expenses";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2287,13 +2510,13 @@ namespace Flowaccount.OpenAPITools.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (expenseDocument != null && expenseDocument.GetType() != typeof(byte[]))
+            if (expenseSimpleDocument != null && expenseSimpleDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseSimpleDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = expenseDocument; // byte array
+                localVarPostBody = expenseSimpleDocument; // byte array
             }
 
 
@@ -2310,9 +2533,9 @@ namespace Flowaccount.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExpenseDocumentResponse>(localVarStatusCode,
+            return new ApiResponse<ExpenseSimpleDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ExpenseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseDocumentResponse)));
+                (ExpenseSimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseSimpleDocumentResponse)));
         }
 
         /// <summary>
@@ -2320,11 +2543,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>Task of ExpenseDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<ExpenseDocumentResponse> ExpensesPostAsync (string authorization, ExpenseDocument expenseDocument)
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>Task of ExpenseSimpleDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesPostAsync (string authorization, ExpenseSimpleDocument expenseSimpleDocument)
         {
-             ApiResponse<ExpenseDocumentResponse> localVarResponse = await ExpensesPostAsyncWithHttpInfo(authorization, expenseDocument);
+             ApiResponse<ExpenseSimpleDocumentResponse> localVarResponse = await ExpensesPostAsyncWithHttpInfo(authorization, expenseSimpleDocument);
              return localVarResponse.Data;
 
         }
@@ -2334,16 +2557,16 @@ namespace Flowaccount.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
-        /// <param name="expenseDocument"></param>
-        /// <returns>Task of ApiResponse (ExpenseDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExpenseDocumentResponse>> ExpensesPostAsyncWithHttpInfo (string authorization, ExpenseDocument expenseDocument)
+        /// <param name="expenseSimpleDocument"></param>
+        /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesPostAsyncWithHttpInfo (string authorization, ExpenseSimpleDocument expenseSimpleDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesPost");
-            // verify the required parameter 'expenseDocument' is set
-            if (expenseDocument == null)
-                throw new ApiException(400, "Missing required parameter 'expenseDocument' when calling ExpensesApi->ExpensesPost");
+            // verify the required parameter 'expenseSimpleDocument' is set
+            if (expenseSimpleDocument == null)
+                throw new ApiException(400, "Missing required parameter 'expenseSimpleDocument' when calling ExpensesApi->ExpensesPost");
 
             var localVarPath = "/expenses";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2368,13 +2591,13 @@ namespace Flowaccount.OpenAPITools.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (expenseDocument != null && expenseDocument.GetType() != typeof(byte[]))
+            if (expenseSimpleDocument != null && expenseSimpleDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseSimpleDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = expenseDocument; // byte array
+                localVarPostBody = expenseSimpleDocument; // byte array
             }
 
 
@@ -2391,9 +2614,9 @@ namespace Flowaccount.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExpenseDocumentResponse>(localVarStatusCode,
+            return new ApiResponse<ExpenseSimpleDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ExpenseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseDocumentResponse)));
+                (ExpenseSimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseSimpleDocumentResponse)));
         }
 
         /// <summary>

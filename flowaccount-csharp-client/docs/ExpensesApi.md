@@ -9,9 +9,10 @@ Method | HTTP request | Description
 [**ExpensesEmailDocumentPost**](ExpensesApi.md#expensesemaildocumentpost) | **POST** /expenses/email-document | Send email expenses document.
 [**ExpensesGet**](ExpensesApi.md#expensesget) | **GET** /expenses | Get list all expenses documents.
 [**ExpensesIdAttachmentPost**](ExpensesApi.md#expensesidattachmentpost) | **POST** /expenses/{id}/attachment | Add Attachment to expenses.
-[**ExpensesIdDelete**](ExpensesApi.md#expensesiddelete) | **DELETE** /expenses/{id} | Get expenses document.
+[**ExpensesIdDelete**](ExpensesApi.md#expensesiddelete) | **DELETE** /expenses/{id} | Delete expenses document.
 [**ExpensesIdGet**](ExpensesApi.md#expensesidget) | **GET** /expenses/{id} | Get expenses document.
 [**ExpensesIdPaymentPost**](ExpensesApi.md#expensesidpaymentpost) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
+[**ExpensesIdPut**](ExpensesApi.md#expensesidput) | **PUT** /expenses/{id} | Edit expenses document.
 [**ExpensesIdStatusKeyStatusIdPost**](ExpensesApi.md#expensesidstatuskeystatusidpost) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
 [**ExpensesInlinePost**](ExpensesApi.md#expensesinlinepost) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 [**ExpensesPost**](ExpensesApi.md#expensespost) | **POST** /expenses | Create expenses document.
@@ -422,7 +423,7 @@ No authorization required
 
 > DeleteResponse ExpensesIdDelete (string authorization, string id)
 
-Get expenses document.
+Delete expenses document.
 
 ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -448,7 +449,7 @@ namespace Example
 
             try
             {
-                // Get expenses document.
+                // Delete expenses document.
                 DeleteResponse result = apiInstance.ExpensesIdDelete(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -578,11 +579,11 @@ No authorization required
 
 ## ExpensesIdPaymentPost
 
-> ExpenseDocumentResponse ExpensesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
+> ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
 
 Change paid status of expenses document.
 
-จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
 
 ### Example
 
@@ -603,12 +604,12 @@ namespace Example
             var apiInstance = new ExpensesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var paymentDocument = new PaymentDocument(); // PaymentDocument | 
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
             try
             {
                 // Change paid status of expenses document.
-                ExpenseDocumentResponse result = apiInstance.ExpensesIdPaymentPost(authorization, id, paymentDocument);
+                ExpenseSimpleDocumentResponse result = apiInstance.ExpensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -629,11 +630,92 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **paymentDocument** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
-[**ExpenseDocumentResponse**](ExpenseDocumentResponse.md)
+[**ExpenseSimpleDocumentResponse**](ExpenseSimpleDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ExpensesIdPut
+
+> ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+
+Edit expenses document.
+
+แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class ExpensesIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new ExpensesApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+            var expenseInlineDocument = new ExpenseInlineDocument(); // ExpenseInlineDocument | 
+
+            try
+            {
+                // Edit expenses document.
+                ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdPut(authorization, id, expenseInlineDocument);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ExpensesApi.ExpensesIdPut: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+ **expenseInlineDocument** | [**ExpenseInlineDocument**](ExpenseInlineDocument.md)|  | 
+
+### Return type
+
+[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
 
 ### Authorization
 
@@ -819,7 +901,7 @@ No authorization required
 
 ## ExpensesPost
 
-> ExpenseDocumentResponse ExpensesPost (string authorization, ExpenseDocument expenseDocument)
+> ExpenseSimpleDocumentResponse ExpensesPost (string authorization, ExpenseSimpleDocument expenseSimpleDocument)
 
 Create expenses document.
 
@@ -843,12 +925,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ExpensesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var expenseDocument = new ExpenseDocument(); // ExpenseDocument | 
+            var expenseSimpleDocument = new ExpenseSimpleDocument(); // ExpenseSimpleDocument | 
 
             try
             {
                 // Create expenses document.
-                ExpenseDocumentResponse result = apiInstance.ExpensesPost(authorization, expenseDocument);
+                ExpenseSimpleDocumentResponse result = apiInstance.ExpensesPost(authorization, expenseSimpleDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -868,11 +950,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **expenseDocument** | [**ExpenseDocument**](ExpenseDocument.md)|  | 
+ **expenseSimpleDocument** | [**ExpenseSimpleDocument**](ExpenseSimpleDocument.md)|  | 
 
 ### Return type
 
-[**ExpenseDocumentResponse**](ExpenseDocumentResponse.md)
+[**ExpenseSimpleDocumentResponse**](ExpenseSimpleDocumentResponse.md)
 
 ### Authorization
 
