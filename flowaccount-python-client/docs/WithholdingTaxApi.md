@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**withholding_taxes_email_document_post**](WithholdingTaxApi.md#withholding_taxes_email_document_post) | **POST** /withholding-taxes/email-document | Send email withholding tax document.
 [**withholding_taxes_get**](WithholdingTaxApi.md#withholding_taxes_get) | **GET** /withholding-taxes | Get list all withholding tax documents.
 [**withholding_taxes_id_attachment_post**](WithholdingTaxApi.md#withholding_taxes_id_attachment_post) | **POST** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
-[**withholding_taxes_id_delete**](WithholdingTaxApi.md#withholding_taxes_id_delete) | **DELETE** /withholding-taxes/{id} | Get withholding tax document.
+[**withholding_taxes_id_delete**](WithholdingTaxApi.md#withholding_taxes_id_delete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**withholding_taxes_id_get**](WithholdingTaxApi.md#withholding_taxes_id_get) | **GET** /withholding-taxes/{id} | Get withholding tax document.
+[**withholding_taxes_id_put**](WithholdingTaxApi.md#withholding_taxes_id_put) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
 [**withholding_taxes_id_status_key_status_id_post**](WithholdingTaxApi.md#withholding_taxes_id_status_key_status_id_post) | **POST** /withholding-taxes/{id}/status-key/{statusId} | Change status of withholding tax document.
 [**withholding_taxes_post**](WithholdingTaxApi.md#withholding_taxes_post) | **POST** /withholding-taxes | Create withholding tax document.
 [**withholding_taxes_sharedocument_post**](WithholdingTaxApi.md#withholding_taxes_sharedocument_post) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
@@ -199,7 +200,7 @@ No authorization required
 # **withholding_taxes_id_delete**
 > DeleteResponse withholding_taxes_id_delete(authorization, id)
 
-Get withholding tax document.
+Delete withholding tax document.
 
 ลบ เอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -218,7 +219,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get withholding tax document.
+    # Delete withholding tax document.
     api_response = api_instance.withholding_taxes_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -301,6 +302,66 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **withholding_taxes_id_put**
+> WithholidingTaxDocumentResponse withholding_taxes_id_put(authorization, id, withholiding_tax_document)
+
+Edit withholding tax document.
+
+แก้ไขข้อมูลเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.WithholdingTaxApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+withholiding_tax_document = openapi_client.WithholidingTaxDocument() # WithholidingTaxDocument | 
+
+try:
+    # Edit withholding tax document.
+    api_response = api_instance.withholding_taxes_id_put(authorization, id, withholiding_tax_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling WithholdingTaxApi->withholding_taxes_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **withholiding_tax_document** | [**WithholidingTaxDocument**](WithholidingTaxDocument.md)|  | 
+
+### Return type
+
+[**WithholidingTaxDocumentResponse**](WithholidingTaxDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

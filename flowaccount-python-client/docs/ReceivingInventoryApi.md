@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**purchases_email_document_post**](ReceivingInventoryApi.md#purchases_email_document_post) | **POST** /purchases/email-document | Send email receiving inventory document.
 [**purchases_get**](ReceivingInventoryApi.md#purchases_get) | **GET** /purchases | Get list all receiving inventory documents.
 [**purchases_id_attachment_post**](ReceivingInventoryApi.md#purchases_id_attachment_post) | **POST** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
-[**purchases_id_delete**](ReceivingInventoryApi.md#purchases_id_delete) | **DELETE** /purchases/{id} | Get receiving inventory document.
+[**purchases_id_delete**](ReceivingInventoryApi.md#purchases_id_delete) | **DELETE** /purchases/{id} | Delete receiving inventory document.
 [**purchases_id_get**](ReceivingInventoryApi.md#purchases_id_get) | **GET** /purchases/{id} | Get receiving inventory document.
+[**purchases_id_payment_post**](ReceivingInventoryApi.md#purchases_id_payment_post) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
+[**purchases_id_put**](ReceivingInventoryApi.md#purchases_id_put) | **PUT** /purchases/{id} | Edit receiving inventory document.
 [**purchases_id_status_key_status_id_post**](ReceivingInventoryApi.md#purchases_id_status_key_status_id_post) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
 [**purchases_inline_post**](ReceivingInventoryApi.md#purchases_inline_post) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 [**purchases_post**](ReceivingInventoryApi.md#purchases_post) | **POST** /purchases | Create receiving inventory document.
@@ -200,7 +202,7 @@ No authorization required
 # **purchases_id_delete**
 > DeleteResponse purchases_id_delete(authorization, id)
 
-Get receiving inventory document.
+Delete receiving inventory document.
 
 ลบ เอกสารใบรับสินค้า ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
 
@@ -219,7 +221,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get receiving inventory document.
+    # Delete receiving inventory document.
     api_response = api_instance.purchases_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -313,6 +315,126 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **purchases_id_payment_post**
+> InlineDocumentResponse purchases_id_payment_post(authorization, id, unknown_base_type)
+
+Change paid status of receiving inventory document.
+
+ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ReceivingInventoryApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Change paid status of receiving inventory document.
+    api_response = api_instance.purchases_id_payment_post(authorization, id, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReceivingInventoryApi->purchases_id_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId หรือ documentId | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **purchases_id_put**
+> InlineDocumentResponse purchases_id_put(authorization, id, inline_document)
+
+Edit receiving inventory document.
+
+แก้ไขข้อมูลเอกสารใบรับสินค้า ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ReceivingInventoryApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit receiving inventory document.
+    api_response = api_instance.purchases_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReceivingInventoryApi->purchases_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **purchases_id_status_key_status_id_post**
 > InlineDocumentResponse purchases_id_status_key_status_id_post(authorization, id, status_id)
 
@@ -333,7 +455,7 @@ from pprint import pprint
 api_instance = openapi_client.ReceivingInventoryApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
-status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
+status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
 
 try:
     # Change status of receiving inventory document.
@@ -349,7 +471,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId | 
- **status_id** | **str**| เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก | 
+ **status_id** | **str**| เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก | 
 
 ### Return type
 

@@ -3,7 +3,7 @@
 """
     FlowAccount Open API
 
-    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test  # noqa: E501
+    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64  # noqa: E501
 
     The version of the OpenAPI document: 2-oas3
     Contact: developer@flowaccount.com
@@ -414,7 +414,7 @@ class QuotationsApi(object):
             collection_formats=collection_formats)
 
     def quotations_id_delete(self, authorization, id, **kwargs):  # noqa: E501
-        """Get quotations document.  # noqa: E501
+        """Delete quotations document.  # noqa: E501
 
         ลบ เอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -440,7 +440,7 @@ class QuotationsApi(object):
         return self.quotations_id_delete_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def quotations_id_delete_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Get quotations document.  # noqa: E501
+        """Delete quotations document.  # noqa: E501
 
         ลบ เอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -631,6 +631,134 @@ class QuotationsApi(object):
 
         return self.api_client.call_api(
             '/quotations/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineDocumentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def quotations_id_put(self, authorization, id, inline_document, **kwargs):  # noqa: E501
+        """Edit quotations document.  # noqa: E501
+
+        แก้ไขข้อมูลเอกสารใบเสนอราคา ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.quotations_id_put(authorization, id, inline_document, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str authorization: (required)
+        :param str id: ID เอกสารใช้ recordId (required)
+        :param InlineDocument inline_document: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineDocumentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.quotations_id_put_with_http_info(authorization, id, inline_document, **kwargs)  # noqa: E501
+
+    def quotations_id_put_with_http_info(self, authorization, id, inline_document, **kwargs):  # noqa: E501
+        """Edit quotations document.  # noqa: E501
+
+        แก้ไขข้อมูลเอกสารใบเสนอราคา ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.quotations_id_put_with_http_info(authorization, id, inline_document, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str authorization: (required)
+        :param str id: ID เอกสารใช้ recordId (required)
+        :param InlineDocument inline_document: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineDocumentResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['authorization', 'id', 'inline_document']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method quotations_id_put" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'authorization' is set
+        if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
+                                                        local_var_params['authorization'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `authorization` when calling `quotations_id_put`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `quotations_id_put`")  # noqa: E501
+        # verify the required parameter 'inline_document' is set
+        if self.api_client.client_side_validation and ('inline_document' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_document'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_document` when calling `quotations_id_put`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'authorization' in local_var_params:
+            header_params['Authorization'] = local_var_params['authorization']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_document' in local_var_params:
+            body_params = local_var_params['inline_document']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/quotations/{id}', 'PUT',
             path_params,
             query_params,
             header_params,

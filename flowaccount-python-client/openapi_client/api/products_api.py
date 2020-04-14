@@ -3,7 +3,7 @@
 """
     FlowAccount Open API
 
-    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test  # noqa: E501
+    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64  # noqa: E501
 
     The version of the OpenAPI document: 2-oas3
     Contact: developer@flowaccount.com
@@ -395,17 +395,18 @@ class ProductsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def products_id_put(self, authorization, id, **kwargs):  # noqa: E501
+    def products_id_put(self, authorization, id, unknown_base_type, **kwargs):  # noqa: E501
         """Update products.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.products_id_put(authorization, id, async_req=True)
+        >>> thread = api.products_id_put(authorization, id, unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: เลข Id Product (required)
         :param str id: (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -418,19 +419,20 @@ class ProductsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.products_id_put_with_http_info(authorization, id, **kwargs)  # noqa: E501
+        return self.products_id_put_with_http_info(authorization, id, unknown_base_type, **kwargs)  # noqa: E501
 
-    def products_id_put_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
+    def products_id_put_with_http_info(self, authorization, id, unknown_base_type, **kwargs):  # noqa: E501
         """Update products.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.products_id_put_with_http_info(authorization, id, async_req=True)
+        >>> thread = api.products_id_put_with_http_info(authorization, id, unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: เลข Id Product (required)
         :param str id: (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -447,7 +449,7 @@ class ProductsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['authorization', 'id']  # noqa: E501
+        all_params = ['authorization', 'id', 'unknown_base_type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -469,6 +471,10 @@ class ProductsApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `products_id_put`")  # noqa: E501
+        # verify the required parameter 'unknown_base_type' is set
+        if self.api_client.client_side_validation and ('unknown_base_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unknown_base_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unknown_base_type` when calling `products_id_put`")  # noqa: E501
 
         collection_formats = {}
 
@@ -486,8 +492,14 @@ class ProductsApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
@@ -509,17 +521,17 @@ class ProductsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def products_post(self, authorization, product, **kwargs):  # noqa: E501
+    def products_post(self, authorization, unknown_base_type, **kwargs):  # noqa: E501
         """Create products.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.products_post(authorization, product, async_req=True)
+        >>> thread = api.products_post(authorization, unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
-        :param Product product: (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -532,19 +544,19 @@ class ProductsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.products_post_with_http_info(authorization, product, **kwargs)  # noqa: E501
+        return self.products_post_with_http_info(authorization, unknown_base_type, **kwargs)  # noqa: E501
 
-    def products_post_with_http_info(self, authorization, product, **kwargs):  # noqa: E501
+    def products_post_with_http_info(self, authorization, unknown_base_type, **kwargs):  # noqa: E501
         """Create products.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.products_post_with_http_info(authorization, product, async_req=True)
+        >>> thread = api.products_post_with_http_info(authorization, unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
-        :param Product product: (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -561,7 +573,7 @@ class ProductsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['authorization', 'product']  # noqa: E501
+        all_params = ['authorization', 'unknown_base_type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -579,10 +591,10 @@ class ProductsApi(object):
         if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
                                                         local_var_params['authorization'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `authorization` when calling `products_post`")  # noqa: E501
-        # verify the required parameter 'product' is set
-        if self.api_client.client_side_validation and ('product' not in local_var_params or  # noqa: E501
-                                                        local_var_params['product'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `product` when calling `products_post`")  # noqa: E501
+        # verify the required parameter 'unknown_base_type' is set
+        if self.api_client.client_side_validation and ('unknown_base_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unknown_base_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unknown_base_type` when calling `products_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -598,8 +610,8 @@ class ProductsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'product' in local_var_params:
-            body_params = local_var_params['product']
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

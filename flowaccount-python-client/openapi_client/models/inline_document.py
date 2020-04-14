@@ -3,7 +3,7 @@
 """
     FlowAccount Open API
 
-    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test  # noqa: E501
+    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64  # noqa: E501
 
     The version of the OpenAPI document: 2-oas3
     Contact: developer@flowaccount.com
@@ -200,7 +200,7 @@ class InlineDocument(object):
     def items(self):
         """Gets the items of this InlineDocument.  # noqa: E501
 
-        รายการสินค้าใช้งานสำหรับเอกสาร Simple  # noqa: E501
+        รายการสินค้าใช้งานสำหรับเอกสาร Inline  # noqa: E501
 
         :return: The items of this InlineDocument.  # noqa: E501
         :rtype: list[InlineProductItem]
@@ -211,7 +211,7 @@ class InlineDocument(object):
     def items(self, items):
         """Sets the items of this InlineDocument.
 
-        รายการสินค้าใช้งานสำหรับเอกสาร Simple  # noqa: E501
+        รายการสินค้าใช้งานสำหรับเอกสาร Inline  # noqa: E501
 
         :param items: The items of this InlineDocument.  # noqa: E501
         :type: list[InlineProductItem]

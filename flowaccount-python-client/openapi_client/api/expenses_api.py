@@ -3,7 +3,7 @@
 """
     FlowAccount Open API
 
-    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test  # noqa: E501
+    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64  # noqa: E501
 
     The version of the OpenAPI document: 2-oas3
     Contact: developer@flowaccount.com
@@ -630,7 +630,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_id_delete(self, authorization, id, **kwargs):  # noqa: E501
-        """Get expenses document.  # noqa: E501
+        """Delete expenses document.  # noqa: E501
 
         ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -656,7 +656,7 @@ class ExpensesApi(object):
         return self.expenses_id_delete_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def expenses_id_delete_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Get expenses document.  # noqa: E501
+        """Delete expenses document.  # noqa: E501
 
         ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -861,19 +861,19 @@ class ExpensesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def expenses_id_payment_post(self, authorization, id, payment_document, **kwargs):  # noqa: E501
+    def expenses_id_payment_post(self, authorization, id, unknown_base_type, **kwargs):  # noqa: E501
         """Change paid status of expenses document.  # noqa: E501
 
-        จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย  # noqa: E501
+        ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.expenses_id_payment_post(authorization, id, payment_document, async_req=True)
+        >>> thread = api.expenses_id_payment_post(authorization, id, unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
         :param str id: ID เอกสารใช้ recordId หรือ documentId (required)
-        :param PaymentDocument payment_document: (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -881,26 +881,26 @@ class ExpensesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ExpenseDocumentResponse
+        :return: ExpenseSimpleDocumentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.expenses_id_payment_post_with_http_info(authorization, id, payment_document, **kwargs)  # noqa: E501
+        return self.expenses_id_payment_post_with_http_info(authorization, id, unknown_base_type, **kwargs)  # noqa: E501
 
-    def expenses_id_payment_post_with_http_info(self, authorization, id, payment_document, **kwargs):  # noqa: E501
+    def expenses_id_payment_post_with_http_info(self, authorization, id, unknown_base_type, **kwargs):  # noqa: E501
         """Change paid status of expenses document.  # noqa: E501
 
-        จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย  # noqa: E501
+        ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.expenses_id_payment_post_with_http_info(authorization, id, payment_document, async_req=True)
+        >>> thread = api.expenses_id_payment_post_with_http_info(authorization, id, unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
         :param str id: ID เอกสารใช้ recordId หรือ documentId (required)
-        :param PaymentDocument payment_document: (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -910,14 +910,14 @@ class ExpensesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ExpenseDocumentResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ExpenseSimpleDocumentResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['authorization', 'id', 'payment_document']  # noqa: E501
+        all_params = ['authorization', 'id', 'unknown_base_type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -939,10 +939,10 @@ class ExpensesApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `expenses_id_payment_post`")  # noqa: E501
-        # verify the required parameter 'payment_document' is set
-        if self.api_client.client_side_validation and ('payment_document' not in local_var_params or  # noqa: E501
-                                                        local_var_params['payment_document'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `payment_document` when calling `expenses_id_payment_post`")  # noqa: E501
+        # verify the required parameter 'unknown_base_type' is set
+        if self.api_client.client_side_validation and ('unknown_base_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unknown_base_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unknown_base_type` when calling `expenses_id_payment_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -960,8 +960,8 @@ class ExpensesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'payment_document' in local_var_params:
-            body_params = local_var_params['payment_document']
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -981,7 +981,135 @@ class ExpensesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ExpenseDocumentResponse',  # noqa: E501
+            response_type='ExpenseSimpleDocumentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def expenses_id_put(self, authorization, id, expense_inline_document, **kwargs):  # noqa: E501
+        """Edit expenses document.  # noqa: E501
+
+        แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.expenses_id_put(authorization, id, expense_inline_document, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str authorization: (required)
+        :param str id: ID เอกสารใช้ recordId (required)
+        :param ExpenseInlineDocument expense_inline_document: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ExpenseInlineDocumentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.expenses_id_put_with_http_info(authorization, id, expense_inline_document, **kwargs)  # noqa: E501
+
+    def expenses_id_put_with_http_info(self, authorization, id, expense_inline_document, **kwargs):  # noqa: E501
+        """Edit expenses document.  # noqa: E501
+
+        แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.expenses_id_put_with_http_info(authorization, id, expense_inline_document, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str authorization: (required)
+        :param str id: ID เอกสารใช้ recordId (required)
+        :param ExpenseInlineDocument expense_inline_document: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ExpenseInlineDocumentResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['authorization', 'id', 'expense_inline_document']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method expenses_id_put" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'authorization' is set
+        if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
+                                                        local_var_params['authorization'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `authorization` when calling `expenses_id_put`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `expenses_id_put`")  # noqa: E501
+        # verify the required parameter 'expense_inline_document' is set
+        if self.api_client.client_side_validation and ('expense_inline_document' not in local_var_params or  # noqa: E501
+                                                        local_var_params['expense_inline_document'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `expense_inline_document` when calling `expenses_id_put`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'authorization' in local_var_params:
+            header_params['Authorization'] = local_var_params['authorization']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'expense_inline_document' in local_var_params:
+            body_params = local_var_params['expense_inline_document']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/expenses/{id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ExpenseInlineDocumentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1233,18 +1361,18 @@ class ExpensesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def expenses_post(self, authorization, expense_document, **kwargs):  # noqa: E501
+    def expenses_post(self, authorization, expense_simple_document, **kwargs):  # noqa: E501
         """Create expenses document.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.expenses_post(authorization, expense_document, async_req=True)
+        >>> thread = api.expenses_post(authorization, expense_simple_document, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
-        :param ExpenseDocument expense_document: (required)
+        :param ExpenseSimpleDocument expense_simple_document: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1252,25 +1380,25 @@ class ExpensesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ExpenseDocumentResponse
+        :return: ExpenseSimpleDocumentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.expenses_post_with_http_info(authorization, expense_document, **kwargs)  # noqa: E501
+        return self.expenses_post_with_http_info(authorization, expense_simple_document, **kwargs)  # noqa: E501
 
-    def expenses_post_with_http_info(self, authorization, expense_document, **kwargs):  # noqa: E501
+    def expenses_post_with_http_info(self, authorization, expense_simple_document, **kwargs):  # noqa: E501
         """Create expenses document.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.expenses_post_with_http_info(authorization, expense_document, async_req=True)
+        >>> thread = api.expenses_post_with_http_info(authorization, expense_simple_document, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
-        :param ExpenseDocument expense_document: (required)
+        :param ExpenseSimpleDocument expense_simple_document: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1280,14 +1408,14 @@ class ExpensesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ExpenseDocumentResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ExpenseSimpleDocumentResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['authorization', 'expense_document']  # noqa: E501
+        all_params = ['authorization', 'expense_simple_document']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1305,10 +1433,10 @@ class ExpensesApi(object):
         if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
                                                         local_var_params['authorization'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `authorization` when calling `expenses_post`")  # noqa: E501
-        # verify the required parameter 'expense_document' is set
-        if self.api_client.client_side_validation and ('expense_document' not in local_var_params or  # noqa: E501
-                                                        local_var_params['expense_document'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `expense_document` when calling `expenses_post`")  # noqa: E501
+        # verify the required parameter 'expense_simple_document' is set
+        if self.api_client.client_side_validation and ('expense_simple_document' not in local_var_params or  # noqa: E501
+                                                        local_var_params['expense_simple_document'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `expense_simple_document` when calling `expenses_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1324,8 +1452,8 @@ class ExpensesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'expense_document' in local_var_params:
-            body_params = local_var_params['expense_document']
+        if 'expense_simple_document' in local_var_params:
+            body_params = local_var_params['expense_simple_document']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1345,7 +1473,7 @@ class ExpensesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ExpenseDocumentResponse',  # noqa: E501
+            response_type='ExpenseSimpleDocumentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

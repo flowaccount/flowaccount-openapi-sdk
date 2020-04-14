@@ -9,9 +9,10 @@ Method | HTTP request | Description
 [**expenses_email_document_post**](ExpensesApi.md#expenses_email_document_post) | **POST** /expenses/email-document | Send email expenses document.
 [**expenses_get**](ExpensesApi.md#expenses_get) | **GET** /expenses | Get list all expenses documents.
 [**expenses_id_attachment_post**](ExpensesApi.md#expenses_id_attachment_post) | **POST** /expenses/{id}/attachment | Add Attachment to expenses.
-[**expenses_id_delete**](ExpensesApi.md#expenses_id_delete) | **DELETE** /expenses/{id} | Get expenses document.
+[**expenses_id_delete**](ExpensesApi.md#expenses_id_delete) | **DELETE** /expenses/{id} | Delete expenses document.
 [**expenses_id_get**](ExpensesApi.md#expenses_id_get) | **GET** /expenses/{id} | Get expenses document.
 [**expenses_id_payment_post**](ExpensesApi.md#expenses_id_payment_post) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
+[**expenses_id_put**](ExpensesApi.md#expenses_id_put) | **PUT** /expenses/{id} | Edit expenses document.
 [**expenses_id_status_key_status_id_post**](ExpensesApi.md#expenses_id_status_key_status_id_post) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
 [**expenses_inline_post**](ExpensesApi.md#expenses_inline_post) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 [**expenses_post**](ExpensesApi.md#expenses_post) | **POST** /expenses | Create expenses document.
@@ -315,7 +316,7 @@ No authorization required
 # **expenses_id_delete**
 > DeleteResponse expenses_id_delete(authorization, id)
 
-Get expenses document.
+Delete expenses document.
 
 ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -334,7 +335,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get expenses document.
+    # Delete expenses document.
     api_response = api_instance.expenses_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -429,11 +430,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **expenses_id_payment_post**
-> ExpenseDocumentResponse expenses_id_payment_post(authorization, id, payment_document)
+> ExpenseSimpleDocumentResponse expenses_id_payment_post(authorization, id, unknown_base_type)
 
 Change paid status of expenses document.
 
-จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
 
 ### Example
 
@@ -448,11 +449,11 @@ from pprint import pprint
 api_instance = openapi_client.ExpensesApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
-payment_document = openapi_client.PaymentDocument() # PaymentDocument | 
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Change paid status of expenses document.
-    api_response = api_instance.expenses_id_payment_post(authorization, id, payment_document)
+    api_response = api_instance.expenses_id_payment_post(authorization, id, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExpensesApi->expenses_id_payment_post: %s\n" % e)
@@ -464,11 +465,71 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId หรือ documentId | 
- **payment_document** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
-[**ExpenseDocumentResponse**](ExpenseDocumentResponse.md)
+[**ExpenseSimpleDocumentResponse**](ExpenseSimpleDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **expenses_id_put**
+> ExpenseInlineDocumentResponse expenses_id_put(authorization, id, expense_inline_document)
+
+Edit expenses document.
+
+แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ExpensesApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+expense_inline_document = openapi_client.ExpenseInlineDocument() # ExpenseInlineDocument | 
+
+try:
+    # Edit expenses document.
+    api_response = api_instance.expenses_id_put(authorization, id, expense_inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExpensesApi->expenses_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **expense_inline_document** | [**ExpenseInlineDocument**](ExpenseInlineDocument.md)|  | 
+
+### Return type
+
+[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
 
 ### Authorization
 
@@ -607,7 +668,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **expenses_post**
-> ExpenseDocumentResponse expenses_post(authorization, expense_document)
+> ExpenseSimpleDocumentResponse expenses_post(authorization, expense_simple_document)
 
 Create expenses document.
 
@@ -625,11 +686,11 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = openapi_client.ExpensesApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-expense_document = openapi_client.ExpenseDocument() # ExpenseDocument | 
+expense_simple_document = openapi_client.ExpenseSimpleDocument() # ExpenseSimpleDocument | 
 
 try:
     # Create expenses document.
-    api_response = api_instance.expenses_post(authorization, expense_document)
+    api_response = api_instance.expenses_post(authorization, expense_simple_document)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExpensesApi->expenses_post: %s\n" % e)
@@ -640,11 +701,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **expense_document** | [**ExpenseDocument**](ExpenseDocument.md)|  | 
+ **expense_simple_document** | [**ExpenseSimpleDocument**](ExpenseSimpleDocument.md)|  | 
 
 ### Return type
 
-[**ExpenseDocumentResponse**](ExpenseDocumentResponse.md)
+[**ExpenseSimpleDocumentResponse**](ExpenseSimpleDocumentResponse.md)
 
 ### Authorization
 

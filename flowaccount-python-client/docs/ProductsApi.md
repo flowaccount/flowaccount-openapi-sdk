@@ -186,7 +186,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **products_id_put**
-> ProductResponse products_id_put(authorization, id)
+> ProductResponse products_id_put(authorization, id, unknown_base_type)
 
 Update products.
 
@@ -203,10 +203,11 @@ from pprint import pprint
 api_instance = openapi_client.ProductsApi()
 authorization = 'Bearer accessToken' # str | เลข Id Product (default to 'Bearer accessToken')
 id = 'id_example' # str | 
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Update products.
-    api_response = api_instance.products_id_put(authorization, id)
+    api_response = api_instance.products_id_put(authorization, id, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProductsApi->products_id_put: %s\n" % e)
@@ -218,6 +219,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| เลข Id Product | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
@@ -229,7 +231,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -242,7 +244,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **products_post**
-> ProductResponse products_post(authorization, product)
+> ProductResponse products_post(authorization, unknown_base_type)
 
 Create products.
 
@@ -258,11 +260,11 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = openapi_client.ProductsApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-product = openapi_client.Product() # Product | 
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Create products.
-    api_response = api_instance.products_post(authorization, product)
+    api_response = api_instance.products_post(authorization, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProductsApi->products_post: %s\n" % e)
@@ -273,7 +275,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **product** | [**Product**](Product.md)|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 

@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**quotations_email_document_post**](QuotationsApi.md#quotations_email_document_post) | **POST** /quotations/email-document | Send email quotations document.
 [**quotations_get**](QuotationsApi.md#quotations_get) | **GET** /quotations | Get list all quotations documents.
 [**quotations_id_attachment_post**](QuotationsApi.md#quotations_id_attachment_post) | **POST** /quotations/{id}/attachment | Add Attachment to quotations document.
-[**quotations_id_delete**](QuotationsApi.md#quotations_id_delete) | **DELETE** /quotations/{id} | Get quotations document.
+[**quotations_id_delete**](QuotationsApi.md#quotations_id_delete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**quotations_id_get**](QuotationsApi.md#quotations_id_get) | **GET** /quotations/{id} | Get quotations document.
+[**quotations_id_put**](QuotationsApi.md#quotations_id_put) | **PUT** /quotations/{id} | Edit quotations document.
 [**quotations_id_status_key_status_id_post**](QuotationsApi.md#quotations_id_status_key_status_id_post) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
 [**quotations_inline_post**](QuotationsApi.md#quotations_inline_post) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 [**quotations_post**](QuotationsApi.md#quotations_post) | **POST** /quotations | Create quotations document.
@@ -200,7 +201,7 @@ No authorization required
 # **quotations_id_delete**
 > DeleteResponse quotations_id_delete(authorization, id)
 
-Get quotations document.
+Delete quotations document.
 
 ลบ เอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
 
@@ -219,7 +220,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get quotations document.
+    # Delete quotations document.
     api_response = api_instance.quotations_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -302,6 +303,66 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **quotations_id_put**
+> InlineDocumentResponse quotations_id_put(authorization, id, inline_document)
+
+Edit quotations document.
+
+แก้ไขข้อมูลเอกสารใบเสนอราคา ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.QuotationsApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit quotations document.
+    api_response = api_instance.quotations_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QuotationsApi->quotations_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

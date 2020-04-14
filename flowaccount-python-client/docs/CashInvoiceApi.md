@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**cash_invoices_email_document_post**](CashInvoiceApi.md#cash_invoices_email_document_post) | **POST** /cash-invoices/email-document | Send email cash invoices document.
 [**cash_invoices_get**](CashInvoiceApi.md#cash_invoices_get) | **GET** /cash-invoices | Get list all cash invoices documents
 [**cash_invoices_id_attachment_post**](CashInvoiceApi.md#cash_invoices_id_attachment_post) | **POST** /cash-invoices/{id}/attachment | Add Attachment to cash invoices document.
-[**cash_invoices_id_delete**](CashInvoiceApi.md#cash_invoices_id_delete) | **DELETE** /cash-invoices/{id} | Get cash invoices document.
+[**cash_invoices_id_delete**](CashInvoiceApi.md#cash_invoices_id_delete) | **DELETE** /cash-invoices/{id} | Delete cash invoices document.
 [**cash_invoices_id_get**](CashInvoiceApi.md#cash_invoices_id_get) | **GET** /cash-invoices/{id} | Get cash invoices document.
 [**cash_invoices_id_payment_post**](CashInvoiceApi.md#cash_invoices_id_payment_post) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
+[**cash_invoices_id_put**](CashInvoiceApi.md#cash_invoices_id_put) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
 [**cash_invoices_id_status_key_status_id_post**](CashInvoiceApi.md#cash_invoices_id_status_key_status_id_post) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
 [**cash_invoices_inline_post**](CashInvoiceApi.md#cash_invoices_inline_post) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 [**cash_invoices_post**](CashInvoiceApi.md#cash_invoices_post) | **POST** /cash-invoices | Create cash invoices document.
@@ -201,7 +202,7 @@ No authorization required
 # **cash_invoices_id_delete**
 > DeleteResponse cash_invoices_id_delete(authorization, id)
 
-Get cash invoices document.
+Delete cash invoices document.
 
 ลบ เอกสารใบกำกับ/ใบเสร็จรับเงิน (เงินสด) ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -220,7 +221,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get cash invoices document.
+    # Delete cash invoices document.
     api_response = api_instance.cash_invoices_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -315,11 +316,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cash_invoices_id_payment_post**
-> InlineDocumentResponse cash_invoices_id_payment_post(authorization, id, payment_document)
+> InlineDocumentResponse cash_invoices_id_payment_post(authorization, id, unknown_base_type)
 
 Change paid status of cash invoices document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด)
+เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -334,11 +335,11 @@ from pprint import pprint
 api_instance = openapi_client.CashInvoiceApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
-payment_document = openapi_client.PaymentDocument() # PaymentDocument | 
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Change paid status of cash invoices document.
-    api_response = api_instance.cash_invoices_id_payment_post(authorization, id, payment_document)
+    api_response = api_instance.cash_invoices_id_payment_post(authorization, id, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CashInvoiceApi->cash_invoices_id_payment_post: %s\n" % e)
@@ -350,7 +351,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId หรือ documentId | 
- **payment_document** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cash_invoices_id_put**
+> InlineDocumentResponse cash_invoices_id_put(authorization, id, inline_document)
+
+Edit cash invoices document.
+
+แก้ไขข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.CashInvoiceApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit cash invoices document.
+    api_response = api_instance.cash_invoices_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CashInvoiceApi->cash_invoices_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
 
 ### Return type
 

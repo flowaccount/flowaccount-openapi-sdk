@@ -4,6 +4,7 @@ from __future__ import absolute_import
 
 # import apis into api package
 from openapi_client.api.authentication_api import AuthenticationApi
+from openapi_client.api.bank_account_api import BankAccountApi
 from openapi_client.api.billing_notes_api import BillingNotesApi
 from openapi_client.api.cash_invoice_api import CashInvoiceApi
 from openapi_client.api.contacts_api import ContactsApi

@@ -5,7 +5,7 @@
 """
     FlowAccount Open API
 
-    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test  # noqa: E501
+    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64  # noqa: E501
 
     The version of the OpenAPI document: 2-oas3
     Contact: developer@flowaccount.com
@@ -19,6 +19,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.authentication_api import AuthenticationApi
+from openapi_client.api.bank_account_api import BankAccountApi
 from openapi_client.api.billing_notes_api import BillingNotesApi
 from openapi_client.api.cash_invoice_api import CashInvoiceApi
 from openapi_client.api.contacts_api import ContactsApi
@@ -43,6 +44,8 @@ from openapi_client.exceptions import ApiException
 from openapi_client.models.attachment_response import AttachmentResponse
 from openapi_client.models.attachment_response_data import AttachmentResponseData
 from openapi_client.models.authen_response import AuthenResponse
+from openapi_client.models.bank_account import BankAccount
+from openapi_client.models.bank_account_response import BankAccountResponse
 from openapi_client.models.business_category import BusinessCategory
 from openapi_client.models.contact import Contact
 from openapi_client.models.contact_response import ContactResponse
@@ -52,10 +55,13 @@ from openapi_client.models.delete_response_data import DeleteResponseData
 from openapi_client.models.document import Document
 from openapi_client.models.document_response import DocumentResponse
 from openapi_client.models.expense_document import ExpenseDocument
-from openapi_client.models.expense_document_response import ExpenseDocumentResponse
 from openapi_client.models.expense_inline_document import ExpenseInlineDocument
+from openapi_client.models.expense_inline_document_all_of import ExpenseInlineDocumentAllOf
 from openapi_client.models.expense_inline_document_response import ExpenseInlineDocumentResponse
 from openapi_client.models.expense_inline_product_item import ExpenseInlineProductItem
+from openapi_client.models.expense_simple_document import ExpenseSimpleDocument
+from openapi_client.models.expense_simple_document_all_of import ExpenseSimpleDocumentAllOf
+from openapi_client.models.expense_simple_document_response import ExpenseSimpleDocumentResponse
 from openapi_client.models.expense_simple_product_item import ExpenseSimpleProductItem
 from openapi_client.models.inline_document import InlineDocument
 from openapi_client.models.inline_document_all_of import InlineDocumentAllOf
@@ -74,12 +80,22 @@ from openapi_client.models.inline_object8 import InlineObject8
 from openapi_client.models.inline_object9 import InlineObject9
 from openapi_client.models.inline_product_item import InlineProductItem
 from openapi_client.models.inline_product_item_all_of import InlineProductItemAllOf
-from openapi_client.models.payment_document import PaymentDocument
 from openapi_client.models.payment_document_response import PaymentDocumentResponse
-from openapi_client.models.product import Product
+from openapi_client.models.payment_paid_cash import PaymentPaidCash
+from openapi_client.models.payment_paid_cheque import PaymentPaidCheque
+from openapi_client.models.payment_paid_credit_card import PaymentPaidCreditCard
+from openapi_client.models.payment_paid_transfer import PaymentPaidTransfer
+from openapi_client.models.payment_receiving_cash import PaymentReceivingCash
+from openapi_client.models.payment_receiving_cheque import PaymentReceivingCheque
+from openapi_client.models.payment_receiving_credit_card import PaymentReceivingCreditCard
+from openapi_client.models.payment_receiving_transfer import PaymentReceivingTransfer
+from openapi_client.models.product_inventory import ProductInventory
+from openapi_client.models.product_inventory_balance import ProductInventoryBalance
 from openapi_client.models.product_item import ProductItem
+from openapi_client.models.product_non_inventory import ProductNonInventory
 from openapi_client.models.product_response import ProductResponse
 from openapi_client.models.product_response_data import ProductResponseData
+from openapi_client.models.product_service import ProductService
 from openapi_client.models.referenced_by_me import ReferencedByMe
 from openapi_client.models.referenced_to_me import ReferencedToMe
 from openapi_client.models.send_email import SendEmail

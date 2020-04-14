@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**tax_invoices_email_document_post**](TaxInvoiceApi.md#tax_invoices_email_document_post) | **POST** /tax-invoices/email-document | Send Email tax invoice document
 [**tax_invoices_get**](TaxInvoiceApi.md#tax_invoices_get) | **GET** /tax-invoices | Get list all tax invocie documents.
 [**tax_invoices_id_attachment_post**](TaxInvoiceApi.md#tax_invoices_id_attachment_post) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
-[**tax_invoices_id_delete**](TaxInvoiceApi.md#tax_invoices_id_delete) | **DELETE** /tax-invoices/{id} | Get tax invoices document.
+[**tax_invoices_id_delete**](TaxInvoiceApi.md#tax_invoices_id_delete) | **DELETE** /tax-invoices/{id} | Delete tax invoices document.
 [**tax_invoices_id_get**](TaxInvoiceApi.md#tax_invoices_id_get) | **GET** /tax-invoices/{id} | Get tax invoices document.
 [**tax_invoices_id_payment_post**](TaxInvoiceApi.md#tax_invoices_id_payment_post) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
+[**tax_invoices_id_put**](TaxInvoiceApi.md#tax_invoices_id_put) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
 [**tax_invoices_id_status_key_status_id_post**](TaxInvoiceApi.md#tax_invoices_id_status_key_status_id_post) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
 [**tax_invoices_inline_post**](TaxInvoiceApi.md#tax_invoices_inline_post) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**tax_invoices_post**](TaxInvoiceApi.md#tax_invoices_post) | **POST** /tax-invoices | Create tax invocie document.
@@ -201,7 +202,7 @@ No authorization required
 # **tax_invoices_id_delete**
 > DeleteResponse tax_invoices_id_delete(authorization, id)
 
-Get tax invoices document.
+Delete tax invoices document.
 
 ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
 
@@ -220,7 +221,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get tax invoices document.
+    # Delete tax invoices document.
     api_response = api_instance.tax_invoices_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -315,11 +316,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **tax_invoices_id_payment_post**
-> InlineDocumentResponse tax_invoices_id_payment_post(authorization, id, payment_document)
+> InlineDocumentResponse tax_invoices_id_payment_post(authorization, id, unknown_base_type)
 
 Change paid status of tax-invoice document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -334,11 +335,11 @@ from pprint import pprint
 api_instance = openapi_client.TaxInvoiceApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
-payment_document = openapi_client.PaymentDocument() # PaymentDocument | 
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Change paid status of tax-invoice document.
-    api_response = api_instance.tax_invoices_id_payment_post(authorization, id, payment_document)
+    api_response = api_instance.tax_invoices_id_payment_post(authorization, id, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TaxInvoiceApi->tax_invoices_id_payment_post: %s\n" % e)
@@ -350,7 +351,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId หรือ documentId | 
- **payment_document** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **tax_invoices_id_put**
+> InlineDocumentResponse tax_invoices_id_put(authorization, id, inline_document)
+
+Edit tax invoices document.
+
+แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TaxInvoiceApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit tax invoices document.
+    api_response = api_instance.tax_invoices_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TaxInvoiceApi->tax_invoices_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
 
 ### Return type
 

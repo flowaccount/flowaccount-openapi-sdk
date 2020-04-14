@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**receipts_email_document_post**](ReceiptApi.md#receipts_email_document_post) | **POST** /receipts/email-document | Send email receipt document.
 [**receipts_get**](ReceiptApi.md#receipts_get) | **GET** /receipts | Get list all receipt documents
 [**receipts_id_attachment_post**](ReceiptApi.md#receipts_id_attachment_post) | **POST** /receipts/{id}/attachment | Add Attachment to receipt document.
-[**receipts_id_delete**](ReceiptApi.md#receipts_id_delete) | **DELETE** /receipts/{id} | Get receipt document.
+[**receipts_id_delete**](ReceiptApi.md#receipts_id_delete) | **DELETE** /receipts/{id} | Delete receipt document.
 [**receipts_id_get**](ReceiptApi.md#receipts_id_get) | **GET** /receipts/{id} | Get receipt document.
 [**receipts_id_payment_post**](ReceiptApi.md#receipts_id_payment_post) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
+[**receipts_id_put**](ReceiptApi.md#receipts_id_put) | **PUT** /receipts/{id} | Edit receipt document.
 [**receipts_id_status_key_status_id_post**](ReceiptApi.md#receipts_id_status_key_status_id_post) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
 [**receipts_inline_post**](ReceiptApi.md#receipts_inline_post) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 [**receipts_post**](ReceiptApi.md#receipts_post) | **POST** /receipts | Create cash receipt document.
@@ -201,7 +202,7 @@ No authorization required
 # **receipts_id_delete**
 > DeleteResponse receipts_id_delete(authorization, id)
 
-Get receipt document.
+Delete receipt document.
 
 ลบ เอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
 
@@ -220,7 +221,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get receipt document.
+    # Delete receipt document.
     api_response = api_instance.receipts_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -315,11 +316,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **receipts_id_payment_post**
-> InlineDocumentResponse receipts_id_payment_post(authorization, id, payment_document)
+> InlineDocumentResponse receipts_id_payment_post(authorization, id, unknown_base_type)
 
 Change paid status of receipt document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบเสร็จรับเงิน
+เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -334,11 +335,11 @@ from pprint import pprint
 api_instance = openapi_client.ReceiptApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
-payment_document = openapi_client.PaymentDocument() # PaymentDocument | 
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Change paid status of receipt document.
-    api_response = api_instance.receipts_id_payment_post(authorization, id, payment_document)
+    api_response = api_instance.receipts_id_payment_post(authorization, id, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReceiptApi->receipts_id_payment_post: %s\n" % e)
@@ -350,7 +351,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId หรือ documentId | 
- **payment_document** | [**PaymentDocument**](PaymentDocument.md)|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **receipts_id_put**
+> InlineDocumentResponse receipts_id_put(authorization, id, inline_document)
+
+Edit receipt document.
+
+แก้ไขข้อมูลเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ReceiptApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit receipt document.
+    api_response = api_instance.receipts_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReceiptApi->receipts_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
 
 ### Return type
 

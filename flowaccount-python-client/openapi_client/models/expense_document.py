@@ -3,7 +3,7 @@
 """
     FlowAccount Open API
 
-    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test  # noqa: E501
+    FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64  # noqa: E501
 
     The version of the OpenAPI document: 2-oas3
     Contact: developer@flowaccount.com
@@ -53,7 +53,6 @@ class ExpenseDocument(object):
         'project_name': 'str',
         'reference': 'str',
         'is_vat_inclusive': 'bool',
-        'items': 'list[ExpenseSimpleProductItem]',
         'sub_total': 'float',
         'discount_percentage': 'int',
         'discount_amount': 'float',
@@ -63,7 +62,8 @@ class ExpenseDocument(object):
         'grand_total': 'float',
         'remarks': 'str',
         'internal_notes': 'str',
-        'show_signature_or_stamp': 'bool'
+        'show_signature_or_stamp': 'bool',
+        'expense_structure_type': 'str'
     }
 
     attribute_map = {
@@ -86,7 +86,6 @@ class ExpenseDocument(object):
         'project_name': 'projectName',
         'reference': 'reference',
         'is_vat_inclusive': 'isVatInclusive',
-        'items': 'items',
         'sub_total': 'subTotal',
         'discount_percentage': 'discountPercentage',
         'discount_amount': 'discountAmount',
@@ -96,10 +95,16 @@ class ExpenseDocument(object):
         'grand_total': 'grandTotal',
         'remarks': 'remarks',
         'internal_notes': 'internalNotes',
-        'show_signature_or_stamp': 'showSignatureOrStamp'
+        'show_signature_or_stamp': 'showSignatureOrStamp',
+        'expense_structure_type': 'expenseStructureType'
     }
 
-    def __init__(self, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, items=None, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, is_vat=False, vat_amount=None, grand_total=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, local_vars_configuration=None):  # noqa: E501
+    discriminator_value_class_map = {
+        'ExpenseSimpleDocument': 'ExpenseSimpleDocument',
+        'ExpenseInlineDocument': 'ExpenseInlineDocument'
+    }
+
+    def __init__(self, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, is_vat=False, vat_amount=None, grand_total=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, expense_structure_type=None, local_vars_configuration=None):  # noqa: E501
         """ExpenseDocument - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -124,7 +129,6 @@ class ExpenseDocument(object):
         self._project_name = None
         self._reference = None
         self._is_vat_inclusive = None
-        self._items = None
         self._sub_total = None
         self._discount_percentage = None
         self._discount_amount = None
@@ -135,7 +139,8 @@ class ExpenseDocument(object):
         self._remarks = None
         self._internal_notes = None
         self._show_signature_or_stamp = None
-        self.discriminator = None
+        self._expense_structure_type = None
+        self.discriminator = 'expense_structure_type'
 
         if document_serial is not None:
             self.document_serial = document_serial
@@ -173,8 +178,6 @@ class ExpenseDocument(object):
             self.reference = reference
         if is_vat_inclusive is not None:
             self.is_vat_inclusive = is_vat_inclusive
-        if items is not None:
-            self.items = items
         self.sub_total = sub_total
         if discount_percentage is not None:
             self.discount_percentage = discount_percentage
@@ -192,6 +195,7 @@ class ExpenseDocument(object):
             self.internal_notes = internal_notes
         if show_signature_or_stamp is not None:
             self.show_signature_or_stamp = show_signature_or_stamp
+        self.expense_structure_type = expense_structure_type
 
     @property
     def document_serial(self):
@@ -635,27 +639,6 @@ class ExpenseDocument(object):
         self._is_vat_inclusive = is_vat_inclusive
 
     @property
-    def items(self):
-        """Gets the items of this ExpenseDocument.  # noqa: E501
-
-
-        :return: The items of this ExpenseDocument.  # noqa: E501
-        :rtype: list[ExpenseSimpleProductItem]
-        """
-        return self._items
-
-    @items.setter
-    def items(self, items):
-        """Sets the items of this ExpenseDocument.
-
-
-        :param items: The items of this ExpenseDocument.  # noqa: E501
-        :type: list[ExpenseSimpleProductItem]
-        """
-
-        self._items = items
-
-    @property
     def sub_total(self):
         """Gets the sub_total of this ExpenseDocument.  # noqa: E501
 
@@ -890,6 +873,33 @@ class ExpenseDocument(object):
         """
 
         self._show_signature_or_stamp = show_signature_or_stamp
+
+    @property
+    def expense_structure_type(self):
+        """Gets the expense_structure_type of this ExpenseDocument.  # noqa: E501
+
+
+        :return: The expense_structure_type of this ExpenseDocument.  # noqa: E501
+        :rtype: str
+        """
+        return self._expense_structure_type
+
+    @expense_structure_type.setter
+    def expense_structure_type(self, expense_structure_type):
+        """Sets the expense_structure_type of this ExpenseDocument.
+
+
+        :param expense_structure_type: The expense_structure_type of this ExpenseDocument.  # noqa: E501
+        :type: str
+        """
+
+        self._expense_structure_type = expense_structure_type
+
+    def get_real_child_model(self, data):
+        """Returns the real base class specified by the discriminator"""
+        discriminator_key = self.attribute_map[self.discriminator]
+        discriminator_value = data[discriminator_key]
+        return self.discriminator_value_class_map.get(discriminator_value)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

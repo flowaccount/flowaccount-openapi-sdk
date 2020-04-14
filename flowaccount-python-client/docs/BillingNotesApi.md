@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**billing_notes_email_document_post**](BillingNotesApi.md#billing_notes_email_document_post) | **POST** /billing-notes/email-document | Send email billing notes document.
 [**billing_notes_get**](BillingNotesApi.md#billing_notes_get) | **GET** /billing-notes | Get list all billing notes documents.
 [**billing_notes_id_attachment_post**](BillingNotesApi.md#billing_notes_id_attachment_post) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes document.
-[**billing_notes_id_delete**](BillingNotesApi.md#billing_notes_id_delete) | **DELETE** /billing-notes/{id} | Get billing notes document.
+[**billing_notes_id_delete**](BillingNotesApi.md#billing_notes_id_delete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**billing_notes_id_get**](BillingNotesApi.md#billing_notes_id_get) | **GET** /billing-notes/{id} | Get billing notes document.
+[**billing_notes_id_put**](BillingNotesApi.md#billing_notes_id_put) | **PUT** /billing-notes/{id} | Edit billing notes document.
 [**billing_notes_id_status_key_status_id_post**](BillingNotesApi.md#billing_notes_id_status_key_status_id_post) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
 [**billing_notes_inline_post**](BillingNotesApi.md#billing_notes_inline_post) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 [**billing_notes_post**](BillingNotesApi.md#billing_notes_post) | **POST** /billing-notes | Create billing notes document.
@@ -200,7 +201,7 @@ No authorization required
 # **billing_notes_id_delete**
 > DeleteResponse billing_notes_id_delete(authorization, id)
 
-Get billing notes document.
+Delete billing notes document.
 
 ลบ เอกสารใบวางบิล ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอวางบิล 
 
@@ -219,7 +220,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get billing notes document.
+    # Delete billing notes document.
     api_response = api_instance.billing_notes_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -302,6 +303,66 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **billing_notes_id_put**
+> InlineDocumentResponse billing_notes_id_put(authorization, id, inline_document)
+
+Edit billing notes document.
+
+แก้ไขข้อมูลเอกสารใบวางบิล ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอวางบิล (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.BillingNotesApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit billing notes document.
+    api_response = api_instance.billing_notes_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling BillingNotesApi->billing_notes_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

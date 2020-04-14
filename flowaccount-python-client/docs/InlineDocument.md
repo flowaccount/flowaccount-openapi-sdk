@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **use_inline_vat** | **bool** | inline vat ใช้งานส่วนลดและภาษี แยกตามรายการสินค้า | [optional] 
 **exempt_amount** | **float** | ยอดขายที่ยกเว้นภาษีมูลค่าเพิ่ม | [optional] [default to 0]
 **vatable_amount** | **float** | ยอดขายที่คิดภาษีมูลค่าเพิ่ม | [optional] [default to 0]
-**items** | [**list[InlineProductItem]**](InlineProductItem.md) | รายการสินค้าใช้งานสำหรับเอกสาร Simple | [optional] 
+**items** | [**list[InlineProductItem]**](InlineProductItem.md) | รายการสินค้าใช้งานสำหรับเอกสาร Inline | [optional] 
 **document_reference** | [**list[UpgradeDocument]**](UpgradeDocument.md) | สำหรับอัพเกรดเอกสาร โดยอ้างอิงเอกสารต้นทาง (ยกเว้นเอกสารใบเสนอราคา) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

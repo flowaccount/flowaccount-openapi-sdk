@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**purchases_orders_email_document_post**](PurchaseOrderApi.md#purchases_orders_email_document_post) | **POST** /purchases-orders/email-document | Send email purchase order document.
 [**purchases_orders_get**](PurchaseOrderApi.md#purchases_orders_get) | **GET** /purchases-orders | Get list all purchase order documents.
 [**purchases_orders_id_attachment_post**](PurchaseOrderApi.md#purchases_orders_id_attachment_post) | **POST** /purchases-orders/{id}/attachment | Add Attachment to purchase order document.
-[**purchases_orders_id_delete**](PurchaseOrderApi.md#purchases_orders_id_delete) | **DELETE** /purchases-orders/{id} | Get purchase order document.
+[**purchases_orders_id_delete**](PurchaseOrderApi.md#purchases_orders_id_delete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**purchases_orders_id_get**](PurchaseOrderApi.md#purchases_orders_id_get) | **GET** /purchases-orders/{id} | Get purchase order document.
+[**purchases_orders_id_put**](PurchaseOrderApi.md#purchases_orders_id_put) | **PUT** /purchases-orders/{id} | Edit purchase order document.
 [**purchases_orders_id_status_key_status_id_post**](PurchaseOrderApi.md#purchases_orders_id_status_key_status_id_post) | **POST** /purchases-orders/{id}/status-key/{statusId} | Change status of purchase order document.
 [**purchases_orders_inline_post**](PurchaseOrderApi.md#purchases_orders_inline_post) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
 [**purchases_orders_post**](PurchaseOrderApi.md#purchases_orders_post) | **POST** /purchases-orders | Create purchase order document.
@@ -200,7 +201,7 @@ No authorization required
 # **purchases_orders_id_delete**
 > DeleteResponse purchases_orders_id_delete(authorization, id)
 
-Get purchase order document.
+Delete purchase order document.
 
 ลบ เอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
 
@@ -219,7 +220,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
 try:
-    # Get purchase order document.
+    # Delete purchase order document.
     api_response = api_instance.purchases_orders_id_delete(authorization, id)
     pprint(api_response)
 except ApiException as e:
@@ -302,6 +303,66 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **purchases_orders_id_put**
+> InlineDocumentResponse purchases_orders_id_put(authorization, id, inline_document)
+
+Edit purchase order document.
+
+แก้ไขข้อมูลเอกสารใบสั่งซื้อ ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.PurchaseOrderApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+id = 'id_example' # str | ID เอกสารใช้ recordId
+inline_document = openapi_client.InlineDocument() # InlineDocument | 
+
+try:
+    # Edit purchase order document.
+    api_response = api_instance.purchases_orders_id_put(authorization, id, inline_document)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PurchaseOrderApi->purchases_orders_id_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **str**| ID เอกสารใช้ recordId | 
+ **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
