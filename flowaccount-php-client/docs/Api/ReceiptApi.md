@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**receiptsEmailDocumentPost**](ReceiptApi.md#receiptsEmailDocumentPost) | **POST** /receipts/email-document | Send email receipt document.
 [**receiptsGet**](ReceiptApi.md#receiptsGet) | **GET** /receipts | Get list all receipt documents
 [**receiptsIdAttachmentPost**](ReceiptApi.md#receiptsIdAttachmentPost) | **POST** /receipts/{id}/attachment | Add Attachment to receipt document.
-[**receiptsIdDelete**](ReceiptApi.md#receiptsIdDelete) | **DELETE** /receipts/{id} | Get receipt document.
+[**receiptsIdDelete**](ReceiptApi.md#receiptsIdDelete) | **DELETE** /receipts/{id} | Delete receipt document.
 [**receiptsIdGet**](ReceiptApi.md#receiptsIdGet) | **GET** /receipts/{id} | Get receipt document.
 [**receiptsIdPaymentPost**](ReceiptApi.md#receiptsIdPaymentPost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
+[**receiptsIdPut**](ReceiptApi.md#receiptsIdPut) | **PUT** /receipts/{id} | Edit receipt document.
 [**receiptsIdStatusKeyStatusIdPost**](ReceiptApi.md#receiptsIdStatusKeyStatusIdPost) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
 [**receiptsInlinePost**](ReceiptApi.md#receiptsInlinePost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 [**receiptsPost**](ReceiptApi.md#receiptsPost) | **POST** /receipts | Create cash receipt document.
@@ -203,7 +204,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\DeleteResponse receiptsIdDelete($authorization, $id)
 
-Get receipt document.
+Delete receipt document.
 
 ลบ เอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ
 
@@ -317,11 +318,11 @@ No authorization required
 
 ## receiptsIdPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdPaymentPost($authorization, $id, $payment_document)
+> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdPaymentPost($authorization, $id, $unknown_base_type)
 
 Change paid status of receipt document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบเสร็จรับเงิน
+เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -337,10 +338,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$payment_document = new \OpenAPI\Client\Model\PaymentDocument(); // \OpenAPI\Client\Model\PaymentDocument | 
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
 
 try {
-    $result = $apiInstance->receiptsIdPaymentPost($authorization, $id, $payment_document);
+    $result = $apiInstance->receiptsIdPaymentPost($authorization, $id, $unknown_base_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptApi->receiptsIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -355,7 +356,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **payment_document** | [**\OpenAPI\Client\Model\PaymentDocument**](../Model/PaymentDocument.md)|  |
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## receiptsIdPut
+
+> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdPut($authorization, $id, $inline_document)
+
+Edit receipt document.
+
+แก้ไขข้อมูลเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReceiptApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId
+$inline_document = new \OpenAPI\Client\Model\InlineDocument(); // \OpenAPI\Client\Model\InlineDocument | 
+
+try {
+    $result = $apiInstance->receiptsIdPut($authorization, $id, $inline_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceiptApi->receiptsIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **string**| ID เอกสารใช้ recordId |
+ **inline_document** | [**\OpenAPI\Client\Model\InlineDocument**](../Model/InlineDocument.md)|  |
 
 ### Return type
 

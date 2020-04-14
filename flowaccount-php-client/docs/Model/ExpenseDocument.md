@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **project_name** | **string** | ชื่อโปรเจค | [optional] 
 **reference** | **string** | เลขที่อ้างอิง หรือ เลขที่เอกสารที่เกี่ยวข้อง &lt;br&gt; &lt;ex&gt;Example: INV2020010001&lt;/ex&gt; | [optional] 
 **is_vat_inclusive** | **bool** | มูลค่าเอกสารรวมภาษีแล้วหรือไม่ | [optional] [default to false]
-**items** | [**\OpenAPI\Client\Model\ExpenseSimpleProductItem[]**](ExpenseSimpleProductItem.md) |  | [optional] 
 **sub_total** | **float** | มูลค่ารวมเป็นเงิน | [default to 0]
 **discount_percentage** | **int** | มูลค่าส่วนลดเป็นเปอร์เซ็นต์ | [optional] [default to 0]
 **discount_amount** | **float** | มูลค่าส่วนลดเป็นจำนวน (บาท) | [optional] [default to 0]
@@ -34,6 +33,7 @@ Name | Type | Description | Notes
 **remarks** | **string** | หมายเหตุเอกสาร | [optional] 
 **internal_notes** | **string** | โน๊ตภายในบริษัท | [optional] 
 **show_signature_or_stamp** | **bool** | ลายเซ็นอิเล็กทรอนิกส์และตรายาง | [optional] [default to true]
+**expense_structure_type** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

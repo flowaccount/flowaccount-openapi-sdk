@@ -12,7 +12,7 @@
 /**
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -1012,14 +1012,15 @@ class ProductsApi
      *
      * @param  string $authorization เลข Id Product (required)
      * @param  string $id id (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProductResponse
      */
-    public function productsIdPut($authorization, $id)
+    public function productsIdPut($authorization, $id, $unknown_base_type)
     {
-        list($response) = $this->productsIdPutWithHttpInfo($authorization, $id);
+        list($response) = $this->productsIdPutWithHttpInfo($authorization, $id, $unknown_base_type);
         return $response;
     }
 
@@ -1030,14 +1031,15 @@ class ProductsApi
      *
      * @param  string $authorization เลข Id Product (required)
      * @param  string $id (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProductResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function productsIdPutWithHttpInfo($authorization, $id)
+    public function productsIdPutWithHttpInfo($authorization, $id, $unknown_base_type)
     {
-        $request = $this->productsIdPutRequest($authorization, $id);
+        $request = $this->productsIdPutRequest($authorization, $id, $unknown_base_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1119,13 +1121,14 @@ class ProductsApi
      *
      * @param  string $authorization เลข Id Product (required)
      * @param  string $id (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function productsIdPutAsync($authorization, $id)
+    public function productsIdPutAsync($authorization, $id, $unknown_base_type)
     {
-        return $this->productsIdPutAsyncWithHttpInfo($authorization, $id)
+        return $this->productsIdPutAsyncWithHttpInfo($authorization, $id, $unknown_base_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1140,14 +1143,15 @@ class ProductsApi
      *
      * @param  string $authorization เลข Id Product (required)
      * @param  string $id (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function productsIdPutAsyncWithHttpInfo($authorization, $id)
+    public function productsIdPutAsyncWithHttpInfo($authorization, $id, $unknown_base_type)
     {
         $returnType = '\OpenAPI\Client\Model\ProductResponse';
-        $request = $this->productsIdPutRequest($authorization, $id);
+        $request = $this->productsIdPutRequest($authorization, $id, $unknown_base_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1188,11 +1192,12 @@ class ProductsApi
      *
      * @param  string $authorization เลข Id Product (required)
      * @param  string $id (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function productsIdPutRequest($authorization, $id)
+    protected function productsIdPutRequest($authorization, $id, $unknown_base_type)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -1204,6 +1209,12 @@ class ProductsApi
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling productsIdPut'
+            );
+        }
+        // verify the required parameter 'unknown_base_type' is set
+        if ($unknown_base_type === null || (is_array($unknown_base_type) && count($unknown_base_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $unknown_base_type when calling productsIdPut'
             );
         }
 
@@ -1230,6 +1241,9 @@ class ProductsApi
 
         // body params
         $_tempBody = null;
+        if (isset($unknown_base_type)) {
+            $_tempBody = $unknown_base_type;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1238,7 +1252,7 @@ class ProductsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
@@ -1298,15 +1312,15 @@ class ProductsApi
      * Create products.
      *
      * @param  string $authorization authorization (required)
-     * @param  \OpenAPI\Client\Model\Product $product product (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProductResponse
      */
-    public function productsPost($authorization, $product)
+    public function productsPost($authorization, $unknown_base_type)
     {
-        list($response) = $this->productsPostWithHttpInfo($authorization, $product);
+        list($response) = $this->productsPostWithHttpInfo($authorization, $unknown_base_type);
         return $response;
     }
 
@@ -1316,15 +1330,15 @@ class ProductsApi
      * Create products.
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProductResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function productsPostWithHttpInfo($authorization, $product)
+    public function productsPostWithHttpInfo($authorization, $unknown_base_type)
     {
-        $request = $this->productsPostRequest($authorization, $product);
+        $request = $this->productsPostRequest($authorization, $unknown_base_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1405,14 +1419,14 @@ class ProductsApi
      * Create products.
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function productsPostAsync($authorization, $product)
+    public function productsPostAsync($authorization, $unknown_base_type)
     {
-        return $this->productsPostAsyncWithHttpInfo($authorization, $product)
+        return $this->productsPostAsyncWithHttpInfo($authorization, $unknown_base_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1426,15 +1440,15 @@ class ProductsApi
      * Create products.
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function productsPostAsyncWithHttpInfo($authorization, $product)
+    public function productsPostAsyncWithHttpInfo($authorization, $unknown_base_type)
     {
         $returnType = '\OpenAPI\Client\Model\ProductResponse';
-        $request = $this->productsPostRequest($authorization, $product);
+        $request = $this->productsPostRequest($authorization, $unknown_base_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1474,12 +1488,12 @@ class ProductsApi
      * Create request for operation 'productsPost'
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function productsPostRequest($authorization, $product)
+    protected function productsPostRequest($authorization, $unknown_base_type)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -1487,10 +1501,10 @@ class ProductsApi
                 'Missing the required parameter $authorization when calling productsPost'
             );
         }
-        // verify the required parameter 'product' is set
-        if ($product === null || (is_array($product) && count($product) === 0)) {
+        // verify the required parameter 'unknown_base_type' is set
+        if ($unknown_base_type === null || (is_array($unknown_base_type) && count($unknown_base_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling productsPost'
+                'Missing the required parameter $unknown_base_type when calling productsPost'
             );
         }
 
@@ -1509,8 +1523,8 @@ class ProductsApi
 
         // body params
         $_tempBody = null;
-        if (isset($product)) {
-            $_tempBody = $product;
+        if (isset($unknown_base_type)) {
+            $_tempBody = $unknown_base_type;
         }
 
         if ($multipart) {

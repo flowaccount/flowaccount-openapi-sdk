@@ -13,7 +13,7 @@
 /**
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -679,7 +679,7 @@ class PaymentDocumentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets payment_remarks
      *
-     * @param string|null $payment_remarks หมายเหตุ การรับชำระเงิน หรือ จ่ายเงิน
+     * @param string|null $payment_remarks หมายเหตุ การรับชำระเงิน หรือ ชำระเงิน
      *
      * @return $this
      */

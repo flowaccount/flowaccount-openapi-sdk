@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**cashInvoicesEmailDocumentPost**](CashInvoiceApi.md#cashInvoicesEmailDocumentPost) | **POST** /cash-invoices/email-document | Send email cash invoices document.
 [**cashInvoicesGet**](CashInvoiceApi.md#cashInvoicesGet) | **GET** /cash-invoices | Get list all cash invoices documents
 [**cashInvoicesIdAttachmentPost**](CashInvoiceApi.md#cashInvoicesIdAttachmentPost) | **POST** /cash-invoices/{id}/attachment | Add Attachment to cash invoices document.
-[**cashInvoicesIdDelete**](CashInvoiceApi.md#cashInvoicesIdDelete) | **DELETE** /cash-invoices/{id} | Get cash invoices document.
+[**cashInvoicesIdDelete**](CashInvoiceApi.md#cashInvoicesIdDelete) | **DELETE** /cash-invoices/{id} | Delete cash invoices document.
 [**cashInvoicesIdGet**](CashInvoiceApi.md#cashInvoicesIdGet) | **GET** /cash-invoices/{id} | Get cash invoices document.
 [**cashInvoicesIdPaymentPost**](CashInvoiceApi.md#cashInvoicesIdPaymentPost) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
+[**cashInvoicesIdPut**](CashInvoiceApi.md#cashInvoicesIdPut) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
 [**cashInvoicesIdStatusKeyStatusIdPost**](CashInvoiceApi.md#cashInvoicesIdStatusKeyStatusIdPost) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
 [**cashInvoicesInlinePost**](CashInvoiceApi.md#cashInvoicesInlinePost) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 [**cashInvoicesPost**](CashInvoiceApi.md#cashInvoicesPost) | **POST** /cash-invoices | Create cash invoices document.
@@ -203,7 +204,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\DeleteResponse cashInvoicesIdDelete($authorization, $id)
 
-Get cash invoices document.
+Delete cash invoices document.
 
 ลบ เอกสารใบกำกับ/ใบเสร็จรับเงิน (เงินสด) ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ
 
@@ -317,11 +318,11 @@ No authorization required
 
 ## cashInvoicesIdPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdPaymentPost($authorization, $id, $payment_document)
+> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdPaymentPost($authorization, $id, $unknown_base_type)
 
 Change paid status of cash invoices document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด)
+เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -337,10 +338,10 @@ $apiInstance = new OpenAPI\Client\Api\CashInvoiceApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$payment_document = new \OpenAPI\Client\Model\PaymentDocument(); // \OpenAPI\Client\Model\PaymentDocument | 
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
 
 try {
-    $result = $apiInstance->cashInvoicesIdPaymentPost($authorization, $id, $payment_document);
+    $result = $apiInstance->cashInvoicesIdPaymentPost($authorization, $id, $unknown_base_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CashInvoiceApi->cashInvoicesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -355,7 +356,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **payment_document** | [**\OpenAPI\Client\Model\PaymentDocument**](../Model/PaymentDocument.md)|  |
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## cashInvoicesIdPut
+
+> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdPut($authorization, $id, $inline_document)
+
+Edit cash invoices document.
+
+แก้ไขข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\CashInvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId
+$inline_document = new \OpenAPI\Client\Model\InlineDocument(); // \OpenAPI\Client\Model\InlineDocument | 
+
+try {
+    $result = $apiInstance->cashInvoicesIdPut($authorization, $id, $inline_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CashInvoiceApi->cashInvoicesIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **string**| ID เอกสารใช้ recordId |
+ **inline_document** | [**\OpenAPI\Client\Model\InlineDocument**](../Model/InlineDocument.md)|  |
 
 ### Return type
 

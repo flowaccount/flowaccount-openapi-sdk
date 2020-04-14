@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**taxInvoicesEmailDocumentPost**](TaxInvoiceApi.md#taxInvoicesEmailDocumentPost) | **POST** /tax-invoices/email-document | Send Email tax invoice document
 [**taxInvoicesGet**](TaxInvoiceApi.md#taxInvoicesGet) | **GET** /tax-invoices | Get list all tax invocie documents.
 [**taxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxInvoicesIdAttachmentPost) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
-[**taxInvoicesIdDelete**](TaxInvoiceApi.md#taxInvoicesIdDelete) | **DELETE** /tax-invoices/{id} | Get tax invoices document.
+[**taxInvoicesIdDelete**](TaxInvoiceApi.md#taxInvoicesIdDelete) | **DELETE** /tax-invoices/{id} | Delete tax invoices document.
 [**taxInvoicesIdGet**](TaxInvoiceApi.md#taxInvoicesIdGet) | **GET** /tax-invoices/{id} | Get tax invoices document.
 [**taxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxInvoicesIdPaymentPost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
+[**taxInvoicesIdPut**](TaxInvoiceApi.md#taxInvoicesIdPut) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
 [**taxInvoicesIdStatusKeyStatusIdPost**](TaxInvoiceApi.md#taxInvoicesIdStatusKeyStatusIdPost) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
 [**taxInvoicesInlinePost**](TaxInvoiceApi.md#taxInvoicesInlinePost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**taxInvoicesPost**](TaxInvoiceApi.md#taxInvoicesPost) | **POST** /tax-invoices | Create tax invocie document.
@@ -203,7 +204,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\DeleteResponse taxInvoicesIdDelete($authorization, $id)
 
-Get tax invoices document.
+Delete tax invoices document.
 
 ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ
 
@@ -317,11 +318,11 @@ No authorization required
 
 ## taxInvoicesIdPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdPaymentPost($authorization, $id, $payment_document)
+> \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdPaymentPost($authorization, $id, $unknown_base_type)
 
 Change paid status of tax-invoice document.
 
-เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
+เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
 ### Example
 
@@ -337,10 +338,10 @@ $apiInstance = new OpenAPI\Client\Api\TaxInvoiceApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$payment_document = new \OpenAPI\Client\Model\PaymentDocument(); // \OpenAPI\Client\Model\PaymentDocument | 
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
 
 try {
-    $result = $apiInstance->taxInvoicesIdPaymentPost($authorization, $id, $payment_document);
+    $result = $apiInstance->taxInvoicesIdPaymentPost($authorization, $id, $unknown_base_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxInvoiceApi->taxInvoicesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -355,7 +356,67 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **payment_document** | [**\OpenAPI\Client\Model\PaymentDocument**](../Model/PaymentDocument.md)|  |
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## taxInvoicesIdPut
+
+> \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdPut($authorization, $id, $inline_document)
+
+Edit tax invoices document.
+
+แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\TaxInvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId
+$inline_document = new \OpenAPI\Client\Model\InlineDocument(); // \OpenAPI\Client\Model\InlineDocument | 
+
+try {
+    $result = $apiInstance->taxInvoicesIdPut($authorization, $id, $inline_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TaxInvoiceApi->taxInvoicesIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **string**| ID เอกสารใช้ recordId |
+ **inline_document** | [**\OpenAPI\Client\Model\InlineDocument**](../Model/InlineDocument.md)|  |
 
 ### Return type
 

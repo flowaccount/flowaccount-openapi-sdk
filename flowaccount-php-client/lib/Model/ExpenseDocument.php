@@ -13,7 +13,7 @@
 /**
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -42,7 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class ExpenseDocument implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    const DISCRIMINATOR = 'expense_structure_type';
 
     /**
       * The original name of the model.
@@ -76,7 +76,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'project_name' => 'string',
         'reference' => 'string',
         'is_vat_inclusive' => 'bool',
-        'items' => '\OpenAPI\Client\Model\ExpenseSimpleProductItem[]',
         'sub_total' => 'float',
         'discount_percentage' => 'int',
         'discount_amount' => 'float',
@@ -86,7 +85,8 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'grand_total' => 'float',
         'remarks' => 'string',
         'internal_notes' => 'string',
-        'show_signature_or_stamp' => 'bool'
+        'show_signature_or_stamp' => 'bool',
+        'expense_structure_type' => 'string'
     ];
 
     /**
@@ -114,7 +114,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'project_name' => null,
         'reference' => null,
         'is_vat_inclusive' => null,
-        'items' => null,
         'sub_total' => 'decimal',
         'discount_percentage' => null,
         'discount_amount' => 'decimal',
@@ -124,7 +123,8 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'grand_total' => 'decimal',
         'remarks' => null,
         'internal_notes' => null,
-        'show_signature_or_stamp' => null
+        'show_signature_or_stamp' => null,
+        'expense_structure_type' => null
     ];
 
     /**
@@ -173,7 +173,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'project_name' => 'projectName',
         'reference' => 'reference',
         'is_vat_inclusive' => 'isVatInclusive',
-        'items' => 'items',
         'sub_total' => 'subTotal',
         'discount_percentage' => 'discountPercentage',
         'discount_amount' => 'discountAmount',
@@ -183,7 +182,8 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'grand_total' => 'grandTotal',
         'remarks' => 'remarks',
         'internal_notes' => 'internalNotes',
-        'show_signature_or_stamp' => 'showSignatureOrStamp'
+        'show_signature_or_stamp' => 'showSignatureOrStamp',
+        'expense_structure_type' => 'expenseStructureType'
     ];
 
     /**
@@ -211,7 +211,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'project_name' => 'setProjectName',
         'reference' => 'setReference',
         'is_vat_inclusive' => 'setIsVatInclusive',
-        'items' => 'setItems',
         'sub_total' => 'setSubTotal',
         'discount_percentage' => 'setDiscountPercentage',
         'discount_amount' => 'setDiscountAmount',
@@ -221,7 +220,8 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'grand_total' => 'setGrandTotal',
         'remarks' => 'setRemarks',
         'internal_notes' => 'setInternalNotes',
-        'show_signature_or_stamp' => 'setShowSignatureOrStamp'
+        'show_signature_or_stamp' => 'setShowSignatureOrStamp',
+        'expense_structure_type' => 'setExpenseStructureType'
     ];
 
     /**
@@ -249,7 +249,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'project_name' => 'getProjectName',
         'reference' => 'getReference',
         'is_vat_inclusive' => 'getIsVatInclusive',
-        'items' => 'getItems',
         'sub_total' => 'getSubTotal',
         'discount_percentage' => 'getDiscountPercentage',
         'discount_amount' => 'getDiscountAmount',
@@ -259,7 +258,8 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         'grand_total' => 'getGrandTotal',
         'remarks' => 'getRemarks',
         'internal_notes' => 'getInternalNotes',
-        'show_signature_or_stamp' => 'getShowSignatureOrStamp'
+        'show_signature_or_stamp' => 'getShowSignatureOrStamp',
+        'expense_structure_type' => 'getExpenseStructureType'
     ];
 
     /**
@@ -341,7 +341,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['is_vat_inclusive'] = isset($data['is_vat_inclusive']) ? $data['is_vat_inclusive'] : false;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['sub_total'] = isset($data['sub_total']) ? $data['sub_total'] : 0;
         $this->container['discount_percentage'] = isset($data['discount_percentage']) ? $data['discount_percentage'] : 0;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : 0;
@@ -352,6 +351,10 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         $this->container['remarks'] = isset($data['remarks']) ? $data['remarks'] : null;
         $this->container['internal_notes'] = isset($data['internal_notes']) ? $data['internal_notes'] : null;
         $this->container['show_signature_or_stamp'] = isset($data['show_signature_or_stamp']) ? $data['show_signature_or_stamp'] : true;
+        $this->container['expense_structure_type'] = isset($data['expense_structure_type']) ? $data['expense_structure_type'] : null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['expense_structure_type'] = static::$openAPIModelName;
     }
 
     /**
@@ -850,30 +853,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets items
-     *
-     * @return \OpenAPI\Client\Model\ExpenseSimpleProductItem[]|null
-     */
-    public function getItems()
-    {
-        return $this->container['items'];
-    }
-
-    /**
-     * Sets items
-     *
-     * @param \OpenAPI\Client\Model\ExpenseSimpleProductItem[]|null $items items
-     *
-     * @return $this
-     */
-    public function setItems($items)
-    {
-        $this->container['items'] = $items;
-
-        return $this;
-    }
-
-    /**
      * Gets sub_total
      *
      * @return float
@@ -1109,6 +1088,30 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
     public function setShowSignatureOrStamp($show_signature_or_stamp)
     {
         $this->container['show_signature_or_stamp'] = $show_signature_or_stamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense_structure_type
+     *
+     * @return string|null
+     */
+    public function getExpenseStructureType()
+    {
+        return $this->container['expense_structure_type'];
+    }
+
+    /**
+     * Sets expense_structure_type
+     *
+     * @param string|null $expense_structure_type expense_structure_type
+     *
+     * @return $this
+     */
+    public function setExpenseStructureType($expense_structure_type)
+    {
+        $this->container['expense_structure_type'] = $expense_structure_type;
 
         return $this;
     }

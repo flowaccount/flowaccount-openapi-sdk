@@ -12,7 +12,7 @@
 /**
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -1549,7 +1549,7 @@ class ExpensesApi
     /**
      * Operation expensesIdDelete
      *
-     * Get expenses document.
+     * Delete expenses document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1567,7 +1567,7 @@ class ExpensesApi
     /**
      * Operation expensesIdDeleteWithHttpInfo
      *
-     * Get expenses document.
+     * Delete expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1656,7 +1656,7 @@ class ExpensesApi
     /**
      * Operation expensesIdDeleteAsync
      *
-     * Get expenses document.
+     * Delete expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1677,7 +1677,7 @@ class ExpensesApi
     /**
      * Operation expensesIdDeleteAsyncWithHttpInfo
      *
-     * Get expenses document.
+     * Delete expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2127,15 +2127,15 @@ class ExpensesApi
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseDocumentResponse
+     * @return \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse
      */
-    public function expensesIdPaymentPost($authorization, $id, $payment_document)
+    public function expensesIdPaymentPost($authorization, $id, $unknown_base_type)
     {
-        list($response) = $this->expensesIdPaymentPostWithHttpInfo($authorization, $id, $payment_document);
+        list($response) = $this->expensesIdPaymentPostWithHttpInfo($authorization, $id, $unknown_base_type);
         return $response;
     }
 
@@ -2146,15 +2146,15 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function expensesIdPaymentPostWithHttpInfo($authorization, $id, $payment_document)
+    public function expensesIdPaymentPostWithHttpInfo($authorization, $id, $unknown_base_type)
     {
-        $request = $this->expensesIdPaymentPostRequest($authorization, $id, $payment_document);
+        $request = $this->expensesIdPaymentPostRequest($authorization, $id, $unknown_base_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2187,20 +2187,20 @@ class ExpensesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseDocumentResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseDocumentResponse';
+            $returnType = '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2219,7 +2219,7 @@ class ExpensesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseDocumentResponse',
+                        '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2236,14 +2236,14 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesIdPaymentPostAsync($authorization, $id, $payment_document)
+    public function expensesIdPaymentPostAsync($authorization, $id, $unknown_base_type)
     {
-        return $this->expensesIdPaymentPostAsyncWithHttpInfo($authorization, $id, $payment_document)
+        return $this->expensesIdPaymentPostAsyncWithHttpInfo($authorization, $id, $unknown_base_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2258,15 +2258,15 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesIdPaymentPostAsyncWithHttpInfo($authorization, $id, $payment_document)
+    public function expensesIdPaymentPostAsyncWithHttpInfo($authorization, $id, $unknown_base_type)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseDocumentResponse';
-        $request = $this->expensesIdPaymentPostRequest($authorization, $id, $payment_document);
+        $returnType = '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse';
+        $request = $this->expensesIdPaymentPostRequest($authorization, $id, $unknown_base_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2307,12 +2307,12 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function expensesIdPaymentPostRequest($authorization, $id, $payment_document)
+    protected function expensesIdPaymentPostRequest($authorization, $id, $unknown_base_type)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -2326,10 +2326,10 @@ class ExpensesApi
                 'Missing the required parameter $id when calling expensesIdPaymentPost'
             );
         }
-        // verify the required parameter 'payment_document' is set
-        if ($payment_document === null || (is_array($payment_document) && count($payment_document) === 0)) {
+        // verify the required parameter 'unknown_base_type' is set
+        if ($unknown_base_type === null || (is_array($unknown_base_type) && count($unknown_base_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_document when calling expensesIdPaymentPost'
+                'Missing the required parameter $unknown_base_type when calling expensesIdPaymentPost'
             );
         }
 
@@ -2356,8 +2356,8 @@ class ExpensesApi
 
         // body params
         $_tempBody = null;
-        if (isset($payment_document)) {
-            $_tempBody = $payment_document;
+        if (isset($unknown_base_type)) {
+            $_tempBody = $unknown_base_type;
         }
 
         if ($multipart) {
@@ -2415,6 +2415,307 @@ class ExpensesApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation expensesIdPut
+     *
+     * Edit expenses document.
+     *
+     * @param  string $authorization authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document expense_inline_document (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ExpenseInlineDocumentResponse
+     */
+    public function expensesIdPut($authorization, $id, $expense_inline_document)
+    {
+        list($response) = $this->expensesIdPutWithHttpInfo($authorization, $id, $expense_inline_document);
+        return $response;
+    }
+
+    /**
+     * Operation expensesIdPutWithHttpInfo
+     *
+     * Edit expenses document.
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ExpenseInlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function expensesIdPutWithHttpInfo($authorization, $id, $expense_inline_document)
+    {
+        $request = $this->expensesIdPutRequest($authorization, $id, $expense_inline_document);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ExpenseInlineDocumentResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation expensesIdPutAsync
+     *
+     * Edit expenses document.
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function expensesIdPutAsync($authorization, $id, $expense_inline_document)
+    {
+        return $this->expensesIdPutAsyncWithHttpInfo($authorization, $id, $expense_inline_document)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation expensesIdPutAsyncWithHttpInfo
+     *
+     * Edit expenses document.
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function expensesIdPutAsyncWithHttpInfo($authorization, $id, $expense_inline_document)
+    {
+        $returnType = '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse';
+        $request = $this->expensesIdPutRequest($authorization, $id, $expense_inline_document);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'expensesIdPut'
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function expensesIdPutRequest($authorization, $id, $expense_inline_document)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling expensesIdPut'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling expensesIdPut'
+            );
+        }
+        // verify the required parameter 'expense_inline_document' is set
+        if ($expense_inline_document === null || (is_array($expense_inline_document) && count($expense_inline_document) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $expense_inline_document when calling expensesIdPut'
+            );
+        }
+
+        $resourcePath = '/expenses/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($expense_inline_document)) {
+            $_tempBody = $expense_inline_document;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3015,15 +3316,15 @@ class ExpensesApi
      * Create expenses document.
      *
      * @param  string $authorization authorization (required)
-     * @param  \OpenAPI\Client\Model\ExpenseDocument $expense_document expense_document (required)
+     * @param  \OpenAPI\Client\Model\ExpenseSimpleDocument $expense_simple_document expense_simple_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseDocumentResponse
+     * @return \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse
      */
-    public function expensesPost($authorization, $expense_document)
+    public function expensesPost($authorization, $expense_simple_document)
     {
-        list($response) = $this->expensesPostWithHttpInfo($authorization, $expense_document);
+        list($response) = $this->expensesPostWithHttpInfo($authorization, $expense_simple_document);
         return $response;
     }
 
@@ -3033,15 +3334,15 @@ class ExpensesApi
      * Create expenses document.
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\ExpenseDocument $expense_document (required)
+     * @param  \OpenAPI\Client\Model\ExpenseSimpleDocument $expense_simple_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function expensesPostWithHttpInfo($authorization, $expense_document)
+    public function expensesPostWithHttpInfo($authorization, $expense_simple_document)
     {
-        $request = $this->expensesPostRequest($authorization, $expense_document);
+        $request = $this->expensesPostRequest($authorization, $expense_simple_document);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3074,20 +3375,20 @@ class ExpensesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseDocumentResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseDocumentResponse';
+            $returnType = '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3106,7 +3407,7 @@ class ExpensesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseDocumentResponse',
+                        '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3122,14 +3423,14 @@ class ExpensesApi
      * Create expenses document.
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\ExpenseDocument $expense_document (required)
+     * @param  \OpenAPI\Client\Model\ExpenseSimpleDocument $expense_simple_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesPostAsync($authorization, $expense_document)
+    public function expensesPostAsync($authorization, $expense_simple_document)
     {
-        return $this->expensesPostAsyncWithHttpInfo($authorization, $expense_document)
+        return $this->expensesPostAsyncWithHttpInfo($authorization, $expense_simple_document)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3143,15 +3444,15 @@ class ExpensesApi
      * Create expenses document.
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\ExpenseDocument $expense_document (required)
+     * @param  \OpenAPI\Client\Model\ExpenseSimpleDocument $expense_simple_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesPostAsyncWithHttpInfo($authorization, $expense_document)
+    public function expensesPostAsyncWithHttpInfo($authorization, $expense_simple_document)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseDocumentResponse';
-        $request = $this->expensesPostRequest($authorization, $expense_document);
+        $returnType = '\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse';
+        $request = $this->expensesPostRequest($authorization, $expense_simple_document);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3191,12 +3492,12 @@ class ExpensesApi
      * Create request for operation 'expensesPost'
      *
      * @param  string $authorization (required)
-     * @param  \OpenAPI\Client\Model\ExpenseDocument $expense_document (required)
+     * @param  \OpenAPI\Client\Model\ExpenseSimpleDocument $expense_simple_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function expensesPostRequest($authorization, $expense_document)
+    protected function expensesPostRequest($authorization, $expense_simple_document)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -3204,10 +3505,10 @@ class ExpensesApi
                 'Missing the required parameter $authorization when calling expensesPost'
             );
         }
-        // verify the required parameter 'expense_document' is set
-        if ($expense_document === null || (is_array($expense_document) && count($expense_document) === 0)) {
+        // verify the required parameter 'expense_simple_document' is set
+        if ($expense_simple_document === null || (is_array($expense_simple_document) && count($expense_simple_document) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $expense_document when calling expensesPost'
+                'Missing the required parameter $expense_simple_document when calling expensesPost'
             );
         }
 
@@ -3226,8 +3527,8 @@ class ExpensesApi
 
         // body params
         $_tempBody = null;
-        if (isset($expense_document)) {
-            $_tempBody = $expense_document;
+        if (isset($expense_simple_document)) {
+            $_tempBody = $expense_simple_document;
         }
 
         if ($multipart) {

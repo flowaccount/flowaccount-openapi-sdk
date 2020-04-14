@@ -12,7 +12,7 @@
 /**
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -1013,7 +1013,7 @@ class ReceiptApi
     /**
      * Operation receiptsIdDelete
      *
-     * Get receipt document.
+     * Delete receipt document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1031,7 +1031,7 @@ class ReceiptApi
     /**
      * Operation receiptsIdDeleteWithHttpInfo
      *
-     * Get receipt document.
+     * Delete receipt document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1120,7 +1120,7 @@ class ReceiptApi
     /**
      * Operation receiptsIdDeleteAsync
      *
-     * Get receipt document.
+     * Delete receipt document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1141,7 +1141,7 @@ class ReceiptApi
     /**
      * Operation receiptsIdDeleteAsyncWithHttpInfo
      *
-     * Get receipt document.
+     * Delete receipt document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1591,15 +1591,15 @@ class ReceiptApi
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function receiptsIdPaymentPost($authorization, $id, $payment_document)
+    public function receiptsIdPaymentPost($authorization, $id, $unknown_base_type)
     {
-        list($response) = $this->receiptsIdPaymentPostWithHttpInfo($authorization, $id, $payment_document);
+        list($response) = $this->receiptsIdPaymentPostWithHttpInfo($authorization, $id, $unknown_base_type);
         return $response;
     }
 
@@ -1610,15 +1610,15 @@ class ReceiptApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function receiptsIdPaymentPostWithHttpInfo($authorization, $id, $payment_document)
+    public function receiptsIdPaymentPostWithHttpInfo($authorization, $id, $unknown_base_type)
     {
-        $request = $this->receiptsIdPaymentPostRequest($authorization, $id, $payment_document);
+        $request = $this->receiptsIdPaymentPostRequest($authorization, $id, $unknown_base_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1700,14 +1700,14 @@ class ReceiptApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function receiptsIdPaymentPostAsync($authorization, $id, $payment_document)
+    public function receiptsIdPaymentPostAsync($authorization, $id, $unknown_base_type)
     {
-        return $this->receiptsIdPaymentPostAsyncWithHttpInfo($authorization, $id, $payment_document)
+        return $this->receiptsIdPaymentPostAsyncWithHttpInfo($authorization, $id, $unknown_base_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1722,15 +1722,15 @@ class ReceiptApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function receiptsIdPaymentPostAsyncWithHttpInfo($authorization, $id, $payment_document)
+    public function receiptsIdPaymentPostAsyncWithHttpInfo($authorization, $id, $unknown_base_type)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->receiptsIdPaymentPostRequest($authorization, $id, $payment_document);
+        $request = $this->receiptsIdPaymentPostRequest($authorization, $id, $unknown_base_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1771,12 +1771,12 @@ class ReceiptApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
-     * @param  \OpenAPI\Client\Model\PaymentDocument $payment_document (required)
+     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function receiptsIdPaymentPostRequest($authorization, $id, $payment_document)
+    protected function receiptsIdPaymentPostRequest($authorization, $id, $unknown_base_type)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -1790,10 +1790,10 @@ class ReceiptApi
                 'Missing the required parameter $id when calling receiptsIdPaymentPost'
             );
         }
-        // verify the required parameter 'payment_document' is set
-        if ($payment_document === null || (is_array($payment_document) && count($payment_document) === 0)) {
+        // verify the required parameter 'unknown_base_type' is set
+        if ($unknown_base_type === null || (is_array($unknown_base_type) && count($unknown_base_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_document when calling receiptsIdPaymentPost'
+                'Missing the required parameter $unknown_base_type when calling receiptsIdPaymentPost'
             );
         }
 
@@ -1820,8 +1820,8 @@ class ReceiptApi
 
         // body params
         $_tempBody = null;
-        if (isset($payment_document)) {
-            $_tempBody = $payment_document;
+        if (isset($unknown_base_type)) {
+            $_tempBody = $unknown_base_type;
         }
 
         if ($multipart) {
@@ -1879,6 +1879,307 @@ class ReceiptApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation receiptsIdPut
+     *
+     * Edit receipt document.
+     *
+     * @param  string $authorization authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document inline_document (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\InlineDocumentResponse
+     */
+    public function receiptsIdPut($authorization, $id, $inline_document)
+    {
+        list($response) = $this->receiptsIdPutWithHttpInfo($authorization, $id, $inline_document);
+        return $response;
+    }
+
+    /**
+     * Operation receiptsIdPutWithHttpInfo
+     *
+     * Edit receipt document.
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function receiptsIdPutWithHttpInfo($authorization, $id, $inline_document)
+    {
+        $request = $this->receiptsIdPutRequest($authorization, $id, $inline_document);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\InlineDocumentResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineDocumentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\InlineDocumentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation receiptsIdPutAsync
+     *
+     * Edit receipt document.
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function receiptsIdPutAsync($authorization, $id, $inline_document)
+    {
+        return $this->receiptsIdPutAsyncWithHttpInfo($authorization, $id, $inline_document)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation receiptsIdPutAsyncWithHttpInfo
+     *
+     * Edit receipt document.
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function receiptsIdPutAsyncWithHttpInfo($authorization, $id, $inline_document)
+    {
+        $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
+        $request = $this->receiptsIdPutRequest($authorization, $id, $inline_document);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'receiptsIdPut'
+     *
+     * @param  string $authorization (required)
+     * @param  string $id ID เอกสารใช้ recordId (required)
+     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function receiptsIdPutRequest($authorization, $id, $inline_document)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling receiptsIdPut'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling receiptsIdPut'
+            );
+        }
+        // verify the required parameter 'inline_document' is set
+        if ($inline_document === null || (is_array($inline_document) && count($inline_document) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inline_document when calling receiptsIdPut'
+            );
+        }
+
+        $resourcePath = '/receipts/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($inline_document)) {
+            $_tempBody = $inline_document;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

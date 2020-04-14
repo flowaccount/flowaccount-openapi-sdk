@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**purchasesEmailDocumentPost**](ReceivingInventoryApi.md#purchasesEmailDocumentPost) | **POST** /purchases/email-document | Send email receiving inventory document.
 [**purchasesGet**](ReceivingInventoryApi.md#purchasesGet) | **GET** /purchases | Get list all receiving inventory documents.
 [**purchasesIdAttachmentPost**](ReceivingInventoryApi.md#purchasesIdAttachmentPost) | **POST** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
-[**purchasesIdDelete**](ReceivingInventoryApi.md#purchasesIdDelete) | **DELETE** /purchases/{id} | Get receiving inventory document.
+[**purchasesIdDelete**](ReceivingInventoryApi.md#purchasesIdDelete) | **DELETE** /purchases/{id} | Delete receiving inventory document.
 [**purchasesIdGet**](ReceivingInventoryApi.md#purchasesIdGet) | **GET** /purchases/{id} | Get receiving inventory document.
+[**purchasesIdPaymentPost**](ReceivingInventoryApi.md#purchasesIdPaymentPost) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
+[**purchasesIdPut**](ReceivingInventoryApi.md#purchasesIdPut) | **PUT** /purchases/{id} | Edit receiving inventory document.
 [**purchasesIdStatusKeyStatusIdPost**](ReceivingInventoryApi.md#purchasesIdStatusKeyStatusIdPost) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
 [**purchasesInlinePost**](ReceivingInventoryApi.md#purchasesInlinePost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 [**purchasesPost**](ReceivingInventoryApi.md#purchasesPost) | **POST** /purchases | Create receiving inventory document.
@@ -202,7 +204,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\DeleteResponse purchasesIdDelete($authorization, $id)
 
-Get receiving inventory document.
+Delete receiving inventory document.
 
 ลบ เอกสารใบรับสินค้า ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ
 
@@ -314,6 +316,126 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## purchasesIdPaymentPost
+
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdPaymentPost($authorization, $id, $unknown_base_type)
+
+Change paid status of receiving inventory document.
+
+ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+
+try {
+    $result = $apiInstance->purchasesIdPaymentPost($authorization, $id, $unknown_base_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceivingInventoryApi->purchasesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## purchasesIdPut
+
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdPut($authorization, $id, $inline_document)
+
+Edit receiving inventory document.
+
+แก้ไขข้อมูลเอกสารใบรับสินค้า ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รออนุมัติ (Awaiting)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId
+$inline_document = new \OpenAPI\Client\Model\InlineDocument(); // \OpenAPI\Client\Model\InlineDocument | 
+
+try {
+    $result = $apiInstance->purchasesIdPut($authorization, $id, $inline_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceivingInventoryApi->purchasesIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **string**| ID เอกสารใช้ recordId |
+ **inline_document** | [**\OpenAPI\Client\Model\InlineDocument**](../Model/InlineDocument.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## purchasesIdStatusKeyStatusIdPost
 
 > \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
@@ -336,7 +458,7 @@ $apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId
-$status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
+$status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
 
 try {
     $result = $apiInstance->purchasesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
@@ -354,7 +476,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId |
- **status_id** | **string**| เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก |
+ **status_id** | **string**| เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก |
 
 ### Return type
 

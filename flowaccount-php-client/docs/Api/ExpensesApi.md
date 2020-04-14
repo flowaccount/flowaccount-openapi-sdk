@@ -9,9 +9,10 @@ Method | HTTP request | Description
 [**expensesEmailDocumentPost**](ExpensesApi.md#expensesEmailDocumentPost) | **POST** /expenses/email-document | Send email expenses document.
 [**expensesGet**](ExpensesApi.md#expensesGet) | **GET** /expenses | Get list all expenses documents.
 [**expensesIdAttachmentPost**](ExpensesApi.md#expensesIdAttachmentPost) | **POST** /expenses/{id}/attachment | Add Attachment to expenses.
-[**expensesIdDelete**](ExpensesApi.md#expensesIdDelete) | **DELETE** /expenses/{id} | Get expenses document.
+[**expensesIdDelete**](ExpensesApi.md#expensesIdDelete) | **DELETE** /expenses/{id} | Delete expenses document.
 [**expensesIdGet**](ExpensesApi.md#expensesIdGet) | **GET** /expenses/{id} | Get expenses document.
 [**expensesIdPaymentPost**](ExpensesApi.md#expensesIdPaymentPost) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
+[**expensesIdPut**](ExpensesApi.md#expensesIdPut) | **PUT** /expenses/{id} | Edit expenses document.
 [**expensesIdStatusKeyStatusIdPost**](ExpensesApi.md#expensesIdStatusKeyStatusIdPost) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
 [**expensesInlinePost**](ExpensesApi.md#expensesInlinePost) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 [**expensesPost**](ExpensesApi.md#expensesPost) | **POST** /expenses | Create expenses document.
@@ -317,7 +318,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\DeleteResponse expensesIdDelete($authorization, $id)
 
-Get expenses document.
+Delete expenses document.
 
 ลบ เอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ
 
@@ -431,11 +432,11 @@ No authorization required
 
 ## expensesIdPaymentPost
 
-> \OpenAPI\Client\Model\ExpenseDocumentResponse expensesIdPaymentPost($authorization, $id, $payment_document)
+> \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse expensesIdPaymentPost($authorization, $id, $unknown_base_type)
 
 Change paid status of expenses document.
 
-จ่ายเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารค่าใช้จ่าย
+ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
 
 ### Example
 
@@ -451,10 +452,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$payment_document = new \OpenAPI\Client\Model\PaymentDocument(); // \OpenAPI\Client\Model\PaymentDocument | 
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
 
 try {
-    $result = $apiInstance->expensesIdPaymentPost($authorization, $id, $payment_document);
+    $result = $apiInstance->expensesIdPaymentPost($authorization, $id, $unknown_base_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpensesApi->expensesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -469,11 +470,71 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **payment_document** | [**\OpenAPI\Client\Model\PaymentDocument**](../Model/PaymentDocument.md)|  |
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExpenseDocumentResponse**](../Model/ExpenseDocumentResponse.md)
+[**\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse**](../Model/ExpenseSimpleDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## expensesIdPut
+
+> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesIdPut($authorization, $id, $expense_inline_document)
+
+Edit expenses document.
+
+แก้ไขข้อมูลเอกสารค่าใช้จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\ExpensesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId
+$expense_inline_document = new \OpenAPI\Client\Model\ExpenseInlineDocument(); // \OpenAPI\Client\Model\ExpenseInlineDocument | 
+
+try {
+    $result = $apiInstance->expensesIdPut($authorization, $id, $expense_inline_document);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ExpensesApi->expensesIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **id** | **string**| ID เอกสารใช้ recordId |
+ **expense_inline_document** | [**\OpenAPI\Client\Model\ExpenseInlineDocument**](../Model/ExpenseInlineDocument.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ExpenseInlineDocumentResponse**](../Model/ExpenseInlineDocumentResponse.md)
 
 ### Authorization
 
@@ -609,7 +670,7 @@ No authorization required
 
 ## expensesPost
 
-> \OpenAPI\Client\Model\ExpenseDocumentResponse expensesPost($authorization, $expense_document)
+> \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse expensesPost($authorization, $expense_simple_document)
 
 Create expenses document.
 
@@ -628,10 +689,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$expense_document = new \OpenAPI\Client\Model\ExpenseDocument(); // \OpenAPI\Client\Model\ExpenseDocument | 
+$expense_simple_document = new \OpenAPI\Client\Model\ExpenseSimpleDocument(); // \OpenAPI\Client\Model\ExpenseSimpleDocument | 
 
 try {
-    $result = $apiInstance->expensesPost($authorization, $expense_document);
+    $result = $apiInstance->expensesPost($authorization, $expense_simple_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpensesApi->expensesPost: ', $e->getMessage(), PHP_EOL;
@@ -645,11 +706,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **expense_document** | [**\OpenAPI\Client\Model\ExpenseDocument**](../Model/ExpenseDocument.md)|  |
+ **expense_simple_document** | [**\OpenAPI\Client\Model\ExpenseSimpleDocument**](../Model/ExpenseSimpleDocument.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExpenseDocumentResponse**](../Model/ExpenseDocumentResponse.md)
+[**\OpenAPI\Client\Model\ExpenseSimpleDocumentResponse**](../Model/ExpenseSimpleDocumentResponse.md)
 
 ### Authorization
 
