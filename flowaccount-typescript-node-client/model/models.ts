@@ -1,6 +1,8 @@
 export * from './attachmentResponse';
 export * from './attachmentResponseData';
 export * from './authenResponse';
+export * from './bankAccount';
+export * from './bankAccountResponse';
 export * from './businessCategory';
 export * from './contact';
 export * from './contactResponse';
@@ -10,10 +12,13 @@ export * from './deleteResponseData';
 export * from './document';
 export * from './documentResponse';
 export * from './expenseDocument';
-export * from './expenseDocumentResponse';
 export * from './expenseInlineDocument';
+export * from './expenseInlineDocumentAllOf';
 export * from './expenseInlineDocumentResponse';
 export * from './expenseInlineProductItem';
+export * from './expenseSimpleDocument';
+export * from './expenseSimpleDocumentAllOf';
+export * from './expenseSimpleDocumentResponse';
 export * from './expenseSimpleProductItem';
 export * from './inlineDocument';
 export * from './inlineDocumentAllOf';
@@ -32,12 +37,22 @@ export * from './inlineObject8';
 export * from './inlineObject9';
 export * from './inlineProductItem';
 export * from './inlineProductItemAllOf';
-export * from './paymentDocument';
 export * from './paymentDocumentResponse';
-export * from './product';
+export * from './paymentPaidCash';
+export * from './paymentPaidCheque';
+export * from './paymentPaidCreditCard';
+export * from './paymentPaidTransfer';
+export * from './paymentReceivingCash';
+export * from './paymentReceivingCheque';
+export * from './paymentReceivingCreditCard';
+export * from './paymentReceivingTransfer';
+export * from './productInventory';
+export * from './productInventoryBalance';
 export * from './productItem';
+export * from './productNonInventory';
 export * from './productResponse';
 export * from './productResponseData';
+export * from './productService';
 export * from './referencedByMe';
 export * from './referencedToMe';
 export * from './sendEmail';
@@ -67,6 +82,8 @@ import localVarRequest = require('request');
 import { AttachmentResponse } from './attachmentResponse';
 import { AttachmentResponseData } from './attachmentResponseData';
 import { AuthenResponse } from './authenResponse';
+import { BankAccount } from './bankAccount';
+import { BankAccountResponse } from './bankAccountResponse';
 import { BusinessCategory } from './businessCategory';
 import { Contact } from './contact';
 import { ContactResponse } from './contactResponse';
@@ -76,10 +93,13 @@ import { DeleteResponseData } from './deleteResponseData';
 import { Document } from './document';
 import { DocumentResponse } from './documentResponse';
 import { ExpenseDocument } from './expenseDocument';
-import { ExpenseDocumentResponse } from './expenseDocumentResponse';
 import { ExpenseInlineDocument } from './expenseInlineDocument';
+import { ExpenseInlineDocumentAllOf } from './expenseInlineDocumentAllOf';
 import { ExpenseInlineDocumentResponse } from './expenseInlineDocumentResponse';
 import { ExpenseInlineProductItem } from './expenseInlineProductItem';
+import { ExpenseSimpleDocument } from './expenseSimpleDocument';
+import { ExpenseSimpleDocumentAllOf } from './expenseSimpleDocumentAllOf';
+import { ExpenseSimpleDocumentResponse } from './expenseSimpleDocumentResponse';
 import { ExpenseSimpleProductItem } from './expenseSimpleProductItem';
 import { InlineDocument } from './inlineDocument';
 import { InlineDocumentAllOf } from './inlineDocumentAllOf';
@@ -98,12 +118,22 @@ import { InlineObject8 } from './inlineObject8';
 import { InlineObject9 } from './inlineObject9';
 import { InlineProductItem } from './inlineProductItem';
 import { InlineProductItemAllOf } from './inlineProductItemAllOf';
-import { PaymentDocument } from './paymentDocument';
 import { PaymentDocumentResponse } from './paymentDocumentResponse';
-import { Product } from './product';
+import { PaymentPaidCash } from './paymentPaidCash';
+import { PaymentPaidCheque } from './paymentPaidCheque';
+import { PaymentPaidCreditCard } from './paymentPaidCreditCard';
+import { PaymentPaidTransfer } from './paymentPaidTransfer';
+import { PaymentReceivingCash } from './paymentReceivingCash';
+import { PaymentReceivingCheque } from './paymentReceivingCheque';
+import { PaymentReceivingCreditCard } from './paymentReceivingCreditCard';
+import { PaymentReceivingTransfer } from './paymentReceivingTransfer';
+import { ProductInventory } from './productInventory';
+import { ProductInventoryBalance } from './productInventoryBalance';
 import { ProductItem } from './productItem';
+import { ProductNonInventory } from './productNonInventory';
 import { ProductResponse } from './productResponse';
 import { ProductResponseData } from './productResponseData';
+import { ProductService } from './productService';
 import { ReferencedByMe } from './referencedByMe';
 import { ReferencedToMe } from './referencedToMe';
 import { SendEmail } from './sendEmail';
@@ -147,6 +177,8 @@ let typeMap: {[index: string]: any} = {
     "AttachmentResponse": AttachmentResponse,
     "AttachmentResponseData": AttachmentResponseData,
     "AuthenResponse": AuthenResponse,
+    "BankAccount": BankAccount,
+    "BankAccountResponse": BankAccountResponse,
     "BusinessCategory": BusinessCategory,
     "Contact": Contact,
     "ContactResponse": ContactResponse,
@@ -156,10 +188,13 @@ let typeMap: {[index: string]: any} = {
     "Document": Document,
     "DocumentResponse": DocumentResponse,
     "ExpenseDocument": ExpenseDocument,
-    "ExpenseDocumentResponse": ExpenseDocumentResponse,
     "ExpenseInlineDocument": ExpenseInlineDocument,
+    "ExpenseInlineDocumentAllOf": ExpenseInlineDocumentAllOf,
     "ExpenseInlineDocumentResponse": ExpenseInlineDocumentResponse,
     "ExpenseInlineProductItem": ExpenseInlineProductItem,
+    "ExpenseSimpleDocument": ExpenseSimpleDocument,
+    "ExpenseSimpleDocumentAllOf": ExpenseSimpleDocumentAllOf,
+    "ExpenseSimpleDocumentResponse": ExpenseSimpleDocumentResponse,
     "ExpenseSimpleProductItem": ExpenseSimpleProductItem,
     "InlineDocument": InlineDocument,
     "InlineDocumentAllOf": InlineDocumentAllOf,
@@ -178,12 +213,22 @@ let typeMap: {[index: string]: any} = {
     "InlineObject9": InlineObject9,
     "InlineProductItem": InlineProductItem,
     "InlineProductItemAllOf": InlineProductItemAllOf,
-    "PaymentDocument": PaymentDocument,
     "PaymentDocumentResponse": PaymentDocumentResponse,
-    "Product": Product,
+    "PaymentPaidCash": PaymentPaidCash,
+    "PaymentPaidCheque": PaymentPaidCheque,
+    "PaymentPaidCreditCard": PaymentPaidCreditCard,
+    "PaymentPaidTransfer": PaymentPaidTransfer,
+    "PaymentReceivingCash": PaymentReceivingCash,
+    "PaymentReceivingCheque": PaymentReceivingCheque,
+    "PaymentReceivingCreditCard": PaymentReceivingCreditCard,
+    "PaymentReceivingTransfer": PaymentReceivingTransfer,
+    "ProductInventory": ProductInventory,
+    "ProductInventoryBalance": ProductInventoryBalance,
     "ProductItem": ProductItem,
+    "ProductNonInventory": ProductNonInventory,
     "ProductResponse": ProductResponse,
     "ProductResponseData": ProductResponseData,
+    "ProductService": ProductService,
     "ReferencedByMe": ReferencedByMe,
     "ReferencedToMe": ReferencedToMe,
     "SendEmail": SendEmail,

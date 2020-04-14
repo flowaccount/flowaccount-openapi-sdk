@@ -66,6 +66,14 @@ export declare class BillingNotesApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
+    billingNotesIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
     billingNotesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;

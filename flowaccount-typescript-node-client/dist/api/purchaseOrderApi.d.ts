@@ -66,6 +66,14 @@ export declare class PurchaseOrderApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
+    purchasesOrdersIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
     purchasesOrdersIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;

@@ -5,6 +5,8 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./authenticationApi"));
 const authenticationApi_1 = require("./authenticationApi");
+__export(require("./bankAccountApi"));
+const bankAccountApi_1 = require("./bankAccountApi");
 __export(require("./billingNotesApi"));
 const billingNotesApi_1 = require("./billingNotesApi");
 __export(require("./cashInvoiceApi"));
@@ -37,5 +39,5 @@ class HttpError extends Error {
     }
 }
 exports.HttpError = HttpError;
-exports.APIS = [authenticationApi_1.AuthenticationApi, billingNotesApi_1.BillingNotesApi, cashInvoiceApi_1.CashInvoiceApi, contactsApi_1.ContactsApi, expensesApi_1.ExpensesApi, productsApi_1.ProductsApi, purchaseOrderApi_1.PurchaseOrderApi, quotationsApi_1.QuotationsApi, receiptApi_1.ReceiptApi, receivingInventoryApi_1.ReceivingInventoryApi, taxInvoiceApi_1.TaxInvoiceApi, withholdingTaxApi_1.WithholdingTaxApi];
+exports.APIS = [authenticationApi_1.AuthenticationApi, bankAccountApi_1.BankAccountApi, billingNotesApi_1.BillingNotesApi, cashInvoiceApi_1.CashInvoiceApi, contactsApi_1.ContactsApi, expensesApi_1.ExpensesApi, productsApi_1.ProductsApi, purchaseOrderApi_1.PurchaseOrderApi, quotationsApi_1.QuotationsApi, receiptApi_1.ReceiptApi, receivingInventoryApi_1.ReceivingInventoryApi, taxInvoiceApi_1.TaxInvoiceApi, withholdingTaxApi_1.WithholdingTaxApi];
 //# sourceMappingURL=apis.js.map

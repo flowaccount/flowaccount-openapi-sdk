@@ -65,6 +65,14 @@ export declare class QuotationsApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
+    quotationsIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
     quotationsIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;

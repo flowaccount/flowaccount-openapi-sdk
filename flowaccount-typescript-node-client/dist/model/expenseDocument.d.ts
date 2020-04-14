@@ -1,4 +1,3 @@
-import { ExpenseSimpleProductItem } from './expenseSimpleProductItem';
 export declare class ExpenseDocument {
     'documentSerial'?: string;
     'contactCode'?: string;
@@ -19,7 +18,6 @@ export declare class ExpenseDocument {
     'projectName'?: string;
     'reference'?: string;
     'isVatInclusive'?: boolean;
-    'items'?: Array<ExpenseSimpleProductItem>;
     'subTotal': number;
     'discountPercentage'?: number;
     'discountAmount'?: number;
@@ -30,6 +28,7 @@ export declare class ExpenseDocument {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
+    'expenseStructureType'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

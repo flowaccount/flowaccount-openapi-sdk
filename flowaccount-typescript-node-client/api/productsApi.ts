@@ -1,6 +1,6 @@
 /**
  * FlowAccount Open API
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -15,8 +15,11 @@ import http = require('http');
 
 /* tslint:disable:no-unused-locals */
 import { DeleteResponse } from '../model/deleteResponse';
-import { Product } from '../model/product';
+import { ProductInventory } from '../model/productInventory';
+import { ProductInventoryBalance } from '../model/productInventoryBalance';
+import { ProductNonInventory } from '../model/productNonInventory';
 import { ProductResponse } from '../model/productResponse';
+import { ProductService } from '../model/productService';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 
@@ -311,8 +314,9 @@ export class ProductsApi {
      * @summary Update products.
      * @param authorization เลข Id Product
      * @param id 
+     * @param productServiceProductNonInventoryProductInventoryProductInventoryBalance 
      */
-    public async productsIdPut (authorization: string, id: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ProductResponse;  }> {
+    public async productsIdPut (authorization: string, id: string, productServiceProductNonInventoryProductInventoryProductInventoryBalance: ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ProductResponse;  }> {
         const localVarPath = this.basePath + '/products/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -336,6 +340,11 @@ export class ProductsApi {
             throw new Error('Required parameter id was null or undefined when calling productsIdPut.');
         }
 
+        // verify required parameter 'productServiceProductNonInventoryProductInventoryProductInventoryBalance' is not null or undefined
+        if (productServiceProductNonInventoryProductInventoryProductInventoryBalance === null || productServiceProductNonInventoryProductInventoryProductInventoryBalance === undefined) {
+            throw new Error('Required parameter productServiceProductNonInventoryProductInventoryProductInventoryBalance was null or undefined when calling productsIdPut.');
+        }
+
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
@@ -348,6 +357,7 @@ export class ProductsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
+            body: ObjectSerializer.serialize(productServiceProductNonInventoryProductInventoryProductInventoryBalance, "ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -380,9 +390,9 @@ export class ProductsApi {
      * 
      * @summary Create products.
      * @param authorization 
-     * @param product 
+     * @param productServiceProductNonInventoryProductInventoryProductInventoryBalance 
      */
-    public async productsPost (authorization: string, product: Product, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ProductResponse;  }> {
+    public async productsPost (authorization: string, productServiceProductNonInventoryProductInventoryProductInventoryBalance: ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ProductResponse;  }> {
         const localVarPath = this.basePath + '/products';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -400,9 +410,9 @@ export class ProductsApi {
             throw new Error('Required parameter authorization was null or undefined when calling productsPost.');
         }
 
-        // verify required parameter 'product' is not null or undefined
-        if (product === null || product === undefined) {
-            throw new Error('Required parameter product was null or undefined when calling productsPost.');
+        // verify required parameter 'productServiceProductNonInventoryProductInventoryProductInventoryBalance' is not null or undefined
+        if (productServiceProductNonInventoryProductInventoryProductInventoryBalance === null || productServiceProductNonInventoryProductInventoryProductInventoryBalance === undefined) {
+            throw new Error('Required parameter productServiceProductNonInventoryProductInventoryProductInventoryBalance was null or undefined when calling productsPost.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -417,7 +427,7 @@ export class ProductsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(product, "Product")
+            body: ObjectSerializer.serialize(productServiceProductNonInventoryProductInventoryProductInventoryBalance, "ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance")
         };
 
         let authenticationPromise = Promise.resolve();

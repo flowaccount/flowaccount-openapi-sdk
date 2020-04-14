@@ -64,6 +64,14 @@ export declare class WithholdingTaxApi {
         response: http.IncomingMessage;
         body: WithholidingTaxDocumentResponse;
     }>;
+    withholdingTaxesIdPut(authorization: string, id: string, withholidingTaxDocument: WithholidingTaxDocument, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: WithholidingTaxDocumentResponse;
+    }>;
     withholdingTaxesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;

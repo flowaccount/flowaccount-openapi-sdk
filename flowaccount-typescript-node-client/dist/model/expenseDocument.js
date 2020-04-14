@@ -5,7 +5,7 @@ class ExpenseDocument {
         return ExpenseDocument.attributeTypeMap;
     }
 }
-ExpenseDocument.discriminator = undefined;
+ExpenseDocument.discriminator = "expenseStructureType";
 ExpenseDocument.attributeTypeMap = [
     {
         "name": "documentSerial",
@@ -103,11 +103,6 @@ ExpenseDocument.attributeTypeMap = [
         "type": "boolean"
     },
     {
-        "name": "items",
-        "baseName": "items",
-        "type": "Array<ExpenseSimpleProductItem>"
-    },
-    {
         "name": "subTotal",
         "baseName": "subTotal",
         "type": "number"
@@ -156,6 +151,11 @@ ExpenseDocument.attributeTypeMap = [
         "name": "showSignatureOrStamp",
         "baseName": "showSignatureOrStamp",
         "type": "boolean"
+    },
+    {
+        "name": "expenseStructureType",
+        "baseName": "expenseStructureType",
+        "type": "string"
     }
 ];
 exports.ExpenseDocument = ExpenseDocument;

@@ -1,6 +1,6 @@
 /**
  * FlowAccount Open API
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { ExpenseSimpleProductItem } from './expenseSimpleProductItem';
 
 export class ExpenseDocument {
     /**
@@ -89,7 +88,6 @@ export class ExpenseDocument {
     * มูลค่าเอกสารรวมภาษีแล้วหรือไม่
     */
     'isVatInclusive'?: boolean;
-    'items'?: Array<ExpenseSimpleProductItem>;
     /**
     * มูลค่ารวมเป็นเงิน
     */
@@ -130,8 +128,9 @@ export class ExpenseDocument {
     * ลายเซ็นอิเล็กทรอนิกส์และตรายาง
     */
     'showSignatureOrStamp'?: boolean;
+    'expenseStructureType'?: string;
 
-    static discriminator: string | undefined = undefined;
+    static discriminator: string | undefined = "expenseStructureType";
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -230,11 +229,6 @@ export class ExpenseDocument {
             "type": "boolean"
         },
         {
-            "name": "items",
-            "baseName": "items",
-            "type": "Array<ExpenseSimpleProductItem>"
-        },
-        {
             "name": "subTotal",
             "baseName": "subTotal",
             "type": "number"
@@ -283,6 +277,11 @@ export class ExpenseDocument {
             "name": "showSignatureOrStamp",
             "baseName": "showSignatureOrStamp",
             "type": "boolean"
+        },
+        {
+            "name": "expenseStructureType",
+            "baseName": "expenseStructureType",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

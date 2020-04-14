@@ -4,7 +4,10 @@ import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
-import { PaymentDocument } from '../model/paymentDocument';
+import { PaymentReceivingCash } from '../model/paymentReceivingCash';
+import { PaymentReceivingCheque } from '../model/paymentReceivingCheque';
+import { PaymentReceivingCreditCard } from '../model/paymentReceivingCreditCard';
+import { PaymentReceivingTransfer } from '../model/paymentReceivingTransfer';
 import { SendEmailCoppies } from '../model/sendEmailCoppies';
 import { SendEmailResponse } from '../model/sendEmailResponse';
 import { ShareDocument } from '../model/shareDocument';
@@ -67,7 +70,15 @@ export declare class ReceiptApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    receiptsIdPaymentPost(authorization: string, id: string, paymentDocument: PaymentDocument, options?: {
+    receiptsIdPaymentPost(authorization: string, id: string, paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard: PaymentReceivingCash | PaymentReceivingTransfer | PaymentReceivingCheque | PaymentReceivingCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
+    receiptsIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
         headers: {
             [name: string]: string;
         };

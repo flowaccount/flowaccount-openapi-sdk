@@ -246,7 +246,7 @@ class ProductsApi {
             });
         });
     }
-    productsIdPut(authorization, id, options = { headers: {} }) {
+    productsIdPut(authorization, id, productServiceProductNonInventoryProductInventoryProductInventoryBalance, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/products/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
@@ -266,6 +266,9 @@ class ProductsApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling productsIdPut.');
             }
+            if (productServiceProductNonInventoryProductInventoryProductInventoryBalance === null || productServiceProductNonInventoryProductInventoryProductInventoryBalance === undefined) {
+                throw new Error('Required parameter productServiceProductNonInventoryProductInventoryProductInventoryBalance was null or undefined when calling productsIdPut.');
+            }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -276,6 +279,7 @@ class ProductsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
+                body: models_1.ObjectSerializer.serialize(productServiceProductNonInventoryProductInventoryProductInventoryBalance, "ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
@@ -307,7 +311,7 @@ class ProductsApi {
             });
         });
     }
-    productsPost(authorization, product, options = { headers: {} }) {
+    productsPost(authorization, productServiceProductNonInventoryProductInventoryProductInventoryBalance, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/products';
             let localVarQueryParameters = {};
@@ -323,8 +327,8 @@ class ProductsApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling productsPost.');
             }
-            if (product === null || product === undefined) {
-                throw new Error('Required parameter product was null or undefined when calling productsPost.');
+            if (productServiceProductNonInventoryProductInventoryProductInventoryBalance === null || productServiceProductNonInventoryProductInventoryProductInventoryBalance === undefined) {
+                throw new Error('Required parameter productServiceProductNonInventoryProductInventoryProductInventoryBalance was null or undefined when calling productsPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -336,7 +340,7 @@ class ProductsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(product, "Product")
+                body: models_1.ObjectSerializer.serialize(productServiceProductNonInventoryProductInventoryProductInventoryBalance, "ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));

@@ -372,6 +372,71 @@ class WithholdingTaxApi {
             });
         });
     }
+    withholdingTaxesIdPut(authorization, id, withholidingTaxDocument, options = { headers: {} }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = this.basePath + '/withholding-taxes/{id}'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            let localVarQueryParameters = {};
+            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            const produces = ['application/json'];
+            if (produces.indexOf('application/json') >= 0) {
+                localVarHeaderParams.Accept = 'application/json';
+            }
+            else {
+                localVarHeaderParams.Accept = produces.join(',');
+            }
+            let localVarFormParams = {};
+            if (authorization === null || authorization === undefined) {
+                throw new Error('Required parameter authorization was null or undefined when calling withholdingTaxesIdPut.');
+            }
+            if (id === null || id === undefined) {
+                throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdPut.');
+            }
+            if (withholidingTaxDocument === null || withholidingTaxDocument === undefined) {
+                throw new Error('Required parameter withholidingTaxDocument was null or undefined when calling withholdingTaxesIdPut.');
+            }
+            localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
+            Object.assign(localVarHeaderParams, options.headers);
+            let localVarUseFormData = false;
+            let localVarRequestOptions = {
+                method: 'PUT',
+                qs: localVarQueryParameters,
+                headers: localVarHeaderParams,
+                uri: localVarPath,
+                useQuerystring: this._useQuerystring,
+                json: true,
+                body: models_1.ObjectSerializer.serialize(withholidingTaxDocument, "WithholidingTaxDocument")
+            };
+            let authenticationPromise = Promise.resolve();
+            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+            return authenticationPromise.then(() => {
+                if (Object.keys(localVarFormParams).length) {
+                    if (localVarUseFormData) {
+                        localVarRequestOptions.formData = localVarFormParams;
+                    }
+                    else {
+                        localVarRequestOptions.form = localVarFormParams;
+                    }
+                }
+                return new Promise((resolve, reject) => {
+                    localVarRequest(localVarRequestOptions, (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            body = models_1.ObjectSerializer.deserialize(body, "WithholidingTaxDocumentResponse");
+                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                                resolve({ response: response, body: body });
+                            }
+                            else {
+                                reject(new apis_1.HttpError(response, body, response.statusCode));
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    }
     withholdingTaxesIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/withholding-taxes/{id}/status-key/{statusId}'

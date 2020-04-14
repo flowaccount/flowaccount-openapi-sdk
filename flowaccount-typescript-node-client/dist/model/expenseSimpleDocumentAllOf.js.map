@@ -1,0 +1,1 @@
+{"version":3,"file":"expenseSimpleDocumentAllOf.js","sourceRoot":"","sources":["../../model/expenseSimpleDocumentAllOf.ts"],"names":[],"mappings":";;AAcA;IAeI,MAAM,CAAC,mBAAmB;QACtB,OAAO,0BAA0B,CAAC,gBAAgB,CAAC;IACvD,CAAC;;AAXM,wCAAa,GAAuB,SAAS,CAAC;AAE9C,2CAAgB,GAA0D;IAC7E;QACI,MAAM,EAAE,OAAO;QACf,UAAU,EAAE,OAAO;QACnB,MAAM,EAAE,iCAAiC;KAC5C;CAAK,CAAC;AAbf,gEAkBC"}

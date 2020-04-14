@@ -486,7 +486,7 @@ class ExpensesApi {
             });
         });
     }
-    expensesIdPaymentPost(authorization, id, paymentDocument, options = { headers: {} }) {
+    expensesIdPaymentPost(authorization, id, paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/{id}/payment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
@@ -506,8 +506,8 @@ class ExpensesApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling expensesIdPaymentPost.');
             }
-            if (paymentDocument === null || paymentDocument === undefined) {
-                throw new Error('Required parameter paymentDocument was null or undefined when calling expensesIdPaymentPost.');
+            if (paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard === null || paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard === undefined) {
+                throw new Error('Required parameter paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard was null or undefined when calling expensesIdPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -519,7 +519,7 @@ class ExpensesApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(paymentDocument, "PaymentDocument")
+                body: models_1.ObjectSerializer.serialize(paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard, "PaymentPaidCash | PaymentPaidTransfer | PaymentPaidCheque | PaymentPaidCreditCard")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
@@ -538,7 +538,72 @@ class ExpensesApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "ExpenseDocumentResponse");
+                            body = models_1.ObjectSerializer.deserialize(body, "ExpenseSimpleDocumentResponse");
+                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                                resolve({ response: response, body: body });
+                            }
+                            else {
+                                reject(new apis_1.HttpError(response, body, response.statusCode));
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    }
+    expensesIdPut(authorization, id, expenseInlineDocument, options = { headers: {} }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = this.basePath + '/expenses/{id}'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            let localVarQueryParameters = {};
+            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            const produces = ['application/json'];
+            if (produces.indexOf('application/json') >= 0) {
+                localVarHeaderParams.Accept = 'application/json';
+            }
+            else {
+                localVarHeaderParams.Accept = produces.join(',');
+            }
+            let localVarFormParams = {};
+            if (authorization === null || authorization === undefined) {
+                throw new Error('Required parameter authorization was null or undefined when calling expensesIdPut.');
+            }
+            if (id === null || id === undefined) {
+                throw new Error('Required parameter id was null or undefined when calling expensesIdPut.');
+            }
+            if (expenseInlineDocument === null || expenseInlineDocument === undefined) {
+                throw new Error('Required parameter expenseInlineDocument was null or undefined when calling expensesIdPut.');
+            }
+            localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
+            Object.assign(localVarHeaderParams, options.headers);
+            let localVarUseFormData = false;
+            let localVarRequestOptions = {
+                method: 'PUT',
+                qs: localVarQueryParameters,
+                headers: localVarHeaderParams,
+                uri: localVarPath,
+                useQuerystring: this._useQuerystring,
+                json: true,
+                body: models_1.ObjectSerializer.serialize(expenseInlineDocument, "ExpenseInlineDocument")
+            };
+            let authenticationPromise = Promise.resolve();
+            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+            return authenticationPromise.then(() => {
+                if (Object.keys(localVarFormParams).length) {
+                    if (localVarUseFormData) {
+                        localVarRequestOptions.formData = localVarFormParams;
+                    }
+                    else {
+                        localVarRequestOptions.form = localVarFormParams;
+                    }
+                }
+                return new Promise((resolve, reject) => {
+                    localVarRequest(localVarRequestOptions, (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            body = models_1.ObjectSerializer.deserialize(body, "ExpenseInlineDocumentResponse");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -677,7 +742,7 @@ class ExpensesApi {
             });
         });
     }
-    expensesPost(authorization, expenseDocument, options = { headers: {} }) {
+    expensesPost(authorization, expenseSimpleDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses';
             let localVarQueryParameters = {};
@@ -693,8 +758,8 @@ class ExpensesApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling expensesPost.');
             }
-            if (expenseDocument === null || expenseDocument === undefined) {
-                throw new Error('Required parameter expenseDocument was null or undefined when calling expensesPost.');
+            if (expenseSimpleDocument === null || expenseSimpleDocument === undefined) {
+                throw new Error('Required parameter expenseSimpleDocument was null or undefined when calling expensesPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -706,7 +771,7 @@ class ExpensesApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(expenseDocument, "ExpenseDocument")
+                body: models_1.ObjectSerializer.serialize(expenseSimpleDocument, "ExpenseSimpleDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
@@ -725,7 +790,7 @@ class ExpensesApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "ExpenseDocumentResponse");
+                            body = models_1.ObjectSerializer.deserialize(body, "ExpenseSimpleDocumentResponse");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

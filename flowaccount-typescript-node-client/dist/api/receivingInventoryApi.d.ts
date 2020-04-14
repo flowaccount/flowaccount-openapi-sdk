@@ -4,6 +4,10 @@ import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
+import { PaymentPaidCash } from '../model/paymentPaidCash';
+import { PaymentPaidCheque } from '../model/paymentPaidCheque';
+import { PaymentPaidCreditCard } from '../model/paymentPaidCreditCard';
+import { PaymentPaidTransfer } from '../model/paymentPaidTransfer';
 import { SendEmailCoppies } from '../model/sendEmailCoppies';
 import { SendEmailResponse } from '../model/sendEmailResponse';
 import { ShareDocument } from '../model/shareDocument';
@@ -59,6 +63,22 @@ export declare class ReceivingInventoryApi {
         body: DeleteResponse;
     }>;
     purchasesIdGet(authorization: string, id: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
+    purchasesIdPaymentPost(authorization: string, id: string, paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard: PaymentPaidCash | PaymentPaidTransfer | PaymentPaidCheque | PaymentPaidCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
+    purchasesIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
         headers: {
             [name: string]: string;
         };

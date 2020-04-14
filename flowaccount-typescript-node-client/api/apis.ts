@@ -1,5 +1,7 @@
 export * from './authenticationApi';
 import { AuthenticationApi } from './authenticationApi';
+export * from './bankAccountApi';
+import { BankAccountApi } from './bankAccountApi';
 export * from './billingNotesApi';
 import { BillingNotesApi } from './billingNotesApi';
 export * from './cashInvoiceApi';
@@ -42,4 +44,4 @@ export interface RequestDetailedFile {
 
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
-export const APIS = [AuthenticationApi, BillingNotesApi, CashInvoiceApi, ContactsApi, ExpensesApi, ProductsApi, PurchaseOrderApi, QuotationsApi, ReceiptApi, ReceivingInventoryApi, TaxInvoiceApi, WithholdingTaxApi];
+export const APIS = [AuthenticationApi, BankAccountApi, BillingNotesApi, CashInvoiceApi, ContactsApi, ExpensesApi, ProductsApi, PurchaseOrderApi, QuotationsApi, ReceiptApi, ReceivingInventoryApi, TaxInvoiceApi, WithholdingTaxApi];

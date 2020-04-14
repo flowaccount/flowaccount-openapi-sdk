@@ -1,8 +1,11 @@
 /// <reference types="node" />
 import http = require('http');
 import { DeleteResponse } from '../model/deleteResponse';
-import { Product } from '../model/product';
+import { ProductInventory } from '../model/productInventory';
+import { ProductInventoryBalance } from '../model/productInventoryBalance';
+import { ProductNonInventory } from '../model/productNonInventory';
 import { ProductResponse } from '../model/productResponse';
+import { ProductService } from '../model/productService';
 import { Authentication } from '../model/models';
 export declare enum ProductsApiApiKeys {
 }
@@ -42,7 +45,7 @@ export declare class ProductsApi {
         response: http.IncomingMessage;
         body: ProductResponse;
     }>;
-    productsIdPut(authorization: string, id: string, options?: {
+    productsIdPut(authorization: string, id: string, productServiceProductNonInventoryProductInventoryProductInventoryBalance: ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance, options?: {
         headers: {
             [name: string]: string;
         };
@@ -50,7 +53,7 @@ export declare class ProductsApi {
         response: http.IncomingMessage;
         body: ProductResponse;
     }>;
-    productsPost(authorization: string, product: Product, options?: {
+    productsPost(authorization: string, productServiceProductNonInventoryProductInventoryProductInventoryBalance: ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance, options?: {
         headers: {
             [name: string]: string;
         };

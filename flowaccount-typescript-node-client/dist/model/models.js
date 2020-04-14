@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./attachmentResponse"));
 __export(require("./attachmentResponseData"));
 __export(require("./authenResponse"));
+__export(require("./bankAccount"));
+__export(require("./bankAccountResponse"));
 __export(require("./businessCategory"));
 __export(require("./contact"));
 __export(require("./contactResponse"));
@@ -15,10 +17,13 @@ __export(require("./deleteResponseData"));
 __export(require("./document"));
 __export(require("./documentResponse"));
 __export(require("./expenseDocument"));
-__export(require("./expenseDocumentResponse"));
 __export(require("./expenseInlineDocument"));
+__export(require("./expenseInlineDocumentAllOf"));
 __export(require("./expenseInlineDocumentResponse"));
 __export(require("./expenseInlineProductItem"));
+__export(require("./expenseSimpleDocument"));
+__export(require("./expenseSimpleDocumentAllOf"));
+__export(require("./expenseSimpleDocumentResponse"));
 __export(require("./expenseSimpleProductItem"));
 __export(require("./inlineDocument"));
 __export(require("./inlineDocumentAllOf"));
@@ -37,12 +42,22 @@ __export(require("./inlineObject8"));
 __export(require("./inlineObject9"));
 __export(require("./inlineProductItem"));
 __export(require("./inlineProductItemAllOf"));
-__export(require("./paymentDocument"));
 __export(require("./paymentDocumentResponse"));
-__export(require("./product"));
+__export(require("./paymentPaidCash"));
+__export(require("./paymentPaidCheque"));
+__export(require("./paymentPaidCreditCard"));
+__export(require("./paymentPaidTransfer"));
+__export(require("./paymentReceivingCash"));
+__export(require("./paymentReceivingCheque"));
+__export(require("./paymentReceivingCreditCard"));
+__export(require("./paymentReceivingTransfer"));
+__export(require("./productInventory"));
+__export(require("./productInventoryBalance"));
 __export(require("./productItem"));
+__export(require("./productNonInventory"));
 __export(require("./productResponse"));
 __export(require("./productResponseData"));
+__export(require("./productService"));
 __export(require("./referencedByMe"));
 __export(require("./referencedToMe"));
 __export(require("./sendEmail"));
@@ -69,6 +84,8 @@ __export(require("./withholidingTaxItem"));
 const attachmentResponse_1 = require("./attachmentResponse");
 const attachmentResponseData_1 = require("./attachmentResponseData");
 const authenResponse_1 = require("./authenResponse");
+const bankAccount_1 = require("./bankAccount");
+const bankAccountResponse_1 = require("./bankAccountResponse");
 const businessCategory_1 = require("./businessCategory");
 const contact_1 = require("./contact");
 const contactResponse_1 = require("./contactResponse");
@@ -78,10 +95,13 @@ const deleteResponseData_1 = require("./deleteResponseData");
 const document_1 = require("./document");
 const documentResponse_1 = require("./documentResponse");
 const expenseDocument_1 = require("./expenseDocument");
-const expenseDocumentResponse_1 = require("./expenseDocumentResponse");
 const expenseInlineDocument_1 = require("./expenseInlineDocument");
+const expenseInlineDocumentAllOf_1 = require("./expenseInlineDocumentAllOf");
 const expenseInlineDocumentResponse_1 = require("./expenseInlineDocumentResponse");
 const expenseInlineProductItem_1 = require("./expenseInlineProductItem");
+const expenseSimpleDocument_1 = require("./expenseSimpleDocument");
+const expenseSimpleDocumentAllOf_1 = require("./expenseSimpleDocumentAllOf");
+const expenseSimpleDocumentResponse_1 = require("./expenseSimpleDocumentResponse");
 const expenseSimpleProductItem_1 = require("./expenseSimpleProductItem");
 const inlineDocument_1 = require("./inlineDocument");
 const inlineDocumentAllOf_1 = require("./inlineDocumentAllOf");
@@ -100,12 +120,22 @@ const inlineObject8_1 = require("./inlineObject8");
 const inlineObject9_1 = require("./inlineObject9");
 const inlineProductItem_1 = require("./inlineProductItem");
 const inlineProductItemAllOf_1 = require("./inlineProductItemAllOf");
-const paymentDocument_1 = require("./paymentDocument");
 const paymentDocumentResponse_1 = require("./paymentDocumentResponse");
-const product_1 = require("./product");
+const paymentPaidCash_1 = require("./paymentPaidCash");
+const paymentPaidCheque_1 = require("./paymentPaidCheque");
+const paymentPaidCreditCard_1 = require("./paymentPaidCreditCard");
+const paymentPaidTransfer_1 = require("./paymentPaidTransfer");
+const paymentReceivingCash_1 = require("./paymentReceivingCash");
+const paymentReceivingCheque_1 = require("./paymentReceivingCheque");
+const paymentReceivingCreditCard_1 = require("./paymentReceivingCreditCard");
+const paymentReceivingTransfer_1 = require("./paymentReceivingTransfer");
+const productInventory_1 = require("./productInventory");
+const productInventoryBalance_1 = require("./productInventoryBalance");
 const productItem_1 = require("./productItem");
+const productNonInventory_1 = require("./productNonInventory");
 const productResponse_1 = require("./productResponse");
 const productResponseData_1 = require("./productResponseData");
+const productService_1 = require("./productService");
 const referencedByMe_1 = require("./referencedByMe");
 const referencedToMe_1 = require("./referencedToMe");
 const sendEmail_1 = require("./sendEmail");
@@ -144,6 +174,8 @@ let typeMap = {
     "AttachmentResponse": attachmentResponse_1.AttachmentResponse,
     "AttachmentResponseData": attachmentResponseData_1.AttachmentResponseData,
     "AuthenResponse": authenResponse_1.AuthenResponse,
+    "BankAccount": bankAccount_1.BankAccount,
+    "BankAccountResponse": bankAccountResponse_1.BankAccountResponse,
     "BusinessCategory": businessCategory_1.BusinessCategory,
     "Contact": contact_1.Contact,
     "ContactResponse": contactResponse_1.ContactResponse,
@@ -153,10 +185,13 @@ let typeMap = {
     "Document": document_1.Document,
     "DocumentResponse": documentResponse_1.DocumentResponse,
     "ExpenseDocument": expenseDocument_1.ExpenseDocument,
-    "ExpenseDocumentResponse": expenseDocumentResponse_1.ExpenseDocumentResponse,
     "ExpenseInlineDocument": expenseInlineDocument_1.ExpenseInlineDocument,
+    "ExpenseInlineDocumentAllOf": expenseInlineDocumentAllOf_1.ExpenseInlineDocumentAllOf,
     "ExpenseInlineDocumentResponse": expenseInlineDocumentResponse_1.ExpenseInlineDocumentResponse,
     "ExpenseInlineProductItem": expenseInlineProductItem_1.ExpenseInlineProductItem,
+    "ExpenseSimpleDocument": expenseSimpleDocument_1.ExpenseSimpleDocument,
+    "ExpenseSimpleDocumentAllOf": expenseSimpleDocumentAllOf_1.ExpenseSimpleDocumentAllOf,
+    "ExpenseSimpleDocumentResponse": expenseSimpleDocumentResponse_1.ExpenseSimpleDocumentResponse,
     "ExpenseSimpleProductItem": expenseSimpleProductItem_1.ExpenseSimpleProductItem,
     "InlineDocument": inlineDocument_1.InlineDocument,
     "InlineDocumentAllOf": inlineDocumentAllOf_1.InlineDocumentAllOf,
@@ -175,12 +210,22 @@ let typeMap = {
     "InlineObject9": inlineObject9_1.InlineObject9,
     "InlineProductItem": inlineProductItem_1.InlineProductItem,
     "InlineProductItemAllOf": inlineProductItemAllOf_1.InlineProductItemAllOf,
-    "PaymentDocument": paymentDocument_1.PaymentDocument,
     "PaymentDocumentResponse": paymentDocumentResponse_1.PaymentDocumentResponse,
-    "Product": product_1.Product,
+    "PaymentPaidCash": paymentPaidCash_1.PaymentPaidCash,
+    "PaymentPaidCheque": paymentPaidCheque_1.PaymentPaidCheque,
+    "PaymentPaidCreditCard": paymentPaidCreditCard_1.PaymentPaidCreditCard,
+    "PaymentPaidTransfer": paymentPaidTransfer_1.PaymentPaidTransfer,
+    "PaymentReceivingCash": paymentReceivingCash_1.PaymentReceivingCash,
+    "PaymentReceivingCheque": paymentReceivingCheque_1.PaymentReceivingCheque,
+    "PaymentReceivingCreditCard": paymentReceivingCreditCard_1.PaymentReceivingCreditCard,
+    "PaymentReceivingTransfer": paymentReceivingTransfer_1.PaymentReceivingTransfer,
+    "ProductInventory": productInventory_1.ProductInventory,
+    "ProductInventoryBalance": productInventoryBalance_1.ProductInventoryBalance,
     "ProductItem": productItem_1.ProductItem,
+    "ProductNonInventory": productNonInventory_1.ProductNonInventory,
     "ProductResponse": productResponse_1.ProductResponse,
     "ProductResponseData": productResponseData_1.ProductResponseData,
+    "ProductService": productService_1.ProductService,
     "ReferencedByMe": referencedByMe_1.ReferencedByMe,
     "ReferencedToMe": referencedToMe_1.ReferencedToMe,
     "SendEmail": sendEmail_1.SendEmail,

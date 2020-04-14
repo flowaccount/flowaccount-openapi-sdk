@@ -3,11 +3,14 @@ import http = require('http');
 import { AttachmentResponse } from '../model/attachmentResponse';
 import { BusinessCategory } from '../model/businessCategory';
 import { DeleteResponse } from '../model/deleteResponse';
-import { ExpenseDocument } from '../model/expenseDocument';
-import { ExpenseDocumentResponse } from '../model/expenseDocumentResponse';
 import { ExpenseInlineDocument } from '../model/expenseInlineDocument';
 import { ExpenseInlineDocumentResponse } from '../model/expenseInlineDocumentResponse';
-import { PaymentDocument } from '../model/paymentDocument';
+import { ExpenseSimpleDocument } from '../model/expenseSimpleDocument';
+import { ExpenseSimpleDocumentResponse } from '../model/expenseSimpleDocumentResponse';
+import { PaymentPaidCash } from '../model/paymentPaidCash';
+import { PaymentPaidCheque } from '../model/paymentPaidCheque';
+import { PaymentPaidCreditCard } from '../model/paymentPaidCreditCard';
+import { PaymentPaidTransfer } from '../model/paymentPaidTransfer';
 import { SendEmailResponse } from '../model/sendEmailResponse';
 import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
@@ -84,13 +87,21 @@ export declare class ExpensesApi {
         response: http.IncomingMessage;
         body: ExpenseInlineDocumentResponse;
     }>;
-    expensesIdPaymentPost(authorization: string, id: string, paymentDocument: PaymentDocument, options?: {
+    expensesIdPaymentPost(authorization: string, id: string, paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard: PaymentPaidCash | PaymentPaidTransfer | PaymentPaidCheque | PaymentPaidCreditCard, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: ExpenseDocumentResponse;
+        body: ExpenseSimpleDocumentResponse;
+    }>;
+    expensesIdPut(authorization: string, id: string, expenseInlineDocument: ExpenseInlineDocument, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: ExpenseInlineDocumentResponse;
     }>;
     expensesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
@@ -108,13 +119,13 @@ export declare class ExpensesApi {
         response: http.IncomingMessage;
         body: ExpenseInlineDocumentResponse;
     }>;
-    expensesPost(authorization: string, expenseDocument: ExpenseDocument, options?: {
+    expensesPost(authorization: string, expenseSimpleDocument: ExpenseSimpleDocument, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: ExpenseDocumentResponse;
+        body: ExpenseSimpleDocumentResponse;
     }>;
     expensesSharedocumentPost(authorization: string, shareDocument: ShareDocument, options?: {
         headers: {

@@ -372,7 +372,7 @@ class CashInvoiceApi {
             });
         });
     }
-    cashInvoicesIdPaymentPost(authorization, id, paymentDocument, options = { headers: {} }) {
+    cashInvoicesIdPaymentPost(authorization, id, paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/cash-invoices/{id}/payment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
@@ -392,8 +392,8 @@ class CashInvoiceApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling cashInvoicesIdPaymentPost.');
             }
-            if (paymentDocument === null || paymentDocument === undefined) {
-                throw new Error('Required parameter paymentDocument was null or undefined when calling cashInvoicesIdPaymentPost.');
+            if (paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard === null || paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard === undefined) {
+                throw new Error('Required parameter paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard was null or undefined when calling cashInvoicesIdPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -405,7 +405,72 @@ class CashInvoiceApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(paymentDocument, "PaymentDocument")
+                body: models_1.ObjectSerializer.serialize(paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard, "PaymentReceivingCash | PaymentReceivingTransfer | PaymentReceivingCheque | PaymentReceivingCreditCard")
+            };
+            let authenticationPromise = Promise.resolve();
+            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+            return authenticationPromise.then(() => {
+                if (Object.keys(localVarFormParams).length) {
+                    if (localVarUseFormData) {
+                        localVarRequestOptions.formData = localVarFormParams;
+                    }
+                    else {
+                        localVarRequestOptions.form = localVarFormParams;
+                    }
+                }
+                return new Promise((resolve, reject) => {
+                    localVarRequest(localVarRequestOptions, (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            body = models_1.ObjectSerializer.deserialize(body, "InlineDocumentResponse");
+                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                                resolve({ response: response, body: body });
+                            }
+                            else {
+                                reject(new apis_1.HttpError(response, body, response.statusCode));
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    }
+    cashInvoicesIdPut(authorization, id, inlineDocument, options = { headers: {} }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = this.basePath + '/cash-invoices/{id}'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            let localVarQueryParameters = {};
+            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            const produces = ['application/json'];
+            if (produces.indexOf('application/json') >= 0) {
+                localVarHeaderParams.Accept = 'application/json';
+            }
+            else {
+                localVarHeaderParams.Accept = produces.join(',');
+            }
+            let localVarFormParams = {};
+            if (authorization === null || authorization === undefined) {
+                throw new Error('Required parameter authorization was null or undefined when calling cashInvoicesIdPut.');
+            }
+            if (id === null || id === undefined) {
+                throw new Error('Required parameter id was null or undefined when calling cashInvoicesIdPut.');
+            }
+            if (inlineDocument === null || inlineDocument === undefined) {
+                throw new Error('Required parameter inlineDocument was null or undefined when calling cashInvoicesIdPut.');
+            }
+            localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
+            Object.assign(localVarHeaderParams, options.headers);
+            let localVarUseFormData = false;
+            let localVarRequestOptions = {
+                method: 'PUT',
+                qs: localVarQueryParameters,
+                headers: localVarHeaderParams,
+                uri: localVarPath,
+                useQuerystring: this._useQuerystring,
+                json: true,
+                body: models_1.ObjectSerializer.serialize(inlineDocument, "InlineDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));

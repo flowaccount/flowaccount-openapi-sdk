@@ -1,6 +1,6 @@
 /**
  * FlowAccount Open API
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test    **PostMan Collection**   site: https://www.getpostman.com/collections/01e7c68d7093e2092a64
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -18,7 +18,10 @@ import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
-import { PaymentDocument } from '../model/paymentDocument';
+import { PaymentReceivingCash } from '../model/paymentReceivingCash';
+import { PaymentReceivingCheque } from '../model/paymentReceivingCheque';
+import { PaymentReceivingCreditCard } from '../model/paymentReceivingCreditCard';
+import { PaymentReceivingTransfer } from '../model/paymentReceivingTransfer';
 import { SendEmailCoppies } from '../model/sendEmailCoppies';
 import { SendEmailResponse } from '../model/sendEmailResponse';
 import { ShareDocument } from '../model/shareDocument';
@@ -322,7 +325,7 @@ export class ReceiptApi {
     }
     /**
      * ลบ เอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอดำเนินการ 
-     * @summary Get receipt document.
+     * @summary Delete receipt document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
      */
@@ -461,13 +464,13 @@ export class ReceiptApi {
         });
     }
     /**
-     * เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสารใบเสร็จรับเงิน
+     * เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      * @summary Change paid status of receipt document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId หรือ documentId
-     * @param paymentDocument 
+     * @param paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard 
      */
-    public async receiptsIdPaymentPost (authorization: string, id: string, paymentDocument: PaymentDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+    public async receiptsIdPaymentPost (authorization: string, id: string, paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard: PaymentReceivingCash | PaymentReceivingTransfer | PaymentReceivingCheque | PaymentReceivingCreditCard, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
         const localVarPath = this.basePath + '/receipts/{id}/payment'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -491,9 +494,9 @@ export class ReceiptApi {
             throw new Error('Required parameter id was null or undefined when calling receiptsIdPaymentPost.');
         }
 
-        // verify required parameter 'paymentDocument' is not null or undefined
-        if (paymentDocument === null || paymentDocument === undefined) {
-            throw new Error('Required parameter paymentDocument was null or undefined when calling receiptsIdPaymentPost.');
+        // verify required parameter 'paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard' is not null or undefined
+        if (paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard === null || paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard === undefined) {
+            throw new Error('Required parameter paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard was null or undefined when calling receiptsIdPaymentPost.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -508,7 +511,84 @@ export class ReceiptApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(paymentDocument, "PaymentDocument")
+            body: ObjectSerializer.serialize(paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard, "PaymentReceivingCash | PaymentReceivingTransfer | PaymentReceivingCheque | PaymentReceivingCreditCard")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+        return authenticationPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineDocumentResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * แก้ไขข้อมูลเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)
+     * @summary Edit receipt document.
+     * @param authorization 
+     * @param id ID เอกสารใช้ recordId
+     * @param inlineDocument 
+     */
+    public async receiptsIdPut (authorization: string, id: string, inlineDocument: InlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+        const localVarPath = this.basePath + '/receipts/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'authorization' is not null or undefined
+        if (authorization === null || authorization === undefined) {
+            throw new Error('Required parameter authorization was null or undefined when calling receiptsIdPut.');
+        }
+
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling receiptsIdPut.');
+        }
+
+        // verify required parameter 'inlineDocument' is not null or undefined
+        if (inlineDocument === null || inlineDocument === undefined) {
+            throw new Error('Required parameter inlineDocument was null or undefined when calling receiptsIdPut.');
+        }
+
+        localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'PUT',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(inlineDocument, "InlineDocument")
         };
 
         let authenticationPromise = Promise.resolve();
