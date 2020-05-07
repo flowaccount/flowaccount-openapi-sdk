@@ -40,7 +40,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentPaidCreditCard" /> class.
         /// </summary>
-        /// <param name="paymentStructureType">ชำระเงิน ด้วยเช็ค (required).</param>
+        /// <param name="paymentStructureType">ชำระเงิน ด้วยบัตรเครดิต (required).</param>
         /// <param name="documentId">id เอกสาร (required).</param>
         /// <param name="paymentMethod">ประเภทการชำระเงิน &lt;br&gt; 7 &#x3D; บัตรเครดิต (required) (default to 1).</param>
         /// <param name="paymentDate">วันที่รับชำระเงิน / วันที่ชำระเงิน รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; (required).</param>
@@ -153,9 +153,9 @@ namespace Flowaccount.OpenAPITools.Model
         }
         
         /// <summary>
-        /// ชำระเงิน ด้วยเช็ค
+        /// ชำระเงิน ด้วยบัตรเครดิต
         /// </summary>
-        /// <value>ชำระเงิน ด้วยเช็ค</value>
+        /// <value>ชำระเงิน ด้วยบัตรเครดิต</value>
         [DataMember(Name="paymentStructureType", EmitDefaultValue=true)]
         public string PaymentStructureType { get; set; }
 

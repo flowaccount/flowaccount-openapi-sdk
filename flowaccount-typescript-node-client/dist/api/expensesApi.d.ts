@@ -15,6 +15,7 @@ import { SendEmailResponse } from '../model/sendEmailResponse';
 import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
+import { UpdateExpenseDocument } from '../model/updateExpenseDocument';
 import { Authentication } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum ExpensesApiApiKeys {
@@ -95,7 +96,7 @@ export declare class ExpensesApi {
         response: http.IncomingMessage;
         body: ExpenseSimpleDocumentResponse;
     }>;
-    expensesIdPut(authorization: string, id: string, expenseInlineDocument: ExpenseInlineDocument, options?: {
+    expensesIdPut(authorization: string, id: string, updateExpenseDocument: UpdateExpenseDocument, options?: {
         headers: {
             [name: string]: string;
         };

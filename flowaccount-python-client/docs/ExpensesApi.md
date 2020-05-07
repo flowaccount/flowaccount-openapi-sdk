@@ -490,7 +490,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **expenses_id_put**
-> ExpenseInlineDocumentResponse expenses_id_put(authorization, id, expense_inline_document)
+> ExpenseInlineDocumentResponse expenses_id_put(authorization, id, update_expense_document)
 
 Edit expenses document.
 
@@ -509,11 +509,11 @@ from pprint import pprint
 api_instance = openapi_client.ExpensesApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
-expense_inline_document = openapi_client.ExpenseInlineDocument() # ExpenseInlineDocument | 
+update_expense_document = openapi_client.UpdateExpenseDocument() # UpdateExpenseDocument | 
 
 try:
     # Edit expenses document.
-    api_response = api_instance.expenses_id_put(authorization, id, expense_inline_document)
+    api_response = api_instance.expenses_id_put(authorization, id, update_expense_document)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExpensesApi->expenses_id_put: %s\n" % e)
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId | 
- **expense_inline_document** | [**ExpenseInlineDocument**](ExpenseInlineDocument.md)|  | 
+ **update_expense_document** | [**UpdateExpenseDocument**](UpdateExpenseDocument.md)|  | 
 
 ### Return type
 

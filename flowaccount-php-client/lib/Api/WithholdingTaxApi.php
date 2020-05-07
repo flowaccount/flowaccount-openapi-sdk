@@ -1591,15 +1591,15 @@ class WithholdingTaxApi
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\WithholidingTaxDocument $withholiding_tax_document withholiding_tax_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateWithholidingTaxDocument $update_withholiding_tax_document update_withholiding_tax_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WithholidingTaxDocumentResponse
      */
-    public function withholdingTaxesIdPut($authorization, $id, $withholiding_tax_document)
+    public function withholdingTaxesIdPut($authorization, $id, $update_withholiding_tax_document)
     {
-        list($response) = $this->withholdingTaxesIdPutWithHttpInfo($authorization, $id, $withholiding_tax_document);
+        list($response) = $this->withholdingTaxesIdPutWithHttpInfo($authorization, $id, $update_withholiding_tax_document);
         return $response;
     }
 
@@ -1610,15 +1610,15 @@ class WithholdingTaxApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\WithholidingTaxDocument $withholiding_tax_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateWithholidingTaxDocument $update_withholiding_tax_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WithholidingTaxDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function withholdingTaxesIdPutWithHttpInfo($authorization, $id, $withholiding_tax_document)
+    public function withholdingTaxesIdPutWithHttpInfo($authorization, $id, $update_withholiding_tax_document)
     {
-        $request = $this->withholdingTaxesIdPutRequest($authorization, $id, $withholiding_tax_document);
+        $request = $this->withholdingTaxesIdPutRequest($authorization, $id, $update_withholiding_tax_document);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1700,14 +1700,14 @@ class WithholdingTaxApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\WithholidingTaxDocument $withholiding_tax_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateWithholidingTaxDocument $update_withholiding_tax_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function withholdingTaxesIdPutAsync($authorization, $id, $withholiding_tax_document)
+    public function withholdingTaxesIdPutAsync($authorization, $id, $update_withholiding_tax_document)
     {
-        return $this->withholdingTaxesIdPutAsyncWithHttpInfo($authorization, $id, $withholiding_tax_document)
+        return $this->withholdingTaxesIdPutAsyncWithHttpInfo($authorization, $id, $update_withholiding_tax_document)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1722,15 +1722,15 @@ class WithholdingTaxApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\WithholidingTaxDocument $withholiding_tax_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateWithholidingTaxDocument $update_withholiding_tax_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function withholdingTaxesIdPutAsyncWithHttpInfo($authorization, $id, $withholiding_tax_document)
+    public function withholdingTaxesIdPutAsyncWithHttpInfo($authorization, $id, $update_withholiding_tax_document)
     {
         $returnType = '\OpenAPI\Client\Model\WithholidingTaxDocumentResponse';
-        $request = $this->withholdingTaxesIdPutRequest($authorization, $id, $withholiding_tax_document);
+        $request = $this->withholdingTaxesIdPutRequest($authorization, $id, $update_withholiding_tax_document);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1771,12 +1771,12 @@ class WithholdingTaxApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\WithholidingTaxDocument $withholiding_tax_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateWithholidingTaxDocument $update_withholiding_tax_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function withholdingTaxesIdPutRequest($authorization, $id, $withholiding_tax_document)
+    protected function withholdingTaxesIdPutRequest($authorization, $id, $update_withholiding_tax_document)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -1790,10 +1790,10 @@ class WithholdingTaxApi
                 'Missing the required parameter $id when calling withholdingTaxesIdPut'
             );
         }
-        // verify the required parameter 'withholiding_tax_document' is set
-        if ($withholiding_tax_document === null || (is_array($withholiding_tax_document) && count($withholiding_tax_document) === 0)) {
+        // verify the required parameter 'update_withholiding_tax_document' is set
+        if ($update_withholiding_tax_document === null || (is_array($update_withholiding_tax_document) && count($update_withholiding_tax_document) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $withholiding_tax_document when calling withholdingTaxesIdPut'
+                'Missing the required parameter $update_withholiding_tax_document when calling withholdingTaxesIdPut'
             );
         }
 
@@ -1820,8 +1820,8 @@ class WithholdingTaxApi
 
         // body params
         $_tempBody = null;
-        if (isset($withholiding_tax_document)) {
-            $_tempBody = $withholiding_tax_document;
+        if (isset($update_withholiding_tax_document)) {
+            $_tempBody = $update_withholiding_tax_document;
         }
 
         if ($multipart) {

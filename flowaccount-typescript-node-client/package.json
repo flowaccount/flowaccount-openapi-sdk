@@ -1,6 +1,6 @@
 {
     "name": "@flowaccount/openapi-sdk",
-    "version": "0.0.28",
+    "version": "0.0.29",
     "description": "NodeJS client for @flowaccount/openapi-sdk",
     "repository": "GIT_USER_ID/GIT_REPO_ID",
     "main": "dist/api.js",

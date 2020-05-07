@@ -2428,15 +2428,15 @@ class ExpensesApi
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document expense_inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateExpenseDocument $update_expense_document update_expense_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ExpenseInlineDocumentResponse
      */
-    public function expensesIdPut($authorization, $id, $expense_inline_document)
+    public function expensesIdPut($authorization, $id, $update_expense_document)
     {
-        list($response) = $this->expensesIdPutWithHttpInfo($authorization, $id, $expense_inline_document);
+        list($response) = $this->expensesIdPutWithHttpInfo($authorization, $id, $update_expense_document);
         return $response;
     }
 
@@ -2447,15 +2447,15 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateExpenseDocument $update_expense_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ExpenseInlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function expensesIdPutWithHttpInfo($authorization, $id, $expense_inline_document)
+    public function expensesIdPutWithHttpInfo($authorization, $id, $update_expense_document)
     {
-        $request = $this->expensesIdPutRequest($authorization, $id, $expense_inline_document);
+        $request = $this->expensesIdPutRequest($authorization, $id, $update_expense_document);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2537,14 +2537,14 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateExpenseDocument $update_expense_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesIdPutAsync($authorization, $id, $expense_inline_document)
+    public function expensesIdPutAsync($authorization, $id, $update_expense_document)
     {
-        return $this->expensesIdPutAsyncWithHttpInfo($authorization, $id, $expense_inline_document)
+        return $this->expensesIdPutAsyncWithHttpInfo($authorization, $id, $update_expense_document)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2559,15 +2559,15 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateExpenseDocument $update_expense_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesIdPutAsyncWithHttpInfo($authorization, $id, $expense_inline_document)
+    public function expensesIdPutAsyncWithHttpInfo($authorization, $id, $update_expense_document)
     {
         $returnType = '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse';
-        $request = $this->expensesIdPutRequest($authorization, $id, $expense_inline_document);
+        $request = $this->expensesIdPutRequest($authorization, $id, $update_expense_document);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2608,12 +2608,12 @@ class ExpensesApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateExpenseDocument $update_expense_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function expensesIdPutRequest($authorization, $id, $expense_inline_document)
+    protected function expensesIdPutRequest($authorization, $id, $update_expense_document)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -2627,10 +2627,10 @@ class ExpensesApi
                 'Missing the required parameter $id when calling expensesIdPut'
             );
         }
-        // verify the required parameter 'expense_inline_document' is set
-        if ($expense_inline_document === null || (is_array($expense_inline_document) && count($expense_inline_document) === 0)) {
+        // verify the required parameter 'update_expense_document' is set
+        if ($update_expense_document === null || (is_array($update_expense_document) && count($update_expense_document) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $expense_inline_document when calling expensesIdPut'
+                'Missing the required parameter $update_expense_document when calling expensesIdPut'
             );
         }
 
@@ -2657,8 +2657,8 @@ class ExpensesApi
 
         // body params
         $_tempBody = null;
-        if (isset($expense_inline_document)) {
-            $_tempBody = $expense_inline_document;
+        if (isset($update_expense_document)) {
+            $_tempBody = $update_expense_document;
         }
 
         if ($multipart) {

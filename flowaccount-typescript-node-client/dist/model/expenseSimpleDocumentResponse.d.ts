@@ -1,9 +1,7 @@
-import { ExpenseDocument } from './expenseDocument';
-export declare class ExpenseSimpleDocumentResponse {
-    'status'?: boolean;
-    'message'?: string;
-    'code'?: number;
-    'data'?: object & ExpenseDocument;
+import { ExpenseResponse } from './expenseResponse';
+import { ExpenseSimpleDocumentResponseAllOfData } from './expenseSimpleDocumentResponseAllOfData';
+export declare class ExpenseSimpleDocumentResponse extends ExpenseResponse {
+    'data'?: ExpenseSimpleDocumentResponseAllOfData;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

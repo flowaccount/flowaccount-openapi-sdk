@@ -118,6 +118,10 @@ export class WithholidingTaxDocumentResponseData {
     */
     'showSignatureOrStamp'?: boolean;
     /**
+    * ข้อมูลบริษัทของคุณในเอกสาร
+    */
+    'company'?: Array<object>;
+    /**
     * เลขสถานะเอกสารฉบับนี้
     */
     'status'?: number;
@@ -266,6 +270,11 @@ export class WithholidingTaxDocumentResponseData {
             "name": "showSignatureOrStamp",
             "baseName": "showSignatureOrStamp",
             "type": "boolean"
+        },
+        {
+            "name": "company",
+            "baseName": "company",
+            "type": "Array<object>"
         },
         {
             "name": "status",

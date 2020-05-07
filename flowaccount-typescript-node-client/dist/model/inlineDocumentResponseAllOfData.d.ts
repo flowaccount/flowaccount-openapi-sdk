@@ -49,6 +49,7 @@ export declare class InlineDocumentResponseAllOfData {
     'referencedToMe'?: Array<ReferencedToMe>;
     'referencedByMe'?: Array<ReferencedByMe>;
     'payments'?: Array<PaymentDocumentResponse>;
+    'company'?: Array<object>;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

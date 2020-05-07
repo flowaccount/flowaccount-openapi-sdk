@@ -492,7 +492,7 @@ No authorization required
 
 ## expensesIdPut
 
-> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesIdPut($authorization, $id, $expense_inline_document)
+> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesIdPut($authorization, $id, $update_expense_document)
 
 Edit expenses document.
 
@@ -512,10 +512,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId
-$expense_inline_document = new \OpenAPI\Client\Model\ExpenseInlineDocument(); // \OpenAPI\Client\Model\ExpenseInlineDocument | 
+$update_expense_document = new \OpenAPI\Client\Model\UpdateExpenseDocument(); // \OpenAPI\Client\Model\UpdateExpenseDocument | 
 
 try {
-    $result = $apiInstance->expensesIdPut($authorization, $id, $expense_inline_document);
+    $result = $apiInstance->expensesIdPut($authorization, $id, $update_expense_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpensesApi->expensesIdPut: ', $e->getMessage(), PHP_EOL;
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId |
- **expense_inline_document** | [**\OpenAPI\Client\Model\ExpenseInlineDocument**](../Model/ExpenseInlineDocument.md)|  |
+ **update_expense_document** | [**\OpenAPI\Client\Model\UpdateExpenseDocument**](../Model/UpdateExpenseDocument.md)|  |
 
 ### Return type
 

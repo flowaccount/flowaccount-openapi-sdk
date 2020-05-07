@@ -34,7 +34,6 @@ class ExpenseDocument(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'document_serial': 'str',
         'contact_code': 'str',
         'contact_name': 'str',
         'contact_address': 'str',
@@ -67,7 +66,6 @@ class ExpenseDocument(object):
     }
 
     attribute_map = {
-        'document_serial': 'documentSerial',
         'contact_code': 'contactCode',
         'contact_name': 'contactName',
         'contact_address': 'contactAddress',
@@ -104,13 +102,12 @@ class ExpenseDocument(object):
         'ExpenseInlineDocument': 'ExpenseInlineDocument'
     }
 
-    def __init__(self, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, is_vat=False, vat_amount=None, grand_total=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, expense_structure_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, is_vat=False, vat_amount=None, grand_total=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, expense_structure_type=None, local_vars_configuration=None):  # noqa: E501
         """ExpenseDocument - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._document_serial = None
         self._contact_code = None
         self._contact_name = None
         self._contact_address = None
@@ -142,8 +139,6 @@ class ExpenseDocument(object):
         self._expense_structure_type = None
         self.discriminator = 'expense_structure_type'
 
-        if document_serial is not None:
-            self.document_serial = document_serial
         if contact_code is not None:
             self.contact_code = contact_code
         self.contact_name = contact_name
@@ -196,29 +191,6 @@ class ExpenseDocument(object):
         if show_signature_or_stamp is not None:
             self.show_signature_or_stamp = show_signature_or_stamp
         self.expense_structure_type = expense_structure_type
-
-    @property
-    def document_serial(self):
-        """Gets the document_serial of this ExpenseDocument.  # noqa: E501
-
-        เลขที่เอกสาร  # noqa: E501
-
-        :return: The document_serial of this ExpenseDocument.  # noqa: E501
-        :rtype: str
-        """
-        return self._document_serial
-
-    @document_serial.setter
-    def document_serial(self, document_serial):
-        """Sets the document_serial of this ExpenseDocument.
-
-        เลขที่เอกสาร  # noqa: E501
-
-        :param document_serial: The document_serial of this ExpenseDocument.  # noqa: E501
-        :type: str
-        """
-
-        self._document_serial = document_serial
 
     @property
     def contact_code(self):

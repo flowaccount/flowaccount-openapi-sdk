@@ -421,7 +421,7 @@ No authorization required
 
 ## WithholdingTaxesIdPut
 
-> WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument)
+> WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument)
 
 Edit withholding tax document.
 
@@ -446,12 +446,12 @@ namespace Example
             var apiInstance = new WithholdingTaxApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId
-            var withholidingTaxDocument = new WithholidingTaxDocument(); // WithholidingTaxDocument | 
+            var updateWithholidingTaxDocument = new UpdateWithholidingTaxDocument(); // UpdateWithholidingTaxDocument | 
 
             try
             {
                 // Edit withholding tax document.
-                WithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesIdPut(authorization, id, withholidingTaxDocument);
+                WithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesIdPut(authorization, id, updateWithholidingTaxDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId | 
- **withholidingTaxDocument** | [**WithholidingTaxDocument**](WithholidingTaxDocument.md)|  | 
+ **updateWithholidingTaxDocument** | [**UpdateWithholidingTaxDocument**](UpdateWithholidingTaxDocument.md)|  | 
 
 ### Return type
 

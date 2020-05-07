@@ -9,6 +9,8 @@ __export(require("./bankAccountApi"));
 const bankAccountApi_1 = require("./bankAccountApi");
 __export(require("./billingNotesApi"));
 const billingNotesApi_1 = require("./billingNotesApi");
+__export(require("./businessInfomationApi"));
+const businessInfomationApi_1 = require("./businessInfomationApi");
 __export(require("./cashInvoiceApi"));
 const cashInvoiceApi_1 = require("./cashInvoiceApi");
 __export(require("./contactsApi"));
@@ -39,5 +41,5 @@ class HttpError extends Error {
     }
 }
 exports.HttpError = HttpError;
-exports.APIS = [authenticationApi_1.AuthenticationApi, bankAccountApi_1.BankAccountApi, billingNotesApi_1.BillingNotesApi, cashInvoiceApi_1.CashInvoiceApi, contactsApi_1.ContactsApi, expensesApi_1.ExpensesApi, productsApi_1.ProductsApi, purchaseOrderApi_1.PurchaseOrderApi, quotationsApi_1.QuotationsApi, receiptApi_1.ReceiptApi, receivingInventoryApi_1.ReceivingInventoryApi, taxInvoiceApi_1.TaxInvoiceApi, withholdingTaxApi_1.WithholdingTaxApi];
+exports.APIS = [authenticationApi_1.AuthenticationApi, bankAccountApi_1.BankAccountApi, billingNotesApi_1.BillingNotesApi, businessInfomationApi_1.BusinessInfomationApi, cashInvoiceApi_1.CashInvoiceApi, contactsApi_1.ContactsApi, expensesApi_1.ExpensesApi, productsApi_1.ProductsApi, purchaseOrderApi_1.PurchaseOrderApi, quotationsApi_1.QuotationsApi, receiptApi_1.ReceiptApi, receivingInventoryApi_1.ReceivingInventoryApi, taxInvoiceApi_1.TaxInvoiceApi, withholdingTaxApi_1.WithholdingTaxApi];
 //# sourceMappingURL=apis.js.map

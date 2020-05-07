@@ -213,6 +213,11 @@ SimpleDocumentResponseAllOfData.attributeTypeMap = [
         "type": "Array<PaymentDocumentResponse>"
     },
     {
+        "name": "company",
+        "baseName": "company",
+        "type": "Array<object>"
+    },
+    {
         "name": "status",
         "baseName": "status",
         "type": "number"

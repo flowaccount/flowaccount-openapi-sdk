@@ -314,7 +314,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **withholding_taxes_id_put**
-> WithholidingTaxDocumentResponse withholding_taxes_id_put(authorization, id, withholiding_tax_document)
+> WithholidingTaxDocumentResponse withholding_taxes_id_put(authorization, id, update_withholiding_tax_document)
 
 Edit withholding tax document.
 
@@ -333,11 +333,11 @@ from pprint import pprint
 api_instance = openapi_client.WithholdingTaxApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
-withholiding_tax_document = openapi_client.WithholidingTaxDocument() # WithholidingTaxDocument | 
+update_withholiding_tax_document = openapi_client.UpdateWithholidingTaxDocument() # UpdateWithholidingTaxDocument | 
 
 try:
     # Edit withholding tax document.
-    api_response = api_instance.withholding_taxes_id_put(authorization, id, withholiding_tax_document)
+    api_response = api_instance.withholding_taxes_id_put(authorization, id, update_withholiding_tax_document)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WithholdingTaxApi->withholding_taxes_id_put: %s\n" % e)
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId | 
- **withholiding_tax_document** | [**WithholidingTaxDocument**](WithholidingTaxDocument.md)|  | 
+ **update_withholiding_tax_document** | [**UpdateWithholidingTaxDocument**](UpdateWithholidingTaxDocument.md)|  | 
 
 ### Return type
 

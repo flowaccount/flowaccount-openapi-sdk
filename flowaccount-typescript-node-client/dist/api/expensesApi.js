@@ -551,7 +551,7 @@ class ExpensesApi {
             });
         });
     }
-    expensesIdPut(authorization, id, expenseInlineDocument, options = { headers: {} }) {
+    expensesIdPut(authorization, id, updateExpenseDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
@@ -571,8 +571,8 @@ class ExpensesApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling expensesIdPut.');
             }
-            if (expenseInlineDocument === null || expenseInlineDocument === undefined) {
-                throw new Error('Required parameter expenseInlineDocument was null or undefined when calling expensesIdPut.');
+            if (updateExpenseDocument === null || updateExpenseDocument === undefined) {
+                throw new Error('Required parameter updateExpenseDocument was null or undefined when calling expensesIdPut.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -584,7 +584,7 @@ class ExpensesApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(expenseInlineDocument, "ExpenseInlineDocument")
+                body: models_1.ObjectSerializer.serialize(updateExpenseDocument, "UpdateExpenseDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));

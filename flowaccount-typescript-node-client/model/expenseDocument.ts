@@ -13,10 +13,6 @@
 
 export class ExpenseDocument {
     /**
-    * เลขที่เอกสาร
-    */
-    'documentSerial'?: string;
-    /**
     * รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า
     */
     'contactCode'?: string;
@@ -133,11 +129,6 @@ export class ExpenseDocument {
     static discriminator: string | undefined = "expenseStructureType";
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "documentSerial",
-            "baseName": "documentSerial",
-            "type": "string"
-        },
         {
             "name": "contactCode",
             "baseName": "contactCode",

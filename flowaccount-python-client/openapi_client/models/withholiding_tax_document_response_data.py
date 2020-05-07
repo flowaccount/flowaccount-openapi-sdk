@@ -60,6 +60,7 @@ class WithholidingTaxDocumentResponseData(object):
         'remarks': 'str',
         'internal_notes': 'str',
         'show_signature_or_stamp': 'bool',
+        'company': 'list[object]',
         'status': 'int',
         'status_string': 'int',
         'document_type': 'int',
@@ -93,13 +94,14 @@ class WithholidingTaxDocumentResponseData(object):
         'remarks': 'remarks',
         'internal_notes': 'internalNotes',
         'show_signature_or_stamp': 'showSignatureOrStamp',
+        'company': 'company',
         'status': 'status',
         'status_string': 'statusString',
         'document_type': 'documentType',
         'allow_delete': 'allowDelete'
     }
 
-    def __init__(self, document_id=None, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, entity=1, text_other=None, withholding_tax_items=None, total=None, total_tax_withheld=None, tax_payment=1, tax_payment_others=None, provident_fund_number=None, provident_fund_amount=None, social_security_amount=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, status=None, status_string=None, document_type=None, allow_delete=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, document_id=None, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, entity=1, text_other=None, withholding_tax_items=None, total=None, total_tax_withheld=None, tax_payment=1, tax_payment_others=None, provident_fund_number=None, provident_fund_amount=None, social_security_amount=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, company=None, status=None, status_string=None, document_type=None, allow_delete=None, local_vars_configuration=None):  # noqa: E501
         """WithholidingTaxDocumentResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -131,6 +133,7 @@ class WithholidingTaxDocumentResponseData(object):
         self._remarks = None
         self._internal_notes = None
         self._show_signature_or_stamp = None
+        self._company = None
         self._status = None
         self._status_string = None
         self._document_type = None
@@ -189,6 +192,8 @@ class WithholidingTaxDocumentResponseData(object):
             self.internal_notes = internal_notes
         if show_signature_or_stamp is not None:
             self.show_signature_or_stamp = show_signature_or_stamp
+        if company is not None:
+            self.company = company
         if status is not None:
             self.status = status
         if status_string is not None:
@@ -795,6 +800,29 @@ class WithholidingTaxDocumentResponseData(object):
         """
 
         self._show_signature_or_stamp = show_signature_or_stamp
+
+    @property
+    def company(self):
+        """Gets the company of this WithholidingTaxDocumentResponseData.  # noqa: E501
+
+        ข้อมูลบริษัทของคุณในเอกสาร  # noqa: E501
+
+        :return: The company of this WithholidingTaxDocumentResponseData.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._company
+
+    @company.setter
+    def company(self, company):
+        """Sets the company of this WithholidingTaxDocumentResponseData.
+
+        ข้อมูลบริษัทของคุณในเอกสาร  # noqa: E501
+
+        :param company: The company of this WithholidingTaxDocumentResponseData.  # noqa: E501
+        :type: list[object]
+        """
+
+        self._company = company
 
     @property
     def status(self):

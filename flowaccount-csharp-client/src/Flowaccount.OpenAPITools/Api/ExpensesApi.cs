@@ -223,9 +223,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>ExpenseInlineDocumentResponse</returns>
-        ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
+        ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, UpdateExpenseDocument updateExpenseDocument);
 
         /// <summary>
         /// Edit expenses document.
@@ -236,9 +236,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
-        ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
+        ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, UpdateExpenseDocument updateExpenseDocument);
         /// <summary>
         /// Change status of expenses document.
         /// </summary>
@@ -534,9 +534,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>Task of ExpenseInlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdPutAsync (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
+        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdPutAsync (string authorization, string id, UpdateExpenseDocument updateExpenseDocument);
 
         /// <summary>
         /// Edit expenses document.
@@ -547,9 +547,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument);
+        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, UpdateExpenseDocument updateExpenseDocument);
         /// <summary>
         /// Change status of expenses document.
         /// </summary>
@@ -1973,11 +1973,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>ExpenseInlineDocumentResponse</returns>
-        public ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        public ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, UpdateExpenseDocument updateExpenseDocument)
         {
-             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesIdPutWithHttpInfo(authorization, id, expenseInlineDocument);
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesIdPutWithHttpInfo(authorization, id, updateExpenseDocument);
              return localVarResponse.Data;
         }
 
@@ -1987,9 +1987,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
-        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, UpdateExpenseDocument updateExpenseDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1997,9 +1997,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ExpensesApi->ExpensesIdPut");
-            // verify the required parameter 'expenseInlineDocument' is set
-            if (expenseInlineDocument == null)
-                throw new ApiException(400, "Missing required parameter 'expenseInlineDocument' when calling ExpensesApi->ExpensesIdPut");
+            // verify the required parameter 'updateExpenseDocument' is set
+            if (updateExpenseDocument == null)
+                throw new ApiException(400, "Missing required parameter 'updateExpenseDocument' when calling ExpensesApi->ExpensesIdPut");
 
             var localVarPath = "/expenses/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2025,13 +2025,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (expenseInlineDocument != null && expenseInlineDocument.GetType() != typeof(byte[]))
+            if (updateExpenseDocument != null && updateExpenseDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseInlineDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateExpenseDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = expenseInlineDocument; // byte array
+                localVarPostBody = updateExpenseDocument; // byte array
             }
 
 
@@ -2059,11 +2059,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>Task of ExpenseInlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdPutAsync (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdPutAsync (string authorization, string id, UpdateExpenseDocument updateExpenseDocument)
         {
-             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesIdPutAsyncWithHttpInfo(authorization, id, expenseInlineDocument);
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesIdPutAsyncWithHttpInfo(authorization, id, updateExpenseDocument);
              return localVarResponse.Data;
 
         }
@@ -2074,9 +2074,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="expenseInlineDocument"></param>
+        /// <param name="updateExpenseDocument"></param>
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, UpdateExpenseDocument updateExpenseDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -2084,9 +2084,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ExpensesApi->ExpensesIdPut");
-            // verify the required parameter 'expenseInlineDocument' is set
-            if (expenseInlineDocument == null)
-                throw new ApiException(400, "Missing required parameter 'expenseInlineDocument' when calling ExpensesApi->ExpensesIdPut");
+            // verify the required parameter 'updateExpenseDocument' is set
+            if (updateExpenseDocument == null)
+                throw new ApiException(400, "Missing required parameter 'updateExpenseDocument' when calling ExpensesApi->ExpensesIdPut");
 
             var localVarPath = "/expenses/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2112,13 +2112,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (expenseInlineDocument != null && expenseInlineDocument.GetType() != typeof(byte[]))
+            if (updateExpenseDocument != null && updateExpenseDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(expenseInlineDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateExpenseDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = expenseInlineDocument; // byte array
+                localVarPostBody = updateExpenseDocument; // byte array
             }
 
 

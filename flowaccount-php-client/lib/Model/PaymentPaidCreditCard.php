@@ -295,7 +295,7 @@ class PaymentPaidCreditCard implements ModelInterface, ArrayAccess
     /**
      * Sets payment_structure_type
      *
-     * @param string $payment_structure_type ชำระเงิน ด้วยเช็ค
+     * @param string $payment_structure_type ชำระเงิน ด้วยบัตรเครดิต
      *
      * @return $this
      */

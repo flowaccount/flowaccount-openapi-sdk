@@ -34,108 +34,24 @@ class ExpenseSimpleDocumentResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'status': 'bool',
-        'message': 'str',
-        'code': 'int',
-        'data': 'object'
+        'data': 'ExpenseSimpleDocumentResponseAllOfData'
     }
 
     attribute_map = {
-        'status': 'status',
-        'message': 'message',
-        'code': 'code',
         'data': 'data'
     }
 
-    def __init__(self, status=None, message=None, code=None, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, data=None, local_vars_configuration=None):  # noqa: E501
         """ExpenseSimpleDocumentResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._status = None
-        self._message = None
-        self._code = None
         self._data = None
         self.discriminator = None
 
-        if status is not None:
-            self.status = status
-        if message is not None:
-            self.message = message
-        if code is not None:
-            self.code = code
         if data is not None:
             self.data = data
-
-    @property
-    def status(self):
-        """Gets the status of this ExpenseSimpleDocumentResponse.  # noqa: E501
-
-        action success  # noqa: E501
-
-        :return: The status of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :rtype: bool
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this ExpenseSimpleDocumentResponse.
-
-        action success  # noqa: E501
-
-        :param status: The status of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :type: bool
-        """
-
-        self._status = status
-
-    @property
-    def message(self):
-        """Gets the message of this ExpenseSimpleDocumentResponse.  # noqa: E501
-
-        error message  # noqa: E501
-
-        :return: The message of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._message
-
-    @message.setter
-    def message(self, message):
-        """Sets the message of this ExpenseSimpleDocumentResponse.
-
-        error message  # noqa: E501
-
-        :param message: The message of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._message = message
-
-    @property
-    def code(self):
-        """Gets the code of this ExpenseSimpleDocumentResponse.  # noqa: E501
-
-        error code  # noqa: E501
-
-        :return: The code of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._code
-
-    @code.setter
-    def code(self, code):
-        """Sets the code of this ExpenseSimpleDocumentResponse.
-
-        error code  # noqa: E501
-
-        :param code: The code of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._code = code
 
     @property
     def data(self):
@@ -143,7 +59,7 @@ class ExpenseSimpleDocumentResponse(object):
 
 
         :return: The data of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :rtype: object
+        :rtype: ExpenseSimpleDocumentResponseAllOfData
         """
         return self._data
 
@@ -153,7 +69,7 @@ class ExpenseSimpleDocumentResponse(object):
 
 
         :param data: The data of this ExpenseSimpleDocumentResponse.  # noqa: E501
-        :type: object
+        :type: ExpenseSimpleDocumentResponseAllOfData
         """
 
         self._data = data

@@ -422,7 +422,7 @@ No authorization required
 
 ## BillingNotesIdPut
 
-> InlineDocumentResponse BillingNotesIdPut (string authorization, string id, InlineDocument inlineDocument)
+> InlineDocumentResponse BillingNotesIdPut (string authorization, string id, UpdateInlineDocument updateInlineDocument)
 
 Edit billing notes document.
 
@@ -447,12 +447,12 @@ namespace Example
             var apiInstance = new BillingNotesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId
-            var inlineDocument = new InlineDocument(); // InlineDocument | 
+            var updateInlineDocument = new UpdateInlineDocument(); // UpdateInlineDocument | 
 
             try
             {
                 // Edit billing notes document.
-                InlineDocumentResponse result = apiInstance.BillingNotesIdPut(authorization, id, inlineDocument);
+                InlineDocumentResponse result = apiInstance.BillingNotesIdPut(authorization, id, updateInlineDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId | 
- **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+ **updateInlineDocument** | [**UpdateInlineDocument**](UpdateInlineDocument.md)|  | 
 
 ### Return type
 

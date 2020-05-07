@@ -26,6 +26,7 @@ export declare class WithholidingTaxDocumentResponseData {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
+    'company'?: Array<object>;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

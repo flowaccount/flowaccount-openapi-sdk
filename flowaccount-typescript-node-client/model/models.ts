@@ -4,6 +4,9 @@ export * from './authenResponse';
 export * from './bankAccount';
 export * from './bankAccountResponse';
 export * from './businessCategory';
+export * from './companyInfo';
+export * from './companyInfoResponse';
+export * from './companyInfoResponseAllOf';
 export * from './contact';
 export * from './contactResponse';
 export * from './contactResponseAllOf';
@@ -15,10 +18,15 @@ export * from './expenseDocument';
 export * from './expenseInlineDocument';
 export * from './expenseInlineDocumentAllOf';
 export * from './expenseInlineDocumentResponse';
+export * from './expenseInlineDocumentResponseAllOf';
+export * from './expenseInlineDocumentResponseAllOfData';
 export * from './expenseInlineProductItem';
+export * from './expenseResponse';
 export * from './expenseSimpleDocument';
 export * from './expenseSimpleDocumentAllOf';
 export * from './expenseSimpleDocumentResponse';
+export * from './expenseSimpleDocumentResponseAllOf';
+export * from './expenseSimpleDocumentResponseAllOfData';
 export * from './expenseSimpleProductItem';
 export * from './inlineDocument';
 export * from './inlineDocumentAllOf';
@@ -71,6 +79,13 @@ export * from './simpleDocumentResponseAllOf';
 export * from './simpleDocumentResponseAllOfData';
 export * from './simpleProductItem';
 export * from './statusDocument';
+export * from './updateDocument';
+export * from './updateExpenseDocument';
+export * from './updateExpenseInlineDocument';
+export * from './updateExpenseSimpleDocument';
+export * from './updateInlineDocument';
+export * from './updateSimpleDocument';
+export * from './updateWithholidingTaxDocument';
 export * from './upgradeDocument';
 export * from './withholidingTaxDocument';
 export * from './withholidingTaxDocumentResponse';
@@ -85,6 +100,9 @@ import { AuthenResponse } from './authenResponse';
 import { BankAccount } from './bankAccount';
 import { BankAccountResponse } from './bankAccountResponse';
 import { BusinessCategory } from './businessCategory';
+import { CompanyInfo } from './companyInfo';
+import { CompanyInfoResponse } from './companyInfoResponse';
+import { CompanyInfoResponseAllOf } from './companyInfoResponseAllOf';
 import { Contact } from './contact';
 import { ContactResponse } from './contactResponse';
 import { ContactResponseAllOf } from './contactResponseAllOf';
@@ -96,10 +114,15 @@ import { ExpenseDocument } from './expenseDocument';
 import { ExpenseInlineDocument } from './expenseInlineDocument';
 import { ExpenseInlineDocumentAllOf } from './expenseInlineDocumentAllOf';
 import { ExpenseInlineDocumentResponse } from './expenseInlineDocumentResponse';
+import { ExpenseInlineDocumentResponseAllOf } from './expenseInlineDocumentResponseAllOf';
+import { ExpenseInlineDocumentResponseAllOfData } from './expenseInlineDocumentResponseAllOfData';
 import { ExpenseInlineProductItem } from './expenseInlineProductItem';
+import { ExpenseResponse } from './expenseResponse';
 import { ExpenseSimpleDocument } from './expenseSimpleDocument';
 import { ExpenseSimpleDocumentAllOf } from './expenseSimpleDocumentAllOf';
 import { ExpenseSimpleDocumentResponse } from './expenseSimpleDocumentResponse';
+import { ExpenseSimpleDocumentResponseAllOf } from './expenseSimpleDocumentResponseAllOf';
+import { ExpenseSimpleDocumentResponseAllOfData } from './expenseSimpleDocumentResponseAllOfData';
 import { ExpenseSimpleProductItem } from './expenseSimpleProductItem';
 import { InlineDocument } from './inlineDocument';
 import { InlineDocumentAllOf } from './inlineDocumentAllOf';
@@ -152,6 +175,13 @@ import { SimpleDocumentResponseAllOf } from './simpleDocumentResponseAllOf';
 import { SimpleDocumentResponseAllOfData } from './simpleDocumentResponseAllOfData';
 import { SimpleProductItem } from './simpleProductItem';
 import { StatusDocument } from './statusDocument';
+import { UpdateDocument } from './updateDocument';
+import { UpdateExpenseDocument } from './updateExpenseDocument';
+import { UpdateExpenseInlineDocument } from './updateExpenseInlineDocument';
+import { UpdateExpenseSimpleDocument } from './updateExpenseSimpleDocument';
+import { UpdateInlineDocument } from './updateInlineDocument';
+import { UpdateSimpleDocument } from './updateSimpleDocument';
+import { UpdateWithholidingTaxDocument } from './updateWithholidingTaxDocument';
 import { UpgradeDocument } from './upgradeDocument';
 import { WithholidingTaxDocument } from './withholidingTaxDocument';
 import { WithholidingTaxDocumentResponse } from './withholidingTaxDocumentResponse';
@@ -180,6 +210,9 @@ let typeMap: {[index: string]: any} = {
     "BankAccount": BankAccount,
     "BankAccountResponse": BankAccountResponse,
     "BusinessCategory": BusinessCategory,
+    "CompanyInfo": CompanyInfo,
+    "CompanyInfoResponse": CompanyInfoResponse,
+    "CompanyInfoResponseAllOf": CompanyInfoResponseAllOf,
     "Contact": Contact,
     "ContactResponse": ContactResponse,
     "ContactResponseAllOf": ContactResponseAllOf,
@@ -191,10 +224,15 @@ let typeMap: {[index: string]: any} = {
     "ExpenseInlineDocument": ExpenseInlineDocument,
     "ExpenseInlineDocumentAllOf": ExpenseInlineDocumentAllOf,
     "ExpenseInlineDocumentResponse": ExpenseInlineDocumentResponse,
+    "ExpenseInlineDocumentResponseAllOf": ExpenseInlineDocumentResponseAllOf,
+    "ExpenseInlineDocumentResponseAllOfData": ExpenseInlineDocumentResponseAllOfData,
     "ExpenseInlineProductItem": ExpenseInlineProductItem,
+    "ExpenseResponse": ExpenseResponse,
     "ExpenseSimpleDocument": ExpenseSimpleDocument,
     "ExpenseSimpleDocumentAllOf": ExpenseSimpleDocumentAllOf,
     "ExpenseSimpleDocumentResponse": ExpenseSimpleDocumentResponse,
+    "ExpenseSimpleDocumentResponseAllOf": ExpenseSimpleDocumentResponseAllOf,
+    "ExpenseSimpleDocumentResponseAllOfData": ExpenseSimpleDocumentResponseAllOfData,
     "ExpenseSimpleProductItem": ExpenseSimpleProductItem,
     "InlineDocument": InlineDocument,
     "InlineDocumentAllOf": InlineDocumentAllOf,
@@ -247,6 +285,13 @@ let typeMap: {[index: string]: any} = {
     "SimpleDocumentResponseAllOfData": SimpleDocumentResponseAllOfData,
     "SimpleProductItem": SimpleProductItem,
     "StatusDocument": StatusDocument,
+    "UpdateDocument": UpdateDocument,
+    "UpdateExpenseDocument": UpdateExpenseDocument,
+    "UpdateExpenseInlineDocument": UpdateExpenseInlineDocument,
+    "UpdateExpenseSimpleDocument": UpdateExpenseSimpleDocument,
+    "UpdateInlineDocument": UpdateInlineDocument,
+    "UpdateSimpleDocument": UpdateSimpleDocument,
+    "UpdateWithholidingTaxDocument": UpdateWithholidingTaxDocument,
     "UpgradeDocument": UpgradeDocument,
     "WithholidingTaxDocument": WithholidingTaxDocument,
     "WithholidingTaxDocumentResponse": WithholidingTaxDocumentResponse,

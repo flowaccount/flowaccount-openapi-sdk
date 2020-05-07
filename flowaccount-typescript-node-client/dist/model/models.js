@@ -9,6 +9,9 @@ __export(require("./authenResponse"));
 __export(require("./bankAccount"));
 __export(require("./bankAccountResponse"));
 __export(require("./businessCategory"));
+__export(require("./companyInfo"));
+__export(require("./companyInfoResponse"));
+__export(require("./companyInfoResponseAllOf"));
 __export(require("./contact"));
 __export(require("./contactResponse"));
 __export(require("./contactResponseAllOf"));
@@ -20,10 +23,15 @@ __export(require("./expenseDocument"));
 __export(require("./expenseInlineDocument"));
 __export(require("./expenseInlineDocumentAllOf"));
 __export(require("./expenseInlineDocumentResponse"));
+__export(require("./expenseInlineDocumentResponseAllOf"));
+__export(require("./expenseInlineDocumentResponseAllOfData"));
 __export(require("./expenseInlineProductItem"));
+__export(require("./expenseResponse"));
 __export(require("./expenseSimpleDocument"));
 __export(require("./expenseSimpleDocumentAllOf"));
 __export(require("./expenseSimpleDocumentResponse"));
+__export(require("./expenseSimpleDocumentResponseAllOf"));
+__export(require("./expenseSimpleDocumentResponseAllOfData"));
 __export(require("./expenseSimpleProductItem"));
 __export(require("./inlineDocument"));
 __export(require("./inlineDocumentAllOf"));
@@ -76,6 +84,13 @@ __export(require("./simpleDocumentResponseAllOf"));
 __export(require("./simpleDocumentResponseAllOfData"));
 __export(require("./simpleProductItem"));
 __export(require("./statusDocument"));
+__export(require("./updateDocument"));
+__export(require("./updateExpenseDocument"));
+__export(require("./updateExpenseInlineDocument"));
+__export(require("./updateExpenseSimpleDocument"));
+__export(require("./updateInlineDocument"));
+__export(require("./updateSimpleDocument"));
+__export(require("./updateWithholidingTaxDocument"));
 __export(require("./upgradeDocument"));
 __export(require("./withholidingTaxDocument"));
 __export(require("./withholidingTaxDocumentResponse"));
@@ -87,6 +102,9 @@ const authenResponse_1 = require("./authenResponse");
 const bankAccount_1 = require("./bankAccount");
 const bankAccountResponse_1 = require("./bankAccountResponse");
 const businessCategory_1 = require("./businessCategory");
+const companyInfo_1 = require("./companyInfo");
+const companyInfoResponse_1 = require("./companyInfoResponse");
+const companyInfoResponseAllOf_1 = require("./companyInfoResponseAllOf");
 const contact_1 = require("./contact");
 const contactResponse_1 = require("./contactResponse");
 const contactResponseAllOf_1 = require("./contactResponseAllOf");
@@ -98,10 +116,15 @@ const expenseDocument_1 = require("./expenseDocument");
 const expenseInlineDocument_1 = require("./expenseInlineDocument");
 const expenseInlineDocumentAllOf_1 = require("./expenseInlineDocumentAllOf");
 const expenseInlineDocumentResponse_1 = require("./expenseInlineDocumentResponse");
+const expenseInlineDocumentResponseAllOf_1 = require("./expenseInlineDocumentResponseAllOf");
+const expenseInlineDocumentResponseAllOfData_1 = require("./expenseInlineDocumentResponseAllOfData");
 const expenseInlineProductItem_1 = require("./expenseInlineProductItem");
+const expenseResponse_1 = require("./expenseResponse");
 const expenseSimpleDocument_1 = require("./expenseSimpleDocument");
 const expenseSimpleDocumentAllOf_1 = require("./expenseSimpleDocumentAllOf");
 const expenseSimpleDocumentResponse_1 = require("./expenseSimpleDocumentResponse");
+const expenseSimpleDocumentResponseAllOf_1 = require("./expenseSimpleDocumentResponseAllOf");
+const expenseSimpleDocumentResponseAllOfData_1 = require("./expenseSimpleDocumentResponseAllOfData");
 const expenseSimpleProductItem_1 = require("./expenseSimpleProductItem");
 const inlineDocument_1 = require("./inlineDocument");
 const inlineDocumentAllOf_1 = require("./inlineDocumentAllOf");
@@ -154,6 +177,13 @@ const simpleDocumentResponseAllOf_1 = require("./simpleDocumentResponseAllOf");
 const simpleDocumentResponseAllOfData_1 = require("./simpleDocumentResponseAllOfData");
 const simpleProductItem_1 = require("./simpleProductItem");
 const statusDocument_1 = require("./statusDocument");
+const updateDocument_1 = require("./updateDocument");
+const updateExpenseDocument_1 = require("./updateExpenseDocument");
+const updateExpenseInlineDocument_1 = require("./updateExpenseInlineDocument");
+const updateExpenseSimpleDocument_1 = require("./updateExpenseSimpleDocument");
+const updateInlineDocument_1 = require("./updateInlineDocument");
+const updateSimpleDocument_1 = require("./updateSimpleDocument");
+const updateWithholidingTaxDocument_1 = require("./updateWithholidingTaxDocument");
 const upgradeDocument_1 = require("./upgradeDocument");
 const withholidingTaxDocument_1 = require("./withholidingTaxDocument");
 const withholidingTaxDocumentResponse_1 = require("./withholidingTaxDocumentResponse");
@@ -177,6 +207,9 @@ let typeMap = {
     "BankAccount": bankAccount_1.BankAccount,
     "BankAccountResponse": bankAccountResponse_1.BankAccountResponse,
     "BusinessCategory": businessCategory_1.BusinessCategory,
+    "CompanyInfo": companyInfo_1.CompanyInfo,
+    "CompanyInfoResponse": companyInfoResponse_1.CompanyInfoResponse,
+    "CompanyInfoResponseAllOf": companyInfoResponseAllOf_1.CompanyInfoResponseAllOf,
     "Contact": contact_1.Contact,
     "ContactResponse": contactResponse_1.ContactResponse,
     "ContactResponseAllOf": contactResponseAllOf_1.ContactResponseAllOf,
@@ -188,10 +221,15 @@ let typeMap = {
     "ExpenseInlineDocument": expenseInlineDocument_1.ExpenseInlineDocument,
     "ExpenseInlineDocumentAllOf": expenseInlineDocumentAllOf_1.ExpenseInlineDocumentAllOf,
     "ExpenseInlineDocumentResponse": expenseInlineDocumentResponse_1.ExpenseInlineDocumentResponse,
+    "ExpenseInlineDocumentResponseAllOf": expenseInlineDocumentResponseAllOf_1.ExpenseInlineDocumentResponseAllOf,
+    "ExpenseInlineDocumentResponseAllOfData": expenseInlineDocumentResponseAllOfData_1.ExpenseInlineDocumentResponseAllOfData,
     "ExpenseInlineProductItem": expenseInlineProductItem_1.ExpenseInlineProductItem,
+    "ExpenseResponse": expenseResponse_1.ExpenseResponse,
     "ExpenseSimpleDocument": expenseSimpleDocument_1.ExpenseSimpleDocument,
     "ExpenseSimpleDocumentAllOf": expenseSimpleDocumentAllOf_1.ExpenseSimpleDocumentAllOf,
     "ExpenseSimpleDocumentResponse": expenseSimpleDocumentResponse_1.ExpenseSimpleDocumentResponse,
+    "ExpenseSimpleDocumentResponseAllOf": expenseSimpleDocumentResponseAllOf_1.ExpenseSimpleDocumentResponseAllOf,
+    "ExpenseSimpleDocumentResponseAllOfData": expenseSimpleDocumentResponseAllOfData_1.ExpenseSimpleDocumentResponseAllOfData,
     "ExpenseSimpleProductItem": expenseSimpleProductItem_1.ExpenseSimpleProductItem,
     "InlineDocument": inlineDocument_1.InlineDocument,
     "InlineDocumentAllOf": inlineDocumentAllOf_1.InlineDocumentAllOf,
@@ -244,6 +282,13 @@ let typeMap = {
     "SimpleDocumentResponseAllOfData": simpleDocumentResponseAllOfData_1.SimpleDocumentResponseAllOfData,
     "SimpleProductItem": simpleProductItem_1.SimpleProductItem,
     "StatusDocument": statusDocument_1.StatusDocument,
+    "UpdateDocument": updateDocument_1.UpdateDocument,
+    "UpdateExpenseDocument": updateExpenseDocument_1.UpdateExpenseDocument,
+    "UpdateExpenseInlineDocument": updateExpenseInlineDocument_1.UpdateExpenseInlineDocument,
+    "UpdateExpenseSimpleDocument": updateExpenseSimpleDocument_1.UpdateExpenseSimpleDocument,
+    "UpdateInlineDocument": updateInlineDocument_1.UpdateInlineDocument,
+    "UpdateSimpleDocument": updateSimpleDocument_1.UpdateSimpleDocument,
+    "UpdateWithholidingTaxDocument": updateWithholidingTaxDocument_1.UpdateWithholidingTaxDocument,
     "UpgradeDocument": upgradeDocument_1.UpgradeDocument,
     "WithholidingTaxDocument": withholidingTaxDocument_1.WithholidingTaxDocument,
     "WithholidingTaxDocumentResponse": withholidingTaxDocumentResponse_1.WithholidingTaxDocumentResponse,

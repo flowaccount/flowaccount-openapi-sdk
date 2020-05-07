@@ -24,6 +24,7 @@ import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
+import { UpdateInlineDocument } from '../model/updateInlineDocument';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 
@@ -464,9 +465,9 @@ export class QuotationsApi {
      * @summary Edit quotations document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
-     * @param inlineDocument 
+     * @param updateInlineDocument 
      */
-    public async quotationsIdPut (authorization: string, id: string, inlineDocument: InlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+    public async quotationsIdPut (authorization: string, id: string, updateInlineDocument: UpdateInlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
         const localVarPath = this.basePath + '/quotations/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -490,9 +491,9 @@ export class QuotationsApi {
             throw new Error('Required parameter id was null or undefined when calling quotationsIdPut.');
         }
 
-        // verify required parameter 'inlineDocument' is not null or undefined
-        if (inlineDocument === null || inlineDocument === undefined) {
-            throw new Error('Required parameter inlineDocument was null or undefined when calling quotationsIdPut.');
+        // verify required parameter 'updateInlineDocument' is not null or undefined
+        if (updateInlineDocument === null || updateInlineDocument === undefined) {
+            throw new Error('Required parameter updateInlineDocument was null or undefined when calling quotationsIdPut.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -507,7 +508,7 @@ export class QuotationsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineDocument, "InlineDocument")
+            body: ObjectSerializer.serialize(updateInlineDocument, "UpdateInlineDocument")
         };
 
         let authenticationPromise = Promise.resolve();

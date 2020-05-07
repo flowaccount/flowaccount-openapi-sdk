@@ -21,6 +21,7 @@ import { SendEmailResponse } from '../model/sendEmailResponse';
 import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
+import { UpdateWithholidingTaxDocument } from '../model/updateWithholidingTaxDocument';
 import { WithholidingTaxDocument } from '../model/withholidingTaxDocument';
 import { WithholidingTaxDocumentResponse } from '../model/withholidingTaxDocumentResponse';
 
@@ -463,9 +464,9 @@ export class WithholdingTaxApi {
      * @summary Edit withholding tax document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
-     * @param withholidingTaxDocument 
+     * @param updateWithholidingTaxDocument 
      */
-    public async withholdingTaxesIdPut (authorization: string, id: string, withholidingTaxDocument: WithholidingTaxDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: WithholidingTaxDocumentResponse;  }> {
+    public async withholdingTaxesIdPut (authorization: string, id: string, updateWithholidingTaxDocument: UpdateWithholidingTaxDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: WithholidingTaxDocumentResponse;  }> {
         const localVarPath = this.basePath + '/withholding-taxes/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -489,9 +490,9 @@ export class WithholdingTaxApi {
             throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdPut.');
         }
 
-        // verify required parameter 'withholidingTaxDocument' is not null or undefined
-        if (withholidingTaxDocument === null || withholidingTaxDocument === undefined) {
-            throw new Error('Required parameter withholidingTaxDocument was null or undefined when calling withholdingTaxesIdPut.');
+        // verify required parameter 'updateWithholidingTaxDocument' is not null or undefined
+        if (updateWithholidingTaxDocument === null || updateWithholidingTaxDocument === undefined) {
+            throw new Error('Required parameter updateWithholidingTaxDocument was null or undefined when calling withholdingTaxesIdPut.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -506,7 +507,7 @@ export class WithholdingTaxApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(withholidingTaxDocument, "WithholidingTaxDocument")
+            body: ObjectSerializer.serialize(updateWithholidingTaxDocument, "UpdateWithholidingTaxDocument")
         };
 
         let authenticationPromise = Promise.resolve();

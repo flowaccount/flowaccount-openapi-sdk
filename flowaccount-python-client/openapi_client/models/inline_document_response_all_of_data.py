@@ -80,6 +80,7 @@ class InlineDocumentResponseAllOfData(object):
         'referenced_to_me': 'list[ReferencedToMe]',
         'referenced_by_me': 'list[ReferencedByMe]',
         'payments': 'list[PaymentDocumentResponse]',
+        'company': 'list[object]',
         'status': 'int',
         'status_string': 'int',
         'document_type': 'int',
@@ -133,13 +134,14 @@ class InlineDocumentResponseAllOfData(object):
         'referenced_to_me': 'referencedToMe',
         'referenced_by_me': 'referencedByMe',
         'payments': 'payments',
+        'company': 'company',
         'status': 'status',
         'status_string': 'statusString',
         'document_type': 'documentType',
         'allow_delete': 'allowDelete'
     }
 
-    def __init__(self, record_id=0, document_id=0, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, discount_type=1, use_inline_discount=True, use_inline_vat=None, use_receipt_deduction=False, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, total_without_vat=None, exempt_amount=0, vatable_amount=0, is_vat=False, vat_amount=None, grand_total=None, document_show_withholding_tax=False, document_withholding_tax_percentage=0, document_deduction_type=0, document_deduction_amount=0, remarks=None, internal_notes=None, show_signature_or_stamp=True, items=None, referenced_to_me=None, referenced_by_me=None, payments=None, status=None, status_string=None, document_type=None, allow_delete=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, record_id=0, document_id=0, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, discount_type=1, use_inline_discount=True, use_inline_vat=None, use_receipt_deduction=False, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, total_without_vat=None, exempt_amount=0, vatable_amount=0, is_vat=False, vat_amount=None, grand_total=None, document_show_withholding_tax=False, document_withholding_tax_percentage=0, document_deduction_type=0, document_deduction_amount=0, remarks=None, internal_notes=None, show_signature_or_stamp=True, items=None, referenced_to_me=None, referenced_by_me=None, payments=None, company=None, status=None, status_string=None, document_type=None, allow_delete=None, local_vars_configuration=None):  # noqa: E501
         """InlineDocumentResponseAllOfData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -191,6 +193,7 @@ class InlineDocumentResponseAllOfData(object):
         self._referenced_to_me = None
         self._referenced_by_me = None
         self._payments = None
+        self._company = None
         self._status = None
         self._status_string = None
         self._document_type = None
@@ -287,6 +290,8 @@ class InlineDocumentResponseAllOfData(object):
             self.referenced_by_me = referenced_by_me
         if payments is not None:
             self.payments = payments
+        if company is not None:
+            self.company = company
         if status is not None:
             self.status = status
         if status_string is not None:
@@ -1353,6 +1358,29 @@ class InlineDocumentResponseAllOfData(object):
         """
 
         self._payments = payments
+
+    @property
+    def company(self):
+        """Gets the company of this InlineDocumentResponseAllOfData.  # noqa: E501
+
+        ข้อมูลบริษัทของคุณในเอกสาร  # noqa: E501
+
+        :return: The company of this InlineDocumentResponseAllOfData.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._company
+
+    @company.setter
+    def company(self, company):
+        """Sets the company of this InlineDocumentResponseAllOfData.
+
+        ข้อมูลบริษัทของคุณในเอกสาร  # noqa: E501
+
+        :param company: The company of this InlineDocumentResponseAllOfData.  # noqa: E501
+        :type: list[object]
+        """
+
+        self._company = company
 
     @property
     def status(self):

@@ -9,6 +9,7 @@ import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
+import { UpdateInlineDocument } from '../model/updateInlineDocument';
 import { Authentication } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum QuotationsApiApiKeys {
@@ -65,7 +66,7 @@ export declare class QuotationsApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    quotationsIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
+    quotationsIdPut(authorization: string, id: string, updateInlineDocument: UpdateInlineDocument, options?: {
         headers: {
             [name: string]: string;
         };

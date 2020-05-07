@@ -201,6 +201,10 @@ export class InlineDocumentResponseAllOfData {
     */
     'payments'?: Array<PaymentDocumentResponse>;
     /**
+    * ข้อมูลบริษัทของคุณในเอกสาร
+    */
+    'company'?: Array<object>;
+    /**
     * เลขสถานะเอกสารฉบับนี้
     */
     'status'?: number;
@@ -449,6 +453,11 @@ export class InlineDocumentResponseAllOfData {
             "name": "payments",
             "baseName": "payments",
             "type": "Array<PaymentDocumentResponse>"
+        },
+        {
+            "name": "company",
+            "baseName": "company",
+            "type": "Array<object>"
         },
         {
             "name": "status",

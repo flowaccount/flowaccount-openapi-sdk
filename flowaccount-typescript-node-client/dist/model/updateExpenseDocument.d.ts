@@ -1,0 +1,53 @@
+export declare class UpdateExpenseDocument {
+    'companyName': string;
+    'companyNameEn'?: string;
+    'companyAddress': string;
+    'companyAddressEn'?: string;
+    'companyTaxId'?: string;
+    'companyBranch': string;
+    'companyBranchEn'?: string;
+    'companyPhone'?: string;
+    'companyMobile'?: string;
+    'companyFax'?: string;
+    'companyWebsite'?: string;
+    'contactCode'?: string;
+    'contactName': string;
+    'contactAddress'?: string;
+    'contactTaxId'?: string;
+    'contactBranch'?: string;
+    'contactPerson'?: string;
+    'contactEmail'?: string;
+    'contactNumber'?: string;
+    'contactZipCode'?: string;
+    'contactGroup'?: number;
+    'publishedOn': string;
+    'creditType'?: number;
+    'creditDays'?: number;
+    'dueDate'?: string;
+    'salesName'?: string;
+    'projectName'?: string;
+    'reference'?: string;
+    'isVatInclusive'?: boolean;
+    'subTotal': number;
+    'discountPercentage'?: number;
+    'discountAmount'?: number;
+    'totalAfterDiscount': number;
+    'isVat'?: boolean;
+    'vatAmount'?: number;
+    'grandTotal': number;
+    'remarks'?: string;
+    'internalNotes'?: string;
+    'showSignatureOrStamp'?: boolean;
+    'expenseStructureType'?: string;
+    static discriminator: string | undefined;
+    static attributeTypeMap: Array<{
+        name: string;
+        baseName: string;
+        type: string;
+    }>;
+    static getAttributeTypeMap(): {
+        name: string;
+        baseName: string;
+        type: string;
+    }[];
+}

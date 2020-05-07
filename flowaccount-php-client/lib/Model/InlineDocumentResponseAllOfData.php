@@ -103,6 +103,7 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
         'referenced_to_me' => '\OpenAPI\Client\Model\ReferencedToMe[]',
         'referenced_by_me' => '\OpenAPI\Client\Model\ReferencedByMe[]',
         'payments' => '\OpenAPI\Client\Model\PaymentDocumentResponse[]',
+        'company' => 'object[]',
         'status' => 'int',
         'status_string' => 'int',
         'document_type' => 'int',
@@ -161,6 +162,7 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
         'referenced_to_me' => null,
         'referenced_by_me' => null,
         'payments' => null,
+        'company' => null,
         'status' => null,
         'status_string' => null,
         'document_type' => null,
@@ -240,6 +242,7 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
         'referenced_to_me' => 'referencedToMe',
         'referenced_by_me' => 'referencedByMe',
         'payments' => 'payments',
+        'company' => 'company',
         'status' => 'status',
         'status_string' => 'statusString',
         'document_type' => 'documentType',
@@ -298,6 +301,7 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
         'referenced_to_me' => 'setReferencedToMe',
         'referenced_by_me' => 'setReferencedByMe',
         'payments' => 'setPayments',
+        'company' => 'setCompany',
         'status' => 'setStatus',
         'status_string' => 'setStatusString',
         'document_type' => 'setDocumentType',
@@ -356,6 +360,7 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
         'referenced_to_me' => 'getReferencedToMe',
         'referenced_by_me' => 'getReferencedByMe',
         'payments' => 'getPayments',
+        'company' => 'getCompany',
         'status' => 'getStatus',
         'status_string' => 'getStatusString',
         'document_type' => 'getDocumentType',
@@ -468,6 +473,7 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
         $this->container['referenced_to_me'] = isset($data['referenced_to_me']) ? $data['referenced_to_me'] : null;
         $this->container['referenced_by_me'] = isset($data['referenced_by_me']) ? $data['referenced_by_me'] : null;
         $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_string'] = isset($data['status_string']) ? $data['status_string'] : null;
         $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
@@ -1598,6 +1604,30 @@ class InlineDocumentResponseAllOfData implements ModelInterface, ArrayAccess
     public function setPayments($payments)
     {
         $this->container['payments'] = $payments;
+
+        return $this;
+    }
+
+    /**
+     * Gets company
+     *
+     * @return object[]|null
+     */
+    public function getCompany()
+    {
+        return $this->container['company'];
+    }
+
+    /**
+     * Sets company
+     *
+     * @param object[]|null $company ข้อมูลบริษัทของคุณในเอกสาร
+     *
+     * @return $this
+     */
+    public function setCompany($company)
+    {
+        $this->container['company'] = $company;
 
         return $this;
     }

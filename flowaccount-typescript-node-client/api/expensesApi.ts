@@ -30,6 +30,7 @@ import { SendEmailResponse } from '../model/sendEmailResponse';
 import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
+import { UpdateExpenseDocument } from '../model/updateExpenseDocument';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 
@@ -673,9 +674,9 @@ export class ExpensesApi {
      * @summary Edit expenses document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
-     * @param expenseInlineDocument 
+     * @param updateExpenseDocument 
      */
-    public async expensesIdPut (authorization: string, id: string, expenseInlineDocument: ExpenseInlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ExpenseInlineDocumentResponse;  }> {
+    public async expensesIdPut (authorization: string, id: string, updateExpenseDocument: UpdateExpenseDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ExpenseInlineDocumentResponse;  }> {
         const localVarPath = this.basePath + '/expenses/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -699,9 +700,9 @@ export class ExpensesApi {
             throw new Error('Required parameter id was null or undefined when calling expensesIdPut.');
         }
 
-        // verify required parameter 'expenseInlineDocument' is not null or undefined
-        if (expenseInlineDocument === null || expenseInlineDocument === undefined) {
-            throw new Error('Required parameter expenseInlineDocument was null or undefined when calling expensesIdPut.');
+        // verify required parameter 'updateExpenseDocument' is not null or undefined
+        if (updateExpenseDocument === null || updateExpenseDocument === undefined) {
+            throw new Error('Required parameter updateExpenseDocument was null or undefined when calling expensesIdPut.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -716,7 +717,7 @@ export class ExpensesApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(expenseInlineDocument, "ExpenseInlineDocument")
+            body: ObjectSerializer.serialize(updateExpenseDocument, "UpdateExpenseDocument")
         };
 
         let authenticationPromise = Promise.resolve();

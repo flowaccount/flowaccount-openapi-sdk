@@ -13,7 +13,7 @@
 
 export class PaymentPaidCreditCard {
     /**
-    * ชำระเงิน ด้วยเช็ค
+    * ชำระเงิน ด้วยบัตรเครดิต
     */
     'paymentStructureType': string;
     /**

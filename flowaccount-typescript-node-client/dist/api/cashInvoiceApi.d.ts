@@ -14,6 +14,7 @@ import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
+import { UpdateInlineDocument } from '../model/updateInlineDocument';
 import { Authentication } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum CashInvoiceApiApiKeys {
@@ -78,7 +79,7 @@ export declare class CashInvoiceApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    cashInvoicesIdPut(authorization: string, id: string, inlineDocument: InlineDocument, options?: {
+    cashInvoicesIdPut(authorization: string, id: string, updateInlineDocument: UpdateInlineDocument, options?: {
         headers: {
             [name: string]: string;
         };

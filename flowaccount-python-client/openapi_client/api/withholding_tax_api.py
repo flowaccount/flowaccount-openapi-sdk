@@ -645,19 +645,19 @@ class WithholdingTaxApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def withholding_taxes_id_put(self, authorization, id, withholiding_tax_document, **kwargs):  # noqa: E501
+    def withholding_taxes_id_put(self, authorization, id, update_withholiding_tax_document, **kwargs):  # noqa: E501
         """Edit withholding tax document.  # noqa: E501
 
         แก้ไขข้อมูลเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.withholding_taxes_id_put(authorization, id, withholiding_tax_document, async_req=True)
+        >>> thread = api.withholding_taxes_id_put(authorization, id, update_withholiding_tax_document, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
         :param str id: ID เอกสารใช้ recordId (required)
-        :param WithholidingTaxDocument withholiding_tax_document: (required)
+        :param UpdateWithholidingTaxDocument update_withholiding_tax_document: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -670,21 +670,21 @@ class WithholdingTaxApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.withholding_taxes_id_put_with_http_info(authorization, id, withholiding_tax_document, **kwargs)  # noqa: E501
+        return self.withholding_taxes_id_put_with_http_info(authorization, id, update_withholiding_tax_document, **kwargs)  # noqa: E501
 
-    def withholding_taxes_id_put_with_http_info(self, authorization, id, withholiding_tax_document, **kwargs):  # noqa: E501
+    def withholding_taxes_id_put_with_http_info(self, authorization, id, update_withholiding_tax_document, **kwargs):  # noqa: E501
         """Edit withholding tax document.  # noqa: E501
 
         แก้ไขข้อมูลเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.withholding_taxes_id_put_with_http_info(authorization, id, withholiding_tax_document, async_req=True)
+        >>> thread = api.withholding_taxes_id_put_with_http_info(authorization, id, update_withholiding_tax_document, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
         :param str id: ID เอกสารใช้ recordId (required)
-        :param WithholidingTaxDocument withholiding_tax_document: (required)
+        :param UpdateWithholidingTaxDocument update_withholiding_tax_document: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -701,7 +701,7 @@ class WithholdingTaxApi(object):
 
         local_var_params = locals()
 
-        all_params = ['authorization', 'id', 'withholiding_tax_document']  # noqa: E501
+        all_params = ['authorization', 'id', 'update_withholiding_tax_document']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -723,10 +723,10 @@ class WithholdingTaxApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `withholding_taxes_id_put`")  # noqa: E501
-        # verify the required parameter 'withholiding_tax_document' is set
-        if self.api_client.client_side_validation and ('withholiding_tax_document' not in local_var_params or  # noqa: E501
-                                                        local_var_params['withholiding_tax_document'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `withholiding_tax_document` when calling `withholding_taxes_id_put`")  # noqa: E501
+        # verify the required parameter 'update_withholiding_tax_document' is set
+        if self.api_client.client_side_validation and ('update_withholiding_tax_document' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_withholiding_tax_document'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_withholiding_tax_document` when calling `withholding_taxes_id_put`")  # noqa: E501
 
         collection_formats = {}
 
@@ -744,8 +744,8 @@ class WithholdingTaxApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'withholiding_tax_document' in local_var_params:
-            body_params = local_var_params['withholiding_tax_document']
+        if 'update_withholiding_tax_document' in local_var_params:
+            body_params = local_var_params['update_withholiding_tax_document']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

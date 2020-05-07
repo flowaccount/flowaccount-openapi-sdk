@@ -42,7 +42,6 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpenseDocument" /> class.
         /// </summary>
-        /// <param name="documentSerial">เลขที่เอกสาร.</param>
         /// <param name="contactCode">รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า.</param>
         /// <param name="contactName">ชื่อ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า (required).</param>
         /// <param name="contactAddress">ที่อยู่ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า.</param>
@@ -72,7 +71,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="internalNotes">โน๊ตภายในบริษัท.</param>
         /// <param name="showSignatureOrStamp">ลายเซ็นอิเล็กทรอนิกส์และตรายาง (default to true).</param>
         /// <param name="expenseStructureType">expenseStructureType.</param>
-        public ExpenseDocument(string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, string expenseStructureType = default(string))
+        public ExpenseDocument(string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, string expenseStructureType = default(string))
         {
             // to ensure "contactName" is required (not null)
             if (contactName == null)
@@ -125,7 +124,6 @@ namespace Flowaccount.OpenAPITools.Model
             }
             
             this.ExpenseStructureType = expenseStructureType;
-            this.DocumentSerial = documentSerial;
             this.ContactCode = contactCode;
             this.ContactAddress = contactAddress;
             this.ContactTaxId = contactTaxId;
@@ -224,13 +222,6 @@ namespace Flowaccount.OpenAPITools.Model
             this.ExpenseStructureType = expenseStructureType;
         }
         
-        /// <summary>
-        /// เลขที่เอกสาร
-        /// </summary>
-        /// <value>เลขที่เอกสาร</value>
-        [DataMember(Name="documentSerial", EmitDefaultValue=true)]
-        public string DocumentSerial { get; set; }
-
         /// <summary>
         /// รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า
         /// </summary>
@@ -443,7 +434,6 @@ namespace Flowaccount.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ExpenseDocument {\n");
-            sb.Append("  DocumentSerial: ").Append(DocumentSerial).Append("\n");
             sb.Append("  ContactCode: ").Append(ContactCode).Append("\n");
             sb.Append("  ContactName: ").Append(ContactName).Append("\n");
             sb.Append("  ContactAddress: ").Append(ContactAddress).Append("\n");
@@ -507,11 +497,6 @@ namespace Flowaccount.OpenAPITools.Model
                 return false;
 
             return 
-                (
-                    this.DocumentSerial == input.DocumentSerial ||
-                    (this.DocumentSerial != null &&
-                    this.DocumentSerial.Equals(input.DocumentSerial))
-                ) && 
                 (
                     this.ContactCode == input.ContactCode ||
                     (this.ContactCode != null &&
@@ -668,8 +653,6 @@ namespace Flowaccount.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DocumentSerial != null)
-                    hashCode = hashCode * 59 + this.DocumentSerial.GetHashCode();
                 if (this.ContactCode != null)
                     hashCode = hashCode * 59 + this.ContactCode.GetHashCode();
                 if (this.ContactName != null)

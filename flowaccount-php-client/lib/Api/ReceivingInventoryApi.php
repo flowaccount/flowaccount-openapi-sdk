@@ -1892,15 +1892,15 @@ class ReceivingInventoryApi
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateInlineDocument $update_inline_document update_inline_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function purchasesIdPut($authorization, $id, $inline_document)
+    public function purchasesIdPut($authorization, $id, $update_inline_document)
     {
-        list($response) = $this->purchasesIdPutWithHttpInfo($authorization, $id, $inline_document);
+        list($response) = $this->purchasesIdPutWithHttpInfo($authorization, $id, $update_inline_document);
         return $response;
     }
 
@@ -1911,15 +1911,15 @@ class ReceivingInventoryApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateInlineDocument $update_inline_document (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function purchasesIdPutWithHttpInfo($authorization, $id, $inline_document)
+    public function purchasesIdPutWithHttpInfo($authorization, $id, $update_inline_document)
     {
-        $request = $this->purchasesIdPutRequest($authorization, $id, $inline_document);
+        $request = $this->purchasesIdPutRequest($authorization, $id, $update_inline_document);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2001,14 +2001,14 @@ class ReceivingInventoryApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateInlineDocument $update_inline_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function purchasesIdPutAsync($authorization, $id, $inline_document)
+    public function purchasesIdPutAsync($authorization, $id, $update_inline_document)
     {
-        return $this->purchasesIdPutAsyncWithHttpInfo($authorization, $id, $inline_document)
+        return $this->purchasesIdPutAsyncWithHttpInfo($authorization, $id, $update_inline_document)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2023,15 +2023,15 @@ class ReceivingInventoryApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateInlineDocument $update_inline_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function purchasesIdPutAsyncWithHttpInfo($authorization, $id, $inline_document)
+    public function purchasesIdPutAsyncWithHttpInfo($authorization, $id, $update_inline_document)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->purchasesIdPutRequest($authorization, $id, $inline_document);
+        $request = $this->purchasesIdPutRequest($authorization, $id, $update_inline_document);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2072,12 +2072,12 @@ class ReceivingInventoryApi
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
-     * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
+     * @param  \OpenAPI\Client\Model\UpdateInlineDocument $update_inline_document (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function purchasesIdPutRequest($authorization, $id, $inline_document)
+    protected function purchasesIdPutRequest($authorization, $id, $update_inline_document)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -2091,10 +2091,10 @@ class ReceivingInventoryApi
                 'Missing the required parameter $id when calling purchasesIdPut'
             );
         }
-        // verify the required parameter 'inline_document' is set
-        if ($inline_document === null || (is_array($inline_document) && count($inline_document) === 0)) {
+        // verify the required parameter 'update_inline_document' is set
+        if ($update_inline_document === null || (is_array($update_inline_document) && count($update_inline_document) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inline_document when calling purchasesIdPut'
+                'Missing the required parameter $update_inline_document when calling purchasesIdPut'
             );
         }
 
@@ -2121,8 +2121,8 @@ class ReceivingInventoryApi
 
         // body params
         $_tempBody = null;
-        if (isset($inline_document)) {
-            $_tempBody = $inline_document;
+        if (isset($update_inline_document)) {
+            $_tempBody = $update_inline_document;
         }
 
         if ($multipart) {

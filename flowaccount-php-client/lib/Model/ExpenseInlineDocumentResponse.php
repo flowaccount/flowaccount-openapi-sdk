@@ -28,8 +28,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -40,7 +38,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
+class ExpenseInlineDocumentResponse extends ExpenseResponse 
 {
     const DISCRIMINATOR = null;
 
@@ -57,10 +55,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'bool',
-        'message' => 'string',
-        'code' => 'int',
-        'data' => 'object'
+        'data' => '\OpenAPI\Client\Model\ExpenseInlineDocumentResponseAllOfData'
     ];
 
     /**
@@ -69,9 +64,6 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'message' => null,
-        'code' => null,
         'data' => null
     ];
 
@@ -82,7 +74,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -92,7 +84,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -102,9 +94,6 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'message' => 'message',
-        'code' => 'code',
         'data' => 'data'
     ];
 
@@ -114,9 +103,6 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'message' => 'setMessage',
-        'code' => 'setCode',
         'data' => 'setData'
     ];
 
@@ -126,9 +112,6 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'message' => 'getMessage',
-        'code' => 'getCode',
         'data' => 'getData'
     ];
 
@@ -140,7 +123,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -150,7 +133,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -160,7 +143,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -177,12 +160,6 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -192,9 +169,8 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        parent::__construct($data);
+
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -205,7 +181,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -223,81 +199,9 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets status
-     *
-     * @return bool|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param bool|null $status action success
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message error message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code error code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
-     * @return object|null
+     * @return \OpenAPI\Client\Model\ExpenseInlineDocumentResponseAllOfData|null
      */
     public function getData()
     {
@@ -307,7 +211,7 @@ class ExpenseInlineDocumentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param object|null $data data
+     * @param \OpenAPI\Client\Model\ExpenseInlineDocumentResponseAllOfData|null $data data
      *
      * @return $this
      */

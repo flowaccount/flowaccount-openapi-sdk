@@ -6,6 +6,7 @@ import { SendEmailResponse } from '../model/sendEmailResponse';
 import { SendEmailSimple } from '../model/sendEmailSimple';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
+import { UpdateWithholidingTaxDocument } from '../model/updateWithholidingTaxDocument';
 import { WithholidingTaxDocument } from '../model/withholidingTaxDocument';
 import { WithholidingTaxDocumentResponse } from '../model/withholidingTaxDocumentResponse';
 import { Authentication } from '../model/models';
@@ -64,7 +65,7 @@ export declare class WithholdingTaxApi {
         response: http.IncomingMessage;
         body: WithholidingTaxDocumentResponse;
     }>;
-    withholdingTaxesIdPut(authorization: string, id: string, withholidingTaxDocument: WithholidingTaxDocument, options?: {
+    withholdingTaxesIdPut(authorization: string, id: string, updateWithholidingTaxDocument: UpdateWithholidingTaxDocument, options?: {
         headers: {
             [name: string]: string;
         };

@@ -181,9 +181,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse ReceiptsIdPut (string authorization, string id, InlineDocument inlineDocument);
+        InlineDocumentResponse ReceiptsIdPut (string authorization, string id, UpdateInlineDocument updateInlineDocument);
 
         /// <summary>
         /// Edit receipt document.
@@ -194,9 +194,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> ReceiptsIdPutWithHttpInfo (string authorization, string id, InlineDocument inlineDocument);
+        ApiResponse<InlineDocumentResponse> ReceiptsIdPutWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
         /// Change status of receipt document.
         /// </summary>
@@ -450,9 +450,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdPutAsync (string authorization, string id, InlineDocument inlineDocument);
+        System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdPutAsync (string authorization, string id, UpdateInlineDocument updateInlineDocument);
 
         /// <summary>
         /// Edit receipt document.
@@ -463,9 +463,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdPutAsyncWithHttpInfo (string authorization, string id, InlineDocument inlineDocument);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdPutAsyncWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
         /// Change status of receipt document.
         /// </summary>
@@ -1623,11 +1623,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse ReceiptsIdPut (string authorization, string id, InlineDocument inlineDocument)
+        public InlineDocumentResponse ReceiptsIdPut (string authorization, string id, UpdateInlineDocument updateInlineDocument)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = ReceiptsIdPutWithHttpInfo(authorization, id, inlineDocument);
+             ApiResponse<InlineDocumentResponse> localVarResponse = ReceiptsIdPutWithHttpInfo(authorization, id, updateInlineDocument);
              return localVarResponse.Data;
         }
 
@@ -1637,9 +1637,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> ReceiptsIdPutWithHttpInfo (string authorization, string id, InlineDocument inlineDocument)
+        public ApiResponse<InlineDocumentResponse> ReceiptsIdPutWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1647,9 +1647,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ReceiptApi->ReceiptsIdPut");
-            // verify the required parameter 'inlineDocument' is set
-            if (inlineDocument == null)
-                throw new ApiException(400, "Missing required parameter 'inlineDocument' when calling ReceiptApi->ReceiptsIdPut");
+            // verify the required parameter 'updateInlineDocument' is set
+            if (updateInlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'updateInlineDocument' when calling ReceiptApi->ReceiptsIdPut");
 
             var localVarPath = "/receipts/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1675,13 +1675,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (inlineDocument != null && inlineDocument.GetType() != typeof(byte[]))
+            if (updateInlineDocument != null && updateInlineDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateInlineDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineDocument; // byte array
+                localVarPostBody = updateInlineDocument; // byte array
             }
 
 
@@ -1709,11 +1709,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdPutAsync (string authorization, string id, InlineDocument inlineDocument)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdPutAsync (string authorization, string id, UpdateInlineDocument updateInlineDocument)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await ReceiptsIdPutAsyncWithHttpInfo(authorization, id, inlineDocument);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await ReceiptsIdPutAsyncWithHttpInfo(authorization, id, updateInlineDocument);
              return localVarResponse.Data;
 
         }
@@ -1724,9 +1724,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="inlineDocument"></param>
+        /// <param name="updateInlineDocument"></param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdPutAsyncWithHttpInfo (string authorization, string id, InlineDocument inlineDocument)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdPutAsyncWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1734,9 +1734,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling ReceiptApi->ReceiptsIdPut");
-            // verify the required parameter 'inlineDocument' is set
-            if (inlineDocument == null)
-                throw new ApiException(400, "Missing required parameter 'inlineDocument' when calling ReceiptApi->ReceiptsIdPut");
+            // verify the required parameter 'updateInlineDocument' is set
+            if (updateInlineDocument == null)
+                throw new ApiException(400, "Missing required parameter 'updateInlineDocument' when calling ReceiptApi->ReceiptsIdPut");
 
             var localVarPath = "/receipts/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1762,13 +1762,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (inlineDocument != null && inlineDocument.GetType() != typeof(byte[]))
+            if (updateInlineDocument != null && updateInlineDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateInlineDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineDocument; // byte array
+                localVarPostBody = updateInlineDocument; // byte array
             }
 
 

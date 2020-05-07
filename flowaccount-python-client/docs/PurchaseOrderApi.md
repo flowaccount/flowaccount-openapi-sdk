@@ -315,7 +315,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchases_orders_id_put**
-> InlineDocumentResponse purchases_orders_id_put(authorization, id, inline_document)
+> InlineDocumentResponse purchases_orders_id_put(authorization, id, update_inline_document)
 
 Edit purchase order document.
 
@@ -334,11 +334,11 @@ from pprint import pprint
 api_instance = openapi_client.PurchaseOrderApi()
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
-inline_document = openapi_client.InlineDocument() # InlineDocument | 
+update_inline_document = openapi_client.UpdateInlineDocument() # UpdateInlineDocument | 
 
 try:
     # Edit purchase order document.
-    api_response = api_instance.purchases_orders_id_put(authorization, id, inline_document)
+    api_response = api_instance.purchases_orders_id_put(authorization, id, update_inline_document)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PurchaseOrderApi->purchases_orders_id_put: %s\n" % e)
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId | 
- **inline_document** | [**InlineDocument**](InlineDocument.md)|  | 
+ **update_inline_document** | [**UpdateInlineDocument**](UpdateInlineDocument.md)|  | 
 
 ### Return type
 

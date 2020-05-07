@@ -138,6 +138,11 @@ WithholidingTaxDocumentResponseData.attributeTypeMap = [
         "type": "boolean"
     },
     {
+        "name": "company",
+        "baseName": "company",
+        "type": "Array<object>"
+    },
+    {
         "name": "status",
         "baseName": "status",
         "type": "number"

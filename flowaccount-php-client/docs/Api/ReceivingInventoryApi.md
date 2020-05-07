@@ -378,7 +378,7 @@ No authorization required
 
 ## purchasesIdPut
 
-> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdPut($authorization, $id, $inline_document)
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdPut($authorization, $id, $update_inline_document)
 
 Edit receiving inventory document.
 
@@ -398,10 +398,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId
-$inline_document = new \OpenAPI\Client\Model\InlineDocument(); // \OpenAPI\Client\Model\InlineDocument | 
+$update_inline_document = new \OpenAPI\Client\Model\UpdateInlineDocument(); // \OpenAPI\Client\Model\UpdateInlineDocument | 
 
 try {
-    $result = $apiInstance->purchasesIdPut($authorization, $id, $inline_document);
+    $result = $apiInstance->purchasesIdPut($authorization, $id, $update_inline_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceivingInventoryApi->purchasesIdPut: ', $e->getMessage(), PHP_EOL;
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId |
- **inline_document** | [**\OpenAPI\Client\Model\InlineDocument**](../Model/InlineDocument.md)|  |
+ **update_inline_document** | [**\OpenAPI\Client\Model\UpdateInlineDocument**](../Model/UpdateInlineDocument.md)|  |
 
 ### Return type
 

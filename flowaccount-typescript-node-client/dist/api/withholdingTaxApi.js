@@ -372,7 +372,7 @@ class WithholdingTaxApi {
             });
         });
     }
-    withholdingTaxesIdPut(authorization, id, withholidingTaxDocument, options = { headers: {} }) {
+    withholdingTaxesIdPut(authorization, id, updateWithholidingTaxDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/withholding-taxes/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
@@ -392,8 +392,8 @@ class WithholdingTaxApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdPut.');
             }
-            if (withholidingTaxDocument === null || withholidingTaxDocument === undefined) {
-                throw new Error('Required parameter withholidingTaxDocument was null or undefined when calling withholdingTaxesIdPut.');
+            if (updateWithholidingTaxDocument === null || updateWithholidingTaxDocument === undefined) {
+                throw new Error('Required parameter updateWithholidingTaxDocument was null or undefined when calling withholdingTaxesIdPut.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -405,7 +405,7 @@ class WithholdingTaxApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(withholidingTaxDocument, "WithholidingTaxDocument")
+                body: models_1.ObjectSerializer.serialize(updateWithholidingTaxDocument, "UpdateWithholidingTaxDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));

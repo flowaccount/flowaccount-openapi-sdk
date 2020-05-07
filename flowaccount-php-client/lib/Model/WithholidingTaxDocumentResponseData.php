@@ -83,6 +83,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         'remarks' => 'string',
         'internal_notes' => 'string',
         'show_signature_or_stamp' => 'bool',
+        'company' => 'object[]',
         'status' => 'int',
         'status_string' => 'int',
         'document_type' => 'int',
@@ -121,6 +122,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         'remarks' => null,
         'internal_notes' => null,
         'show_signature_or_stamp' => null,
+        'company' => null,
         'status' => null,
         'status_string' => null,
         'document_type' => null,
@@ -180,6 +182,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         'remarks' => 'remarks',
         'internal_notes' => 'internalNotes',
         'show_signature_or_stamp' => 'showSignatureOrStamp',
+        'company' => 'company',
         'status' => 'status',
         'status_string' => 'statusString',
         'document_type' => 'documentType',
@@ -218,6 +221,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         'remarks' => 'setRemarks',
         'internal_notes' => 'setInternalNotes',
         'show_signature_or_stamp' => 'setShowSignatureOrStamp',
+        'company' => 'setCompany',
         'status' => 'setStatus',
         'status_string' => 'setStatusString',
         'document_type' => 'setDocumentType',
@@ -256,6 +260,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         'remarks' => 'getRemarks',
         'internal_notes' => 'getInternalNotes',
         'show_signature_or_stamp' => 'getShowSignatureOrStamp',
+        'company' => 'getCompany',
         'status' => 'getStatus',
         'status_string' => 'getStatusString',
         'document_type' => 'getDocumentType',
@@ -348,6 +353,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         $this->container['remarks'] = isset($data['remarks']) ? $data['remarks'] : null;
         $this->container['internal_notes'] = isset($data['internal_notes']) ? $data['internal_notes'] : null;
         $this->container['show_signature_or_stamp'] = isset($data['show_signature_or_stamp']) ? $data['show_signature_or_stamp'] : true;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_string'] = isset($data['status_string']) ? $data['status_string'] : null;
         $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
@@ -998,6 +1004,30 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
     public function setShowSignatureOrStamp($show_signature_or_stamp)
     {
         $this->container['show_signature_or_stamp'] = $show_signature_or_stamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets company
+     *
+     * @return object[]|null
+     */
+    public function getCompany()
+    {
+        return $this->container['company'];
+    }
+
+    /**
+     * Sets company
+     *
+     * @param object[]|null $company ข้อมูลบริษัทของคุณในเอกสาร
+     *
+     * @return $this
+     */
+    public function setCompany($company)
+    {
+        $this->container['company'] = $company;
 
         return $this;
     }

@@ -156,9 +156,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>WithholidingTaxDocumentResponse</returns>
-        WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument);
+        WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument);
 
         /// <summary>
         /// Edit withholding tax document.
@@ -169,9 +169,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>ApiResponse of WithholidingTaxDocumentResponse</returns>
-        ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutWithHttpInfo (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument);
+        ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutWithHttpInfo (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument);
         /// <summary>
         /// Change status of withholding tax document.
         /// </summary>
@@ -377,9 +377,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>Task of WithholidingTaxDocumentResponse</returns>
-        System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutAsync (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument);
+        System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutAsync (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument);
 
         /// <summary>
         /// Edit withholding tax document.
@@ -390,9 +390,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>Task of ApiResponse (WithholidingTaxDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdPutAsyncWithHttpInfo (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument);
+        System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdPutAsyncWithHttpInfo (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument);
         /// <summary>
         /// Change status of withholding tax document.
         /// </summary>
@@ -1354,11 +1354,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>WithholidingTaxDocumentResponse</returns>
-        public WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument)
+        public WithholidingTaxDocumentResponse WithholdingTaxesIdPut (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument)
         {
-             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = WithholdingTaxesIdPutWithHttpInfo(authorization, id, withholidingTaxDocument);
+             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = WithholdingTaxesIdPutWithHttpInfo(authorization, id, updateWithholidingTaxDocument);
              return localVarResponse.Data;
         }
 
@@ -1368,9 +1368,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>ApiResponse of WithholidingTaxDocumentResponse</returns>
-        public ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutWithHttpInfo (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument)
+        public ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutWithHttpInfo (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1378,9 +1378,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling WithholdingTaxApi->WithholdingTaxesIdPut");
-            // verify the required parameter 'withholidingTaxDocument' is set
-            if (withholidingTaxDocument == null)
-                throw new ApiException(400, "Missing required parameter 'withholidingTaxDocument' when calling WithholdingTaxApi->WithholdingTaxesIdPut");
+            // verify the required parameter 'updateWithholidingTaxDocument' is set
+            if (updateWithholidingTaxDocument == null)
+                throw new ApiException(400, "Missing required parameter 'updateWithholidingTaxDocument' when calling WithholdingTaxApi->WithholdingTaxesIdPut");
 
             var localVarPath = "/withholding-taxes/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1406,13 +1406,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (withholidingTaxDocument != null && withholidingTaxDocument.GetType() != typeof(byte[]))
+            if (updateWithholidingTaxDocument != null && updateWithholidingTaxDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(withholidingTaxDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateWithholidingTaxDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = withholidingTaxDocument; // byte array
+                localVarPostBody = updateWithholidingTaxDocument; // byte array
             }
 
 
@@ -1440,11 +1440,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>Task of WithholidingTaxDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutAsync (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument)
+        public async System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdPutAsync (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument)
         {
-             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = await WithholdingTaxesIdPutAsyncWithHttpInfo(authorization, id, withholidingTaxDocument);
+             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = await WithholdingTaxesIdPutAsyncWithHttpInfo(authorization, id, updateWithholidingTaxDocument);
              return localVarResponse.Data;
 
         }
@@ -1455,9 +1455,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id">ID เอกสารใช้ recordId</param>
-        /// <param name="withholidingTaxDocument"></param>
+        /// <param name="updateWithholidingTaxDocument"></param>
         /// <returns>Task of ApiResponse (WithholidingTaxDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdPutAsyncWithHttpInfo (string authorization, string id, WithholidingTaxDocument withholidingTaxDocument)
+        public async System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdPutAsyncWithHttpInfo (string authorization, string id, UpdateWithholidingTaxDocument updateWithholidingTaxDocument)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1465,9 +1465,9 @@ namespace Flowaccount.OpenAPITools.Api
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling WithholdingTaxApi->WithholdingTaxesIdPut");
-            // verify the required parameter 'withholidingTaxDocument' is set
-            if (withholidingTaxDocument == null)
-                throw new ApiException(400, "Missing required parameter 'withholidingTaxDocument' when calling WithholdingTaxApi->WithholdingTaxesIdPut");
+            // verify the required parameter 'updateWithholidingTaxDocument' is set
+            if (updateWithholidingTaxDocument == null)
+                throw new ApiException(400, "Missing required parameter 'updateWithholidingTaxDocument' when calling WithholdingTaxApi->WithholdingTaxesIdPut");
 
             var localVarPath = "/withholding-taxes/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1493,13 +1493,13 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
-            if (withholidingTaxDocument != null && withholidingTaxDocument.GetType() != typeof(byte[]))
+            if (updateWithholidingTaxDocument != null && updateWithholidingTaxDocument.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(withholidingTaxDocument); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updateWithholidingTaxDocument); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = withholidingTaxDocument; // byte array
+                localVarPostBody = updateWithholidingTaxDocument; // byte array
             }
 
 

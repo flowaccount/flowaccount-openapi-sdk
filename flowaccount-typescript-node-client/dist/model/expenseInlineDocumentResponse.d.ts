@@ -1,9 +1,7 @@
-import { ExpenseInlineDocument } from './expenseInlineDocument';
-export declare class ExpenseInlineDocumentResponse {
-    'status'?: boolean;
-    'message'?: string;
-    'code'?: number;
-    'data'?: object & ExpenseInlineDocument;
+import { ExpenseInlineDocumentResponseAllOfData } from './expenseInlineDocumentResponseAllOfData';
+import { ExpenseResponse } from './expenseResponse';
+export declare class ExpenseInlineDocumentResponse extends ExpenseResponse {
+    'data'?: ExpenseInlineDocumentResponseAllOfData;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

@@ -660,7 +660,7 @@ No authorization required
 
 ## ExpensesIdPut
 
-> ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, ExpenseInlineDocument expenseInlineDocument)
+> ExpenseInlineDocumentResponse ExpensesIdPut (string authorization, string id, UpdateExpenseDocument updateExpenseDocument)
 
 Edit expenses document.
 
@@ -685,12 +685,12 @@ namespace Example
             var apiInstance = new ExpensesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId
-            var expenseInlineDocument = new ExpenseInlineDocument(); // ExpenseInlineDocument | 
+            var updateExpenseDocument = new UpdateExpenseDocument(); // UpdateExpenseDocument | 
 
             try
             {
                 // Edit expenses document.
-                ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdPut(authorization, id, expenseInlineDocument);
+                ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdPut(authorization, id, updateExpenseDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -711,7 +711,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId | 
- **expenseInlineDocument** | [**ExpenseInlineDocument**](ExpenseInlineDocument.md)|  | 
+ **updateExpenseDocument** | [**UpdateExpenseDocument**](UpdateExpenseDocument.md)|  | 
 
 ### Return type
 

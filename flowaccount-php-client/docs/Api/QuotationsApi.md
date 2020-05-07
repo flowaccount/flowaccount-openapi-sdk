@@ -317,7 +317,7 @@ No authorization required
 
 ## quotationsIdPut
 
-> \OpenAPI\Client\Model\InlineDocumentResponse quotationsIdPut($authorization, $id, $inline_document)
+> \OpenAPI\Client\Model\InlineDocumentResponse quotationsIdPut($authorization, $id, $update_inline_document)
 
 Edit quotations document.
 
@@ -337,10 +337,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotationsApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId
-$inline_document = new \OpenAPI\Client\Model\InlineDocument(); // \OpenAPI\Client\Model\InlineDocument | 
+$update_inline_document = new \OpenAPI\Client\Model\UpdateInlineDocument(); // \OpenAPI\Client\Model\UpdateInlineDocument | 
 
 try {
-    $result = $apiInstance->quotationsIdPut($authorization, $id, $inline_document);
+    $result = $apiInstance->quotationsIdPut($authorization, $id, $update_inline_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotationsApi->quotationsIdPut: ', $e->getMessage(), PHP_EOL;
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId |
- **inline_document** | [**\OpenAPI\Client\Model\InlineDocument**](../Model/InlineDocument.md)|  |
+ **update_inline_document** | [**\OpenAPI\Client\Model\UpdateInlineDocument**](../Model/UpdateInlineDocument.md)|  |
 
 ### Return type
 

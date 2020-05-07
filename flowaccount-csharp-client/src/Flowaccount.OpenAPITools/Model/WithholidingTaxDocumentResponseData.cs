@@ -59,11 +59,12 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="remarks">หมายเหตุเอกสาร.</param>
         /// <param name="internalNotes">โน๊ตภายในบริษัท.</param>
         /// <param name="showSignatureOrStamp">ลายเซ็นอิเล็กทรอนิกส์และตรายาง (default to true).</param>
+        /// <param name="company">ข้อมูลบริษัทของคุณในเอกสาร.</param>
         /// <param name="status">เลขสถานะเอกสารฉบับนี้.</param>
         /// <param name="statusString">ชื่อสถานะเอกสารฉบับนี้.</param>
         /// <param name="documentType">เลขประเภทเอกสารฉบับนี้.</param>
         /// <param name="allowDelete">สามารถลบเอกสาร :&lt;br&gt; true &#x3D; ลบได้ &lt;br&gt; false &#x3D; ลบไม่ได้.</param>
-        public WithholidingTaxDocumentResponseData(string documentId = default(string), string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int entity = 1, string textOther = default(string), List<WithholidingTaxItem> withholdingTaxItems = default(List<WithholidingTaxItem>), decimal total = default(decimal), decimal totalTaxWithheld = default(decimal), int taxPayment = 1, string taxPaymentOthers = default(string), string providentFundNumber = default(string), string providentFundAmount = default(string), string socialSecurityAmount = default(string), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, int status = default(int), int statusString = default(int), int documentType = default(int), bool allowDelete = default(bool))
+        public WithholidingTaxDocumentResponseData(string documentId = default(string), string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int entity = 1, string textOther = default(string), List<WithholidingTaxItem> withholdingTaxItems = default(List<WithholidingTaxItem>), decimal total = default(decimal), decimal totalTaxWithheld = default(decimal), int taxPayment = 1, string taxPaymentOthers = default(string), string providentFundNumber = default(string), string providentFundAmount = default(string), string socialSecurityAmount = default(string), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, List<Object> company = default(List<Object>), int status = default(int), int statusString = default(int), int documentType = default(int), bool allowDelete = default(bool))
         {
             this.DocumentId = documentId;
             this.DocumentSerial = documentSerial;
@@ -123,6 +124,7 @@ namespace Flowaccount.OpenAPITools.Model
             {
                 this.ShowSignatureOrStamp = showSignatureOrStamp;
             }
+            this.Company = company;
             this.Status = status;
             this.StatusString = statusString;
             this.DocumentType = documentType;
@@ -313,6 +315,13 @@ namespace Flowaccount.OpenAPITools.Model
         public bool ShowSignatureOrStamp { get; set; }
 
         /// <summary>
+        /// ข้อมูลบริษัทของคุณในเอกสาร
+        /// </summary>
+        /// <value>ข้อมูลบริษัทของคุณในเอกสาร</value>
+        [DataMember(Name="company", EmitDefaultValue=true)]
+        public List<Object> Company { get; set; }
+
+        /// <summary>
         /// เลขสถานะเอกสารฉบับนี้
         /// </summary>
         /// <value>เลขสถานะเอกสารฉบับนี้</value>
@@ -374,6 +383,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  Remarks: ").Append(Remarks).Append("\n");
             sb.Append("  InternalNotes: ").Append(InternalNotes).Append("\n");
             sb.Append("  ShowSignatureOrStamp: ").Append(ShowSignatureOrStamp).Append("\n");
+            sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusString: ").Append(StatusString).Append("\n");
             sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
@@ -544,6 +554,12 @@ namespace Flowaccount.OpenAPITools.Model
                     this.ShowSignatureOrStamp.Equals(input.ShowSignatureOrStamp))
                 ) && 
                 (
+                    this.Company == input.Company ||
+                    this.Company != null &&
+                    input.Company != null &&
+                    this.Company.SequenceEqual(input.Company)
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -626,6 +642,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.InternalNotes.GetHashCode();
                 if (this.ShowSignatureOrStamp != null)
                     hashCode = hashCode * 59 + this.ShowSignatureOrStamp.GetHashCode();
+                if (this.Company != null)
+                    hashCode = hashCode * 59 + this.Company.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusString != null)

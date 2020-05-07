@@ -79,11 +79,12 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="referencedToMe">ข้อมูลเอกสารปลายทางที่อ้างอิง ถึง เอกสารฉบับนี้.</param>
         /// <param name="referencedByMe">เอกสารต้นทางที่อ้างอิง ถึง เอกสารฉบับนี้.</param>
         /// <param name="payments">ข้อมูลการเก็บเงินและจ่ายเงินของเอกสาร &lt;br&gt; ข้อมูลการเก็บเงิน: &lt;br&gt;1. ใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice) &lt;br&gt; 2. ใบเสร็จรับเงิน (Receipt) &lt;br&gt; 3. ใบกำกับภาษี/ใบเสร็จรับเงิน (Cash Invoice) &lt;br&gt; ข้อมูลการจ่ายเงิน: &lt;br&gt;1. เอกสารใบรับสินค้า (Receiving Inventory).</param>
+        /// <param name="company">ข้อมูลบริษัทของคุณในเอกสาร.</param>
         /// <param name="status">เลขสถานะเอกสารฉบับนี้.</param>
         /// <param name="statusString">ชื่อสถานะเอกสารฉบับนี้.</param>
         /// <param name="documentType">เลขประเภทเอกสารฉบับนี้.</param>
         /// <param name="allowDelete">สามารถลบเอกสาร :&lt;br&gt; true &#x3D; ลบได้ &lt;br&gt; false &#x3D; ลบไม่ได้.</param>
-        public InlineDocumentResponseAllOfData(long recordId = 0, long documentId = 0, string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, int discountType = 1, bool useInlineDiscount = true, bool useInlineVat = default(bool), bool useReceiptDeduction = false, decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), decimal totalWithoutVat = default(decimal), decimal? exemptAmount = 0M, decimal? vatableAmount = 0M, bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), bool documentShowWithholdingTax = false, int documentWithholdingTaxPercentage = 0, int documentDeductionType = 0, decimal documentDeductionAmount = 0M, string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, List<InlineProductItem> items = default(List<InlineProductItem>), List<ReferencedToMe> referencedToMe = default(List<ReferencedToMe>), List<ReferencedByMe> referencedByMe = default(List<ReferencedByMe>), List<PaymentDocumentResponse> payments = default(List<PaymentDocumentResponse>), int status = default(int), int statusString = default(int), int documentType = default(int), bool allowDelete = default(bool))
+        public InlineDocumentResponseAllOfData(long recordId = 0, long documentId = 0, string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int creditType = 1, int creditDays = 0, DateTime dueDate = default(DateTime), string salesName = "อีเมล หรือ ชื่อผู้สร้างเอกสาร", string projectName = default(string), string reference = default(string), bool isVatInclusive = false, int discountType = 1, bool useInlineDiscount = true, bool useInlineVat = default(bool), bool useReceiptDeduction = false, decimal subTotal = 0M, int discountPercentage = 0, decimal discountAmount = 0M, decimal totalAfterDiscount = default(decimal), decimal totalWithoutVat = default(decimal), decimal? exemptAmount = 0M, decimal? vatableAmount = 0M, bool isVat = false, decimal vatAmount = default(decimal), decimal grandTotal = default(decimal), bool documentShowWithholdingTax = false, int documentWithholdingTaxPercentage = 0, int documentDeductionType = 0, decimal documentDeductionAmount = 0M, string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, List<InlineProductItem> items = default(List<InlineProductItem>), List<ReferencedToMe> referencedToMe = default(List<ReferencedToMe>), List<ReferencedByMe> referencedByMe = default(List<ReferencedByMe>), List<PaymentDocumentResponse> payments = default(List<PaymentDocumentResponse>), List<Object> company = default(List<Object>), int status = default(int), int statusString = default(int), int documentType = default(int), bool allowDelete = default(bool))
         {
             this.ExemptAmount = exemptAmount;
             this.VatableAmount = vatableAmount;
@@ -301,6 +302,7 @@ namespace Flowaccount.OpenAPITools.Model
             this.ReferencedToMe = referencedToMe;
             this.ReferencedByMe = referencedByMe;
             this.Payments = payments;
+            this.Company = company;
             this.Status = status;
             this.StatusString = statusString;
             this.DocumentType = documentType;
@@ -632,6 +634,13 @@ namespace Flowaccount.OpenAPITools.Model
         public List<PaymentDocumentResponse> Payments { get; set; }
 
         /// <summary>
+        /// ข้อมูลบริษัทของคุณในเอกสาร
+        /// </summary>
+        /// <value>ข้อมูลบริษัทของคุณในเอกสาร</value>
+        [DataMember(Name="company", EmitDefaultValue=true)]
+        public List<Object> Company { get; set; }
+
+        /// <summary>
         /// เลขสถานะเอกสารฉบับนี้
         /// </summary>
         /// <value>เลขสถานะเอกสารฉบับนี้</value>
@@ -713,6 +722,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  ReferencedToMe: ").Append(ReferencedToMe).Append("\n");
             sb.Append("  ReferencedByMe: ").Append(ReferencedByMe).Append("\n");
             sb.Append("  Payments: ").Append(Payments).Append("\n");
+            sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusString: ").Append(StatusString).Append("\n");
             sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
@@ -986,6 +996,12 @@ namespace Flowaccount.OpenAPITools.Model
                     this.Payments.SequenceEqual(input.Payments)
                 ) && 
                 (
+                    this.Company == input.Company ||
+                    this.Company != null &&
+                    input.Company != null &&
+                    this.Company.SequenceEqual(input.Company)
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -1108,6 +1124,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.ReferencedByMe.GetHashCode();
                 if (this.Payments != null)
                     hashCode = hashCode * 59 + this.Payments.GetHashCode();
+                if (this.Company != null)
+                    hashCode = hashCode * 59 + this.Company.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusString != null)

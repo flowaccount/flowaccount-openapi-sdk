@@ -24,6 +24,7 @@ import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
+import { UpdateInlineDocument } from '../model/updateInlineDocument';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 
@@ -464,9 +465,9 @@ export class BillingNotesApi {
      * @summary Edit billing notes document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
-     * @param inlineDocument 
+     * @param updateInlineDocument 
      */
-    public async billingNotesIdPut (authorization: string, id: string, inlineDocument: InlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+    public async billingNotesIdPut (authorization: string, id: string, updateInlineDocument: UpdateInlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
         const localVarPath = this.basePath + '/billing-notes/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -490,9 +491,9 @@ export class BillingNotesApi {
             throw new Error('Required parameter id was null or undefined when calling billingNotesIdPut.');
         }
 
-        // verify required parameter 'inlineDocument' is not null or undefined
-        if (inlineDocument === null || inlineDocument === undefined) {
-            throw new Error('Required parameter inlineDocument was null or undefined when calling billingNotesIdPut.');
+        // verify required parameter 'updateInlineDocument' is not null or undefined
+        if (updateInlineDocument === null || updateInlineDocument === undefined) {
+            throw new Error('Required parameter updateInlineDocument was null or undefined when calling billingNotesIdPut.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -507,7 +508,7 @@ export class BillingNotesApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineDocument, "InlineDocument")
+            body: ObjectSerializer.serialize(updateInlineDocument, "UpdateInlineDocument")
         };
 
         let authenticationPromise = Promise.resolve();

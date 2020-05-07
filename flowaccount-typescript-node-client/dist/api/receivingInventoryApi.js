@@ -437,7 +437,7 @@ class ReceivingInventoryApi {
             });
         });
     }
-    purchasesIdPut(authorization, id, inlineDocument, options = { headers: {} }) {
+    purchasesIdPut(authorization, id, updateInlineDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
@@ -457,8 +457,8 @@ class ReceivingInventoryApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling purchasesIdPut.');
             }
-            if (inlineDocument === null || inlineDocument === undefined) {
-                throw new Error('Required parameter inlineDocument was null or undefined when calling purchasesIdPut.');
+            if (updateInlineDocument === null || updateInlineDocument === undefined) {
+                throw new Error('Required parameter updateInlineDocument was null or undefined when calling purchasesIdPut.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -470,7 +470,7 @@ class ReceivingInventoryApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineDocument, "InlineDocument")
+                body: models_1.ObjectSerializer.serialize(updateInlineDocument, "UpdateInlineDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));

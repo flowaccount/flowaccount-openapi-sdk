@@ -1,31 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class ExpenseInlineDocumentResponse {
+const expenseResponse_1 = require("./expenseResponse");
+class ExpenseInlineDocumentResponse extends expenseResponse_1.ExpenseResponse {
     static getAttributeTypeMap() {
-        return ExpenseInlineDocumentResponse.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(ExpenseInlineDocumentResponse.attributeTypeMap);
     }
 }
 ExpenseInlineDocumentResponse.discriminator = undefined;
 ExpenseInlineDocumentResponse.attributeTypeMap = [
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "boolean"
-    },
-    {
-        "name": "message",
-        "baseName": "message",
-        "type": "string"
-    },
-    {
-        "name": "code",
-        "baseName": "code",
-        "type": "number"
-    },
-    {
         "name": "data",
         "baseName": "data",
-        "type": "object & ExpenseInlineDocument"
+        "type": "ExpenseInlineDocumentResponseAllOfData"
     }
 ];
 exports.ExpenseInlineDocumentResponse = ExpenseInlineDocumentResponse;

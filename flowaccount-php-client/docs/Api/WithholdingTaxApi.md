@@ -316,7 +316,7 @@ No authorization required
 
 ## withholdingTaxesIdPut
 
-> \OpenAPI\Client\Model\WithholidingTaxDocumentResponse withholdingTaxesIdPut($authorization, $id, $withholiding_tax_document)
+> \OpenAPI\Client\Model\WithholidingTaxDocumentResponse withholdingTaxesIdPut($authorization, $id, $update_withholiding_tax_document)
 
 Edit withholding tax document.
 
@@ -336,10 +336,10 @@ $apiInstance = new OpenAPI\Client\Api\WithholdingTaxApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId
-$withholiding_tax_document = new \OpenAPI\Client\Model\WithholidingTaxDocument(); // \OpenAPI\Client\Model\WithholidingTaxDocument | 
+$update_withholiding_tax_document = new \OpenAPI\Client\Model\UpdateWithholidingTaxDocument(); // \OpenAPI\Client\Model\UpdateWithholidingTaxDocument | 
 
 try {
-    $result = $apiInstance->withholdingTaxesIdPut($authorization, $id, $withholiding_tax_document);
+    $result = $apiInstance->withholdingTaxesIdPut($authorization, $id, $update_withholiding_tax_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WithholdingTaxApi->withholdingTaxesIdPut: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId |
- **withholiding_tax_document** | [**\OpenAPI\Client\Model\WithholidingTaxDocument**](../Model/WithholidingTaxDocument.md)|  |
+ **update_withholiding_tax_document** | [**\OpenAPI\Client\Model\UpdateWithholidingTaxDocument**](../Model/UpdateWithholidingTaxDocument.md)|  |
 
 ### Return type
 

@@ -5,6 +5,8 @@ export * from './bankAccountApi';
 import { BankAccountApi } from './bankAccountApi';
 export * from './billingNotesApi';
 import { BillingNotesApi } from './billingNotesApi';
+export * from './businessInfomationApi';
+import { BusinessInfomationApi } from './businessInfomationApi';
 export * from './cashInvoiceApi';
 import { CashInvoiceApi } from './cashInvoiceApi';
 export * from './contactsApi';
@@ -41,4 +43,4 @@ export interface RequestDetailedFile {
     };
 }
 export declare type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
-export declare const APIS: (typeof AuthenticationApi | typeof BankAccountApi | typeof BillingNotesApi | typeof CashInvoiceApi | typeof ContactsApi | typeof ExpensesApi | typeof ProductsApi | typeof PurchaseOrderApi | typeof QuotationsApi | typeof ReceiptApi | typeof ReceivingInventoryApi | typeof TaxInvoiceApi | typeof WithholdingTaxApi)[];
+export declare const APIS: (typeof AuthenticationApi | typeof BankAccountApi | typeof BillingNotesApi | typeof BusinessInfomationApi | typeof CashInvoiceApi | typeof ContactsApi | typeof ExpensesApi | typeof ProductsApi | typeof PurchaseOrderApi | typeof QuotationsApi | typeof ReceiptApi | typeof ReceivingInventoryApi | typeof TaxInvoiceApi | typeof WithholdingTaxApi)[];

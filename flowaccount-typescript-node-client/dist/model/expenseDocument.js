@@ -8,11 +8,6 @@ class ExpenseDocument {
 ExpenseDocument.discriminator = "expenseStructureType";
 ExpenseDocument.attributeTypeMap = [
     {
-        "name": "documentSerial",
-        "baseName": "documentSerial",
-        "type": "string"
-    },
-    {
         "name": "contactCode",
         "baseName": "contactCode",
         "type": "string"

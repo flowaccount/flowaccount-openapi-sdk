@@ -504,7 +504,7 @@ No authorization required
 
 ## CashInvoicesIdPut
 
-> InlineDocumentResponse CashInvoicesIdPut (string authorization, string id, InlineDocument inlineDocument)
+> InlineDocumentResponse CashInvoicesIdPut (string authorization, string id, UpdateInlineDocument updateInlineDocument)
 
 Edit cash invoices document.
 
@@ -529,12 +529,12 @@ namespace Example
             var apiInstance = new CashInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId
-            var inlineDocument = new InlineDocument(); // InlineDocument | 
+            var updateInlineDocument = new UpdateInlineDocument(); // UpdateInlineDocument | 
 
             try
             {
                 // Edit cash invoices document.
-                InlineDocumentResponse result = apiInstance.CashInvoicesIdPut(authorization, id, inlineDocument);
+                InlineDocumentResponse result = apiInstance.CashInvoicesIdPut(authorization, id, updateInlineDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId | 
- **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+ **updateInlineDocument** | [**UpdateInlineDocument**](UpdateInlineDocument.md)|  | 
 
 ### Return type
 

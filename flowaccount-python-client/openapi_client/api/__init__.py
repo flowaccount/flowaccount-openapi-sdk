@@ -6,6 +6,7 @@ from __future__ import absolute_import
 from openapi_client.api.authentication_api import AuthenticationApi
 from openapi_client.api.bank_account_api import BankAccountApi
 from openapi_client.api.billing_notes_api import BillingNotesApi
+from openapi_client.api.business_infomation_api import BusinessInfomationApi
 from openapi_client.api.cash_invoice_api import CashInvoiceApi
 from openapi_client.api.contacts_api import ContactsApi
 from openapi_client.api.expenses_api import ExpensesApi

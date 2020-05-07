@@ -57,7 +57,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'document_serial' => 'string',
         'contact_code' => 'string',
         'contact_name' => 'string',
         'contact_address' => 'string',
@@ -95,7 +94,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'document_serial' => null,
         'contact_code' => null,
         'contact_name' => null,
         'contact_address' => null,
@@ -154,7 +152,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'document_serial' => 'documentSerial',
         'contact_code' => 'contactCode',
         'contact_name' => 'contactName',
         'contact_address' => 'contactAddress',
@@ -192,7 +189,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'document_serial' => 'setDocumentSerial',
         'contact_code' => 'setContactCode',
         'contact_name' => 'setContactName',
         'contact_address' => 'setContactAddress',
@@ -230,7 +226,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'document_serial' => 'getDocumentSerial',
         'contact_code' => 'getContactCode',
         'contact_name' => 'getContactName',
         'contact_address' => 'getContactAddress',
@@ -322,7 +317,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['document_serial'] = isset($data['document_serial']) ? $data['document_serial'] : null;
         $this->container['contact_code'] = isset($data['contact_code']) ? $data['contact_code'] : null;
         $this->container['contact_name'] = isset($data['contact_name']) ? $data['contact_name'] : null;
         $this->container['contact_address'] = isset($data['contact_address']) ? $data['contact_address'] : null;
@@ -395,30 +389,6 @@ class ExpenseDocument implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets document_serial
-     *
-     * @return string|null
-     */
-    public function getDocumentSerial()
-    {
-        return $this->container['document_serial'];
-    }
-
-    /**
-     * Sets document_serial
-     *
-     * @param string|null $document_serial เลขที่เอกสาร
-     *
-     * @return $this
-     */
-    public function setDocumentSerial($document_serial)
-    {
-        $this->container['document_serial'] = $document_serial;
-
-        return $this;
-    }
 
     /**
      * Gets contact_code

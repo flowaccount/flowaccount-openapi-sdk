@@ -1,5 +1,4 @@
 export declare class ExpenseDocument {
-    'documentSerial'?: string;
     'contactCode'?: string;
     'contactName': string;
     'contactAddress'?: string;

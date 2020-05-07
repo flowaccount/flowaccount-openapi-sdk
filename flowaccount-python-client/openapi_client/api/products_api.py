@@ -49,8 +49,8 @@ class ProductsApi(object):
         :param int current_page: Query current page products item. <br>Example Pattern: <ex>/products?currentPage=1 </ex><ex>/products?currentPage=1&pageSize=20</ex> (required)
         :param int page_size: Query products list amount per page. <br>Example Pattern: <ex> /products?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productcode','sortOrder':'asc'}]</ex>
-        :param str filter: Query products list amount per page. <br>Example Pattern: <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
+        :param str sort_by: Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex>
+        :param str filter: Query products list amount per page. <br>Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -77,8 +77,8 @@ class ProductsApi(object):
         :param int current_page: Query current page products item. <br>Example Pattern: <ex>/products?currentPage=1 </ex><ex>/products?currentPage=1&pageSize=20</ex> (required)
         :param int page_size: Query products list amount per page. <br>Example Pattern: <ex> /products?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productcode','sortOrder':'asc'}]</ex>
-        :param str filter: Query products list amount per page. <br>Example Pattern: <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
+        :param str sort_by: Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex>
+        :param str filter: Query products list amount per page. <br>Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

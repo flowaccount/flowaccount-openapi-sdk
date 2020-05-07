@@ -49,7 +49,7 @@ class ContactsApi(object):
         :param int current_page: Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex> (required)
         :param int page_size: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+        :param str sort_by: Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
         :param str filter: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -77,7 +77,7 @@ class ContactsApi(object):
         :param int current_page: Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex> (required)
         :param int page_size: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+        :param str sort_by: Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
         :param str filter: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
         :param _return_http_data_only: response data without head status code
                                        and headers

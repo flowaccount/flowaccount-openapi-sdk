@@ -773,19 +773,19 @@ class TaxInvoiceApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def tax_invoices_id_put(self, authorization, id, inline_document, **kwargs):  # noqa: E501
+    def tax_invoices_id_put(self, authorization, id, update_inline_document, **kwargs):  # noqa: E501
         """Edit tax invoices document.  # noqa: E501
 
         แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tax_invoices_id_put(authorization, id, inline_document, async_req=True)
+        >>> thread = api.tax_invoices_id_put(authorization, id, update_inline_document, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
         :param str id: ID เอกสารใช้ recordId (required)
-        :param InlineDocument inline_document: (required)
+        :param UpdateInlineDocument update_inline_document: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -798,21 +798,21 @@ class TaxInvoiceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.tax_invoices_id_put_with_http_info(authorization, id, inline_document, **kwargs)  # noqa: E501
+        return self.tax_invoices_id_put_with_http_info(authorization, id, update_inline_document, **kwargs)  # noqa: E501
 
-    def tax_invoices_id_put_with_http_info(self, authorization, id, inline_document, **kwargs):  # noqa: E501
+    def tax_invoices_id_put_with_http_info(self, authorization, id, update_inline_document, **kwargs):  # noqa: E501
         """Edit tax invoices document.  # noqa: E501
 
         แก้ไขข้อมูลเอกสารใบกำกับภาษี ตามเลขที่เอกสารที่ต้องการและเอกสารต้องเป็นสถานะ รอดำเนินการ (Awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tax_invoices_id_put_with_http_info(authorization, id, inline_document, async_req=True)
+        >>> thread = api.tax_invoices_id_put_with_http_info(authorization, id, update_inline_document, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str authorization: (required)
         :param str id: ID เอกสารใช้ recordId (required)
-        :param InlineDocument inline_document: (required)
+        :param UpdateInlineDocument update_inline_document: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -829,7 +829,7 @@ class TaxInvoiceApi(object):
 
         local_var_params = locals()
 
-        all_params = ['authorization', 'id', 'inline_document']  # noqa: E501
+        all_params = ['authorization', 'id', 'update_inline_document']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -851,10 +851,10 @@ class TaxInvoiceApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `tax_invoices_id_put`")  # noqa: E501
-        # verify the required parameter 'inline_document' is set
-        if self.api_client.client_side_validation and ('inline_document' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_document'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_document` when calling `tax_invoices_id_put`")  # noqa: E501
+        # verify the required parameter 'update_inline_document' is set
+        if self.api_client.client_side_validation and ('update_inline_document' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_inline_document'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_inline_document` when calling `tax_invoices_id_put`")  # noqa: E501
 
         collection_formats = {}
 
@@ -872,8 +872,8 @@ class TaxInvoiceApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_document' in local_var_params:
-            body_params = local_var_params['inline_document']
+        if 'update_inline_document' in local_var_params:
+            body_params = local_var_params['update_inline_document']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

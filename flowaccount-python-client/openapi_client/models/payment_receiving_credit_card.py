@@ -116,7 +116,7 @@ class PaymentReceivingCreditCard(object):
     def payment_structure_type(self):
         """Gets the payment_structure_type of this PaymentReceivingCreditCard.  # noqa: E501
 
-        รับชำระเงิน ด้วยเช็ค  # noqa: E501
+        รับชำระเงิน ด้วยบัตรเครดิต  # noqa: E501
 
         :return: The payment_structure_type of this PaymentReceivingCreditCard.  # noqa: E501
         :rtype: str
@@ -127,7 +127,7 @@ class PaymentReceivingCreditCard(object):
     def payment_structure_type(self, payment_structure_type):
         """Sets the payment_structure_type of this PaymentReceivingCreditCard.
 
-        รับชำระเงิน ด้วยเช็ค  # noqa: E501
+        รับชำระเงิน ด้วยบัตรเครดิต  # noqa: E501
 
         :param payment_structure_type: The payment_structure_type of this PaymentReceivingCreditCard.  # noqa: E501
         :type: str

@@ -10,49 +10,24 @@
  * Do not edit the class manually.
  */
 
-import { ExpenseInlineDocument } from './expenseInlineDocument';
+import { ExpenseInlineDocumentResponseAllOf } from './expenseInlineDocumentResponseAllOf';
+import { ExpenseInlineDocumentResponseAllOfData } from './expenseInlineDocumentResponseAllOfData';
+import { ExpenseResponse } from './expenseResponse';
 
-export class ExpenseInlineDocumentResponse {
-    /**
-    * action success
-    */
-    'status'?: boolean;
-    /**
-    * error message
-    */
-    'message'?: string;
-    /**
-    * error code
-    */
-    'code'?: number;
-    'data'?: object & ExpenseInlineDocument;
+export class ExpenseInlineDocumentResponse extends ExpenseResponse {
+    'data'?: ExpenseInlineDocumentResponseAllOfData;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "boolean"
-        },
-        {
-            "name": "message",
-            "baseName": "message",
-            "type": "string"
-        },
-        {
-            "name": "code",
-            "baseName": "code",
-            "type": "number"
-        },
-        {
             "name": "data",
             "baseName": "data",
-            "type": "object & ExpenseInlineDocument"
+            "type": "ExpenseInlineDocumentResponseAllOfData"
         }    ];
 
     static getAttributeTypeMap() {
-        return ExpenseInlineDocumentResponse.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(ExpenseInlineDocumentResponse.attributeTypeMap);
     }
 }
 

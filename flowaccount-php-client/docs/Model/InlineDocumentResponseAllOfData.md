@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **referenced_to_me** | [**\OpenAPI\Client\Model\ReferencedToMe[]**](ReferencedToMe.md) | ข้อมูลเอกสารปลายทางที่อ้างอิง ถึง เอกสารฉบับนี้ | [optional] 
 **referenced_by_me** | [**\OpenAPI\Client\Model\ReferencedByMe[]**](ReferencedByMe.md) | เอกสารต้นทางที่อ้างอิง ถึง เอกสารฉบับนี้ | [optional] 
 **payments** | [**\OpenAPI\Client\Model\PaymentDocumentResponse[]**](PaymentDocumentResponse.md) | ข้อมูลการเก็บเงินและจ่ายเงินของเอกสาร &lt;br&gt; ข้อมูลการเก็บเงิน: &lt;br&gt;1. ใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice) &lt;br&gt; 2. ใบเสร็จรับเงิน (Receipt) &lt;br&gt; 3. ใบกำกับภาษี/ใบเสร็จรับเงิน (Cash Invoice) &lt;br&gt; ข้อมูลการจ่ายเงิน: &lt;br&gt;1. เอกสารใบรับสินค้า (Receiving Inventory) | [optional] 
+**company** | **object[]** | ข้อมูลบริษัทของคุณในเอกสาร | [optional] 
 **status** | **int** | เลขสถานะเอกสารฉบับนี้ | [optional] 
 **status_string** | **int** | ชื่อสถานะเอกสารฉบับนี้ | [optional] 
 **document_type** | **int** | เลขประเภทเอกสารฉบับนี้ | [optional] 

@@ -28,6 +28,7 @@ import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
+import { UpdateInlineDocument } from '../model/updateInlineDocument';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 
@@ -545,9 +546,9 @@ export class ReceiptApi {
      * @summary Edit receipt document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
-     * @param inlineDocument 
+     * @param updateInlineDocument 
      */
-    public async receiptsIdPut (authorization: string, id: string, inlineDocument: InlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+    public async receiptsIdPut (authorization: string, id: string, updateInlineDocument: UpdateInlineDocument, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
         const localVarPath = this.basePath + '/receipts/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -571,9 +572,9 @@ export class ReceiptApi {
             throw new Error('Required parameter id was null or undefined when calling receiptsIdPut.');
         }
 
-        // verify required parameter 'inlineDocument' is not null or undefined
-        if (inlineDocument === null || inlineDocument === undefined) {
-            throw new Error('Required parameter inlineDocument was null or undefined when calling receiptsIdPut.');
+        // verify required parameter 'updateInlineDocument' is not null or undefined
+        if (updateInlineDocument === null || updateInlineDocument === undefined) {
+            throw new Error('Required parameter updateInlineDocument was null or undefined when calling receiptsIdPut.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
@@ -588,7 +589,7 @@ export class ReceiptApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineDocument, "InlineDocument")
+            body: ObjectSerializer.serialize(updateInlineDocument, "UpdateInlineDocument")
         };
 
         let authenticationPromise = Promise.resolve();

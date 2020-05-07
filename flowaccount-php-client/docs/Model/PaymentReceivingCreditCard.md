@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_structure_type** | **string** | รับชำระเงิน ด้วยเช็ค | 
+**payment_structure_type** | **string** | รับชำระเงิน ด้วยบัตรเครดิต | 
 **document_id** | **int** | id เอกสาร | 
 **payment_method** | **int** | ประเภทการเก็บเงิน &lt;br&gt; 7 &#x3D; บัตรเครดิต | [default to 1]
 **payment_date** | [**\DateTime**](\DateTime.md) | วันที่รับชำระเงิน / วันที่ชำระเงิน รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | 

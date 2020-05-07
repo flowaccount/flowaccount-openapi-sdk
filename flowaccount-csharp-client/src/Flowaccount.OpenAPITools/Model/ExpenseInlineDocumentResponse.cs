@@ -28,49 +28,22 @@ namespace Flowaccount.OpenAPITools.Model
     /// ExpenseInlineDocumentResponse
     /// </summary>
     [DataContract]
-    public partial class ExpenseInlineDocumentResponse :  IEquatable<ExpenseInlineDocumentResponse>, IValidatableObject
+    public partial class ExpenseInlineDocumentResponse : ExpenseResponse,  IEquatable<ExpenseInlineDocumentResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpenseInlineDocumentResponse" /> class.
         /// </summary>
-        /// <param name="status">action success.</param>
-        /// <param name="message">error message.</param>
-        /// <param name="code">error code.</param>
         /// <param name="data">data.</param>
-        public ExpenseInlineDocumentResponse(bool status = default(bool), string message = default(string), int code = default(int), Object data = default(Object))
+        public ExpenseInlineDocumentResponse(ExpenseInlineDocumentResponseAllOfData data = default(ExpenseInlineDocumentResponseAllOfData), bool status = default(bool), string message = default(string), int code = default(int), string expenseStructureType = default(string)) : base(status, message, code, expenseStructureType)
         {
-            this.Status = status;
-            this.Message = message;
-            this.Code = code;
             this.Data = data;
         }
         
         /// <summary>
-        /// action success
-        /// </summary>
-        /// <value>action success</value>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public bool Status { get; set; }
-
-        /// <summary>
-        /// error message
-        /// </summary>
-        /// <value>error message</value>
-        [DataMember(Name="message", EmitDefaultValue=true)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// error code
-        /// </summary>
-        /// <value>error code</value>
-        [DataMember(Name="code", EmitDefaultValue=true)]
-        public int Code { get; set; }
-
-        /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=true)]
-        public Object Data { get; set; }
+        public ExpenseInlineDocumentResponseAllOfData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -80,9 +53,7 @@ namespace Flowaccount.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ExpenseInlineDocumentResponse {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,7 +63,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -117,22 +88,7 @@ namespace Flowaccount.OpenAPITools.Model
             if (input == null)
                 return false;
 
-            return 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
+            return base.Equals(input) && 
                 (
                     this.Data == input.Data ||
                     (this.Data != null &&
@@ -148,13 +104,7 @@ namespace Flowaccount.OpenAPITools.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                int hashCode = base.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
@@ -168,6 +118,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            foreach(var x in base.BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }
