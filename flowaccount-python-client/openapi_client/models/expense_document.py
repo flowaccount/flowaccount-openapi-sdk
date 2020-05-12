@@ -98,8 +98,8 @@ class ExpenseDocument(object):
     }
 
     discriminator_value_class_map = {
-        'ExpenseSimpleDocument': 'ExpenseSimpleDocument',
-        'ExpenseInlineDocument': 'ExpenseInlineDocument'
+        'ExpenseInlineDocument': 'ExpenseInlineDocument',
+        'ExpenseSimpleDocument': 'ExpenseSimpleDocument'
     }
 
     def __init__(self, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, credit_type=1, credit_days=0, due_date=None, sales_name='อีเมล หรือ ชื่อผู้สร้างเอกสาร', project_name=None, reference=None, is_vat_inclusive=False, sub_total=0, discount_percentage=0, discount_amount=0, total_after_discount=None, is_vat=False, vat_amount=None, grand_total=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, expense_structure_type=None, local_vars_configuration=None):  # noqa: E501

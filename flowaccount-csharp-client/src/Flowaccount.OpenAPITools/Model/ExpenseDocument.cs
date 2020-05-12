@@ -30,8 +30,8 @@ namespace Flowaccount.OpenAPITools.Model
     /// </summary>
     [DataContract]
     [JsonConverter(typeof(JsonSubtypes), "ExpenseStructureType")]
-    [JsonSubtypes.KnownSubType(typeof(ExpenseSimpleDocument), "ExpenseSimpleDocument")]
     [JsonSubtypes.KnownSubType(typeof(ExpenseInlineDocument), "ExpenseInlineDocument")]
+    [JsonSubtypes.KnownSubType(typeof(ExpenseSimpleDocument), "ExpenseSimpleDocument")]
     public partial class ExpenseDocument :  IEquatable<ExpenseDocument>, IValidatableObject
     {
         /// <summary>

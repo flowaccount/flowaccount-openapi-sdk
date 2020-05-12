@@ -13,8 +13,10 @@ Method | HTTP request | Description
 [**ReceiptsIdPut**](ReceiptApi.md#receiptsidput) | **PUT** /receipts/{id} | Edit receipt document.
 [**ReceiptsIdStatusKeyStatusIdPost**](ReceiptApi.md#receiptsidstatuskeystatusidpost) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
 [**ReceiptsInlinePost**](ReceiptApi.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
-[**ReceiptsPost**](ReceiptApi.md#receiptspost) | **POST** /receipts | Create cash receipt document.
+[**ReceiptsInlineWithPaymentPost**](ReceiptApi.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+[**ReceiptsPost**](ReceiptApi.md#receiptspost) | **POST** /receipts | Create receipt document.
 [**ReceiptsSharedocumentPost**](ReceiptApi.md#receiptssharedocumentpost) | **POST** /receipts/sharedocument | Share link receipt document.
+[**ReceiptsWithPaymentPost**](ReceiptApi.md#receiptswithpaymentpost) | **POST** /receipts/with-payment | Create receipt document with payment.
 
 
 
@@ -743,11 +745,90 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## ReceiptsInlineWithPaymentPost
+
+> InlineDocumentResponse ReceiptsInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+
+Create receipt document with discount and tax inline with payment.
+
+สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class ReceiptsInlineWithPaymentPostExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new ReceiptApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+
+            try
+            {
+                // Create receipt document with discount and tax inline with payment.
+                InlineDocumentResponse result = apiInstance.ReceiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ReceiptApi.ReceiptsInlineWithPaymentPost: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ReceiptsPost
 
 > SimpleDocumentResponse ReceiptsPost (string authorization, SimpleDocument simpleDocument)
 
-Create cash receipt document.
+Create receipt document.
 
 สร้างเอกสารใบเสร็จรับเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
 
@@ -773,7 +854,7 @@ namespace Example
 
             try
             {
-                // Create cash receipt document.
+                // Create receipt document.
                 SimpleDocumentResponse result = apiInstance.ReceiptsPost(authorization, simpleDocument);
                 Debug.WriteLine(result);
             }
@@ -878,6 +959,85 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ShareDocumentResponse**](ShareDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReceiptsWithPaymentPost
+
+> SimpleDocumentResponse ReceiptsWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+
+Create receipt document with payment.
+
+สร้างเอกสารใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class ReceiptsWithPaymentPostExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new ReceiptApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+
+            try
+            {
+                // Create receipt document with payment.
+                SimpleDocumentResponse result = apiInstance.ReceiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ReceiptApi.ReceiptsWithPaymentPost: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
 
 ### Authorization
 

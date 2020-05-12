@@ -30,8 +30,8 @@ namespace Flowaccount.OpenAPITools.Model
     /// </summary>
     [DataContract]
     [JsonConverter(typeof(JsonSubtypes), "DocumentStructureType")]
-    [JsonSubtypes.KnownSubType(typeof(InlineProductItem), "InlineProductItem")]
     [JsonSubtypes.KnownSubType(typeof(SimpleProductItem), "SimpleProductItem")]
+    [JsonSubtypes.KnownSubType(typeof(InlineProductItem), "InlineProductItem")]
     public partial class ProductItem :  IEquatable<ProductItem>, IValidatableObject
     {
         /// <summary>

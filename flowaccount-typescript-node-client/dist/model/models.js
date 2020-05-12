@@ -25,6 +25,10 @@ __export(require("./expenseInlineDocumentAllOf"));
 __export(require("./expenseInlineDocumentResponse"));
 __export(require("./expenseInlineDocumentResponseAllOf"));
 __export(require("./expenseInlineDocumentResponseAllOfData"));
+__export(require("./expenseInlineDocumentWithPaymentPaidCash"));
+__export(require("./expenseInlineDocumentWithPaymentPaidCheque"));
+__export(require("./expenseInlineDocumentWithPaymentPaidCreditCard"));
+__export(require("./expenseInlineDocumentWithPaymentPaidTransfer"));
 __export(require("./expenseInlineProductItem"));
 __export(require("./expenseResponse"));
 __export(require("./expenseSimpleDocument"));
@@ -32,12 +36,24 @@ __export(require("./expenseSimpleDocumentAllOf"));
 __export(require("./expenseSimpleDocumentResponse"));
 __export(require("./expenseSimpleDocumentResponseAllOf"));
 __export(require("./expenseSimpleDocumentResponseAllOfData"));
+__export(require("./expenseSimpleDocumentWithPaymentPaidCash"));
+__export(require("./expenseSimpleDocumentWithPaymentPaidCheque"));
+__export(require("./expenseSimpleDocumentWithPaymentPaidCreditCard"));
+__export(require("./expenseSimpleDocumentWithPaymentPaidTransfer"));
 __export(require("./expenseSimpleProductItem"));
 __export(require("./inlineDocument"));
 __export(require("./inlineDocumentAllOf"));
 __export(require("./inlineDocumentResponse"));
 __export(require("./inlineDocumentResponseAllOf"));
 __export(require("./inlineDocumentResponseAllOfData"));
+__export(require("./inlineDocumentWithPaymentPaidCash"));
+__export(require("./inlineDocumentWithPaymentPaidCheque"));
+__export(require("./inlineDocumentWithPaymentPaidCreditCard"));
+__export(require("./inlineDocumentWithPaymentPaidTransfer"));
+__export(require("./inlineDocumentWithPaymentReceivingCash"));
+__export(require("./inlineDocumentWithPaymentReceivingCheque"));
+__export(require("./inlineDocumentWithPaymentReceivingCreditCard"));
+__export(require("./inlineDocumentWithPaymentReceivingTransfer"));
 __export(require("./inlineObject"));
 __export(require("./inlineObject1"));
 __export(require("./inlineObject2"));
@@ -82,6 +98,14 @@ __export(require("./simpleDocumentAllOf"));
 __export(require("./simpleDocumentResponse"));
 __export(require("./simpleDocumentResponseAllOf"));
 __export(require("./simpleDocumentResponseAllOfData"));
+__export(require("./simpleDocumentWithPaymentPaidCash"));
+__export(require("./simpleDocumentWithPaymentPaidCheque"));
+__export(require("./simpleDocumentWithPaymentPaidCreditCard"));
+__export(require("./simpleDocumentWithPaymentPaidTransfer"));
+__export(require("./simpleDocumentWithPaymentReceivingCash"));
+__export(require("./simpleDocumentWithPaymentReceivingCheque"));
+__export(require("./simpleDocumentWithPaymentReceivingCreditCard"));
+__export(require("./simpleDocumentWithPaymentReceivingTransfer"));
 __export(require("./simpleProductItem"));
 __export(require("./statusDocument"));
 __export(require("./updateDocument"));
@@ -118,6 +142,10 @@ const expenseInlineDocumentAllOf_1 = require("./expenseInlineDocumentAllOf");
 const expenseInlineDocumentResponse_1 = require("./expenseInlineDocumentResponse");
 const expenseInlineDocumentResponseAllOf_1 = require("./expenseInlineDocumentResponseAllOf");
 const expenseInlineDocumentResponseAllOfData_1 = require("./expenseInlineDocumentResponseAllOfData");
+const expenseInlineDocumentWithPaymentPaidCash_1 = require("./expenseInlineDocumentWithPaymentPaidCash");
+const expenseInlineDocumentWithPaymentPaidCheque_1 = require("./expenseInlineDocumentWithPaymentPaidCheque");
+const expenseInlineDocumentWithPaymentPaidCreditCard_1 = require("./expenseInlineDocumentWithPaymentPaidCreditCard");
+const expenseInlineDocumentWithPaymentPaidTransfer_1 = require("./expenseInlineDocumentWithPaymentPaidTransfer");
 const expenseInlineProductItem_1 = require("./expenseInlineProductItem");
 const expenseResponse_1 = require("./expenseResponse");
 const expenseSimpleDocument_1 = require("./expenseSimpleDocument");
@@ -125,12 +153,24 @@ const expenseSimpleDocumentAllOf_1 = require("./expenseSimpleDocumentAllOf");
 const expenseSimpleDocumentResponse_1 = require("./expenseSimpleDocumentResponse");
 const expenseSimpleDocumentResponseAllOf_1 = require("./expenseSimpleDocumentResponseAllOf");
 const expenseSimpleDocumentResponseAllOfData_1 = require("./expenseSimpleDocumentResponseAllOfData");
+const expenseSimpleDocumentWithPaymentPaidCash_1 = require("./expenseSimpleDocumentWithPaymentPaidCash");
+const expenseSimpleDocumentWithPaymentPaidCheque_1 = require("./expenseSimpleDocumentWithPaymentPaidCheque");
+const expenseSimpleDocumentWithPaymentPaidCreditCard_1 = require("./expenseSimpleDocumentWithPaymentPaidCreditCard");
+const expenseSimpleDocumentWithPaymentPaidTransfer_1 = require("./expenseSimpleDocumentWithPaymentPaidTransfer");
 const expenseSimpleProductItem_1 = require("./expenseSimpleProductItem");
 const inlineDocument_1 = require("./inlineDocument");
 const inlineDocumentAllOf_1 = require("./inlineDocumentAllOf");
 const inlineDocumentResponse_1 = require("./inlineDocumentResponse");
 const inlineDocumentResponseAllOf_1 = require("./inlineDocumentResponseAllOf");
 const inlineDocumentResponseAllOfData_1 = require("./inlineDocumentResponseAllOfData");
+const inlineDocumentWithPaymentPaidCash_1 = require("./inlineDocumentWithPaymentPaidCash");
+const inlineDocumentWithPaymentPaidCheque_1 = require("./inlineDocumentWithPaymentPaidCheque");
+const inlineDocumentWithPaymentPaidCreditCard_1 = require("./inlineDocumentWithPaymentPaidCreditCard");
+const inlineDocumentWithPaymentPaidTransfer_1 = require("./inlineDocumentWithPaymentPaidTransfer");
+const inlineDocumentWithPaymentReceivingCash_1 = require("./inlineDocumentWithPaymentReceivingCash");
+const inlineDocumentWithPaymentReceivingCheque_1 = require("./inlineDocumentWithPaymentReceivingCheque");
+const inlineDocumentWithPaymentReceivingCreditCard_1 = require("./inlineDocumentWithPaymentReceivingCreditCard");
+const inlineDocumentWithPaymentReceivingTransfer_1 = require("./inlineDocumentWithPaymentReceivingTransfer");
 const inlineObject_1 = require("./inlineObject");
 const inlineObject1_1 = require("./inlineObject1");
 const inlineObject2_1 = require("./inlineObject2");
@@ -175,6 +215,14 @@ const simpleDocumentAllOf_1 = require("./simpleDocumentAllOf");
 const simpleDocumentResponse_1 = require("./simpleDocumentResponse");
 const simpleDocumentResponseAllOf_1 = require("./simpleDocumentResponseAllOf");
 const simpleDocumentResponseAllOfData_1 = require("./simpleDocumentResponseAllOfData");
+const simpleDocumentWithPaymentPaidCash_1 = require("./simpleDocumentWithPaymentPaidCash");
+const simpleDocumentWithPaymentPaidCheque_1 = require("./simpleDocumentWithPaymentPaidCheque");
+const simpleDocumentWithPaymentPaidCreditCard_1 = require("./simpleDocumentWithPaymentPaidCreditCard");
+const simpleDocumentWithPaymentPaidTransfer_1 = require("./simpleDocumentWithPaymentPaidTransfer");
+const simpleDocumentWithPaymentReceivingCash_1 = require("./simpleDocumentWithPaymentReceivingCash");
+const simpleDocumentWithPaymentReceivingCheque_1 = require("./simpleDocumentWithPaymentReceivingCheque");
+const simpleDocumentWithPaymentReceivingCreditCard_1 = require("./simpleDocumentWithPaymentReceivingCreditCard");
+const simpleDocumentWithPaymentReceivingTransfer_1 = require("./simpleDocumentWithPaymentReceivingTransfer");
 const simpleProductItem_1 = require("./simpleProductItem");
 const statusDocument_1 = require("./statusDocument");
 const updateDocument_1 = require("./updateDocument");
@@ -223,6 +271,10 @@ let typeMap = {
     "ExpenseInlineDocumentResponse": expenseInlineDocumentResponse_1.ExpenseInlineDocumentResponse,
     "ExpenseInlineDocumentResponseAllOf": expenseInlineDocumentResponseAllOf_1.ExpenseInlineDocumentResponseAllOf,
     "ExpenseInlineDocumentResponseAllOfData": expenseInlineDocumentResponseAllOfData_1.ExpenseInlineDocumentResponseAllOfData,
+    "ExpenseInlineDocumentWithPaymentPaidCash": expenseInlineDocumentWithPaymentPaidCash_1.ExpenseInlineDocumentWithPaymentPaidCash,
+    "ExpenseInlineDocumentWithPaymentPaidCheque": expenseInlineDocumentWithPaymentPaidCheque_1.ExpenseInlineDocumentWithPaymentPaidCheque,
+    "ExpenseInlineDocumentWithPaymentPaidCreditCard": expenseInlineDocumentWithPaymentPaidCreditCard_1.ExpenseInlineDocumentWithPaymentPaidCreditCard,
+    "ExpenseInlineDocumentWithPaymentPaidTransfer": expenseInlineDocumentWithPaymentPaidTransfer_1.ExpenseInlineDocumentWithPaymentPaidTransfer,
     "ExpenseInlineProductItem": expenseInlineProductItem_1.ExpenseInlineProductItem,
     "ExpenseResponse": expenseResponse_1.ExpenseResponse,
     "ExpenseSimpleDocument": expenseSimpleDocument_1.ExpenseSimpleDocument,
@@ -230,12 +282,24 @@ let typeMap = {
     "ExpenseSimpleDocumentResponse": expenseSimpleDocumentResponse_1.ExpenseSimpleDocumentResponse,
     "ExpenseSimpleDocumentResponseAllOf": expenseSimpleDocumentResponseAllOf_1.ExpenseSimpleDocumentResponseAllOf,
     "ExpenseSimpleDocumentResponseAllOfData": expenseSimpleDocumentResponseAllOfData_1.ExpenseSimpleDocumentResponseAllOfData,
+    "ExpenseSimpleDocumentWithPaymentPaidCash": expenseSimpleDocumentWithPaymentPaidCash_1.ExpenseSimpleDocumentWithPaymentPaidCash,
+    "ExpenseSimpleDocumentWithPaymentPaidCheque": expenseSimpleDocumentWithPaymentPaidCheque_1.ExpenseSimpleDocumentWithPaymentPaidCheque,
+    "ExpenseSimpleDocumentWithPaymentPaidCreditCard": expenseSimpleDocumentWithPaymentPaidCreditCard_1.ExpenseSimpleDocumentWithPaymentPaidCreditCard,
+    "ExpenseSimpleDocumentWithPaymentPaidTransfer": expenseSimpleDocumentWithPaymentPaidTransfer_1.ExpenseSimpleDocumentWithPaymentPaidTransfer,
     "ExpenseSimpleProductItem": expenseSimpleProductItem_1.ExpenseSimpleProductItem,
     "InlineDocument": inlineDocument_1.InlineDocument,
     "InlineDocumentAllOf": inlineDocumentAllOf_1.InlineDocumentAllOf,
     "InlineDocumentResponse": inlineDocumentResponse_1.InlineDocumentResponse,
     "InlineDocumentResponseAllOf": inlineDocumentResponseAllOf_1.InlineDocumentResponseAllOf,
     "InlineDocumentResponseAllOfData": inlineDocumentResponseAllOfData_1.InlineDocumentResponseAllOfData,
+    "InlineDocumentWithPaymentPaidCash": inlineDocumentWithPaymentPaidCash_1.InlineDocumentWithPaymentPaidCash,
+    "InlineDocumentWithPaymentPaidCheque": inlineDocumentWithPaymentPaidCheque_1.InlineDocumentWithPaymentPaidCheque,
+    "InlineDocumentWithPaymentPaidCreditCard": inlineDocumentWithPaymentPaidCreditCard_1.InlineDocumentWithPaymentPaidCreditCard,
+    "InlineDocumentWithPaymentPaidTransfer": inlineDocumentWithPaymentPaidTransfer_1.InlineDocumentWithPaymentPaidTransfer,
+    "InlineDocumentWithPaymentReceivingCash": inlineDocumentWithPaymentReceivingCash_1.InlineDocumentWithPaymentReceivingCash,
+    "InlineDocumentWithPaymentReceivingCheque": inlineDocumentWithPaymentReceivingCheque_1.InlineDocumentWithPaymentReceivingCheque,
+    "InlineDocumentWithPaymentReceivingCreditCard": inlineDocumentWithPaymentReceivingCreditCard_1.InlineDocumentWithPaymentReceivingCreditCard,
+    "InlineDocumentWithPaymentReceivingTransfer": inlineDocumentWithPaymentReceivingTransfer_1.InlineDocumentWithPaymentReceivingTransfer,
     "InlineObject": inlineObject_1.InlineObject,
     "InlineObject1": inlineObject1_1.InlineObject1,
     "InlineObject2": inlineObject2_1.InlineObject2,
@@ -280,6 +344,14 @@ let typeMap = {
     "SimpleDocumentResponse": simpleDocumentResponse_1.SimpleDocumentResponse,
     "SimpleDocumentResponseAllOf": simpleDocumentResponseAllOf_1.SimpleDocumentResponseAllOf,
     "SimpleDocumentResponseAllOfData": simpleDocumentResponseAllOfData_1.SimpleDocumentResponseAllOfData,
+    "SimpleDocumentWithPaymentPaidCash": simpleDocumentWithPaymentPaidCash_1.SimpleDocumentWithPaymentPaidCash,
+    "SimpleDocumentWithPaymentPaidCheque": simpleDocumentWithPaymentPaidCheque_1.SimpleDocumentWithPaymentPaidCheque,
+    "SimpleDocumentWithPaymentPaidCreditCard": simpleDocumentWithPaymentPaidCreditCard_1.SimpleDocumentWithPaymentPaidCreditCard,
+    "SimpleDocumentWithPaymentPaidTransfer": simpleDocumentWithPaymentPaidTransfer_1.SimpleDocumentWithPaymentPaidTransfer,
+    "SimpleDocumentWithPaymentReceivingCash": simpleDocumentWithPaymentReceivingCash_1.SimpleDocumentWithPaymentReceivingCash,
+    "SimpleDocumentWithPaymentReceivingCheque": simpleDocumentWithPaymentReceivingCheque_1.SimpleDocumentWithPaymentReceivingCheque,
+    "SimpleDocumentWithPaymentReceivingCreditCard": simpleDocumentWithPaymentReceivingCreditCard_1.SimpleDocumentWithPaymentReceivingCreditCard,
+    "SimpleDocumentWithPaymentReceivingTransfer": simpleDocumentWithPaymentReceivingTransfer_1.SimpleDocumentWithPaymentReceivingTransfer,
     "SimpleProductItem": simpleProductItem_1.SimpleProductItem,
     "StatusDocument": statusDocument_1.StatusDocument,
     "UpdateDocument": updateDocument_1.UpdateDocument,

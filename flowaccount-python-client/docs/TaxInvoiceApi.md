@@ -13,8 +13,10 @@ Method | HTTP request | Description
 [**tax_invoices_id_put**](TaxInvoiceApi.md#tax_invoices_id_put) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
 [**tax_invoices_id_status_key_status_id_post**](TaxInvoiceApi.md#tax_invoices_id_status_key_status_id_post) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
 [**tax_invoices_inline_post**](TaxInvoiceApi.md#tax_invoices_inline_post) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
+[**tax_invoices_inline_with_payment_post**](TaxInvoiceApi.md#tax_invoices_inline_with_payment_post) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
 [**tax_invoices_post**](TaxInvoiceApi.md#tax_invoices_post) | **POST** /tax-invoices | Create tax invocie document.
 [**tax_invoices_sharedocument_post**](TaxInvoiceApi.md#tax_invoices_sharedocument_post) | **POST** /tax-invoices/sharedocument | Share link tax invoice document.
+[**tax_invoices_with_payment_post**](TaxInvoiceApi.md#tax_invoices_with_payment_post) | **POST** /tax-invoices/with-payment | Create tax invocie document with payment.
 
 
 # **tax_invoices_email_document_post**
@@ -553,6 +555,64 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **tax_invoices_inline_with_payment_post**
+> InlineDocumentResponse tax_invoices_inline_with_payment_post(authorization, unknown_base_type)
+
+Create tax invocie document with discount and tax inline with payment.
+
+สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TaxInvoiceApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Create tax invocie document with discount and tax inline with payment.
+    api_response = api_instance.tax_invoices_inline_with_payment_post(authorization, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TaxInvoiceApi->tax_invoices_inline_with_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **tax_invoices_post**
 > SimpleDocumentResponse tax_invoices_post(authorization, simple_document)
 
@@ -650,6 +710,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ShareDocumentResponse**](ShareDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **tax_invoices_with_payment_post**
+> SimpleDocumentResponse tax_invoices_with_payment_post(authorization, unknown_base_type)
+
+Create tax invocie document with payment.
+
+สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TaxInvoiceApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Create tax invocie document with payment.
+    api_response = api_instance.tax_invoices_with_payment_post(authorization, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TaxInvoiceApi->tax_invoices_with_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
 
 ### Authorization
 

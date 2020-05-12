@@ -102,8 +102,10 @@ Class | Method | HTTP request | Description
 *CashInvoiceApi* | [**cash_invoices_id_put**](docs/CashInvoiceApi.md#cash_invoices_id_put) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
 *CashInvoiceApi* | [**cash_invoices_id_status_key_status_id_post**](docs/CashInvoiceApi.md#cash_invoices_id_status_key_status_id_post) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
 *CashInvoiceApi* | [**cash_invoices_inline_post**](docs/CashInvoiceApi.md#cash_invoices_inline_post) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
+*CashInvoiceApi* | [**cash_invoices_inline_with_payment_post**](docs/CashInvoiceApi.md#cash_invoices_inline_with_payment_post) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
 *CashInvoiceApi* | [**cash_invoices_post**](docs/CashInvoiceApi.md#cash_invoices_post) | **POST** /cash-invoices | Create cash invoices document.
 *CashInvoiceApi* | [**cash_invoices_sharedocument_post**](docs/CashInvoiceApi.md#cash_invoices_sharedocument_post) | **POST** /cash-invoices/sharedocument | Share link cash invoices document.
+*CashInvoiceApi* | [**cash_invoices_with_payment_post**](docs/CashInvoiceApi.md#cash_invoices_with_payment_post) | **POST** /cash-invoices/with-payment | Create cash invoices document with payment.
 *ContactsApi* | [**contacts_get**](docs/ContactsApi.md#contacts_get) | **GET** /contacts | Get list all contacts.
 *ContactsApi* | [**contacts_id_delete**](docs/ContactsApi.md#contacts_id_delete) | **DELETE** /contacts/{id} | Delete contacts.
 *ContactsApi* | [**contacts_id_get**](docs/ContactsApi.md#contacts_id_get) | **GET** /contacts/{id} | Get contacts.
@@ -120,8 +122,10 @@ Class | Method | HTTP request | Description
 *ExpensesApi* | [**expenses_id_put**](docs/ExpensesApi.md#expenses_id_put) | **PUT** /expenses/{id} | Edit expenses document.
 *ExpensesApi* | [**expenses_id_status_key_status_id_post**](docs/ExpensesApi.md#expenses_id_status_key_status_id_post) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
 *ExpensesApi* | [**expenses_inline_post**](docs/ExpensesApi.md#expenses_inline_post) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
+*ExpensesApi* | [**expenses_inline_with_payment_post**](docs/ExpensesApi.md#expenses_inline_with_payment_post) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
 *ExpensesApi* | [**expenses_post**](docs/ExpensesApi.md#expenses_post) | **POST** /expenses | Create expenses document.
 *ExpensesApi* | [**expenses_sharedocument_post**](docs/ExpensesApi.md#expenses_sharedocument_post) | **POST** /expenses/sharedocument | Share link expenses documents.
+*ExpensesApi* | [**expenses_with_payment_post**](docs/ExpensesApi.md#expenses_with_payment_post) | **POST** /expenses/with-payment | Create expenses document with-payment.
 *ProductsApi* | [**products_get**](docs/ProductsApi.md#products_get) | **GET** /products | Get list all products.
 *ProductsApi* | [**products_id_delete**](docs/ProductsApi.md#products_id_delete) | **DELETE** /products/{id} | Delete products.
 *ProductsApi* | [**products_id_get**](docs/ProductsApi.md#products_id_get) | **GET** /products/{id} | Get products.
@@ -156,8 +160,10 @@ Class | Method | HTTP request | Description
 *ReceiptApi* | [**receipts_id_put**](docs/ReceiptApi.md#receipts_id_put) | **PUT** /receipts/{id} | Edit receipt document.
 *ReceiptApi* | [**receipts_id_status_key_status_id_post**](docs/ReceiptApi.md#receipts_id_status_key_status_id_post) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
 *ReceiptApi* | [**receipts_inline_post**](docs/ReceiptApi.md#receipts_inline_post) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
-*ReceiptApi* | [**receipts_post**](docs/ReceiptApi.md#receipts_post) | **POST** /receipts | Create cash receipt document.
+*ReceiptApi* | [**receipts_inline_with_payment_post**](docs/ReceiptApi.md#receipts_inline_with_payment_post) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+*ReceiptApi* | [**receipts_post**](docs/ReceiptApi.md#receipts_post) | **POST** /receipts | Create receipt document.
 *ReceiptApi* | [**receipts_sharedocument_post**](docs/ReceiptApi.md#receipts_sharedocument_post) | **POST** /receipts/sharedocument | Share link receipt document.
+*ReceiptApi* | [**receipts_with_payment_post**](docs/ReceiptApi.md#receipts_with_payment_post) | **POST** /receipts/with-payment | Create receipt document with payment.
 *ReceivingInventoryApi* | [**purchases_email_document_post**](docs/ReceivingInventoryApi.md#purchases_email_document_post) | **POST** /purchases/email-document | Send email receiving inventory document.
 *ReceivingInventoryApi* | [**purchases_get**](docs/ReceivingInventoryApi.md#purchases_get) | **GET** /purchases | Get list all receiving inventory documents.
 *ReceivingInventoryApi* | [**purchases_id_attachment_post**](docs/ReceivingInventoryApi.md#purchases_id_attachment_post) | **POST** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
@@ -167,8 +173,10 @@ Class | Method | HTTP request | Description
 *ReceivingInventoryApi* | [**purchases_id_put**](docs/ReceivingInventoryApi.md#purchases_id_put) | **PUT** /purchases/{id} | Edit receiving inventory document.
 *ReceivingInventoryApi* | [**purchases_id_status_key_status_id_post**](docs/ReceivingInventoryApi.md#purchases_id_status_key_status_id_post) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
 *ReceivingInventoryApi* | [**purchases_inline_post**](docs/ReceivingInventoryApi.md#purchases_inline_post) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
+*ReceivingInventoryApi* | [**purchases_inline_with_payment_post**](docs/ReceivingInventoryApi.md#purchases_inline_with_payment_post) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
 *ReceivingInventoryApi* | [**purchases_post**](docs/ReceivingInventoryApi.md#purchases_post) | **POST** /purchases | Create receiving inventory document.
 *ReceivingInventoryApi* | [**purchases_sharedocument_post**](docs/ReceivingInventoryApi.md#purchases_sharedocument_post) | **POST** /purchases/sharedocument | Share link receiving inventory document.
+*ReceivingInventoryApi* | [**purchases_with_payment_post**](docs/ReceivingInventoryApi.md#purchases_with_payment_post) | **POST** /purchases/with-payment | Create receiving inventory document with payment.
 *TaxInvoiceApi* | [**tax_invoices_email_document_post**](docs/TaxInvoiceApi.md#tax_invoices_email_document_post) | **POST** /tax-invoices/email-document | Send Email tax invoice document
 *TaxInvoiceApi* | [**tax_invoices_get**](docs/TaxInvoiceApi.md#tax_invoices_get) | **GET** /tax-invoices | Get list all tax invocie documents.
 *TaxInvoiceApi* | [**tax_invoices_id_attachment_post**](docs/TaxInvoiceApi.md#tax_invoices_id_attachment_post) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
@@ -178,8 +186,10 @@ Class | Method | HTTP request | Description
 *TaxInvoiceApi* | [**tax_invoices_id_put**](docs/TaxInvoiceApi.md#tax_invoices_id_put) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
 *TaxInvoiceApi* | [**tax_invoices_id_status_key_status_id_post**](docs/TaxInvoiceApi.md#tax_invoices_id_status_key_status_id_post) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
 *TaxInvoiceApi* | [**tax_invoices_inline_post**](docs/TaxInvoiceApi.md#tax_invoices_inline_post) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
+*TaxInvoiceApi* | [**tax_invoices_inline_with_payment_post**](docs/TaxInvoiceApi.md#tax_invoices_inline_with_payment_post) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
 *TaxInvoiceApi* | [**tax_invoices_post**](docs/TaxInvoiceApi.md#tax_invoices_post) | **POST** /tax-invoices | Create tax invocie document.
 *TaxInvoiceApi* | [**tax_invoices_sharedocument_post**](docs/TaxInvoiceApi.md#tax_invoices_sharedocument_post) | **POST** /tax-invoices/sharedocument | Share link tax invoice document.
+*TaxInvoiceApi* | [**tax_invoices_with_payment_post**](docs/TaxInvoiceApi.md#tax_invoices_with_payment_post) | **POST** /tax-invoices/with-payment | Create tax invocie document with payment.
 *WithholdingTaxApi* | [**withholding_taxes_email_document_post**](docs/WithholdingTaxApi.md#withholding_taxes_email_document_post) | **POST** /withholding-taxes/email-document | Send email withholding tax document.
 *WithholdingTaxApi* | [**withholding_taxes_get**](docs/WithholdingTaxApi.md#withholding_taxes_get) | **GET** /withholding-taxes | Get list all withholding tax documents.
 *WithholdingTaxApi* | [**withholding_taxes_id_attachment_post**](docs/WithholdingTaxApi.md#withholding_taxes_id_attachment_post) | **POST** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
@@ -215,6 +225,10 @@ Class | Method | HTTP request | Description
  - [ExpenseInlineDocumentResponse](docs/ExpenseInlineDocumentResponse.md)
  - [ExpenseInlineDocumentResponseAllOf](docs/ExpenseInlineDocumentResponseAllOf.md)
  - [ExpenseInlineDocumentResponseAllOfData](docs/ExpenseInlineDocumentResponseAllOfData.md)
+ - [ExpenseInlineDocumentWithPaymentPaidCash](docs/ExpenseInlineDocumentWithPaymentPaidCash.md)
+ - [ExpenseInlineDocumentWithPaymentPaidCheque](docs/ExpenseInlineDocumentWithPaymentPaidCheque.md)
+ - [ExpenseInlineDocumentWithPaymentPaidCreditCard](docs/ExpenseInlineDocumentWithPaymentPaidCreditCard.md)
+ - [ExpenseInlineDocumentWithPaymentPaidTransfer](docs/ExpenseInlineDocumentWithPaymentPaidTransfer.md)
  - [ExpenseInlineProductItem](docs/ExpenseInlineProductItem.md)
  - [ExpenseResponse](docs/ExpenseResponse.md)
  - [ExpenseSimpleDocument](docs/ExpenseSimpleDocument.md)
@@ -222,12 +236,24 @@ Class | Method | HTTP request | Description
  - [ExpenseSimpleDocumentResponse](docs/ExpenseSimpleDocumentResponse.md)
  - [ExpenseSimpleDocumentResponseAllOf](docs/ExpenseSimpleDocumentResponseAllOf.md)
  - [ExpenseSimpleDocumentResponseAllOfData](docs/ExpenseSimpleDocumentResponseAllOfData.md)
+ - [ExpenseSimpleDocumentWithPaymentPaidCash](docs/ExpenseSimpleDocumentWithPaymentPaidCash.md)
+ - [ExpenseSimpleDocumentWithPaymentPaidCheque](docs/ExpenseSimpleDocumentWithPaymentPaidCheque.md)
+ - [ExpenseSimpleDocumentWithPaymentPaidCreditCard](docs/ExpenseSimpleDocumentWithPaymentPaidCreditCard.md)
+ - [ExpenseSimpleDocumentWithPaymentPaidTransfer](docs/ExpenseSimpleDocumentWithPaymentPaidTransfer.md)
  - [ExpenseSimpleProductItem](docs/ExpenseSimpleProductItem.md)
  - [InlineDocument](docs/InlineDocument.md)
  - [InlineDocumentAllOf](docs/InlineDocumentAllOf.md)
  - [InlineDocumentResponse](docs/InlineDocumentResponse.md)
  - [InlineDocumentResponseAllOf](docs/InlineDocumentResponseAllOf.md)
  - [InlineDocumentResponseAllOfData](docs/InlineDocumentResponseAllOfData.md)
+ - [InlineDocumentWithPaymentPaidCash](docs/InlineDocumentWithPaymentPaidCash.md)
+ - [InlineDocumentWithPaymentPaidCheque](docs/InlineDocumentWithPaymentPaidCheque.md)
+ - [InlineDocumentWithPaymentPaidCreditCard](docs/InlineDocumentWithPaymentPaidCreditCard.md)
+ - [InlineDocumentWithPaymentPaidTransfer](docs/InlineDocumentWithPaymentPaidTransfer.md)
+ - [InlineDocumentWithPaymentReceivingCash](docs/InlineDocumentWithPaymentReceivingCash.md)
+ - [InlineDocumentWithPaymentReceivingCheque](docs/InlineDocumentWithPaymentReceivingCheque.md)
+ - [InlineDocumentWithPaymentReceivingCreditCard](docs/InlineDocumentWithPaymentReceivingCreditCard.md)
+ - [InlineDocumentWithPaymentReceivingTransfer](docs/InlineDocumentWithPaymentReceivingTransfer.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
  - [InlineObject2](docs/InlineObject2.md)
@@ -272,6 +298,14 @@ Class | Method | HTTP request | Description
  - [SimpleDocumentResponse](docs/SimpleDocumentResponse.md)
  - [SimpleDocumentResponseAllOf](docs/SimpleDocumentResponseAllOf.md)
  - [SimpleDocumentResponseAllOfData](docs/SimpleDocumentResponseAllOfData.md)
+ - [SimpleDocumentWithPaymentPaidCash](docs/SimpleDocumentWithPaymentPaidCash.md)
+ - [SimpleDocumentWithPaymentPaidCheque](docs/SimpleDocumentWithPaymentPaidCheque.md)
+ - [SimpleDocumentWithPaymentPaidCreditCard](docs/SimpleDocumentWithPaymentPaidCreditCard.md)
+ - [SimpleDocumentWithPaymentPaidTransfer](docs/SimpleDocumentWithPaymentPaidTransfer.md)
+ - [SimpleDocumentWithPaymentReceivingCash](docs/SimpleDocumentWithPaymentReceivingCash.md)
+ - [SimpleDocumentWithPaymentReceivingCheque](docs/SimpleDocumentWithPaymentReceivingCheque.md)
+ - [SimpleDocumentWithPaymentReceivingCreditCard](docs/SimpleDocumentWithPaymentReceivingCreditCard.md)
+ - [SimpleDocumentWithPaymentReceivingTransfer](docs/SimpleDocumentWithPaymentReceivingTransfer.md)
  - [SimpleProductItem](docs/SimpleProductItem.md)
  - [StatusDocument](docs/StatusDocument.md)
  - [UpdateDocument](docs/UpdateDocument.md)

@@ -13,8 +13,10 @@ Method | HTTP request | Description
 [**purchasesIdPut**](ReceivingInventoryApi.md#purchasesIdPut) | **PUT** /purchases/{id} | Edit receiving inventory document.
 [**purchasesIdStatusKeyStatusIdPost**](ReceivingInventoryApi.md#purchasesIdStatusKeyStatusIdPost) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
 [**purchasesInlinePost**](ReceivingInventoryApi.md#purchasesInlinePost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
+[**purchasesInlineWithPaymentPost**](ReceivingInventoryApi.md#purchasesInlineWithPaymentPost) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
 [**purchasesPost**](ReceivingInventoryApi.md#purchasesPost) | **POST** /purchases | Create receiving inventory document.
 [**purchasesSharedocumentPost**](ReceivingInventoryApi.md#purchasesSharedocumentPost) | **POST** /purchases/sharedocument | Share link receiving inventory document.
+[**purchasesWithPaymentPost**](ReceivingInventoryApi.md#purchasesWithPaymentPost) | **POST** /purchases/with-payment | Create receiving inventory document with payment.
 
 
 
@@ -554,6 +556,64 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
+## purchasesInlineWithPaymentPost
+
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesInlineWithPaymentPost($authorization, $unknown_base_type)
+
+Create receiving inventory document with discount and tax inline with payment.
+
+สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+
+try {
+    $result = $apiInstance->purchasesInlineWithPaymentPost($authorization, $unknown_base_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceivingInventoryApi->purchasesInlineWithPaymentPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## purchasesPost
 
 > \OpenAPI\Client\Model\SimpleDocumentResponse purchasesPost($authorization, $simple_document)
@@ -655,6 +715,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\OpenAPI\Client\Model\ShareDocumentResponse**](../Model/ShareDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## purchasesWithPaymentPost
+
+> \OpenAPI\Client\Model\SimpleDocumentResponse purchasesWithPaymentPost($authorization, $unknown_base_type)
+
+Create receiving inventory document with payment.
+
+สร้างเอกสารใบรับสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$authorization = 'Bearer accessToken'; // string | 
+$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+
+try {
+    $result = $apiInstance->purchasesWithPaymentPost($authorization, $unknown_base_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReceivingInventoryApi->purchasesWithPaymentPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SimpleDocumentResponse**](../Model/SimpleDocumentResponse.md)
 
 ### Authorization
 

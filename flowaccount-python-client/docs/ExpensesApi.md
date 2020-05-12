@@ -15,8 +15,10 @@ Method | HTTP request | Description
 [**expenses_id_put**](ExpensesApi.md#expenses_id_put) | **PUT** /expenses/{id} | Edit expenses document.
 [**expenses_id_status_key_status_id_post**](ExpensesApi.md#expenses_id_status_key_status_id_post) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
 [**expenses_inline_post**](ExpensesApi.md#expenses_inline_post) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
+[**expenses_inline_with_payment_post**](ExpensesApi.md#expenses_inline_with_payment_post) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
 [**expenses_post**](ExpensesApi.md#expenses_post) | **POST** /expenses | Create expenses document.
 [**expenses_sharedocument_post**](ExpensesApi.md#expenses_sharedocument_post) | **POST** /expenses/sharedocument | Share link expenses documents.
+[**expenses_with_payment_post**](ExpensesApi.md#expenses_with_payment_post) | **POST** /expenses/with-payment | Create expenses document with-payment.
 
 
 # **expenses_categories_accounting_get**
@@ -667,6 +669,64 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **expenses_inline_with_payment_post**
+> ExpenseInlineDocumentResponse expenses_inline_with_payment_post(authorization, unknown_base_type)
+
+Create expenses document with discount and tax inline with payment.
+
+สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ExpensesApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Create expenses document with discount and tax inline with payment.
+    api_response = api_instance.expenses_inline_with_payment_post(authorization, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExpensesApi->expenses_inline_with_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **expenses_post**
 > ExpenseSimpleDocumentResponse expenses_post(authorization, expense_simple_document)
 
@@ -764,6 +824,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ShareDocumentResponse**](ShareDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **expenses_with_payment_post**
+> ExpenseSimpleDocumentResponse expenses_with_payment_post(authorization, unknown_base_type)
+
+Create expenses document with-payment.
+
+สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ExpensesApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Create expenses document with-payment.
+    api_response = api_instance.expenses_with_payment_post(authorization, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ExpensesApi->expenses_with_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**ExpenseSimpleDocumentResponse**](ExpenseSimpleDocumentResponse.md)
 
 ### Authorization
 

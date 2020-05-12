@@ -19,8 +19,16 @@ import { BusinessCategory } from '../model/businessCategory';
 import { DeleteResponse } from '../model/deleteResponse';
 import { ExpenseInlineDocument } from '../model/expenseInlineDocument';
 import { ExpenseInlineDocumentResponse } from '../model/expenseInlineDocumentResponse';
+import { ExpenseInlineDocumentWithPaymentPaidCash } from '../model/expenseInlineDocumentWithPaymentPaidCash';
+import { ExpenseInlineDocumentWithPaymentPaidCheque } from '../model/expenseInlineDocumentWithPaymentPaidCheque';
+import { ExpenseInlineDocumentWithPaymentPaidCreditCard } from '../model/expenseInlineDocumentWithPaymentPaidCreditCard';
+import { ExpenseInlineDocumentWithPaymentPaidTransfer } from '../model/expenseInlineDocumentWithPaymentPaidTransfer';
 import { ExpenseSimpleDocument } from '../model/expenseSimpleDocument';
 import { ExpenseSimpleDocumentResponse } from '../model/expenseSimpleDocumentResponse';
+import { ExpenseSimpleDocumentWithPaymentPaidCash } from '../model/expenseSimpleDocumentWithPaymentPaidCash';
+import { ExpenseSimpleDocumentWithPaymentPaidCheque } from '../model/expenseSimpleDocumentWithPaymentPaidCheque';
+import { ExpenseSimpleDocumentWithPaymentPaidCreditCard } from '../model/expenseSimpleDocumentWithPaymentPaidCreditCard';
+import { ExpenseSimpleDocumentWithPaymentPaidTransfer } from '../model/expenseSimpleDocumentWithPaymentPaidTransfer';
 import { PaymentPaidCash } from '../model/paymentPaidCash';
 import { PaymentPaidCheque } from '../model/paymentPaidCheque';
 import { PaymentPaidCreditCard } from '../model/paymentPaidCreditCard';
@@ -894,6 +902,76 @@ export class ExpensesApi {
         });
     }
     /**
+     * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+     * @summary Create expenses document with discount and tax inline with payment.
+     * @param authorization 
+     * @param expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard 
+     */
+    public async expensesInlineWithPaymentPost (authorization: string, expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard: ExpenseInlineDocumentWithPaymentPaidCash | ExpenseInlineDocumentWithPaymentPaidTransfer | ExpenseInlineDocumentWithPaymentPaidCheque | ExpenseInlineDocumentWithPaymentPaidCreditCard, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ExpenseInlineDocumentResponse;  }> {
+        const localVarPath = this.basePath + '/expenses/inline/with-payment';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'authorization' is not null or undefined
+        if (authorization === null || authorization === undefined) {
+            throw new Error('Required parameter authorization was null or undefined when calling expensesInlineWithPaymentPost.');
+        }
+
+        // verify required parameter 'expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard' is not null or undefined
+        if (expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard === null || expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard === undefined) {
+            throw new Error('Required parameter expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard was null or undefined when calling expensesInlineWithPaymentPost.');
+        }
+
+        localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard, "ExpenseInlineDocumentWithPaymentPaidCash | ExpenseInlineDocumentWithPaymentPaidTransfer | ExpenseInlineDocumentWithPaymentPaidCheque | ExpenseInlineDocumentWithPaymentPaidCreditCard")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+        return authenticationPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: ExpenseInlineDocumentResponse;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ExpenseInlineDocumentResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * สร้างเอกสารค่าใช้จ่าย เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
      * @summary Create expenses document.
      * @param authorization 
@@ -1023,6 +1101,76 @@ export class ExpensesApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "ShareDocumentResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+     * @summary Create expenses document with-payment.
+     * @param authorization 
+     * @param expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard 
+     */
+    public async expensesWithPaymentPost (authorization: string, expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard: ExpenseSimpleDocumentWithPaymentPaidCash | ExpenseSimpleDocumentWithPaymentPaidTransfer | ExpenseSimpleDocumentWithPaymentPaidCheque | ExpenseSimpleDocumentWithPaymentPaidCreditCard, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ExpenseSimpleDocumentResponse;  }> {
+        const localVarPath = this.basePath + '/expenses/with-payment';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'authorization' is not null or undefined
+        if (authorization === null || authorization === undefined) {
+            throw new Error('Required parameter authorization was null or undefined when calling expensesWithPaymentPost.');
+        }
+
+        // verify required parameter 'expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard' is not null or undefined
+        if (expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard === null || expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard === undefined) {
+            throw new Error('Required parameter expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard was null or undefined when calling expensesWithPaymentPost.');
+        }
+
+        localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard, "ExpenseSimpleDocumentWithPaymentPaidCash | ExpenseSimpleDocumentWithPaymentPaidTransfer | ExpenseSimpleDocumentWithPaymentPaidCheque | ExpenseSimpleDocumentWithPaymentPaidCreditCard")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+        return authenticationPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: ExpenseSimpleDocumentResponse;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ExpenseSimpleDocumentResponse");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

@@ -59,9 +59,9 @@ class Contact implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'contact_group' => 'int',
         'contact_type' => 'int',
-        'contact_code' => 'string',
         'contact_name' => 'string',
         'contact_address' => 'string',
+        'contact_zip_code' => 'string',
         'contact_tax_id' => 'int',
         'contact_branch_code' => 'string',
         'contact_branch' => 'string',
@@ -88,9 +88,9 @@ class Contact implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'contact_group' => 'int64',
         'contact_type' => 'int64',
-        'contact_code' => null,
         'contact_name' => null,
         'contact_address' => null,
+        'contact_zip_code' => null,
         'contact_tax_id' => 'int64',
         'contact_branch_code' => null,
         'contact_branch' => null,
@@ -138,9 +138,9 @@ class Contact implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'contact_group' => 'contactGroup',
         'contact_type' => 'contactType',
-        'contact_code' => 'contactCode',
         'contact_name' => 'contactName',
         'contact_address' => 'contactAddress',
+        'contact_zip_code' => 'contactZipCode',
         'contact_tax_id' => 'contactTaxId',
         'contact_branch_code' => 'contactBranchCode',
         'contact_branch' => 'contactBranch',
@@ -167,9 +167,9 @@ class Contact implements ModelInterface, ArrayAccess
     protected static $setters = [
         'contact_group' => 'setContactGroup',
         'contact_type' => 'setContactType',
-        'contact_code' => 'setContactCode',
         'contact_name' => 'setContactName',
         'contact_address' => 'setContactAddress',
+        'contact_zip_code' => 'setContactZipCode',
         'contact_tax_id' => 'setContactTaxId',
         'contact_branch_code' => 'setContactBranchCode',
         'contact_branch' => 'setContactBranch',
@@ -196,9 +196,9 @@ class Contact implements ModelInterface, ArrayAccess
     protected static $getters = [
         'contact_group' => 'getContactGroup',
         'contact_type' => 'getContactType',
-        'contact_code' => 'getContactCode',
         'contact_name' => 'getContactName',
         'contact_address' => 'getContactAddress',
+        'contact_zip_code' => 'getContactZipCode',
         'contact_tax_id' => 'getContactTaxId',
         'contact_branch_code' => 'getContactBranchCode',
         'contact_branch' => 'getContactBranch',
@@ -279,9 +279,9 @@ class Contact implements ModelInterface, ArrayAccess
     {
         $this->container['contact_group'] = isset($data['contact_group']) ? $data['contact_group'] : 3;
         $this->container['contact_type'] = isset($data['contact_type']) ? $data['contact_type'] : 3;
-        $this->container['contact_code'] = isset($data['contact_code']) ? $data['contact_code'] : null;
         $this->container['contact_name'] = isset($data['contact_name']) ? $data['contact_name'] : null;
         $this->container['contact_address'] = isset($data['contact_address']) ? $data['contact_address'] : null;
+        $this->container['contact_zip_code'] = isset($data['contact_zip_code']) ? $data['contact_zip_code'] : null;
         $this->container['contact_tax_id'] = isset($data['contact_tax_id']) ? $data['contact_tax_id'] : null;
         $this->container['contact_branch_code'] = isset($data['contact_branch_code']) ? $data['contact_branch_code'] : null;
         $this->container['contact_branch'] = isset($data['contact_branch']) ? $data['contact_branch'] : 'สำนักงานใหญ่';
@@ -314,9 +314,6 @@ class Contact implements ModelInterface, ArrayAccess
         }
         if ($this->container['contact_type'] === null) {
             $invalidProperties[] = "'contact_type' can't be null";
-        }
-        if ($this->container['contact_code'] === null) {
-            $invalidProperties[] = "'contact_code' can't be null";
         }
         if ($this->container['contact_name'] === null) {
             $invalidProperties[] = "'contact_name' can't be null";
@@ -385,30 +382,6 @@ class Contact implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets contact_code
-     *
-     * @return string
-     */
-    public function getContactCode()
-    {
-        return $this->container['contact_code'];
-    }
-
-    /**
-     * Sets contact_code
-     *
-     * @param string $contact_code รหัสผู้ติดต่อ
-     *
-     * @return $this
-     */
-    public function setContactCode($contact_code)
-    {
-        $this->container['contact_code'] = $contact_code;
-
-        return $this;
-    }
-
-    /**
      * Gets contact_name
      *
      * @return string
@@ -452,6 +425,30 @@ class Contact implements ModelInterface, ArrayAccess
     public function setContactAddress($contact_address)
     {
         $this->container['contact_address'] = $contact_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_zip_code
+     *
+     * @return string|null
+     */
+    public function getContactZipCode()
+    {
+        return $this->container['contact_zip_code'];
+    }
+
+    /**
+     * Sets contact_zip_code
+     *
+     * @param string|null $contact_zip_code รหัสไปรษณีย์ติดต่อ <ex>Example: 10140 </ex>
+     *
+     * @return $this
+     */
+    public function setContactZipCode($contact_zip_code)
+    {
+        $this->container['contact_zip_code'] = $contact_zip_code;
 
         return $this;
     }

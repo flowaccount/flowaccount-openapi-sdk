@@ -288,6 +288,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
         ApiResponse<ExpenseInlineDocumentResponse> ExpensesInlinePostWithHttpInfo (string authorization, ExpenseInlineDocument expenseInlineDocument);
         /// <summary>
+        /// Create expenses document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ExpenseInlineDocumentResponse</returns>
+        ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create expenses document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
+        ApiResponse<ExpenseInlineDocumentResponse> ExpensesInlineWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
         /// Create expenses document.
         /// </summary>
         /// <remarks>
@@ -333,6 +356,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="shareDocument"></param>
         /// <returns>ApiResponse of ShareDocumentResponse</returns>
         ApiResponse<ShareDocumentResponse> ExpensesSharedocumentPostWithHttpInfo (string authorization, ShareDocument shareDocument);
+        /// <summary>
+        /// Create expenses document with-payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ExpenseSimpleDocumentResponse</returns>
+        ExpenseSimpleDocumentResponse ExpensesWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create expenses document with-payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
+        ApiResponse<ExpenseSimpleDocumentResponse> ExpensesWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -599,6 +645,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesInlinePostAsyncWithHttpInfo (string authorization, ExpenseInlineDocument expenseInlineDocument);
         /// <summary>
+        /// Create expenses document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ExpenseInlineDocumentResponse</returns>
+        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesInlineWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create expenses document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesInlineWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
         /// Create expenses document.
         /// </summary>
         /// <remarks>
@@ -644,6 +713,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="shareDocument"></param>
         /// <returns>Task of ApiResponse (ShareDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ShareDocumentResponse>> ExpensesSharedocumentPostAsyncWithHttpInfo (string authorization, ShareDocument shareDocument);
+        /// <summary>
+        /// Create expenses document with-payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ExpenseSimpleDocumentResponse</returns>
+        System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create expenses document with-payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         #endregion Asynchronous Operations
     }
 
@@ -2459,6 +2551,167 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
+        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ExpenseInlineDocumentResponse</returns>
+        public ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesInlineWithPaymentPostWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
+        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesInlineWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesInlineWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ExpensesApi->ExpensesInlineWithPaymentPost");
+
+            var localVarPath = "/expenses/inline/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExpensesInlineWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExpenseInlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ExpenseInlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseInlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ExpenseInlineDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesInlineWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesInlineWithPaymentPostAsyncWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesInlineWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesInlineWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ExpensesApi->ExpensesInlineWithPaymentPost");
+
+            var localVarPath = "/expenses/inline/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExpensesInlineWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExpenseInlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ExpenseInlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseInlineDocumentResponse)));
+        }
+
+        /// <summary>
         /// Create expenses document. สร้างเอกสารค่าใช้จ่าย เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2778,6 +3031,167 @@ namespace Flowaccount.OpenAPITools.Api
             return new ApiResponse<ShareDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ShareDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ExpenseSimpleDocumentResponse</returns>
+        public ExpenseSimpleDocumentResponse ExpensesWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<ExpenseSimpleDocumentResponse> localVarResponse = ExpensesWithPaymentPostWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
+        public ApiResponse<ExpenseSimpleDocumentResponse> ExpensesWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ExpensesApi->ExpensesWithPaymentPost");
+
+            var localVarPath = "/expenses/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExpensesWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExpenseSimpleDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ExpenseSimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseSimpleDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ExpenseSimpleDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<ExpenseSimpleDocumentResponse> localVarResponse = await ExpensesWithPaymentPostAsyncWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling ExpensesApi->ExpensesWithPaymentPost");
+
+            var localVarPath = "/expenses/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExpensesWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExpenseSimpleDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ExpenseSimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseSimpleDocumentResponse)));
         }
 
     }

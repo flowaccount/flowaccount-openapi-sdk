@@ -18,11 +18,6 @@ Contact.attributeTypeMap = [
         "type": "number"
     },
     {
-        "name": "contactCode",
-        "baseName": "contactCode",
-        "type": "string"
-    },
-    {
         "name": "contactName",
         "baseName": "contactName",
         "type": "string"
@@ -30,6 +25,11 @@ Contact.attributeTypeMap = [
     {
         "name": "contactAddress",
         "baseName": "contactAddress",
+        "type": "string"
+    },
+    {
+        "name": "contactZipCode",
+        "baseName": "contactZipCode",
         "type": "string"
     },
     {

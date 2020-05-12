@@ -56,8 +56,8 @@ class ProductItem(object):
     }
 
     discriminator_value_class_map = {
-        'InlineProductItem': 'InlineProductItem',
-        'SimpleProductItem': 'SimpleProductItem'
+        'SimpleProductItem': 'SimpleProductItem',
+        'InlineProductItem': 'InlineProductItem'
     }
 
     def __init__(self, document_structure_type=None, type=1, name=None, description=None, quantity=None, unit_name=None, price_per_unit=None, total=None, local_vars_configuration=None):  # noqa: E501

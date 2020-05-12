@@ -27,10 +27,6 @@ export class ContactResponse {
     */
     'contactType': number;
     /**
-    * รหัสผู้ติดต่อ
-    */
-    'contactCode': string;
-    /**
     * ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
     */
     'contactName': string;
@@ -38,6 +34,10 @@ export class ContactResponse {
     * ที่อยู่ผู้ติดต่อ
     */
     'contactAddress'?: string;
+    /**
+    * รหัสไปรษณีย์ติดต่อ <ex>Example: 10140 </ex>
+    */
+    'contactZipCode'?: string;
     /**
     * เลขประจำตัวผู้เสียภาษี 13 หลัก ​<br><ex>Example: 1234567890123</ex>
     */
@@ -122,11 +122,6 @@ export class ContactResponse {
             "type": "number"
         },
         {
-            "name": "contactCode",
-            "baseName": "contactCode",
-            "type": "string"
-        },
-        {
             "name": "contactName",
             "baseName": "contactName",
             "type": "string"
@@ -134,6 +129,11 @@ export class ContactResponse {
         {
             "name": "contactAddress",
             "baseName": "contactAddress",
+            "type": "string"
+        },
+        {
+            "name": "contactZipCode",
+            "baseName": "contactZipCode",
             "type": "string"
         },
         {

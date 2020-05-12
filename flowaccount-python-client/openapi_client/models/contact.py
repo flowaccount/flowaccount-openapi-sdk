@@ -36,9 +36,9 @@ class Contact(object):
     openapi_types = {
         'contact_group': 'int',
         'contact_type': 'int',
-        'contact_code': 'str',
         'contact_name': 'str',
         'contact_address': 'str',
+        'contact_zip_code': 'str',
         'contact_tax_id': 'int',
         'contact_branch_code': 'str',
         'contact_branch': 'str',
@@ -60,9 +60,9 @@ class Contact(object):
     attribute_map = {
         'contact_group': 'contactGroup',
         'contact_type': 'contactType',
-        'contact_code': 'contactCode',
         'contact_name': 'contactName',
         'contact_address': 'contactAddress',
+        'contact_zip_code': 'contactZipCode',
         'contact_tax_id': 'contactTaxId',
         'contact_branch_code': 'contactBranchCode',
         'contact_branch': 'contactBranch',
@@ -81,7 +81,7 @@ class Contact(object):
         'contact_note': 'contactNote'
     }
 
-    def __init__(self, contact_group=3, contact_type=3, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch_code=None, contact_branch='สำนักงานใหญ่', contact_person=None, contact_email=None, contact_mobile=None, contact_bank_id=0, contact_bank_account_number=None, contact_bank_branch=None, contact_bank_account_type=1, contact_credit_days=0, contact_office=None, contact_fax=None, contact_website=None, conatact_shipping_address=None, contact_note=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, contact_group=3, contact_type=3, contact_name=None, contact_address=None, contact_zip_code=None, contact_tax_id=None, contact_branch_code=None, contact_branch='สำนักงานใหญ่', contact_person=None, contact_email=None, contact_mobile=None, contact_bank_id=0, contact_bank_account_number=None, contact_bank_branch=None, contact_bank_account_type=1, contact_credit_days=0, contact_office=None, contact_fax=None, contact_website=None, conatact_shipping_address=None, contact_note=None, local_vars_configuration=None):  # noqa: E501
         """Contact - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,9 +89,9 @@ class Contact(object):
 
         self._contact_group = None
         self._contact_type = None
-        self._contact_code = None
         self._contact_name = None
         self._contact_address = None
+        self._contact_zip_code = None
         self._contact_tax_id = None
         self._contact_branch_code = None
         self._contact_branch = None
@@ -112,10 +112,11 @@ class Contact(object):
 
         self.contact_group = contact_group
         self.contact_type = contact_type
-        self.contact_code = contact_code
         self.contact_name = contact_name
         if contact_address is not None:
             self.contact_address = contact_address
+        if contact_zip_code is not None:
+            self.contact_zip_code = contact_zip_code
         if contact_tax_id is not None:
             self.contact_tax_id = contact_tax_id
         if contact_branch_code is not None:
@@ -200,31 +201,6 @@ class Contact(object):
         self._contact_type = contact_type
 
     @property
-    def contact_code(self):
-        """Gets the contact_code of this Contact.  # noqa: E501
-
-        รหัสผู้ติดต่อ  # noqa: E501
-
-        :return: The contact_code of this Contact.  # noqa: E501
-        :rtype: str
-        """
-        return self._contact_code
-
-    @contact_code.setter
-    def contact_code(self, contact_code):
-        """Sets the contact_code of this Contact.
-
-        รหัสผู้ติดต่อ  # noqa: E501
-
-        :param contact_code: The contact_code of this Contact.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and contact_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `contact_code`, must not be `None`")  # noqa: E501
-
-        self._contact_code = contact_code
-
-    @property
     def contact_name(self):
         """Gets the contact_name of this Contact.  # noqa: E501
 
@@ -271,6 +247,29 @@ class Contact(object):
         """
 
         self._contact_address = contact_address
+
+    @property
+    def contact_zip_code(self):
+        """Gets the contact_zip_code of this Contact.  # noqa: E501
+
+        รหัสไปรษณีย์ติดต่อ <ex>Example: 10140 </ex>  # noqa: E501
+
+        :return: The contact_zip_code of this Contact.  # noqa: E501
+        :rtype: str
+        """
+        return self._contact_zip_code
+
+    @contact_zip_code.setter
+    def contact_zip_code(self, contact_zip_code):
+        """Sets the contact_zip_code of this Contact.
+
+        รหัสไปรษณีย์ติดต่อ <ex>Example: 10140 </ex>  # noqa: E501
+
+        :param contact_zip_code: The contact_zip_code of this Contact.  # noqa: E501
+        :type: str
+        """
+
+        self._contact_zip_code = contact_zip_code
 
     @property
     def contact_tax_id(self):

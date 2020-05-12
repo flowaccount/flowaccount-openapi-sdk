@@ -4,6 +4,10 @@ import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
+import { InlineDocumentWithPaymentReceivingCash } from '../model/inlineDocumentWithPaymentReceivingCash';
+import { InlineDocumentWithPaymentReceivingCheque } from '../model/inlineDocumentWithPaymentReceivingCheque';
+import { InlineDocumentWithPaymentReceivingCreditCard } from '../model/inlineDocumentWithPaymentReceivingCreditCard';
+import { InlineDocumentWithPaymentReceivingTransfer } from '../model/inlineDocumentWithPaymentReceivingTransfer';
 import { PaymentReceivingCash } from '../model/paymentReceivingCash';
 import { PaymentReceivingCheque } from '../model/paymentReceivingCheque';
 import { PaymentReceivingCreditCard } from '../model/paymentReceivingCreditCard';
@@ -14,6 +18,10 @@ import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
+import { SimpleDocumentWithPaymentReceivingCash } from '../model/simpleDocumentWithPaymentReceivingCash';
+import { SimpleDocumentWithPaymentReceivingCheque } from '../model/simpleDocumentWithPaymentReceivingCheque';
+import { SimpleDocumentWithPaymentReceivingCreditCard } from '../model/simpleDocumentWithPaymentReceivingCreditCard';
+import { SimpleDocumentWithPaymentReceivingTransfer } from '../model/simpleDocumentWithPaymentReceivingTransfer';
 import { UpdateInlineDocument } from '../model/updateInlineDocument';
 import { Authentication } from '../model/models';
 import { RequestFile } from './apis';
@@ -103,6 +111,14 @@ export declare class TaxInvoiceApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
+    taxInvoicesInlineWithPaymentPost(authorization: string, inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard: InlineDocumentWithPaymentReceivingCash | InlineDocumentWithPaymentReceivingTransfer | InlineDocumentWithPaymentReceivingCheque | InlineDocumentWithPaymentReceivingCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
     taxInvoicesPost(authorization: string, simpleDocument: SimpleDocument, options?: {
         headers: {
             [name: string]: string;
@@ -118,5 +134,13 @@ export declare class TaxInvoiceApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: ShareDocumentResponse;
+    }>;
+    taxInvoicesWithPaymentPost(authorization: string, simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard: SimpleDocumentWithPaymentReceivingCash | SimpleDocumentWithPaymentReceivingTransfer | SimpleDocumentWithPaymentReceivingCheque | SimpleDocumentWithPaymentReceivingCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: SimpleDocumentResponse;
     }>;
 }

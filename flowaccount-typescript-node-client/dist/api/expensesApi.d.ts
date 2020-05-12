@@ -5,8 +5,16 @@ import { BusinessCategory } from '../model/businessCategory';
 import { DeleteResponse } from '../model/deleteResponse';
 import { ExpenseInlineDocument } from '../model/expenseInlineDocument';
 import { ExpenseInlineDocumentResponse } from '../model/expenseInlineDocumentResponse';
+import { ExpenseInlineDocumentWithPaymentPaidCash } from '../model/expenseInlineDocumentWithPaymentPaidCash';
+import { ExpenseInlineDocumentWithPaymentPaidCheque } from '../model/expenseInlineDocumentWithPaymentPaidCheque';
+import { ExpenseInlineDocumentWithPaymentPaidCreditCard } from '../model/expenseInlineDocumentWithPaymentPaidCreditCard';
+import { ExpenseInlineDocumentWithPaymentPaidTransfer } from '../model/expenseInlineDocumentWithPaymentPaidTransfer';
 import { ExpenseSimpleDocument } from '../model/expenseSimpleDocument';
 import { ExpenseSimpleDocumentResponse } from '../model/expenseSimpleDocumentResponse';
+import { ExpenseSimpleDocumentWithPaymentPaidCash } from '../model/expenseSimpleDocumentWithPaymentPaidCash';
+import { ExpenseSimpleDocumentWithPaymentPaidCheque } from '../model/expenseSimpleDocumentWithPaymentPaidCheque';
+import { ExpenseSimpleDocumentWithPaymentPaidCreditCard } from '../model/expenseSimpleDocumentWithPaymentPaidCreditCard';
+import { ExpenseSimpleDocumentWithPaymentPaidTransfer } from '../model/expenseSimpleDocumentWithPaymentPaidTransfer';
 import { PaymentPaidCash } from '../model/paymentPaidCash';
 import { PaymentPaidCheque } from '../model/paymentPaidCheque';
 import { PaymentPaidCreditCard } from '../model/paymentPaidCreditCard';
@@ -120,6 +128,14 @@ export declare class ExpensesApi {
         response: http.IncomingMessage;
         body: ExpenseInlineDocumentResponse;
     }>;
+    expensesInlineWithPaymentPost(authorization: string, expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard: ExpenseInlineDocumentWithPaymentPaidCash | ExpenseInlineDocumentWithPaymentPaidTransfer | ExpenseInlineDocumentWithPaymentPaidCheque | ExpenseInlineDocumentWithPaymentPaidCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: ExpenseInlineDocumentResponse;
+    }>;
     expensesPost(authorization: string, expenseSimpleDocument: ExpenseSimpleDocument, options?: {
         headers: {
             [name: string]: string;
@@ -135,5 +151,13 @@ export declare class ExpensesApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: ShareDocumentResponse;
+    }>;
+    expensesWithPaymentPost(authorization: string, expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard: ExpenseSimpleDocumentWithPaymentPaidCash | ExpenseSimpleDocumentWithPaymentPaidTransfer | ExpenseSimpleDocumentWithPaymentPaidCheque | ExpenseSimpleDocumentWithPaymentPaidCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: ExpenseSimpleDocumentResponse;
     }>;
 }

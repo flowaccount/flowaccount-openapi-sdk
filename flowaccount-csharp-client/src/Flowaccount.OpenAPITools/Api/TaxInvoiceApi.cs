@@ -246,6 +246,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> TaxInvoicesInlinePostWithHttpInfo (string authorization, InlineDocument inlineDocument);
         /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>InlineDocumentResponse</returns>
+        InlineDocumentResponse TaxInvoicesInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of InlineDocumentResponse</returns>
+        ApiResponse<InlineDocumentResponse> TaxInvoicesInlineWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
         /// Create tax invocie document.
         /// </summary>
         /// <remarks>
@@ -291,6 +314,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="shareDocument"></param>
         /// <returns>ApiResponse of ShareDocumentResponse</returns>
         ApiResponse<ShareDocumentResponse> TaxInvoicesSharedocumentPostWithHttpInfo (string authorization, ShareDocument shareDocument);
+        /// <summary>
+        /// Create tax invocie document with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>SimpleDocumentResponse</returns>
+        SimpleDocumentResponse TaxInvoicesWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create tax invocie document with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of SimpleDocumentResponse</returns>
+        ApiResponse<SimpleDocumentResponse> TaxInvoicesWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -515,6 +561,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesInlinePostAsyncWithHttpInfo (string authorization, InlineDocument inlineDocument);
         /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of InlineDocumentResponse</returns>
+        System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesInlineWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesInlineWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+        /// <summary>
         /// Create tax invocie document.
         /// </summary>
         /// <remarks>
@@ -560,6 +629,29 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="shareDocument"></param>
         /// <returns>Task of ApiResponse (ShareDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ShareDocumentResponse>> TaxInvoicesSharedocumentPostAsyncWithHttpInfo (string authorization, ShareDocument shareDocument);
+        /// <summary>
+        /// Create tax invocie document with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of SimpleDocumentResponse</returns>
+        System.Threading.Tasks.Task<SimpleDocumentResponse> TaxInvoicesWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
+
+        /// <summary>
+        /// Create tax invocie document with payment.
+        /// </summary>
+        /// <remarks>
+        /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </remarks>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (SimpleDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SimpleDocumentResponse>> TaxInvoicesWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE);
         #endregion Asynchronous Operations
     }
 
@@ -2109,6 +2201,167 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>InlineDocumentResponse</returns>
+        public InlineDocumentResponse TaxInvoicesInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<InlineDocumentResponse> localVarResponse = TaxInvoicesInlineWithPaymentPostWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of InlineDocumentResponse</returns>
+        public ApiResponse<InlineDocumentResponse> TaxInvoicesInlineWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling TaxInvoiceApi->TaxInvoicesInlineWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling TaxInvoiceApi->TaxInvoicesInlineWithPaymentPost");
+
+            var localVarPath = "/tax-invoices/inline/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TaxInvoicesInlineWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of InlineDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesInlineWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<InlineDocumentResponse> localVarResponse = await TaxInvoicesInlineWithPaymentPostAsyncWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesInlineWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling TaxInvoiceApi->TaxInvoicesInlineWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling TaxInvoiceApi->TaxInvoicesInlineWithPaymentPost");
+
+            var localVarPath = "/tax-invoices/inline/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TaxInvoicesInlineWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineDocumentResponse)));
+        }
+
+        /// <summary>
         /// Create tax invocie document. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2428,6 +2681,167 @@ namespace Flowaccount.OpenAPITools.Api
             return new ApiResponse<ShareDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ShareDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Create tax invocie document with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>SimpleDocumentResponse</returns>
+        public SimpleDocumentResponse TaxInvoicesWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<SimpleDocumentResponse> localVarResponse = TaxInvoicesWithPaymentPostWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create tax invocie document with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>ApiResponse of SimpleDocumentResponse</returns>
+        public ApiResponse<SimpleDocumentResponse> TaxInvoicesWithPaymentPostWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling TaxInvoiceApi->TaxInvoicesWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling TaxInvoiceApi->TaxInvoicesWithPaymentPost");
+
+            var localVarPath = "/tax-invoices/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TaxInvoicesWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SimpleDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SimpleDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Create tax invocie document with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of SimpleDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<SimpleDocumentResponse> TaxInvoicesWithPaymentPostAsync (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+             ApiResponse<SimpleDocumentResponse> localVarResponse = await TaxInvoicesWithPaymentPostAsyncWithHttpInfo(authorization, UNKNOWN_BASE_TYPE);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create tax invocie document with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// </summary>
+        /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization"></param>
+        /// <param name="UNKNOWN_BASE_TYPE"></param>
+        /// <returns>Task of ApiResponse (SimpleDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SimpleDocumentResponse>> TaxInvoicesWithPaymentPostAsyncWithHttpInfo (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling TaxInvoiceApi->TaxInvoicesWithPaymentPost");
+            // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+            if (UNKNOWN_BASE_TYPE == null)
+                throw new ApiException(400, "Missing required parameter 'UNKNOWN_BASE_TYPE' when calling TaxInvoiceApi->TaxInvoicesWithPaymentPost");
+
+            var localVarPath = "/tax-invoices/with-payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (UNKNOWN_BASE_TYPE != null && UNKNOWN_BASE_TYPE.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(UNKNOWN_BASE_TYPE); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = UNKNOWN_BASE_TYPE; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TaxInvoicesWithPaymentPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SimpleDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (SimpleDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SimpleDocumentResponse)));
         }
 
     }

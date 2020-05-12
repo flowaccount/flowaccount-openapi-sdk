@@ -4,6 +4,10 @@ import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
+import { InlineDocumentWithPaymentPaidCash } from '../model/inlineDocumentWithPaymentPaidCash';
+import { InlineDocumentWithPaymentPaidCheque } from '../model/inlineDocumentWithPaymentPaidCheque';
+import { InlineDocumentWithPaymentPaidCreditCard } from '../model/inlineDocumentWithPaymentPaidCreditCard';
+import { InlineDocumentWithPaymentPaidTransfer } from '../model/inlineDocumentWithPaymentPaidTransfer';
 import { PaymentPaidCash } from '../model/paymentPaidCash';
 import { PaymentPaidCheque } from '../model/paymentPaidCheque';
 import { PaymentPaidCreditCard } from '../model/paymentPaidCreditCard';
@@ -14,6 +18,10 @@ import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
+import { SimpleDocumentWithPaymentPaidCash } from '../model/simpleDocumentWithPaymentPaidCash';
+import { SimpleDocumentWithPaymentPaidCheque } from '../model/simpleDocumentWithPaymentPaidCheque';
+import { SimpleDocumentWithPaymentPaidCreditCard } from '../model/simpleDocumentWithPaymentPaidCreditCard';
+import { SimpleDocumentWithPaymentPaidTransfer } from '../model/simpleDocumentWithPaymentPaidTransfer';
 import { UpdateInlineDocument } from '../model/updateInlineDocument';
 import { Authentication } from '../model/models';
 import { RequestFile } from './apis';
@@ -103,6 +111,14 @@ export declare class ReceivingInventoryApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
+    purchasesInlineWithPaymentPost(authorization: string, inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard: InlineDocumentWithPaymentPaidCash | InlineDocumentWithPaymentPaidTransfer | InlineDocumentWithPaymentPaidCheque | InlineDocumentWithPaymentPaidCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: InlineDocumentResponse;
+    }>;
     purchasesPost(authorization: string, simpleDocument: SimpleDocument, options?: {
         headers: {
             [name: string]: string;
@@ -118,5 +134,13 @@ export declare class ReceivingInventoryApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: ShareDocumentResponse;
+    }>;
+    purchasesWithPaymentPost(authorization: string, simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard: SimpleDocumentWithPaymentPaidCash | SimpleDocumentWithPaymentPaidTransfer | SimpleDocumentWithPaymentPaidCheque | SimpleDocumentWithPaymentPaidCreditCard, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: SimpleDocumentResponse;
     }>;
 }

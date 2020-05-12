@@ -13,8 +13,10 @@ Method | HTTP request | Description
 [**receipts_id_put**](ReceiptApi.md#receipts_id_put) | **PUT** /receipts/{id} | Edit receipt document.
 [**receipts_id_status_key_status_id_post**](ReceiptApi.md#receipts_id_status_key_status_id_post) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
 [**receipts_inline_post**](ReceiptApi.md#receipts_inline_post) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
-[**receipts_post**](ReceiptApi.md#receipts_post) | **POST** /receipts | Create cash receipt document.
+[**receipts_inline_with_payment_post**](ReceiptApi.md#receipts_inline_with_payment_post) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+[**receipts_post**](ReceiptApi.md#receipts_post) | **POST** /receipts | Create receipt document.
 [**receipts_sharedocument_post**](ReceiptApi.md#receipts_sharedocument_post) | **POST** /receipts/sharedocument | Share link receipt document.
+[**receipts_with_payment_post**](ReceiptApi.md#receipts_with_payment_post) | **POST** /receipts/with-payment | Create receipt document with payment.
 
 
 # **receipts_email_document_post**
@@ -553,10 +555,68 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **receipts_inline_with_payment_post**
+> InlineDocumentResponse receipts_inline_with_payment_post(authorization, unknown_base_type)
+
+Create receipt document with discount and tax inline with payment.
+
+สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ReceiptApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Create receipt document with discount and tax inline with payment.
+    api_response = api_instance.receipts_inline_with_payment_post(authorization, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReceiptApi->receipts_inline_with_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **receipts_post**
 > SimpleDocumentResponse receipts_post(authorization, simple_document)
 
-Create cash receipt document.
+Create receipt document.
 
 สร้างเอกสารใบเสร็จรับเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
 
@@ -575,7 +635,7 @@ authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 simple_document = openapi_client.SimpleDocument() # SimpleDocument | 
 
 try:
-    # Create cash receipt document.
+    # Create receipt document.
     api_response = api_instance.receipts_post(authorization, simple_document)
     pprint(api_response)
 except ApiException as e:
@@ -650,6 +710,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ShareDocumentResponse**](ShareDocumentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  -  |
+**401** | 401 response |  -  |
+**500** | 500 response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **receipts_with_payment_post**
+> SimpleDocumentResponse receipts_with_payment_post(authorization, unknown_base_type)
+
+Create receipt document with payment.
+
+สร้างเอกสารใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ReceiptApi()
+authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
+try:
+    # Create receipt document with payment.
+    api_response = api_instance.receipts_with_payment_post(authorization, unknown_base_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReceiptApi->receipts_with_payment_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+
+### Return type
+
+[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
 
 ### Authorization
 

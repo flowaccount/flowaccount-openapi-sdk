@@ -20,6 +20,10 @@ export * from './expenseInlineDocumentAllOf';
 export * from './expenseInlineDocumentResponse';
 export * from './expenseInlineDocumentResponseAllOf';
 export * from './expenseInlineDocumentResponseAllOfData';
+export * from './expenseInlineDocumentWithPaymentPaidCash';
+export * from './expenseInlineDocumentWithPaymentPaidCheque';
+export * from './expenseInlineDocumentWithPaymentPaidCreditCard';
+export * from './expenseInlineDocumentWithPaymentPaidTransfer';
 export * from './expenseInlineProductItem';
 export * from './expenseResponse';
 export * from './expenseSimpleDocument';
@@ -27,12 +31,24 @@ export * from './expenseSimpleDocumentAllOf';
 export * from './expenseSimpleDocumentResponse';
 export * from './expenseSimpleDocumentResponseAllOf';
 export * from './expenseSimpleDocumentResponseAllOfData';
+export * from './expenseSimpleDocumentWithPaymentPaidCash';
+export * from './expenseSimpleDocumentWithPaymentPaidCheque';
+export * from './expenseSimpleDocumentWithPaymentPaidCreditCard';
+export * from './expenseSimpleDocumentWithPaymentPaidTransfer';
 export * from './expenseSimpleProductItem';
 export * from './inlineDocument';
 export * from './inlineDocumentAllOf';
 export * from './inlineDocumentResponse';
 export * from './inlineDocumentResponseAllOf';
 export * from './inlineDocumentResponseAllOfData';
+export * from './inlineDocumentWithPaymentPaidCash';
+export * from './inlineDocumentWithPaymentPaidCheque';
+export * from './inlineDocumentWithPaymentPaidCreditCard';
+export * from './inlineDocumentWithPaymentPaidTransfer';
+export * from './inlineDocumentWithPaymentReceivingCash';
+export * from './inlineDocumentWithPaymentReceivingCheque';
+export * from './inlineDocumentWithPaymentReceivingCreditCard';
+export * from './inlineDocumentWithPaymentReceivingTransfer';
 export * from './inlineObject';
 export * from './inlineObject1';
 export * from './inlineObject2';
@@ -77,6 +93,14 @@ export * from './simpleDocumentAllOf';
 export * from './simpleDocumentResponse';
 export * from './simpleDocumentResponseAllOf';
 export * from './simpleDocumentResponseAllOfData';
+export * from './simpleDocumentWithPaymentPaidCash';
+export * from './simpleDocumentWithPaymentPaidCheque';
+export * from './simpleDocumentWithPaymentPaidCreditCard';
+export * from './simpleDocumentWithPaymentPaidTransfer';
+export * from './simpleDocumentWithPaymentReceivingCash';
+export * from './simpleDocumentWithPaymentReceivingCheque';
+export * from './simpleDocumentWithPaymentReceivingCreditCard';
+export * from './simpleDocumentWithPaymentReceivingTransfer';
 export * from './simpleProductItem';
 export * from './statusDocument';
 export * from './updateDocument';
@@ -116,6 +140,10 @@ import { ExpenseInlineDocumentAllOf } from './expenseInlineDocumentAllOf';
 import { ExpenseInlineDocumentResponse } from './expenseInlineDocumentResponse';
 import { ExpenseInlineDocumentResponseAllOf } from './expenseInlineDocumentResponseAllOf';
 import { ExpenseInlineDocumentResponseAllOfData } from './expenseInlineDocumentResponseAllOfData';
+import { ExpenseInlineDocumentWithPaymentPaidCash } from './expenseInlineDocumentWithPaymentPaidCash';
+import { ExpenseInlineDocumentWithPaymentPaidCheque } from './expenseInlineDocumentWithPaymentPaidCheque';
+import { ExpenseInlineDocumentWithPaymentPaidCreditCard } from './expenseInlineDocumentWithPaymentPaidCreditCard';
+import { ExpenseInlineDocumentWithPaymentPaidTransfer } from './expenseInlineDocumentWithPaymentPaidTransfer';
 import { ExpenseInlineProductItem } from './expenseInlineProductItem';
 import { ExpenseResponse } from './expenseResponse';
 import { ExpenseSimpleDocument } from './expenseSimpleDocument';
@@ -123,12 +151,24 @@ import { ExpenseSimpleDocumentAllOf } from './expenseSimpleDocumentAllOf';
 import { ExpenseSimpleDocumentResponse } from './expenseSimpleDocumentResponse';
 import { ExpenseSimpleDocumentResponseAllOf } from './expenseSimpleDocumentResponseAllOf';
 import { ExpenseSimpleDocumentResponseAllOfData } from './expenseSimpleDocumentResponseAllOfData';
+import { ExpenseSimpleDocumentWithPaymentPaidCash } from './expenseSimpleDocumentWithPaymentPaidCash';
+import { ExpenseSimpleDocumentWithPaymentPaidCheque } from './expenseSimpleDocumentWithPaymentPaidCheque';
+import { ExpenseSimpleDocumentWithPaymentPaidCreditCard } from './expenseSimpleDocumentWithPaymentPaidCreditCard';
+import { ExpenseSimpleDocumentWithPaymentPaidTransfer } from './expenseSimpleDocumentWithPaymentPaidTransfer';
 import { ExpenseSimpleProductItem } from './expenseSimpleProductItem';
 import { InlineDocument } from './inlineDocument';
 import { InlineDocumentAllOf } from './inlineDocumentAllOf';
 import { InlineDocumentResponse } from './inlineDocumentResponse';
 import { InlineDocumentResponseAllOf } from './inlineDocumentResponseAllOf';
 import { InlineDocumentResponseAllOfData } from './inlineDocumentResponseAllOfData';
+import { InlineDocumentWithPaymentPaidCash } from './inlineDocumentWithPaymentPaidCash';
+import { InlineDocumentWithPaymentPaidCheque } from './inlineDocumentWithPaymentPaidCheque';
+import { InlineDocumentWithPaymentPaidCreditCard } from './inlineDocumentWithPaymentPaidCreditCard';
+import { InlineDocumentWithPaymentPaidTransfer } from './inlineDocumentWithPaymentPaidTransfer';
+import { InlineDocumentWithPaymentReceivingCash } from './inlineDocumentWithPaymentReceivingCash';
+import { InlineDocumentWithPaymentReceivingCheque } from './inlineDocumentWithPaymentReceivingCheque';
+import { InlineDocumentWithPaymentReceivingCreditCard } from './inlineDocumentWithPaymentReceivingCreditCard';
+import { InlineDocumentWithPaymentReceivingTransfer } from './inlineDocumentWithPaymentReceivingTransfer';
 import { InlineObject } from './inlineObject';
 import { InlineObject1 } from './inlineObject1';
 import { InlineObject2 } from './inlineObject2';
@@ -173,6 +213,14 @@ import { SimpleDocumentAllOf } from './simpleDocumentAllOf';
 import { SimpleDocumentResponse } from './simpleDocumentResponse';
 import { SimpleDocumentResponseAllOf } from './simpleDocumentResponseAllOf';
 import { SimpleDocumentResponseAllOfData } from './simpleDocumentResponseAllOfData';
+import { SimpleDocumentWithPaymentPaidCash } from './simpleDocumentWithPaymentPaidCash';
+import { SimpleDocumentWithPaymentPaidCheque } from './simpleDocumentWithPaymentPaidCheque';
+import { SimpleDocumentWithPaymentPaidCreditCard } from './simpleDocumentWithPaymentPaidCreditCard';
+import { SimpleDocumentWithPaymentPaidTransfer } from './simpleDocumentWithPaymentPaidTransfer';
+import { SimpleDocumentWithPaymentReceivingCash } from './simpleDocumentWithPaymentReceivingCash';
+import { SimpleDocumentWithPaymentReceivingCheque } from './simpleDocumentWithPaymentReceivingCheque';
+import { SimpleDocumentWithPaymentReceivingCreditCard } from './simpleDocumentWithPaymentReceivingCreditCard';
+import { SimpleDocumentWithPaymentReceivingTransfer } from './simpleDocumentWithPaymentReceivingTransfer';
 import { SimpleProductItem } from './simpleProductItem';
 import { StatusDocument } from './statusDocument';
 import { UpdateDocument } from './updateDocument';
@@ -226,6 +274,10 @@ let typeMap: {[index: string]: any} = {
     "ExpenseInlineDocumentResponse": ExpenseInlineDocumentResponse,
     "ExpenseInlineDocumentResponseAllOf": ExpenseInlineDocumentResponseAllOf,
     "ExpenseInlineDocumentResponseAllOfData": ExpenseInlineDocumentResponseAllOfData,
+    "ExpenseInlineDocumentWithPaymentPaidCash": ExpenseInlineDocumentWithPaymentPaidCash,
+    "ExpenseInlineDocumentWithPaymentPaidCheque": ExpenseInlineDocumentWithPaymentPaidCheque,
+    "ExpenseInlineDocumentWithPaymentPaidCreditCard": ExpenseInlineDocumentWithPaymentPaidCreditCard,
+    "ExpenseInlineDocumentWithPaymentPaidTransfer": ExpenseInlineDocumentWithPaymentPaidTransfer,
     "ExpenseInlineProductItem": ExpenseInlineProductItem,
     "ExpenseResponse": ExpenseResponse,
     "ExpenseSimpleDocument": ExpenseSimpleDocument,
@@ -233,12 +285,24 @@ let typeMap: {[index: string]: any} = {
     "ExpenseSimpleDocumentResponse": ExpenseSimpleDocumentResponse,
     "ExpenseSimpleDocumentResponseAllOf": ExpenseSimpleDocumentResponseAllOf,
     "ExpenseSimpleDocumentResponseAllOfData": ExpenseSimpleDocumentResponseAllOfData,
+    "ExpenseSimpleDocumentWithPaymentPaidCash": ExpenseSimpleDocumentWithPaymentPaidCash,
+    "ExpenseSimpleDocumentWithPaymentPaidCheque": ExpenseSimpleDocumentWithPaymentPaidCheque,
+    "ExpenseSimpleDocumentWithPaymentPaidCreditCard": ExpenseSimpleDocumentWithPaymentPaidCreditCard,
+    "ExpenseSimpleDocumentWithPaymentPaidTransfer": ExpenseSimpleDocumentWithPaymentPaidTransfer,
     "ExpenseSimpleProductItem": ExpenseSimpleProductItem,
     "InlineDocument": InlineDocument,
     "InlineDocumentAllOf": InlineDocumentAllOf,
     "InlineDocumentResponse": InlineDocumentResponse,
     "InlineDocumentResponseAllOf": InlineDocumentResponseAllOf,
     "InlineDocumentResponseAllOfData": InlineDocumentResponseAllOfData,
+    "InlineDocumentWithPaymentPaidCash": InlineDocumentWithPaymentPaidCash,
+    "InlineDocumentWithPaymentPaidCheque": InlineDocumentWithPaymentPaidCheque,
+    "InlineDocumentWithPaymentPaidCreditCard": InlineDocumentWithPaymentPaidCreditCard,
+    "InlineDocumentWithPaymentPaidTransfer": InlineDocumentWithPaymentPaidTransfer,
+    "InlineDocumentWithPaymentReceivingCash": InlineDocumentWithPaymentReceivingCash,
+    "InlineDocumentWithPaymentReceivingCheque": InlineDocumentWithPaymentReceivingCheque,
+    "InlineDocumentWithPaymentReceivingCreditCard": InlineDocumentWithPaymentReceivingCreditCard,
+    "InlineDocumentWithPaymentReceivingTransfer": InlineDocumentWithPaymentReceivingTransfer,
     "InlineObject": InlineObject,
     "InlineObject1": InlineObject1,
     "InlineObject2": InlineObject2,
@@ -283,6 +347,14 @@ let typeMap: {[index: string]: any} = {
     "SimpleDocumentResponse": SimpleDocumentResponse,
     "SimpleDocumentResponseAllOf": SimpleDocumentResponseAllOf,
     "SimpleDocumentResponseAllOfData": SimpleDocumentResponseAllOfData,
+    "SimpleDocumentWithPaymentPaidCash": SimpleDocumentWithPaymentPaidCash,
+    "SimpleDocumentWithPaymentPaidCheque": SimpleDocumentWithPaymentPaidCheque,
+    "SimpleDocumentWithPaymentPaidCreditCard": SimpleDocumentWithPaymentPaidCreditCard,
+    "SimpleDocumentWithPaymentPaidTransfer": SimpleDocumentWithPaymentPaidTransfer,
+    "SimpleDocumentWithPaymentReceivingCash": SimpleDocumentWithPaymentReceivingCash,
+    "SimpleDocumentWithPaymentReceivingCheque": SimpleDocumentWithPaymentReceivingCheque,
+    "SimpleDocumentWithPaymentReceivingCreditCard": SimpleDocumentWithPaymentReceivingCreditCard,
+    "SimpleDocumentWithPaymentReceivingTransfer": SimpleDocumentWithPaymentReceivingTransfer,
     "SimpleProductItem": SimpleProductItem,
     "StatusDocument": StatusDocument,
     "UpdateDocument": UpdateDocument,

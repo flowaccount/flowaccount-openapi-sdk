@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **id** | **int** | เลข id Contact | [optional] 
 **contact_group** | **int** | ประเภทผู้ติดต่อ: 1 &#x3D; บุคคลธรรมดา / 3 &#x3D; นิติบุคคล | [default to 3]
 **contact_type** | **int** | ประเภท: 3 &#x3D; ลูกค้า / 5 &#x3D; ผู้จำหน่าย / 7 &#x3D; ผู้จำหน่ายและลูกค้า | [default to 3]
-**contact_code** | **string** | รหัสผู้ติดต่อ | 
 **contact_name** | **string** | ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย | 
 **contact_address** | **string** | ที่อยู่ผู้ติดต่อ | [optional] 
+**contact_zip_code** | **string** | รหัสไปรษณีย์ติดต่อ &lt;ex&gt;Example: 10140 &lt;/ex&gt; | [optional] 
 **contact_tax_id** | **int** | เลขประจำตัวผู้เสียภาษี 13 หลัก ​&lt;br&gt;&lt;ex&gt;Example: 1234567890123&lt;/ex&gt; | [optional] 
 **contact_branch_code** | **string** | รหัสสาขา | [optional] 
 **contact_branch** | **string** | ชื่อสาขา | [optional] [default to 'สำนักงานใหญ่']
