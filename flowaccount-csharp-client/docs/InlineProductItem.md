@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **UnitName** | **string** | หน่วยสินค้า | [optional] 
 **PricePerUnit** | **decimal** | ราคาสินค้าต่อหน่วย | 
 **Total** | **decimal** | ราคารวมสินค้า | 
+**SellChartOfAccountCode** | **string** | เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย &lt;br&gt; &lt;ex&gt;Example: 41111&lt;/ex&gt; | [optional] 
+**BuyChartOfAccountCode** | **string** | เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ &lt;br&gt; &lt;ex&gt;Example: 51111.02&lt;/ex&gt; | [optional] 
 **DiscountAmount** | **decimal** | จำนวนส่วนลดสินค้า | [optional] [default to 0M]
 **VatRate** | **int** | รูปแบบภาษี &lt;br&gt; 7 &#x3D; ภาษี 7% &lt;br&gt; 0 &#x3D; ภาษี 0% &lt;br&gt; -1 &#x3D; ยกเว้นภาษี | [optional] [default to 7]
 

@@ -50,7 +50,9 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="unitName">หน่วยสินค้า.</param>
         /// <param name="pricePerUnit">ราคาสินค้าต่อหน่วย (required).</param>
         /// <param name="total">ราคารวมสินค้า (required).</param>
-        public ProductItem(string documentStructureType = default(string), int type = 1, string name = default(string), string description = default(string), decimal quantity = default(decimal), string unitName = default(string), decimal pricePerUnit = default(decimal), decimal total = default(decimal))
+        /// <param name="sellChartOfAccountCode">เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย &lt;br&gt; &lt;ex&gt;Example: 41111&lt;/ex&gt;.</param>
+        /// <param name="buyChartOfAccountCode">เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ &lt;br&gt; &lt;ex&gt;Example: 51111.02&lt;/ex&gt;.</param>
+        public ProductItem(string documentStructureType = default(string), int type = 1, string name = default(string), string description = default(string), decimal quantity = default(decimal), string unitName = default(string), decimal pricePerUnit = default(decimal), decimal total = default(decimal), string sellChartOfAccountCode = default(string), string buyChartOfAccountCode = default(string))
         {
             // to ensure "documentStructureType" is required (not null)
             if (documentStructureType == null)
@@ -114,6 +116,8 @@ namespace Flowaccount.OpenAPITools.Model
             }
             this.Description = description;
             this.UnitName = unitName;
+            this.SellChartOfAccountCode = sellChartOfAccountCode;
+            this.BuyChartOfAccountCode = buyChartOfAccountCode;
         }
         
         /// <summary>
@@ -172,6 +176,20 @@ namespace Flowaccount.OpenAPITools.Model
         public decimal Total { get; set; }
 
         /// <summary>
+        /// เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย &lt;br&gt; &lt;ex&gt;Example: 41111&lt;/ex&gt;
+        /// </summary>
+        /// <value>เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย &lt;br&gt; &lt;ex&gt;Example: 41111&lt;/ex&gt;</value>
+        [DataMember(Name="sellChartOfAccountCode", EmitDefaultValue=true)]
+        public string SellChartOfAccountCode { get; set; }
+
+        /// <summary>
+        /// เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ &lt;br&gt; &lt;ex&gt;Example: 51111.02&lt;/ex&gt;
+        /// </summary>
+        /// <value>เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ &lt;br&gt; &lt;ex&gt;Example: 51111.02&lt;/ex&gt;</value>
+        [DataMember(Name="buyChartOfAccountCode", EmitDefaultValue=true)]
+        public string BuyChartOfAccountCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -187,6 +205,8 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  UnitName: ").Append(UnitName).Append("\n");
             sb.Append("  PricePerUnit: ").Append(PricePerUnit).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  SellChartOfAccountCode: ").Append(SellChartOfAccountCode).Append("\n");
+            sb.Append("  BuyChartOfAccountCode: ").Append(BuyChartOfAccountCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +280,16 @@ namespace Flowaccount.OpenAPITools.Model
                     this.Total == input.Total ||
                     (this.Total != null &&
                     this.Total.Equals(input.Total))
+                ) && 
+                (
+                    this.SellChartOfAccountCode == input.SellChartOfAccountCode ||
+                    (this.SellChartOfAccountCode != null &&
+                    this.SellChartOfAccountCode.Equals(input.SellChartOfAccountCode))
+                ) && 
+                (
+                    this.BuyChartOfAccountCode == input.BuyChartOfAccountCode ||
+                    (this.BuyChartOfAccountCode != null &&
+                    this.BuyChartOfAccountCode.Equals(input.BuyChartOfAccountCode))
                 );
         }
 
@@ -288,6 +318,10 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.PricePerUnit.GetHashCode();
                 if (this.Total != null)
                     hashCode = hashCode * 59 + this.Total.GetHashCode();
+                if (this.SellChartOfAccountCode != null)
+                    hashCode = hashCode * 59 + this.SellChartOfAccountCode.GetHashCode();
+                if (this.BuyChartOfAccountCode != null)
+                    hashCode = hashCode * 59 + this.BuyChartOfAccountCode.GetHashCode();
                 return hashCode;
             }
         }

@@ -41,7 +41,9 @@ class ProductItem(object):
         'quantity': 'float',
         'unit_name': 'str',
         'price_per_unit': 'float',
-        'total': 'float'
+        'total': 'float',
+        'sell_chart_of_account_code': 'str',
+        'buy_chart_of_account_code': 'str'
     }
 
     attribute_map = {
@@ -52,7 +54,9 @@ class ProductItem(object):
         'quantity': 'quantity',
         'unit_name': 'unitName',
         'price_per_unit': 'pricePerUnit',
-        'total': 'total'
+        'total': 'total',
+        'sell_chart_of_account_code': 'sellChartOfAccountCode',
+        'buy_chart_of_account_code': 'buyChartOfAccountCode'
     }
 
     discriminator_value_class_map = {
@@ -60,7 +64,7 @@ class ProductItem(object):
         'InlineProductItem': 'InlineProductItem'
     }
 
-    def __init__(self, document_structure_type=None, type=1, name=None, description=None, quantity=None, unit_name=None, price_per_unit=None, total=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, document_structure_type=None, type=1, name=None, description=None, quantity=None, unit_name=None, price_per_unit=None, total=None, sell_chart_of_account_code=None, buy_chart_of_account_code=None, local_vars_configuration=None):  # noqa: E501
         """ProductItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +78,8 @@ class ProductItem(object):
         self._unit_name = None
         self._price_per_unit = None
         self._total = None
+        self._sell_chart_of_account_code = None
+        self._buy_chart_of_account_code = None
         self.discriminator = 'document_structure_type'
 
         self.document_structure_type = document_structure_type
@@ -87,6 +93,10 @@ class ProductItem(object):
             self.unit_name = unit_name
         self.price_per_unit = price_per_unit
         self.total = total
+        if sell_chart_of_account_code is not None:
+            self.sell_chart_of_account_code = sell_chart_of_account_code
+        if buy_chart_of_account_code is not None:
+            self.buy_chart_of_account_code = buy_chart_of_account_code
 
     @property
     def document_structure_type(self):
@@ -280,6 +290,52 @@ class ProductItem(object):
             raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
 
         self._total = total
+
+    @property
+    def sell_chart_of_account_code(self):
+        """Gets the sell_chart_of_account_code of this ProductItem.  # noqa: E501
+
+        เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย <br> <ex>Example: 41111</ex>  # noqa: E501
+
+        :return: The sell_chart_of_account_code of this ProductItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._sell_chart_of_account_code
+
+    @sell_chart_of_account_code.setter
+    def sell_chart_of_account_code(self, sell_chart_of_account_code):
+        """Sets the sell_chart_of_account_code of this ProductItem.
+
+        เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย <br> <ex>Example: 41111</ex>  # noqa: E501
+
+        :param sell_chart_of_account_code: The sell_chart_of_account_code of this ProductItem.  # noqa: E501
+        :type: str
+        """
+
+        self._sell_chart_of_account_code = sell_chart_of_account_code
+
+    @property
+    def buy_chart_of_account_code(self):
+        """Gets the buy_chart_of_account_code of this ProductItem.  # noqa: E501
+
+        เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ <br> <ex>Example: 51111.02</ex>  # noqa: E501
+
+        :return: The buy_chart_of_account_code of this ProductItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._buy_chart_of_account_code
+
+    @buy_chart_of_account_code.setter
+    def buy_chart_of_account_code(self, buy_chart_of_account_code):
+        """Sets the buy_chart_of_account_code of this ProductItem.
+
+        เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ <br> <ex>Example: 51111.02</ex>  # noqa: E501
+
+        :param buy_chart_of_account_code: The buy_chart_of_account_code of this ProductItem.  # noqa: E501
+        :type: str
+        """
+
+        self._buy_chart_of_account_code = buy_chart_of_account_code
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""

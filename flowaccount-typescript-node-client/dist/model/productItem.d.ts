@@ -7,6 +7,8 @@ export declare class ProductItem {
     'unitName'?: string;
     'pricePerUnit': number;
     'total': number;
+    'sellChartOfAccountCode'?: string;
+    'buyChartOfAccountCode'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

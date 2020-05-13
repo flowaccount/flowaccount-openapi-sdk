@@ -46,6 +46,16 @@ ProductItem.attributeTypeMap = [
         "name": "total",
         "baseName": "total",
         "type": "number"
+    },
+    {
+        "name": "sellChartOfAccountCode",
+        "baseName": "sellChartOfAccountCode",
+        "type": "string"
+    },
+    {
+        "name": "buyChartOfAccountCode",
+        "baseName": "buyChartOfAccountCode",
+        "type": "string"
     }
 ];
 exports.ProductItem = ProductItem;

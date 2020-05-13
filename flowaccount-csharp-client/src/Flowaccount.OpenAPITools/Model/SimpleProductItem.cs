@@ -38,7 +38,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimpleProductItem" /> class.
         /// </summary>
-        public SimpleProductItem(string documentStructureType = default(string), int type = 1, string name = default(string), string description = default(string), decimal quantity = default(decimal), string unitName = default(string), decimal pricePerUnit = default(decimal), decimal total = default(decimal)) : base(documentStructureType, type, name, description, quantity, unitName, pricePerUnit, total)
+        public SimpleProductItem(string documentStructureType = default(string), int type = 1, string name = default(string), string description = default(string), decimal quantity = default(decimal), string unitName = default(string), decimal pricePerUnit = default(decimal), decimal total = default(decimal), string sellChartOfAccountCode = default(string), string buyChartOfAccountCode = default(string)) : base(documentStructureType, type, name, description, quantity, unitName, pricePerUnit, total, sellChartOfAccountCode, buyChartOfAccountCode)
         {
         }
         

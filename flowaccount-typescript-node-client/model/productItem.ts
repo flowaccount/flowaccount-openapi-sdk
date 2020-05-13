@@ -41,6 +41,14 @@ export class ProductItem {
     * ราคารวมสินค้า
     */
     'total': number;
+    /**
+    * เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย <br> <ex>Example: 41111</ex>
+    */
+    'sellChartOfAccountCode'?: string;
+    /**
+    * เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ <br> <ex>Example: 51111.02</ex>
+    */
+    'buyChartOfAccountCode'?: string;
 
     static discriminator: string | undefined = "documentStructureType";
 
@@ -84,6 +92,16 @@ export class ProductItem {
             "name": "total",
             "baseName": "total",
             "type": "number"
+        },
+        {
+            "name": "sellChartOfAccountCode",
+            "baseName": "sellChartOfAccountCode",
+            "type": "string"
+        },
+        {
+            "name": "buyChartOfAccountCode",
+            "baseName": "buyChartOfAccountCode",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

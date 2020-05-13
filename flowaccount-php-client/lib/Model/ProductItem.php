@@ -64,7 +64,9 @@ class ProductItem implements ModelInterface, ArrayAccess
         'quantity' => 'float',
         'unit_name' => 'string',
         'price_per_unit' => 'float',
-        'total' => 'float'
+        'total' => 'float',
+        'sell_chart_of_account_code' => 'string',
+        'buy_chart_of_account_code' => 'string'
     ];
 
     /**
@@ -80,7 +82,9 @@ class ProductItem implements ModelInterface, ArrayAccess
         'quantity' => 'decimal',
         'unit_name' => null,
         'price_per_unit' => 'decimal',
-        'total' => 'decimal'
+        'total' => 'decimal',
+        'sell_chart_of_account_code' => null,
+        'buy_chart_of_account_code' => null
     ];
 
     /**
@@ -117,7 +121,9 @@ class ProductItem implements ModelInterface, ArrayAccess
         'quantity' => 'quantity',
         'unit_name' => 'unitName',
         'price_per_unit' => 'pricePerUnit',
-        'total' => 'total'
+        'total' => 'total',
+        'sell_chart_of_account_code' => 'sellChartOfAccountCode',
+        'buy_chart_of_account_code' => 'buyChartOfAccountCode'
     ];
 
     /**
@@ -133,7 +139,9 @@ class ProductItem implements ModelInterface, ArrayAccess
         'quantity' => 'setQuantity',
         'unit_name' => 'setUnitName',
         'price_per_unit' => 'setPricePerUnit',
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'sell_chart_of_account_code' => 'setSellChartOfAccountCode',
+        'buy_chart_of_account_code' => 'setBuyChartOfAccountCode'
     ];
 
     /**
@@ -149,7 +157,9 @@ class ProductItem implements ModelInterface, ArrayAccess
         'quantity' => 'getQuantity',
         'unit_name' => 'getUnitName',
         'price_per_unit' => 'getPricePerUnit',
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'sell_chart_of_account_code' => 'getSellChartOfAccountCode',
+        'buy_chart_of_account_code' => 'getBuyChartOfAccountCode'
     ];
 
     /**
@@ -220,6 +230,8 @@ class ProductItem implements ModelInterface, ArrayAccess
         $this->container['unit_name'] = isset($data['unit_name']) ? $data['unit_name'] : null;
         $this->container['price_per_unit'] = isset($data['price_per_unit']) ? $data['price_per_unit'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['sell_chart_of_account_code'] = isset($data['sell_chart_of_account_code']) ? $data['sell_chart_of_account_code'] : null;
+        $this->container['buy_chart_of_account_code'] = isset($data['buy_chart_of_account_code']) ? $data['buy_chart_of_account_code'] : null;
 
         // Initialize discriminator property with the model name.
         $this->container['document_structure_type'] = static::$openAPIModelName;
@@ -460,6 +472,54 @@ class ProductItem implements ModelInterface, ArrayAccess
     public function setTotal($total)
     {
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets sell_chart_of_account_code
+     *
+     * @return string|null
+     */
+    public function getSellChartOfAccountCode()
+    {
+        return $this->container['sell_chart_of_account_code'];
+    }
+
+    /**
+     * Sets sell_chart_of_account_code
+     *
+     * @param string|null $sell_chart_of_account_code เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย <br> <ex>Example: 41111</ex>
+     *
+     * @return $this
+     */
+    public function setSellChartOfAccountCode($sell_chart_of_account_code)
+    {
+        $this->container['sell_chart_of_account_code'] = $sell_chart_of_account_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets buy_chart_of_account_code
+     *
+     * @return string|null
+     */
+    public function getBuyChartOfAccountCode()
+    {
+        return $this->container['buy_chart_of_account_code'];
+    }
+
+    /**
+     * Sets buy_chart_of_account_code
+     *
+     * @param string|null $buy_chart_of_account_code เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ <br> <ex>Example: 51111.02</ex>
+     *
+     * @return $this
+     */
+    public function setBuyChartOfAccountCode($buy_chart_of_account_code)
+    {
+        $this->container['buy_chart_of_account_code'] = $buy_chart_of_account_code;
 
         return $this;
     }

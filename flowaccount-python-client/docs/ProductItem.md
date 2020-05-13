@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **unit_name** | **str** | หน่วยสินค้า | [optional] 
 **price_per_unit** | **float** | ราคาสินค้าต่อหน่วย | 
 **total** | **float** | ราคารวมสินค้า | 
+**sell_chart_of_account_code** | **str** | เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย &lt;br&gt; &lt;ex&gt;Example: 41111&lt;/ex&gt; | [optional] 
+**buy_chart_of_account_code** | **str** | เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ &lt;br&gt; &lt;ex&gt;Example: 51111.02&lt;/ex&gt; | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

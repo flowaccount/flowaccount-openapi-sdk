@@ -40,7 +40,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// </summary>
         /// <param name="discountAmount">จำนวนส่วนลดสินค้า (default to 0M).</param>
         /// <param name="vatRate">รูปแบบภาษี &lt;br&gt; 7 &#x3D; ภาษี 7% &lt;br&gt; 0 &#x3D; ภาษี 0% &lt;br&gt; -1 &#x3D; ยกเว้นภาษี (default to 7).</param>
-        public InlineProductItem(decimal discountAmount = 0M, int vatRate = 7, string documentStructureType = default(string), int type = 1, string name = default(string), string description = default(string), decimal quantity = default(decimal), string unitName = default(string), decimal pricePerUnit = default(decimal), decimal total = default(decimal)) : base(documentStructureType, type, name, description, quantity, unitName, pricePerUnit, total)
+        public InlineProductItem(decimal discountAmount = 0M, int vatRate = 7, string documentStructureType = default(string), int type = 1, string name = default(string), string description = default(string), decimal quantity = default(decimal), string unitName = default(string), decimal pricePerUnit = default(decimal), decimal total = default(decimal), string sellChartOfAccountCode = default(string), string buyChartOfAccountCode = default(string)) : base(documentStructureType, type, name, description, quantity, unitName, pricePerUnit, total, sellChartOfAccountCode, buyChartOfAccountCode)
         {
             // use default value if no "discountAmount" provided
             if (discountAmount == null)
