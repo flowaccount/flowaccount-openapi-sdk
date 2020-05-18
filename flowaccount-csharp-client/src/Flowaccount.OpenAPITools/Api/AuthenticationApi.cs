@@ -36,8 +36,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>AuthenResponse</returns>
-        AuthenResponse TokenPost (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string));
+        AuthenResponse TokenPost (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string));
 
         /// <summary>
         /// Generate Access Token
@@ -51,8 +52,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>ApiResponse of AuthenResponse</returns>
-        ApiResponse<AuthenResponse> TokenPostWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string));
+        ApiResponse<AuthenResponse> TokenPostWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -67,8 +69,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>Task of AuthenResponse</returns>
-        System.Threading.Tasks.Task<AuthenResponse> TokenPostAsync (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string));
+        System.Threading.Tasks.Task<AuthenResponse> TokenPostAsync (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string));
 
         /// <summary>
         /// Generate Access Token
@@ -82,8 +85,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>Task of ApiResponse (AuthenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthenResponse>> TokenPostAsyncWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string));
+        System.Threading.Tasks.Task<ApiResponse<AuthenResponse>> TokenPostAsyncWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string));
         #endregion Asynchronous Operations
     }
 
@@ -204,10 +208,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>AuthenResponse</returns>
-        public AuthenResponse TokenPost (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string))
+        public AuthenResponse TokenPost (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string))
         {
-             ApiResponse<AuthenResponse> localVarResponse = TokenPostWithHttpInfo(contentType, grantType, scope, clientId, clientSecret);
+             ApiResponse<AuthenResponse> localVarResponse = TokenPostWithHttpInfo(contentType, grantType, scope, clientId, clientSecret, guid);
              return localVarResponse.Data;
         }
 
@@ -220,8 +225,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>ApiResponse of AuthenResponse</returns>
-        public ApiResponse<AuthenResponse> TokenPostWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string))
+        public ApiResponse<AuthenResponse> TokenPostWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string))
         {
             // verify the required parameter 'contentType' is set
             if (contentType == null)
@@ -254,6 +260,7 @@ namespace Flowaccount.OpenAPITools.Api
             if (scope != null) localVarFormParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // form parameter
             if (clientId != null) localVarFormParams.Add("client_id", this.Configuration.ApiClient.ParameterToString(clientId)); // form parameter
             if (clientSecret != null) localVarFormParams.Add("client_secret", this.Configuration.ApiClient.ParameterToString(clientSecret)); // form parameter
+            if (guid != null) localVarFormParams.Add("guid", this.Configuration.ApiClient.ParameterToString(guid)); // form parameter
 
 
             // make the HTTP request
@@ -283,10 +290,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>Task of AuthenResponse</returns>
-        public async System.Threading.Tasks.Task<AuthenResponse> TokenPostAsync (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string))
+        public async System.Threading.Tasks.Task<AuthenResponse> TokenPostAsync (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string))
         {
-             ApiResponse<AuthenResponse> localVarResponse = await TokenPostAsyncWithHttpInfo(contentType, grantType, scope, clientId, clientSecret);
+             ApiResponse<AuthenResponse> localVarResponse = await TokenPostAsyncWithHttpInfo(contentType, grantType, scope, clientId, clientSecret, guid);
              return localVarResponse.Data;
 
         }
@@ -300,8 +308,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="scope"> (optional)</param>
         /// <param name="clientId"> (optional)</param>
         /// <param name="clientSecret"> (optional)</param>
+        /// <param name="guid"> (optional)</param>
         /// <returns>Task of ApiResponse (AuthenResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AuthenResponse>> TokenPostAsyncWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<AuthenResponse>> TokenPostAsyncWithHttpInfo (string contentType, string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string))
         {
             // verify the required parameter 'contentType' is set
             if (contentType == null)
@@ -334,6 +343,7 @@ namespace Flowaccount.OpenAPITools.Api
             if (scope != null) localVarFormParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // form parameter
             if (clientId != null) localVarFormParams.Add("client_id", this.Configuration.ApiClient.ParameterToString(clientId)); // form parameter
             if (clientSecret != null) localVarFormParams.Add("client_secret", this.Configuration.ApiClient.ParameterToString(clientSecret)); // form parameter
+            if (guid != null) localVarFormParams.Add("guid", this.Configuration.ApiClient.ParameterToString(guid)); // form parameter
 
 
             // make the HTTP request

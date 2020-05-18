@@ -37,17 +37,19 @@ class InlineObject9(object):
         'grant_type': 'str',
         'scope': 'str',
         'client_id': 'str',
-        'client_secret': 'str'
+        'client_secret': 'str',
+        'guid': 'str'
     }
 
     attribute_map = {
         'grant_type': 'grant_type',
         'scope': 'scope',
         'client_id': 'client_id',
-        'client_secret': 'client_secret'
+        'client_secret': 'client_secret',
+        'guid': 'guid'
     }
 
-    def __init__(self, grant_type=None, scope=None, client_id=None, client_secret=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, grant_type=None, scope=None, client_id=None, client_secret=None, guid=None, local_vars_configuration=None):  # noqa: E501
         """InlineObject9 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class InlineObject9(object):
         self._scope = None
         self._client_id = None
         self._client_secret = None
+        self._guid = None
         self.discriminator = None
 
         if grant_type is not None:
@@ -67,6 +70,8 @@ class InlineObject9(object):
             self.client_id = client_id
         if client_secret is not None:
             self.client_secret = client_secret
+        if guid is not None:
+            self.guid = guid
 
     @property
     def grant_type(self):
@@ -151,6 +156,27 @@ class InlineObject9(object):
         """
 
         self._client_secret = client_secret
+
+    @property
+    def guid(self):
+        """Gets the guid of this InlineObject9.  # noqa: E501
+
+
+        :return: The guid of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._guid
+
+    @guid.setter
+    def guid(self, guid):
+        """Sets the guid of this InlineObject9.
+
+
+        :param guid: The guid of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._guid = guid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

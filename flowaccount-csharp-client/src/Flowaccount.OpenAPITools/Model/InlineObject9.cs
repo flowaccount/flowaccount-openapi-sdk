@@ -37,12 +37,14 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="scope">scope.</param>
         /// <param name="clientId">clientId.</param>
         /// <param name="clientSecret">clientSecret.</param>
-        public InlineObject9(string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string))
+        /// <param name="guid">guid.</param>
+        public InlineObject9(string grantType = default(string), string scope = default(string), string clientId = default(string), string clientSecret = default(string), string guid = default(string))
         {
             this.GrantType = grantType;
             this.Scope = scope;
             this.ClientId = clientId;
             this.ClientSecret = clientSecret;
+            this.Guid = guid;
         }
         
         /// <summary>
@@ -70,6 +72,12 @@ namespace Flowaccount.OpenAPITools.Model
         public string ClientSecret { get; set; }
 
         /// <summary>
+        /// Gets or Sets Guid
+        /// </summary>
+        [DataMember(Name="guid", EmitDefaultValue=true)]
+        public string Guid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
+            sb.Append("  Guid: ").Append(Guid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +143,11 @@ namespace Flowaccount.OpenAPITools.Model
                     this.ClientSecret == input.ClientSecret ||
                     (this.ClientSecret != null &&
                     this.ClientSecret.Equals(input.ClientSecret))
+                ) && 
+                (
+                    this.Guid == input.Guid ||
+                    (this.Guid != null &&
+                    this.Guid.Equals(input.Guid))
                 );
         }
 
@@ -154,6 +168,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.ClientId.GetHashCode();
                 if (this.ClientSecret != null)
                     hashCode = hashCode * 59 + this.ClientSecret.GetHashCode();
+                if (this.Guid != null)
+                    hashCode = hashCode * 59 + this.Guid.GetHashCode();
                 return hashCode;
             }
         }

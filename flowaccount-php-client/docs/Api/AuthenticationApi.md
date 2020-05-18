@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## tokenPost
 
-> \OpenAPI\Client\Model\AuthenResponse tokenPost($content_type, $grant_type, $scope, $client_id, $client_secret)
+> \OpenAPI\Client\Model\AuthenResponse tokenPost($content_type, $grant_type, $scope, $client_id, $client_secret, $guid)
 
 Generate Access Token
 
@@ -31,9 +31,10 @@ $grant_type = 'grant_type_example'; // string |
 $scope = 'scope_example'; // string | 
 $client_id = 'client_id_example'; // string | 
 $client_secret = 'client_secret_example'; // string | 
+$guid = 'guid_example'; // string | 
 
 try {
-    $result = $apiInstance->tokenPost($content_type, $grant_type, $scope, $client_id, $client_secret);
+    $result = $apiInstance->tokenPost($content_type, $grant_type, $scope, $client_id, $client_secret, $guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->tokenPost: ', $e->getMessage(), PHP_EOL;
@@ -51,6 +52,7 @@ Name | Type | Description  | Notes
  **scope** | **string**|  | [optional]
  **client_id** | **string**|  | [optional]
  **client_secret** | **string**|  | [optional]
+ **guid** | **string**|  | [optional]
 
 ### Return type
 

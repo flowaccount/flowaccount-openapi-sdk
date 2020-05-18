@@ -79,8 +79,9 @@ export class AuthenticationApi {
      * @param scope 
      * @param clientId 
      * @param clientSecret 
+     * @param guid 
      */
-    public async tokenPost (contentType: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AuthenResponse;  }> {
+    public async tokenPost (contentType: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, guid?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AuthenResponse;  }> {
         const localVarPath = this.basePath + '/token';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -117,6 +118,10 @@ export class AuthenticationApi {
 
         if (clientSecret !== undefined) {
             localVarFormParams['client_secret'] = ObjectSerializer.serialize(clientSecret, "string");
+        }
+
+        if (guid !== undefined) {
+            localVarFormParams['guid'] = ObjectSerializer.serialize(guid, "string");
         }
 
         let localVarRequestOptions: localVarRequest.Options = {

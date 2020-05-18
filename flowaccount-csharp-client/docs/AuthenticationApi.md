@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## TokenPost
 
-> AuthenResponse TokenPost (string contentType, string grantType = null, string scope = null, string clientId = null, string clientSecret = null)
+> AuthenResponse TokenPost (string contentType, string grantType = null, string scope = null, string clientId = null, string clientSecret = null, string guid = null)
 
 Generate Access Token
 
@@ -36,11 +36,12 @@ namespace Example
             var scope = scope_example;  // string |  (optional) 
             var clientId = clientId_example;  // string |  (optional) 
             var clientSecret = clientSecret_example;  // string |  (optional) 
+            var guid = guid_example;  // string |  (optional) 
 
             try
             {
                 // Generate Access Token
-                AuthenResponse result = apiInstance.TokenPost(contentType, grantType, scope, clientId, clientSecret);
+                AuthenResponse result = apiInstance.TokenPost(contentType, grantType, scope, clientId, clientSecret, guid);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -64,6 +65,7 @@ Name | Type | Description  | Notes
  **scope** | **string**|  | [optional] 
  **clientId** | **string**|  | [optional] 
  **clientSecret** | **string**|  | [optional] 
+ **guid** | **string**|  | [optional] 
 
 ### Return type
 

@@ -125,14 +125,15 @@ class AuthenticationApi
      * @param  string $scope scope (optional)
      * @param  string $client_id client_id (optional)
      * @param  string $client_secret client_secret (optional)
+     * @param  string $guid guid (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AuthenResponse
      */
-    public function tokenPost($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null)
+    public function tokenPost($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null, $guid = null)
     {
-        list($response) = $this->tokenPostWithHttpInfo($content_type, $grant_type, $scope, $client_id, $client_secret);
+        list($response) = $this->tokenPostWithHttpInfo($content_type, $grant_type, $scope, $client_id, $client_secret, $guid);
         return $response;
     }
 
@@ -146,14 +147,15 @@ class AuthenticationApi
      * @param  string $scope (optional)
      * @param  string $client_id (optional)
      * @param  string $client_secret (optional)
+     * @param  string $guid (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AuthenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tokenPostWithHttpInfo($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null)
+    public function tokenPostWithHttpInfo($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null, $guid = null)
     {
-        $request = $this->tokenPostRequest($content_type, $grant_type, $scope, $client_id, $client_secret);
+        $request = $this->tokenPostRequest($content_type, $grant_type, $scope, $client_id, $client_secret, $guid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -238,13 +240,14 @@ class AuthenticationApi
      * @param  string $scope (optional)
      * @param  string $client_id (optional)
      * @param  string $client_secret (optional)
+     * @param  string $guid (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tokenPostAsync($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null)
+    public function tokenPostAsync($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null, $guid = null)
     {
-        return $this->tokenPostAsyncWithHttpInfo($content_type, $grant_type, $scope, $client_id, $client_secret)
+        return $this->tokenPostAsyncWithHttpInfo($content_type, $grant_type, $scope, $client_id, $client_secret, $guid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,14 +265,15 @@ class AuthenticationApi
      * @param  string $scope (optional)
      * @param  string $client_id (optional)
      * @param  string $client_secret (optional)
+     * @param  string $guid (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tokenPostAsyncWithHttpInfo($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null)
+    public function tokenPostAsyncWithHttpInfo($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null, $guid = null)
     {
         $returnType = '\OpenAPI\Client\Model\AuthenResponse';
-        $request = $this->tokenPostRequest($content_type, $grant_type, $scope, $client_id, $client_secret);
+        $request = $this->tokenPostRequest($content_type, $grant_type, $scope, $client_id, $client_secret, $guid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -313,11 +317,12 @@ class AuthenticationApi
      * @param  string $scope (optional)
      * @param  string $client_id (optional)
      * @param  string $client_secret (optional)
+     * @param  string $guid (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function tokenPostRequest($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null)
+    protected function tokenPostRequest($content_type, $grant_type = null, $scope = null, $client_id = null, $client_secret = null, $guid = null)
     {
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
@@ -354,6 +359,10 @@ class AuthenticationApi
         // form params
         if ($client_secret !== null) {
             $formParams['client_secret'] = ObjectSerializer::toFormValue($client_secret);
+        }
+        // form params
+        if ($guid !== null) {
+            $formParams['guid'] = ObjectSerializer::toFormValue($guid);
         }
         // body params
         $_tempBody = null;

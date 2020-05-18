@@ -51,6 +51,7 @@ class AuthenticationApi(object):
         :param str scope:
         :param str client_id:
         :param str client_secret:
+        :param str guid:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -79,6 +80,7 @@ class AuthenticationApi(object):
         :param str scope:
         :param str client_id:
         :param str client_secret:
+        :param str guid:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -95,7 +97,7 @@ class AuthenticationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['content_type', 'grant_type', 'scope', 'client_id', 'client_secret']  # noqa: E501
+        all_params = ['content_type', 'grant_type', 'scope', 'client_id', 'client_secret', 'guid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -134,6 +136,8 @@ class AuthenticationApi(object):
             form_params.append(('client_id', local_var_params['client_id']))  # noqa: E501
         if 'client_secret' in local_var_params:
             form_params.append(('client_secret', local_var_params['client_secret']))  # noqa: E501
+        if 'guid' in local_var_params:
+            form_params.append(('guid', local_var_params['guid']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`

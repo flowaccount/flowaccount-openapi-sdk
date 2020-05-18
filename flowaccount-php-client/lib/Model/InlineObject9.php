@@ -60,7 +60,8 @@ class InlineObject9 implements ModelInterface, ArrayAccess
         'grant_type' => 'string',
         'scope' => 'string',
         'client_id' => 'string',
-        'client_secret' => 'string'
+        'client_secret' => 'string',
+        'guid' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class InlineObject9 implements ModelInterface, ArrayAccess
         'grant_type' => null,
         'scope' => null,
         'client_id' => null,
-        'client_secret' => null
+        'client_secret' => null,
+        'guid' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class InlineObject9 implements ModelInterface, ArrayAccess
         'grant_type' => 'grant_type',
         'scope' => 'scope',
         'client_id' => 'client_id',
-        'client_secret' => 'client_secret'
+        'client_secret' => 'client_secret',
+        'guid' => 'guid'
     ];
 
     /**
@@ -117,7 +120,8 @@ class InlineObject9 implements ModelInterface, ArrayAccess
         'grant_type' => 'setGrantType',
         'scope' => 'setScope',
         'client_id' => 'setClientId',
-        'client_secret' => 'setClientSecret'
+        'client_secret' => 'setClientSecret',
+        'guid' => 'setGuid'
     ];
 
     /**
@@ -129,7 +133,8 @@ class InlineObject9 implements ModelInterface, ArrayAccess
         'grant_type' => 'getGrantType',
         'scope' => 'getScope',
         'client_id' => 'getClientId',
-        'client_secret' => 'getClientSecret'
+        'client_secret' => 'getClientSecret',
+        'guid' => 'getGuid'
     ];
 
     /**
@@ -196,6 +201,7 @@ class InlineObject9 implements ModelInterface, ArrayAccess
         $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
         $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
         $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
+        $this->container['guid'] = isset($data['guid']) ? $data['guid'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class InlineObject9 implements ModelInterface, ArrayAccess
     public function setClientSecret($client_secret)
     {
         $this->container['client_secret'] = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets guid
+     *
+     * @return string|null
+     */
+    public function getGuid()
+    {
+        return $this->container['guid'];
+    }
+
+    /**
+     * Sets guid
+     *
+     * @param string|null $guid guid
+     *
+     * @return $this
+     */
+    public function setGuid($guid)
+    {
+        $this->container['guid'] = $guid;
 
         return $this;
     }

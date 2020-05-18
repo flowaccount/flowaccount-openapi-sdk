@@ -16,6 +16,7 @@ export class InlineObject9 {
     'scope'?: string;
     'clientId'?: string;
     'clientSecret'?: string;
+    'guid'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -38,6 +39,11 @@ export class InlineObject9 {
         {
             "name": "clientSecret",
             "baseName": "client_secret",
+            "type": "string"
+        },
+        {
+            "name": "guid",
+            "baseName": "guid",
             "type": "string"
         }    ];
 

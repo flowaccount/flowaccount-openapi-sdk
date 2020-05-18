@@ -49,7 +49,7 @@ class AuthenticationApi {
     setApiKey(key, value) {
         this.authentications[AuthenticationApiApiKeys[key]].apiKey = value;
     }
-    tokenPost(contentType, grantType, scope, clientId, clientSecret, options = { headers: {} }) {
+    tokenPost(contentType, grantType, scope, clientId, clientSecret, guid, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/token';
             let localVarQueryParameters = {};
@@ -79,6 +79,9 @@ class AuthenticationApi {
             }
             if (clientSecret !== undefined) {
                 localVarFormParams['client_secret'] = models_1.ObjectSerializer.serialize(clientSecret, "string");
+            }
+            if (guid !== undefined) {
+                localVarFormParams['guid'] = models_1.ObjectSerializer.serialize(guid, "string");
             }
             let localVarRequestOptions = {
                 method: 'POST',

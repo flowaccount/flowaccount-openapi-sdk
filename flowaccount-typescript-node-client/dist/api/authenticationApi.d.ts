@@ -16,7 +16,7 @@ export declare class AuthenticationApi {
     basePath: string;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: AuthenticationApiApiKeys, value: string): void;
-    tokenPost(contentType: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, options?: {
+    tokenPost(contentType: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, guid?: string, options?: {
         headers: {
             [name: string]: string;
         };

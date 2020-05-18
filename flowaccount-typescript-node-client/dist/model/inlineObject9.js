@@ -26,6 +26,11 @@ InlineObject9.attributeTypeMap = [
         "name": "clientSecret",
         "baseName": "client_secret",
         "type": "string"
+    },
+    {
+        "name": "guid",
+        "baseName": "guid",
+        "type": "string"
     }
 ];
 exports.InlineObject9 = InlineObject9;

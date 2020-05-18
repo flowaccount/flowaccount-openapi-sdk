@@ -85,11 +85,12 @@ namespace Example
             var scope = scope_example;  // string |  (optional) 
             var clientId = clientId_example;  // string |  (optional) 
             var clientSecret = clientSecret_example;  // string |  (optional) 
+            var guid = guid_example;  // string |  (optional) 
 
             try
             {
                 // Generate Access Token
-                AuthenResponse result = apiInstance.TokenPost(contentType, grantType, scope, clientId, clientSecret);
+                AuthenResponse result = apiInstance.TokenPost(contentType, grantType, scope, clientId, clientSecret, guid);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)

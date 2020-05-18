@@ -3,6 +3,7 @@ export declare class InlineObject9 {
     'scope'?: string;
     'clientId'?: string;
     'clientSecret'?: string;
+    'guid'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

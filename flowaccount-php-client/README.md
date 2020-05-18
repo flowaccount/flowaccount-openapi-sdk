@@ -71,9 +71,10 @@ $grant_type = 'grant_type_example'; // string |
 $scope = 'scope_example'; // string | 
 $client_id = 'client_id_example'; // string | 
 $client_secret = 'client_secret_example'; // string | 
+$guid = 'guid_example'; // string | 
 
 try {
-    $result = $apiInstance->tokenPost($content_type, $grant_type, $scope, $client_id, $client_secret);
+    $result = $apiInstance->tokenPost($content_type, $grant_type, $scope, $client_id, $client_secret, $guid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthenticationApi->tokenPost: ', $e->getMessage(), PHP_EOL;
