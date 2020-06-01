@@ -437,9 +437,9 @@ class BillingNotesApi {
             });
         });
     }
-    billingNotesIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
+    billingNotesIdStatusStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/billing-notes/{id}/status-key/{statusId}'
+            const localVarPath = this.basePath + '/billing-notes/{id}/status/{statusId}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
@@ -453,13 +453,13 @@ class BillingNotesApi {
             }
             let localVarFormParams = {};
             if (authorization === null || authorization === undefined) {
-                throw new Error('Required parameter authorization was null or undefined when calling billingNotesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter authorization was null or undefined when calling billingNotesIdStatusStatusIdPost.');
             }
             if (id === null || id === undefined) {
-                throw new Error('Required parameter id was null or undefined when calling billingNotesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter id was null or undefined when calling billingNotesIdStatusStatusIdPost.');
             }
             if (statusId === null || statusId === undefined) {
-                throw new Error('Required parameter statusId was null or undefined when calling billingNotesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter statusId was null or undefined when calling billingNotesIdStatusStatusIdPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**receiptsIdGet**](ReceiptApi.md#receiptsIdGet) | **GET** /receipts/{id} | Get receipt document.
 [**receiptsIdPaymentPost**](ReceiptApi.md#receiptsIdPaymentPost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
 [**receiptsIdPut**](ReceiptApi.md#receiptsIdPut) | **PUT** /receipts/{id} | Edit receipt document.
-[**receiptsIdStatusKeyStatusIdPost**](ReceiptApi.md#receiptsIdStatusKeyStatusIdPost) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
+[**receiptsIdStatusStatusIdPost**](ReceiptApi.md#receiptsIdStatusStatusIdPost) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
 [**receiptsInlinePost**](ReceiptApi.md#receiptsInlinePost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 [**receiptsInlineWithPaymentPost**](ReceiptApi.md#receiptsInlineWithPaymentPost) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
 [**receiptsPost**](ReceiptApi.md#receiptsPost) | **POST** /receipts | Create receipt document.
@@ -438,9 +438,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## receiptsIdStatusKeyStatusIdPost
+## receiptsIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of receipt document.
 
@@ -463,10 +463,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 1 สถานะ <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->receiptsIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->receiptsIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceiptApi->receiptsIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceiptApi->receiptsIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**purchasesOrdersIdDelete**](PurchaseOrderApi.md#purchasesOrdersIdDelete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**purchasesOrdersIdGet**](PurchaseOrderApi.md#purchasesOrdersIdGet) | **GET** /purchases-orders/{id} | Get purchase order document.
 [**purchasesOrdersIdPut**](PurchaseOrderApi.md#purchasesOrdersIdPut) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-[**purchasesOrdersIdStatusKeyStatusIdPost**](PurchaseOrderApi.md#purchasesOrdersIdStatusKeyStatusIdPost) | **POST** /purchases-orders/{id}/status-key/{statusId} | Change status of purchase order document.
+[**purchasesOrdersIdStatusStatusIdPost**](PurchaseOrderApi.md#purchasesOrdersIdStatusStatusIdPost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
 [**purchasesOrdersInlinePost**](PurchaseOrderApi.md#purchasesOrdersInlinePost) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
 [**purchasesOrdersPost**](PurchaseOrderApi.md#purchasesOrdersPost) | **POST** /purchases-orders | Create purchase order document.
 [**purchasesOrdersSharedocumentPost**](PurchaseOrderApi.md#purchasesOrdersSharedocumentPost) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
@@ -375,9 +375,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## purchasesOrdersIdStatusKeyStatusIdPost
+## purchasesOrdersIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse purchasesOrdersIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesOrdersIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of purchase order document.
 
@@ -400,10 +400,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> approvedandprocessed = ดำเนินการแล้ว <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->purchasesOrdersIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->purchasesOrdersIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PurchaseOrderApi->purchasesOrdersIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PurchaseOrderApi->purchasesOrdersIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

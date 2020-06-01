@@ -120,7 +120,7 @@ Class | Method | HTTP request | Description
 *BillingNotesApi* | [**BillingNotesIdDelete**](docs/BillingNotesApi.md#billingnotesiddelete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 *BillingNotesApi* | [**BillingNotesIdGet**](docs/BillingNotesApi.md#billingnotesidget) | **GET** /billing-notes/{id} | Get billing notes document.
 *BillingNotesApi* | [**BillingNotesIdPut**](docs/BillingNotesApi.md#billingnotesidput) | **PUT** /billing-notes/{id} | Edit billing notes document.
-*BillingNotesApi* | [**BillingNotesIdStatusKeyStatusIdPost**](docs/BillingNotesApi.md#billingnotesidstatuskeystatusidpost) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
+*BillingNotesApi* | [**BillingNotesIdStatusStatusIdPost**](docs/BillingNotesApi.md#billingnotesidstatusstatusidpost) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
 *BillingNotesApi* | [**BillingNotesInlinePost**](docs/BillingNotesApi.md#billingnotesinlinepost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 *BillingNotesApi* | [**BillingNotesPost**](docs/BillingNotesApi.md#billingnotespost) | **POST** /billing-notes | Create billing notes document.
 *BillingNotesApi* | [**BillingNotesSharedocumentPost**](docs/BillingNotesApi.md#billingnotessharedocumentpost) | **POST** /billing-notes/sharedocument | Share link billing notes document.
@@ -133,7 +133,7 @@ Class | Method | HTTP request | Description
 *CashInvoiceApi* | [**CashInvoicesIdGet**](docs/CashInvoiceApi.md#cashinvoicesidget) | **GET** /cash-invoices/{id} | Get cash invoices document.
 *CashInvoiceApi* | [**CashInvoicesIdPaymentPost**](docs/CashInvoiceApi.md#cashinvoicesidpaymentpost) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
 *CashInvoiceApi* | [**CashInvoicesIdPut**](docs/CashInvoiceApi.md#cashinvoicesidput) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
-*CashInvoiceApi* | [**CashInvoicesIdStatusKeyStatusIdPost**](docs/CashInvoiceApi.md#cashinvoicesidstatuskeystatusidpost) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
+*CashInvoiceApi* | [**CashInvoicesIdStatusStatusIdPost**](docs/CashInvoiceApi.md#cashinvoicesidstatusstatusidpost) | **POST** /cash-invoices/{id}/status/{statusId} | Change status of cash invoices document.
 *CashInvoiceApi* | [**CashInvoicesInlinePost**](docs/CashInvoiceApi.md#cashinvoicesinlinepost) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 *CashInvoiceApi* | [**CashInvoicesInlineWithPaymentPost**](docs/CashInvoiceApi.md#cashinvoicesinlinewithpaymentpost) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
 *CashInvoiceApi* | [**CashInvoicesPost**](docs/CashInvoiceApi.md#cashinvoicespost) | **POST** /cash-invoices | Create cash invoices document.
@@ -153,7 +153,7 @@ Class | Method | HTTP request | Description
 *ExpensesApi* | [**ExpensesIdGet**](docs/ExpensesApi.md#expensesidget) | **GET** /expenses/{id} | Get expenses document.
 *ExpensesApi* | [**ExpensesIdPaymentPost**](docs/ExpensesApi.md#expensesidpaymentpost) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
 *ExpensesApi* | [**ExpensesIdPut**](docs/ExpensesApi.md#expensesidput) | **PUT** /expenses/{id} | Edit expenses document.
-*ExpensesApi* | [**ExpensesIdStatusKeyStatusIdPost**](docs/ExpensesApi.md#expensesidstatuskeystatusidpost) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
+*ExpensesApi* | [**ExpensesIdStatusStatusIdPost**](docs/ExpensesApi.md#expensesidstatusstatusidpost) | **POST** /expenses/{id}/status/{statusId} | Change status of expenses document.
 *ExpensesApi* | [**ExpensesInlinePost**](docs/ExpensesApi.md#expensesinlinepost) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 *ExpensesApi* | [**ExpensesInlineWithPaymentPost**](docs/ExpensesApi.md#expensesinlinewithpaymentpost) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
 *ExpensesApi* | [**ExpensesPost**](docs/ExpensesApi.md#expensespost) | **POST** /expenses | Create expenses document.
@@ -170,7 +170,7 @@ Class | Method | HTTP request | Description
 *PurchaseOrderApi* | [**PurchasesOrdersIdDelete**](docs/PurchaseOrderApi.md#purchasesordersiddelete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 *PurchaseOrderApi* | [**PurchasesOrdersIdGet**](docs/PurchaseOrderApi.md#purchasesordersidget) | **GET** /purchases-orders/{id} | Get purchase order document.
 *PurchaseOrderApi* | [**PurchasesOrdersIdPut**](docs/PurchaseOrderApi.md#purchasesordersidput) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-*PurchaseOrderApi* | [**PurchasesOrdersIdStatusKeyStatusIdPost**](docs/PurchaseOrderApi.md#purchasesordersidstatuskeystatusidpost) | **POST** /purchases-orders/{id}/status-key/{statusId} | Change status of purchase order document.
+*PurchaseOrderApi* | [**PurchasesOrdersIdStatusStatusIdPost**](docs/PurchaseOrderApi.md#purchasesordersidstatusstatusidpost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
 *PurchaseOrderApi* | [**PurchasesOrdersInlinePost**](docs/PurchaseOrderApi.md#purchasesordersinlinepost) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
 *PurchaseOrderApi* | [**PurchasesOrdersPost**](docs/PurchaseOrderApi.md#purchasesorderspost) | **POST** /purchases-orders | Create purchase order document.
 *PurchaseOrderApi* | [**PurchasesOrdersSharedocumentPost**](docs/PurchaseOrderApi.md#purchasesorderssharedocumentpost) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
@@ -180,7 +180,7 @@ Class | Method | HTTP request | Description
 *QuotationsApi* | [**QuotationsIdDelete**](docs/QuotationsApi.md#quotationsiddelete) | **DELETE** /quotations/{id} | Delete quotations document.
 *QuotationsApi* | [**QuotationsIdGet**](docs/QuotationsApi.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document.
 *QuotationsApi* | [**QuotationsIdPut**](docs/QuotationsApi.md#quotationsidput) | **PUT** /quotations/{id} | Edit quotations document.
-*QuotationsApi* | [**QuotationsIdStatusKeyStatusIdPost**](docs/QuotationsApi.md#quotationsidstatuskeystatusidpost) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
+*QuotationsApi* | [**QuotationsIdStatusStatusIdPost**](docs/QuotationsApi.md#quotationsidstatusstatusidpost) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
 *QuotationsApi* | [**QuotationsInlinePost**](docs/QuotationsApi.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 *QuotationsApi* | [**QuotationsPost**](docs/QuotationsApi.md#quotationspost) | **POST** /quotations | Create quotations document.
 *QuotationsApi* | [**QuotationsSharedocumentPost**](docs/QuotationsApi.md#quotationssharedocumentpost) | **POST** /quotations/sharedocument | Share link quotations document.
@@ -191,7 +191,7 @@ Class | Method | HTTP request | Description
 *ReceiptApi* | [**ReceiptsIdGet**](docs/ReceiptApi.md#receiptsidget) | **GET** /receipts/{id} | Get receipt document.
 *ReceiptApi* | [**ReceiptsIdPaymentPost**](docs/ReceiptApi.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
 *ReceiptApi* | [**ReceiptsIdPut**](docs/ReceiptApi.md#receiptsidput) | **PUT** /receipts/{id} | Edit receipt document.
-*ReceiptApi* | [**ReceiptsIdStatusKeyStatusIdPost**](docs/ReceiptApi.md#receiptsidstatuskeystatusidpost) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
+*ReceiptApi* | [**ReceiptsIdStatusStatusIdPost**](docs/ReceiptApi.md#receiptsidstatusstatusidpost) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
 *ReceiptApi* | [**ReceiptsInlinePost**](docs/ReceiptApi.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 *ReceiptApi* | [**ReceiptsInlineWithPaymentPost**](docs/ReceiptApi.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
 *ReceiptApi* | [**ReceiptsPost**](docs/ReceiptApi.md#receiptspost) | **POST** /receipts | Create receipt document.
@@ -204,7 +204,7 @@ Class | Method | HTTP request | Description
 *ReceivingInventoryApi* | [**PurchasesIdGet**](docs/ReceivingInventoryApi.md#purchasesidget) | **GET** /purchases/{id} | Get receiving inventory document.
 *ReceivingInventoryApi* | [**PurchasesIdPaymentPost**](docs/ReceivingInventoryApi.md#purchasesidpaymentpost) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
 *ReceivingInventoryApi* | [**PurchasesIdPut**](docs/ReceivingInventoryApi.md#purchasesidput) | **PUT** /purchases/{id} | Edit receiving inventory document.
-*ReceivingInventoryApi* | [**PurchasesIdStatusKeyStatusIdPost**](docs/ReceivingInventoryApi.md#purchasesidstatuskeystatusidpost) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
+*ReceivingInventoryApi* | [**PurchasesIdStatusStatusIdPost**](docs/ReceivingInventoryApi.md#purchasesidstatusstatusidpost) | **POST** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
 *ReceivingInventoryApi* | [**PurchasesInlinePost**](docs/ReceivingInventoryApi.md#purchasesinlinepost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 *ReceivingInventoryApi* | [**PurchasesInlineWithPaymentPost**](docs/ReceivingInventoryApi.md#purchasesinlinewithpaymentpost) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
 *ReceivingInventoryApi* | [**PurchasesPost**](docs/ReceivingInventoryApi.md#purchasespost) | **POST** /purchases | Create receiving inventory document.
@@ -217,7 +217,7 @@ Class | Method | HTTP request | Description
 *TaxInvoiceApi* | [**TaxInvoicesIdGet**](docs/TaxInvoiceApi.md#taxinvoicesidget) | **GET** /tax-invoices/{id} | Get tax invoices document.
 *TaxInvoiceApi* | [**TaxInvoicesIdPaymentPost**](docs/TaxInvoiceApi.md#taxinvoicesidpaymentpost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
 *TaxInvoiceApi* | [**TaxInvoicesIdPut**](docs/TaxInvoiceApi.md#taxinvoicesidput) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
-*TaxInvoiceApi* | [**TaxInvoicesIdStatusKeyStatusIdPost**](docs/TaxInvoiceApi.md#taxinvoicesidstatuskeystatusidpost) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
+*TaxInvoiceApi* | [**TaxInvoicesIdStatusStatusIdPost**](docs/TaxInvoiceApi.md#taxinvoicesidstatusstatusidpost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status of tax invoices document.
 *TaxInvoiceApi* | [**TaxInvoicesInlinePost**](docs/TaxInvoiceApi.md#taxinvoicesinlinepost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 *TaxInvoiceApi* | [**TaxInvoicesInlineWithPaymentPost**](docs/TaxInvoiceApi.md#taxinvoicesinlinewithpaymentpost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
 *TaxInvoiceApi* | [**TaxInvoicesPost**](docs/TaxInvoiceApi.md#taxinvoicespost) | **POST** /tax-invoices | Create tax invocie document.
@@ -229,7 +229,7 @@ Class | Method | HTTP request | Description
 *WithholdingTaxApi* | [**WithholdingTaxesIdDelete**](docs/WithholdingTaxApi.md#withholdingtaxesiddelete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 *WithholdingTaxApi* | [**WithholdingTaxesIdGet**](docs/WithholdingTaxApi.md#withholdingtaxesidget) | **GET** /withholding-taxes/{id} | Get withholding tax document.
 *WithholdingTaxApi* | [**WithholdingTaxesIdPut**](docs/WithholdingTaxApi.md#withholdingtaxesidput) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
-*WithholdingTaxApi* | [**WithholdingTaxesIdStatusKeyStatusIdPost**](docs/WithholdingTaxApi.md#withholdingtaxesidstatuskeystatusidpost) | **POST** /withholding-taxes/{id}/status-key/{statusId} | Change status of withholding tax document.
+*WithholdingTaxApi* | [**WithholdingTaxesIdStatusStatusIdPost**](docs/WithholdingTaxApi.md#withholdingtaxesidstatusstatusidpost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
 *WithholdingTaxApi* | [**WithholdingTaxesPost**](docs/WithholdingTaxApi.md#withholdingtaxespost) | **POST** /withholding-taxes | Create withholding tax document.
 *WithholdingTaxApi* | [**WithholdingTaxesSharedocumentPost**](docs/WithholdingTaxApi.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
 

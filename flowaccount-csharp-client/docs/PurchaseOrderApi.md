@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**PurchasesOrdersIdDelete**](PurchaseOrderApi.md#purchasesordersiddelete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**PurchasesOrdersIdGet**](PurchaseOrderApi.md#purchasesordersidget) | **GET** /purchases-orders/{id} | Get purchase order document.
 [**PurchasesOrdersIdPut**](PurchaseOrderApi.md#purchasesordersidput) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-[**PurchasesOrdersIdStatusKeyStatusIdPost**](PurchaseOrderApi.md#purchasesordersidstatuskeystatusidpost) | **POST** /purchases-orders/{id}/status-key/{statusId} | Change status of purchase order document.
+[**PurchasesOrdersIdStatusStatusIdPost**](PurchaseOrderApi.md#purchasesordersidstatusstatusidpost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
 [**PurchasesOrdersInlinePost**](PurchaseOrderApi.md#purchasesordersinlinepost) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
 [**PurchasesOrdersPost**](PurchaseOrderApi.md#purchasesorderspost) | **POST** /purchases-orders | Create purchase order document.
 [**PurchasesOrdersSharedocumentPost**](PurchaseOrderApi.md#purchasesorderssharedocumentpost) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
@@ -501,9 +501,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PurchasesOrdersIdStatusKeyStatusIdPost
+## PurchasesOrdersIdStatusStatusIdPost
 
-> InlineDocumentResponse PurchasesOrdersIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse PurchasesOrdersIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of purchase order document.
 
@@ -520,7 +520,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class PurchasesOrdersIdStatusKeyStatusIdPostExample
+    public class PurchasesOrdersIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -533,12 +533,12 @@ namespace Example
             try
             {
                 // Change status of purchase order document.
-                InlineDocumentResponse result = apiInstance.PurchasesOrdersIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.PurchasesOrdersIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling PurchaseOrderApi.PurchasesOrdersIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling PurchaseOrderApi.PurchasesOrdersIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

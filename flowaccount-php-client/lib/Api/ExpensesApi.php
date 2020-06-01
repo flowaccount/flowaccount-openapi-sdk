@@ -2723,7 +2723,7 @@ class ExpensesApi
     }
 
     /**
-     * Operation expensesIdStatusKeyStatusIdPost
+     * Operation expensesIdStatusStatusIdPost
      *
      * Change status of expenses document.
      *
@@ -2735,14 +2735,14 @@ class ExpensesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ExpenseInlineDocumentResponse
      */
-    public function expensesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function expensesIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->expensesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->expensesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation expensesIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation expensesIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of expenses document.
      *
@@ -2754,9 +2754,9 @@ class ExpensesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ExpenseInlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function expensesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function expensesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->expensesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->expensesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2832,7 +2832,7 @@ class ExpensesApi
     }
 
     /**
-     * Operation expensesIdStatusKeyStatusIdPostAsync
+     * Operation expensesIdStatusStatusIdPostAsync
      *
      * Change status of expenses document.
      *
@@ -2843,9 +2843,9 @@ class ExpensesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function expensesIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->expensesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->expensesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2854,7 +2854,7 @@ class ExpensesApi
     }
 
     /**
-     * Operation expensesIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation expensesIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of expenses document.
      *
@@ -2865,10 +2865,10 @@ class ExpensesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function expensesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function expensesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse';
-        $request = $this->expensesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->expensesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2905,7 +2905,7 @@ class ExpensesApi
     }
 
     /**
-     * Create request for operation 'expensesIdStatusKeyStatusIdPost'
+     * Create request for operation 'expensesIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2914,28 +2914,28 @@ class ExpensesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function expensesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function expensesIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling expensesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling expensesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling expensesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling expensesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling expensesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling expensesIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/expenses/{id}/status-key/{statusId}';
+        $resourcePath = '/expenses/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

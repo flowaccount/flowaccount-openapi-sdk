@@ -73,7 +73,7 @@ export declare class WithholdingTaxApi {
         response: http.IncomingMessage;
         body: WithholidingTaxDocumentResponse;
     }>;
-    withholdingTaxesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    withholdingTaxesIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

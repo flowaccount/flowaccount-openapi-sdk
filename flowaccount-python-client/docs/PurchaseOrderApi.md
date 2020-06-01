@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**purchases_orders_id_delete**](PurchaseOrderApi.md#purchases_orders_id_delete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**purchases_orders_id_get**](PurchaseOrderApi.md#purchases_orders_id_get) | **GET** /purchases-orders/{id} | Get purchase order document.
 [**purchases_orders_id_put**](PurchaseOrderApi.md#purchases_orders_id_put) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-[**purchases_orders_id_status_key_status_id_post**](PurchaseOrderApi.md#purchases_orders_id_status_key_status_id_post) | **POST** /purchases-orders/{id}/status-key/{statusId} | Change status of purchase order document.
+[**purchases_orders_id_status_status_id_post**](PurchaseOrderApi.md#purchases_orders_id_status_status_id_post) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
 [**purchases_orders_inline_post**](PurchaseOrderApi.md#purchases_orders_inline_post) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
 [**purchases_orders_post**](PurchaseOrderApi.md#purchases_orders_post) | **POST** /purchases-orders | Create purchase order document.
 [**purchases_orders_sharedocument_post**](PurchaseOrderApi.md#purchases_orders_sharedocument_post) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
@@ -374,8 +374,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **purchases_orders_id_status_key_status_id_post**
-> InlineDocumentResponse purchases_orders_id_status_key_status_id_post(authorization, id, status_id)
+# **purchases_orders_id_status_status_id_post**
+> InlineDocumentResponse purchases_orders_id_status_status_id_post(authorization, id, status_id)
 
 Change status of purchase order document.
 
@@ -398,10 +398,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of purchase order document.
-    api_response = api_instance.purchases_orders_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.purchases_orders_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PurchaseOrderApi->purchases_orders_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling PurchaseOrderApi->purchases_orders_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

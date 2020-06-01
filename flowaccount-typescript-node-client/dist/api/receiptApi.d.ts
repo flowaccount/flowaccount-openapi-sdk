@@ -95,7 +95,7 @@ export declare class ReceiptApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    receiptsIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    receiptsIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

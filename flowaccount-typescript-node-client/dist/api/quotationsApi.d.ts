@@ -74,7 +74,7 @@ export declare class QuotationsApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    quotationsIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    quotationsIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

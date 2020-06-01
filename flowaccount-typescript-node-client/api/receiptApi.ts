@@ -633,8 +633,8 @@ export class ReceiptApi {
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก
      */
-    public async receiptsIdStatusKeyStatusIdPost (authorization: string, id: string, statusId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
-        const localVarPath = this.basePath + '/receipts/{id}/status-key/{statusId}'
+    public async receiptsIdStatusStatusIdPost (authorization: string, id: string, statusId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+        const localVarPath = this.basePath + '/receipts/{id}/status/{statusId}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
             .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
         let localVarQueryParameters: any = {};
@@ -650,17 +650,17 @@ export class ReceiptApi {
 
         // verify required parameter 'authorization' is not null or undefined
         if (authorization === null || authorization === undefined) {
-            throw new Error('Required parameter authorization was null or undefined when calling receiptsIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter authorization was null or undefined when calling receiptsIdStatusStatusIdPost.');
         }
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling receiptsIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter id was null or undefined when calling receiptsIdStatusStatusIdPost.');
         }
 
         // verify required parameter 'statusId' is not null or undefined
         if (statusId === null || statusId === undefined) {
-            throw new Error('Required parameter statusId was null or undefined when calling receiptsIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter statusId was null or undefined when calling receiptsIdStatusStatusIdPost.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");

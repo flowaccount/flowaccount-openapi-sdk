@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**purchasesIdGet**](ReceivingInventoryApi.md#purchasesIdGet) | **GET** /purchases/{id} | Get receiving inventory document.
 [**purchasesIdPaymentPost**](ReceivingInventoryApi.md#purchasesIdPaymentPost) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
 [**purchasesIdPut**](ReceivingInventoryApi.md#purchasesIdPut) | **PUT** /purchases/{id} | Edit receiving inventory document.
-[**purchasesIdStatusKeyStatusIdPost**](ReceivingInventoryApi.md#purchasesIdStatusKeyStatusIdPost) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
+[**purchasesIdStatusStatusIdPost**](ReceivingInventoryApi.md#purchasesIdStatusStatusIdPost) | **POST** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
 [**purchasesInlinePost**](ReceivingInventoryApi.md#purchasesInlinePost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 [**purchasesInlineWithPaymentPost**](ReceivingInventoryApi.md#purchasesInlineWithPaymentPost) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
 [**purchasesPost**](ReceivingInventoryApi.md#purchasesPost) | **POST** /purchases | Create receiving inventory document.
@@ -438,9 +438,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## purchasesIdStatusKeyStatusIdPost
+## purchasesIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of receiving inventory document.
 
@@ -463,10 +463,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->purchasesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->purchasesIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReceivingInventoryApi->purchasesIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReceivingInventoryApi->purchasesIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

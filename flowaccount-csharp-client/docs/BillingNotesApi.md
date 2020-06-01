@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**BillingNotesIdDelete**](BillingNotesApi.md#billingnotesiddelete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**BillingNotesIdGet**](BillingNotesApi.md#billingnotesidget) | **GET** /billing-notes/{id} | Get billing notes document.
 [**BillingNotesIdPut**](BillingNotesApi.md#billingnotesidput) | **PUT** /billing-notes/{id} | Edit billing notes document.
-[**BillingNotesIdStatusKeyStatusIdPost**](BillingNotesApi.md#billingnotesidstatuskeystatusidpost) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
+[**BillingNotesIdStatusStatusIdPost**](BillingNotesApi.md#billingnotesidstatusstatusidpost) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
 [**BillingNotesInlinePost**](BillingNotesApi.md#billingnotesinlinepost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 [**BillingNotesPost**](BillingNotesApi.md#billingnotespost) | **POST** /billing-notes | Create billing notes document.
 [**BillingNotesSharedocumentPost**](BillingNotesApi.md#billingnotessharedocumentpost) | **POST** /billing-notes/sharedocument | Share link billing notes document.
@@ -501,9 +501,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## BillingNotesIdStatusKeyStatusIdPost
+## BillingNotesIdStatusStatusIdPost
 
-> InlineDocumentResponse BillingNotesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse BillingNotesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of billing notes document.
 
@@ -520,7 +520,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class BillingNotesIdStatusKeyStatusIdPostExample
+    public class BillingNotesIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -533,12 +533,12 @@ namespace Example
             try
             {
                 // Change status of billing notes document.
-                InlineDocumentResponse result = apiInstance.BillingNotesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.BillingNotesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling BillingNotesApi.BillingNotesIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling BillingNotesApi.BillingNotesIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

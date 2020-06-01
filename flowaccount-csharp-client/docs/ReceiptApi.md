@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**ReceiptsIdGet**](ReceiptApi.md#receiptsidget) | **GET** /receipts/{id} | Get receipt document.
 [**ReceiptsIdPaymentPost**](ReceiptApi.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
 [**ReceiptsIdPut**](ReceiptApi.md#receiptsidput) | **PUT** /receipts/{id} | Edit receipt document.
-[**ReceiptsIdStatusKeyStatusIdPost**](ReceiptApi.md#receiptsidstatuskeystatusidpost) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
+[**ReceiptsIdStatusStatusIdPost**](ReceiptApi.md#receiptsidstatusstatusidpost) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
 [**ReceiptsInlinePost**](ReceiptApi.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 [**ReceiptsInlineWithPaymentPost**](ReceiptApi.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
 [**ReceiptsPost**](ReceiptApi.md#receiptspost) | **POST** /receipts | Create receipt document.
@@ -585,9 +585,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ReceiptsIdStatusKeyStatusIdPost
+## ReceiptsIdStatusStatusIdPost
 
-> InlineDocumentResponse ReceiptsIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse ReceiptsIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of receipt document.
 
@@ -604,7 +604,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ReceiptsIdStatusKeyStatusIdPostExample
+    public class ReceiptsIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -617,12 +617,12 @@ namespace Example
             try
             {
                 // Change status of receipt document.
-                InlineDocumentResponse result = apiInstance.ReceiptsIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.ReceiptsIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ReceiptApi.ReceiptsIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling ReceiptApi.ReceiptsIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

@@ -437,9 +437,9 @@ class WithholdingTaxApi {
             });
         });
     }
-    withholdingTaxesIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
+    withholdingTaxesIdStatusStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/withholding-taxes/{id}/status-key/{statusId}'
+            const localVarPath = this.basePath + '/withholding-taxes/{id}/status/{statusId}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
@@ -453,13 +453,13 @@ class WithholdingTaxApi {
             }
             let localVarFormParams = {};
             if (authorization === null || authorization === undefined) {
-                throw new Error('Required parameter authorization was null or undefined when calling withholdingTaxesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter authorization was null or undefined when calling withholdingTaxesIdStatusStatusIdPost.');
             }
             if (id === null || id === undefined) {
-                throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdStatusStatusIdPost.');
             }
             if (statusId === null || statusId === undefined) {
-                throw new Error('Required parameter statusId was null or undefined when calling withholdingTaxesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter statusId was null or undefined when calling withholdingTaxesIdStatusStatusIdPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);

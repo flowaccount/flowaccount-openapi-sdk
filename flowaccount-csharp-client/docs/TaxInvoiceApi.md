@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**TaxInvoicesIdGet**](TaxInvoiceApi.md#taxinvoicesidget) | **GET** /tax-invoices/{id} | Get tax invoices document.
 [**TaxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxinvoicesidpaymentpost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
 [**TaxInvoicesIdPut**](TaxInvoiceApi.md#taxinvoicesidput) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
-[**TaxInvoicesIdStatusKeyStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatuskeystatusidpost) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
+[**TaxInvoicesIdStatusStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatusstatusidpost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status of tax invoices document.
 [**TaxInvoicesInlinePost**](TaxInvoiceApi.md#taxinvoicesinlinepost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**TaxInvoicesInlineWithPaymentPost**](TaxInvoiceApi.md#taxinvoicesinlinewithpaymentpost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
 [**TaxInvoicesPost**](TaxInvoiceApi.md#taxinvoicespost) | **POST** /tax-invoices | Create tax invocie document.
@@ -585,9 +585,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## TaxInvoicesIdStatusKeyStatusIdPost
+## TaxInvoicesIdStatusStatusIdPost
 
-> InlineDocumentResponse TaxInvoicesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse TaxInvoicesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of tax invoices document.
 
@@ -604,7 +604,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class TaxInvoicesIdStatusKeyStatusIdPostExample
+    public class TaxInvoicesIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -617,12 +617,12 @@ namespace Example
             try
             {
                 // Change status of tax invoices document.
-                InlineDocumentResponse result = apiInstance.TaxInvoicesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.TaxInvoicesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

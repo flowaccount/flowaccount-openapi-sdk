@@ -1886,7 +1886,7 @@ class PurchaseOrderApi
     }
 
     /**
-     * Operation purchasesOrdersIdStatusKeyStatusIdPost
+     * Operation purchasesOrdersIdStatusStatusIdPost
      *
      * Change status of purchase order document.
      *
@@ -1898,14 +1898,14 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function purchasesOrdersIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function purchasesOrdersIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->purchasesOrdersIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->purchasesOrdersIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation purchasesOrdersIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation purchasesOrdersIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of purchase order document.
      *
@@ -1917,9 +1917,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function purchasesOrdersIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function purchasesOrdersIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->purchasesOrdersIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->purchasesOrdersIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1995,7 +1995,7 @@ class PurchaseOrderApi
     }
 
     /**
-     * Operation purchasesOrdersIdStatusKeyStatusIdPostAsync
+     * Operation purchasesOrdersIdStatusStatusIdPostAsync
      *
      * Change status of purchase order document.
      *
@@ -2006,9 +2006,9 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function purchasesOrdersIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function purchasesOrdersIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->purchasesOrdersIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->purchasesOrdersIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2017,7 +2017,7 @@ class PurchaseOrderApi
     }
 
     /**
-     * Operation purchasesOrdersIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation purchasesOrdersIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of purchase order document.
      *
@@ -2028,10 +2028,10 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function purchasesOrdersIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function purchasesOrdersIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->purchasesOrdersIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->purchasesOrdersIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2068,7 +2068,7 @@ class PurchaseOrderApi
     }
 
     /**
-     * Create request for operation 'purchasesOrdersIdStatusKeyStatusIdPost'
+     * Create request for operation 'purchasesOrdersIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2077,28 +2077,28 @@ class PurchaseOrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function purchasesOrdersIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function purchasesOrdersIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling purchasesOrdersIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling purchasesOrdersIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling purchasesOrdersIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling purchasesOrdersIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling purchasesOrdersIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling purchasesOrdersIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/purchases-orders/{id}/status-key/{statusId}';
+        $resourcePath = '/purchases-orders/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**receipts_id_get**](ReceiptApi.md#receipts_id_get) | **GET** /receipts/{id} | Get receipt document.
 [**receipts_id_payment_post**](ReceiptApi.md#receipts_id_payment_post) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
 [**receipts_id_put**](ReceiptApi.md#receipts_id_put) | **PUT** /receipts/{id} | Edit receipt document.
-[**receipts_id_status_key_status_id_post**](ReceiptApi.md#receipts_id_status_key_status_id_post) | **POST** /receipts/{id}/status-key/{statusId} | Change status of receipt document.
+[**receipts_id_status_status_id_post**](ReceiptApi.md#receipts_id_status_status_id_post) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
 [**receipts_inline_post**](ReceiptApi.md#receipts_inline_post) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
 [**receipts_inline_with_payment_post**](ReceiptApi.md#receipts_inline_with_payment_post) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
 [**receipts_post**](ReceiptApi.md#receipts_post) | **POST** /receipts | Create receipt document.
@@ -437,8 +437,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **receipts_id_status_key_status_id_post**
-> InlineDocumentResponse receipts_id_status_key_status_id_post(authorization, id, status_id)
+# **receipts_id_status_status_id_post**
+> InlineDocumentResponse receipts_id_status_status_id_post(authorization, id, status_id)
 
 Change status of receipt document.
 
@@ -461,10 +461,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of receipt document.
-    api_response = api_instance.receipts_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.receipts_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReceiptApi->receipts_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling ReceiptApi->receipts_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

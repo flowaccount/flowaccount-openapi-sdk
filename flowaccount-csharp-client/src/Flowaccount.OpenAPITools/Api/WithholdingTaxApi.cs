@@ -183,7 +183,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>WithholidingTaxDocumentResponse</returns>
-        WithholidingTaxDocumentResponse WithholdingTaxesIdStatusKeyStatusIdPost (string authorization, string id, string statusId);
+        WithholidingTaxDocumentResponse WithholdingTaxesIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of withholding tax document.
@@ -196,7 +196,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of WithholidingTaxDocumentResponse</returns>
-        ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
+        ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create withholding tax document.
         /// </summary>
@@ -404,7 +404,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of WithholidingTaxDocumentResponse</returns>
-        System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of withholding tax document.
@@ -417,7 +417,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (WithholidingTaxDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create withholding tax document.
         /// </summary>
@@ -1529,9 +1529,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>WithholidingTaxDocumentResponse</returns>
-        public WithholidingTaxDocumentResponse WithholdingTaxesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+        public WithholidingTaxDocumentResponse WithholdingTaxesIdStatusStatusIdPost (string authorization, string id, string statusId)
         {
-             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = WithholdingTaxesIdStatusKeyStatusIdPostWithHttpInfo(authorization, id, statusId);
+             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = WithholdingTaxesIdStatusStatusIdPostWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
         }
 
@@ -1543,19 +1543,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of WithholidingTaxDocumentResponse</returns>
-        public ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
+        public ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling WithholdingTaxApi->WithholdingTaxesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling WithholdingTaxApi->WithholdingTaxesIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling WithholdingTaxApi->WithholdingTaxesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling WithholdingTaxApi->WithholdingTaxesIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling WithholdingTaxApi->WithholdingTaxesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling WithholdingTaxApi->WithholdingTaxesIdStatusStatusIdPost");
 
-            var localVarPath = "/withholding-taxes/{id}/status-key/{statusId}";
+            var localVarPath = "/withholding-taxes/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1590,7 +1590,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WithholdingTaxesIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("WithholdingTaxesIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1607,9 +1607,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of WithholidingTaxDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesIdStatusStatusIdPostAsync (string authorization, string id, string statusId)
         {
-             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = await WithholdingTaxesIdStatusKeyStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
+             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = await WithholdingTaxesIdStatusStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
 
         }
@@ -1622,19 +1622,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (WithholidingTaxDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling WithholdingTaxApi->WithholdingTaxesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling WithholdingTaxApi->WithholdingTaxesIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling WithholdingTaxApi->WithholdingTaxesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling WithholdingTaxApi->WithholdingTaxesIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling WithholdingTaxApi->WithholdingTaxesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling WithholdingTaxApi->WithholdingTaxesIdStatusStatusIdPost");
 
-            var localVarPath = "/withholding-taxes/{id}/status-key/{statusId}";
+            var localVarPath = "/withholding-taxes/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1669,7 +1669,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WithholdingTaxesIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("WithholdingTaxesIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

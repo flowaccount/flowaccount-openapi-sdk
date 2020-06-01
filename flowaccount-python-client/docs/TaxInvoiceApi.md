@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**tax_invoices_id_get**](TaxInvoiceApi.md#tax_invoices_id_get) | **GET** /tax-invoices/{id} | Get tax invoices document.
 [**tax_invoices_id_payment_post**](TaxInvoiceApi.md#tax_invoices_id_payment_post) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
 [**tax_invoices_id_put**](TaxInvoiceApi.md#tax_invoices_id_put) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
-[**tax_invoices_id_status_key_status_id_post**](TaxInvoiceApi.md#tax_invoices_id_status_key_status_id_post) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
+[**tax_invoices_id_status_status_id_post**](TaxInvoiceApi.md#tax_invoices_id_status_status_id_post) | **POST** /tax-invoices/{id}/status/{statusId} | Change status of tax invoices document.
 [**tax_invoices_inline_post**](TaxInvoiceApi.md#tax_invoices_inline_post) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**tax_invoices_inline_with_payment_post**](TaxInvoiceApi.md#tax_invoices_inline_with_payment_post) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
 [**tax_invoices_post**](TaxInvoiceApi.md#tax_invoices_post) | **POST** /tax-invoices | Create tax invocie document.
@@ -437,8 +437,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **tax_invoices_id_status_key_status_id_post**
-> InlineDocumentResponse tax_invoices_id_status_key_status_id_post(authorization, id, status_id)
+# **tax_invoices_id_status_status_id_post**
+> InlineDocumentResponse tax_invoices_id_status_status_id_post(authorization, id, status_id)
 
 Change status of tax invoices document.
 
@@ -461,10 +461,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of tax invoices document.
-    api_response = api_instance.tax_invoices_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.tax_invoices_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TaxInvoiceApi->tax_invoices_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling TaxInvoiceApi->tax_invoices_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

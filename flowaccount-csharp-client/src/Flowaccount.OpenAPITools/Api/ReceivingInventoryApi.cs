@@ -208,7 +208,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse PurchasesIdStatusKeyStatusIdPost (string authorization, string id, string statusId);
+        InlineDocumentResponse PurchasesIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of receiving inventory document.
@@ -221,7 +221,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> PurchasesIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
+        ApiResponse<InlineDocumentResponse> PurchasesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create receiving inventory document with discount and tax inline.
         /// </summary>
@@ -523,7 +523,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of receiving inventory document.
@@ -536,7 +536,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create receiving inventory document with discount and tax inline.
         /// </summary>
@@ -1890,9 +1890,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse PurchasesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+        public InlineDocumentResponse PurchasesIdStatusStatusIdPost (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = PurchasesIdStatusKeyStatusIdPostWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = PurchasesIdStatusStatusIdPostWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
         }
 
@@ -1904,19 +1904,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> PurchasesIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
+        public ApiResponse<InlineDocumentResponse> PurchasesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceivingInventoryApi->PurchasesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceivingInventoryApi->PurchasesIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ReceivingInventoryApi->PurchasesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ReceivingInventoryApi->PurchasesIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceivingInventoryApi->PurchasesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceivingInventoryApi->PurchasesIdStatusStatusIdPost");
 
-            var localVarPath = "/purchases/{id}/status-key/{statusId}";
+            var localVarPath = "/purchases/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1951,7 +1951,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PurchasesIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("PurchasesIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1968,9 +1968,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesIdStatusStatusIdPostAsync (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await PurchasesIdStatusKeyStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await PurchasesIdStatusStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
 
         }
@@ -1983,19 +1983,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceivingInventoryApi->PurchasesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceivingInventoryApi->PurchasesIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ReceivingInventoryApi->PurchasesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ReceivingInventoryApi->PurchasesIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceivingInventoryApi->PurchasesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceivingInventoryApi->PurchasesIdStatusStatusIdPost");
 
-            var localVarPath = "/purchases/{id}/status-key/{statusId}";
+            var localVarPath = "/purchases/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2030,7 +2030,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PurchasesIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("PurchasesIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

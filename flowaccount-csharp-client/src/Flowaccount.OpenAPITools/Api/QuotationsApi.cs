@@ -183,7 +183,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse QuotationsIdStatusKeyStatusIdPost (string authorization, string id, string statusId);
+        InlineDocumentResponse QuotationsIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of quotations document.
@@ -196,7 +196,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> QuotationsIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
+        ApiResponse<InlineDocumentResponse> QuotationsIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create quotations document with discount and tax inline.
         /// </summary>
@@ -427,7 +427,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of quotations document.
@@ -440,7 +440,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create quotations document with discount and tax inline.
         /// </summary>
@@ -1575,9 +1575,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse QuotationsIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+        public InlineDocumentResponse QuotationsIdStatusStatusIdPost (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = QuotationsIdStatusKeyStatusIdPostWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = QuotationsIdStatusStatusIdPostWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
         }
 
@@ -1589,19 +1589,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> QuotationsIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
+        public ApiResponse<InlineDocumentResponse> QuotationsIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling QuotationsApi->QuotationsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling QuotationsApi->QuotationsIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling QuotationsApi->QuotationsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling QuotationsApi->QuotationsIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling QuotationsApi->QuotationsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling QuotationsApi->QuotationsIdStatusStatusIdPost");
 
-            var localVarPath = "/quotations/{id}/status-key/{statusId}";
+            var localVarPath = "/quotations/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1636,7 +1636,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("QuotationsIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("QuotationsIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1653,9 +1653,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsIdStatusStatusIdPostAsync (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await QuotationsIdStatusKeyStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await QuotationsIdStatusStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
 
         }
@@ -1668,19 +1668,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling QuotationsApi->QuotationsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling QuotationsApi->QuotationsIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling QuotationsApi->QuotationsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling QuotationsApi->QuotationsIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling QuotationsApi->QuotationsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling QuotationsApi->QuotationsIdStatusStatusIdPost");
 
-            var localVarPath = "/quotations/{id}/status-key/{statusId}";
+            var localVarPath = "/quotations/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1715,7 +1715,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("QuotationsIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("QuotationsIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

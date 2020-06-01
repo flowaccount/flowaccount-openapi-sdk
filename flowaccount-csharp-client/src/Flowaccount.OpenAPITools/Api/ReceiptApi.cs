@@ -208,7 +208,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse ReceiptsIdStatusKeyStatusIdPost (string authorization, string id, string statusId);
+        InlineDocumentResponse ReceiptsIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of receipt document.
@@ -221,7 +221,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> ReceiptsIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
+        ApiResponse<InlineDocumentResponse> ReceiptsIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create receipt document with discount and tax inline.
         /// </summary>
@@ -523,7 +523,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of receipt document.
@@ -536,7 +536,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create receipt document with discount and tax inline.
         /// </summary>
@@ -1890,9 +1890,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse ReceiptsIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+        public InlineDocumentResponse ReceiptsIdStatusStatusIdPost (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = ReceiptsIdStatusKeyStatusIdPostWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = ReceiptsIdStatusStatusIdPostWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
         }
 
@@ -1904,19 +1904,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> ReceiptsIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
+        public ApiResponse<InlineDocumentResponse> ReceiptsIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceiptApi->ReceiptsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceiptApi->ReceiptsIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ReceiptApi->ReceiptsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ReceiptApi->ReceiptsIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceiptApi->ReceiptsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceiptApi->ReceiptsIdStatusStatusIdPost");
 
-            var localVarPath = "/receipts/{id}/status-key/{statusId}";
+            var localVarPath = "/receipts/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1951,7 +1951,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReceiptsIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("ReceiptsIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1968,9 +1968,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdStatusStatusIdPostAsync (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await ReceiptsIdStatusKeyStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await ReceiptsIdStatusStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
 
         }
@@ -1983,19 +1983,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceiptApi->ReceiptsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling ReceiptApi->ReceiptsIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ReceiptApi->ReceiptsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ReceiptApi->ReceiptsIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceiptApi->ReceiptsIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling ReceiptApi->ReceiptsIdStatusStatusIdPost");
 
-            var localVarPath = "/receipts/{id}/status-key/{statusId}";
+            var localVarPath = "/receipts/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2030,7 +2030,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReceiptsIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("ReceiptsIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

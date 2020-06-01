@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**expensesIdGet**](ExpensesApi.md#expensesIdGet) | **GET** /expenses/{id} | Get expenses document.
 [**expensesIdPaymentPost**](ExpensesApi.md#expensesIdPaymentPost) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
 [**expensesIdPut**](ExpensesApi.md#expensesIdPut) | **PUT** /expenses/{id} | Edit expenses document.
-[**expensesIdStatusKeyStatusIdPost**](ExpensesApi.md#expensesIdStatusKeyStatusIdPost) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
+[**expensesIdStatusStatusIdPost**](ExpensesApi.md#expensesIdStatusStatusIdPost) | **POST** /expenses/{id}/status/{statusId} | Change status of expenses document.
 [**expensesInlinePost**](ExpensesApi.md#expensesInlinePost) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 [**expensesInlineWithPaymentPost**](ExpensesApi.md#expensesInlineWithPaymentPost) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
 [**expensesPost**](ExpensesApi.md#expensesPost) | **POST** /expenses | Create expenses document.
@@ -552,9 +552,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## expensesIdStatusKeyStatusIdPost
+## expensesIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of expenses document.
 
@@ -577,10 +577,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> received = รับใบเสร็จแล้ว <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->expensesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->expensesIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ExpensesApi->expensesIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ExpensesApi->expensesIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

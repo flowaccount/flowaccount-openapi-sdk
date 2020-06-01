@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**cash_invoices_id_get**](CashInvoiceApi.md#cash_invoices_id_get) | **GET** /cash-invoices/{id} | Get cash invoices document.
 [**cash_invoices_id_payment_post**](CashInvoiceApi.md#cash_invoices_id_payment_post) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
 [**cash_invoices_id_put**](CashInvoiceApi.md#cash_invoices_id_put) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
-[**cash_invoices_id_status_key_status_id_post**](CashInvoiceApi.md#cash_invoices_id_status_key_status_id_post) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
+[**cash_invoices_id_status_status_id_post**](CashInvoiceApi.md#cash_invoices_id_status_status_id_post) | **POST** /cash-invoices/{id}/status/{statusId} | Change status of cash invoices document.
 [**cash_invoices_inline_post**](CashInvoiceApi.md#cash_invoices_inline_post) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 [**cash_invoices_inline_with_payment_post**](CashInvoiceApi.md#cash_invoices_inline_with_payment_post) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
 [**cash_invoices_post**](CashInvoiceApi.md#cash_invoices_post) | **POST** /cash-invoices | Create cash invoices document.
@@ -437,8 +437,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cash_invoices_id_status_key_status_id_post**
-> InlineDocumentResponse cash_invoices_id_status_key_status_id_post(authorization, id, status_id)
+# **cash_invoices_id_status_status_id_post**
+> InlineDocumentResponse cash_invoices_id_status_status_id_post(authorization, id, status_id)
 
 Change status of cash invoices document.
 
@@ -461,10 +461,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of cash invoices document.
-    api_response = api_instance.cash_invoices_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.cash_invoices_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling CashInvoiceApi->cash_invoices_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

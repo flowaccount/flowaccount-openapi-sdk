@@ -437,9 +437,9 @@ class QuotationsApi {
             });
         });
     }
-    quotationsIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
+    quotationsIdStatusStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/quotations/{id}/status-key/{statusId}'
+            const localVarPath = this.basePath + '/quotations/{id}/status/{statusId}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
@@ -453,13 +453,13 @@ class QuotationsApi {
             }
             let localVarFormParams = {};
             if (authorization === null || authorization === undefined) {
-                throw new Error('Required parameter authorization was null or undefined when calling quotationsIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter authorization was null or undefined when calling quotationsIdStatusStatusIdPost.');
             }
             if (id === null || id === undefined) {
-                throw new Error('Required parameter id was null or undefined when calling quotationsIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter id was null or undefined when calling quotationsIdStatusStatusIdPost.');
             }
             if (statusId === null || statusId === undefined) {
-                throw new Error('Required parameter statusId was null or undefined when calling quotationsIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter statusId was null or undefined when calling quotationsIdStatusStatusIdPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);

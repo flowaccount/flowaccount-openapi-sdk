@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**billingNotesIdDelete**](BillingNotesApi.md#billingNotesIdDelete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**billingNotesIdGet**](BillingNotesApi.md#billingNotesIdGet) | **GET** /billing-notes/{id} | Get billing notes document.
 [**billingNotesIdPut**](BillingNotesApi.md#billingNotesIdPut) | **PUT** /billing-notes/{id} | Edit billing notes document.
-[**billingNotesIdStatusKeyStatusIdPost**](BillingNotesApi.md#billingNotesIdStatusKeyStatusIdPost) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
+[**billingNotesIdStatusStatusIdPost**](BillingNotesApi.md#billingNotesIdStatusStatusIdPost) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
 [**billingNotesInlinePost**](BillingNotesApi.md#billingNotesInlinePost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 [**billingNotesPost**](BillingNotesApi.md#billingNotesPost) | **POST** /billing-notes | Create billing notes document.
 [**billingNotesSharedocumentPost**](BillingNotesApi.md#billingNotesSharedocumentPost) | **POST** /billing-notes/sharedocument | Share link billing notes document.
@@ -375,9 +375,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## billingNotesIdStatusKeyStatusIdPost
+## billingNotesIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse billingNotesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse billingNotesIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of billing notes document.
 
@@ -400,10 +400,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รอวางบิล <br> approved = วางบิลแล้ว <br> approvedandprocessed = เปิดบิลแล้ว <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->billingNotesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->billingNotesIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BillingNotesApi->billingNotesIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingNotesApi->billingNotesIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

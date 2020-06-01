@@ -773,13 +773,13 @@ class BillingNotesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def billing_notes_id_status_key_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
+    def billing_notes_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
         """Change status of billing notes document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.billing_notes_id_status_key_status_id_post(authorization, id, status_id, async_req=True)
+        >>> thread = api.billing_notes_id_status_status_id_post(authorization, id, status_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -798,15 +798,15 @@ class BillingNotesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.billing_notes_id_status_key_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
+        return self.billing_notes_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
-    def billing_notes_id_status_key_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
+    def billing_notes_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
         """Change status of billing notes document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.billing_notes_id_status_key_status_id_post_with_http_info(authorization, id, status_id, async_req=True)
+        >>> thread = api.billing_notes_id_status_status_id_post_with_http_info(authorization, id, status_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -839,22 +839,22 @@ class BillingNotesApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method billing_notes_id_status_key_status_id_post" % key
+                    " to method billing_notes_id_status_status_id_post" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'authorization' is set
         if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
                                                         local_var_params['authorization'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `authorization` when calling `billing_notes_id_status_key_status_id_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `authorization` when calling `billing_notes_id_status_status_id_post`")  # noqa: E501
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `billing_notes_id_status_key_status_id_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `billing_notes_id_status_status_id_post`")  # noqa: E501
         # verify the required parameter 'status_id' is set
         if self.api_client.client_side_validation and ('status_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['status_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `status_id` when calling `billing_notes_id_status_key_status_id_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `status_id` when calling `billing_notes_id_status_status_id_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -882,7 +882,7 @@ class BillingNotesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/billing-notes/{id}/status-key/{statusId}', 'POST',
+            '/billing-notes/{id}/status/{statusId}', 'POST',
             path_params,
             query_params,
             header_params,

@@ -502,9 +502,9 @@ class CashInvoiceApi {
             });
         });
     }
-    cashInvoicesIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
+    cashInvoicesIdStatusStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/cash-invoices/{id}/status-key/{statusId}'
+            const localVarPath = this.basePath + '/cash-invoices/{id}/status/{statusId}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
@@ -518,13 +518,13 @@ class CashInvoiceApi {
             }
             let localVarFormParams = {};
             if (authorization === null || authorization === undefined) {
-                throw new Error('Required parameter authorization was null or undefined when calling cashInvoicesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter authorization was null or undefined when calling cashInvoicesIdStatusStatusIdPost.');
             }
             if (id === null || id === undefined) {
-                throw new Error('Required parameter id was null or undefined when calling cashInvoicesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter id was null or undefined when calling cashInvoicesIdStatusStatusIdPost.');
             }
             if (statusId === null || statusId === undefined) {
-                throw new Error('Required parameter statusId was null or undefined when calling cashInvoicesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter statusId was null or undefined when calling cashInvoicesIdStatusStatusIdPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);

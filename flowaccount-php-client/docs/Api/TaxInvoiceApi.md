@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**taxInvoicesIdGet**](TaxInvoiceApi.md#taxInvoicesIdGet) | **GET** /tax-invoices/{id} | Get tax invoices document.
 [**taxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxInvoicesIdPaymentPost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
 [**taxInvoicesIdPut**](TaxInvoiceApi.md#taxInvoicesIdPut) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
-[**taxInvoicesIdStatusKeyStatusIdPost**](TaxInvoiceApi.md#taxInvoicesIdStatusKeyStatusIdPost) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
+[**taxInvoicesIdStatusStatusIdPost**](TaxInvoiceApi.md#taxInvoicesIdStatusStatusIdPost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status of tax invoices document.
 [**taxInvoicesInlinePost**](TaxInvoiceApi.md#taxInvoicesInlinePost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**taxInvoicesInlineWithPaymentPost**](TaxInvoiceApi.md#taxInvoicesInlineWithPaymentPost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
 [**taxInvoicesPost**](TaxInvoiceApi.md#taxInvoicesPost) | **POST** /tax-invoices | Create tax invocie document.
@@ -438,9 +438,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## taxInvoicesIdStatusKeyStatusIdPost
+## taxInvoicesIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of tax invoices document.
 
@@ -463,10 +463,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> invoicedelivered = รอเก็บเงิน <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->taxInvoicesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->taxInvoicesIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxInvoiceApi->taxInvoicesIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxInvoiceApi->taxInvoicesIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

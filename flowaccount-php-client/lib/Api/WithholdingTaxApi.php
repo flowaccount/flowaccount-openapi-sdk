@@ -1886,7 +1886,7 @@ class WithholdingTaxApi
     }
 
     /**
-     * Operation withholdingTaxesIdStatusKeyStatusIdPost
+     * Operation withholdingTaxesIdStatusStatusIdPost
      *
      * Change status of withholding tax document.
      *
@@ -1898,14 +1898,14 @@ class WithholdingTaxApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\WithholidingTaxDocumentResponse
      */
-    public function withholdingTaxesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function withholdingTaxesIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->withholdingTaxesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->withholdingTaxesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation withholdingTaxesIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation withholdingTaxesIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of withholding tax document.
      *
@@ -1917,9 +1917,9 @@ class WithholdingTaxApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\WithholidingTaxDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function withholdingTaxesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function withholdingTaxesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->withholdingTaxesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->withholdingTaxesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1995,7 +1995,7 @@ class WithholdingTaxApi
     }
 
     /**
-     * Operation withholdingTaxesIdStatusKeyStatusIdPostAsync
+     * Operation withholdingTaxesIdStatusStatusIdPostAsync
      *
      * Change status of withholding tax document.
      *
@@ -2006,9 +2006,9 @@ class WithholdingTaxApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function withholdingTaxesIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function withholdingTaxesIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->withholdingTaxesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->withholdingTaxesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2017,7 +2017,7 @@ class WithholdingTaxApi
     }
 
     /**
-     * Operation withholdingTaxesIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation withholdingTaxesIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of withholding tax document.
      *
@@ -2028,10 +2028,10 @@ class WithholdingTaxApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function withholdingTaxesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function withholdingTaxesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\WithholidingTaxDocumentResponse';
-        $request = $this->withholdingTaxesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->withholdingTaxesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2068,7 +2068,7 @@ class WithholdingTaxApi
     }
 
     /**
-     * Create request for operation 'withholdingTaxesIdStatusKeyStatusIdPost'
+     * Create request for operation 'withholdingTaxesIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2077,28 +2077,28 @@ class WithholdingTaxApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function withholdingTaxesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function withholdingTaxesIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling withholdingTaxesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling withholdingTaxesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling withholdingTaxesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling withholdingTaxesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling withholdingTaxesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling withholdingTaxesIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/withholding-taxes/{id}/status-key/{statusId}';
+        $resourcePath = '/withholding-taxes/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

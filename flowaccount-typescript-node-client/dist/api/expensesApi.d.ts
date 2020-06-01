@@ -112,7 +112,7 @@ export declare class ExpensesApi {
         response: http.IncomingMessage;
         body: ExpenseInlineDocumentResponse;
     }>;
-    expensesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    expensesIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

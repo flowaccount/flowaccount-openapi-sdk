@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**billing_notes_id_delete**](BillingNotesApi.md#billing_notes_id_delete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**billing_notes_id_get**](BillingNotesApi.md#billing_notes_id_get) | **GET** /billing-notes/{id} | Get billing notes document.
 [**billing_notes_id_put**](BillingNotesApi.md#billing_notes_id_put) | **PUT** /billing-notes/{id} | Edit billing notes document.
-[**billing_notes_id_status_key_status_id_post**](BillingNotesApi.md#billing_notes_id_status_key_status_id_post) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
+[**billing_notes_id_status_status_id_post**](BillingNotesApi.md#billing_notes_id_status_status_id_post) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
 [**billing_notes_inline_post**](BillingNotesApi.md#billing_notes_inline_post) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 [**billing_notes_post**](BillingNotesApi.md#billing_notes_post) | **POST** /billing-notes | Create billing notes document.
 [**billing_notes_sharedocument_post**](BillingNotesApi.md#billing_notes_sharedocument_post) | **POST** /billing-notes/sharedocument | Share link billing notes document.
@@ -374,8 +374,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **billing_notes_id_status_key_status_id_post**
-> InlineDocumentResponse billing_notes_id_status_key_status_id_post(authorization, id, status_id)
+# **billing_notes_id_status_status_id_post**
+> InlineDocumentResponse billing_notes_id_status_status_id_post(authorization, id, status_id)
 
 Change status of billing notes document.
 
@@ -398,10 +398,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of billing notes document.
-    api_response = api_instance.billing_notes_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.billing_notes_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling BillingNotesApi->billing_notes_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**PurchasesIdGet**](ReceivingInventoryApi.md#purchasesidget) | **GET** /purchases/{id} | Get receiving inventory document.
 [**PurchasesIdPaymentPost**](ReceivingInventoryApi.md#purchasesidpaymentpost) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
 [**PurchasesIdPut**](ReceivingInventoryApi.md#purchasesidput) | **PUT** /purchases/{id} | Edit receiving inventory document.
-[**PurchasesIdStatusKeyStatusIdPost**](ReceivingInventoryApi.md#purchasesidstatuskeystatusidpost) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
+[**PurchasesIdStatusStatusIdPost**](ReceivingInventoryApi.md#purchasesidstatusstatusidpost) | **POST** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
 [**PurchasesInlinePost**](ReceivingInventoryApi.md#purchasesinlinepost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 [**PurchasesInlineWithPaymentPost**](ReceivingInventoryApi.md#purchasesinlinewithpaymentpost) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
 [**PurchasesPost**](ReceivingInventoryApi.md#purchasespost) | **POST** /purchases | Create receiving inventory document.
@@ -585,9 +585,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PurchasesIdStatusKeyStatusIdPost
+## PurchasesIdStatusStatusIdPost
 
-> InlineDocumentResponse PurchasesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse PurchasesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of receiving inventory document.
 
@@ -604,7 +604,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class PurchasesIdStatusKeyStatusIdPostExample
+    public class PurchasesIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -617,12 +617,12 @@ namespace Example
             try
             {
                 // Change status of receiving inventory document.
-                InlineDocumentResponse result = apiInstance.PurchasesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.PurchasesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ReceivingInventoryApi.PurchasesIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling ReceivingInventoryApi.PurchasesIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

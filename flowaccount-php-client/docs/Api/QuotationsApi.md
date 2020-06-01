@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**quotationsIdDelete**](QuotationsApi.md#quotationsIdDelete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**quotationsIdGet**](QuotationsApi.md#quotationsIdGet) | **GET** /quotations/{id} | Get quotations document.
 [**quotationsIdPut**](QuotationsApi.md#quotationsIdPut) | **PUT** /quotations/{id} | Edit quotations document.
-[**quotationsIdStatusKeyStatusIdPost**](QuotationsApi.md#quotationsIdStatusKeyStatusIdPost) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
+[**quotationsIdStatusStatusIdPost**](QuotationsApi.md#quotationsIdStatusStatusIdPost) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
 [**quotationsInlinePost**](QuotationsApi.md#quotationsInlinePost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 [**quotationsPost**](QuotationsApi.md#quotationsPost) | **POST** /quotations | Create quotations document.
 [**quotationsSharedocumentPost**](QuotationsApi.md#quotationsSharedocumentPost) | **POST** /quotations/sharedocument | Share link quotations document.
@@ -375,9 +375,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## quotationsIdStatusKeyStatusIdPost
+## quotationsIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse quotationsIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse quotationsIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of quotations document.
 
@@ -400,10 +400,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> approvedandprocessed = ดำเนินการแล้ว <br> rejected = ยกเลิก
 
 try {
-    $result = $apiInstance->quotationsIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->quotationsIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling QuotationsApi->quotationsIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling QuotationsApi->quotationsIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

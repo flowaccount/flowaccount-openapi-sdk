@@ -95,7 +95,7 @@ export declare class ReceivingInventoryApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    purchasesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    purchasesIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

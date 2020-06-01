@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**ExpensesIdGet**](ExpensesApi.md#expensesidget) | **GET** /expenses/{id} | Get expenses document.
 [**ExpensesIdPaymentPost**](ExpensesApi.md#expensesidpaymentpost) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
 [**ExpensesIdPut**](ExpensesApi.md#expensesidput) | **PUT** /expenses/{id} | Edit expenses document.
-[**ExpensesIdStatusKeyStatusIdPost**](ExpensesApi.md#expensesidstatuskeystatusidpost) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
+[**ExpensesIdStatusStatusIdPost**](ExpensesApi.md#expensesidstatusstatusidpost) | **POST** /expenses/{id}/status/{statusId} | Change status of expenses document.
 [**ExpensesInlinePost**](ExpensesApi.md#expensesinlinepost) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 [**ExpensesInlineWithPaymentPost**](ExpensesApi.md#expensesinlinewithpaymentpost) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
 [**ExpensesPost**](ExpensesApi.md#expensespost) | **POST** /expenses | Create expenses document.
@@ -741,9 +741,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ExpensesIdStatusKeyStatusIdPost
+## ExpensesIdStatusStatusIdPost
 
-> ExpenseInlineDocumentResponse ExpensesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> ExpenseInlineDocumentResponse ExpensesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of expenses document.
 
@@ -760,7 +760,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ExpensesIdStatusKeyStatusIdPostExample
+    public class ExpensesIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -773,12 +773,12 @@ namespace Example
             try
             {
                 // Change status of expenses document.
-                ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ExpensesApi.ExpensesIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling ExpensesApi.ExpensesIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

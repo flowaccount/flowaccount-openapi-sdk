@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**QuotationsIdDelete**](QuotationsApi.md#quotationsiddelete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**QuotationsIdGet**](QuotationsApi.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document.
 [**QuotationsIdPut**](QuotationsApi.md#quotationsidput) | **PUT** /quotations/{id} | Edit quotations document.
-[**QuotationsIdStatusKeyStatusIdPost**](QuotationsApi.md#quotationsidstatuskeystatusidpost) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
+[**QuotationsIdStatusStatusIdPost**](QuotationsApi.md#quotationsidstatusstatusidpost) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
 [**QuotationsInlinePost**](QuotationsApi.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 [**QuotationsPost**](QuotationsApi.md#quotationspost) | **POST** /quotations | Create quotations document.
 [**QuotationsSharedocumentPost**](QuotationsApi.md#quotationssharedocumentpost) | **POST** /quotations/sharedocument | Share link quotations document.
@@ -501,9 +501,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## QuotationsIdStatusKeyStatusIdPost
+## QuotationsIdStatusStatusIdPost
 
-> InlineDocumentResponse QuotationsIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse QuotationsIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of quotations document.
 
@@ -520,7 +520,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class QuotationsIdStatusKeyStatusIdPostExample
+    public class QuotationsIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -533,12 +533,12 @@ namespace Example
             try
             {
                 // Change status of quotations document.
-                InlineDocumentResponse result = apiInstance.QuotationsIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.QuotationsIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling QuotationsApi.QuotationsIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling QuotationsApi.QuotationsIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

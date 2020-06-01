@@ -1886,7 +1886,7 @@ class BillingNotesApi
     }
 
     /**
-     * Operation billingNotesIdStatusKeyStatusIdPost
+     * Operation billingNotesIdStatusStatusIdPost
      *
      * Change status of billing notes document.
      *
@@ -1898,14 +1898,14 @@ class BillingNotesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function billingNotesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function billingNotesIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->billingNotesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->billingNotesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation billingNotesIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation billingNotesIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of billing notes document.
      *
@@ -1917,9 +1917,9 @@ class BillingNotesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function billingNotesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function billingNotesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->billingNotesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->billingNotesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1995,7 +1995,7 @@ class BillingNotesApi
     }
 
     /**
-     * Operation billingNotesIdStatusKeyStatusIdPostAsync
+     * Operation billingNotesIdStatusStatusIdPostAsync
      *
      * Change status of billing notes document.
      *
@@ -2006,9 +2006,9 @@ class BillingNotesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingNotesIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function billingNotesIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->billingNotesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->billingNotesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2017,7 +2017,7 @@ class BillingNotesApi
     }
 
     /**
-     * Operation billingNotesIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation billingNotesIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of billing notes document.
      *
@@ -2028,10 +2028,10 @@ class BillingNotesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingNotesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function billingNotesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->billingNotesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->billingNotesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2068,7 +2068,7 @@ class BillingNotesApi
     }
 
     /**
-     * Create request for operation 'billingNotesIdStatusKeyStatusIdPost'
+     * Create request for operation 'billingNotesIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2077,28 +2077,28 @@ class BillingNotesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function billingNotesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function billingNotesIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling billingNotesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling billingNotesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling billingNotesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling billingNotesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling billingNotesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling billingNotesIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/billing-notes/{id}/status-key/{statusId}';
+        $resourcePath = '/billing-notes/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

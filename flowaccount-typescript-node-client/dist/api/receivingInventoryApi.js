@@ -502,9 +502,9 @@ class ReceivingInventoryApi {
             });
         });
     }
-    purchasesIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
+    purchasesIdStatusStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/purchases/{id}/status-key/{statusId}'
+            const localVarPath = this.basePath + '/purchases/{id}/status/{statusId}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
@@ -518,13 +518,13 @@ class ReceivingInventoryApi {
             }
             let localVarFormParams = {};
             if (authorization === null || authorization === undefined) {
-                throw new Error('Required parameter authorization was null or undefined when calling purchasesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter authorization was null or undefined when calling purchasesIdStatusStatusIdPost.');
             }
             if (id === null || id === undefined) {
-                throw new Error('Required parameter id was null or undefined when calling purchasesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter id was null or undefined when calling purchasesIdStatusStatusIdPost.');
             }
             if (statusId === null || statusId === undefined) {
-                throw new Error('Required parameter statusId was null or undefined when calling purchasesIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter statusId was null or undefined when calling purchasesIdStatusStatusIdPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);

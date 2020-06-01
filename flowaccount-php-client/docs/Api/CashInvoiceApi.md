@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**cashInvoicesIdGet**](CashInvoiceApi.md#cashInvoicesIdGet) | **GET** /cash-invoices/{id} | Get cash invoices document.
 [**cashInvoicesIdPaymentPost**](CashInvoiceApi.md#cashInvoicesIdPaymentPost) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
 [**cashInvoicesIdPut**](CashInvoiceApi.md#cashInvoicesIdPut) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
-[**cashInvoicesIdStatusKeyStatusIdPost**](CashInvoiceApi.md#cashInvoicesIdStatusKeyStatusIdPost) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
+[**cashInvoicesIdStatusStatusIdPost**](CashInvoiceApi.md#cashInvoicesIdStatusStatusIdPost) | **POST** /cash-invoices/{id}/status/{statusId} | Change status of cash invoices document.
 [**cashInvoicesInlinePost**](CashInvoiceApi.md#cashInvoicesInlinePost) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 [**cashInvoicesInlineWithPaymentPost**](CashInvoiceApi.md#cashInvoicesInlineWithPaymentPost) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
 [**cashInvoicesPost**](CashInvoiceApi.md#cashInvoicesPost) | **POST** /cash-invoices | Create cash invoices document.
@@ -438,9 +438,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## cashInvoicesIdStatusKeyStatusIdPost
+## cashInvoicesIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of cash invoices document.
 
@@ -463,10 +463,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> invoicedelivered = รอเก็บเงิน <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->cashInvoicesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->cashInvoicesIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CashInvoiceApi->cashInvoicesIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CashInvoiceApi->cashInvoicesIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

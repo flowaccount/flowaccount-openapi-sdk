@@ -208,7 +208,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse CashInvoicesIdStatusKeyStatusIdPost (string authorization, string id, string statusId);
+        InlineDocumentResponse CashInvoicesIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of cash invoices document.
@@ -221,7 +221,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> CashInvoicesIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
+        ApiResponse<InlineDocumentResponse> CashInvoicesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create cash invoices document with discount and tax inline.
         /// </summary>
@@ -523,7 +523,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
         /// Change status of cash invoices document.
@@ -536,7 +536,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
         /// Create cash invoices document with discount and tax inline.
         /// </summary>
@@ -1890,9 +1890,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse CashInvoicesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+        public InlineDocumentResponse CashInvoicesIdStatusStatusIdPost (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = CashInvoicesIdStatusKeyStatusIdPostWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = CashInvoicesIdStatusStatusIdPostWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
         }
 
@@ -1904,19 +1904,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> CashInvoicesIdStatusKeyStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
+        public ApiResponse<InlineDocumentResponse> CashInvoicesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling CashInvoiceApi->CashInvoicesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling CashInvoiceApi->CashInvoicesIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling CashInvoiceApi->CashInvoicesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling CashInvoiceApi->CashInvoicesIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling CashInvoiceApi->CashInvoicesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling CashInvoiceApi->CashInvoicesIdStatusStatusIdPost");
 
-            var localVarPath = "/cash-invoices/{id}/status-key/{statusId}";
+            var localVarPath = "/cash-invoices/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1951,7 +1951,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CashInvoicesIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("CashInvoicesIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1968,9 +1968,9 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesIdStatusKeyStatusIdPostAsync (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesIdStatusStatusIdPostAsync (string authorization, string id, string statusId)
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await CashInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await CashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo(authorization, id, statusId);
              return localVarResponse.Data;
 
         }
@@ -1983,19 +1983,19 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="id">ID เอกสารใช้ recordId</param>
         /// <param name="statusId">เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling CashInvoiceApi->CashInvoicesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling CashInvoiceApi->CashInvoicesIdStatusStatusIdPost");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling CashInvoiceApi->CashInvoicesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'id' when calling CashInvoiceApi->CashInvoicesIdStatusStatusIdPost");
             // verify the required parameter 'statusId' is set
             if (statusId == null)
-                throw new ApiException(400, "Missing required parameter 'statusId' when calling CashInvoiceApi->CashInvoicesIdStatusKeyStatusIdPost");
+                throw new ApiException(400, "Missing required parameter 'statusId' when calling CashInvoiceApi->CashInvoicesIdStatusStatusIdPost");
 
-            var localVarPath = "/cash-invoices/{id}/status-key/{statusId}";
+            var localVarPath = "/cash-invoices/{id}/status/{statusId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2030,7 +2030,7 @@ namespace Flowaccount.OpenAPITools.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CashInvoicesIdStatusKeyStatusIdPost", localVarResponse);
+                Exception exception = ExceptionFactory("CashInvoicesIdStatusStatusIdPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -437,9 +437,9 @@ class PurchaseOrderApi {
             });
         });
     }
-    purchasesOrdersIdStatusKeyStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
+    purchasesOrdersIdStatusStatusIdPost(authorization, id, statusId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/purchases-orders/{id}/status-key/{statusId}'
+            const localVarPath = this.basePath + '/purchases-orders/{id}/status/{statusId}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
@@ -453,13 +453,13 @@ class PurchaseOrderApi {
             }
             let localVarFormParams = {};
             if (authorization === null || authorization === undefined) {
-                throw new Error('Required parameter authorization was null or undefined when calling purchasesOrdersIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter authorization was null or undefined when calling purchasesOrdersIdStatusStatusIdPost.');
             }
             if (id === null || id === undefined) {
-                throw new Error('Required parameter id was null or undefined when calling purchasesOrdersIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter id was null or undefined when calling purchasesOrdersIdStatusStatusIdPost.');
             }
             if (statusId === null || statusId === undefined) {
-                throw new Error('Required parameter statusId was null or undefined when calling purchasesOrdersIdStatusKeyStatusIdPost.');
+                throw new Error('Required parameter statusId was null or undefined when calling purchasesOrdersIdStatusStatusIdPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);

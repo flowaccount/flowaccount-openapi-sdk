@@ -95,7 +95,7 @@ export declare class TaxInvoiceApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    taxInvoicesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    taxInvoicesIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

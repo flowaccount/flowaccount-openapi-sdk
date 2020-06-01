@@ -2187,7 +2187,7 @@ class ReceiptApi
     }
 
     /**
-     * Operation receiptsIdStatusKeyStatusIdPost
+     * Operation receiptsIdStatusStatusIdPost
      *
      * Change status of receipt document.
      *
@@ -2199,14 +2199,14 @@ class ReceiptApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function receiptsIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function receiptsIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->receiptsIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->receiptsIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation receiptsIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation receiptsIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of receipt document.
      *
@@ -2218,9 +2218,9 @@ class ReceiptApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function receiptsIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function receiptsIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->receiptsIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->receiptsIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2296,7 +2296,7 @@ class ReceiptApi
     }
 
     /**
-     * Operation receiptsIdStatusKeyStatusIdPostAsync
+     * Operation receiptsIdStatusStatusIdPostAsync
      *
      * Change status of receipt document.
      *
@@ -2307,9 +2307,9 @@ class ReceiptApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function receiptsIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function receiptsIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->receiptsIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->receiptsIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2318,7 +2318,7 @@ class ReceiptApi
     }
 
     /**
-     * Operation receiptsIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation receiptsIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of receipt document.
      *
@@ -2329,10 +2329,10 @@ class ReceiptApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function receiptsIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function receiptsIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->receiptsIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->receiptsIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2369,7 +2369,7 @@ class ReceiptApi
     }
 
     /**
-     * Create request for operation 'receiptsIdStatusKeyStatusIdPost'
+     * Create request for operation 'receiptsIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2378,28 +2378,28 @@ class ReceiptApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function receiptsIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function receiptsIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling receiptsIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling receiptsIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling receiptsIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling receiptsIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling receiptsIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling receiptsIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/receipts/{id}/status-key/{statusId}';
+        $resourcePath = '/receipts/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

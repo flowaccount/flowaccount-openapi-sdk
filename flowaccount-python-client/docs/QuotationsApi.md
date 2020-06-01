@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**quotations_id_delete**](QuotationsApi.md#quotations_id_delete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**quotations_id_get**](QuotationsApi.md#quotations_id_get) | **GET** /quotations/{id} | Get quotations document.
 [**quotations_id_put**](QuotationsApi.md#quotations_id_put) | **PUT** /quotations/{id} | Edit quotations document.
-[**quotations_id_status_key_status_id_post**](QuotationsApi.md#quotations_id_status_key_status_id_post) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
+[**quotations_id_status_status_id_post**](QuotationsApi.md#quotations_id_status_status_id_post) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
 [**quotations_inline_post**](QuotationsApi.md#quotations_inline_post) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 [**quotations_post**](QuotationsApi.md#quotations_post) | **POST** /quotations | Create quotations document.
 [**quotations_sharedocument_post**](QuotationsApi.md#quotations_sharedocument_post) | **POST** /quotations/sharedocument | Share link quotations document.
@@ -374,8 +374,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **quotations_id_status_key_status_id_post**
-> InlineDocumentResponse quotations_id_status_key_status_id_post(authorization, id, status_id)
+# **quotations_id_status_status_id_post**
+> InlineDocumentResponse quotations_id_status_status_id_post(authorization, id, status_id)
 
 Change status of quotations document.
 
@@ -398,10 +398,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of quotations document.
-    api_response = api_instance.quotations_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.quotations_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling QuotationsApi->quotations_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling QuotationsApi->quotations_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

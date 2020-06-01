@@ -1886,7 +1886,7 @@ class QuotationsApi
     }
 
     /**
-     * Operation quotationsIdStatusKeyStatusIdPost
+     * Operation quotationsIdStatusStatusIdPost
      *
      * Change status of quotations document.
      *
@@ -1898,14 +1898,14 @@ class QuotationsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function quotationsIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function quotationsIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->quotationsIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->quotationsIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation quotationsIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation quotationsIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of quotations document.
      *
@@ -1917,9 +1917,9 @@ class QuotationsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function quotationsIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function quotationsIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->quotationsIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->quotationsIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1995,7 +1995,7 @@ class QuotationsApi
     }
 
     /**
-     * Operation quotationsIdStatusKeyStatusIdPostAsync
+     * Operation quotationsIdStatusStatusIdPostAsync
      *
      * Change status of quotations document.
      *
@@ -2006,9 +2006,9 @@ class QuotationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function quotationsIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function quotationsIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->quotationsIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->quotationsIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2017,7 +2017,7 @@ class QuotationsApi
     }
 
     /**
-     * Operation quotationsIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation quotationsIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of quotations document.
      *
@@ -2028,10 +2028,10 @@ class QuotationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function quotationsIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function quotationsIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->quotationsIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->quotationsIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2068,7 +2068,7 @@ class QuotationsApi
     }
 
     /**
-     * Create request for operation 'quotationsIdStatusKeyStatusIdPost'
+     * Create request for operation 'quotationsIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2077,28 +2077,28 @@ class QuotationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function quotationsIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function quotationsIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling quotationsIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling quotationsIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling quotationsIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling quotationsIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling quotationsIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling quotationsIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/quotations/{id}/status-key/{statusId}';
+        $resourcePath = '/quotations/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

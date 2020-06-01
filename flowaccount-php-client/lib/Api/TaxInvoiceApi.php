@@ -2187,7 +2187,7 @@ class TaxInvoiceApi
     }
 
     /**
-     * Operation taxInvoicesIdStatusKeyStatusIdPost
+     * Operation taxInvoicesIdStatusStatusIdPost
      *
      * Change status of tax invoices document.
      *
@@ -2199,14 +2199,14 @@ class TaxInvoiceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function taxInvoicesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function taxInvoicesIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->taxInvoicesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->taxInvoicesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation taxInvoicesIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation taxInvoicesIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of tax invoices document.
      *
@@ -2218,9 +2218,9 @@ class TaxInvoiceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function taxInvoicesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function taxInvoicesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->taxInvoicesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->taxInvoicesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2296,7 +2296,7 @@ class TaxInvoiceApi
     }
 
     /**
-     * Operation taxInvoicesIdStatusKeyStatusIdPostAsync
+     * Operation taxInvoicesIdStatusStatusIdPostAsync
      *
      * Change status of tax invoices document.
      *
@@ -2307,9 +2307,9 @@ class TaxInvoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taxInvoicesIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function taxInvoicesIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->taxInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->taxInvoicesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2318,7 +2318,7 @@ class TaxInvoiceApi
     }
 
     /**
-     * Operation taxInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation taxInvoicesIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of tax invoices document.
      *
@@ -2329,10 +2329,10 @@ class TaxInvoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function taxInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function taxInvoicesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->taxInvoicesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->taxInvoicesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2369,7 +2369,7 @@ class TaxInvoiceApi
     }
 
     /**
-     * Create request for operation 'taxInvoicesIdStatusKeyStatusIdPost'
+     * Create request for operation 'taxInvoicesIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2378,28 +2378,28 @@ class TaxInvoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function taxInvoicesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function taxInvoicesIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling taxInvoicesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling taxInvoicesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling taxInvoicesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling taxInvoicesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling taxInvoicesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling taxInvoicesIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/tax-invoices/{id}/status-key/{statusId}';
+        $resourcePath = '/tax-invoices/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -544,8 +544,8 @@ export class QuotationsApi {
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; rejected &#x3D; ยกเลิก
      */
-    public async quotationsIdStatusKeyStatusIdPost (authorization: string, id: string, statusId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
-        const localVarPath = this.basePath + '/quotations/{id}/status-key/{statusId}'
+    public async quotationsIdStatusStatusIdPost (authorization: string, id: string, statusId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineDocumentResponse;  }> {
+        const localVarPath = this.basePath + '/quotations/{id}/status/{statusId}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
             .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
         let localVarQueryParameters: any = {};
@@ -561,17 +561,17 @@ export class QuotationsApi {
 
         // verify required parameter 'authorization' is not null or undefined
         if (authorization === null || authorization === undefined) {
-            throw new Error('Required parameter authorization was null or undefined when calling quotationsIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter authorization was null or undefined when calling quotationsIdStatusStatusIdPost.');
         }
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling quotationsIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter id was null or undefined when calling quotationsIdStatusStatusIdPost.');
         }
 
         // verify required parameter 'statusId' is not null or undefined
         if (statusId === null || statusId === undefined) {
-            throw new Error('Required parameter statusId was null or undefined when calling quotationsIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter statusId was null or undefined when calling quotationsIdStatusStatusIdPost.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**WithholdingTaxesIdDelete**](WithholdingTaxApi.md#withholdingtaxesiddelete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**WithholdingTaxesIdGet**](WithholdingTaxApi.md#withholdingtaxesidget) | **GET** /withholding-taxes/{id} | Get withholding tax document.
 [**WithholdingTaxesIdPut**](WithholdingTaxApi.md#withholdingtaxesidput) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
-[**WithholdingTaxesIdStatusKeyStatusIdPost**](WithholdingTaxApi.md#withholdingtaxesidstatuskeystatusidpost) | **POST** /withholding-taxes/{id}/status-key/{statusId} | Change status of withholding tax document.
+[**WithholdingTaxesIdStatusStatusIdPost**](WithholdingTaxApi.md#withholdingtaxesidstatusstatusidpost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
 [**WithholdingTaxesPost**](WithholdingTaxApi.md#withholdingtaxespost) | **POST** /withholding-taxes | Create withholding tax document.
 [**WithholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
 
@@ -500,9 +500,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## WithholdingTaxesIdStatusKeyStatusIdPost
+## WithholdingTaxesIdStatusStatusIdPost
 
-> WithholidingTaxDocumentResponse WithholdingTaxesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> WithholidingTaxDocumentResponse WithholdingTaxesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of withholding tax document.
 
@@ -519,7 +519,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class WithholdingTaxesIdStatusKeyStatusIdPostExample
+    public class WithholdingTaxesIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -532,12 +532,12 @@ namespace Example
             try
             {
                 // Change status of withholding tax document.
-                WithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                WithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling WithholdingTaxApi.WithholdingTaxesIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling WithholdingTaxApi.WithholdingTaxesIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

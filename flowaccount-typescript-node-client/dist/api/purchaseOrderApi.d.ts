@@ -75,7 +75,7 @@ export declare class PurchaseOrderApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    purchasesOrdersIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    purchasesOrdersIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

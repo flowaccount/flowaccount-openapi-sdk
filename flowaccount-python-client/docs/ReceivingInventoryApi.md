@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**purchases_id_get**](ReceivingInventoryApi.md#purchases_id_get) | **GET** /purchases/{id} | Get receiving inventory document.
 [**purchases_id_payment_post**](ReceivingInventoryApi.md#purchases_id_payment_post) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
 [**purchases_id_put**](ReceivingInventoryApi.md#purchases_id_put) | **PUT** /purchases/{id} | Edit receiving inventory document.
-[**purchases_id_status_key_status_id_post**](ReceivingInventoryApi.md#purchases_id_status_key_status_id_post) | **POST** /purchases/{id}/status-key/{statusId} | Change status of receiving inventory document.
+[**purchases_id_status_status_id_post**](ReceivingInventoryApi.md#purchases_id_status_status_id_post) | **POST** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
 [**purchases_inline_post**](ReceivingInventoryApi.md#purchases_inline_post) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
 [**purchases_inline_with_payment_post**](ReceivingInventoryApi.md#purchases_inline_with_payment_post) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
 [**purchases_post**](ReceivingInventoryApi.md#purchases_post) | **POST** /purchases | Create receiving inventory document.
@@ -437,8 +437,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **purchases_id_status_key_status_id_post**
-> InlineDocumentResponse purchases_id_status_key_status_id_post(authorization, id, status_id)
+# **purchases_id_status_status_id_post**
+> InlineDocumentResponse purchases_id_status_status_id_post(authorization, id, status_id)
 
 Change status of receiving inventory document.
 
@@ -461,10 +461,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of receiving inventory document.
-    api_response = api_instance.purchases_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.purchases_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReceivingInventoryApi->purchases_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling ReceivingInventoryApi->purchases_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**expenses_id_get**](ExpensesApi.md#expenses_id_get) | **GET** /expenses/{id} | Get expenses document.
 [**expenses_id_payment_post**](ExpensesApi.md#expenses_id_payment_post) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
 [**expenses_id_put**](ExpensesApi.md#expenses_id_put) | **PUT** /expenses/{id} | Edit expenses document.
-[**expenses_id_status_key_status_id_post**](ExpensesApi.md#expenses_id_status_key_status_id_post) | **POST** /expenses/{id}/status-key/{statusId} | Change status of expenses document.
+[**expenses_id_status_status_id_post**](ExpensesApi.md#expenses_id_status_status_id_post) | **POST** /expenses/{id}/status/{statusId} | Change status of expenses document.
 [**expenses_inline_post**](ExpensesApi.md#expenses_inline_post) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
 [**expenses_inline_with_payment_post**](ExpensesApi.md#expenses_inline_with_payment_post) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
 [**expenses_post**](ExpensesApi.md#expenses_post) | **POST** /expenses | Create expenses document.
@@ -551,8 +551,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **expenses_id_status_key_status_id_post**
-> ExpenseInlineDocumentResponse expenses_id_status_key_status_id_post(authorization, id, status_id)
+# **expenses_id_status_status_id_post**
+> ExpenseInlineDocumentResponse expenses_id_status_status_id_post(authorization, id, status_id)
 
 Change status of expenses document.
 
@@ -575,10 +575,10 @@ status_id = 'status_id_example' # str | เปลี่ยนสถานะเ�
 
 try:
     # Change status of expenses document.
-    api_response = api_instance.expenses_id_status_key_status_id_post(authorization, id, status_id)
+    api_response = api_instance.expenses_id_status_status_id_post(authorization, id, status_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ExpensesApi->expenses_id_status_key_status_id_post: %s\n" % e)
+    print("Exception when calling ExpensesApi->expenses_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters

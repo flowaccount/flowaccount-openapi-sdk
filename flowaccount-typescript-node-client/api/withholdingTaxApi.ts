@@ -543,8 +543,8 @@ export class WithholdingTaxApi {
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก
      */
-    public async withholdingTaxesIdStatusKeyStatusIdPost (authorization: string, id: string, statusId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: WithholidingTaxDocumentResponse;  }> {
-        const localVarPath = this.basePath + '/withholding-taxes/{id}/status-key/{statusId}'
+    public async withholdingTaxesIdStatusStatusIdPost (authorization: string, id: string, statusId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: WithholidingTaxDocumentResponse;  }> {
+        const localVarPath = this.basePath + '/withholding-taxes/{id}/status/{statusId}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
             .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
         let localVarQueryParameters: any = {};
@@ -560,17 +560,17 @@ export class WithholdingTaxApi {
 
         // verify required parameter 'authorization' is not null or undefined
         if (authorization === null || authorization === undefined) {
-            throw new Error('Required parameter authorization was null or undefined when calling withholdingTaxesIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter authorization was null or undefined when calling withholdingTaxesIdStatusStatusIdPost.');
         }
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter id was null or undefined when calling withholdingTaxesIdStatusStatusIdPost.');
         }
 
         // verify required parameter 'statusId' is not null or undefined
         if (statusId === null || statusId === undefined) {
-            throw new Error('Required parameter statusId was null or undefined when calling withholdingTaxesIdStatusKeyStatusIdPost.');
+            throw new Error('Required parameter statusId was null or undefined when calling withholdingTaxesIdStatusStatusIdPost.');
         }
 
         localVarHeaderParams['Authorization'] = ObjectSerializer.serialize(authorization, "string");

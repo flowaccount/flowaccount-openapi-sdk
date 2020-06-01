@@ -2187,7 +2187,7 @@ class CashInvoiceApi
     }
 
     /**
-     * Operation cashInvoicesIdStatusKeyStatusIdPost
+     * Operation cashInvoicesIdStatusStatusIdPost
      *
      * Change status of cash invoices document.
      *
@@ -2199,14 +2199,14 @@ class CashInvoiceApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InlineDocumentResponse
      */
-    public function cashInvoicesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+    public function cashInvoicesIdStatusStatusIdPost($authorization, $id, $status_id)
     {
-        list($response) = $this->cashInvoicesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id);
+        list($response) = $this->cashInvoicesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id);
         return $response;
     }
 
     /**
-     * Operation cashInvoicesIdStatusKeyStatusIdPostWithHttpInfo
+     * Operation cashInvoicesIdStatusStatusIdPostWithHttpInfo
      *
      * Change status of cash invoices document.
      *
@@ -2218,9 +2218,9 @@ class CashInvoiceApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cashInvoicesIdStatusKeyStatusIdPostWithHttpInfo($authorization, $id, $status_id)
+    public function cashInvoicesIdStatusStatusIdPostWithHttpInfo($authorization, $id, $status_id)
     {
-        $request = $this->cashInvoicesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->cashInvoicesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2296,7 +2296,7 @@ class CashInvoiceApi
     }
 
     /**
-     * Operation cashInvoicesIdStatusKeyStatusIdPostAsync
+     * Operation cashInvoicesIdStatusStatusIdPostAsync
      *
      * Change status of cash invoices document.
      *
@@ -2307,9 +2307,9 @@ class CashInvoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cashInvoicesIdStatusKeyStatusIdPostAsync($authorization, $id, $status_id)
+    public function cashInvoicesIdStatusStatusIdPostAsync($authorization, $id, $status_id)
     {
-        return $this->cashInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+        return $this->cashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2318,7 +2318,7 @@ class CashInvoiceApi
     }
 
     /**
-     * Operation cashInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo
+     * Operation cashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo
      *
      * Change status of cash invoices document.
      *
@@ -2329,10 +2329,10 @@ class CashInvoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cashInvoicesIdStatusKeyStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
+    public function cashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo($authorization, $id, $status_id)
     {
         $returnType = '\OpenAPI\Client\Model\InlineDocumentResponse';
-        $request = $this->cashInvoicesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id);
+        $request = $this->cashInvoicesIdStatusStatusIdPostRequest($authorization, $id, $status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2369,7 +2369,7 @@ class CashInvoiceApi
     }
 
     /**
-     * Create request for operation 'cashInvoicesIdStatusKeyStatusIdPost'
+     * Create request for operation 'cashInvoicesIdStatusStatusIdPost'
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2378,28 +2378,28 @@ class CashInvoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cashInvoicesIdStatusKeyStatusIdPostRequest($authorization, $id, $status_id)
+    protected function cashInvoicesIdStatusStatusIdPostRequest($authorization, $id, $status_id)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling cashInvoicesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $authorization when calling cashInvoicesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling cashInvoicesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $id when calling cashInvoicesIdStatusStatusIdPost'
             );
         }
         // verify the required parameter 'status_id' is set
         if ($status_id === null || (is_array($status_id) && count($status_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $status_id when calling cashInvoicesIdStatusKeyStatusIdPost'
+                'Missing the required parameter $status_id when calling cashInvoicesIdStatusStatusIdPost'
             );
         }
 
-        $resourcePath = '/cash-invoices/{id}/status-key/{statusId}';
+        $resourcePath = '/cash-invoices/{id}/status/{statusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

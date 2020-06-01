@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**CashInvoicesIdGet**](CashInvoiceApi.md#cashinvoicesidget) | **GET** /cash-invoices/{id} | Get cash invoices document.
 [**CashInvoicesIdPaymentPost**](CashInvoiceApi.md#cashinvoicesidpaymentpost) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
 [**CashInvoicesIdPut**](CashInvoiceApi.md#cashinvoicesidput) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
-[**CashInvoicesIdStatusKeyStatusIdPost**](CashInvoiceApi.md#cashinvoicesidstatuskeystatusidpost) | **POST** /cash-invoices/{id}/status-key/{statusId} | Change status of cash invoices document.
+[**CashInvoicesIdStatusStatusIdPost**](CashInvoiceApi.md#cashinvoicesidstatusstatusidpost) | **POST** /cash-invoices/{id}/status/{statusId} | Change status of cash invoices document.
 [**CashInvoicesInlinePost**](CashInvoiceApi.md#cashinvoicesinlinepost) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
 [**CashInvoicesInlineWithPaymentPost**](CashInvoiceApi.md#cashinvoicesinlinewithpaymentpost) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
 [**CashInvoicesPost**](CashInvoiceApi.md#cashinvoicespost) | **POST** /cash-invoices | Create cash invoices document.
@@ -585,9 +585,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## CashInvoicesIdStatusKeyStatusIdPost
+## CashInvoicesIdStatusStatusIdPost
 
-> InlineDocumentResponse CashInvoicesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse CashInvoicesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
 Change status of cash invoices document.
 
@@ -604,7 +604,7 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class CashInvoicesIdStatusKeyStatusIdPostExample
+    public class CashInvoicesIdStatusStatusIdPostExample
     {
         public static void Main()
         {
@@ -617,12 +617,12 @@ namespace Example
             try
             {
                 // Change status of cash invoices document.
-                InlineDocumentResponse result = apiInstance.CashInvoicesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                InlineDocumentResponse result = apiInstance.CashInvoicesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling CashInvoiceApi.CashInvoicesIdStatusKeyStatusIdPost: " + e.Message );
+                Debug.Print("Exception when calling CashInvoiceApi.CashInvoicesIdStatusStatusIdPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

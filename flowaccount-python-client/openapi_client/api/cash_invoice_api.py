@@ -901,13 +901,13 @@ class CashInvoiceApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cash_invoices_id_status_key_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
+    def cash_invoices_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
         """Change status of cash invoices document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cash_invoices_id_status_key_status_id_post(authorization, id, status_id, async_req=True)
+        >>> thread = api.cash_invoices_id_status_status_id_post(authorization, id, status_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -926,15 +926,15 @@ class CashInvoiceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.cash_invoices_id_status_key_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
+        return self.cash_invoices_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
-    def cash_invoices_id_status_key_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
+    def cash_invoices_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
         """Change status of cash invoices document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cash_invoices_id_status_key_status_id_post_with_http_info(authorization, id, status_id, async_req=True)
+        >>> thread = api.cash_invoices_id_status_status_id_post_with_http_info(authorization, id, status_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -967,22 +967,22 @@ class CashInvoiceApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method cash_invoices_id_status_key_status_id_post" % key
+                    " to method cash_invoices_id_status_status_id_post" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'authorization' is set
         if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
                                                         local_var_params['authorization'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `authorization` when calling `cash_invoices_id_status_key_status_id_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `authorization` when calling `cash_invoices_id_status_status_id_post`")  # noqa: E501
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `cash_invoices_id_status_key_status_id_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `cash_invoices_id_status_status_id_post`")  # noqa: E501
         # verify the required parameter 'status_id' is set
         if self.api_client.client_side_validation and ('status_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['status_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `status_id` when calling `cash_invoices_id_status_key_status_id_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `status_id` when calling `cash_invoices_id_status_status_id_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1010,7 +1010,7 @@ class CashInvoiceApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/cash-invoices/{id}/status-key/{statusId}', 'POST',
+            '/cash-invoices/{id}/status/{statusId}', 'POST',
             path_params,
             query_params,
             header_params,

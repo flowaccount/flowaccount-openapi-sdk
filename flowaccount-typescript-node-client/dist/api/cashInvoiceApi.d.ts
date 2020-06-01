@@ -95,7 +95,7 @@ export declare class CashInvoiceApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    cashInvoicesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    cashInvoicesIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

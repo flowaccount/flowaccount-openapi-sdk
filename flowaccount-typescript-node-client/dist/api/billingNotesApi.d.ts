@@ -75,7 +75,7 @@ export declare class BillingNotesApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    billingNotesIdStatusKeyStatusIdPost(authorization: string, id: string, statusId: string, options?: {
+    billingNotesIdStatusStatusIdPost(authorization: string, id: string, statusId: string, options?: {
         headers: {
             [name: string]: string;
         };

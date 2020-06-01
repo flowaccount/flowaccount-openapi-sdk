@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**withholdingTaxesIdDelete**](WithholdingTaxApi.md#withholdingTaxesIdDelete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**withholdingTaxesIdGet**](WithholdingTaxApi.md#withholdingTaxesIdGet) | **GET** /withholding-taxes/{id} | Get withholding tax document.
 [**withholdingTaxesIdPut**](WithholdingTaxApi.md#withholdingTaxesIdPut) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
-[**withholdingTaxesIdStatusKeyStatusIdPost**](WithholdingTaxApi.md#withholdingTaxesIdStatusKeyStatusIdPost) | **POST** /withholding-taxes/{id}/status-key/{statusId} | Change status of withholding tax document.
+[**withholdingTaxesIdStatusStatusIdPost**](WithholdingTaxApi.md#withholdingTaxesIdStatusStatusIdPost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
 [**withholdingTaxesPost**](WithholdingTaxApi.md#withholdingTaxesPost) | **POST** /withholding-taxes | Create withholding tax document.
 [**withholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#withholdingTaxesSharedocumentPost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
 
@@ -374,9 +374,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## withholdingTaxesIdStatusKeyStatusIdPost
+## withholdingTaxesIdStatusStatusIdPost
 
-> \OpenAPI\Client\Model\WithholidingTaxDocumentResponse withholdingTaxesIdStatusKeyStatusIdPost($authorization, $id, $status_id)
+> \OpenAPI\Client\Model\WithholidingTaxDocumentResponse withholdingTaxesIdStatusStatusIdPost($authorization, $id, $status_id)
 
 Change status of withholding tax document.
 
@@ -399,10 +399,10 @@ $id = 'id_example'; // string | ID เอกสารใช้ recordId
 $status_id = 'status_id_example'; // string | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> processed = ดำเนินการแล้ว <br> void = ยกเลิก
 
 try {
-    $result = $apiInstance->withholdingTaxesIdStatusKeyStatusIdPost($authorization, $id, $status_id);
+    $result = $apiInstance->withholdingTaxesIdStatusStatusIdPost($authorization, $id, $status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WithholdingTaxApi->withholdingTaxesIdStatusKeyStatusIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WithholdingTaxApi->withholdingTaxesIdStatusStatusIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
