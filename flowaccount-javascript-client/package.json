@@ -1,0 +1,46 @@
+{
+  "name": "flow_account_open_api",
+  "version": "2-oas3",
+  "description": "_Introduction_Servers_Production__siteSite_site_https__www_flowaccount_com__siteApi_url_site_https__openapi_flowaccount_com_v1__Beta_test_siteSite_site_http__sandbox_new_flowaccount_com___siteApi_url_site_https__openapi_flowaccount_com_test__PostMan_Collection_siteLink_site_https__www_getpostman_com_collections_01e7c68d7093e2092a64",
+  "license": "Unlicense",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepack": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "superagent": "3.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
