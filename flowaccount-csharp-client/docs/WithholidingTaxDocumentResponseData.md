@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Remarks** | **string** | หมายเหตุเอกสาร | [optional] 
 **InternalNotes** | **string** | โน๊ตภายในบริษัท | [optional] 
 **ShowSignatureOrStamp** | **bool** | ลายเซ็นอิเล็กทรอนิกส์และตรายาง | [optional] [default to true]
-**Company** | **List&lt;Object&gt;** | ข้อมูลบริษัทของคุณในเอกสาร | [optional] 
+**Company** | [**SimpleDocumentResponseAllOfDataCompany**](SimpleDocumentResponseAllOfDataCompany.md) |  | [optional] 
 **Status** | **int** | เลขสถานะเอกสารฉบับนี้ | [optional] 
 **StatusString** | **int** | ชื่อสถานะเอกสารฉบับนี้ | [optional] 
 **DocumentType** | **int** | เลขประเภทเอกสารฉบับนี้ | [optional] 

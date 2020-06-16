@@ -24,18 +24,16 @@ class InlineProductItem {
     /**
      * Constructs a new <code>InlineProductItem</code>.
      * @alias module:model/InlineProductItem
-     * @extends module:model/ProductItem
      * @implements module:model/ProductItem
      * @implements module:model/InlineProductItemAllOf
-     * @param documentStructureType {String} 
      * @param name {String} ชื่อสินค้า
      * @param quantity {Number} จำนวนสินค้า
      * @param pricePerUnit {Number} ราคาสินค้าต่อหน่วย
      * @param total {Number} ราคารวมสินค้า
      */
-    constructor(documentStructureType, name, quantity, pricePerUnit, total) { 
-        ProductItem.initialize(this, documentStructureType, name, quantity, pricePerUnit, total);InlineProductItemAllOf.initialize(this);
-        InlineProductItem.initialize(this, documentStructureType, name, quantity, pricePerUnit, total);
+    constructor(name, quantity, pricePerUnit, total) { 
+        ProductItem.initialize(this, name, quantity, pricePerUnit, total);InlineProductItemAllOf.initialize(this);
+        InlineProductItem.initialize(this, name, quantity, pricePerUnit, total);
     }
 
     /**
@@ -43,7 +41,11 @@ class InlineProductItem {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, documentStructureType, name, quantity, pricePerUnit, total) { 
+    static initialize(obj, name, quantity, pricePerUnit, total) { 
+        obj['name'] = name;
+        obj['quantity'] = quantity;
+        obj['pricePerUnit'] = pricePerUnit;
+        obj['total'] = total;
     }
 
     /**
@@ -57,9 +59,35 @@ class InlineProductItem {
         if (data) {
             obj = obj || new InlineProductItem();
             ProductItem.constructFromObject(data, obj);
-            ProductItem.constructFromObject(data, obj);
             InlineProductItemAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'Number');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('quantity')) {
+                obj['quantity'] = ApiClient.convertToType(data['quantity'], 'Number');
+            }
+            if (data.hasOwnProperty('unitName')) {
+                obj['unitName'] = ApiClient.convertToType(data['unitName'], 'String');
+            }
+            if (data.hasOwnProperty('pricePerUnit')) {
+                obj['pricePerUnit'] = ApiClient.convertToType(data['pricePerUnit'], 'Number');
+            }
+            if (data.hasOwnProperty('total')) {
+                obj['total'] = ApiClient.convertToType(data['total'], 'Number');
+            }
+            if (data.hasOwnProperty('sellChartOfAccountCode')) {
+                obj['sellChartOfAccountCode'] = ApiClient.convertToType(data['sellChartOfAccountCode'], 'String');
+            }
+            if (data.hasOwnProperty('buyChartOfAccountCode')) {
+                obj['buyChartOfAccountCode'] = ApiClient.convertToType(data['buyChartOfAccountCode'], 'String');
+            }
             if (data.hasOwnProperty('discountAmount')) {
                 obj['discountAmount'] = ApiClient.convertToType(data['discountAmount'], 'Number');
             }
@@ -72,6 +100,61 @@ class InlineProductItem {
 
 
 }
+
+/**
+ * ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก (non inventory) <br> 5 = สินค้านับสต๊อก (inventory)
+ * @member {Number} type
+ * @default 1
+ */
+InlineProductItem.prototype['type'] = 1;
+
+/**
+ * ชื่อสินค้า
+ * @member {String} name
+ */
+InlineProductItem.prototype['name'] = undefined;
+
+/**
+ * รายละเอียดสินค้า
+ * @member {String} description
+ */
+InlineProductItem.prototype['description'] = undefined;
+
+/**
+ * จำนวนสินค้า
+ * @member {Number} quantity
+ */
+InlineProductItem.prototype['quantity'] = undefined;
+
+/**
+ * หน่วยสินค้า
+ * @member {String} unitName
+ */
+InlineProductItem.prototype['unitName'] = undefined;
+
+/**
+ * ราคาสินค้าต่อหน่วย
+ * @member {Number} pricePerUnit
+ */
+InlineProductItem.prototype['pricePerUnit'] = undefined;
+
+/**
+ * ราคารวมสินค้า
+ * @member {Number} total
+ */
+InlineProductItem.prototype['total'] = undefined;
+
+/**
+ * เลือกลงบันทึกบัญชีรายได้ สำหรับเอกสารฝั่งขาย <br> <ex>Example: 41111</ex>
+ * @member {String} sellChartOfAccountCode
+ */
+InlineProductItem.prototype['sellChartOfAccountCode'] = undefined;
+
+/**
+ * เลือกลงบันทึกบัญชีค่าใช้จ่าย สำหรับเอกสารฝั่งซื้อ <br> <ex>Example: 51111.02</ex>
+ * @member {String} buyChartOfAccountCode
+ */
+InlineProductItem.prototype['buyChartOfAccountCode'] = undefined;
 
 /**
  * จำนวนส่วนลดสินค้า
@@ -89,10 +172,6 @@ InlineProductItem.prototype['vatRate'] = 7;
 
 
 // Implement ProductItem interface:
-/**
- * @member {String} documentStructureType
- */
-ProductItem.prototype['documentStructureType'] = undefined;
 /**
  * ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก (non inventory) <br> 5 = สินค้านับสต๊อก (inventory)
  * @member {Number} type

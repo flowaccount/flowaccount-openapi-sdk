@@ -80,7 +80,7 @@ No authorization required
 
 ## purchasesGet
 
-> \OpenAPI\Client\Model\InlineDocumentResponse purchasesGet($current_page, $page_size, $authorization, $sort_by, $filter)
+> \OpenAPI\Client\Model\AllDocumentResponse purchasesGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
 Get list all receiving inventory documents.
 
@@ -101,7 +101,7 @@ $apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
 $current_page = 56; // int | Query current page document purchases. <br>Example Pattern: <ex>/purchases?currentPage=1 </ex><ex>/purchases?currentPage=1&pageSize=20</ex>
 $page_size = 56; // int | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
-$sort_by = 'sort_by_example'; // string | 
+$sort_by = 'sort_by_example'; // string | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 $filter = 'filter_example'; // string | 
 
 try {
@@ -121,12 +121,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; |
  **page_size** | **int**| Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **string**|  | [optional]
+ **sort_by** | **string**| Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
  **filter** | **string**|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+[**\OpenAPI\Client\Model\AllDocumentResponse**](../Model/AllDocumentResponse.md)
 
 ### Authorization
 
@@ -320,7 +320,7 @@ No authorization required
 
 ## purchasesIdPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdPaymentPost($authorization, $id, $unknown_base_type)
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesIdPaymentPost($authorization, $id, $payment_paid_document)
 
 Change paid status of receiving inventory document.
 
@@ -340,10 +340,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$payment_paid_document = new \OpenAPI\Client\Model\PaymentPaidDocument(); // \OpenAPI\Client\Model\PaymentPaidDocument | 
 
 try {
-    $result = $apiInstance->purchasesIdPaymentPost($authorization, $id, $unknown_base_type);
+    $result = $apiInstance->purchasesIdPaymentPost($authorization, $id, $payment_paid_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceivingInventoryApi->purchasesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **payment_paid_document** | [**\OpenAPI\Client\Model\PaymentPaidDocument**](../Model/PaymentPaidDocument.md)|  |
 
 ### Return type
 
@@ -558,7 +558,7 @@ No authorization required
 
 ## purchasesInlineWithPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse purchasesInlineWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\InlineDocumentResponse purchasesInlineWithPaymentPost($authorization, $inline_document_with_payment_paid)
 
 Create receiving inventory document with discount and tax inline with payment.
 
@@ -577,10 +577,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$inline_document_with_payment_paid = new \OpenAPI\Client\Model\InlineDocumentWithPaymentPaid(); // \OpenAPI\Client\Model\InlineDocumentWithPaymentPaid | 
 
 try {
-    $result = $apiInstance->purchasesInlineWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->purchasesInlineWithPaymentPost($authorization, $inline_document_with_payment_paid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceivingInventoryApi->purchasesInlineWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -594,7 +594,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **inline_document_with_payment_paid** | [**\OpenAPI\Client\Model\InlineDocumentWithPaymentPaid**](../Model/InlineDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 
@@ -732,7 +732,7 @@ No authorization required
 
 ## purchasesWithPaymentPost
 
-> \OpenAPI\Client\Model\SimpleDocumentResponse purchasesWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\SimpleDocumentResponse purchasesWithPaymentPost($authorization, $simple_document_with_payment_paid)
 
 Create receiving inventory document with payment.
 
@@ -751,10 +751,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceivingInventoryApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$simple_document_with_payment_paid = new \OpenAPI\Client\Model\SimpleDocumentWithPaymentPaid(); // \OpenAPI\Client\Model\SimpleDocumentWithPaymentPaid | 
 
 try {
-    $result = $apiInstance->purchasesWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->purchasesWithPaymentPost($authorization, $simple_document_with_payment_paid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceivingInventoryApi->purchasesWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -768,7 +768,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **simple_document_with_payment_paid** | [**\OpenAPI\Client\Model\SimpleDocumentWithPaymentPaid**](../Model/SimpleDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 

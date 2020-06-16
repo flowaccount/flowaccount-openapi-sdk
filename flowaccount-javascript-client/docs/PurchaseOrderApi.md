@@ -66,7 +66,7 @@ No authorization required
 
 ## purchasesOrdersGet
 
-> InlineDocumentResponse purchasesOrdersGet(currentPage, pageSize, authorization, opts)
+> AllDocumentResponse purchasesOrdersGet(currentPage, pageSize, authorization, opts)
 
 Get list all purchase order documents.
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 

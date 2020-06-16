@@ -22,15 +22,14 @@ class ProductItem {
     /**
      * Constructs a new <code>ProductItem</code>.
      * @alias module:model/ProductItem
-     * @param documentStructureType {String} 
      * @param name {String} ชื่อสินค้า
      * @param quantity {Number} จำนวนสินค้า
      * @param pricePerUnit {Number} ราคาสินค้าต่อหน่วย
      * @param total {Number} ราคารวมสินค้า
      */
-    constructor(documentStructureType, name, quantity, pricePerUnit, total) { 
+    constructor(name, quantity, pricePerUnit, total) { 
         
-        ProductItem.initialize(this, documentStructureType, name, quantity, pricePerUnit, total);
+        ProductItem.initialize(this, name, quantity, pricePerUnit, total);
     }
 
     /**
@@ -38,8 +37,7 @@ class ProductItem {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, documentStructureType, name, quantity, pricePerUnit, total) { 
-        obj['documentStructureType'] = documentStructureType;
+    static initialize(obj, name, quantity, pricePerUnit, total) { 
         obj['name'] = name;
         obj['quantity'] = quantity;
         obj['pricePerUnit'] = pricePerUnit;
@@ -57,9 +55,6 @@ class ProductItem {
         if (data) {
             obj = obj || new ProductItem();
 
-            if (data.hasOwnProperty('documentStructureType')) {
-                obj['documentStructureType'] = ApiClient.convertToType(data['documentStructureType'], 'String');
-            }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'Number');
             }
@@ -93,11 +88,6 @@ class ProductItem {
 
 
 }
-
-/**
- * @member {String} documentStructureType
- */
-ProductItem.prototype['documentStructureType'] = undefined;
 
 /**
  * ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก (non inventory) <br> 5 = สินค้านับสต๊อก (inventory)

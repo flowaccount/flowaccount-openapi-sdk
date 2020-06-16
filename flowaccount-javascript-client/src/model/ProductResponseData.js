@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Product from './Product';
 
 /**
  * The ProductResponseData model module.
@@ -47,65 +48,17 @@ class ProductResponseData {
         if (data) {
             obj = obj || new ProductResponseData();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('total')) {
+                obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], 'Number');
+            if (data.hasOwnProperty('currentPage')) {
+                obj['currentPage'] = ApiClient.convertToType(data['currentPage'], 'Number');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('list')) {
+                obj['list'] = ApiClient.convertToType(data['list'], [Product]);
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('sellDescription')) {
-                obj['sellDescription'] = ApiClient.convertToType(data['sellDescription'], 'String');
-            }
-            if (data.hasOwnProperty('sellPrice')) {
-                obj['sellPrice'] = ApiClient.convertToType(data['sellPrice'], 'Number');
-            }
-            if (data.hasOwnProperty('sellVatType')) {
-                obj['sellVatType'] = ApiClient.convertToType(data['sellVatType'], 'Number');
-            }
-            if (data.hasOwnProperty('unitName')) {
-                obj['unitName'] = ApiClient.convertToType(data['unitName'], 'String');
-            }
-            if (data.hasOwnProperty('categoryId')) {
-                obj['categoryId'] = ApiClient.convertToType(data['categoryId'], 'Number');
-            }
-            if (data.hasOwnProperty('categoryName')) {
-                obj['categoryName'] = ApiClient.convertToType(data['categoryName'], 'String');
-            }
-            if (data.hasOwnProperty('barcode')) {
-                obj['barcode'] = ApiClient.convertToType(data['barcode'], 'String');
-            }
-            if (data.hasOwnProperty('buyDescription')) {
-                obj['buyDescription'] = ApiClient.convertToType(data['buyDescription'], 'String');
-            }
-            if (data.hasOwnProperty('buyPrice')) {
-                obj['buyPrice'] = ApiClient.convertToType(data['buyPrice'], 'Number');
-            }
-            if (data.hasOwnProperty('buyVatType')) {
-                obj['buyVatType'] = ApiClient.convertToType(data['buyVatType'], 'Number');
-            }
-            if (data.hasOwnProperty('inventoryPublishedOn')) {
-                obj['inventoryPublishedOn'] = ApiClient.convertToType(data['inventoryPublishedOn'], 'Date');
-            }
-            if (data.hasOwnProperty('inventoryQuantity')) {
-                obj['inventoryQuantity'] = ApiClient.convertToType(data['inventoryQuantity'], 'Number');
-            }
-            if (data.hasOwnProperty('averageBuyPrice')) {
-                obj['averageBuyPrice'] = ApiClient.convertToType(data['averageBuyPrice'], 'Number');
-            }
-            if (data.hasOwnProperty('averageSellPrice')) {
-                obj['averageSellPrice'] = ApiClient.convertToType(data['averageSellPrice'], 'Number');
-            }
-            if (data.hasOwnProperty('remainingStock')) {
-                obj['remainingStock'] = ApiClient.convertToType(data['remainingStock'], 'Number');
-            }
-            if (data.hasOwnProperty('totalValueInHand')) {
-                obj['totalValueInHand'] = ApiClient.convertToType(data['totalValueInHand'], 'Number');
+            if (data.hasOwnProperty('isDB')) {
+                obj['isDB'] = ApiClient.convertToType(data['isDB'], 'Boolean');
             }
         }
         return obj;
@@ -115,127 +68,28 @@ class ProductResponseData {
 }
 
 /**
- * เลข id Product
- * @member {String} id
+ * จำนวนสินค้าทั้งหมด
+ * @member {Number} total
  */
-ProductResponseData.prototype['id'] = undefined;
+ProductResponseData.prototype['total'] = undefined;
 
 /**
- * ประเภทสินค้า: 1 = บริการ / 3 = ไม่นับสต๊อก / 5 = นับสต๊อก
- * @member {Number} type
- * @default 1
+ * หน้าที่แสดงรายการสินค้า
+ * @member {Number} currentPage
  */
-ProductResponseData.prototype['type'] = 1;
+ProductResponseData.prototype['currentPage'] = undefined;
 
 /**
- * รหัสสินค้า <br> <ex>Example: P001</ex>
- * @member {String} code
+ * ข้อมูลรายการสินค้า
+ * @member {Array.<module:model/Product>} list
  */
-ProductResponseData.prototype['code'] = undefined;
+ProductResponseData.prototype['list'] = undefined;
 
 /**
- * ชื่อสินค้า <br> <ex>Example: Product</ex>
- * @member {String} name
+ * database
+ * @member {Boolean} isDB
  */
-ProductResponseData.prototype['name'] = undefined;
-
-/**
- * รายละเอียดสินค้า ฝั่งขาย
- * @member {String} sellDescription
- */
-ProductResponseData.prototype['sellDescription'] = undefined;
-
-/**
- * ราคาขายสินค้า
- * @member {Number} sellPrice
- */
-ProductResponseData.prototype['sellPrice'] = undefined;
-
-/**
- * ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี
- * @member {Number} sellVatType
- * @default 3
- */
-ProductResponseData.prototype['sellVatType'] = 3;
-
-/**
- * หน่วยสินค้า
- * @member {String} unitName
- */
-ProductResponseData.prototype['unitName'] = undefined;
-
-/**
- * id หมวดสินค้า
- * @member {Number} categoryId
- */
-ProductResponseData.prototype['categoryId'] = undefined;
-
-/**
- * หมวดสินค้า
- * @member {String} categoryName
- */
-ProductResponseData.prototype['categoryName'] = undefined;
-
-/**
- * บาร์โค้ด
- * @member {String} barcode
- */
-ProductResponseData.prototype['barcode'] = undefined;
-
-/**
- * รายละเอียดสินค้า ฝั่งซื้อ
- * @member {String} buyDescription
- */
-ProductResponseData.prototype['buyDescription'] = undefined;
-
-/**
- * ราคาซื้อสินค้า
- * @member {Number} buyPrice
- */
-ProductResponseData.prototype['buyPrice'] = undefined;
-
-/**
- * ภาษีซื้อ: <br> 1 = ราคาซื้อรวมภาษี <br> 3 = ราคาซื้อไม่รวมภาษี <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี
- * @member {Number} buyVatType
- * @default 3
- */
-ProductResponseData.prototype['buyVatType'] = 3;
-
-/**
- * วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
- * @member {Date} inventoryPublishedOn
- */
-ProductResponseData.prototype['inventoryPublishedOn'] = undefined;
-
-/**
- * จำนวนยอดตั้งต้นสินค้า
- * @member {Number} inventoryQuantity
- */
-ProductResponseData.prototype['inventoryQuantity'] = undefined;
-
-/**
- * ราคาซื้อเฉลี่ยสินค้า
- * @member {Number} averageBuyPrice
- */
-ProductResponseData.prototype['averageBuyPrice'] = undefined;
-
-/**
- * ราคาขายเฉลี่ยสินค้า
- * @member {Number} averageSellPrice
- */
-ProductResponseData.prototype['averageSellPrice'] = undefined;
-
-/**
- * จำนวนสินค้าคงเหลือในสต๊อก
- * @member {Number} remainingStock
- */
-ProductResponseData.prototype['remainingStock'] = undefined;
-
-/**
- * มูลค่าสินค้าคงเหลือในสต๊อก
- * @member {Number} totalValueInHand
- */
-ProductResponseData.prototype['totalValueInHand'] = undefined;
+ProductResponseData.prototype['isDB'] = undefined;
 
 
 

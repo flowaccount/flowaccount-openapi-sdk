@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## BankAccountsGet
 
-> BankAccountResponse BankAccountsGet (string authorization)
+> AllBankAccountResponse BankAccountsGet (string authorization)
 
 Get list all My Bank Account
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Get list all My Bank Account
-                BankAccountResponse result = apiInstance.BankAccountsGet(authorization);
+                AllBankAccountResponse result = apiInstance.BankAccountsGet(authorization);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BankAccountResponse**](BankAccountResponse.md)
+[**AllBankAccountResponse**](AllBankAccountResponse.md)
 
 ### Authorization
 

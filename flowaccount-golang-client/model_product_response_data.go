@@ -11,44 +11,12 @@
 package openapi
 // ProductResponseData struct for ProductResponseData
 type ProductResponseData struct {
-	// เลข id Product
-	Id string `json:"id,omitempty"`
-	// ประเภทสินค้า: 1 = บริการ / 3 = ไม่นับสต๊อก / 5 = นับสต๊อก
-	Type int64 `json:"type,omitempty"`
-	// รหัสสินค้า <br> <ex>Example: P001</ex>
-	Code string `json:"code,omitempty"`
-	// ชื่อสินค้า <br> <ex>Example: Product</ex>
-	Name string `json:"name,omitempty"`
-	// รายละเอียดสินค้า ฝั่งขาย
-	SellDescription string `json:"sellDescription,omitempty"`
-	// ราคาขายสินค้า
-	SellPrice float32 `json:"sellPrice,omitempty"`
-	// ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี
-	SellVatType int64 `json:"sellVatType,omitempty"`
-	// หน่วยสินค้า
-	UnitName string `json:"unitName,omitempty"`
-	// id หมวดสินค้า
-	CategoryId int64 `json:"categoryId,omitempty"`
-	// หมวดสินค้า
-	CategoryName string `json:"categoryName,omitempty"`
-	// บาร์โค้ด
-	Barcode string `json:"barcode,omitempty"`
-	// รายละเอียดสินค้า ฝั่งซื้อ
-	BuyDescription string `json:"buyDescription,omitempty"`
-	// ราคาซื้อสินค้า
-	BuyPrice float32 `json:"buyPrice,omitempty"`
-	// ภาษีซื้อ: <br> 1 = ราคาซื้อรวมภาษี <br> 3 = ราคาซื้อไม่รวมภาษี <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี
-	BuyVatType int64 `json:"buyVatType,omitempty"`
-	// วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
-	InventoryPublishedOn string `json:"inventoryPublishedOn,omitempty"`
-	// จำนวนยอดตั้งต้นสินค้า
-	InventoryQuantity float32 `json:"inventoryQuantity,omitempty"`
-	// ราคาซื้อเฉลี่ยสินค้า
-	AverageBuyPrice float32 `json:"averageBuyPrice,omitempty"`
-	// ราคาขายเฉลี่ยสินค้า
-	AverageSellPrice float32 `json:"averageSellPrice,omitempty"`
-	// จำนวนสินค้าคงเหลือในสต๊อก
-	RemainingStock float32 `json:"remainingStock,omitempty"`
-	// มูลค่าสินค้าคงเหลือในสต๊อก
-	TotalValueInHand float32 `json:"totalValueInHand,omitempty"`
+	// จำนวนสินค้าทั้งหมด
+	Total int32 `json:"total,omitempty"`
+	// หน้าที่แสดงรายการสินค้า
+	CurrentPage int32 `json:"currentPage,omitempty"`
+	// ข้อมูลรายการสินค้า
+	List []Product `json:"list,omitempty"`
+	// database
+	IsDB bool `json:"isDB,omitempty"`
 }

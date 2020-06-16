@@ -24,9 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.DeleteResponse;
-import org.openapitools.client.model.OneOfProductServiceProductNonInventoryProductInventoryProductInventoryBalance;
 import org.openapitools.client.model.ProductResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
+import org.openapitools.client.model.ProductType;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -504,11 +503,11 @@ public class ProductsApi {
   * 
    * @param authorization เลข Id Product
    * @param id 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param productType 
    * @return ProductResponse
   */
-  public ProductResponse productsIdPut (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public ProductResponse productsIdPut (String authorization, String id, ProductType productType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = productType;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling productsIdPut",
@@ -519,10 +518,10 @@ public class ProductsApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling productsIdPut",
         new ApiException(400, "Missing the required parameter 'id' when calling productsIdPut"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsIdPut",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsIdPut"));
+    // verify the required parameter 'productType' is set
+    if (productType == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'productType' when calling productsIdPut",
+        new ApiException(400, "Missing the required parameter 'productType' when calling productsIdPut"));
     }
 
     // create path and map variables
@@ -578,10 +577,10 @@ public class ProductsApi {
       /**
    * Update products.
    * 
-   * @param authorization เลข Id Product   * @param id    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization เลข Id Product   * @param id    * @param productType 
   */
-  public void productsIdPut (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<ProductResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void productsIdPut (String authorization, String id, ProductType productType, final Response.Listener<ProductResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = productType;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
@@ -593,10 +592,10 @@ public class ProductsApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling productsIdPut",
         new ApiException(400, "Missing the required parameter 'id' when calling productsIdPut"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsIdPut",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsIdPut"));
+    // verify the required parameter 'productType' is set
+    if (productType == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'productType' when calling productsIdPut",
+        new ApiException(400, "Missing the required parameter 'productType' when calling productsIdPut"));
     }
 
     // create path and map variables
@@ -655,20 +654,20 @@ public class ProductsApi {
   * Create products.
   * 
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param productType 
    * @return ProductResponse
   */
-  public ProductResponse productsPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public ProductResponse productsPost (String authorization, ProductType productType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = productType;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling productsPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling productsPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsPost"));
+    // verify the required parameter 'productType' is set
+    if (productType == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'productType' when calling productsPost",
+        new ApiException(400, "Missing the required parameter 'productType' when calling productsPost"));
     }
 
     // create path and map variables
@@ -724,20 +723,20 @@ public class ProductsApi {
       /**
    * Create products.
    * 
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param productType 
   */
-  public void productsPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<ProductResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void productsPost (String authorization, ProductType productType, final Response.Listener<ProductResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = productType;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling productsPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling productsPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsPost"));
+    // verify the required parameter 'productType' is set
+    if (productType == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'productType' when calling productsPost",
+        new ApiException(400, "Missing the required parameter 'productType' when calling productsPost"));
     }
 
     // create path and map variables

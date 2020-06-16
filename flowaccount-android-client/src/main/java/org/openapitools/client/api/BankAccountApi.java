@@ -23,6 +23,7 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.openapitools.client.model.AllBankAccountResponse;
 import org.openapitools.client.model.BankAccount;
 import org.openapitools.client.model.BankAccountResponse;
 
@@ -60,9 +61,9 @@ public class BankAccountApi {
   * Get list all My Bank Account
   * 
    * @param authorization 
-   * @return BankAccountResponse
+   * @return AllBankAccountResponse
   */
-  public BankAccountResponse bankAccountsGet (String authorization) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AllBankAccountResponse bankAccountsGet (String authorization) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
@@ -98,7 +99,7 @@ public class BankAccountApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (BankAccountResponse) ApiInvoker.deserialize(localVarResponse, "", BankAccountResponse.class);
+         return (AllBankAccountResponse) ApiInvoker.deserialize(localVarResponse, "", AllBankAccountResponse.class);
       } else {
          return null;
       }
@@ -124,7 +125,7 @@ public class BankAccountApi {
    * 
    * @param authorization 
   */
-  public void bankAccountsGet (String authorization, final Response.Listener<BankAccountResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void bankAccountsGet (String authorization, final Response.Listener<AllBankAccountResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'authorization' is set
@@ -170,7 +171,7 @@ public class BankAccountApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((BankAccountResponse) ApiInvoker.deserialize(localVarResponse,  "", BankAccountResponse.class));
+              responseListener.onResponse((AllBankAccountResponse) ApiInvoker.deserialize(localVarResponse,  "", AllBankAccountResponse.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

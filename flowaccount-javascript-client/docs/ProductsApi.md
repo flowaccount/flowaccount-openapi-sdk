@@ -157,7 +157,7 @@ No authorization required
 
 ## productsIdPut
 
-> ProductResponse productsIdPut(authorization, id, UNKNOWN_BASE_TYPE)
+> ProductResponse productsIdPut(authorization, id, productType)
 
 Update products.
 
@@ -169,8 +169,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 let apiInstance = new FlowAccountOpenApi.ProductsApi();
 let authorization = "'Bearer accessToken'"; // String | เลข Id Product
 let id = "id_example"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.productsIdPut(authorization, id, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let productType = new FlowAccountOpenApi.ProductType(); // ProductType | 
+apiInstance.productsIdPut(authorization, id, productType, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| เลข Id Product | [default to &#39;Bearer accessToken&#39;]
  **id** | **String**|  | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **productType** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 
@@ -204,7 +204,7 @@ No authorization required
 
 ## productsPost
 
-> ProductResponse productsPost(authorization, UNKNOWN_BASE_TYPE)
+> ProductResponse productsPost(authorization, productType)
 
 Create products.
 
@@ -215,8 +215,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ProductsApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.productsPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let productType = new FlowAccountOpenApi.ProductType(); // ProductType | 
+apiInstance.productsPost(authorization, productType, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -231,7 +231,7 @@ apiInstance.productsPost(authorization, UNKNOWN_BASE_TYPE, (error, data, respons
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **productType** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 

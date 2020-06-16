@@ -38,7 +38,7 @@ export declare class UpdateExpenseDocument {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
-    'expenseStructureType'?: string;
+    'expenseStructureType'?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

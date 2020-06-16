@@ -29,11 +29,11 @@ export declare class ExpenseInlineDocumentWithPaymentPaidCash {
     'discountType'?: number;
     'useInlineDiscount'?: boolean;
     'useInlineVat'?: boolean;
-    'exemptAmount'?: number;
+    'exemptAmount'?: number | null;
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
-    'expensePaymentStructureType': string;
+    'expensePaymentStructureType': string | null;
     'paymentMethod': number;
     'paymentDate': string;
     'collected': number;

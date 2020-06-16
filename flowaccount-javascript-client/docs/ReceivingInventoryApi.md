@@ -69,7 +69,7 @@ No authorization required
 
 ## purchasesGet
 
-> InlineDocumentResponse purchasesGet(currentPage, pageSize, authorization, opts)
+> AllDocumentResponse purchasesGet(currentPage, pageSize, authorization, opts)
 
 Get list all receiving inventory documents.
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ No authorization required
 
 ## purchasesIdPaymentPost
 
-> InlineDocumentResponse purchasesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse purchasesIdPaymentPost(authorization, id, paymentPaidDocument)
 
 Change paid status of receiving inventory document.
 
@@ -283,8 +283,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 let apiInstance = new FlowAccountOpenApi.ReceivingInventoryApi();
 let authorization = "'Bearer accessToken'"; // String | 
 let id = "id_example"; // String | ID เอกสารใช้ recordId หรือ documentId
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.purchasesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let paymentPaidDocument = new FlowAccountOpenApi.PaymentPaidDocument(); // PaymentPaidDocument | 
+apiInstance.purchasesIdPaymentPost(authorization, id, paymentPaidDocument, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  | 
 
 ### Return type
 
@@ -463,7 +463,7 @@ No authorization required
 
 ## purchasesInlineWithPaymentPost
 
-> InlineDocumentResponse purchasesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaid)
 
 Create receiving inventory document with discount and tax inline with payment.
 
@@ -476,8 +476,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ReceivingInventoryApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.purchasesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let inlineDocumentWithPaymentPaid = new FlowAccountOpenApi.InlineDocumentWithPaymentPaid(); // InlineDocumentWithPaymentPaid | 
+apiInstance.purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -492,7 +492,7 @@ apiInstance.purchasesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (er
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **inlineDocumentWithPaymentPaid** | [**InlineDocumentWithPaymentPaid**](InlineDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 
@@ -604,7 +604,7 @@ No authorization required
 
 ## purchasesWithPaymentPost
 
-> SimpleDocumentResponse purchasesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaid)
 
 Create receiving inventory document with payment.
 
@@ -617,8 +617,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ReceivingInventoryApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.purchasesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let simpleDocumentWithPaymentPaid = new FlowAccountOpenApi.SimpleDocumentWithPaymentPaid(); // SimpleDocumentWithPaymentPaid | 
+apiInstance.purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -633,7 +633,7 @@ apiInstance.purchasesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **simpleDocumentWithPaymentPaid** | [**SimpleDocumentWithPaymentPaid**](SimpleDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 

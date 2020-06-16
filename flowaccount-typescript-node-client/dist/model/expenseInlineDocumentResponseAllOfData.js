@@ -195,12 +195,12 @@ ExpenseInlineDocumentResponseAllOfData.attributeTypeMap = [
     {
         "name": "payments",
         "baseName": "payments",
-        "type": "Array<PaymentDocumentResponse>"
+        "type": "SimpleDocumentResponseAllOfDataPayments"
     },
     {
         "name": "company",
         "baseName": "company",
-        "type": "Array<object>"
+        "type": "SimpleDocumentResponseAllOfDataCompany"
     },
     {
         "name": "status",

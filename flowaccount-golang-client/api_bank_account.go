@@ -29,21 +29,20 @@ type BankAccountApiService service
 BankAccountsGet Get list all My Bank Account
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
-@return BankAccountResponse
+@return AllBankAccountResponse
 */
-func (a *BankAccountApiService) BankAccountsGet(ctx _context.Context, authorization string) (BankAccountResponse, *_nethttp.Response, error) {
+func (a *BankAccountApiService) BankAccountsGet(ctx _context.Context, authorization string) (AllBankAccountResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  BankAccountResponse
+		localVarReturnValue  AllBankAccountResponse
 	)
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/bank-accounts"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -87,16 +86,6 @@ func (a *BankAccountApiService) BankAccountsGet(ctx _context.Context, authorizat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v BankAccountResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -131,7 +120,6 @@ func (a *BankAccountApiService) BankAccountsPost(ctx _context.Context, authoriza
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/bank-accounts"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -176,16 +164,6 @@ func (a *BankAccountApiService) BankAccountsPost(ctx _context.Context, authoriza
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v BankAccountResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

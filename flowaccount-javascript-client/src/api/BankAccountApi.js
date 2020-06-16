@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AllBankAccountResponse from '../model/AllBankAccountResponse';
 import BankAccount from '../model/BankAccount';
 import BankAccountResponse from '../model/BankAccountResponse';
 
@@ -39,7 +40,7 @@ export default class BankAccountApi {
      * Callback function to receive the result of the bankAccountsGet operation.
      * @callback module:api/BankAccountApi~bankAccountsGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/BankAccountResponse} data The data returned by the service call.
+     * @param {module:model/AllBankAccountResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -47,7 +48,7 @@ export default class BankAccountApi {
      * Get list all My Bank Account
      * @param {String} authorization 
      * @param {module:api/BankAccountApi~bankAccountsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/BankAccountResponse}
+     * data is of type: {@link module:model/AllBankAccountResponse}
      */
     bankAccountsGet(authorization, callback) {
       let postBody = null;
@@ -69,7 +70,7 @@ export default class BankAccountApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = BankAccountResponse;
+      let returnType = AllBankAccountResponse;
       return this.apiClient.callApi(
         '/bank-accounts', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

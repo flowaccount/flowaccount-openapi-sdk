@@ -66,7 +66,7 @@ No authorization required
 
 ## quotationsGet
 
-> InlineDocumentResponse quotationsGet(currentPage, pageSize, authorization, opts)
+> AllDocumentResponse quotationsGet(currentPage, pageSize, authorization, opts)
 
 Get list all quotations documents.
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 

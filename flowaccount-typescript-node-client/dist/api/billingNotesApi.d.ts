@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import http = require('http');
+import { AllDocumentResponse } from '../model/allDocumentResponse';
 import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
@@ -11,22 +12,25 @@ import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
 import { UpdateInlineDocument } from '../model/updateInlineDocument';
-import { Authentication } from '../model/models';
+import { Authentication, Interceptor } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum BillingNotesApiApiKeys {
 }
 export declare class BillingNotesApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: BillingNotesApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     billingNotesEmailDocumentPost(authorization: string, sendEmailCoppies: SendEmailCoppies, options?: {
         headers: {
             [name: string]: string;
@@ -41,7 +45,7 @@ export declare class BillingNotesApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineDocumentResponse;
+        body: AllDocumentResponse;
     }>;
     billingNotesIdAttachmentPost(authorization: string, id: string, file?: RequestFile, options?: {
         headers: {

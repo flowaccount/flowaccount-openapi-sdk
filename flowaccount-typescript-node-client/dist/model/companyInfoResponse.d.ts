@@ -1,19 +1,9 @@
+import { CompanyInfoResponseData } from './companyInfoResponseData';
 export declare class CompanyInfoResponse {
-    'companyId'?: number;
-    'companyType'?: string;
-    'compnayName': string;
-    'companyNameEn'?: string;
-    'companyAddress'?: string;
-    'companyAddressEn'?: string;
-    'companyZipCode'?: string;
-    'companyTaxId'?: string;
-    'companyBranch'?: string;
-    'companyBranchEn'?: string;
-    'companyBranchCode'?: string;
-    'companyPhone'?: string;
-    'companyMobile'?: string;
-    'companyFax'?: string;
-    'companyWebsite'?: string;
+    'status'?: boolean;
+    'message'?: string;
+    'code'?: number;
+    'data'?: Array<CompanyInfoResponseData>;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

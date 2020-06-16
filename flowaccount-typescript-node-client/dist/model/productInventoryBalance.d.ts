@@ -1,5 +1,5 @@
 export declare class ProductInventoryBalance {
-    'productStructureType'?: string;
+    'productStructureType'?: string | null;
     'type': number;
     'code'?: string;
     'name': string;

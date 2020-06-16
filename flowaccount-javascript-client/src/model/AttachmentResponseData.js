@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AnyType from './AnyType';
 
 /**
  * The AttachmentResponseData model module.
@@ -51,7 +52,7 @@ class AttachmentResponseData {
                 obj['attachmentId'] = ApiClient.convertToType(data['attachmentId'], 'Number');
             }
             if (data.hasOwnProperty('createdOn')) {
-                obj['createdOn'] = ApiClient.convertToType(data['createdOn'], Object);
+                obj['createdOn'] = ApiClient.convertToType(data['createdOn'], AnyType);
             }
             if (data.hasOwnProperty('attachmentName')) {
                 obj['attachmentName'] = ApiClient.convertToType(data['attachmentName'], 'String');
@@ -80,7 +81,7 @@ AttachmentResponseData.prototype['attachmentId'] = undefined;
 
 /**
  * วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
- * @member {Object} createdOn
+ * @member {module:model/AnyType} createdOn
  */
 AttachmentResponseData.prototype['createdOn'] = undefined;
 

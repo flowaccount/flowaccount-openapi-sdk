@@ -18,6 +18,8 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class Contact {
   
+  @SerializedName("id")
+  private Long id = null;
   @SerializedName("contactGroup")
   private Long contactGroup = 3;
   @SerializedName("contactType")
@@ -60,6 +62,17 @@ public class Contact {
   private String conatactShippingAddress = null;
   @SerializedName("contactNote")
   private String contactNote = null;
+
+  /**
+   * เลข id Contact
+   **/
+  @ApiModelProperty(value = "เลข id Contact")
+  public Long getId() {
+    return id;
+  }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   /**
    * ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล
@@ -302,7 +315,8 @@ public class Contact {
       return false;
     }
     Contact contact = (Contact) o;
-    return (this.contactGroup == null ? contact.contactGroup == null : this.contactGroup.equals(contact.contactGroup)) &&
+    return (this.id == null ? contact.id == null : this.id.equals(contact.id)) &&
+        (this.contactGroup == null ? contact.contactGroup == null : this.contactGroup.equals(contact.contactGroup)) &&
         (this.contactType == null ? contact.contactType == null : this.contactType.equals(contact.contactType)) &&
         (this.contactName == null ? contact.contactName == null : this.contactName.equals(contact.contactName)) &&
         (this.contactAddress == null ? contact.contactAddress == null : this.contactAddress.equals(contact.contactAddress)) &&
@@ -328,6 +342,7 @@ public class Contact {
   @Override
   public int hashCode() {
     int result = 17;
+    result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.contactGroup == null ? 0: this.contactGroup.hashCode());
     result = 31 * result + (this.contactType == null ? 0: this.contactType.hashCode());
     result = 31 * result + (this.contactName == null ? 0: this.contactName.hashCode());
@@ -357,6 +372,7 @@ public class Contact {
     StringBuilder sb = new StringBuilder();
     sb.append("class Contact {\n");
     
+    sb.append("  id: ").append(id).append("\n");
     sb.append("  contactGroup: ").append(contactGroup).append("\n");
     sb.append("  contactType: ").append(contactType).append("\n");
     sb.append("  contactName: ").append(contactName).append("\n");

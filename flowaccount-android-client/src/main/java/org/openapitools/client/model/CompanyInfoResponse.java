@@ -12,208 +12,65 @@
 
 package org.openapitools.client.model;
 
-import org.openapitools.client.model.CompanyInfo;
-import org.openapitools.client.model.CompanyInfoResponseAllOf;
+import java.util.*;
+import org.openapitools.client.model.CompanyInfoResponseData;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 @ApiModel(description = "")
 public class CompanyInfoResponse {
   
-  @SerializedName("companyId")
-  private Long companyId = 0;
-  @SerializedName("companyType")
-  private String companyType = 10;
-  @SerializedName("compnayName")
-  private String compnayName = null;
-  @SerializedName("companyNameEn")
-  private String companyNameEn = null;
-  @SerializedName("companyAddress")
-  private String companyAddress = null;
-  @SerializedName("companyAddressEn")
-  private String companyAddressEn = null;
-  @SerializedName("companyZipCode")
-  private String companyZipCode = null;
-  @SerializedName("companyTaxId")
-  private String companyTaxId = null;
-  @SerializedName("companyBranch")
-  private String companyBranch = สำนักงานใหญ่;
-  @SerializedName("companyBranchEn")
-  private String companyBranchEn = null;
-  @SerializedName("companyBranchCode")
-  private String companyBranchCode = null;
-  @SerializedName("companyPhone")
-  private String companyPhone = null;
-  @SerializedName("companyMobile")
-  private String companyMobile = null;
-  @SerializedName("companyFax")
-  private String companyFax = null;
-  @SerializedName("companyWebsite")
-  private String companyWebsite = null;
+  @SerializedName("status")
+  private Boolean status = null;
+  @SerializedName("message")
+  private String message = null;
+  @SerializedName("code")
+  private Integer code = null;
+  @SerializedName("data")
+  private List<CompanyInfoResponseData> data = null;
 
   /**
-   * รหัสบริษัท
+   * action success
    **/
-  @ApiModelProperty(value = "รหัสบริษัท")
-  public Long getCompanyId() {
-    return companyId;
+  @ApiModelProperty(value = "action success")
+  public Boolean getStatus() {
+    return status;
   }
-  public void setCompanyId(Long companyId) {
-    this.companyId = companyId;
+  public void setStatus(Boolean status) {
+    this.status = status;
   }
 
   /**
-   * ประเภทธุรกิจ <br> 10 = บริษัท - จดภาษีมูลค่าเพิ่มแล้ว <br> 20 = บริษัท - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 30 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 40 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 50 = ห้างหุ้นส่วนจำกัด - จดภาษีมูลค่าเพิ่มแล้ว <br> 60 = ห้างหุ้นส่วนจำกัด - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม
+   * error message
    **/
-  @ApiModelProperty(value = "ประเภทธุรกิจ <br> 10 = บริษัท - จดภาษีมูลค่าเพิ่มแล้ว <br> 20 = บริษัท - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 30 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 40 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 50 = ห้างหุ้นส่วนจำกัด - จดภาษีมูลค่าเพิ่มแล้ว <br> 60 = ห้างหุ้นส่วนจำกัด - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม")
-  public String getCompanyType() {
-    return companyType;
+  @ApiModelProperty(value = "error message")
+  public String getMessage() {
+    return message;
   }
-  public void setCompanyType(String companyType) {
-    this.companyType = companyType;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
-   * ชื่อบริษัท
+   * error code
    **/
-  @ApiModelProperty(required = true, value = "ชื่อบริษัท")
-  public String getCompnayName() {
-    return compnayName;
+  @ApiModelProperty(value = "error code")
+  public Integer getCode() {
+    return code;
   }
-  public void setCompnayName(String compnayName) {
-    this.compnayName = compnayName;
+  public void setCode(Integer code) {
+    this.code = code;
   }
 
   /**
-   * ชื่อบริษัท ภาษาอังกฤษ
+   * ข้อมูลบริษัทเรา
    **/
-  @ApiModelProperty(value = "ชื่อบริษัท ภาษาอังกฤษ")
-  public String getCompanyNameEn() {
-    return companyNameEn;
+  @ApiModelProperty(value = "ข้อมูลบริษัทเรา")
+  public List<CompanyInfoResponseData> getData() {
+    return data;
   }
-  public void setCompanyNameEn(String companyNameEn) {
-    this.companyNameEn = companyNameEn;
-  }
-
-  /**
-   * ที่อยู่บริษัท
-   **/
-  @ApiModelProperty(value = "ที่อยู่บริษัท")
-  public String getCompanyAddress() {
-    return companyAddress;
-  }
-  public void setCompanyAddress(String companyAddress) {
-    this.companyAddress = companyAddress;
-  }
-
-  /**
-   * ที่อยู่บริษัท ภาษาอังกฤษ
-   **/
-  @ApiModelProperty(value = "ที่อยู่บริษัท ภาษาอังกฤษ")
-  public String getCompanyAddressEn() {
-    return companyAddressEn;
-  }
-  public void setCompanyAddressEn(String companyAddressEn) {
-    this.companyAddressEn = companyAddressEn;
-  }
-
-  /**
-   * รหัสไปรษณีย์ บริษัท <br><ex>Example: 10150</ex>
-   **/
-  @ApiModelProperty(value = "รหัสไปรษณีย์ บริษัท <br><ex>Example: 10150</ex>")
-  public String getCompanyZipCode() {
-    return companyZipCode;
-  }
-  public void setCompanyZipCode(String companyZipCode) {
-    this.companyZipCode = companyZipCode;
-  }
-
-  /**
-   * เลขประจำตัวผู้เสียภาษี บริษัท <br><ex>Example: 0105558096348</ex>
-   **/
-  @ApiModelProperty(value = "เลขประจำตัวผู้เสียภาษี บริษัท <br><ex>Example: 0105558096348</ex>")
-  public String getCompanyTaxId() {
-    return companyTaxId;
-  }
-  public void setCompanyTaxId(String companyTaxId) {
-    this.companyTaxId = companyTaxId;
-  }
-
-  /**
-   * ชื่อ และ รหัสสาขา <br><ex>Example: สำนักงานใหญ่</ex>
-   **/
-  @ApiModelProperty(value = "ชื่อ และ รหัสสาขา <br><ex>Example: สำนักงานใหญ่</ex>")
-  public String getCompanyBranch() {
-    return companyBranch;
-  }
-  public void setCompanyBranch(String companyBranch) {
-    this.companyBranch = companyBranch;
-  }
-
-  /**
-   * ชื่อ และ รหัสสาขา ภาษาอังกฤษ <br><ex>Example: Head Office</ex>
-   **/
-  @ApiModelProperty(value = "ชื่อ และ รหัสสาขา ภาษาอังกฤษ <br><ex>Example: Head Office</ex>")
-  public String getCompanyBranchEn() {
-    return companyBranchEn;
-  }
-  public void setCompanyBranchEn(String companyBranchEn) {
-    this.companyBranchEn = companyBranchEn;
-  }
-
-  /**
-   * รหัสสาขา <br><ex>Example: 00000</ex>
-   **/
-  @ApiModelProperty(value = "รหัสสาขา <br><ex>Example: 00000</ex>")
-  public String getCompanyBranchCode() {
-    return companyBranchCode;
-  }
-  public void setCompanyBranchCode(String companyBranchCode) {
-    this.companyBranchCode = companyBranchCode;
-  }
-
-  /**
-   * เบอร์โทรสำนักงาน <br><ex>Example: 02-999-9999</ex>
-   **/
-  @ApiModelProperty(value = "เบอร์โทรสำนักงาน <br><ex>Example: 02-999-9999</ex>")
-  public String getCompanyPhone() {
-    return companyPhone;
-  }
-  public void setCompanyPhone(String companyPhone) {
-    this.companyPhone = companyPhone;
-  }
-
-  /**
-   * เบอร์โทรศัพท์มือถือ <br><ex>Example: 099-999-9999</ex>
-   **/
-  @ApiModelProperty(value = "เบอร์โทรศัพท์มือถือ <br><ex>Example: 099-999-9999</ex>")
-  public String getCompanyMobile() {
-    return companyMobile;
-  }
-  public void setCompanyMobile(String companyMobile) {
-    this.companyMobile = companyMobile;
-  }
-
-  /**
-   * เบอร์โทรสาร <br><ex>Example: 02-999-9999 ต่อ 1</ex>
-   **/
-  @ApiModelProperty(value = "เบอร์โทรสาร <br><ex>Example: 02-999-9999 ต่อ 1</ex>")
-  public String getCompanyFax() {
-    return companyFax;
-  }
-  public void setCompanyFax(String companyFax) {
-    this.companyFax = companyFax;
-  }
-
-  /**
-   * เว็บไซต์ <br><ex>Example: www.flowaccount.com</ex>
-   **/
-  @ApiModelProperty(value = "เว็บไซต์ <br><ex>Example: www.flowaccount.com</ex>")
-  public String getCompanyWebsite() {
-    return companyWebsite;
-  }
-  public void setCompanyWebsite(String companyWebsite) {
-    this.companyWebsite = companyWebsite;
+  public void setData(List<CompanyInfoResponseData> data) {
+    this.data = data;
   }
 
 
@@ -226,41 +83,19 @@ public class CompanyInfoResponse {
       return false;
     }
     CompanyInfoResponse companyInfoResponse = (CompanyInfoResponse) o;
-    return (this.companyId == null ? companyInfoResponse.companyId == null : this.companyId.equals(companyInfoResponse.companyId)) &&
-        (this.companyType == null ? companyInfoResponse.companyType == null : this.companyType.equals(companyInfoResponse.companyType)) &&
-        (this.compnayName == null ? companyInfoResponse.compnayName == null : this.compnayName.equals(companyInfoResponse.compnayName)) &&
-        (this.companyNameEn == null ? companyInfoResponse.companyNameEn == null : this.companyNameEn.equals(companyInfoResponse.companyNameEn)) &&
-        (this.companyAddress == null ? companyInfoResponse.companyAddress == null : this.companyAddress.equals(companyInfoResponse.companyAddress)) &&
-        (this.companyAddressEn == null ? companyInfoResponse.companyAddressEn == null : this.companyAddressEn.equals(companyInfoResponse.companyAddressEn)) &&
-        (this.companyZipCode == null ? companyInfoResponse.companyZipCode == null : this.companyZipCode.equals(companyInfoResponse.companyZipCode)) &&
-        (this.companyTaxId == null ? companyInfoResponse.companyTaxId == null : this.companyTaxId.equals(companyInfoResponse.companyTaxId)) &&
-        (this.companyBranch == null ? companyInfoResponse.companyBranch == null : this.companyBranch.equals(companyInfoResponse.companyBranch)) &&
-        (this.companyBranchEn == null ? companyInfoResponse.companyBranchEn == null : this.companyBranchEn.equals(companyInfoResponse.companyBranchEn)) &&
-        (this.companyBranchCode == null ? companyInfoResponse.companyBranchCode == null : this.companyBranchCode.equals(companyInfoResponse.companyBranchCode)) &&
-        (this.companyPhone == null ? companyInfoResponse.companyPhone == null : this.companyPhone.equals(companyInfoResponse.companyPhone)) &&
-        (this.companyMobile == null ? companyInfoResponse.companyMobile == null : this.companyMobile.equals(companyInfoResponse.companyMobile)) &&
-        (this.companyFax == null ? companyInfoResponse.companyFax == null : this.companyFax.equals(companyInfoResponse.companyFax)) &&
-        (this.companyWebsite == null ? companyInfoResponse.companyWebsite == null : this.companyWebsite.equals(companyInfoResponse.companyWebsite));
+    return (this.status == null ? companyInfoResponse.status == null : this.status.equals(companyInfoResponse.status)) &&
+        (this.message == null ? companyInfoResponse.message == null : this.message.equals(companyInfoResponse.message)) &&
+        (this.code == null ? companyInfoResponse.code == null : this.code.equals(companyInfoResponse.code)) &&
+        (this.data == null ? companyInfoResponse.data == null : this.data.equals(companyInfoResponse.data));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.companyId == null ? 0: this.companyId.hashCode());
-    result = 31 * result + (this.companyType == null ? 0: this.companyType.hashCode());
-    result = 31 * result + (this.compnayName == null ? 0: this.compnayName.hashCode());
-    result = 31 * result + (this.companyNameEn == null ? 0: this.companyNameEn.hashCode());
-    result = 31 * result + (this.companyAddress == null ? 0: this.companyAddress.hashCode());
-    result = 31 * result + (this.companyAddressEn == null ? 0: this.companyAddressEn.hashCode());
-    result = 31 * result + (this.companyZipCode == null ? 0: this.companyZipCode.hashCode());
-    result = 31 * result + (this.companyTaxId == null ? 0: this.companyTaxId.hashCode());
-    result = 31 * result + (this.companyBranch == null ? 0: this.companyBranch.hashCode());
-    result = 31 * result + (this.companyBranchEn == null ? 0: this.companyBranchEn.hashCode());
-    result = 31 * result + (this.companyBranchCode == null ? 0: this.companyBranchCode.hashCode());
-    result = 31 * result + (this.companyPhone == null ? 0: this.companyPhone.hashCode());
-    result = 31 * result + (this.companyMobile == null ? 0: this.companyMobile.hashCode());
-    result = 31 * result + (this.companyFax == null ? 0: this.companyFax.hashCode());
-    result = 31 * result + (this.companyWebsite == null ? 0: this.companyWebsite.hashCode());
+    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
+    result = 31 * result + (this.message == null ? 0: this.message.hashCode());
+    result = 31 * result + (this.code == null ? 0: this.code.hashCode());
+    result = 31 * result + (this.data == null ? 0: this.data.hashCode());
     return result;
   }
 
@@ -269,21 +104,10 @@ public class CompanyInfoResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompanyInfoResponse {\n");
     
-    sb.append("  companyId: ").append(companyId).append("\n");
-    sb.append("  companyType: ").append(companyType).append("\n");
-    sb.append("  compnayName: ").append(compnayName).append("\n");
-    sb.append("  companyNameEn: ").append(companyNameEn).append("\n");
-    sb.append("  companyAddress: ").append(companyAddress).append("\n");
-    sb.append("  companyAddressEn: ").append(companyAddressEn).append("\n");
-    sb.append("  companyZipCode: ").append(companyZipCode).append("\n");
-    sb.append("  companyTaxId: ").append(companyTaxId).append("\n");
-    sb.append("  companyBranch: ").append(companyBranch).append("\n");
-    sb.append("  companyBranchEn: ").append(companyBranchEn).append("\n");
-    sb.append("  companyBranchCode: ").append(companyBranchCode).append("\n");
-    sb.append("  companyPhone: ").append(companyPhone).append("\n");
-    sb.append("  companyMobile: ").append(companyMobile).append("\n");
-    sb.append("  companyFax: ").append(companyFax).append("\n");
-    sb.append("  companyWebsite: ").append(companyWebsite).append("\n");
+    sb.append("  status: ").append(status).append("\n");
+    sb.append("  message: ").append(message).append("\n");
+    sb.append("  code: ").append(code).append("\n");
+    sb.append("  data: ").append(data).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

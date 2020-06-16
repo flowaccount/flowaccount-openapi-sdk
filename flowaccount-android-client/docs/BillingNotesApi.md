@@ -67,7 +67,7 @@ No authorization required
 
 ## billingNotesGet
 
-> InlineDocumentResponse billingNotesGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllDocumentResponse billingNotesGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all billing notes documents.
 
@@ -86,7 +86,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    InlineDocumentResponse result = apiInstance.billingNotesGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllDocumentResponse result = apiInstance.billingNotesGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BillingNotesApi#billingNotesGet");
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 

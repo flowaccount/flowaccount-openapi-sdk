@@ -1,26 +1,9 @@
+import { ContactResponseData } from './contactResponseData';
 export declare class ContactResponse {
-    'id'?: number;
-    'contactGroup': number;
-    'contactType': number;
-    'contactName': string;
-    'contactAddress'?: string;
-    'contactZipCode'?: string;
-    'contactTaxId'?: number;
-    'contactBranchCode'?: string;
-    'contactBranch'?: string;
-    'contactPerson'?: string;
-    'contactEmail'?: string;
-    'contactMobile'?: string;
-    'contactBankId'?: number;
-    'contactBankAccountNumber'?: number;
-    'contactBankBranch'?: string;
-    'contactBankAccountType'?: number;
-    'contactCreditDays'?: number;
-    'contactOffice'?: string;
-    'contactFax'?: string;
-    'contactWebsite'?: string;
-    'conatactShippingAddress'?: string;
-    'contactNote'?: string;
+    'status'?: boolean;
+    'message'?: string;
+    'code'?: number;
+    'data'?: ContactResponseData;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

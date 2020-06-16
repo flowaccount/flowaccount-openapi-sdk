@@ -1,44 +1,39 @@
 /// <reference types="node" />
 import http = require('http');
+import { AllDocumentResponse } from '../model/allDocumentResponse';
 import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
-import { InlineDocumentWithPaymentPaidCash } from '../model/inlineDocumentWithPaymentPaidCash';
-import { InlineDocumentWithPaymentPaidCheque } from '../model/inlineDocumentWithPaymentPaidCheque';
-import { InlineDocumentWithPaymentPaidCreditCard } from '../model/inlineDocumentWithPaymentPaidCreditCard';
-import { InlineDocumentWithPaymentPaidTransfer } from '../model/inlineDocumentWithPaymentPaidTransfer';
-import { PaymentPaidCash } from '../model/paymentPaidCash';
-import { PaymentPaidCheque } from '../model/paymentPaidCheque';
-import { PaymentPaidCreditCard } from '../model/paymentPaidCreditCard';
-import { PaymentPaidTransfer } from '../model/paymentPaidTransfer';
+import { InlineDocumentWithPaymentPaid } from '../model/inlineDocumentWithPaymentPaid';
+import { PaymentPaidDocument } from '../model/paymentPaidDocument';
 import { SendEmailCoppies } from '../model/sendEmailCoppies';
 import { SendEmailResponse } from '../model/sendEmailResponse';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
-import { SimpleDocumentWithPaymentPaidCash } from '../model/simpleDocumentWithPaymentPaidCash';
-import { SimpleDocumentWithPaymentPaidCheque } from '../model/simpleDocumentWithPaymentPaidCheque';
-import { SimpleDocumentWithPaymentPaidCreditCard } from '../model/simpleDocumentWithPaymentPaidCreditCard';
-import { SimpleDocumentWithPaymentPaidTransfer } from '../model/simpleDocumentWithPaymentPaidTransfer';
+import { SimpleDocumentWithPaymentPaid } from '../model/simpleDocumentWithPaymentPaid';
 import { UpdateInlineDocument } from '../model/updateInlineDocument';
-import { Authentication } from '../model/models';
+import { Authentication, Interceptor } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum ReceivingInventoryApiApiKeys {
 }
 export declare class ReceivingInventoryApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ReceivingInventoryApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     purchasesEmailDocumentPost(authorization: string, sendEmailCoppies: SendEmailCoppies, options?: {
         headers: {
             [name: string]: string;
@@ -53,7 +48,7 @@ export declare class ReceivingInventoryApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineDocumentResponse;
+        body: AllDocumentResponse;
     }>;
     purchasesIdAttachmentPost(authorization: string, id: string, file?: RequestFile, options?: {
         headers: {
@@ -79,7 +74,7 @@ export declare class ReceivingInventoryApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    purchasesIdPaymentPost(authorization: string, id: string, paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard: PaymentPaidCash | PaymentPaidTransfer | PaymentPaidCheque | PaymentPaidCreditCard, options?: {
+    purchasesIdPaymentPost(authorization: string, id: string, paymentPaidDocument: PaymentPaidDocument, options?: {
         headers: {
             [name: string]: string;
         };
@@ -111,7 +106,7 @@ export declare class ReceivingInventoryApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    purchasesInlineWithPaymentPost(authorization: string, inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard: InlineDocumentWithPaymentPaidCash | InlineDocumentWithPaymentPaidTransfer | InlineDocumentWithPaymentPaidCheque | InlineDocumentWithPaymentPaidCreditCard, options?: {
+    purchasesInlineWithPaymentPost(authorization: string, inlineDocumentWithPaymentPaid: InlineDocumentWithPaymentPaid, options?: {
         headers: {
             [name: string]: string;
         };
@@ -135,7 +130,7 @@ export declare class ReceivingInventoryApi {
         response: http.IncomingMessage;
         body: ShareDocumentResponse;
     }>;
-    purchasesWithPaymentPost(authorization: string, simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard: SimpleDocumentWithPaymentPaidCash | SimpleDocumentWithPaymentPaidTransfer | SimpleDocumentWithPaymentPaidCheque | SimpleDocumentWithPaymentPaidCreditCard, options?: {
+    purchasesWithPaymentPost(authorization: string, simpleDocumentWithPaymentPaid: SimpleDocumentWithPaymentPaid, options?: {
         headers: {
             [name: string]: string;
         };

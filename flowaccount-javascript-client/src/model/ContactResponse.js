@@ -12,8 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import Contact from './Contact';
-import ContactResponseAllOf from './ContactResponseAllOf';
+import ContactResponseData from './ContactResponseData';
 
 /**
  * The ContactResponse model module.
@@ -24,15 +23,10 @@ class ContactResponse {
     /**
      * Constructs a new <code>ContactResponse</code>.
      * @alias module:model/ContactResponse
-     * @implements module:model/ContactResponseAllOf
-     * @implements module:model/Contact
-     * @param contactGroup {Number} ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล
-     * @param contactType {Number} ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า
-     * @param contactName {String} ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
      */
-    constructor(contactGroup, contactType, contactName) { 
-        ContactResponseAllOf.initialize(this);Contact.initialize(this, contactGroup, contactType, contactName);
-        ContactResponse.initialize(this, contactGroup, contactType, contactName);
+    constructor() { 
+        
+        ContactResponse.initialize(this);
     }
 
     /**
@@ -40,10 +34,7 @@ class ContactResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, contactGroup, contactType, contactName) { 
-        obj['contactGroup'] = contactGroup;
-        obj['contactType'] = contactType;
-        obj['contactName'] = contactName;
+    static initialize(obj) { 
     }
 
     /**
@@ -56,74 +47,18 @@ class ContactResponse {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ContactResponse();
-            ContactResponseAllOf.constructFromObject(data, obj);
-            Contact.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'Boolean');
             }
-            if (data.hasOwnProperty('contactGroup')) {
-                obj['contactGroup'] = ApiClient.convertToType(data['contactGroup'], 'Number');
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('contactType')) {
-                obj['contactType'] = ApiClient.convertToType(data['contactType'], 'Number');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
-            if (data.hasOwnProperty('contactName')) {
-                obj['contactName'] = ApiClient.convertToType(data['contactName'], 'String');
-            }
-            if (data.hasOwnProperty('contactAddress')) {
-                obj['contactAddress'] = ApiClient.convertToType(data['contactAddress'], 'String');
-            }
-            if (data.hasOwnProperty('contactZipCode')) {
-                obj['contactZipCode'] = ApiClient.convertToType(data['contactZipCode'], 'String');
-            }
-            if (data.hasOwnProperty('contactTaxId')) {
-                obj['contactTaxId'] = ApiClient.convertToType(data['contactTaxId'], 'Number');
-            }
-            if (data.hasOwnProperty('contactBranchCode')) {
-                obj['contactBranchCode'] = ApiClient.convertToType(data['contactBranchCode'], 'String');
-            }
-            if (data.hasOwnProperty('contactBranch')) {
-                obj['contactBranch'] = ApiClient.convertToType(data['contactBranch'], 'String');
-            }
-            if (data.hasOwnProperty('contactPerson')) {
-                obj['contactPerson'] = ApiClient.convertToType(data['contactPerson'], 'String');
-            }
-            if (data.hasOwnProperty('contactEmail')) {
-                obj['contactEmail'] = ApiClient.convertToType(data['contactEmail'], 'String');
-            }
-            if (data.hasOwnProperty('contactMobile')) {
-                obj['contactMobile'] = ApiClient.convertToType(data['contactMobile'], 'String');
-            }
-            if (data.hasOwnProperty('contactBankId')) {
-                obj['contactBankId'] = ApiClient.convertToType(data['contactBankId'], 'Number');
-            }
-            if (data.hasOwnProperty('contactBankAccountNumber')) {
-                obj['contactBankAccountNumber'] = ApiClient.convertToType(data['contactBankAccountNumber'], 'Number');
-            }
-            if (data.hasOwnProperty('contactBankBranch')) {
-                obj['contactBankBranch'] = ApiClient.convertToType(data['contactBankBranch'], 'String');
-            }
-            if (data.hasOwnProperty('contactBankAccountType')) {
-                obj['contactBankAccountType'] = ApiClient.convertToType(data['contactBankAccountType'], 'Number');
-            }
-            if (data.hasOwnProperty('contactCreditDays')) {
-                obj['contactCreditDays'] = ApiClient.convertToType(data['contactCreditDays'], 'Number');
-            }
-            if (data.hasOwnProperty('contactOffice')) {
-                obj['contactOffice'] = ApiClient.convertToType(data['contactOffice'], 'String');
-            }
-            if (data.hasOwnProperty('contactFax')) {
-                obj['contactFax'] = ApiClient.convertToType(data['contactFax'], 'String');
-            }
-            if (data.hasOwnProperty('contactWebsite')) {
-                obj['contactWebsite'] = ApiClient.convertToType(data['contactWebsite'], 'String');
-            }
-            if (data.hasOwnProperty('conatactShippingAddress')) {
-                obj['conatactShippingAddress'] = ApiClient.convertToType(data['conatactShippingAddress'], 'String');
-            }
-            if (data.hasOwnProperty('contactNote')) {
-                obj['contactNote'] = ApiClient.convertToType(data['contactNote'], 'String');
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ContactResponseData.constructFromObject(data['data']);
             }
         }
         return obj;
@@ -133,262 +68,29 @@ class ContactResponse {
 }
 
 /**
- * เลข id Contact
- * @member {Number} id
+ * action success
+ * @member {Boolean} status
  */
-ContactResponse.prototype['id'] = undefined;
+ContactResponse.prototype['status'] = undefined;
 
 /**
- * ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล
- * @member {Number} contactGroup
- * @default 3
+ * error message
+ * @member {String} message
  */
-ContactResponse.prototype['contactGroup'] = 3;
+ContactResponse.prototype['message'] = undefined;
 
 /**
- * ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า
- * @member {Number} contactType
- * @default 3
+ * error code
+ * @member {Number} code
  */
-ContactResponse.prototype['contactType'] = 3;
+ContactResponse.prototype['code'] = undefined;
 
 /**
- * ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
- * @member {String} contactName
+ * @member {module:model/ContactResponseData} data
  */
-ContactResponse.prototype['contactName'] = undefined;
-
-/**
- * ที่อยู่ผู้ติดต่อ
- * @member {String} contactAddress
- */
-ContactResponse.prototype['contactAddress'] = undefined;
-
-/**
- * รหัสไปรษณีย์ติดต่อ <ex>Example: 10140 </ex>
- * @member {String} contactZipCode
- */
-ContactResponse.prototype['contactZipCode'] = undefined;
-
-/**
- * เลขประจำตัวผู้เสียภาษี 13 หลัก ​<br><ex>Example: 1234567890123</ex>
- * @member {Number} contactTaxId
- */
-ContactResponse.prototype['contactTaxId'] = undefined;
-
-/**
- * รหัสสาขา
- * @member {String} contactBranchCode
- */
-ContactResponse.prototype['contactBranchCode'] = undefined;
-
-/**
- * ชื่อสาขา
- * @member {String} contactBranch
- * @default 'สำนักงานใหญ่'
- */
-ContactResponse.prototype['contactBranch'] = 'สำนักงานใหญ่';
-
-/**
- * ชื่อผู้ติดต่อ
- * @member {String} contactPerson
- */
-ContactResponse.prototype['contactPerson'] = undefined;
-
-/**
- * อีเมลผู้ติดต่อ <br> <ex>Example: contact@email.com</ex>
- * @member {String} contactEmail
- */
-ContactResponse.prototype['contactEmail'] = undefined;
-
-/**
- * เบอร์มือถือผู้ติดต่อ <br> <ex>Example: 099-999-9999</ex>
- * @member {String} contactMobile
- */
-ContactResponse.prototype['contactMobile'] = undefined;
-
-/**
- * รหัสธนาคาร <br> 1 = ธนาคารกรุงเทพ <br> 2 = ธนาคารกสิกรไทย <br> 3 = ธนาคารกรุงไทย <br> 4 = ธนาคารทหารไทย <br> 5 = ธนาคารไทยพาณิชย์ <br> 6 = ธนาคารสแตนดาร์ดชาร์เตอร์ด <br> 7 = ธนาคารซีไอเอ็มบี ไทย <br> 8 = ธนาคารยูโอบี <br> 10 = ธนาคารกรุงศรีอยุธยา <br> 11 = ธนาคารออมสิน <br> 12 = ธนาคารธนชาต <br> 13 = ธนาคารแลนด์ แอนด์ เฮ้าส์ <br> 14 = ธนาคารเกียรตินาคิน <br> 15 = ธนาคารซิตี้แบงก์ <br> 16 = ธนาคารทิสโก้ <br> 53 = ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร <br> 54 = ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย <br> 55 = ธนาคารอาคารสงเคราะห์ <br> 56 = ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย <br> 57 = ธนาคารอิสลามแห่งประเทศไทย <br> 58 = ธนาคารแห่งประเทศจีน (ไทย) <br> 59 = ธนาคารไอซีบีซี (ไทย) <br> 60 = ธนาคารเมกะ สากลพาณิชย์ <br> 61 = ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น <br> 62 = ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) <br> 63 = ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น <br> 64 = ธนาคารไทยเครดิต เพื่อรายย่อย 
- * @member {Number} contactBankId
- * @default 0
- */
-ContactResponse.prototype['contactBankId'] = 0;
-
-/**
- * เลขที่บัญชีธนาคาร <br> <ex>Example: 1111111111</ex>
- * @member {Number} contactBankAccountNumber
- */
-ContactResponse.prototype['contactBankAccountNumber'] = undefined;
-
-/**
- * สาขาธนาคาร <br> <ex>Example: บางรัก</ex>
- * @member {String} contactBankBranch
- */
-ContactResponse.prototype['contactBankBranch'] = undefined;
-
-/**
- * ประเภทบัญชีธนาคาร: <br> 1 = บัญชีออมทรัพย์ <br> 3 = บัญชีกระแสรายวัน
- * @member {Number} contactBankAccountType
- * @default 1
- */
-ContactResponse.prototype['contactBankAccountType'] = 1;
-
-/**
- * เครดิต (วัน) <br> <ex>Example: 30</ex>
- * @member {Number} contactCreditDays
- * @default 0
- */
-ContactResponse.prototype['contactCreditDays'] = 0;
-
-/**
- * เบอร์โทรศัพท์สำนักงาน <br> <ex>Example: 02-999-9999</ex>
- * @member {String} contactOffice
- */
-ContactResponse.prototype['contactOffice'] = undefined;
-
-/**
- * เบอร์โทรสาร <br> <ex>Example: 02-888-8888</ex>
- * @member {String} contactFax
- */
-ContactResponse.prototype['contactFax'] = undefined;
-
-/**
- * เว็บไซต์ ผู้ติดต่อ <br> <ex>Eample: www.flowaccount.com</ex>
- * @member {String} contactWebsite
- */
-ContactResponse.prototype['contactWebsite'] = undefined;
-
-/**
- * ที่อยู่สำหรับจัดส่ง
- * @member {String} conatactShippingAddress
- */
-ContactResponse.prototype['conatactShippingAddress'] = undefined;
-
-/**
- * โน๊ต
- * @member {String} contactNote
- */
-ContactResponse.prototype['contactNote'] = undefined;
+ContactResponse.prototype['data'] = undefined;
 
 
-// Implement ContactResponseAllOf interface:
-/**
- * เลข id Contact
- * @member {Number} id
- */
-ContactResponseAllOf.prototype['id'] = undefined;
-// Implement Contact interface:
-/**
- * ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล
- * @member {Number} contactGroup
- * @default 3
- */
-Contact.prototype['contactGroup'] = 3;
-/**
- * ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า
- * @member {Number} contactType
- * @default 3
- */
-Contact.prototype['contactType'] = 3;
-/**
- * ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
- * @member {String} contactName
- */
-Contact.prototype['contactName'] = undefined;
-/**
- * ที่อยู่ผู้ติดต่อ
- * @member {String} contactAddress
- */
-Contact.prototype['contactAddress'] = undefined;
-/**
- * รหัสไปรษณีย์ติดต่อ <ex>Example: 10140 </ex>
- * @member {String} contactZipCode
- */
-Contact.prototype['contactZipCode'] = undefined;
-/**
- * เลขประจำตัวผู้เสียภาษี 13 หลัก ​<br><ex>Example: 1234567890123</ex>
- * @member {Number} contactTaxId
- */
-Contact.prototype['contactTaxId'] = undefined;
-/**
- * รหัสสาขา
- * @member {String} contactBranchCode
- */
-Contact.prototype['contactBranchCode'] = undefined;
-/**
- * ชื่อสาขา
- * @member {String} contactBranch
- * @default 'สำนักงานใหญ่'
- */
-Contact.prototype['contactBranch'] = 'สำนักงานใหญ่';
-/**
- * ชื่อผู้ติดต่อ
- * @member {String} contactPerson
- */
-Contact.prototype['contactPerson'] = undefined;
-/**
- * อีเมลผู้ติดต่อ <br> <ex>Example: contact@email.com</ex>
- * @member {String} contactEmail
- */
-Contact.prototype['contactEmail'] = undefined;
-/**
- * เบอร์มือถือผู้ติดต่อ <br> <ex>Example: 099-999-9999</ex>
- * @member {String} contactMobile
- */
-Contact.prototype['contactMobile'] = undefined;
-/**
- * รหัสธนาคาร <br> 1 = ธนาคารกรุงเทพ <br> 2 = ธนาคารกสิกรไทย <br> 3 = ธนาคารกรุงไทย <br> 4 = ธนาคารทหารไทย <br> 5 = ธนาคารไทยพาณิชย์ <br> 6 = ธนาคารสแตนดาร์ดชาร์เตอร์ด <br> 7 = ธนาคารซีไอเอ็มบี ไทย <br> 8 = ธนาคารยูโอบี <br> 10 = ธนาคารกรุงศรีอยุธยา <br> 11 = ธนาคารออมสิน <br> 12 = ธนาคารธนชาต <br> 13 = ธนาคารแลนด์ แอนด์ เฮ้าส์ <br> 14 = ธนาคารเกียรตินาคิน <br> 15 = ธนาคารซิตี้แบงก์ <br> 16 = ธนาคารทิสโก้ <br> 53 = ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร <br> 54 = ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย <br> 55 = ธนาคารอาคารสงเคราะห์ <br> 56 = ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย <br> 57 = ธนาคารอิสลามแห่งประเทศไทย <br> 58 = ธนาคารแห่งประเทศจีน (ไทย) <br> 59 = ธนาคารไอซีบีซี (ไทย) <br> 60 = ธนาคารเมกะ สากลพาณิชย์ <br> 61 = ธนาคารซูมิโตโม มิตซุย แบงกิ้ง คอร์ปอเรชั่น <br> 62 = ธนาคารมิซูโฮ จำกัด (กรุงเทพฯ) <br> 63 = ธนาคารฮ่องกงและเซี่ยงไฮ้แบงกิ้งคอร์ปอเรชั่น <br> 64 = ธนาคารไทยเครดิต เพื่อรายย่อย 
- * @member {Number} contactBankId
- * @default 0
- */
-Contact.prototype['contactBankId'] = 0;
-/**
- * เลขที่บัญชีธนาคาร <br> <ex>Example: 1111111111</ex>
- * @member {Number} contactBankAccountNumber
- */
-Contact.prototype['contactBankAccountNumber'] = undefined;
-/**
- * สาขาธนาคาร <br> <ex>Example: บางรัก</ex>
- * @member {String} contactBankBranch
- */
-Contact.prototype['contactBankBranch'] = undefined;
-/**
- * ประเภทบัญชีธนาคาร: <br> 1 = บัญชีออมทรัพย์ <br> 3 = บัญชีกระแสรายวัน
- * @member {Number} contactBankAccountType
- * @default 1
- */
-Contact.prototype['contactBankAccountType'] = 1;
-/**
- * เครดิต (วัน) <br> <ex>Example: 30</ex>
- * @member {Number} contactCreditDays
- * @default 0
- */
-Contact.prototype['contactCreditDays'] = 0;
-/**
- * เบอร์โทรศัพท์สำนักงาน <br> <ex>Example: 02-999-9999</ex>
- * @member {String} contactOffice
- */
-Contact.prototype['contactOffice'] = undefined;
-/**
- * เบอร์โทรสาร <br> <ex>Example: 02-888-8888</ex>
- * @member {String} contactFax
- */
-Contact.prototype['contactFax'] = undefined;
-/**
- * เว็บไซต์ ผู้ติดต่อ <br> <ex>Eample: www.flowaccount.com</ex>
- * @member {String} contactWebsite
- */
-Contact.prototype['contactWebsite'] = undefined;
-/**
- * ที่อยู่สำหรับจัดส่ง
- * @member {String} conatactShippingAddress
- */
-Contact.prototype['conatactShippingAddress'] = undefined;
-/**
- * โน๊ต
- * @member {String} contactNote
- */
-Contact.prototype['contactNote'] = undefined;
 
 
 

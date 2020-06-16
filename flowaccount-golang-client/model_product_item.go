@@ -11,7 +11,6 @@
 package openapi
 // ProductItem struct for ProductItem
 type ProductItem struct {
-	DocumentStructureType *string `json:"documentStructureType"`
 	// ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก (non inventory) <br> 5 = สินค้านับสต๊อก (inventory)
 	Type int32 `json:"type,omitempty"`
 	// ชื่อสินค้า

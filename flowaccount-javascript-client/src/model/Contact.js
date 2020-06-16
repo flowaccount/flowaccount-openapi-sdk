@@ -53,6 +53,9 @@ class Contact {
         if (data) {
             obj = obj || new Contact();
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
             if (data.hasOwnProperty('contactGroup')) {
                 obj['contactGroup'] = ApiClient.convertToType(data['contactGroup'], 'Number');
             }
@@ -122,6 +125,12 @@ class Contact {
 
 
 }
+
+/**
+ * เลข id Contact
+ * @member {Number} id
+ */
+Contact.prototype['id'] = undefined;
 
 /**
  * ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล

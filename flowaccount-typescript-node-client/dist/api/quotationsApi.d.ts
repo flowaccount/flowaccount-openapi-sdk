@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import http = require('http');
+import { AllDocumentResponse } from '../model/allDocumentResponse';
 import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
@@ -10,22 +11,25 @@ import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { UpdateInlineDocument } from '../model/updateInlineDocument';
-import { Authentication } from '../model/models';
+import { Authentication, Interceptor } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum QuotationsApiApiKeys {
 }
 export declare class QuotationsApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: QuotationsApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     quotationsEmailDocumentPost(authorization: string, sendEmailSimple: SendEmailSimple, options?: {
         headers: {
             [name: string]: string;
@@ -40,7 +44,7 @@ export declare class QuotationsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineDocumentResponse;
+        body: AllDocumentResponse;
     }>;
     quotationsIdAttachmentPost(authorization: string, id: string, file?: RequestFile, options?: {
         headers: {

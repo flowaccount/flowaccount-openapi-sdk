@@ -54,7 +54,7 @@ No authorization required
 
 ## BillingNotesGet
 
-> InlineDocumentResponse BillingNotesGet(ctx, currentPage, pageSize, authorization, optional)
+> AllDocumentResponse BillingNotesGet(ctx, currentPage, pageSize, authorization, optional)
 
 Get list all billing notes documents.
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 

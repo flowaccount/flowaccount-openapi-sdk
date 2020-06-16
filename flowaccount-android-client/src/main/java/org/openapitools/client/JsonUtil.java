@@ -57,6 +57,34 @@ public class JsonUtil {
   public static Type getListTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
+    if ("AllBankAccountResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllBankAccountResponse>>(){}.getType();
+    }
+    
+    if ("AllDocumentResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllDocumentResponse>>(){}.getType();
+    }
+    
+    if ("AllDocumentResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllDocumentResponseData>>(){}.getType();
+    }
+    
+    if ("AllExpenseDocumentResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllExpenseDocumentResponse>>(){}.getType();
+    }
+    
+    if ("AllExpenseDocumentResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllExpenseDocumentResponseData>>(){}.getType();
+    }
+    
+    if ("AllWithholidingTaxDocumentResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllWithholidingTaxDocumentResponse>>(){}.getType();
+    }
+    
+    if ("AllWithholidingTaxDocumentResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AllWithholidingTaxDocumentResponseData>>(){}.getType();
+    }
+    
     if ("AttachmentResponse".equalsIgnoreCase(className)) {
       return new TypeToken<List<AttachmentResponse>>(){}.getType();
     }
@@ -77,6 +105,10 @@ public class JsonUtil {
       return new TypeToken<List<BankAccountResponse>>(){}.getType();
     }
     
+    if ("BankAccountResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<BankAccountResponseData>>(){}.getType();
+    }
+    
     if ("BusinessCategory".equalsIgnoreCase(className)) {
       return new TypeToken<List<BusinessCategory>>(){}.getType();
     }
@@ -89,8 +121,8 @@ public class JsonUtil {
       return new TypeToken<List<CompanyInfoResponse>>(){}.getType();
     }
     
-    if ("CompanyInfoResponseAllOf".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CompanyInfoResponseAllOf>>(){}.getType();
+    if ("CompanyInfoResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CompanyInfoResponseData>>(){}.getType();
     }
     
     if ("Contact".equalsIgnoreCase(className)) {
@@ -101,8 +133,8 @@ public class JsonUtil {
       return new TypeToken<List<ContactResponse>>(){}.getType();
     }
     
-    if ("ContactResponseAllOf".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ContactResponseAllOf>>(){}.getType();
+    if ("ContactResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ContactResponseData>>(){}.getType();
     }
     
     if ("DeleteResponse".equalsIgnoreCase(className)) {
@@ -143,6 +175,10 @@ public class JsonUtil {
     
     if ("ExpenseInlineDocumentResponseAllOfData".equalsIgnoreCase(className)) {
       return new TypeToken<List<ExpenseInlineDocumentResponseAllOfData>>(){}.getType();
+    }
+    
+    if ("ExpenseInlineDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ExpenseInlineDocumentWithPaymentPaid>>(){}.getType();
     }
     
     if ("ExpenseInlineDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
@@ -189,6 +225,10 @@ public class JsonUtil {
       return new TypeToken<List<ExpenseSimpleDocumentResponseAllOfData>>(){}.getType();
     }
     
+    if ("ExpenseSimpleDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ExpenseSimpleDocumentWithPaymentPaid>>(){}.getType();
+    }
+    
     if ("ExpenseSimpleDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
       return new TypeToken<List<ExpenseSimpleDocumentWithPaymentPaidCash>>(){}.getType();
     }
@@ -229,6 +269,10 @@ public class JsonUtil {
       return new TypeToken<List<InlineDocumentResponseAllOfData>>(){}.getType();
     }
     
+    if ("InlineDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineDocumentWithPaymentPaid>>(){}.getType();
+    }
+    
     if ("InlineDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineDocumentWithPaymentPaidCash>>(){}.getType();
     }
@@ -243,6 +287,10 @@ public class JsonUtil {
     
     if ("InlineDocumentWithPaymentPaidTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<List<InlineDocumentWithPaymentPaidTransfer>>(){}.getType();
+    }
+    
+    if ("InlineDocumentWithPaymentReceiving".equalsIgnoreCase(className)) {
+      return new TypeToken<List<InlineDocumentWithPaymentReceiving>>(){}.getType();
     }
     
     if ("InlineDocumentWithPaymentReceivingCash".equalsIgnoreCase(className)) {
@@ -321,6 +369,10 @@ public class JsonUtil {
       return new TypeToken<List<PaymentPaidCreditCard>>(){}.getType();
     }
     
+    if ("PaymentPaidDocument".equalsIgnoreCase(className)) {
+      return new TypeToken<List<PaymentPaidDocument>>(){}.getType();
+    }
+    
     if ("PaymentPaidTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<List<PaymentPaidTransfer>>(){}.getType();
     }
@@ -337,8 +389,16 @@ public class JsonUtil {
       return new TypeToken<List<PaymentReceivingCreditCard>>(){}.getType();
     }
     
+    if ("PaymentReceivingDocument".equalsIgnoreCase(className)) {
+      return new TypeToken<List<PaymentReceivingDocument>>(){}.getType();
+    }
+    
     if ("PaymentReceivingTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<List<PaymentReceivingTransfer>>(){}.getType();
+    }
+    
+    if ("Product".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Product>>(){}.getType();
     }
     
     if ("ProductInventory".equalsIgnoreCase(className)) {
@@ -367,6 +427,10 @@ public class JsonUtil {
     
     if ("ProductService".equalsIgnoreCase(className)) {
       return new TypeToken<List<ProductService>>(){}.getType();
+    }
+    
+    if ("ProductType".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ProductType>>(){}.getType();
     }
     
     if ("ReferencedByMe".equalsIgnoreCase(className)) {
@@ -441,6 +505,10 @@ public class JsonUtil {
       return new TypeToken<List<SimpleDocumentResponseAllOfDataPayments>>(){}.getType();
     }
     
+    if ("SimpleDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<List<SimpleDocumentWithPaymentPaid>>(){}.getType();
+    }
+    
     if ("SimpleDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
       return new TypeToken<List<SimpleDocumentWithPaymentPaidCash>>(){}.getType();
     }
@@ -455,6 +523,10 @@ public class JsonUtil {
     
     if ("SimpleDocumentWithPaymentPaidTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<List<SimpleDocumentWithPaymentPaidTransfer>>(){}.getType();
+    }
+    
+    if ("SimpleDocumentWithPaymentReceiving".equalsIgnoreCase(className)) {
+      return new TypeToken<List<SimpleDocumentWithPaymentReceiving>>(){}.getType();
     }
     
     if ("SimpleDocumentWithPaymentReceivingCash".equalsIgnoreCase(className)) {
@@ -535,6 +607,34 @@ public class JsonUtil {
   public static Type getTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
+    if ("AllBankAccountResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<AllBankAccountResponse>(){}.getType();
+    }
+    
+    if ("AllDocumentResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<AllDocumentResponse>(){}.getType();
+    }
+    
+    if ("AllDocumentResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<AllDocumentResponseData>(){}.getType();
+    }
+    
+    if ("AllExpenseDocumentResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<AllExpenseDocumentResponse>(){}.getType();
+    }
+    
+    if ("AllExpenseDocumentResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<AllExpenseDocumentResponseData>(){}.getType();
+    }
+    
+    if ("AllWithholidingTaxDocumentResponse".equalsIgnoreCase(className)) {
+      return new TypeToken<AllWithholidingTaxDocumentResponse>(){}.getType();
+    }
+    
+    if ("AllWithholidingTaxDocumentResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<AllWithholidingTaxDocumentResponseData>(){}.getType();
+    }
+    
     if ("AttachmentResponse".equalsIgnoreCase(className)) {
       return new TypeToken<AttachmentResponse>(){}.getType();
     }
@@ -555,6 +655,10 @@ public class JsonUtil {
       return new TypeToken<BankAccountResponse>(){}.getType();
     }
     
+    if ("BankAccountResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<BankAccountResponseData>(){}.getType();
+    }
+    
     if ("BusinessCategory".equalsIgnoreCase(className)) {
       return new TypeToken<BusinessCategory>(){}.getType();
     }
@@ -567,8 +671,8 @@ public class JsonUtil {
       return new TypeToken<CompanyInfoResponse>(){}.getType();
     }
     
-    if ("CompanyInfoResponseAllOf".equalsIgnoreCase(className)) {
-      return new TypeToken<CompanyInfoResponseAllOf>(){}.getType();
+    if ("CompanyInfoResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<CompanyInfoResponseData>(){}.getType();
     }
     
     if ("Contact".equalsIgnoreCase(className)) {
@@ -579,8 +683,8 @@ public class JsonUtil {
       return new TypeToken<ContactResponse>(){}.getType();
     }
     
-    if ("ContactResponseAllOf".equalsIgnoreCase(className)) {
-      return new TypeToken<ContactResponseAllOf>(){}.getType();
+    if ("ContactResponseData".equalsIgnoreCase(className)) {
+      return new TypeToken<ContactResponseData>(){}.getType();
     }
     
     if ("DeleteResponse".equalsIgnoreCase(className)) {
@@ -621,6 +725,10 @@ public class JsonUtil {
     
     if ("ExpenseInlineDocumentResponseAllOfData".equalsIgnoreCase(className)) {
       return new TypeToken<ExpenseInlineDocumentResponseAllOfData>(){}.getType();
+    }
+    
+    if ("ExpenseInlineDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<ExpenseInlineDocumentWithPaymentPaid>(){}.getType();
     }
     
     if ("ExpenseInlineDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
@@ -667,6 +775,10 @@ public class JsonUtil {
       return new TypeToken<ExpenseSimpleDocumentResponseAllOfData>(){}.getType();
     }
     
+    if ("ExpenseSimpleDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<ExpenseSimpleDocumentWithPaymentPaid>(){}.getType();
+    }
+    
     if ("ExpenseSimpleDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
       return new TypeToken<ExpenseSimpleDocumentWithPaymentPaidCash>(){}.getType();
     }
@@ -707,6 +819,10 @@ public class JsonUtil {
       return new TypeToken<InlineDocumentResponseAllOfData>(){}.getType();
     }
     
+    if ("InlineDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineDocumentWithPaymentPaid>(){}.getType();
+    }
+    
     if ("InlineDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
       return new TypeToken<InlineDocumentWithPaymentPaidCash>(){}.getType();
     }
@@ -721,6 +837,10 @@ public class JsonUtil {
     
     if ("InlineDocumentWithPaymentPaidTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<InlineDocumentWithPaymentPaidTransfer>(){}.getType();
+    }
+    
+    if ("InlineDocumentWithPaymentReceiving".equalsIgnoreCase(className)) {
+      return new TypeToken<InlineDocumentWithPaymentReceiving>(){}.getType();
     }
     
     if ("InlineDocumentWithPaymentReceivingCash".equalsIgnoreCase(className)) {
@@ -799,6 +919,10 @@ public class JsonUtil {
       return new TypeToken<PaymentPaidCreditCard>(){}.getType();
     }
     
+    if ("PaymentPaidDocument".equalsIgnoreCase(className)) {
+      return new TypeToken<PaymentPaidDocument>(){}.getType();
+    }
+    
     if ("PaymentPaidTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<PaymentPaidTransfer>(){}.getType();
     }
@@ -815,8 +939,16 @@ public class JsonUtil {
       return new TypeToken<PaymentReceivingCreditCard>(){}.getType();
     }
     
+    if ("PaymentReceivingDocument".equalsIgnoreCase(className)) {
+      return new TypeToken<PaymentReceivingDocument>(){}.getType();
+    }
+    
     if ("PaymentReceivingTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<PaymentReceivingTransfer>(){}.getType();
+    }
+    
+    if ("Product".equalsIgnoreCase(className)) {
+      return new TypeToken<Product>(){}.getType();
     }
     
     if ("ProductInventory".equalsIgnoreCase(className)) {
@@ -845,6 +977,10 @@ public class JsonUtil {
     
     if ("ProductService".equalsIgnoreCase(className)) {
       return new TypeToken<ProductService>(){}.getType();
+    }
+    
+    if ("ProductType".equalsIgnoreCase(className)) {
+      return new TypeToken<ProductType>(){}.getType();
     }
     
     if ("ReferencedByMe".equalsIgnoreCase(className)) {
@@ -919,6 +1055,10 @@ public class JsonUtil {
       return new TypeToken<SimpleDocumentResponseAllOfDataPayments>(){}.getType();
     }
     
+    if ("SimpleDocumentWithPaymentPaid".equalsIgnoreCase(className)) {
+      return new TypeToken<SimpleDocumentWithPaymentPaid>(){}.getType();
+    }
+    
     if ("SimpleDocumentWithPaymentPaidCash".equalsIgnoreCase(className)) {
       return new TypeToken<SimpleDocumentWithPaymentPaidCash>(){}.getType();
     }
@@ -933,6 +1073,10 @@ public class JsonUtil {
     
     if ("SimpleDocumentWithPaymentPaidTransfer".equalsIgnoreCase(className)) {
       return new TypeToken<SimpleDocumentWithPaymentPaidTransfer>(){}.getType();
+    }
+    
+    if ("SimpleDocumentWithPaymentReceiving".equalsIgnoreCase(className)) {
+      return new TypeToken<SimpleDocumentWithPaymentReceiving>(){}.getType();
     }
     
     if ("SimpleDocumentWithPaymentReceivingCash".equalsIgnoreCase(className)) {

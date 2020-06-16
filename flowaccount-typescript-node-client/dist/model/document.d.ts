@@ -34,7 +34,7 @@ export declare class Document {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
-    'documentStructureType': string;
+    'documentStructureType': string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

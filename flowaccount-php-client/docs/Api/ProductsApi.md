@@ -188,7 +188,7 @@ No authorization required
 
 ## productsIdPut
 
-> \OpenAPI\Client\Model\ProductResponse productsIdPut($authorization, $id, $unknown_base_type)
+> \OpenAPI\Client\Model\ProductResponse productsIdPut($authorization, $id, $product_type)
 
 Update products.
 
@@ -206,10 +206,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
 );
 $authorization = 'Bearer accessToken'; // string | เลข Id Product
 $id = 'id_example'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$product_type = new \OpenAPI\Client\Model\ProductType(); // \OpenAPI\Client\Model\ProductType | 
 
 try {
-    $result = $apiInstance->productsIdPut($authorization, $id, $unknown_base_type);
+    $result = $apiInstance->productsIdPut($authorization, $id, $product_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->productsIdPut: ', $e->getMessage(), PHP_EOL;
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| เลข Id Product | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**|  |
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **product_type** | [**\OpenAPI\Client\Model\ProductType**](../Model/ProductType.md)|  |
 
 ### Return type
 
@@ -246,7 +246,7 @@ No authorization required
 
 ## productsPost
 
-> \OpenAPI\Client\Model\ProductResponse productsPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\ProductResponse productsPost($authorization, $product_type)
 
 Create products.
 
@@ -263,10 +263,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$product_type = new \OpenAPI\Client\Model\ProductType(); // \OpenAPI\Client\Model\ProductType | 
 
 try {
-    $result = $apiInstance->productsPost($authorization, $unknown_base_type);
+    $result = $apiInstance->productsPost($authorization, $product_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->productsPost: ', $e->getMessage(), PHP_EOL;
@@ -280,7 +280,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **product_type** | [**\OpenAPI\Client\Model\ProductType**](../Model/ProductType.md)|  |
 
 ### Return type
 

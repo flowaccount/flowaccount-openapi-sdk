@@ -1,3 +1,4 @@
+import { SimpleDocumentResponseAllOfDataCompany } from './simpleDocumentResponseAllOfDataCompany';
 import { WithholidingTaxItem } from './withholidingTaxItem';
 export declare class WithholidingTaxDocumentResponseData {
     'documentId'?: string;
@@ -26,7 +27,7 @@ export declare class WithholidingTaxDocumentResponseData {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
-    'company'?: Array<object>;
+    'company'?: SimpleDocumentResponseAllOfDataCompany;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

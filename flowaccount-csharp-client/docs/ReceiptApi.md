@@ -101,7 +101,7 @@ No authorization required
 
 ## ReceiptsGet
 
-> InlineDocumentResponse ReceiptsGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
+> AllDocumentResponse ReceiptsGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all receipt documents
 
@@ -127,13 +127,13 @@ namespace Example
             var currentPage = 56;  // int | Query current page document receipts. <br>Example Pattern: <ex>/receipts?currentPage=1 </ex><ex>/receipts?currentPage=1&pageSize=20</ex>
             var pageSize = 56;  // int | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var sortBy = sortBy_example;  // string |  (optional) 
+            var sortBy = sortBy_example;  // string | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
             var filter = filter_example;  // string |  (optional) 
 
             try
             {
                 // Get list all receipt documents
-                InlineDocumentResponse result = apiInstance.ReceiptsGet(currentPage, pageSize, authorization, sortBy, filter);
+                AllDocumentResponse result = apiInstance.ReceiptsGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -155,12 +155,12 @@ Name | Type | Description  | Notes
  **currentPage** | **int**| Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **pageSize** | **int**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **string**|  | [optional] 
+ **sortBy** | **string**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
  **filter** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -370,7 +370,7 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ReceiptApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
+            var id = id_example;  // string | ID เอกสารใช้ recordId
 
             try
             {
@@ -395,7 +395,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
+ **id** | **string**| ID เอกสารใช้ recordId | 
 
 ### Return type
 
@@ -425,7 +425,7 @@ No authorization required
 
 ## ReceiptsIdPaymentPost
 
-> InlineDocumentResponse ReceiptsIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse ReceiptsIdPaymentPost (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument)
 
 Change paid status of receipt document.
 
@@ -450,12 +450,12 @@ namespace Example
             var apiInstance = new ReceiptApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var paymentReceivingDocument = new PaymentReceivingDocument(); // PaymentReceivingDocument | 
 
             try
             {
                 // Change paid status of receipt document.
-                InlineDocumentResponse result = apiInstance.ReceiptsIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+                InlineDocumentResponse result = apiInstance.ReceiptsIdPaymentPost(authorization, id, paymentReceivingDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -747,7 +747,7 @@ No authorization required
 
 ## ReceiptsInlineWithPaymentPost
 
-> InlineDocumentResponse ReceiptsInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse ReceiptsInlineWithPaymentPost (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving)
 
 Create receipt document with discount and tax inline with payment.
 
@@ -771,12 +771,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ReceiptApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var inlineDocumentWithPaymentReceiving = new InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
 
             try
             {
                 // Create receipt document with discount and tax inline with payment.
-                InlineDocumentResponse result = apiInstance.ReceiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                InlineDocumentResponse result = apiInstance.ReceiptsInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -796,7 +796,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -984,7 +984,7 @@ No authorization required
 
 ## ReceiptsWithPaymentPost
 
-> SimpleDocumentResponse ReceiptsWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse ReceiptsWithPaymentPost (string authorization, SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving)
 
 Create receipt document with payment.
 
@@ -1008,12 +1008,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ReceiptApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var simpleDocumentWithPaymentReceiving = new SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
 
             try
             {
                 // Create receipt document with payment.
-                SimpleDocumentResponse result = apiInstance.ReceiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                SimpleDocumentResponse result = apiInstance.ReceiptsWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1033,7 +1033,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

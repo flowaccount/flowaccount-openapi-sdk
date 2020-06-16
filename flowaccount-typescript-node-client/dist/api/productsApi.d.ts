@@ -1,26 +1,26 @@
 /// <reference types="node" />
 import http = require('http');
 import { DeleteResponse } from '../model/deleteResponse';
-import { ProductInventory } from '../model/productInventory';
-import { ProductInventoryBalance } from '../model/productInventoryBalance';
-import { ProductNonInventory } from '../model/productNonInventory';
 import { ProductResponse } from '../model/productResponse';
-import { ProductService } from '../model/productService';
-import { Authentication } from '../model/models';
+import { ProductType } from '../model/productType';
+import { Authentication, Interceptor } from '../model/models';
 export declare enum ProductsApiApiKeys {
 }
 export declare class ProductsApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ProductsApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     productsGet(currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options?: {
         headers: {
             [name: string]: string;
@@ -45,7 +45,7 @@ export declare class ProductsApi {
         response: http.IncomingMessage;
         body: ProductResponse;
     }>;
-    productsIdPut(authorization: string, id: string, productServiceProductNonInventoryProductInventoryProductInventoryBalance: ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance, options?: {
+    productsIdPut(authorization: string, id: string, productType: ProductType, options?: {
         headers: {
             [name: string]: string;
         };
@@ -53,7 +53,7 @@ export declare class ProductsApi {
         response: http.IncomingMessage;
         body: ProductResponse;
     }>;
-    productsPost(authorization: string, productServiceProductNonInventoryProductInventoryProductInventoryBalance: ProductService | ProductNonInventory | ProductInventory | ProductInventoryBalance, options?: {
+    productsPost(authorization: string, productType: ProductType, options?: {
         headers: {
             [name: string]: string;
         };

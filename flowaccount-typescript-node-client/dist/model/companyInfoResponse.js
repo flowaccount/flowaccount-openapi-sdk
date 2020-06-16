@@ -8,79 +8,24 @@ class CompanyInfoResponse {
 CompanyInfoResponse.discriminator = undefined;
 CompanyInfoResponse.attributeTypeMap = [
     {
-        "name": "companyId",
-        "baseName": "companyId",
+        "name": "status",
+        "baseName": "status",
+        "type": "boolean"
+    },
+    {
+        "name": "message",
+        "baseName": "message",
+        "type": "string"
+    },
+    {
+        "name": "code",
+        "baseName": "code",
         "type": "number"
     },
     {
-        "name": "companyType",
-        "baseName": "companyType",
-        "type": "string"
-    },
-    {
-        "name": "compnayName",
-        "baseName": "compnayName",
-        "type": "string"
-    },
-    {
-        "name": "companyNameEn",
-        "baseName": "companyNameEn",
-        "type": "string"
-    },
-    {
-        "name": "companyAddress",
-        "baseName": "companyAddress",
-        "type": "string"
-    },
-    {
-        "name": "companyAddressEn",
-        "baseName": "companyAddressEn",
-        "type": "string"
-    },
-    {
-        "name": "companyZipCode",
-        "baseName": "companyZipCode",
-        "type": "string"
-    },
-    {
-        "name": "companyTaxId",
-        "baseName": "companyTaxId",
-        "type": "string"
-    },
-    {
-        "name": "companyBranch",
-        "baseName": "companyBranch",
-        "type": "string"
-    },
-    {
-        "name": "companyBranchEn",
-        "baseName": "companyBranchEn",
-        "type": "string"
-    },
-    {
-        "name": "companyBranchCode",
-        "baseName": "companyBranchCode",
-        "type": "string"
-    },
-    {
-        "name": "companyPhone",
-        "baseName": "companyPhone",
-        "type": "string"
-    },
-    {
-        "name": "companyMobile",
-        "baseName": "companyMobile",
-        "type": "string"
-    },
-    {
-        "name": "companyFax",
-        "baseName": "companyFax",
-        "type": "string"
-    },
-    {
-        "name": "companyWebsite",
-        "baseName": "companyWebsite",
-        "type": "string"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<CompanyInfoResponseData>"
     }
 ];
 exports.CompanyInfoResponse = CompanyInfoResponse;

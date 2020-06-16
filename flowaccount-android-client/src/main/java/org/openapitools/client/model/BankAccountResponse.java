@@ -12,102 +12,63 @@
 
 package org.openapitools.client.model;
 
+import org.openapitools.client.model.BankAccountResponseData;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 @ApiModel(description = "")
 public class BankAccountResponse {
   
-  @SerializedName("bankAccountId")
-  private Long bankAccountId = null;
-  @SerializedName("bankAccountNumber")
-  private String bankAccountNumber = null;
-  @SerializedName("bankAccountName")
-  private String bankAccountName = null;
-  @SerializedName("bankAccountType")
-  private Long bankAccountType = null;
-  @SerializedName("bankBranch")
-  private String bankBranch = null;
-  @SerializedName("bankId")
-  private Long bankId = null;
-  @SerializedName("bankName")
-  private String bankName = null;
+  @SerializedName("status")
+  private Boolean status = null;
+  @SerializedName("message")
+  private String message = null;
+  @SerializedName("code")
+  private Integer code = null;
+  @SerializedName("data")
+  private BankAccountResponseData data = null;
 
   /**
-   * เลข id บัญชีธนาคาร
+   * action success
    **/
-  @ApiModelProperty(value = "เลข id บัญชีธนาคาร")
-  public Long getBankAccountId() {
-    return bankAccountId;
+  @ApiModelProperty(value = "action success")
+  public Boolean getStatus() {
+    return status;
   }
-  public void setBankAccountId(Long bankAccountId) {
-    this.bankAccountId = bankAccountId;
+  public void setStatus(Boolean status) {
+    this.status = status;
   }
 
   /**
-   * เลขบัญชี <br> <ex>Example: 0048620000 </ex>
+   * error message
    **/
-  @ApiModelProperty(value = "เลขบัญชี <br> <ex>Example: 0048620000 </ex>")
-  public String getBankAccountNumber() {
-    return bankAccountNumber;
+  @ApiModelProperty(value = "error message")
+  public String getMessage() {
+    return message;
   }
-  public void setBankAccountNumber(String bankAccountNumber) {
-    this.bankAccountNumber = bankAccountNumber;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
-   * ชื่อบัญชี <br> <ex>Example: บัญชีใช้รับเงิน</ex>
+   * error code
    **/
-  @ApiModelProperty(value = "ชื่อบัญชี <br> <ex>Example: บัญชีใช้รับเงิน</ex>")
-  public String getBankAccountName() {
-    return bankAccountName;
+  @ApiModelProperty(value = "error code")
+  public Integer getCode() {
+    return code;
   }
-  public void setBankAccountName(String bankAccountName) {
-    this.bankAccountName = bankAccountName;
+  public void setCode(Integer code) {
+    this.code = code;
   }
 
   /**
-   * ประเภทบัญชีธนาคาร <br> 1 = บัญชีออมทรัพย์  <br> 3 = บัญชีกระรายวัน <br> 7  = บัญชีฝากประจำ
    **/
-  @ApiModelProperty(value = "ประเภทบัญชีธนาคาร <br> 1 = บัญชีออมทรัพย์  <br> 3 = บัญชีกระรายวัน <br> 7  = บัญชีฝากประจำ")
-  public Long getBankAccountType() {
-    return bankAccountType;
+  @ApiModelProperty(value = "")
+  public BankAccountResponseData getData() {
+    return data;
   }
-  public void setBankAccountType(Long bankAccountType) {
-    this.bankAccountType = bankAccountType;
-  }
-
-  /**
-   * ชื่อสาขาธนาคาร
-   **/
-  @ApiModelProperty(value = "ชื่อสาขาธนาคาร")
-  public String getBankBranch() {
-    return bankBranch;
-  }
-  public void setBankBranch(String bankBranch) {
-    this.bankBranch = bankBranch;
-  }
-
-  /**
-   * เลข id ธนาคาร
-   **/
-  @ApiModelProperty(value = "เลข id ธนาคาร")
-  public Long getBankId() {
-    return bankId;
-  }
-  public void setBankId(Long bankId) {
-    this.bankId = bankId;
-  }
-
-  /**
-   * ชื่อธนาคาร
-   **/
-  @ApiModelProperty(value = "ชื่อธนาคาร")
-  public String getBankName() {
-    return bankName;
-  }
-  public void setBankName(String bankName) {
-    this.bankName = bankName;
+  public void setData(BankAccountResponseData data) {
+    this.data = data;
   }
 
 
@@ -120,25 +81,19 @@ public class BankAccountResponse {
       return false;
     }
     BankAccountResponse bankAccountResponse = (BankAccountResponse) o;
-    return (this.bankAccountId == null ? bankAccountResponse.bankAccountId == null : this.bankAccountId.equals(bankAccountResponse.bankAccountId)) &&
-        (this.bankAccountNumber == null ? bankAccountResponse.bankAccountNumber == null : this.bankAccountNumber.equals(bankAccountResponse.bankAccountNumber)) &&
-        (this.bankAccountName == null ? bankAccountResponse.bankAccountName == null : this.bankAccountName.equals(bankAccountResponse.bankAccountName)) &&
-        (this.bankAccountType == null ? bankAccountResponse.bankAccountType == null : this.bankAccountType.equals(bankAccountResponse.bankAccountType)) &&
-        (this.bankBranch == null ? bankAccountResponse.bankBranch == null : this.bankBranch.equals(bankAccountResponse.bankBranch)) &&
-        (this.bankId == null ? bankAccountResponse.bankId == null : this.bankId.equals(bankAccountResponse.bankId)) &&
-        (this.bankName == null ? bankAccountResponse.bankName == null : this.bankName.equals(bankAccountResponse.bankName));
+    return (this.status == null ? bankAccountResponse.status == null : this.status.equals(bankAccountResponse.status)) &&
+        (this.message == null ? bankAccountResponse.message == null : this.message.equals(bankAccountResponse.message)) &&
+        (this.code == null ? bankAccountResponse.code == null : this.code.equals(bankAccountResponse.code)) &&
+        (this.data == null ? bankAccountResponse.data == null : this.data.equals(bankAccountResponse.data));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.bankAccountId == null ? 0: this.bankAccountId.hashCode());
-    result = 31 * result + (this.bankAccountNumber == null ? 0: this.bankAccountNumber.hashCode());
-    result = 31 * result + (this.bankAccountName == null ? 0: this.bankAccountName.hashCode());
-    result = 31 * result + (this.bankAccountType == null ? 0: this.bankAccountType.hashCode());
-    result = 31 * result + (this.bankBranch == null ? 0: this.bankBranch.hashCode());
-    result = 31 * result + (this.bankId == null ? 0: this.bankId.hashCode());
-    result = 31 * result + (this.bankName == null ? 0: this.bankName.hashCode());
+    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
+    result = 31 * result + (this.message == null ? 0: this.message.hashCode());
+    result = 31 * result + (this.code == null ? 0: this.code.hashCode());
+    result = 31 * result + (this.data == null ? 0: this.data.hashCode());
     return result;
   }
 
@@ -147,13 +102,10 @@ public class BankAccountResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class BankAccountResponse {\n");
     
-    sb.append("  bankAccountId: ").append(bankAccountId).append("\n");
-    sb.append("  bankAccountNumber: ").append(bankAccountNumber).append("\n");
-    sb.append("  bankAccountName: ").append(bankAccountName).append("\n");
-    sb.append("  bankAccountType: ").append(bankAccountType).append("\n");
-    sb.append("  bankBranch: ").append(bankBranch).append("\n");
-    sb.append("  bankId: ").append(bankId).append("\n");
-    sb.append("  bankName: ").append(bankName).append("\n");
+    sb.append("  status: ").append(status).append("\n");
+    sb.append("  message: ").append(message).append("\n");
+    sb.append("  code: ").append(code).append("\n");
+    sb.append("  data: ").append(data).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

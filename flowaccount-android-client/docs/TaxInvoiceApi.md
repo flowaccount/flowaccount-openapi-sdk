@@ -70,7 +70,7 @@ No authorization required
 
 ## taxInvoicesGet
 
-> InlineDocumentResponse taxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllDocumentResponse taxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all tax invocie documents.
 
@@ -89,7 +89,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    InlineDocumentResponse result = apiInstance.taxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllDocumentResponse result = apiInstance.taxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxInvoiceApi#taxInvoicesGet");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ No authorization required
 
 ## taxInvoicesIdPaymentPost
 
-> InlineDocumentResponse taxInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse taxInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument)
 
 Change paid status of tax-invoice document.
 
@@ -285,9 +285,9 @@ Change paid status of tax-invoice document.
 TaxInvoiceApi apiInstance = new TaxInvoiceApi();
 String authorization = Bearer accessToken; // String | 
 String id = null; // String | ID เอกสารใช้ recordId หรือ documentId
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+PaymentReceivingDocument paymentReceivingDocument = new PaymentReceivingDocument(); // PaymentReceivingDocument | 
 try {
-    InlineDocumentResponse result = apiInstance.taxInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.taxInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxInvoiceApi#taxInvoicesIdPaymentPost");
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  |
 
 ### Return type
 
@@ -468,7 +468,7 @@ No authorization required
 
 ## taxInvoicesInlineWithPaymentPost
 
-> InlineDocumentResponse taxInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse taxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving)
 
 Create tax invocie document with discount and tax inline with payment.
 
@@ -482,9 +482,9 @@ Create tax invocie document with discount and tax inline with payment.
 
 TaxInvoiceApi apiInstance = new TaxInvoiceApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving = new InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
 try {
-    InlineDocumentResponse result = apiInstance.taxInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.taxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxInvoiceApi#taxInvoicesInlineWithPaymentPost");
@@ -498,7 +498,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ No authorization required
 
 ## taxInvoicesWithPaymentPost
 
-> SimpleDocumentResponse taxInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse taxInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving)
 
 Create tax invocie document with payment.
 
@@ -626,9 +626,9 @@ Create tax invocie document with payment.
 
 TaxInvoiceApi apiInstance = new TaxInvoiceApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving = new SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
 try {
-    SimpleDocumentResponse result = apiInstance.taxInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    SimpleDocumentResponse result = apiInstance.taxInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxInvoiceApi#taxInvoicesWithPaymentPost");
@@ -642,7 +642,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 

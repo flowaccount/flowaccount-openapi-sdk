@@ -13,22 +13,22 @@
 
 
 import ApiClient from "../ApiClient";
+import AllExpenseDocumentResponse from '../model/AllExpenseDocumentResponse';
 import AttachmentResponse from '../model/AttachmentResponse';
 import BusinessCategory from '../model/BusinessCategory';
 import DeleteResponse from '../model/DeleteResponse';
 import ExpenseInlineDocument from '../model/ExpenseInlineDocument';
 import ExpenseInlineDocumentResponse from '../model/ExpenseInlineDocumentResponse';
+import ExpenseInlineDocumentWithPaymentPaid from '../model/ExpenseInlineDocumentWithPaymentPaid';
 import ExpenseSimpleDocument from '../model/ExpenseSimpleDocument';
 import ExpenseSimpleDocumentResponse from '../model/ExpenseSimpleDocumentResponse';
-import OneOfExpenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard from '../model/OneOfExpenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard';
-import OneOfExpenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard from '../model/OneOfExpenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard';
-import OneOfPaymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard from '../model/OneOfPaymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard';
+import ExpenseSimpleDocumentWithPaymentPaid from '../model/ExpenseSimpleDocumentWithPaymentPaid';
+import PaymentPaidDocument from '../model/PaymentPaidDocument';
 import SendEmail from '../model/SendEmail';
 import SendEmailResponse from '../model/SendEmailResponse';
 import SendEmailSimple from '../model/SendEmailSimple';
 import ShareDocument from '../model/ShareDocument';
 import ShareDocumentResponse from '../model/ShareDocumentResponse';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
 import UpdateExpenseDocument from '../model/UpdateExpenseDocument';
 
 /**
@@ -188,7 +188,7 @@ export default class ExpensesApi {
      * Callback function to receive the result of the expensesGet operation.
      * @callback module:api/ExpensesApi~expensesGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExpenseInlineDocumentResponse} data The data returned by the service call.
+     * @param {module:model/AllExpenseDocumentResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -202,7 +202,7 @@ export default class ExpensesApi {
      * @param {String} opts.sortBy Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
      * @param {String} opts.filter 
      * @param {module:api/ExpensesApi~expensesGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExpenseInlineDocumentResponse}
+     * data is of type: {@link module:model/AllExpenseDocumentResponse}
      */
     expensesGet(currentPage, pageSize, authorization, opts, callback) {
       opts = opts || {};
@@ -237,7 +237,7 @@ export default class ExpensesApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ExpenseInlineDocumentResponse;
+      let returnType = AllExpenseDocumentResponse;
       return this.apiClient.callApi(
         '/expenses', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -409,12 +409,12 @@ export default class ExpensesApi {
      * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/PaymentPaidDocument} paymentPaidDocument 
      * @param {module:api/ExpensesApi~expensesIdPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExpenseSimpleDocumentResponse}
      */
-    expensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    expensesIdPaymentPost(authorization, id, paymentPaidDocument, callback) {
+      let postBody = paymentPaidDocument;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling expensesIdPaymentPost");
@@ -423,9 +423,9 @@ export default class ExpensesApi {
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling expensesIdPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesIdPaymentPost");
+      // verify the required parameter 'paymentPaidDocument' is set
+      if (paymentPaidDocument === undefined || paymentPaidDocument === null) {
+        throw new Error("Missing the required parameter 'paymentPaidDocument' when calling expensesIdPaymentPost");
       }
 
       let pathParams = {
@@ -619,19 +619,19 @@ export default class ExpensesApi {
      * Create expenses document with discount and tax inline with payment.
      * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/ExpenseInlineDocumentWithPaymentPaid} expenseInlineDocumentWithPaymentPaid 
      * @param {module:api/ExpensesApi~expensesInlineWithPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExpenseInlineDocumentResponse}
      */
-    expensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid, callback) {
+      let postBody = expenseInlineDocumentWithPaymentPaid;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling expensesInlineWithPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesInlineWithPaymentPost");
+      // verify the required parameter 'expenseInlineDocumentWithPaymentPaid' is set
+      if (expenseInlineDocumentWithPaymentPaid === undefined || expenseInlineDocumentWithPaymentPaid === null) {
+        throw new Error("Missing the required parameter 'expenseInlineDocumentWithPaymentPaid' when calling expensesInlineWithPaymentPost");
       }
 
       let pathParams = {
@@ -763,19 +763,19 @@ export default class ExpensesApi {
      * Create expenses document with-payment.
      * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/ExpenseSimpleDocumentWithPaymentPaid} expenseSimpleDocumentWithPaymentPaid 
      * @param {module:api/ExpensesApi~expensesWithPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExpenseSimpleDocumentResponse}
      */
-    expensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid, callback) {
+      let postBody = expenseSimpleDocumentWithPaymentPaid;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling expensesWithPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesWithPaymentPost");
+      // verify the required parameter 'expenseSimpleDocumentWithPaymentPaid' is set
+      if (expenseSimpleDocumentWithPaymentPaid === undefined || expenseSimpleDocumentWithPaymentPaid === null) {
+        throw new Error("Missing the required parameter 'expenseSimpleDocumentWithPaymentPaid' when calling expensesWithPaymentPost");
       }
 
       let pathParams = {

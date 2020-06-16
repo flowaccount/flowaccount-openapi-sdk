@@ -18,11 +18,12 @@ var TaxInvoiceApiApiKeys;
 class TaxInvoiceApi {
     constructor(basePathOrUsername, password, basePath) {
         this._basePath = defaultBasePath;
-        this.defaultHeaders = {};
+        this._defaultHeaders = {};
         this._useQuerystring = false;
         this.authentications = {
             'default': new models_1.VoidAuth(),
         };
+        this.interceptors = [];
         if (password) {
             if (basePath) {
                 this.basePath = basePath;
@@ -40,6 +41,12 @@ class TaxInvoiceApi {
     set basePath(basePath) {
         this._basePath = basePath;
     }
+    set defaultHeaders(defaultHeaders) {
+        this._defaultHeaders = defaultHeaders;
+    }
+    get defaultHeaders() {
+        return this._defaultHeaders;
+    }
     get basePath() {
         return this._basePath;
     }
@@ -49,11 +56,14 @@ class TaxInvoiceApi {
     setApiKey(key, value) {
         this.authentications[TaxInvoiceApiApiKeys[key]].apiKey = value;
     }
+    addInterceptor(interceptor) {
+        this.interceptors.push(interceptor);
+    }
     taxInvoicesEmailDocumentPost(authorization, sendEmailCoppies, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices/email-document';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -82,7 +92,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -114,7 +128,7 @@ class TaxInvoiceApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -157,7 +171,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -172,7 +190,7 @@ class TaxInvoiceApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineDocumentResponse");
+                            body = models_1.ObjectSerializer.deserialize(body, "AllDocumentResponse");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -190,7 +208,7 @@ class TaxInvoiceApi {
             const localVarPath = this.basePath + '/tax-invoices/{id}/attachment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -222,7 +240,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -255,7 +277,7 @@ class TaxInvoiceApi {
             const localVarPath = this.basePath + '/tax-invoices/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -283,7 +305,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -316,7 +342,7 @@ class TaxInvoiceApi {
             const localVarPath = this.basePath + '/tax-invoices/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -344,7 +370,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -372,12 +402,12 @@ class TaxInvoiceApi {
             });
         });
     }
-    taxInvoicesIdPaymentPost(authorization, id, paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard, options = { headers: {} }) {
+    taxInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices/{id}/payment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -392,8 +422,8 @@ class TaxInvoiceApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling taxInvoicesIdPaymentPost.');
             }
-            if (paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard === null || paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard === undefined) {
-                throw new Error('Required parameter paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard was null or undefined when calling taxInvoicesIdPaymentPost.');
+            if (paymentReceivingDocument === null || paymentReceivingDocument === undefined) {
+                throw new Error('Required parameter paymentReceivingDocument was null or undefined when calling taxInvoicesIdPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -405,11 +435,15 @@ class TaxInvoiceApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard, "PaymentReceivingCash | PaymentReceivingTransfer | PaymentReceivingCheque | PaymentReceivingCreditCard")
+                body: models_1.ObjectSerializer.serialize(paymentReceivingDocument, "PaymentReceivingDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -442,7 +476,7 @@ class TaxInvoiceApi {
             const localVarPath = this.basePath + '/tax-invoices/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -474,7 +508,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -508,7 +546,7 @@ class TaxInvoiceApi {
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -539,7 +577,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -571,7 +613,7 @@ class TaxInvoiceApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices/inline';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -600,7 +642,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -628,11 +674,11 @@ class TaxInvoiceApi {
             });
         });
     }
-    taxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard, options = { headers: {} }) {
+    taxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices/inline/with-payment';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -644,8 +690,8 @@ class TaxInvoiceApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling taxInvoicesInlineWithPaymentPost.');
             }
-            if (inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard === null || inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard === undefined) {
-                throw new Error('Required parameter inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard was null or undefined when calling taxInvoicesInlineWithPaymentPost.');
+            if (inlineDocumentWithPaymentReceiving === null || inlineDocumentWithPaymentReceiving === undefined) {
+                throw new Error('Required parameter inlineDocumentWithPaymentReceiving was null or undefined when calling taxInvoicesInlineWithPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -657,11 +703,15 @@ class TaxInvoiceApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard, "InlineDocumentWithPaymentReceivingCash | InlineDocumentWithPaymentReceivingTransfer | InlineDocumentWithPaymentReceivingCheque | InlineDocumentWithPaymentReceivingCreditCard")
+                body: models_1.ObjectSerializer.serialize(inlineDocumentWithPaymentReceiving, "InlineDocumentWithPaymentReceiving")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -693,7 +743,7 @@ class TaxInvoiceApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -722,7 +772,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -754,7 +808,7 @@ class TaxInvoiceApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices/sharedocument';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -783,7 +837,11 @@ class TaxInvoiceApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -811,11 +869,11 @@ class TaxInvoiceApi {
             });
         });
     }
-    taxInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard, options = { headers: {} }) {
+    taxInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/tax-invoices/with-payment';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -827,8 +885,8 @@ class TaxInvoiceApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling taxInvoicesWithPaymentPost.');
             }
-            if (simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard === null || simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard === undefined) {
-                throw new Error('Required parameter simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard was null or undefined when calling taxInvoicesWithPaymentPost.');
+            if (simpleDocumentWithPaymentReceiving === null || simpleDocumentWithPaymentReceiving === undefined) {
+                throw new Error('Required parameter simpleDocumentWithPaymentReceiving was null or undefined when calling taxInvoicesWithPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -840,11 +898,15 @@ class TaxInvoiceApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard, "SimpleDocumentWithPaymentReceivingCash | SimpleDocumentWithPaymentReceivingTransfer | SimpleDocumentWithPaymentReceivingCheque | SimpleDocumentWithPaymentReceivingCreditCard")
+                body: models_1.ObjectSerializer.serialize(simpleDocumentWithPaymentReceiving, "SimpleDocumentWithPaymentReceiving")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;

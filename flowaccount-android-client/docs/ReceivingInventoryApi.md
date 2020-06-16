@@ -70,7 +70,7 @@ No authorization required
 
 ## purchasesGet
 
-> InlineDocumentResponse purchasesGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllDocumentResponse purchasesGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all receiving inventory documents.
 
@@ -89,7 +89,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    InlineDocumentResponse result = apiInstance.purchasesGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllDocumentResponse result = apiInstance.purchasesGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceivingInventoryApi#purchasesGet");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ No authorization required
 
 ## purchasesIdPaymentPost
 
-> InlineDocumentResponse purchasesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse purchasesIdPaymentPost(authorization, id, paymentPaidDocument)
 
 Change paid status of receiving inventory document.
 
@@ -285,9 +285,9 @@ Change paid status of receiving inventory document.
 ReceivingInventoryApi apiInstance = new ReceivingInventoryApi();
 String authorization = Bearer accessToken; // String | 
 String id = null; // String | ID เอกสารใช้ recordId หรือ documentId
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+PaymentPaidDocument paymentPaidDocument = new PaymentPaidDocument(); // PaymentPaidDocument | 
 try {
-    InlineDocumentResponse result = apiInstance.purchasesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.purchasesIdPaymentPost(authorization, id, paymentPaidDocument);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceivingInventoryApi#purchasesIdPaymentPost");
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  |
 
 ### Return type
 
@@ -468,7 +468,7 @@ No authorization required
 
 ## purchasesInlineWithPaymentPost
 
-> InlineDocumentResponse purchasesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaid)
 
 Create receiving inventory document with discount and tax inline with payment.
 
@@ -482,9 +482,9 @@ Create receiving inventory document with discount and tax inline with payment.
 
 ReceivingInventoryApi apiInstance = new ReceivingInventoryApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+InlineDocumentWithPaymentPaid inlineDocumentWithPaymentPaid = new InlineDocumentWithPaymentPaid(); // InlineDocumentWithPaymentPaid | 
 try {
-    InlineDocumentResponse result = apiInstance.purchasesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceivingInventoryApi#purchasesInlineWithPaymentPost");
@@ -498,7 +498,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **inlineDocumentWithPaymentPaid** | [**InlineDocumentWithPaymentPaid**](InlineDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ No authorization required
 
 ## purchasesWithPaymentPost
 
-> SimpleDocumentResponse purchasesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaid)
 
 Create receiving inventory document with payment.
 
@@ -626,9 +626,9 @@ Create receiving inventory document with payment.
 
 ReceivingInventoryApi apiInstance = new ReceivingInventoryApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+SimpleDocumentWithPaymentPaid simpleDocumentWithPaymentPaid = new SimpleDocumentWithPaymentPaid(); // SimpleDocumentWithPaymentPaid | 
 try {
-    SimpleDocumentResponse result = apiInstance.purchasesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    SimpleDocumentResponse result = apiInstance.purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceivingInventoryApi#purchasesWithPaymentPost");
@@ -642,7 +642,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **simpleDocumentWithPaymentPaid** | [**SimpleDocumentWithPaymentPaid**](SimpleDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 

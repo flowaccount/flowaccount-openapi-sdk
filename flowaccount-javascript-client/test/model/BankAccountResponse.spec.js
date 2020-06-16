@@ -54,44 +54,26 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.BankAccountResponse);
     });
 
-    it('should have the property bankAccountId (base name: "bankAccountId")', function() {
-      // uncomment below and update the code to test the property bankAccountId
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
       //var instane = new FlowAccountOpenApi.BankAccountResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property bankAccountNumber (base name: "bankAccountNumber")', function() {
-      // uncomment below and update the code to test the property bankAccountNumber
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
       //var instane = new FlowAccountOpenApi.BankAccountResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property bankAccountName (base name: "bankAccountName")', function() {
-      // uncomment below and update the code to test the property bankAccountName
+    it('should have the property code (base name: "code")', function() {
+      // uncomment below and update the code to test the property code
       //var instane = new FlowAccountOpenApi.BankAccountResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property bankAccountType (base name: "bankAccountType")', function() {
-      // uncomment below and update the code to test the property bankAccountType
-      //var instane = new FlowAccountOpenApi.BankAccountResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property bankBranch (base name: "bankBranch")', function() {
-      // uncomment below and update the code to test the property bankBranch
-      //var instane = new FlowAccountOpenApi.BankAccountResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property bankId (base name: "bankId")', function() {
-      // uncomment below and update the code to test the property bankId
-      //var instane = new FlowAccountOpenApi.BankAccountResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property bankName (base name: "bankName")', function() {
-      // uncomment below and update the code to test the property bankName
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
       //var instane = new FlowAccountOpenApi.BankAccountResponse();
       //expect(instance).to.be();
     });

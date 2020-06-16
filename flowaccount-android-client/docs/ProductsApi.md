@@ -158,7 +158,7 @@ No authorization required
 
 ## productsIdPut
 
-> ProductResponse productsIdPut(authorization, id, UNKNOWN_BASE_TYPE)
+> ProductResponse productsIdPut(authorization, id, productType)
 
 Update products.
 
@@ -171,9 +171,9 @@ Update products.
 ProductsApi apiInstance = new ProductsApi();
 String authorization = Bearer accessToken; // String | เลข Id Product
 String id = null; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+ProductType productType = new ProductType(); // ProductType | 
 try {
-    ProductResponse result = apiInstance.productsIdPut(authorization, id, UNKNOWN_BASE_TYPE);
+    ProductResponse result = apiInstance.productsIdPut(authorization, id, productType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#productsIdPut");
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| เลข Id Product | [default to Bearer accessToken]
  **id** | **String**|  | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **productType** | [**ProductType**](ProductType.md)|  |
 
 ### Return type
 
@@ -206,7 +206,7 @@ No authorization required
 
 ## productsPost
 
-> ProductResponse productsPost(authorization, UNKNOWN_BASE_TYPE)
+> ProductResponse productsPost(authorization, productType)
 
 Create products.
 
@@ -218,9 +218,9 @@ Create products.
 
 ProductsApi apiInstance = new ProductsApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+ProductType productType = new ProductType(); // ProductType | 
 try {
-    ProductResponse result = apiInstance.productsPost(authorization, UNKNOWN_BASE_TYPE);
+    ProductResponse result = apiInstance.productsPost(authorization, productType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#productsPost");
@@ -234,7 +234,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **productType** | [**ProductType**](ProductType.md)|  |
 
 ### Return type
 

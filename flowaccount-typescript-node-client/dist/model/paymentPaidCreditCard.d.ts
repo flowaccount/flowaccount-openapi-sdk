@@ -1,5 +1,5 @@
 export declare class PaymentPaidCreditCard {
-    'paymentStructureType': string;
+    'paymentStructureType': string | null;
     'documentId': number;
     'paymentMethod': number;
     'paymentDate': string;

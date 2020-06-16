@@ -1,4 +1,4 @@
-import { RequestFile } from "../api/apis";
+import { RequestFile } from '../api';
 export declare class InlineObject7 {
     'file'?: RequestFile;
     static discriminator: string | undefined;

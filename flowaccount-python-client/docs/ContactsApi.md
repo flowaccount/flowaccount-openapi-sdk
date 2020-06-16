@@ -24,21 +24,29 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
-current_page = 56 # int | Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ContactsApi(api_client)
+    current_page = 56 # int | Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
 page_size = 56 # int | Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 sort_by = 'sort_by_example' # str | Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex> (optional)
 filter = 'filter_example' # str | Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex> (optional)
 
-try:
-    # Get list all contacts.
-    api_response = api_instance.contacts_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->contacts_get: %s\n" % e)
+    try:
+        # Get list all contacts.
+        api_response = api_instance.contacts_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->contacts_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -86,18 +94,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ContactsApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | เลข Id Contact
 
-try:
-    # Delete contacts.
-    api_response = api_instance.contacts_id_delete(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->contacts_id_delete: %s\n" % e)
+    try:
+        # Delete contacts.
+        api_response = api_instance.contacts_id_delete(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->contacts_id_delete: %s\n" % e)
 ```
 
 ### Parameters
@@ -142,18 +158,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ContactsApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | เลข Id Contact
 
-try:
-    # Get contacts.
-    api_response = api_instance.contacts_id_get(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->contacts_id_get: %s\n" % e)
+    try:
+        # Get contacts.
+        api_response = api_instance.contacts_id_get(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->contacts_id_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -198,19 +222,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ContactsApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | เลข Id Contact
 contact = openapi_client.Contact() # Contact | 
 
-try:
-    # Update contacts.
-    api_response = api_instance.contacts_id_put(authorization, id, contact)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->contacts_id_put: %s\n" % e)
+    try:
+        # Update contacts.
+        api_response = api_instance.contacts_id_put(authorization, id, contact)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->contacts_id_put: %s\n" % e)
 ```
 
 ### Parameters
@@ -256,18 +288,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ContactsApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 contact = openapi_client.Contact() # Contact | 
 
-try:
-    # Create contacts
-    api_response = api_instance.contacts_post(authorization, contact)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->contacts_post: %s\n" % e)
+    try:
+        # Create contacts
+        api_response = api_instance.contacts_post(authorization, contact)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->contacts_post: %s\n" % e)
 ```
 
 ### Parameters

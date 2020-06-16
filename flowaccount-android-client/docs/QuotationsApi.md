@@ -67,7 +67,7 @@ No authorization required
 
 ## quotationsGet
 
-> InlineDocumentResponse quotationsGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllDocumentResponse quotationsGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all quotations documents.
 
@@ -86,7 +86,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    InlineDocumentResponse result = apiInstance.quotationsGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllDocumentResponse result = apiInstance.quotationsGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotationsApi#quotationsGet");
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 

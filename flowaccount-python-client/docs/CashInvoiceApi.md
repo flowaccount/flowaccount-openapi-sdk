@@ -34,18 +34,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 send_email_coppies = openapi_client.SendEmailCoppies() # SendEmailCoppies | 
 
-try:
-    # Send email cash invoices document.
-    api_response = api_instance.cash_invoices_email_document_post(authorization, send_email_coppies)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_email_document_post: %s\n" % e)
+    try:
+        # Send email cash invoices document.
+        api_response = api_instance.cash_invoices_email_document_post(authorization, send_email_coppies)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_email_document_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -78,7 +86,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cash_invoices_get**
-> InlineDocumentResponse cash_invoices_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+> AllDocumentResponse cash_invoices_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
 Get list all cash invoices documents
 
@@ -92,21 +100,29 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-current_page = 56 # int | Query current page document cash invoices. <br>Example Pattern: <ex>/cash-invoices?currentPage=1 </ex><ex>/cash-invoices?currentPage=1&pageSize=20</ex>
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    current_page = 56 # int | Query current page document cash invoices. <br>Example Pattern: <ex>/cash-invoices?currentPage=1 </ex><ex>/cash-invoices?currentPage=1&pageSize=20</ex>
 page_size = 56 # int | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-sort_by = 'sort_by_example' # str |  (optional)
+sort_by = 'sort_by_example' # str | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/cash-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
 filter = 'filter_example' # str |  (optional)
 
-try:
-    # Get list all cash invoices documents
-    api_response = api_instance.cash_invoices_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_get: %s\n" % e)
+    try:
+        # Get list all cash invoices documents
+        api_response = api_instance.cash_invoices_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -116,12 +132,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **page_size** | **int**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **str**|  | [optional] 
+ **sort_by** | **str**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
  **filter** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -156,19 +172,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
 file = '/path/to/file' # file | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
-try:
-    # Add Attachment to cash invoices document.
-    api_response = api_instance.cash_invoices_id_attachment_post(authorization, id, file=file)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_attachment_post: %s\n" % e)
+    try:
+        # Add Attachment to cash invoices document.
+        api_response = api_instance.cash_invoices_id_attachment_post(authorization, id, file=file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_id_attachment_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -216,18 +240,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
-try:
-    # Delete cash invoices document.
-    api_response = api_instance.cash_invoices_id_delete(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_delete: %s\n" % e)
+    try:
+        # Delete cash invoices document.
+        api_response = api_instance.cash_invoices_id_delete(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_id_delete: %s\n" % e)
 ```
 
 ### Parameters
@@ -274,18 +306,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | 
 
-try:
-    # Get cash invoices document.
-    api_response = api_instance.cash_invoices_id_get(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_get: %s\n" % e)
+    try:
+        # Get cash invoices document.
+        api_response = api_instance.cash_invoices_id_get(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_id_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -318,7 +358,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cash_invoices_id_payment_post**
-> InlineDocumentResponse cash_invoices_id_payment_post(authorization, id, unknown_base_type)
+> InlineDocumentResponse cash_invoices_id_payment_post(authorization, id, payment_receiving_document)
 
 Change paid status of cash invoices document.
 
@@ -332,19 +372,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
-unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+payment_receiving_document = openapi_client.PaymentReceivingDocument() # PaymentReceivingDocument | 
 
-try:
-    # Change paid status of cash invoices document.
-    api_response = api_instance.cash_invoices_id_payment_post(authorization, id, unknown_base_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_payment_post: %s\n" % e)
+    try:
+        # Change paid status of cash invoices document.
+        api_response = api_instance.cash_invoices_id_payment_post(authorization, id, payment_receiving_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_id_payment_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -353,7 +401,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**| ID เอกสารใช้ recordId หรือ documentId | 
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **payment_receiving_document** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -392,19 +440,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 update_inline_document = openapi_client.UpdateInlineDocument() # UpdateInlineDocument | 
 
-try:
-    # Edit cash invoices document.
-    api_response = api_instance.cash_invoices_id_put(authorization, id, update_inline_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_put: %s\n" % e)
+    try:
+        # Edit cash invoices document.
+        api_response = api_instance.cash_invoices_id_put(authorization, id, update_inline_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_id_put: %s\n" % e)
 ```
 
 ### Parameters
@@ -452,19 +508,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> invoicedelivered = รอเก็บเงิน <br> void = ยกเลิก
 
-try:
-    # Change status of cash invoices document.
-    api_response = api_instance.cash_invoices_id_status_status_id_post(authorization, id, status_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_id_status_status_id_post: %s\n" % e)
+    try:
+        # Change status of cash invoices document.
+        api_response = api_instance.cash_invoices_id_status_status_id_post(authorization, id, status_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -512,18 +576,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 inline_document = openapi_client.InlineDocument() # InlineDocument | 
 
-try:
-    # Create cash invoices document with discount and tax inline.
-    api_response = api_instance.cash_invoices_inline_post(authorization, inline_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_inline_post: %s\n" % e)
+    try:
+        # Create cash invoices document with discount and tax inline.
+        api_response = api_instance.cash_invoices_inline_post(authorization, inline_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_inline_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -556,7 +628,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cash_invoices_inline_with_payment_post**
-> InlineDocumentResponse cash_invoices_inline_with_payment_post(authorization, unknown_base_type)
+> InlineDocumentResponse cash_invoices_inline_with_payment_post(authorization, inline_document_with_payment_receiving)
 
 Create cash invoices document with discount and tax inline with payment.
 
@@ -570,18 +642,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
-try:
-    # Create cash invoices document with discount and tax inline with payment.
-    api_response = api_instance.cash_invoices_inline_with_payment_post(authorization, unknown_base_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_inline_with_payment_post: %s\n" % e)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+inline_document_with_payment_receiving = openapi_client.InlineDocumentWithPaymentReceiving() # InlineDocumentWithPaymentReceiving | 
+
+    try:
+        # Create cash invoices document with discount and tax inline with payment.
+        api_response = api_instance.cash_invoices_inline_with_payment_post(authorization, inline_document_with_payment_receiving)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_inline_with_payment_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -589,7 +669,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **inline_document_with_payment_receiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -628,18 +708,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 simple_document = openapi_client.SimpleDocument() # SimpleDocument | 
 
-try:
-    # Create cash invoices document.
-    api_response = api_instance.cash_invoices_post(authorization, simple_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_post: %s\n" % e)
+    try:
+        # Create cash invoices document.
+        api_response = api_instance.cash_invoices_post(authorization, simple_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -686,18 +774,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 share_document = openapi_client.ShareDocument() # ShareDocument | 
 
-try:
-    # Share link cash invoices document.
-    api_response = api_instance.cash_invoices_sharedocument_post(authorization, share_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_sharedocument_post: %s\n" % e)
+    try:
+        # Share link cash invoices document.
+        api_response = api_instance.cash_invoices_sharedocument_post(authorization, share_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_sharedocument_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -730,7 +826,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cash_invoices_with_payment_post**
-> SimpleDocumentResponse cash_invoices_with_payment_post(authorization, unknown_base_type)
+> SimpleDocumentResponse cash_invoices_with_payment_post(authorization, simple_document_with_payment_receiving)
 
 Create cash invoices document with payment.
 
@@ -744,18 +840,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.CashInvoiceApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
-try:
-    # Create cash invoices document with payment.
-    api_response = api_instance.cash_invoices_with_payment_post(authorization, unknown_base_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CashInvoiceApi->cash_invoices_with_payment_post: %s\n" % e)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.CashInvoiceApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+simple_document_with_payment_receiving = openapi_client.SimpleDocumentWithPaymentReceiving() # SimpleDocumentWithPaymentReceiving | 
+
+    try:
+        # Create cash invoices document with payment.
+        api_response = api_instance.cash_invoices_with_payment_post(authorization, simple_document_with_payment_receiving)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CashInvoiceApi->cash_invoices_with_payment_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -763,7 +867,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **simple_document_with_payment_receiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

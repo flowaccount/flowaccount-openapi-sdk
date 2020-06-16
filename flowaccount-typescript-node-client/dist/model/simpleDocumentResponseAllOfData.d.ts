@@ -1,6 +1,7 @@
-import { PaymentDocumentResponse } from './paymentDocumentResponse';
 import { ReferencedByMe } from './referencedByMe';
 import { ReferencedToMe } from './referencedToMe';
+import { SimpleDocumentResponseAllOfDataCompany } from './simpleDocumentResponseAllOfDataCompany';
+import { SimpleDocumentResponseAllOfDataPayments } from './simpleDocumentResponseAllOfDataPayments';
 import { SimpleProductItem } from './simpleProductItem';
 export declare class SimpleDocumentResponseAllOfData {
     'recordId'?: number;
@@ -43,8 +44,8 @@ export declare class SimpleDocumentResponseAllOfData {
     'items'?: Array<SimpleProductItem>;
     'referencedToMe'?: Array<ReferencedToMe>;
     'referencedByMe'?: Array<ReferencedByMe>;
-    'payments'?: Array<PaymentDocumentResponse>;
-    'company'?: Array<object>;
+    'payments'?: SimpleDocumentResponseAllOfDataPayments;
+    'company'?: SimpleDocumentResponseAllOfDataCompany;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

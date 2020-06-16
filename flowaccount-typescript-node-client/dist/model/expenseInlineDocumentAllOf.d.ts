@@ -4,8 +4,8 @@ export declare class ExpenseInlineDocumentAllOf {
     'discountType'?: number;
     'useInlineDiscount'?: boolean;
     'useInlineVat'?: boolean;
-    'exemptAmount'?: number;
-    'vatableAmount'?: number;
+    'exemptAmount'?: number | null;
+    'vatableAmount'?: number | null;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

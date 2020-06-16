@@ -15,7 +15,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 	"github.com/antihax/optional"
 	"os"
@@ -49,7 +48,6 @@ func (a *ReceivingInventoryApiService) PurchasesEmailDocumentPost(ctx _context.C
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/email-document"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -95,16 +93,6 @@ func (a *ReceivingInventoryApiService) PurchasesEmailDocumentPost(ctx _context.C
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SendEmailResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -136,21 +124,20 @@ PurchasesGet Get list all receiving inventory documents.
  * @param optional nil or *PurchasesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
  * @param "Filter" (optional.String) - 
-@return InlineDocumentResponse
+@return AllDocumentResponse
 */
-func (a *ReceivingInventoryApiService) PurchasesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *PurchasesGetOpts) (InlineDocumentResponse, *_nethttp.Response, error) {
+func (a *ReceivingInventoryApiService) PurchasesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *PurchasesGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineDocumentResponse
+		localVarReturnValue  AllDocumentResponse
 	)
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -202,16 +189,6 @@ func (a *ReceivingInventoryApiService) PurchasesGet(ctx _context.Context, curren
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -254,7 +231,7 @@ func (a *ReceivingInventoryApiService) PurchasesIdAttachmentPost(ctx _context.Co
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/{id}/attachment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -314,16 +291,6 @@ func (a *ReceivingInventoryApiService) PurchasesIdAttachmentPost(ctx _context.Co
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v AttachmentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -359,7 +326,7 @@ func (a *ReceivingInventoryApiService) PurchasesIdDelete(ctx _context.Context, a
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -403,16 +370,6 @@ func (a *ReceivingInventoryApiService) PurchasesIdDelete(ctx _context.Context, a
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DeleteResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -449,7 +406,7 @@ func (a *ReceivingInventoryApiService) PurchasesIdGet(ctx _context.Context, auth
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -494,16 +451,6 @@ func (a *ReceivingInventoryApiService) PurchasesIdGet(ctx _context.Context, auth
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -525,10 +472,10 @@ PurchasesIdPaymentPost Change paid status of receiving inventory document.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
  * @param id ID เอกสารใช้ recordId หรือ documentId
- * @param uNKNOWNBASETYPE
+ * @param paymentPaidDocument
 @return InlineDocumentResponse
 */
-func (a *ReceivingInventoryApiService) PurchasesIdPaymentPost(ctx _context.Context, authorization string, id string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (InlineDocumentResponse, *_nethttp.Response, error) {
+func (a *ReceivingInventoryApiService) PurchasesIdPaymentPost(ctx _context.Context, authorization string, id string, paymentPaidDocument PaymentPaidDocument) (InlineDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -540,7 +487,7 @@ func (a *ReceivingInventoryApiService) PurchasesIdPaymentPost(ctx _context.Conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/{id}/payment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -565,7 +512,7 @@ func (a *ReceivingInventoryApiService) PurchasesIdPaymentPost(ctx _context.Conte
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &paymentPaidDocument
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -586,16 +533,6 @@ func (a *ReceivingInventoryApiService) PurchasesIdPaymentPost(ctx _context.Conte
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -633,7 +570,7 @@ func (a *ReceivingInventoryApiService) PurchasesIdPut(ctx _context.Context, auth
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -680,16 +617,6 @@ func (a *ReceivingInventoryApiService) PurchasesIdPut(ctx _context.Context, auth
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -726,8 +653,9 @@ func (a *ReceivingInventoryApiService) PurchasesIdStatusStatusIdPost(ctx _contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/{id}/status/{statusId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", statusId)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(parameterToString(statusId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -772,16 +700,6 @@ func (a *ReceivingInventoryApiService) PurchasesIdStatusStatusIdPost(ctx _contex
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -817,7 +735,6 @@ func (a *ReceivingInventoryApiService) PurchasesInlinePost(ctx _context.Context,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/inline"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -863,16 +780,6 @@ func (a *ReceivingInventoryApiService) PurchasesInlinePost(ctx _context.Context,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -893,10 +800,10 @@ PurchasesInlineWithPaymentPost Create receiving inventory document with discount
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param inlineDocumentWithPaymentPaid
 @return InlineDocumentResponse
 */
-func (a *ReceivingInventoryApiService) PurchasesInlineWithPaymentPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (InlineDocumentResponse, *_nethttp.Response, error) {
+func (a *ReceivingInventoryApiService) PurchasesInlineWithPaymentPost(ctx _context.Context, authorization string, inlineDocumentWithPaymentPaid InlineDocumentWithPaymentPaid) (InlineDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -908,7 +815,6 @@ func (a *ReceivingInventoryApiService) PurchasesInlineWithPaymentPost(ctx _conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/inline/with-payment"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -932,7 +838,7 @@ func (a *ReceivingInventoryApiService) PurchasesInlineWithPaymentPost(ctx _conte
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &inlineDocumentWithPaymentPaid
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -953,16 +859,6 @@ func (a *ReceivingInventoryApiService) PurchasesInlineWithPaymentPost(ctx _conte
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -999,7 +895,6 @@ func (a *ReceivingInventoryApiService) PurchasesPost(ctx _context.Context, autho
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1045,16 +940,6 @@ func (a *ReceivingInventoryApiService) PurchasesPost(ctx _context.Context, autho
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1090,7 +975,6 @@ func (a *ReceivingInventoryApiService) PurchasesSharedocumentPost(ctx _context.C
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/sharedocument"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1136,16 +1020,6 @@ func (a *ReceivingInventoryApiService) PurchasesSharedocumentPost(ctx _context.C
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ShareDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1166,10 +1040,10 @@ PurchasesWithPaymentPost Create receiving inventory document with payment.
 สร้างเอกสารใบรับสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param simpleDocumentWithPaymentPaid
 @return SimpleDocumentResponse
 */
-func (a *ReceivingInventoryApiService) PurchasesWithPaymentPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (SimpleDocumentResponse, *_nethttp.Response, error) {
+func (a *ReceivingInventoryApiService) PurchasesWithPaymentPost(ctx _context.Context, authorization string, simpleDocumentWithPaymentPaid SimpleDocumentWithPaymentPaid) (SimpleDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1181,7 +1055,6 @@ func (a *ReceivingInventoryApiService) PurchasesWithPaymentPost(ctx _context.Con
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/purchases/with-payment"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1205,7 +1078,7 @@ func (a *ReceivingInventoryApiService) PurchasesWithPaymentPost(ctx _context.Con
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &simpleDocumentWithPaymentPaid
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1226,16 +1099,6 @@ func (a *ReceivingInventoryApiService) PurchasesWithPaymentPost(ctx _context.Con
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

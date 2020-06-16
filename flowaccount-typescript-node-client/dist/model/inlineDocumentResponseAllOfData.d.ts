@@ -1,7 +1,8 @@
 import { InlineProductItem } from './inlineProductItem';
-import { PaymentDocumentResponse } from './paymentDocumentResponse';
 import { ReferencedByMe } from './referencedByMe';
 import { ReferencedToMe } from './referencedToMe';
+import { SimpleDocumentResponseAllOfDataCompany } from './simpleDocumentResponseAllOfDataCompany';
+import { SimpleDocumentResponseAllOfDataPayments } from './simpleDocumentResponseAllOfDataPayments';
 export declare class InlineDocumentResponseAllOfData {
     'recordId'?: number;
     'documentId'?: number;
@@ -33,8 +34,8 @@ export declare class InlineDocumentResponseAllOfData {
     'discountAmount'?: number;
     'totalAfterDiscount'?: number;
     'totalWithoutVat'?: number;
-    'exemptAmount'?: number;
-    'vatableAmount'?: number;
+    'exemptAmount'?: number | null;
+    'vatableAmount'?: number | null;
     'isVat'?: boolean;
     'vatAmount'?: number;
     'grandTotal'?: number;
@@ -48,8 +49,8 @@ export declare class InlineDocumentResponseAllOfData {
     'items'?: Array<InlineProductItem>;
     'referencedToMe'?: Array<ReferencedToMe>;
     'referencedByMe'?: Array<ReferencedByMe>;
-    'payments'?: Array<PaymentDocumentResponse>;
-    'company'?: Array<object>;
+    'payments'?: SimpleDocumentResponseAllOfDataPayments;
+    'company'?: SimpleDocumentResponseAllOfDataCompany;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

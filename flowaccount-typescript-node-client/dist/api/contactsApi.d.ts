@@ -3,21 +3,24 @@ import http = require('http');
 import { Contact } from '../model/contact';
 import { ContactResponse } from '../model/contactResponse';
 import { DeleteResponse } from '../model/deleteResponse';
-import { Authentication } from '../model/models';
+import { Authentication, Interceptor } from '../model/models';
 export declare enum ContactsApiApiKeys {
 }
 export declare class ContactsApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ContactsApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     contactsGet(currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options?: {
         headers: {
             [name: string]: string;

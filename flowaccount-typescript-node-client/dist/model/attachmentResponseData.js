@@ -15,7 +15,7 @@ AttachmentResponseData.attributeTypeMap = [
     {
         "name": "createdOn",
         "baseName": "createdOn",
-        "type": "object"
+        "type": "AnyType"
     },
     {
         "name": "attachmentName",

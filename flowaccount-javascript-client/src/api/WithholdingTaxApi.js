@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AllWithholidingTaxDocumentResponse from '../model/AllWithholidingTaxDocumentResponse';
 import AttachmentResponse from '../model/AttachmentResponse';
 import DeleteResponse from '../model/DeleteResponse';
 import SendEmail from '../model/SendEmail';
@@ -95,7 +96,7 @@ export default class WithholdingTaxApi {
      * Callback function to receive the result of the withholdingTaxesGet operation.
      * @callback module:api/WithholdingTaxApi~withholdingTaxesGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/WithholidingTaxDocumentResponse} data The data returned by the service call.
+     * @param {module:model/AllWithholidingTaxDocumentResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -109,7 +110,7 @@ export default class WithholdingTaxApi {
      * @param {String} opts.sortBy Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
      * @param {String} opts.filter 
      * @param {module:api/WithholdingTaxApi~withholdingTaxesGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/WithholidingTaxDocumentResponse}
+     * data is of type: {@link module:model/AllWithholidingTaxDocumentResponse}
      */
     withholdingTaxesGet(currentPage, pageSize, authorization, opts, callback) {
       opts = opts || {};
@@ -144,7 +145,7 @@ export default class WithholdingTaxApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = WithholidingTaxDocumentResponse;
+      let returnType = AllWithholidingTaxDocumentResponse;
       return this.apiClient.callApi(
         '/withholding-taxes', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

@@ -70,7 +70,7 @@ No authorization required
 
 ## cashInvoicesGet
 
-> InlineDocumentResponse cashInvoicesGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllDocumentResponse cashInvoicesGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all cash invoices documents
 
@@ -89,7 +89,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/cash-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    InlineDocumentResponse result = apiInstance.cashInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllDocumentResponse result = apiInstance.cashInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CashInvoiceApi#cashInvoicesGet");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ No authorization required
 
 ## cashInvoicesIdPaymentPost
 
-> InlineDocumentResponse cashInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse cashInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument)
 
 Change paid status of cash invoices document.
 
@@ -285,9 +285,9 @@ Change paid status of cash invoices document.
 CashInvoiceApi apiInstance = new CashInvoiceApi();
 String authorization = Bearer accessToken; // String | 
 String id = null; // String | ID เอกสารใช้ recordId หรือ documentId
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+PaymentReceivingDocument paymentReceivingDocument = new PaymentReceivingDocument(); // PaymentReceivingDocument | 
 try {
-    InlineDocumentResponse result = apiInstance.cashInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.cashInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CashInvoiceApi#cashInvoicesIdPaymentPost");
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  |
 
 ### Return type
 
@@ -468,7 +468,7 @@ No authorization required
 
 ## cashInvoicesInlineWithPaymentPost
 
-> InlineDocumentResponse cashInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse cashInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving)
 
 Create cash invoices document with discount and tax inline with payment.
 
@@ -482,9 +482,9 @@ Create cash invoices document with discount and tax inline with payment.
 
 CashInvoiceApi apiInstance = new CashInvoiceApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving = new InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
 try {
-    InlineDocumentResponse result = apiInstance.cashInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.cashInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CashInvoiceApi#cashInvoicesInlineWithPaymentPost");
@@ -498,7 +498,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ No authorization required
 
 ## cashInvoicesWithPaymentPost
 
-> SimpleDocumentResponse cashInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse cashInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving)
 
 Create cash invoices document with payment.
 
@@ -626,9 +626,9 @@ Create cash invoices document with payment.
 
 CashInvoiceApi apiInstance = new CashInvoiceApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving = new SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
 try {
-    SimpleDocumentResponse result = apiInstance.cashInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    SimpleDocumentResponse result = apiInstance.cashInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CashInvoiceApi#cashInvoicesWithPaymentPost");
@@ -642,7 +642,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 

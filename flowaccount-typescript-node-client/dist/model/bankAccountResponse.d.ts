@@ -1,11 +1,9 @@
+import { BankAccountResponseData } from './bankAccountResponseData';
 export declare class BankAccountResponse {
-    'bankAccountId'?: number;
-    'bankAccountNumber'?: string;
-    'bankAccountName'?: string;
-    'bankAccountType'?: number;
-    'bankBranch'?: string;
-    'bankId'?: number;
-    'bankName'?: string;
+    'status'?: boolean;
+    'message'?: string;
+    'code'?: number;
+    'data'?: BankAccountResponseData;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

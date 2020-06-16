@@ -164,7 +164,7 @@ No authorization required
 
 ## expensesGet
 
-> ExpenseInlineDocumentResponse expensesGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllExpenseDocumentResponse expensesGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all expenses documents.
 
@@ -183,7 +183,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    ExpenseInlineDocumentResponse result = apiInstance.expensesGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllExpenseDocumentResponse result = apiInstance.expensesGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExpensesApi#expensesGet");
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+[**AllExpenseDocumentResponse**](AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ No authorization required
 
 ## expensesIdPaymentPost
 
-> ExpenseSimpleDocumentResponse expensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> ExpenseSimpleDocumentResponse expensesIdPaymentPost(authorization, id, paymentPaidDocument)
 
 Change paid status of expenses document.
 
@@ -379,9 +379,9 @@ Change paid status of expenses document.
 ExpensesApi apiInstance = new ExpensesApi();
 String authorization = Bearer accessToken; // String | 
 String id = null; // String | ID เอกสารใช้ recordId หรือ documentId
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+PaymentPaidDocument paymentPaidDocument = new PaymentPaidDocument(); // PaymentPaidDocument | 
 try {
-    ExpenseSimpleDocumentResponse result = apiInstance.expensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+    ExpenseSimpleDocumentResponse result = apiInstance.expensesIdPaymentPost(authorization, id, paymentPaidDocument);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExpensesApi#expensesIdPaymentPost");
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  |
 
 ### Return type
 
@@ -562,7 +562,7 @@ No authorization required
 
 ## expensesInlineWithPaymentPost
 
-> ExpenseInlineDocumentResponse expensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> ExpenseInlineDocumentResponse expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid)
 
 Create expenses document with discount and tax inline with payment.
 
@@ -576,9 +576,9 @@ Create expenses document with discount and tax inline with payment.
 
 ExpensesApi apiInstance = new ExpensesApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid = new ExpenseInlineDocumentWithPaymentPaid(); // ExpenseInlineDocumentWithPaymentPaid | 
 try {
-    ExpenseInlineDocumentResponse result = apiInstance.expensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    ExpenseInlineDocumentResponse result = apiInstance.expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExpensesApi#expensesInlineWithPaymentPost");
@@ -592,7 +592,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **expenseInlineDocumentWithPaymentPaid** | [**ExpenseInlineDocumentWithPaymentPaid**](ExpenseInlineDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 
@@ -706,7 +706,7 @@ No authorization required
 
 ## expensesWithPaymentPost
 
-> ExpenseSimpleDocumentResponse expensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> ExpenseSimpleDocumentResponse expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid)
 
 Create expenses document with-payment.
 
@@ -720,9 +720,9 @@ Create expenses document with-payment.
 
 ExpensesApi apiInstance = new ExpensesApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid = new ExpenseSimpleDocumentWithPaymentPaid(); // ExpenseSimpleDocumentWithPaymentPaid | 
 try {
-    ExpenseSimpleDocumentResponse result = apiInstance.expensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    ExpenseSimpleDocumentResponse result = apiInstance.expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExpensesApi#expensesWithPaymentPost");
@@ -736,7 +736,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **expenseSimpleDocumentWithPaymentPaid** | [**ExpenseSimpleDocumentWithPaymentPaid**](ExpenseSimpleDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import BankAccountResponseData from './BankAccountResponseData';
 
 /**
  * The BankAccountResponse model module.
@@ -47,26 +48,17 @@ class BankAccountResponse {
         if (data) {
             obj = obj || new BankAccountResponse();
 
-            if (data.hasOwnProperty('bankAccountId')) {
-                obj['bankAccountId'] = ApiClient.convertToType(data['bankAccountId'], 'Number');
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'Boolean');
             }
-            if (data.hasOwnProperty('bankAccountNumber')) {
-                obj['bankAccountNumber'] = ApiClient.convertToType(data['bankAccountNumber'], 'String');
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('bankAccountName')) {
-                obj['bankAccountName'] = ApiClient.convertToType(data['bankAccountName'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
-            if (data.hasOwnProperty('bankAccountType')) {
-                obj['bankAccountType'] = ApiClient.convertToType(data['bankAccountType'], 'Number');
-            }
-            if (data.hasOwnProperty('bankBranch')) {
-                obj['bankBranch'] = ApiClient.convertToType(data['bankBranch'], 'String');
-            }
-            if (data.hasOwnProperty('bankId')) {
-                obj['bankId'] = ApiClient.convertToType(data['bankId'], 'Number');
-            }
-            if (data.hasOwnProperty('bankName')) {
-                obj['bankName'] = ApiClient.convertToType(data['bankName'], 'String');
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = BankAccountResponseData.constructFromObject(data['data']);
             }
         }
         return obj;
@@ -76,46 +68,27 @@ class BankAccountResponse {
 }
 
 /**
- * เลข id บัญชีธนาคาร
- * @member {Number} bankAccountId
+ * action success
+ * @member {Boolean} status
  */
-BankAccountResponse.prototype['bankAccountId'] = undefined;
+BankAccountResponse.prototype['status'] = undefined;
 
 /**
- * เลขบัญชี <br> <ex>Example: 0048620000 </ex>
- * @member {String} bankAccountNumber
+ * error message
+ * @member {String} message
  */
-BankAccountResponse.prototype['bankAccountNumber'] = undefined;
+BankAccountResponse.prototype['message'] = undefined;
 
 /**
- * ชื่อบัญชี <br> <ex>Example: บัญชีใช้รับเงิน</ex>
- * @member {String} bankAccountName
+ * error code
+ * @member {Number} code
  */
-BankAccountResponse.prototype['bankAccountName'] = undefined;
+BankAccountResponse.prototype['code'] = undefined;
 
 /**
- * ประเภทบัญชีธนาคาร <br> 1 = บัญชีออมทรัพย์  <br> 3 = บัญชีกระรายวัน <br> 7  = บัญชีฝากประจำ
- * @member {Number} bankAccountType
+ * @member {module:model/BankAccountResponseData} data
  */
-BankAccountResponse.prototype['bankAccountType'] = undefined;
-
-/**
- * ชื่อสาขาธนาคาร
- * @member {String} bankBranch
- */
-BankAccountResponse.prototype['bankBranch'] = undefined;
-
-/**
- * เลข id ธนาคาร
- * @member {Number} bankId
- */
-BankAccountResponse.prototype['bankId'] = undefined;
-
-/**
- * ชื่อธนาคาร
- * @member {String} bankName
- */
-BankAccountResponse.prototype['bankName'] = undefined;
+BankAccountResponse.prototype['data'] = undefined;
 
 
 

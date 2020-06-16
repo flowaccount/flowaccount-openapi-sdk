@@ -80,7 +80,7 @@ No authorization required
 
 ## receiptsGet
 
-> \OpenAPI\Client\Model\InlineDocumentResponse receiptsGet($current_page, $page_size, $authorization, $sort_by, $filter)
+> \OpenAPI\Client\Model\AllDocumentResponse receiptsGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
 Get list all receipt documents
 
@@ -101,7 +101,7 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptApi(
 $current_page = 56; // int | Query current page document receipts. <br>Example Pattern: <ex>/receipts?currentPage=1 </ex><ex>/receipts?currentPage=1&pageSize=20</ex>
 $page_size = 56; // int | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
-$sort_by = 'sort_by_example'; // string | 
+$sort_by = 'sort_by_example'; // string | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 $filter = 'filter_example'; // string | 
 
 try {
@@ -121,12 +121,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; |
  **page_size** | **int**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **string**|  | [optional]
+ **sort_by** | **string**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
  **filter** | **string**|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+[**\OpenAPI\Client\Model\AllDocumentResponse**](../Model/AllDocumentResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$id = 'id_example'; // string | 
+$id = 'id_example'; // string | ID เอกสารใช้ recordId
 
 try {
     $result = $apiInstance->receiptsIdGet($authorization, $id);
@@ -298,7 +298,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **id** | **string**|  |
+ **id** | **string**| ID เอกสารใช้ recordId |
 
 ### Return type
 
@@ -320,7 +320,7 @@ No authorization required
 
 ## receiptsIdPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdPaymentPost($authorization, $id, $unknown_base_type)
+> \OpenAPI\Client\Model\InlineDocumentResponse receiptsIdPaymentPost($authorization, $id, $payment_receiving_document)
 
 Change paid status of receipt document.
 
@@ -340,10 +340,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$payment_receiving_document = new \OpenAPI\Client\Model\PaymentReceivingDocument(); // \OpenAPI\Client\Model\PaymentReceivingDocument | 
 
 try {
-    $result = $apiInstance->receiptsIdPaymentPost($authorization, $id, $unknown_base_type);
+    $result = $apiInstance->receiptsIdPaymentPost($authorization, $id, $payment_receiving_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptApi->receiptsIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **payment_receiving_document** | [**\OpenAPI\Client\Model\PaymentReceivingDocument**](../Model/PaymentReceivingDocument.md)|  |
 
 ### Return type
 
@@ -558,7 +558,7 @@ No authorization required
 
 ## receiptsInlineWithPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse receiptsInlineWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\InlineDocumentResponse receiptsInlineWithPaymentPost($authorization, $inline_document_with_payment_receiving)
 
 Create receipt document with discount and tax inline with payment.
 
@@ -577,10 +577,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$inline_document_with_payment_receiving = new \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving(); // \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving | 
 
 try {
-    $result = $apiInstance->receiptsInlineWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->receiptsInlineWithPaymentPost($authorization, $inline_document_with_payment_receiving);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptApi->receiptsInlineWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -594,7 +594,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **inline_document_with_payment_receiving** | [**\OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving**](../Model/InlineDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 
@@ -732,7 +732,7 @@ No authorization required
 
 ## receiptsWithPaymentPost
 
-> \OpenAPI\Client\Model\SimpleDocumentResponse receiptsWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\SimpleDocumentResponse receiptsWithPaymentPost($authorization, $simple_document_with_payment_receiving)
 
 Create receipt document with payment.
 
@@ -751,10 +751,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$simple_document_with_payment_receiving = new \OpenAPI\Client\Model\SimpleDocumentWithPaymentReceiving(); // \OpenAPI\Client\Model\SimpleDocumentWithPaymentReceiving | 
 
 try {
-    $result = $apiInstance->receiptsWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->receiptsWithPaymentPost($authorization, $simple_document_with_payment_receiving);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptApi->receiptsWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -768,7 +768,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **simple_document_with_payment_receiving** | [**\OpenAPI\Client\Model\SimpleDocumentWithPaymentReceiving**](../Model/SimpleDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 

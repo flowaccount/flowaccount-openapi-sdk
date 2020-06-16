@@ -15,7 +15,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 	"github.com/antihax/optional"
 	"os"
@@ -49,7 +48,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesEmailDocumentPost(ctx _contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/email-document"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -95,16 +93,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesEmailDocumentPost(ctx _contex
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SendEmailResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -136,21 +124,20 @@ WithholdingTaxesGet Get list all withholding tax documents.
  * @param optional nil or *WithholdingTaxesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
  * @param "Filter" (optional.String) - 
-@return WithholidingTaxDocumentResponse
+@return AllWithholidingTaxDocumentResponse
 */
-func (a *WithholdingTaxApiService) WithholdingTaxesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *WithholdingTaxesGetOpts) (WithholidingTaxDocumentResponse, *_nethttp.Response, error) {
+func (a *WithholdingTaxApiService) WithholdingTaxesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *WithholdingTaxesGetOpts) (AllWithholidingTaxDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  WithholidingTaxDocumentResponse
+		localVarReturnValue  AllWithholidingTaxDocumentResponse
 	)
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -202,16 +189,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesGet(ctx _context.Context, cur
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v WithholidingTaxDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -254,7 +231,7 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdAttachmentPost(ctx _context
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/{id}/attachment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -314,16 +291,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdAttachmentPost(ctx _context
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v AttachmentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -359,7 +326,7 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdDelete(ctx _context.Context
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -403,16 +370,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdDelete(ctx _context.Context
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DeleteResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -449,7 +406,7 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdGet(ctx _context.Context, a
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -493,16 +450,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdGet(ctx _context.Context, a
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v WithholidingTaxDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -540,7 +487,7 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdPut(ctx _context.Context, a
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -587,16 +534,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdPut(ctx _context.Context, a
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v WithholidingTaxDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -633,8 +570,9 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdStatusStatusIdPost(ctx _con
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/{id}/status/{statusId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", statusId)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(parameterToString(statusId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -679,16 +617,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdStatusStatusIdPost(ctx _con
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v WithholidingTaxDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -724,7 +652,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesPost(ctx _context.Context, au
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -770,16 +697,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesPost(ctx _context.Context, au
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v WithholidingTaxDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -815,7 +732,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesSharedocumentPost(ctx _contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/withholding-taxes/sharedocument"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -860,16 +776,6 @@ func (a *WithholdingTaxApiService) WithholdingTaxesSharedocumentPost(ctx _contex
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ShareDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

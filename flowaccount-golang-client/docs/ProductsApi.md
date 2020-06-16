@@ -128,7 +128,7 @@ No authorization required
 
 ## ProductsIdPut
 
-> ProductResponse ProductsIdPut(ctx, authorization, id, uNKNOWNBASETYPE)
+> ProductResponse ProductsIdPut(ctx, authorization, id, productType)
 
 Update products.
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**| เลข Id Product | [default to Bearer accessToken]
 **id** | **string**|  | 
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**productType** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 
@@ -162,7 +162,7 @@ No authorization required
 
 ## ProductsPost
 
-> ProductResponse ProductsPost(ctx, authorization, uNKNOWNBASETYPE)
+> ProductResponse ProductsPost(ctx, authorization, productType)
 
 Create products.
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**productType** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 

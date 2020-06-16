@@ -19,8 +19,6 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class ProductItem {
   
-  @SerializedName("documentStructureType")
-  private String documentStructureType = null;
   @SerializedName("type")
   private Integer type = 1;
   @SerializedName("name")
@@ -39,16 +37,6 @@ public class ProductItem {
   private String sellChartOfAccountCode = null;
   @SerializedName("buyChartOfAccountCode")
   private String buyChartOfAccountCode = null;
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getDocumentStructureType() {
-    return documentStructureType;
-  }
-  public void setDocumentStructureType(String documentStructureType) {
-    this.documentStructureType = documentStructureType;
-  }
 
   /**
    * ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก (non inventory) <br> 5 = สินค้านับสต๊อก (inventory)
@@ -159,8 +147,7 @@ public class ProductItem {
       return false;
     }
     ProductItem productItem = (ProductItem) o;
-    return (this.documentStructureType == null ? productItem.documentStructureType == null : this.documentStructureType.equals(productItem.documentStructureType)) &&
-        (this.type == null ? productItem.type == null : this.type.equals(productItem.type)) &&
+    return (this.type == null ? productItem.type == null : this.type.equals(productItem.type)) &&
         (this.name == null ? productItem.name == null : this.name.equals(productItem.name)) &&
         (this.description == null ? productItem.description == null : this.description.equals(productItem.description)) &&
         (this.quantity == null ? productItem.quantity == null : this.quantity.equals(productItem.quantity)) &&
@@ -174,7 +161,6 @@ public class ProductItem {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.documentStructureType == null ? 0: this.documentStructureType.hashCode());
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.description == null ? 0: this.description.hashCode());
@@ -192,7 +178,6 @@ public class ProductItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductItem {\n");
     
-    sb.append("  documentStructureType: ").append(documentStructureType).append("\n");
     sb.append("  type: ").append(type).append("\n");
     sb.append("  name: ").append(name).append("\n");
     sb.append("  description: ").append(description).append("\n");

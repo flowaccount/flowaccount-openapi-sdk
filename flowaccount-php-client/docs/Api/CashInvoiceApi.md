@@ -80,7 +80,7 @@ No authorization required
 
 ## cashInvoicesGet
 
-> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesGet($current_page, $page_size, $authorization, $sort_by, $filter)
+> \OpenAPI\Client\Model\AllDocumentResponse cashInvoicesGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
 Get list all cash invoices documents
 
@@ -101,7 +101,7 @@ $apiInstance = new OpenAPI\Client\Api\CashInvoiceApi(
 $current_page = 56; // int | Query current page document cash invoices. <br>Example Pattern: <ex>/cash-invoices?currentPage=1 </ex><ex>/cash-invoices?currentPage=1&pageSize=20</ex>
 $page_size = 56; // int | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
-$sort_by = 'sort_by_example'; // string | 
+$sort_by = 'sort_by_example'; // string | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/cash-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 $filter = 'filter_example'; // string | 
 
 try {
@@ -121,12 +121,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; |
  **page_size** | **int**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **string**|  | [optional]
+ **sort_by** | **string**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
  **filter** | **string**|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineDocumentResponse**](../Model/InlineDocumentResponse.md)
+[**\OpenAPI\Client\Model\AllDocumentResponse**](../Model/AllDocumentResponse.md)
 
 ### Authorization
 
@@ -320,7 +320,7 @@ No authorization required
 
 ## cashInvoicesIdPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdPaymentPost($authorization, $id, $unknown_base_type)
+> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesIdPaymentPost($authorization, $id, $payment_receiving_document)
 
 Change paid status of cash invoices document.
 
@@ -340,10 +340,10 @@ $apiInstance = new OpenAPI\Client\Api\CashInvoiceApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$payment_receiving_document = new \OpenAPI\Client\Model\PaymentReceivingDocument(); // \OpenAPI\Client\Model\PaymentReceivingDocument | 
 
 try {
-    $result = $apiInstance->cashInvoicesIdPaymentPost($authorization, $id, $unknown_base_type);
+    $result = $apiInstance->cashInvoicesIdPaymentPost($authorization, $id, $payment_receiving_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CashInvoiceApi->cashInvoicesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **payment_receiving_document** | [**\OpenAPI\Client\Model\PaymentReceivingDocument**](../Model/PaymentReceivingDocument.md)|  |
 
 ### Return type
 
@@ -558,7 +558,7 @@ No authorization required
 
 ## cashInvoicesInlineWithPaymentPost
 
-> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesInlineWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\InlineDocumentResponse cashInvoicesInlineWithPaymentPost($authorization, $inline_document_with_payment_receiving)
 
 Create cash invoices document with discount and tax inline with payment.
 
@@ -577,10 +577,10 @@ $apiInstance = new OpenAPI\Client\Api\CashInvoiceApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$inline_document_with_payment_receiving = new \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving(); // \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving | 
 
 try {
-    $result = $apiInstance->cashInvoicesInlineWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->cashInvoicesInlineWithPaymentPost($authorization, $inline_document_with_payment_receiving);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CashInvoiceApi->cashInvoicesInlineWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -594,7 +594,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **inline_document_with_payment_receiving** | [**\OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving**](../Model/InlineDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 
@@ -732,7 +732,7 @@ No authorization required
 
 ## cashInvoicesWithPaymentPost
 
-> \OpenAPI\Client\Model\SimpleDocumentResponse cashInvoicesWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\SimpleDocumentResponse cashInvoicesWithPaymentPost($authorization, $simple_document_with_payment_receiving)
 
 Create cash invoices document with payment.
 
@@ -751,10 +751,10 @@ $apiInstance = new OpenAPI\Client\Api\CashInvoiceApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$simple_document_with_payment_receiving = new \OpenAPI\Client\Model\SimpleDocumentWithPaymentReceiving(); // \OpenAPI\Client\Model\SimpleDocumentWithPaymentReceiving | 
 
 try {
-    $result = $apiInstance->cashInvoicesWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->cashInvoicesWithPaymentPost($authorization, $simple_document_with_payment_receiving);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CashInvoiceApi->cashInvoicesWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -768,7 +768,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **simple_document_with_payment_receiving** | [**\OpenAPI\Client\Model\SimpleDocumentWithPaymentReceiving**](../Model/SimpleDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 

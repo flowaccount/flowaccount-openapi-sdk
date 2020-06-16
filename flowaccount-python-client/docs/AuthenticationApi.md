@@ -20,22 +20,30 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.AuthenticationApi()
-content_type = 'application/x-www-form-urlencoded' # str |  (default to 'application/x-www-form-urlencoded')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.AuthenticationApi(api_client)
+    content_type = 'application/x-www-form-urlencoded' # str |  (default to 'application/x-www-form-urlencoded')
 grant_type = 'grant_type_example' # str |  (optional)
 scope = 'scope_example' # str |  (optional)
 client_id = 'client_id_example' # str |  (optional)
 client_secret = 'client_secret_example' # str |  (optional)
 guid = 'guid_example' # str |  (optional)
 
-try:
-    # Generate Access Token
-    api_response = api_instance.token_post(content_type, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret, guid=guid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthenticationApi->token_post: %s\n" % e)
+    try:
+        # Generate Access Token
+        api_response = api_instance.token_post(content_type, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret, guid=guid)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthenticationApi->token_post: %s\n" % e)
 ```
 
 ### Parameters

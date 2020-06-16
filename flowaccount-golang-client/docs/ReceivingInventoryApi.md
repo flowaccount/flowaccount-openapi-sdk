@@ -57,7 +57,7 @@ No authorization required
 
 ## PurchasesGet
 
-> InlineDocumentResponse PurchasesGet(ctx, currentPage, pageSize, authorization, optional)
+> AllDocumentResponse PurchasesGet(ctx, currentPage, pageSize, authorization, optional)
 
 Get list all receiving inventory documents.
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ No authorization required
 
 ## PurchasesIdPaymentPost
 
-> InlineDocumentResponse PurchasesIdPaymentPost(ctx, authorization, id, uNKNOWNBASETYPE)
+> InlineDocumentResponse PurchasesIdPaymentPost(ctx, authorization, id, paymentPaidDocument)
 
 Change paid status of receiving inventory document.
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
 **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  | 
 
 ### Return type
 
@@ -367,7 +367,7 @@ No authorization required
 
 ## PurchasesInlineWithPaymentPost
 
-> InlineDocumentResponse PurchasesInlineWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> InlineDocumentResponse PurchasesInlineWithPaymentPost(ctx, authorization, inlineDocumentWithPaymentPaid)
 
 Create receiving inventory document with discount and tax inline with payment.
 
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**inlineDocumentWithPaymentPaid** | [**InlineDocumentWithPaymentPaid**](InlineDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 
@@ -472,7 +472,7 @@ No authorization required
 
 ## PurchasesWithPaymentPost
 
-> SimpleDocumentResponse PurchasesWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> SimpleDocumentResponse PurchasesWithPaymentPost(ctx, authorization, simpleDocumentWithPaymentPaid)
 
 Create receiving inventory document with payment.
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**simpleDocumentWithPaymentPaid** | [**SimpleDocumentWithPaymentPaid**](SimpleDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 

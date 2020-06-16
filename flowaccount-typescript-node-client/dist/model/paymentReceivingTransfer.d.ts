@@ -1,5 +1,5 @@
 export declare class PaymentReceivingTransfer {
-    'paymentStructureType': string;
+    'paymentStructureType': string | null;
     'documentId': number;
     'paymentMethod': number;
     'paymentDate': string;

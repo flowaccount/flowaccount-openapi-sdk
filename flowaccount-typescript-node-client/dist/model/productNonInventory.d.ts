@@ -1,5 +1,5 @@
 export declare class ProductNonInventory {
-    'productStructureType'?: string;
+    'productStructureType'?: string | null;
     'type': number;
     'code'?: string;
     'name': string;

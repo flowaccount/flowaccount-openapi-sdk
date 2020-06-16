@@ -15,7 +15,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 	"github.com/antihax/optional"
 	"os"
@@ -49,7 +48,6 @@ func (a *CashInvoiceApiService) CashInvoicesEmailDocumentPost(ctx _context.Conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/email-document"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -95,16 +93,6 @@ func (a *CashInvoiceApiService) CashInvoicesEmailDocumentPost(ctx _context.Conte
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SendEmailResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -136,21 +124,20 @@ CashInvoicesGet Get list all cash invoices documents
  * @param optional nil or *CashInvoicesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/cash-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
  * @param "Filter" (optional.String) - 
-@return InlineDocumentResponse
+@return AllDocumentResponse
 */
-func (a *CashInvoiceApiService) CashInvoicesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *CashInvoicesGetOpts) (InlineDocumentResponse, *_nethttp.Response, error) {
+func (a *CashInvoiceApiService) CashInvoicesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *CashInvoicesGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineDocumentResponse
+		localVarReturnValue  AllDocumentResponse
 	)
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -202,16 +189,6 @@ func (a *CashInvoiceApiService) CashInvoicesGet(ctx _context.Context, currentPag
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -254,7 +231,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdAttachmentPost(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/{id}/attachment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -314,16 +291,6 @@ func (a *CashInvoiceApiService) CashInvoicesIdAttachmentPost(ctx _context.Contex
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v AttachmentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -359,7 +326,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdDelete(ctx _context.Context, autho
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -403,16 +370,6 @@ func (a *CashInvoiceApiService) CashInvoicesIdDelete(ctx _context.Context, autho
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DeleteResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -449,7 +406,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdGet(ctx _context.Context, authoriz
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -494,16 +451,6 @@ func (a *CashInvoiceApiService) CashInvoicesIdGet(ctx _context.Context, authoriz
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -525,10 +472,10 @@ CashInvoicesIdPaymentPost Change paid status of cash invoices document.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
  * @param id ID เอกสารใช้ recordId หรือ documentId
- * @param uNKNOWNBASETYPE
+ * @param paymentReceivingDocument
 @return InlineDocumentResponse
 */
-func (a *CashInvoiceApiService) CashInvoicesIdPaymentPost(ctx _context.Context, authorization string, id string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (InlineDocumentResponse, *_nethttp.Response, error) {
+func (a *CashInvoiceApiService) CashInvoicesIdPaymentPost(ctx _context.Context, authorization string, id string, paymentReceivingDocument PaymentReceivingDocument) (InlineDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -540,7 +487,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdPaymentPost(ctx _context.Context, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/{id}/payment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -565,7 +512,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdPaymentPost(ctx _context.Context, 
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &paymentReceivingDocument
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -586,16 +533,6 @@ func (a *CashInvoiceApiService) CashInvoicesIdPaymentPost(ctx _context.Context, 
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -633,7 +570,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdPut(ctx _context.Context, authoriz
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -680,16 +617,6 @@ func (a *CashInvoiceApiService) CashInvoicesIdPut(ctx _context.Context, authoriz
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -726,8 +653,9 @@ func (a *CashInvoiceApiService) CashInvoicesIdStatusStatusIdPost(ctx _context.Co
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/{id}/status/{statusId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", statusId)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(parameterToString(statusId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -772,16 +700,6 @@ func (a *CashInvoiceApiService) CashInvoicesIdStatusStatusIdPost(ctx _context.Co
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -817,7 +735,6 @@ func (a *CashInvoiceApiService) CashInvoicesInlinePost(ctx _context.Context, aut
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/inline"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -863,16 +780,6 @@ func (a *CashInvoiceApiService) CashInvoicesInlinePost(ctx _context.Context, aut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -893,10 +800,10 @@ CashInvoicesInlineWithPaymentPost Create cash invoices document with discount an
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param inlineDocumentWithPaymentReceiving
 @return InlineDocumentResponse
 */
-func (a *CashInvoiceApiService) CashInvoicesInlineWithPaymentPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (InlineDocumentResponse, *_nethttp.Response, error) {
+func (a *CashInvoiceApiService) CashInvoicesInlineWithPaymentPost(ctx _context.Context, authorization string, inlineDocumentWithPaymentReceiving InlineDocumentWithPaymentReceiving) (InlineDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -908,7 +815,6 @@ func (a *CashInvoiceApiService) CashInvoicesInlineWithPaymentPost(ctx _context.C
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/inline/with-payment"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -932,7 +838,7 @@ func (a *CashInvoiceApiService) CashInvoicesInlineWithPaymentPost(ctx _context.C
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &inlineDocumentWithPaymentReceiving
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -953,16 +859,6 @@ func (a *CashInvoiceApiService) CashInvoicesInlineWithPaymentPost(ctx _context.C
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -999,7 +895,6 @@ func (a *CashInvoiceApiService) CashInvoicesPost(ctx _context.Context, authoriza
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1045,16 +940,6 @@ func (a *CashInvoiceApiService) CashInvoicesPost(ctx _context.Context, authoriza
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1090,7 +975,6 @@ func (a *CashInvoiceApiService) CashInvoicesSharedocumentPost(ctx _context.Conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/sharedocument"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1136,16 +1020,6 @@ func (a *CashInvoiceApiService) CashInvoicesSharedocumentPost(ctx _context.Conte
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ShareDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1166,10 +1040,10 @@ CashInvoicesWithPaymentPost Create cash invoices document with payment.
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param simpleDocumentWithPaymentReceiving
 @return SimpleDocumentResponse
 */
-func (a *CashInvoiceApiService) CashInvoicesWithPaymentPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (SimpleDocumentResponse, *_nethttp.Response, error) {
+func (a *CashInvoiceApiService) CashInvoicesWithPaymentPost(ctx _context.Context, authorization string, simpleDocumentWithPaymentReceiving SimpleDocumentWithPaymentReceiving) (SimpleDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1181,7 +1055,6 @@ func (a *CashInvoiceApiService) CashInvoicesWithPaymentPost(ctx _context.Context
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/cash-invoices/with-payment"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1205,7 +1078,7 @@ func (a *CashInvoiceApiService) CashInvoicesWithPaymentPost(ctx _context.Context
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &simpleDocumentWithPaymentReceiving
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1226,16 +1099,6 @@ func (a *CashInvoiceApiService) CashInvoicesWithPaymentPost(ctx _context.Context
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## BankAccountsGet
 
-> BankAccountResponse BankAccountsGet(ctx, authorization)
+> AllBankAccountResponse BankAccountsGet(ctx, authorization)
 
 Get list all My Bank Account
 
@@ -25,7 +25,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BankAccountResponse**](BankAccountResponse.md)
+[**AllBankAccountResponse**](AllBankAccountResponse.md)
 
 ### Authorization
 

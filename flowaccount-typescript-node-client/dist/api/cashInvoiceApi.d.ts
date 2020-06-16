@@ -1,44 +1,39 @@
 /// <reference types="node" />
 import http = require('http');
+import { AllDocumentResponse } from '../model/allDocumentResponse';
 import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { InlineDocument } from '../model/inlineDocument';
 import { InlineDocumentResponse } from '../model/inlineDocumentResponse';
-import { InlineDocumentWithPaymentReceivingCash } from '../model/inlineDocumentWithPaymentReceivingCash';
-import { InlineDocumentWithPaymentReceivingCheque } from '../model/inlineDocumentWithPaymentReceivingCheque';
-import { InlineDocumentWithPaymentReceivingCreditCard } from '../model/inlineDocumentWithPaymentReceivingCreditCard';
-import { InlineDocumentWithPaymentReceivingTransfer } from '../model/inlineDocumentWithPaymentReceivingTransfer';
-import { PaymentReceivingCash } from '../model/paymentReceivingCash';
-import { PaymentReceivingCheque } from '../model/paymentReceivingCheque';
-import { PaymentReceivingCreditCard } from '../model/paymentReceivingCreditCard';
-import { PaymentReceivingTransfer } from '../model/paymentReceivingTransfer';
+import { InlineDocumentWithPaymentReceiving } from '../model/inlineDocumentWithPaymentReceiving';
+import { PaymentReceivingDocument } from '../model/paymentReceivingDocument';
 import { SendEmailCoppies } from '../model/sendEmailCoppies';
 import { SendEmailResponse } from '../model/sendEmailResponse';
 import { ShareDocument } from '../model/shareDocument';
 import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { SimpleDocument } from '../model/simpleDocument';
 import { SimpleDocumentResponse } from '../model/simpleDocumentResponse';
-import { SimpleDocumentWithPaymentReceivingCash } from '../model/simpleDocumentWithPaymentReceivingCash';
-import { SimpleDocumentWithPaymentReceivingCheque } from '../model/simpleDocumentWithPaymentReceivingCheque';
-import { SimpleDocumentWithPaymentReceivingCreditCard } from '../model/simpleDocumentWithPaymentReceivingCreditCard';
-import { SimpleDocumentWithPaymentReceivingTransfer } from '../model/simpleDocumentWithPaymentReceivingTransfer';
+import { SimpleDocumentWithPaymentReceiving } from '../model/simpleDocumentWithPaymentReceiving';
 import { UpdateInlineDocument } from '../model/updateInlineDocument';
-import { Authentication } from '../model/models';
+import { Authentication, Interceptor } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum CashInvoiceApiApiKeys {
 }
 export declare class CashInvoiceApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: CashInvoiceApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     cashInvoicesEmailDocumentPost(authorization: string, sendEmailCoppies: SendEmailCoppies, options?: {
         headers: {
             [name: string]: string;
@@ -53,7 +48,7 @@ export declare class CashInvoiceApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineDocumentResponse;
+        body: AllDocumentResponse;
     }>;
     cashInvoicesIdAttachmentPost(authorization: string, id: string, file?: RequestFile, options?: {
         headers: {
@@ -79,7 +74,7 @@ export declare class CashInvoiceApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    cashInvoicesIdPaymentPost(authorization: string, id: string, paymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard: PaymentReceivingCash | PaymentReceivingTransfer | PaymentReceivingCheque | PaymentReceivingCreditCard, options?: {
+    cashInvoicesIdPaymentPost(authorization: string, id: string, paymentReceivingDocument: PaymentReceivingDocument, options?: {
         headers: {
             [name: string]: string;
         };
@@ -111,7 +106,7 @@ export declare class CashInvoiceApi {
         response: http.IncomingMessage;
         body: InlineDocumentResponse;
     }>;
-    cashInvoicesInlineWithPaymentPost(authorization: string, inlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard: InlineDocumentWithPaymentReceivingCash | InlineDocumentWithPaymentReceivingTransfer | InlineDocumentWithPaymentReceivingCheque | InlineDocumentWithPaymentReceivingCreditCard, options?: {
+    cashInvoicesInlineWithPaymentPost(authorization: string, inlineDocumentWithPaymentReceiving: InlineDocumentWithPaymentReceiving, options?: {
         headers: {
             [name: string]: string;
         };
@@ -135,7 +130,7 @@ export declare class CashInvoiceApi {
         response: http.IncomingMessage;
         body: ShareDocumentResponse;
     }>;
-    cashInvoicesWithPaymentPost(authorization: string, simpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard: SimpleDocumentWithPaymentReceivingCash | SimpleDocumentWithPaymentReceivingTransfer | SimpleDocumentWithPaymentReceivingCheque | SimpleDocumentWithPaymentReceivingCreditCard, options?: {
+    cashInvoicesWithPaymentPost(authorization: string, simpleDocumentWithPaymentReceiving: SimpleDocumentWithPaymentReceiving, options?: {
         headers: {
             [name: string]: string;
         };

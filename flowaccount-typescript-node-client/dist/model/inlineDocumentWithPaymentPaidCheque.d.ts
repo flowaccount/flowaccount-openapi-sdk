@@ -31,8 +31,8 @@ export declare class InlineDocumentWithPaymentPaidCheque {
     'discountType'?: number;
     'useInlineDiscount'?: boolean;
     'useInlineVat'?: boolean;
-    'exemptAmount'?: number;
-    'vatableAmount'?: number;
+    'exemptAmount'?: number | null;
+    'vatableAmount'?: number | null;
     'documentShowWithholdingTax'?: boolean;
     'documentWithholdingTaxPercentage'?: number;
     'documentWithholdingTaxAmount'?: number;
@@ -42,7 +42,7 @@ export declare class InlineDocumentWithPaymentPaidCheque {
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
     'documentReference'?: Array<UpgradeDocument>;
-    'documentPaymentStructureType': string;
+    'documentPaymentStructureType': string | null;
     'paymentMethod': number;
     'paymentDate': string;
     'collected': number;

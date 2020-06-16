@@ -5,13 +5,8 @@ class ProductItem {
         return ProductItem.attributeTypeMap;
     }
 }
-ProductItem.discriminator = "documentStructureType";
+ProductItem.discriminator = undefined;
 ProductItem.attributeTypeMap = [
-    {
-        "name": "documentStructureType",
-        "baseName": "documentStructureType",
-        "type": "string"
-    },
     {
         "name": "type",
         "baseName": "type",

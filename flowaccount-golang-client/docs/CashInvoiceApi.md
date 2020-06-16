@@ -57,7 +57,7 @@ No authorization required
 
 ## CashInvoicesGet
 
-> InlineDocumentResponse CashInvoicesGet(ctx, currentPage, pageSize, authorization, optional)
+> AllDocumentResponse CashInvoicesGet(ctx, currentPage, pageSize, authorization, optional)
 
 Get list all cash invoices documents
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ No authorization required
 
 ## CashInvoicesIdPaymentPost
 
-> InlineDocumentResponse CashInvoicesIdPaymentPost(ctx, authorization, id, uNKNOWNBASETYPE)
+> InlineDocumentResponse CashInvoicesIdPaymentPost(ctx, authorization, id, paymentReceivingDocument)
 
 Change paid status of cash invoices document.
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
 **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -367,7 +367,7 @@ No authorization required
 
 ## CashInvoicesInlineWithPaymentPost
 
-> InlineDocumentResponse CashInvoicesInlineWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> InlineDocumentResponse CashInvoicesInlineWithPaymentPost(ctx, authorization, inlineDocumentWithPaymentReceiving)
 
 Create cash invoices document with discount and tax inline with payment.
 
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -472,7 +472,7 @@ No authorization required
 
 ## CashInvoicesWithPaymentPost
 
-> SimpleDocumentResponse CashInvoicesWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> SimpleDocumentResponse CashInvoicesWithPaymentPost(ctx, authorization, simpleDocumentWithPaymentReceiving)
 
 Create cash invoices document with payment.
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

@@ -1,0 +1,77 @@
+# OpenapiClient::WithholidingTaxDocumentResponseData
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**document_id** | **String** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
+**document_serial** | **String** | เลขที่เอกสารใบหัก ณ ที่จ่าย | [optional] 
+**contact_code** | **String** | รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า | [optional] 
+**contact_name** | **String** | ชื่อ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า | [optional] 
+**contact_address** | **String** | ที่อยู่ ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า | [optional] 
+**contact_tax_id** | **String** | เลขประจำตัวผู้เสียภาษี ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า &lt;br&gt; (ถ้ามีจำเป็นต้องครบ 13 หลัก) &lt;br&gt; &lt;ex&gt;Example: 1234567890123 &lt;/ex&gt; | [optional] 
+**contact_branch** | **String** | สำนักงาน/สาขา | [optional] 
+**contact_person** | **String** | ชื่อผู้ติดต่อ | [optional] 
+**contact_email** | **String** | อีเมลผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: contact@email.com&lt;/ex&gt; | [optional] 
+**contact_number** | **String** | เบอร์มือถือผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Example: 099-999-9999&lt;/ex&gt; | [optional] 
+**contact_zip_code** | **String** | รหัสไปรษณีย์ติดต่อ | [optional] 
+**contact_group** | **Integer** | ประผู้ติดต่อ &lt;br&gt; 1 &#x3D; บุคคลธรรมดา &lt;br&gt; 3 &#x3D; นิติบุคคล | [optional] [default to 1]
+**published_on** | **Date** | วันที่เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
+**entity** | **Integer** | แบบฟอร์มเอกสารหัก ณ ที่จ่าย &lt;br&gt; ภงด 3 &#x3D; 1 &lt;br&gt; ภงด 53 &#x3D; 3 &lt;br&gt; ภงด 1ก &#x3D; 1 &lt;br&gt; ภงด 1ก (พิเศษ) &#x3D; 7 &lt;br&gt; ภงด 2 &#x3D; 9 &lt;br&gt; ภงด 2ก &#x3D; 11 &lt;br&gt; ภงด 3ก &#x3D; 13 | [optional] [default to 1]
+**text_other** | **String** | ระบุปีของเอกสาร เช่น 2020 (สำหรับแบบฟอร์มเอกสาร ภงด 1ก หรือ ภงด 1ก (พิเศษ) Example: 2020 | [optional] 
+**withholding_tax_items** | [**Array&lt;WithholidingTaxItem&gt;**](WithholidingTaxItem.md) | รายการหัก ของเอกสารหัก ณ ที่จ่าย | [optional] 
+**total** | **Float** | จำนวนเงิน (ไม่รวมภาษี) | [optional] 
+**total_tax_withheld** | **Float** | ภาษีที่หัก | [optional] 
+**tax_payment** | **Integer** | ผู้จ่ายเงิน &lt;br&gt; 1 &#x3D; ภาษีหัก ณ ที่จ่าย &lt;br&gt; 3 &#x3D; ออกภาษีให้ตลอดไป &lt;br&gt; 5 &#x3D; ออกภาษีให้ครั้งเดียว &lt;br&gt; 7 &#x3D; อื่น ๆ | [optional] [default to 1]
+**tax_payment_others** | **String** | ข้อความ สำหรับผู้จ่ายเงิน อื่นๆ  | [optional] 
+**provident_fund_number** | **String** | ใบอนุญาตเลขที่ | [optional] 
+**provident_fund_amount** | **String** | จำนวนเงินที่ต้องจ่ายเข้า กองทุนสำรองเลี้ยงชีพ | [optional] 
+**social_security_amount** | **String** | จำนวนเงินที่ต้องจ่ายเข้า กองทุนประกันสังคม | [optional] 
+**remarks** | **String** | หมายเหตุเอกสาร | [optional] 
+**internal_notes** | **String** | โน๊ตภายในบริษัท | [optional] 
+**show_signature_or_stamp** | **Boolean** | ลายเซ็นอิเล็กทรอนิกส์และตรายาง | [optional] [default to true]
+**company** | [**SimpleDocumentResponseAllOfDataCompany**](SimpleDocumentResponseAllOfDataCompany.md) |  | [optional] 
+**status** | **Integer** | เลขสถานะเอกสารฉบับนี้ | [optional] 
+**status_string** | **Integer** | ชื่อสถานะเอกสารฉบับนี้ | [optional] 
+**document_type** | **Integer** | เลขประเภทเอกสารฉบับนี้ | [optional] 
+**allow_delete** | **Boolean** | สามารถลบเอกสาร :&lt;br&gt; true &#x3D; ลบได้ &lt;br&gt; false &#x3D; ลบไม่ได้ | [optional] 
+
+## Code Sample
+
+```ruby
+require 'OpenapiClient'
+
+instance = OpenapiClient::WithholidingTaxDocumentResponseData.new(document_id: null,
+                                 document_serial: null,
+                                 contact_code: null,
+                                 contact_name: null,
+                                 contact_address: null,
+                                 contact_tax_id: 1234567890123,
+                                 contact_branch: null,
+                                 contact_person: null,
+                                 contact_email: contact@email.com,
+                                 contact_number: 099-999-9999,
+                                 contact_zip_code: null,
+                                 contact_group: null,
+                                 published_on: Wed Jan 01 07:00:00 ICT 2020,
+                                 entity: null,
+                                 text_other: 2020,
+                                 withholding_tax_items: null,
+                                 total: null,
+                                 total_tax_withheld: null,
+                                 tax_payment: null,
+                                 tax_payment_others: null,
+                                 provident_fund_number: null,
+                                 provident_fund_amount: null,
+                                 social_security_amount: null,
+                                 remarks: null,
+                                 internal_notes: null,
+                                 show_signature_or_stamp: null,
+                                 company: null,
+                                 status: null,
+                                 status_string: null,
+                                 document_type: null,
+                                 allow_delete: null)
+```
+
+

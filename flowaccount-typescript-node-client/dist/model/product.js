@@ -8,6 +8,11 @@ class Product {
 Product.discriminator = undefined;
 Product.attributeTypeMap = [
     {
+        "name": "id",
+        "baseName": "id",
+        "type": "string"
+    },
+    {
         "name": "type",
         "baseName": "type",
         "type": "number"
@@ -41,6 +46,11 @@ Product.attributeTypeMap = [
         "name": "unitName",
         "baseName": "unitName",
         "type": "string"
+    },
+    {
+        "name": "categoryId",
+        "baseName": "categoryId",
+        "type": "number"
     },
     {
         "name": "categoryName",
@@ -78,8 +88,23 @@ Product.attributeTypeMap = [
         "type": "number"
     },
     {
-        "name": "inventoryPrice",
-        "baseName": "inventoryPrice",
+        "name": "averageBuyPrice",
+        "baseName": "averageBuyPrice",
+        "type": "number"
+    },
+    {
+        "name": "averageSellPrice",
+        "baseName": "averageSellPrice",
+        "type": "number"
+    },
+    {
+        "name": "remainingStock",
+        "baseName": "remainingStock",
+        "type": "number"
+    },
+    {
+        "name": "totalValueInHand",
+        "baseName": "totalValueInHand",
         "type": "number"
     }
 ];

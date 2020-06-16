@@ -13,20 +13,20 @@
 
 
 import ApiClient from "../ApiClient";
+import AllDocumentResponse from '../model/AllDocumentResponse';
 import AttachmentResponse from '../model/AttachmentResponse';
 import DeleteResponse from '../model/DeleteResponse';
 import InlineDocument from '../model/InlineDocument';
 import InlineDocumentResponse from '../model/InlineDocumentResponse';
-import OneOfInlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard from '../model/OneOfInlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard';
-import OneOfPaymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard from '../model/OneOfPaymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard';
-import OneOfSimpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard from '../model/OneOfSimpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard';
+import InlineDocumentWithPaymentPaid from '../model/InlineDocumentWithPaymentPaid';
+import PaymentPaidDocument from '../model/PaymentPaidDocument';
 import SendEmailCoppies from '../model/SendEmailCoppies';
 import SendEmailResponse from '../model/SendEmailResponse';
 import ShareDocument from '../model/ShareDocument';
 import ShareDocumentResponse from '../model/ShareDocumentResponse';
 import SimpleDocument from '../model/SimpleDocument';
 import SimpleDocumentResponse from '../model/SimpleDocumentResponse';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
+import SimpleDocumentWithPaymentPaid from '../model/SimpleDocumentWithPaymentPaid';
 import UpdateInlineDocument from '../model/UpdateInlineDocument';
 
 /**
@@ -100,7 +100,7 @@ export default class ReceivingInventoryApi {
      * Callback function to receive the result of the purchasesGet operation.
      * @callback module:api/ReceivingInventoryApi~purchasesGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineDocumentResponse} data The data returned by the service call.
+     * @param {module:model/AllDocumentResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -114,7 +114,7 @@ export default class ReceivingInventoryApi {
      * @param {String} opts.sortBy Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
      * @param {String} opts.filter 
      * @param {module:api/ReceivingInventoryApi~purchasesGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineDocumentResponse}
+     * data is of type: {@link module:model/AllDocumentResponse}
      */
     purchasesGet(currentPage, pageSize, authorization, opts, callback) {
       opts = opts || {};
@@ -149,7 +149,7 @@ export default class ReceivingInventoryApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineDocumentResponse;
+      let returnType = AllDocumentResponse;
       return this.apiClient.callApi(
         '/purchases', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -321,12 +321,12 @@ export default class ReceivingInventoryApi {
      * ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/PaymentPaidDocument} paymentPaidDocument 
      * @param {module:api/ReceivingInventoryApi~purchasesIdPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InlineDocumentResponse}
      */
-    purchasesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    purchasesIdPaymentPost(authorization, id, paymentPaidDocument, callback) {
+      let postBody = paymentPaidDocument;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling purchasesIdPaymentPost");
@@ -335,9 +335,9 @@ export default class ReceivingInventoryApi {
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling purchasesIdPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesIdPaymentPost");
+      // verify the required parameter 'paymentPaidDocument' is set
+      if (paymentPaidDocument === undefined || paymentPaidDocument === null) {
+        throw new Error("Missing the required parameter 'paymentPaidDocument' when calling purchasesIdPaymentPost");
       }
 
       let pathParams = {
@@ -531,19 +531,19 @@ export default class ReceivingInventoryApi {
      * Create receiving inventory document with discount and tax inline with payment.
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/InlineDocumentWithPaymentPaid} inlineDocumentWithPaymentPaid 
      * @param {module:api/ReceivingInventoryApi~purchasesInlineWithPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InlineDocumentResponse}
      */
-    purchasesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaid, callback) {
+      let postBody = inlineDocumentWithPaymentPaid;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling purchasesInlineWithPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesInlineWithPaymentPost");
+      // verify the required parameter 'inlineDocumentWithPaymentPaid' is set
+      if (inlineDocumentWithPaymentPaid === undefined || inlineDocumentWithPaymentPaid === null) {
+        throw new Error("Missing the required parameter 'inlineDocumentWithPaymentPaid' when calling purchasesInlineWithPaymentPost");
       }
 
       let pathParams = {
@@ -675,19 +675,19 @@ export default class ReceivingInventoryApi {
      * Create receiving inventory document with payment.
      * สร้างเอกสารใบรับสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/SimpleDocumentWithPaymentPaid} simpleDocumentWithPaymentPaid 
      * @param {module:api/ReceivingInventoryApi~purchasesWithPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SimpleDocumentResponse}
      */
-    purchasesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaid, callback) {
+      let postBody = simpleDocumentWithPaymentPaid;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling purchasesWithPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesWithPaymentPost");
+      // verify the required parameter 'simpleDocumentWithPaymentPaid' is set
+      if (simpleDocumentWithPaymentPaid === undefined || simpleDocumentWithPaymentPaid === null) {
+        throw new Error("Missing the required parameter 'simpleDocumentWithPaymentPaid' when calling purchasesWithPaymentPost");
       }
 
       let pathParams = {

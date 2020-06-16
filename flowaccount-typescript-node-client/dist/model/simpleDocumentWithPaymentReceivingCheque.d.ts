@@ -37,7 +37,7 @@ export declare class SimpleDocumentWithPaymentReceivingCheque {
     'showSignatureOrStamp'?: boolean;
     'items'?: Array<SimpleProductItem>;
     'documentReference'?: Array<UpgradeDocument>;
-    'documentPaymentStructureType': string;
+    'documentPaymentStructureType': string | null;
     'paymentMethod': number;
     'paymentDate': string;
     'collected': number;

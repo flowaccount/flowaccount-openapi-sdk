@@ -1,5 +1,6 @@
 import { ExpenseSimpleProductItem } from './expenseSimpleProductItem';
-import { PaymentDocumentResponse } from './paymentDocumentResponse';
+import { SimpleDocumentResponseAllOfDataCompany } from './simpleDocumentResponseAllOfDataCompany';
+import { SimpleDocumentResponseAllOfDataPayments } from './simpleDocumentResponseAllOfDataPayments';
 export declare class ExpenseSimpleDocumentResponseAllOfData {
     'recordId'?: number;
     'documentId'?: number;
@@ -33,8 +34,8 @@ export declare class ExpenseSimpleDocumentResponseAllOfData {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
-    'payments'?: Array<PaymentDocumentResponse>;
-    'company'?: Array<object>;
+    'payments'?: SimpleDocumentResponseAllOfDataPayments;
+    'company'?: SimpleDocumentResponseAllOfDataCompany;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

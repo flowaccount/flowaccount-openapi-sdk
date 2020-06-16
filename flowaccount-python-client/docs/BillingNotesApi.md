@@ -31,18 +31,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 send_email_coppies = openapi_client.SendEmailCoppies() # SendEmailCoppies | 
 
-try:
-    # Send email billing notes document.
-    api_response = api_instance.billing_notes_email_document_post(authorization, send_email_coppies)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_email_document_post: %s\n" % e)
+    try:
+        # Send email billing notes document.
+        api_response = api_instance.billing_notes_email_document_post(authorization, send_email_coppies)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_email_document_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -75,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **billing_notes_get**
-> InlineDocumentResponse billing_notes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+> AllDocumentResponse billing_notes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
 Get list all billing notes documents.
 
@@ -89,21 +97,29 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-current_page = 56 # int | Query current page document billing notes. <br>Example Pattern: <ex>/billing-notes?currentPage=1 </ex><ex>/billing-notes?currentPage=1&pageSize=20</ex>
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    current_page = 56 # int | Query current page document billing notes. <br>Example Pattern: <ex>/billing-notes?currentPage=1 </ex><ex>/billing-notes?currentPage=1&pageSize=20</ex>
 page_size = 56 # int | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-sort_by = 'sort_by_example' # str |  (optional)
+sort_by = 'sort_by_example' # str | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
 filter = 'filter_example' # str |  (optional)
 
-try:
-    # Get list all billing notes documents.
-    api_response = api_instance.billing_notes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_get: %s\n" % e)
+    try:
+        # Get list all billing notes documents.
+        api_response = api_instance.billing_notes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -113,12 +129,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document billing notes. &lt;br&gt;Example Pattern: &lt;ex&gt;/billing-notes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/billing-notes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **page_size** | **int**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **str**|  | [optional] 
+ **sort_by** | **str**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
  **filter** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -153,19 +169,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
 file = '/path/to/file' # file | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
-try:
-    # Add Attachment to billing notes document.
-    api_response = api_instance.billing_notes_id_attachment_post(authorization, id, file=file)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_id_attachment_post: %s\n" % e)
+    try:
+        # Add Attachment to billing notes document.
+        api_response = api_instance.billing_notes_id_attachment_post(authorization, id, file=file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_id_attachment_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -213,18 +237,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
-try:
-    # Delete billing notes document.
-    api_response = api_instance.billing_notes_id_delete(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_id_delete: %s\n" % e)
+    try:
+        # Delete billing notes document.
+        api_response = api_instance.billing_notes_id_delete(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_id_delete: %s\n" % e)
 ```
 
 ### Parameters
@@ -271,18 +303,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
-try:
-    # Get billing notes document.
-    api_response = api_instance.billing_notes_id_get(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_id_get: %s\n" % e)
+    try:
+        # Get billing notes document.
+        api_response = api_instance.billing_notes_id_get(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_id_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -329,19 +369,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 update_inline_document = openapi_client.UpdateInlineDocument() # UpdateInlineDocument | 
 
-try:
-    # Edit billing notes document.
-    api_response = api_instance.billing_notes_id_put(authorization, id, update_inline_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_id_put: %s\n" % e)
+    try:
+        # Edit billing notes document.
+        api_response = api_instance.billing_notes_id_put(authorization, id, update_inline_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_id_put: %s\n" % e)
 ```
 
 ### Parameters
@@ -389,19 +437,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รอวางบิล <br> approved = วางบิลแล้ว <br> approvedandprocessed = เปิดบิลแล้ว <br> void = ยกเลิก
 
-try:
-    # Change status of billing notes document.
-    api_response = api_instance.billing_notes_id_status_status_id_post(authorization, id, status_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_id_status_status_id_post: %s\n" % e)
+    try:
+        # Change status of billing notes document.
+        api_response = api_instance.billing_notes_id_status_status_id_post(authorization, id, status_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -449,18 +505,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 inline_document = openapi_client.InlineDocument() # InlineDocument | 
 
-try:
-    # Create billing notes document with discount and tax inline.
-    api_response = api_instance.billing_notes_inline_post(authorization, inline_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_inline_post: %s\n" % e)
+    try:
+        # Create billing notes document with discount and tax inline.
+        api_response = api_instance.billing_notes_inline_post(authorization, inline_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_inline_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -507,18 +571,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 simple_document = openapi_client.SimpleDocument() # SimpleDocument | 
 
-try:
-    # Create billing notes document.
-    api_response = api_instance.billing_notes_post(authorization, simple_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_post: %s\n" % e)
+    try:
+        # Create billing notes document.
+        api_response = api_instance.billing_notes_post(authorization, simple_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -565,18 +637,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BillingNotesApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BillingNotesApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 share_document = openapi_client.ShareDocument() # ShareDocument | 
 
-try:
-    # Share link billing notes document.
-    api_response = api_instance.billing_notes_sharedocument_post(authorization, share_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BillingNotesApi->billing_notes_sharedocument_post: %s\n" % e)
+    try:
+        # Share link billing notes document.
+        api_response = api_instance.billing_notes_sharedocument_post(authorization, share_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BillingNotesApi->billing_notes_sharedocument_post: %s\n" % e)
 ```
 
 ### Parameters

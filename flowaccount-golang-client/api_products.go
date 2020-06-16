@@ -15,7 +15,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 	"github.com/antihax/optional"
 )
@@ -57,7 +56,6 @@ func (a *ProductsApiService) ProductsGet(ctx _context.Context, currentPage int32
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/products"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -109,16 +107,6 @@ func (a *ProductsApiService) ProductsGet(ctx _context.Context, currentPage int32
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ProductResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -153,7 +141,7 @@ func (a *ProductsApiService) ProductsIdDelete(ctx _context.Context, authorizatio
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/products/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -197,16 +185,6 @@ func (a *ProductsApiService) ProductsIdDelete(ctx _context.Context, authorizatio
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DeleteResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -242,7 +220,7 @@ func (a *ProductsApiService) ProductsIdGet(ctx _context.Context, authorization s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/products/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -287,16 +265,6 @@ func (a *ProductsApiService) ProductsIdGet(ctx _context.Context, authorization s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ProductResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -317,10 +285,10 @@ ProductsIdPut Update products.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization เลข Id Product
  * @param id
- * @param uNKNOWNBASETYPE
+ * @param productType
 @return ProductResponse
 */
-func (a *ProductsApiService) ProductsIdPut(ctx _context.Context, authorization string, id string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (ProductResponse, *_nethttp.Response, error) {
+func (a *ProductsApiService) ProductsIdPut(ctx _context.Context, authorization string, id string, productType ProductType) (ProductResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -332,7 +300,7 @@ func (a *ProductsApiService) ProductsIdPut(ctx _context.Context, authorization s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/products/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -357,7 +325,7 @@ func (a *ProductsApiService) ProductsIdPut(ctx _context.Context, authorization s
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &productType
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -378,16 +346,6 @@ func (a *ProductsApiService) ProductsIdPut(ctx _context.Context, authorization s
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ProductResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -408,10 +366,10 @@ func (a *ProductsApiService) ProductsIdPut(ctx _context.Context, authorization s
 ProductsPost Create products.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param productType
 @return ProductResponse
 */
-func (a *ProductsApiService) ProductsPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (ProductResponse, *_nethttp.Response, error) {
+func (a *ProductsApiService) ProductsPost(ctx _context.Context, authorization string, productType ProductType) (ProductResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -423,7 +381,6 @@ func (a *ProductsApiService) ProductsPost(ctx _context.Context, authorization st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/products"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -447,7 +404,7 @@ func (a *ProductsApiService) ProductsPost(ctx _context.Context, authorization st
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &productType
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -468,16 +425,6 @@ func (a *ProductsApiService) ProductsPost(ctx _context.Context, authorization st
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ProductResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

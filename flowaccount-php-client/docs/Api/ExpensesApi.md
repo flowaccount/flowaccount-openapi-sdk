@@ -194,7 +194,7 @@ No authorization required
 
 ## expensesGet
 
-> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesGet($current_page, $page_size, $authorization, $sort_by, $filter)
+> \OpenAPI\Client\Model\AllExpenseDocumentResponse expensesGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
 Get list all expenses documents.
 
@@ -215,7 +215,7 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
 $current_page = 56; // int | Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
 $page_size = 56; // int | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
-$sort_by = 'sort_by_example'; // string | 
+$sort_by = 'sort_by_example'; // string | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 $filter = 'filter_example'; // string | 
 
 try {
@@ -235,12 +235,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; |
  **page_size** | **int**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **string**|  | [optional]
+ **sort_by** | **string**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
  **filter** | **string**|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExpenseInlineDocumentResponse**](../Model/ExpenseInlineDocumentResponse.md)
+[**\OpenAPI\Client\Model\AllExpenseDocumentResponse**](../Model/AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ No authorization required
 
 ## expensesIdPaymentPost
 
-> \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse expensesIdPaymentPost($authorization, $id, $unknown_base_type)
+> \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse expensesIdPaymentPost($authorization, $id, $payment_paid_document)
 
 Change paid status of expenses document.
 
@@ -454,10 +454,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
 );
 $authorization = 'Bearer accessToken'; // string | 
 $id = 'id_example'; // string | ID เอกสารใช้ recordId หรือ documentId
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$payment_paid_document = new \OpenAPI\Client\Model\PaymentPaidDocument(); // \OpenAPI\Client\Model\PaymentPaidDocument | 
 
 try {
-    $result = $apiInstance->expensesIdPaymentPost($authorization, $id, $unknown_base_type);
+    $result = $apiInstance->expensesIdPaymentPost($authorization, $id, $payment_paid_document);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpensesApi->expensesIdPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId |
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **payment_paid_document** | [**\OpenAPI\Client\Model\PaymentPaidDocument**](../Model/PaymentPaidDocument.md)|  |
 
 ### Return type
 
@@ -672,7 +672,7 @@ No authorization required
 
 ## expensesInlineWithPaymentPost
 
-> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesInlineWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\ExpenseInlineDocumentResponse expensesInlineWithPaymentPost($authorization, $expense_inline_document_with_payment_paid)
 
 Create expenses document with discount and tax inline with payment.
 
@@ -691,10 +691,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$expense_inline_document_with_payment_paid = new \OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid(); // \OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid | 
 
 try {
-    $result = $apiInstance->expensesInlineWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->expensesInlineWithPaymentPost($authorization, $expense_inline_document_with_payment_paid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpensesApi->expensesInlineWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -708,7 +708,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **expense_inline_document_with_payment_paid** | [**\OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid**](../Model/ExpenseInlineDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 
@@ -846,7 +846,7 @@ No authorization required
 
 ## expensesWithPaymentPost
 
-> \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse expensesWithPaymentPost($authorization, $unknown_base_type)
+> \OpenAPI\Client\Model\ExpenseSimpleDocumentResponse expensesWithPaymentPost($authorization, $expense_simple_document_with_payment_paid)
 
 Create expenses document with-payment.
 
@@ -865,10 +865,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpensesApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'Bearer accessToken'; // string | 
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE | 
+$expense_simple_document_with_payment_paid = new \OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid(); // \OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid | 
 
 try {
-    $result = $apiInstance->expensesWithPaymentPost($authorization, $unknown_base_type);
+    $result = $apiInstance->expensesWithPaymentPost($authorization, $expense_simple_document_with_payment_paid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpensesApi->expensesWithPaymentPost: ', $e->getMessage(), PHP_EOL;
@@ -882,7 +882,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  |
+ **expense_simple_document_with_payment_paid** | [**\OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid**](../Model/ExpenseSimpleDocumentWithPaymentPaid.md)|  |
 
 ### Return type
 

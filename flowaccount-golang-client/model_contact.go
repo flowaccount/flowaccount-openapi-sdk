@@ -11,6 +11,8 @@
 package openapi
 // Contact struct for Contact
 type Contact struct {
+	// เลข id Contact
+	Id int64 `json:"id,omitempty"`
 	// ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล
 	ContactGroup int64 `json:"contactGroup"`
 	// ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า

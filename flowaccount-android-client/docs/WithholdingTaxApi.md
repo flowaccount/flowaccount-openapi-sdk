@@ -66,7 +66,7 @@ No authorization required
 
 ## withholdingTaxesGet
 
-> WithholidingTaxDocumentResponse withholdingTaxesGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllWithholidingTaxDocumentResponse withholdingTaxesGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all withholding tax documents.
 
@@ -85,7 +85,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    WithholidingTaxDocumentResponse result = apiInstance.withholdingTaxesGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllWithholidingTaxDocumentResponse result = apiInstance.withholdingTaxesGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WithholdingTaxApi#withholdingTaxesGet");
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WithholidingTaxDocumentResponse**](WithholidingTaxDocumentResponse.md)
+[**AllWithholidingTaxDocumentResponse**](AllWithholidingTaxDocumentResponse.md)
 
 ### Authorization
 

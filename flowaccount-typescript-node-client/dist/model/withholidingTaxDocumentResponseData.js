@@ -140,7 +140,7 @@ WithholidingTaxDocumentResponseData.attributeTypeMap = [
     {
         "name": "company",
         "baseName": "company",
-        "type": "Array<object>"
+        "type": "SimpleDocumentResponseAllOfDataCompany"
     },
     {
         "name": "status",

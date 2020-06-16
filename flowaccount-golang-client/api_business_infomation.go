@@ -44,7 +44,6 @@ func (a *BusinessInfomationApiService) CompanyInfoGet(ctx _context.Context, auth
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/company/info"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -88,16 +87,6 @@ func (a *BusinessInfomationApiService) CompanyInfoGet(ctx _context.Context, auth
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v CompanyInfoResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -133,7 +122,6 @@ func (a *BusinessInfomationApiService) CompanyInfoPut(ctx _context.Context, auth
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/company/info"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -178,16 +166,6 @@ func (a *BusinessInfomationApiService) CompanyInfoPut(ctx _context.Context, auth
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v CompanyInfoResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

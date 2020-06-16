@@ -8,6 +8,11 @@ class Contact {
 Contact.discriminator = undefined;
 Contact.attributeTypeMap = [
     {
+        "name": "id",
+        "baseName": "id",
+        "type": "number"
+    },
+    {
         "name": "contactGroup",
         "baseName": "contactGroup",
         "type": "number"

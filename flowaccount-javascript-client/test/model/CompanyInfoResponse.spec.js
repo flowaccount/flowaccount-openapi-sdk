@@ -54,92 +54,26 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.CompanyInfoResponse);
     });
 
-    it('should have the property companyId (base name: "companyId")', function() {
-      // uncomment below and update the code to test the property companyId
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
       //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property companyType (base name: "companyType")', function() {
-      // uncomment below and update the code to test the property companyType
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
       //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property compnayName (base name: "compnayName")', function() {
-      // uncomment below and update the code to test the property compnayName
+    it('should have the property code (base name: "code")', function() {
+      // uncomment below and update the code to test the property code
       //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property companyNameEn (base name: "companyNameEn")', function() {
-      // uncomment below and update the code to test the property companyNameEn
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyAddress (base name: "companyAddress")', function() {
-      // uncomment below and update the code to test the property companyAddress
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyAddressEn (base name: "companyAddressEn")', function() {
-      // uncomment below and update the code to test the property companyAddressEn
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyZipCode (base name: "companyZipCode")', function() {
-      // uncomment below and update the code to test the property companyZipCode
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyTaxId (base name: "companyTaxId")', function() {
-      // uncomment below and update the code to test the property companyTaxId
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyBranch (base name: "companyBranch")', function() {
-      // uncomment below and update the code to test the property companyBranch
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyBranchEn (base name: "companyBranchEn")', function() {
-      // uncomment below and update the code to test the property companyBranchEn
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyBranchCode (base name: "companyBranchCode")', function() {
-      // uncomment below and update the code to test the property companyBranchCode
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyPhone (base name: "companyPhone")', function() {
-      // uncomment below and update the code to test the property companyPhone
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyMobile (base name: "companyMobile")', function() {
-      // uncomment below and update the code to test the property companyMobile
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyFax (base name: "companyFax")', function() {
-      // uncomment below and update the code to test the property companyFax
-      //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property companyWebsite (base name: "companyWebsite")', function() {
-      // uncomment below and update the code to test the property companyWebsite
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
       //var instane = new FlowAccountOpenApi.CompanyInfoResponse();
       //expect(instance).to.be();
     });

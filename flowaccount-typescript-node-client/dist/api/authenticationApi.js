@@ -18,11 +18,12 @@ var AuthenticationApiApiKeys;
 class AuthenticationApi {
     constructor(basePathOrUsername, password, basePath) {
         this._basePath = defaultBasePath;
-        this.defaultHeaders = {};
+        this._defaultHeaders = {};
         this._useQuerystring = false;
         this.authentications = {
             'default': new models_1.VoidAuth(),
         };
+        this.interceptors = [];
         if (password) {
             if (basePath) {
                 this.basePath = basePath;
@@ -40,6 +41,12 @@ class AuthenticationApi {
     set basePath(basePath) {
         this._basePath = basePath;
     }
+    set defaultHeaders(defaultHeaders) {
+        this._defaultHeaders = defaultHeaders;
+    }
+    get defaultHeaders() {
+        return this._defaultHeaders;
+    }
     get basePath() {
         return this._basePath;
     }
@@ -49,11 +56,14 @@ class AuthenticationApi {
     setApiKey(key, value) {
         this.authentications[AuthenticationApiApiKeys[key]].apiKey = value;
     }
+    addInterceptor(interceptor) {
+        this.interceptors.push(interceptor);
+    }
     tokenPost(contentType, grantType, scope, clientId, clientSecret, guid, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/token';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -93,7 +103,11 @@ class AuthenticationApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;

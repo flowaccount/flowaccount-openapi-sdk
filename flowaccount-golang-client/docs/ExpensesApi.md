@@ -127,7 +127,7 @@ No authorization required
 
 ## ExpensesGet
 
-> ExpenseInlineDocumentResponse ExpensesGet(ctx, currentPage, pageSize, authorization, optional)
+> AllExpenseDocumentResponse ExpensesGet(ctx, currentPage, pageSize, authorization, optional)
 
 Get list all expenses documents.
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+[**AllExpenseDocumentResponse**](AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ No authorization required
 
 ## ExpensesIdPaymentPost
 
-> ExpenseSimpleDocumentResponse ExpensesIdPaymentPost(ctx, authorization, id, uNKNOWNBASETYPE)
+> ExpenseSimpleDocumentResponse ExpensesIdPaymentPost(ctx, authorization, id, paymentPaidDocument)
 
 Change paid status of expenses document.
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
 **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  | 
 
 ### Return type
 
@@ -437,7 +437,7 @@ No authorization required
 
 ## ExpensesInlineWithPaymentPost
 
-> ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost(ctx, authorization, expenseInlineDocumentWithPaymentPaid)
 
 Create expenses document with discount and tax inline with payment.
 
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**expenseInlineDocumentWithPaymentPaid** | [**ExpenseInlineDocumentWithPaymentPaid**](ExpenseInlineDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 
@@ -542,7 +542,7 @@ No authorization required
 
 ## ExpensesWithPaymentPost
 
-> ExpenseSimpleDocumentResponse ExpensesWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> ExpenseSimpleDocumentResponse ExpensesWithPaymentPost(ctx, authorization, expenseSimpleDocumentWithPaymentPaid)
 
 Create expenses document with-payment.
 
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**expenseSimpleDocumentWithPaymentPaid** | [**ExpenseSimpleDocumentWithPaymentPaid**](ExpenseSimpleDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 

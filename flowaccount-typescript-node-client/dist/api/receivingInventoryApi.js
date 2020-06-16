@@ -18,11 +18,12 @@ var ReceivingInventoryApiApiKeys;
 class ReceivingInventoryApi {
     constructor(basePathOrUsername, password, basePath) {
         this._basePath = defaultBasePath;
-        this.defaultHeaders = {};
+        this._defaultHeaders = {};
         this._useQuerystring = false;
         this.authentications = {
             'default': new models_1.VoidAuth(),
         };
+        this.interceptors = [];
         if (password) {
             if (basePath) {
                 this.basePath = basePath;
@@ -40,6 +41,12 @@ class ReceivingInventoryApi {
     set basePath(basePath) {
         this._basePath = basePath;
     }
+    set defaultHeaders(defaultHeaders) {
+        this._defaultHeaders = defaultHeaders;
+    }
+    get defaultHeaders() {
+        return this._defaultHeaders;
+    }
     get basePath() {
         return this._basePath;
     }
@@ -49,11 +56,14 @@ class ReceivingInventoryApi {
     setApiKey(key, value) {
         this.authentications[ReceivingInventoryApiApiKeys[key]].apiKey = value;
     }
+    addInterceptor(interceptor) {
+        this.interceptors.push(interceptor);
+    }
     purchasesEmailDocumentPost(authorization, sendEmailCoppies, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/email-document';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -82,7 +92,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -114,7 +128,7 @@ class ReceivingInventoryApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -157,7 +171,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -172,7 +190,7 @@ class ReceivingInventoryApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineDocumentResponse");
+                            body = models_1.ObjectSerializer.deserialize(body, "AllDocumentResponse");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -190,7 +208,7 @@ class ReceivingInventoryApi {
             const localVarPath = this.basePath + '/purchases/{id}/attachment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -222,7 +240,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -255,7 +277,7 @@ class ReceivingInventoryApi {
             const localVarPath = this.basePath + '/purchases/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -283,7 +305,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -316,7 +342,7 @@ class ReceivingInventoryApi {
             const localVarPath = this.basePath + '/purchases/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -344,7 +370,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -372,12 +402,12 @@ class ReceivingInventoryApi {
             });
         });
     }
-    purchasesIdPaymentPost(authorization, id, paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard, options = { headers: {} }) {
+    purchasesIdPaymentPost(authorization, id, paymentPaidDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/{id}/payment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -392,8 +422,8 @@ class ReceivingInventoryApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling purchasesIdPaymentPost.');
             }
-            if (paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard === null || paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard === undefined) {
-                throw new Error('Required parameter paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard was null or undefined when calling purchasesIdPaymentPost.');
+            if (paymentPaidDocument === null || paymentPaidDocument === undefined) {
+                throw new Error('Required parameter paymentPaidDocument was null or undefined when calling purchasesIdPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -405,11 +435,15 @@ class ReceivingInventoryApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard, "PaymentPaidCash | PaymentPaidTransfer | PaymentPaidCheque | PaymentPaidCreditCard")
+                body: models_1.ObjectSerializer.serialize(paymentPaidDocument, "PaymentPaidDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -442,7 +476,7 @@ class ReceivingInventoryApi {
             const localVarPath = this.basePath + '/purchases/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -474,7 +508,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -508,7 +546,7 @@ class ReceivingInventoryApi {
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -539,7 +577,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -571,7 +613,7 @@ class ReceivingInventoryApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/inline';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -600,7 +642,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -628,11 +674,11 @@ class ReceivingInventoryApi {
             });
         });
     }
-    purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard, options = { headers: {} }) {
+    purchasesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentPaid, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/inline/with-payment';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -644,8 +690,8 @@ class ReceivingInventoryApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling purchasesInlineWithPaymentPost.');
             }
-            if (inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard === null || inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard === undefined) {
-                throw new Error('Required parameter inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard was null or undefined when calling purchasesInlineWithPaymentPost.');
+            if (inlineDocumentWithPaymentPaid === null || inlineDocumentWithPaymentPaid === undefined) {
+                throw new Error('Required parameter inlineDocumentWithPaymentPaid was null or undefined when calling purchasesInlineWithPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -657,11 +703,15 @@ class ReceivingInventoryApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard, "InlineDocumentWithPaymentPaidCash | InlineDocumentWithPaymentPaidTransfer | InlineDocumentWithPaymentPaidCheque | InlineDocumentWithPaymentPaidCreditCard")
+                body: models_1.ObjectSerializer.serialize(inlineDocumentWithPaymentPaid, "InlineDocumentWithPaymentPaid")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -693,7 +743,7 @@ class ReceivingInventoryApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -722,7 +772,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -754,7 +808,7 @@ class ReceivingInventoryApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/sharedocument';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -783,7 +837,11 @@ class ReceivingInventoryApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -811,11 +869,11 @@ class ReceivingInventoryApi {
             });
         });
     }
-    purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard, options = { headers: {} }) {
+    purchasesWithPaymentPost(authorization, simpleDocumentWithPaymentPaid, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/purchases/with-payment';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -827,8 +885,8 @@ class ReceivingInventoryApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling purchasesWithPaymentPost.');
             }
-            if (simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard === null || simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard === undefined) {
-                throw new Error('Required parameter simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard was null or undefined when calling purchasesWithPaymentPost.');
+            if (simpleDocumentWithPaymentPaid === null || simpleDocumentWithPaymentPaid === undefined) {
+                throw new Error('Required parameter simpleDocumentWithPaymentPaid was null or undefined when calling purchasesWithPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -840,11 +898,15 @@ class ReceivingInventoryApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(simpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard, "SimpleDocumentWithPaymentPaidCash | SimpleDocumentWithPaymentPaidTransfer | SimpleDocumentWithPaymentPaidCheque | SimpleDocumentWithPaymentPaidCreditCard")
+                body: models_1.ObjectSerializer.serialize(simpleDocumentWithPaymentPaid, "SimpleDocumentWithPaymentPaid")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;

@@ -13,20 +13,20 @@
 
 
 import ApiClient from "../ApiClient";
+import AllDocumentResponse from '../model/AllDocumentResponse';
 import AttachmentResponse from '../model/AttachmentResponse';
 import DeleteResponse from '../model/DeleteResponse';
 import InlineDocument from '../model/InlineDocument';
 import InlineDocumentResponse from '../model/InlineDocumentResponse';
-import OneOfInlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard from '../model/OneOfInlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard';
-import OneOfPaymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard from '../model/OneOfPaymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard';
-import OneOfSimpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard from '../model/OneOfSimpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard';
+import InlineDocumentWithPaymentReceiving from '../model/InlineDocumentWithPaymentReceiving';
+import PaymentReceivingDocument from '../model/PaymentReceivingDocument';
 import SendEmailCoppies from '../model/SendEmailCoppies';
 import SendEmailResponse from '../model/SendEmailResponse';
 import ShareDocument from '../model/ShareDocument';
 import ShareDocumentResponse from '../model/ShareDocumentResponse';
 import SimpleDocument from '../model/SimpleDocument';
 import SimpleDocumentResponse from '../model/SimpleDocumentResponse';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
+import SimpleDocumentWithPaymentReceiving from '../model/SimpleDocumentWithPaymentReceiving';
 import UpdateInlineDocument from '../model/UpdateInlineDocument';
 
 /**
@@ -100,7 +100,7 @@ export default class TaxInvoiceApi {
      * Callback function to receive the result of the taxInvoicesGet operation.
      * @callback module:api/TaxInvoiceApi~taxInvoicesGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineDocumentResponse} data The data returned by the service call.
+     * @param {module:model/AllDocumentResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -114,7 +114,7 @@ export default class TaxInvoiceApi {
      * @param {String} opts.sortBy Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
      * @param {String} opts.filter 
      * @param {module:api/TaxInvoiceApi~taxInvoicesGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineDocumentResponse}
+     * data is of type: {@link module:model/AllDocumentResponse}
      */
     taxInvoicesGet(currentPage, pageSize, authorization, opts, callback) {
       opts = opts || {};
@@ -149,7 +149,7 @@ export default class TaxInvoiceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineDocumentResponse;
+      let returnType = AllDocumentResponse;
       return this.apiClient.callApi(
         '/tax-invoices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -321,12 +321,12 @@ export default class TaxInvoiceApi {
      * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/PaymentReceivingDocument} paymentReceivingDocument 
      * @param {module:api/TaxInvoiceApi~taxInvoicesIdPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InlineDocumentResponse}
      */
-    taxInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    taxInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument, callback) {
+      let postBody = paymentReceivingDocument;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling taxInvoicesIdPaymentPost");
@@ -335,9 +335,9 @@ export default class TaxInvoiceApi {
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling taxInvoicesIdPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling taxInvoicesIdPaymentPost");
+      // verify the required parameter 'paymentReceivingDocument' is set
+      if (paymentReceivingDocument === undefined || paymentReceivingDocument === null) {
+        throw new Error("Missing the required parameter 'paymentReceivingDocument' when calling taxInvoicesIdPaymentPost");
       }
 
       let pathParams = {
@@ -531,19 +531,19 @@ export default class TaxInvoiceApi {
      * Create tax invocie document with discount and tax inline with payment.
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/InlineDocumentWithPaymentReceiving} inlineDocumentWithPaymentReceiving 
      * @param {module:api/TaxInvoiceApi~taxInvoicesInlineWithPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InlineDocumentResponse}
      */
-    taxInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    taxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving, callback) {
+      let postBody = inlineDocumentWithPaymentReceiving;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling taxInvoicesInlineWithPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling taxInvoicesInlineWithPaymentPost");
+      // verify the required parameter 'inlineDocumentWithPaymentReceiving' is set
+      if (inlineDocumentWithPaymentReceiving === undefined || inlineDocumentWithPaymentReceiving === null) {
+        throw new Error("Missing the required parameter 'inlineDocumentWithPaymentReceiving' when calling taxInvoicesInlineWithPaymentPost");
       }
 
       let pathParams = {
@@ -675,19 +675,19 @@ export default class TaxInvoiceApi {
      * Create tax invocie document with payment.
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/SimpleDocumentWithPaymentReceiving} simpleDocumentWithPaymentReceiving 
      * @param {module:api/TaxInvoiceApi~taxInvoicesWithPaymentPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SimpleDocumentResponse}
      */
-    taxInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    taxInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving, callback) {
+      let postBody = simpleDocumentWithPaymentReceiving;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling taxInvoicesWithPaymentPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling taxInvoicesWithPaymentPost");
+      // verify the required parameter 'simpleDocumentWithPaymentReceiving' is set
+      if (simpleDocumentWithPaymentReceiving === undefined || simpleDocumentWithPaymentReceiving === null) {
+        throw new Error("Missing the required parameter 'simpleDocumentWithPaymentReceiving' when calling taxInvoicesWithPaymentPost");
       }
 
       let pathParams = {

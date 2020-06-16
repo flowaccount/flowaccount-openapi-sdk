@@ -1,5 +1,4 @@
 export declare class ProductItem {
-    'documentStructureType': string;
     'type'?: number;
     'name': string;
     'description'?: string;

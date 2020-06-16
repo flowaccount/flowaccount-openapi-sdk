@@ -1,5 +1,13 @@
-import { ProductItem } from './productItem';
-export declare class InlineProductItem extends ProductItem {
+export declare class InlineProductItem {
+    'type'?: number;
+    'name': string;
+    'description'?: string;
+    'quantity': number;
+    'unitName'?: string;
+    'pricePerUnit': number;
+    'total': number;
+    'sellChartOfAccountCode'?: string;
+    'buyChartOfAccountCode'?: string;
     'discountAmount'?: number;
     'vatRate'?: number;
     static discriminator: string | undefined;

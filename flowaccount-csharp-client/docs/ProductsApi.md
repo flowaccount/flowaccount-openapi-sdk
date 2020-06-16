@@ -251,7 +251,7 @@ No authorization required
 
 ## ProductsIdPut
 
-> ProductResponse ProductsIdPut (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> ProductResponse ProductsIdPut (string authorization, string id, ProductType productType)
 
 Update products.
 
@@ -274,12 +274,12 @@ namespace Example
             var apiInstance = new ProductsApi(Configuration.Default);
             var authorization = authorization_example;  // string | เลข Id Product (default to "Bearer accessToken")
             var id = id_example;  // string | 
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var productType = new ProductType(); // ProductType | 
 
             try
             {
                 // Update products.
-                ProductResponse result = apiInstance.ProductsIdPut(authorization, id, UNKNOWN_BASE_TYPE);
+                ProductResponse result = apiInstance.ProductsIdPut(authorization, id, productType);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| เลข Id Product | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**|  | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **productType** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 
@@ -330,7 +330,7 @@ No authorization required
 
 ## ProductsPost
 
-> ProductResponse ProductsPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> ProductResponse ProductsPost (string authorization, ProductType productType)
 
 Create products.
 
@@ -352,12 +352,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ProductsApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var productType = new ProductType(); // ProductType | 
 
             try
             {
                 // Create products.
-                ProductResponse result = apiInstance.ProductsPost(authorization, UNKNOWN_BASE_TYPE);
+                ProductResponse result = apiInstance.ProductsPost(authorization, productType);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -377,7 +377,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **productType** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 

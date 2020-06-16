@@ -54,6 +54,60 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.InlineProductItem);
     });
 
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property quantity (base name: "quantity")', function() {
+      // uncomment below and update the code to test the property quantity
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unitName (base name: "unitName")', function() {
+      // uncomment below and update the code to test the property unitName
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pricePerUnit (base name: "pricePerUnit")', function() {
+      // uncomment below and update the code to test the property pricePerUnit
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property total (base name: "total")', function() {
+      // uncomment below and update the code to test the property total
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sellChartOfAccountCode (base name: "sellChartOfAccountCode")', function() {
+      // uncomment below and update the code to test the property sellChartOfAccountCode
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property buyChartOfAccountCode (base name: "buyChartOfAccountCode")', function() {
+      // uncomment below and update the code to test the property buyChartOfAccountCode
+      //var instane = new FlowAccountOpenApi.InlineProductItem();
+      //expect(instance).to.be();
+    });
+
     it('should have the property discountAmount (base name: "discountAmount")', function() {
       // uncomment below and update the code to test the property discountAmount
       //var instane = new FlowAccountOpenApi.InlineProductItem();

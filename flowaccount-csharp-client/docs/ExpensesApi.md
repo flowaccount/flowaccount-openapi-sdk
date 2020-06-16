@@ -257,7 +257,7 @@ No authorization required
 
 ## ExpensesGet
 
-> ExpenseInlineDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
+> AllExpenseDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all expenses documents.
 
@@ -283,13 +283,13 @@ namespace Example
             var currentPage = 56;  // int | Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
             var pageSize = 56;  // int | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var sortBy = sortBy_example;  // string |  (optional) 
+            var sortBy = sortBy_example;  // string | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
             var filter = filter_example;  // string |  (optional) 
 
             try
             {
                 // Get list all expenses documents.
-                ExpenseInlineDocumentResponse result = apiInstance.ExpensesGet(currentPage, pageSize, authorization, sortBy, filter);
+                AllExpenseDocumentResponse result = apiInstance.ExpensesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -311,12 +311,12 @@ Name | Type | Description  | Notes
  **currentPage** | **int**| Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **pageSize** | **int**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **string**|  | [optional] 
+ **sortBy** | **string**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
  **filter** | **string**|  | [optional] 
 
 ### Return type
 
-[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+[**AllExpenseDocumentResponse**](AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -581,7 +581,7 @@ No authorization required
 
 ## ExpensesIdPaymentPost
 
-> ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, PaymentPaidDocument paymentPaidDocument)
 
 Change paid status of expenses document.
 
@@ -606,12 +606,12 @@ namespace Example
             var apiInstance = new ExpensesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var paymentPaidDocument = new PaymentPaidDocument(); // PaymentPaidDocument | 
 
             try
             {
                 // Change paid status of expenses document.
-                ExpenseSimpleDocumentResponse result = apiInstance.ExpensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+                ExpenseSimpleDocumentResponse result = apiInstance.ExpensesIdPaymentPost(authorization, id, paymentPaidDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  | 
 
 ### Return type
 
@@ -903,7 +903,7 @@ No authorization required
 
 ## ExpensesInlineWithPaymentPost
 
-> ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost (string authorization, ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid)
 
 Create expenses document with discount and tax inline with payment.
 
@@ -927,12 +927,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ExpensesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var expenseInlineDocumentWithPaymentPaid = new ExpenseInlineDocumentWithPaymentPaid(); // ExpenseInlineDocumentWithPaymentPaid | 
 
             try
             {
                 // Create expenses document with discount and tax inline with payment.
-                ExpenseInlineDocumentResponse result = apiInstance.ExpensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                ExpenseInlineDocumentResponse result = apiInstance.ExpensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -952,7 +952,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **expenseInlineDocumentWithPaymentPaid** | [**ExpenseInlineDocumentWithPaymentPaid**](ExpenseInlineDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 
@@ -1140,7 +1140,7 @@ No authorization required
 
 ## ExpensesWithPaymentPost
 
-> ExpenseSimpleDocumentResponse ExpensesWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> ExpenseSimpleDocumentResponse ExpensesWithPaymentPost (string authorization, ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid)
 
 Create expenses document with-payment.
 
@@ -1164,12 +1164,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ExpensesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var expenseSimpleDocumentWithPaymentPaid = new ExpenseSimpleDocumentWithPaymentPaid(); // ExpenseSimpleDocumentWithPaymentPaid | 
 
             try
             {
                 // Create expenses document with-payment.
-                ExpenseSimpleDocumentResponse result = apiInstance.ExpensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                ExpenseSimpleDocumentResponse result = apiInstance.ExpensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1189,7 +1189,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **expenseSimpleDocumentWithPaymentPaid** | [**ExpenseSimpleDocumentWithPaymentPaid**](ExpenseSimpleDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 

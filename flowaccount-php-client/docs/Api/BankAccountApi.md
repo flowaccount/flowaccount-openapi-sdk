@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## bankAccountsGet
 
-> \OpenAPI\Client\Model\BankAccountResponse bankAccountsGet($authorization)
+> \OpenAPI\Client\Model\AllBankAccountResponse bankAccountsGet($authorization)
 
 Get list all My Bank Account
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BankAccountResponse**](../Model/BankAccountResponse.md)
+[**\OpenAPI\Client\Model\AllBankAccountResponse**](../Model/AllBankAccountResponse.md)
 
 ### Authorization
 

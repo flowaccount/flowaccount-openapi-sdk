@@ -2,7 +2,7 @@ export declare class DocumentResponse {
     'status'?: boolean;
     'message'?: string;
     'code'?: number;
-    'documentStructureType'?: string;
+    'documentStructureType'?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

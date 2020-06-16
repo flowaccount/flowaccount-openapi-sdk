@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **bank_accounts_get**
-> BankAccountResponse bank_accounts_get(authorization)
+> AllBankAccountResponse bank_accounts_get(authorization)
 
 Get list all My Bank Account
 
@@ -21,17 +21,25 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BankAccountApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 
-try:
-    # Get list all My Bank Account
-    api_response = api_instance.bank_accounts_get(authorization)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BankAccountApi->bank_accounts_get: %s\n" % e)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BankAccountApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+    try:
+        # Get list all My Bank Account
+        api_response = api_instance.bank_accounts_get(authorization)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BankAccountApi->bank_accounts_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -42,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BankAccountResponse**](BankAccountResponse.md)
+[**AllBankAccountResponse**](AllBankAccountResponse.md)
 
 ### Authorization
 
@@ -75,18 +83,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BankAccountApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BankAccountApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 bank_account = openapi_client.BankAccount() # BankAccount | 
 
-try:
-    # Create bank account.
-    api_response = api_instance.bank_accounts_post(authorization, bank_account)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BankAccountApi->bank_accounts_post: %s\n" % e)
+    try:
+        # Create bank account.
+        api_response = api_instance.bank_accounts_post(authorization, bank_account)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BankAccountApi->bank_accounts_post: %s\n" % e)
 ```
 
 ### Parameters

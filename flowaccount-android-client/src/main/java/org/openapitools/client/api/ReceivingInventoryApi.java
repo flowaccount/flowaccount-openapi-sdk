@@ -23,21 +23,21 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.openapitools.client.model.AllDocumentResponse;
 import org.openapitools.client.model.AttachmentResponse;
 import org.openapitools.client.model.DeleteResponse;
 import java.io.File;
 import org.openapitools.client.model.InlineDocument;
 import org.openapitools.client.model.InlineDocumentResponse;
-import org.openapitools.client.model.OneOfInlineDocumentWithPaymentPaidCashInlineDocumentWithPaymentPaidTransferInlineDocumentWithPaymentPaidChequeInlineDocumentWithPaymentPaidCreditCard;
-import org.openapitools.client.model.OneOfPaymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard;
-import org.openapitools.client.model.OneOfSimpleDocumentWithPaymentPaidCashSimpleDocumentWithPaymentPaidTransferSimpleDocumentWithPaymentPaidChequeSimpleDocumentWithPaymentPaidCreditCard;
+import org.openapitools.client.model.InlineDocumentWithPaymentPaid;
+import org.openapitools.client.model.PaymentPaidDocument;
 import org.openapitools.client.model.SendEmailCoppies;
 import org.openapitools.client.model.SendEmailResponse;
 import org.openapitools.client.model.ShareDocument;
 import org.openapitools.client.model.ShareDocumentResponse;
 import org.openapitools.client.model.SimpleDocument;
 import org.openapitools.client.model.SimpleDocumentResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
+import org.openapitools.client.model.SimpleDocumentWithPaymentPaid;
 import org.openapitools.client.model.UpdateInlineDocument;
 
 import org.apache.http.HttpEntity;
@@ -219,9 +219,9 @@ public class ReceivingInventoryApi {
    * @param authorization 
    * @param sortBy Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
    * @param filter 
-   * @return InlineDocumentResponse
+   * @return AllDocumentResponse
   */
-  public InlineDocumentResponse purchasesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AllDocumentResponse purchasesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'currentPage' is set
     if (currentPage == null) {
@@ -271,7 +271,7 @@ public class ReceivingInventoryApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (InlineDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", InlineDocumentResponse.class);
+         return (AllDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", AllDocumentResponse.class);
       } else {
          return null;
       }
@@ -297,7 +297,7 @@ public class ReceivingInventoryApi {
    * เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
    * @param currentPage Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter 
   */
-  public void purchasesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void purchasesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<AllDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'currentPage' is set
@@ -357,7 +357,7 @@ public class ReceivingInventoryApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((InlineDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", InlineDocumentResponse.class));
+              responseListener.onResponse((AllDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", AllDocumentResponse.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -807,11 +807,11 @@ public class ReceivingInventoryApi {
   * ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
    * @param authorization 
    * @param id ID เอกสารใช้ recordId หรือ documentId
-   * @param UNKNOWN_BASE_TYPE 
+   * @param paymentPaidDocument 
    * @return InlineDocumentResponse
   */
-  public InlineDocumentResponse purchasesIdPaymentPost (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public InlineDocumentResponse purchasesIdPaymentPost (String authorization, String id, PaymentPaidDocument paymentPaidDocument) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = paymentPaidDocument;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling purchasesIdPaymentPost",
@@ -822,10 +822,10 @@ public class ReceivingInventoryApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling purchasesIdPaymentPost",
         new ApiException(400, "Missing the required parameter 'id' when calling purchasesIdPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesIdPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesIdPaymentPost"));
+    // verify the required parameter 'paymentPaidDocument' is set
+    if (paymentPaidDocument == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'paymentPaidDocument' when calling purchasesIdPaymentPost",
+        new ApiException(400, "Missing the required parameter 'paymentPaidDocument' when calling purchasesIdPaymentPost"));
     }
 
     // create path and map variables
@@ -881,10 +881,10 @@ public class ReceivingInventoryApi {
       /**
    * Change paid status of receiving inventory document.
    * ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
-   * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param paymentPaidDocument 
   */
-  public void purchasesIdPaymentPost (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void purchasesIdPaymentPost (String authorization, String id, PaymentPaidDocument paymentPaidDocument, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = paymentPaidDocument;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
@@ -896,10 +896,10 @@ public class ReceivingInventoryApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling purchasesIdPaymentPost",
         new ApiException(400, "Missing the required parameter 'id' when calling purchasesIdPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesIdPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesIdPaymentPost"));
+    // verify the required parameter 'paymentPaidDocument' is set
+    if (paymentPaidDocument == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'paymentPaidDocument' when calling purchasesIdPaymentPost",
+        new ApiException(400, "Missing the required parameter 'paymentPaidDocument' when calling purchasesIdPaymentPost"));
     }
 
     // create path and map variables
@@ -1402,20 +1402,20 @@ public class ReceivingInventoryApi {
   * Create receiving inventory document with discount and tax inline with payment.
   * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param inlineDocumentWithPaymentPaid 
    * @return InlineDocumentResponse
   */
-  public InlineDocumentResponse purchasesInlineWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public InlineDocumentResponse purchasesInlineWithPaymentPost (String authorization, InlineDocumentWithPaymentPaid inlineDocumentWithPaymentPaid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = inlineDocumentWithPaymentPaid;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling purchasesInlineWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling purchasesInlineWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesInlineWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesInlineWithPaymentPost"));
+    // verify the required parameter 'inlineDocumentWithPaymentPaid' is set
+    if (inlineDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'inlineDocumentWithPaymentPaid' when calling purchasesInlineWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'inlineDocumentWithPaymentPaid' when calling purchasesInlineWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1471,20 +1471,20 @@ public class ReceivingInventoryApi {
       /**
    * Create receiving inventory document with discount and tax inline with payment.
    * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param inlineDocumentWithPaymentPaid 
   */
-  public void purchasesInlineWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void purchasesInlineWithPaymentPost (String authorization, InlineDocumentWithPaymentPaid inlineDocumentWithPaymentPaid, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = inlineDocumentWithPaymentPaid;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling purchasesInlineWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling purchasesInlineWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesInlineWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesInlineWithPaymentPost"));
+    // verify the required parameter 'inlineDocumentWithPaymentPaid' is set
+    if (inlineDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'inlineDocumentWithPaymentPaid' when calling purchasesInlineWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'inlineDocumentWithPaymentPaid' when calling purchasesInlineWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1825,20 +1825,20 @@ public class ReceivingInventoryApi {
   * Create receiving inventory document with payment.
   * สร้างเอกสารใบรับสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param simpleDocumentWithPaymentPaid 
    * @return SimpleDocumentResponse
   */
-  public SimpleDocumentResponse purchasesWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public SimpleDocumentResponse purchasesWithPaymentPost (String authorization, SimpleDocumentWithPaymentPaid simpleDocumentWithPaymentPaid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = simpleDocumentWithPaymentPaid;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling purchasesWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling purchasesWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesWithPaymentPost"));
+    // verify the required parameter 'simpleDocumentWithPaymentPaid' is set
+    if (simpleDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'simpleDocumentWithPaymentPaid' when calling purchasesWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'simpleDocumentWithPaymentPaid' when calling purchasesWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1894,20 +1894,20 @@ public class ReceivingInventoryApi {
       /**
    * Create receiving inventory document with payment.
    * สร้างเอกสารใบรับสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param simpleDocumentWithPaymentPaid 
   */
-  public void purchasesWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<SimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void purchasesWithPaymentPost (String authorization, SimpleDocumentWithPaymentPaid simpleDocumentWithPaymentPaid, final Response.Listener<SimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = simpleDocumentWithPaymentPaid;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling purchasesWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling purchasesWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling purchasesWithPaymentPost"));
+    // verify the required parameter 'simpleDocumentWithPaymentPaid' is set
+    if (simpleDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'simpleDocumentWithPaymentPaid' when calling purchasesWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'simpleDocumentWithPaymentPaid' when calling purchasesWithPaymentPost"));
     }
 
     // create path and map variables

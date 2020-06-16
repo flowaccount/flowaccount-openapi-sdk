@@ -5,8 +5,8 @@ export declare class UpdateInlineDocument extends UpdateDocument {
     'discountType'?: number;
     'useInlineDiscount'?: boolean;
     'useInlineVat'?: boolean;
-    'exemptAmount'?: number;
-    'vatableAmount'?: number;
+    'exemptAmount'?: number | null;
+    'vatableAmount'?: number | null;
     'items'?: Array<InlineProductItem>;
     'documentReference'?: Array<UpgradeDocument>;
     static discriminator: string | undefined;

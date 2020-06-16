@@ -1,11 +1,13 @@
 export declare class Product {
-    'type': number;
+    'id'?: string;
+    'type'?: number;
     'code'?: string;
-    'name': string;
+    'name'?: string;
     'sellDescription'?: string;
     'sellPrice'?: number;
     'sellVatType'?: number;
     'unitName'?: string;
+    'categoryId'?: number;
     'categoryName'?: string;
     'barcode'?: string;
     'buyDescription'?: string;
@@ -13,7 +15,10 @@ export declare class Product {
     'buyVatType'?: number;
     'inventoryPublishedOn'?: string;
     'inventoryQuantity'?: number;
-    'inventoryPrice'?: number;
+    'averageBuyPrice'?: number;
+    'averageSellPrice'?: number;
+    'remainingStock'?: number;
+    'totalValueInHand'?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

@@ -1,4 +1,5 @@
 export declare class Contact {
+    'id'?: number;
     'contactGroup': number;
     'contactType': number;
     'contactName': string;

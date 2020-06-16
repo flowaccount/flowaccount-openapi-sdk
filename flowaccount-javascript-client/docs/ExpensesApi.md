@@ -161,7 +161,7 @@ No authorization required
 
 ## expensesGet
 
-> ExpenseInlineDocumentResponse expensesGet(currentPage, pageSize, authorization, opts)
+> AllExpenseDocumentResponse expensesGet(currentPage, pageSize, authorization, opts)
 
 Get list all expenses documents.
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+[**AllExpenseDocumentResponse**](AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ No authorization required
 
 ## expensesIdPaymentPost
 
-> ExpenseSimpleDocumentResponse expensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> ExpenseSimpleDocumentResponse expensesIdPaymentPost(authorization, id, paymentPaidDocument)
 
 Change paid status of expenses document.
 
@@ -375,8 +375,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 let apiInstance = new FlowAccountOpenApi.ExpensesApi();
 let authorization = "'Bearer accessToken'"; // String | 
 let id = "id_example"; // String | ID เอกสารใช้ recordId หรือ documentId
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.expensesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let paymentPaidDocument = new FlowAccountOpenApi.PaymentPaidDocument(); // PaymentPaidDocument | 
+apiInstance.expensesIdPaymentPost(authorization, id, paymentPaidDocument, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentPaidDocument** | [**PaymentPaidDocument**](PaymentPaidDocument.md)|  | 
 
 ### Return type
 
@@ -555,7 +555,7 @@ No authorization required
 
 ## expensesInlineWithPaymentPost
 
-> ExpenseInlineDocumentResponse expensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> ExpenseInlineDocumentResponse expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid)
 
 Create expenses document with discount and tax inline with payment.
 
@@ -568,8 +568,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ExpensesApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.expensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let expenseInlineDocumentWithPaymentPaid = new FlowAccountOpenApi.ExpenseInlineDocumentWithPaymentPaid(); // ExpenseInlineDocumentWithPaymentPaid | 
+apiInstance.expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -584,7 +584,7 @@ apiInstance.expensesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (err
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **expenseInlineDocumentWithPaymentPaid** | [**ExpenseInlineDocumentWithPaymentPaid**](ExpenseInlineDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 
@@ -696,7 +696,7 @@ No authorization required
 
 ## expensesWithPaymentPost
 
-> ExpenseSimpleDocumentResponse expensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> ExpenseSimpleDocumentResponse expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid)
 
 Create expenses document with-payment.
 
@@ -709,8 +709,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ExpensesApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.expensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let expenseSimpleDocumentWithPaymentPaid = new FlowAccountOpenApi.ExpenseSimpleDocumentWithPaymentPaid(); // ExpenseSimpleDocumentWithPaymentPaid | 
+apiInstance.expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -725,7 +725,7 @@ apiInstance.expensesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, da
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **expenseSimpleDocumentWithPaymentPaid** | [**ExpenseSimpleDocumentWithPaymentPaid**](ExpenseSimpleDocumentWithPaymentPaid.md)|  | 
 
 ### Return type
 

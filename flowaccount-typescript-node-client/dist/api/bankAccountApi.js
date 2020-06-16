@@ -18,11 +18,12 @@ var BankAccountApiApiKeys;
 class BankAccountApi {
     constructor(basePathOrUsername, password, basePath) {
         this._basePath = defaultBasePath;
-        this.defaultHeaders = {};
+        this._defaultHeaders = {};
         this._useQuerystring = false;
         this.authentications = {
             'default': new models_1.VoidAuth(),
         };
+        this.interceptors = [];
         if (password) {
             if (basePath) {
                 this.basePath = basePath;
@@ -40,6 +41,12 @@ class BankAccountApi {
     set basePath(basePath) {
         this._basePath = basePath;
     }
+    set defaultHeaders(defaultHeaders) {
+        this._defaultHeaders = defaultHeaders;
+    }
+    get defaultHeaders() {
+        return this._defaultHeaders;
+    }
     get basePath() {
         return this._basePath;
     }
@@ -49,11 +56,14 @@ class BankAccountApi {
     setApiKey(key, value) {
         this.authentications[BankAccountApiApiKeys[key]].apiKey = value;
     }
+    addInterceptor(interceptor) {
+        this.interceptors.push(interceptor);
+    }
     bankAccountsGet(authorization, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/bank-accounts';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -78,7 +88,11 @@ class BankAccountApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -93,7 +107,7 @@ class BankAccountApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "BankAccountResponse");
+                            body = models_1.ObjectSerializer.deserialize(body, "AllBankAccountResponse");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -110,7 +124,7 @@ class BankAccountApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/bank-accounts';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -139,7 +153,11 @@ class BankAccountApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;

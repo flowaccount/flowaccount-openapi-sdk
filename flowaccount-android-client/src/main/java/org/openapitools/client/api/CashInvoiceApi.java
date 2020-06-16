@@ -23,21 +23,21 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.openapitools.client.model.AllDocumentResponse;
 import org.openapitools.client.model.AttachmentResponse;
 import org.openapitools.client.model.DeleteResponse;
 import java.io.File;
 import org.openapitools.client.model.InlineDocument;
 import org.openapitools.client.model.InlineDocumentResponse;
-import org.openapitools.client.model.OneOfInlineDocumentWithPaymentReceivingCashInlineDocumentWithPaymentReceivingTransferInlineDocumentWithPaymentReceivingChequeInlineDocumentWithPaymentReceivingCreditCard;
-import org.openapitools.client.model.OneOfPaymentReceivingCashPaymentReceivingTransferPaymentReceivingChequePaymentReceivingCreditCard;
-import org.openapitools.client.model.OneOfSimpleDocumentWithPaymentReceivingCashSimpleDocumentWithPaymentReceivingTransferSimpleDocumentWithPaymentReceivingChequeSimpleDocumentWithPaymentReceivingCreditCard;
+import org.openapitools.client.model.InlineDocumentWithPaymentReceiving;
+import org.openapitools.client.model.PaymentReceivingDocument;
 import org.openapitools.client.model.SendEmailCoppies;
 import org.openapitools.client.model.SendEmailResponse;
 import org.openapitools.client.model.ShareDocument;
 import org.openapitools.client.model.ShareDocumentResponse;
 import org.openapitools.client.model.SimpleDocument;
 import org.openapitools.client.model.SimpleDocumentResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
+import org.openapitools.client.model.SimpleDocumentWithPaymentReceiving;
 import org.openapitools.client.model.UpdateInlineDocument;
 
 import org.apache.http.HttpEntity;
@@ -219,9 +219,9 @@ public class CashInvoiceApi {
    * @param authorization 
    * @param sortBy Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
    * @param filter 
-   * @return InlineDocumentResponse
+   * @return AllDocumentResponse
   */
-  public InlineDocumentResponse cashInvoicesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AllDocumentResponse cashInvoicesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'currentPage' is set
     if (currentPage == null) {
@@ -271,7 +271,7 @@ public class CashInvoiceApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (InlineDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", InlineDocumentResponse.class);
+         return (AllDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", AllDocumentResponse.class);
       } else {
          return null;
       }
@@ -297,7 +297,7 @@ public class CashInvoiceApi {
    * เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
    * @param currentPage Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter 
   */
-  public void cashInvoicesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void cashInvoicesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<AllDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'currentPage' is set
@@ -357,7 +357,7 @@ public class CashInvoiceApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((InlineDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", InlineDocumentResponse.class));
+              responseListener.onResponse((AllDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", AllDocumentResponse.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -807,11 +807,11 @@ public class CashInvoiceApi {
   * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
    * @param authorization 
    * @param id ID เอกสารใช้ recordId หรือ documentId
-   * @param UNKNOWN_BASE_TYPE 
+   * @param paymentReceivingDocument 
    * @return InlineDocumentResponse
   */
-  public InlineDocumentResponse cashInvoicesIdPaymentPost (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public InlineDocumentResponse cashInvoicesIdPaymentPost (String authorization, String id, PaymentReceivingDocument paymentReceivingDocument) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = paymentReceivingDocument;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling cashInvoicesIdPaymentPost",
@@ -822,10 +822,10 @@ public class CashInvoiceApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling cashInvoicesIdPaymentPost",
         new ApiException(400, "Missing the required parameter 'id' when calling cashInvoicesIdPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesIdPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesIdPaymentPost"));
+    // verify the required parameter 'paymentReceivingDocument' is set
+    if (paymentReceivingDocument == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'paymentReceivingDocument' when calling cashInvoicesIdPaymentPost",
+        new ApiException(400, "Missing the required parameter 'paymentReceivingDocument' when calling cashInvoicesIdPaymentPost"));
     }
 
     // create path and map variables
@@ -881,10 +881,10 @@ public class CashInvoiceApi {
       /**
    * Change paid status of cash invoices document.
    * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
-   * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param paymentReceivingDocument 
   */
-  public void cashInvoicesIdPaymentPost (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void cashInvoicesIdPaymentPost (String authorization, String id, PaymentReceivingDocument paymentReceivingDocument, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = paymentReceivingDocument;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
@@ -896,10 +896,10 @@ public class CashInvoiceApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling cashInvoicesIdPaymentPost",
         new ApiException(400, "Missing the required parameter 'id' when calling cashInvoicesIdPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesIdPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesIdPaymentPost"));
+    // verify the required parameter 'paymentReceivingDocument' is set
+    if (paymentReceivingDocument == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'paymentReceivingDocument' when calling cashInvoicesIdPaymentPost",
+        new ApiException(400, "Missing the required parameter 'paymentReceivingDocument' when calling cashInvoicesIdPaymentPost"));
     }
 
     // create path and map variables
@@ -1402,20 +1402,20 @@ public class CashInvoiceApi {
   * Create cash invoices document with discount and tax inline with payment.
   * สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param inlineDocumentWithPaymentReceiving 
    * @return InlineDocumentResponse
   */
-  public InlineDocumentResponse cashInvoicesInlineWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public InlineDocumentResponse cashInvoicesInlineWithPaymentPost (String authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = inlineDocumentWithPaymentReceiving;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling cashInvoicesInlineWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling cashInvoicesInlineWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesInlineWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesInlineWithPaymentPost"));
+    // verify the required parameter 'inlineDocumentWithPaymentReceiving' is set
+    if (inlineDocumentWithPaymentReceiving == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'inlineDocumentWithPaymentReceiving' when calling cashInvoicesInlineWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'inlineDocumentWithPaymentReceiving' when calling cashInvoicesInlineWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1471,20 +1471,20 @@ public class CashInvoiceApi {
       /**
    * Create cash invoices document with discount and tax inline with payment.
    * สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param inlineDocumentWithPaymentReceiving 
   */
-  public void cashInvoicesInlineWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void cashInvoicesInlineWithPaymentPost (String authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving, final Response.Listener<InlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = inlineDocumentWithPaymentReceiving;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling cashInvoicesInlineWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling cashInvoicesInlineWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesInlineWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesInlineWithPaymentPost"));
+    // verify the required parameter 'inlineDocumentWithPaymentReceiving' is set
+    if (inlineDocumentWithPaymentReceiving == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'inlineDocumentWithPaymentReceiving' when calling cashInvoicesInlineWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'inlineDocumentWithPaymentReceiving' when calling cashInvoicesInlineWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1825,20 +1825,20 @@ public class CashInvoiceApi {
   * Create cash invoices document with payment.
   * สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param simpleDocumentWithPaymentReceiving 
    * @return SimpleDocumentResponse
   */
-  public SimpleDocumentResponse cashInvoicesWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public SimpleDocumentResponse cashInvoicesWithPaymentPost (String authorization, SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = simpleDocumentWithPaymentReceiving;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling cashInvoicesWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling cashInvoicesWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesWithPaymentPost"));
+    // verify the required parameter 'simpleDocumentWithPaymentReceiving' is set
+    if (simpleDocumentWithPaymentReceiving == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'simpleDocumentWithPaymentReceiving' when calling cashInvoicesWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'simpleDocumentWithPaymentReceiving' when calling cashInvoicesWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1894,20 +1894,20 @@ public class CashInvoiceApi {
       /**
    * Create cash invoices document with payment.
    * สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) พร้อมเก็บเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param simpleDocumentWithPaymentReceiving 
   */
-  public void cashInvoicesWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<SimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void cashInvoicesWithPaymentPost (String authorization, SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving, final Response.Listener<SimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = simpleDocumentWithPaymentReceiving;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling cashInvoicesWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling cashInvoicesWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling cashInvoicesWithPaymentPost"));
+    // verify the required parameter 'simpleDocumentWithPaymentReceiving' is set
+    if (simpleDocumentWithPaymentReceiving == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'simpleDocumentWithPaymentReceiving' when calling cashInvoicesWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'simpleDocumentWithPaymentReceiving' when calling cashInvoicesWithPaymentPost"));
     }
 
     // create path and map variables

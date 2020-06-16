@@ -1,5 +1,6 @@
 import { ExpenseInlineProductItem } from './expenseInlineProductItem';
-import { PaymentDocumentResponse } from './paymentDocumentResponse';
+import { SimpleDocumentResponseAllOfDataCompany } from './simpleDocumentResponseAllOfDataCompany';
+import { SimpleDocumentResponseAllOfDataPayments } from './simpleDocumentResponseAllOfDataPayments';
 export declare class ExpenseInlineDocumentResponseAllOfData {
     'recordId'?: number;
     'documentId'?: number;
@@ -36,10 +37,10 @@ export declare class ExpenseInlineDocumentResponseAllOfData {
     'discountType'?: number;
     'useInlineDiscount'?: boolean;
     'useInlineVat'?: boolean;
-    'exemptAmount'?: number;
-    'vatableAmount'?: number;
-    'payments'?: Array<PaymentDocumentResponse>;
-    'company'?: Array<object>;
+    'exemptAmount'?: number | null;
+    'vatableAmount'?: number | null;
+    'payments'?: SimpleDocumentResponseAllOfDataPayments;
+    'company'?: SimpleDocumentResponseAllOfDataCompany;
     'status'?: number;
     'statusString'?: number;
     'documentType'?: number;

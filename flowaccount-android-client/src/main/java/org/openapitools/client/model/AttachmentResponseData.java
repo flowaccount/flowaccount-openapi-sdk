@@ -12,6 +12,7 @@
 
 package org.openapitools.client.model;
 
+import org.openapitools.client.model.OasAnyTypeNotMapped;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -21,7 +22,7 @@ public class AttachmentResponseData {
   @SerializedName("attachmentId")
   private Long attachmentId = null;
   @SerializedName("createdOn")
-  private Object createdOn = null;
+  private OasAnyTypeNotMapped createdOn = null;
   @SerializedName("attachmentName")
   private String attachmentName = null;
   @SerializedName("orderNumber")
@@ -46,10 +47,10 @@ public class AttachmentResponseData {
    * วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
    **/
   @ApiModelProperty(value = "วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>")
-  public Object getCreatedOn() {
+  public OasAnyTypeNotMapped getCreatedOn() {
     return createdOn;
   }
-  public void setCreatedOn(Object createdOn) {
+  public void setCreatedOn(OasAnyTypeNotMapped createdOn) {
     this.createdOn = createdOn;
   }
 

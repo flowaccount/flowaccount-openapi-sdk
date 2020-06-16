@@ -69,7 +69,7 @@ No authorization required
 
 ## receiptsGet
 
-> InlineDocumentResponse receiptsGet(currentPage, pageSize, authorization, opts)
+> AllDocumentResponse receiptsGet(currentPage, pageSize, authorization, opts)
 
 Get list all receipt documents
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ReceiptApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let id = "id_example"; // String | 
+let id = "id_example"; // String | ID เอกสารใช้ recordId
 apiInstance.receiptsIdGet(authorization, id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -251,7 +251,7 @@ apiInstance.receiptsIdGet(authorization, id, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **id** | **String**|  | 
+ **id** | **String**| ID เอกสารใช้ recordId | 
 
 ### Return type
 
@@ -269,7 +269,7 @@ No authorization required
 
 ## receiptsIdPaymentPost
 
-> InlineDocumentResponse receiptsIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse receiptsIdPaymentPost(authorization, id, paymentReceivingDocument)
 
 Change paid status of receipt document.
 
@@ -283,8 +283,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 let apiInstance = new FlowAccountOpenApi.ReceiptApi();
 let authorization = "'Bearer accessToken'"; // String | 
 let id = "id_example"; // String | ID เอกสารใช้ recordId หรือ documentId
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.receiptsIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let paymentReceivingDocument = new FlowAccountOpenApi.PaymentReceivingDocument(); // PaymentReceivingDocument | 
+apiInstance.receiptsIdPaymentPost(authorization, id, paymentReceivingDocument, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -463,7 +463,7 @@ No authorization required
 
 ## receiptsInlineWithPaymentPost
 
-> InlineDocumentResponse receiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse receiptsInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving)
 
 Create receipt document with discount and tax inline with payment.
 
@@ -476,8 +476,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ReceiptApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.receiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let inlineDocumentWithPaymentReceiving = new FlowAccountOpenApi.InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
+apiInstance.receiptsInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -492,7 +492,7 @@ apiInstance.receiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (err
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -604,7 +604,7 @@ No authorization required
 
 ## receiptsWithPaymentPost
 
-> SimpleDocumentResponse receiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse receiptsWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving)
 
 Create receipt document with payment.
 
@@ -617,8 +617,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.ReceiptApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.receiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let simpleDocumentWithPaymentReceiving = new FlowAccountOpenApi.SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
+apiInstance.receiptsWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -633,7 +633,7 @@ apiInstance.receiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, da
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

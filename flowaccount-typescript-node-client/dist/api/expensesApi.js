@@ -18,11 +18,12 @@ var ExpensesApiApiKeys;
 class ExpensesApi {
     constructor(basePathOrUsername, password, basePath) {
         this._basePath = defaultBasePath;
-        this.defaultHeaders = {};
+        this._defaultHeaders = {};
         this._useQuerystring = false;
         this.authentications = {
             'default': new models_1.VoidAuth(),
         };
+        this.interceptors = [];
         if (password) {
             if (basePath) {
                 this.basePath = basePath;
@@ -40,6 +41,12 @@ class ExpensesApi {
     set basePath(basePath) {
         this._basePath = basePath;
     }
+    set defaultHeaders(defaultHeaders) {
+        this._defaultHeaders = defaultHeaders;
+    }
+    get defaultHeaders() {
+        return this._defaultHeaders;
+    }
     get basePath() {
         return this._basePath;
     }
@@ -49,11 +56,14 @@ class ExpensesApi {
     setApiKey(key, value) {
         this.authentications[ExpensesApiApiKeys[key]].apiKey = value;
     }
+    addInterceptor(interceptor) {
+        this.interceptors.push(interceptor);
+    }
     expensesCategoriesAccountingGet(authorization, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/categories/accounting';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -78,7 +88,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -110,7 +124,7 @@ class ExpensesApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/categories/business';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -135,7 +149,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -167,7 +185,7 @@ class ExpensesApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/email-document';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -196,7 +214,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -228,7 +250,7 @@ class ExpensesApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -271,7 +293,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -286,7 +312,7 @@ class ExpensesApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "ExpenseInlineDocumentResponse");
+                            body = models_1.ObjectSerializer.deserialize(body, "AllExpenseDocumentResponse");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -304,7 +330,7 @@ class ExpensesApi {
             const localVarPath = this.basePath + '/expenses/{id}/attachment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -336,7 +362,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -369,7 +399,7 @@ class ExpensesApi {
             const localVarPath = this.basePath + '/expenses/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -397,7 +427,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -430,7 +464,7 @@ class ExpensesApi {
             const localVarPath = this.basePath + '/expenses/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -458,7 +492,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -486,12 +524,12 @@ class ExpensesApi {
             });
         });
     }
-    expensesIdPaymentPost(authorization, id, paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard, options = { headers: {} }) {
+    expensesIdPaymentPost(authorization, id, paymentPaidDocument, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/{id}/payment'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -506,8 +544,8 @@ class ExpensesApi {
             if (id === null || id === undefined) {
                 throw new Error('Required parameter id was null or undefined when calling expensesIdPaymentPost.');
             }
-            if (paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard === null || paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard === undefined) {
-                throw new Error('Required parameter paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard was null or undefined when calling expensesIdPaymentPost.');
+            if (paymentPaidDocument === null || paymentPaidDocument === undefined) {
+                throw new Error('Required parameter paymentPaidDocument was null or undefined when calling expensesIdPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -519,11 +557,15 @@ class ExpensesApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(paymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard, "PaymentPaidCash | PaymentPaidTransfer | PaymentPaidCheque | PaymentPaidCreditCard")
+                body: models_1.ObjectSerializer.serialize(paymentPaidDocument, "PaymentPaidDocument")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -556,7 +598,7 @@ class ExpensesApi {
             const localVarPath = this.basePath + '/expenses/{id}'
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -588,7 +630,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -622,7 +668,7 @@ class ExpensesApi {
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)))
                 .replace('{' + 'statusId' + '}', encodeURIComponent(String(statusId)));
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -653,7 +699,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -685,7 +735,7 @@ class ExpensesApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/inline';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -714,7 +764,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -742,11 +796,11 @@ class ExpensesApi {
             });
         });
     }
-    expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard, options = { headers: {} }) {
+    expensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/inline/with-payment';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -758,8 +812,8 @@ class ExpensesApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling expensesInlineWithPaymentPost.');
             }
-            if (expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard === null || expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard === undefined) {
-                throw new Error('Required parameter expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard was null or undefined when calling expensesInlineWithPaymentPost.');
+            if (expenseInlineDocumentWithPaymentPaid === null || expenseInlineDocumentWithPaymentPaid === undefined) {
+                throw new Error('Required parameter expenseInlineDocumentWithPaymentPaid was null or undefined when calling expensesInlineWithPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -771,11 +825,15 @@ class ExpensesApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(expenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard, "ExpenseInlineDocumentWithPaymentPaidCash | ExpenseInlineDocumentWithPaymentPaidTransfer | ExpenseInlineDocumentWithPaymentPaidCheque | ExpenseInlineDocumentWithPaymentPaidCreditCard")
+                body: models_1.ObjectSerializer.serialize(expenseInlineDocumentWithPaymentPaid, "ExpenseInlineDocumentWithPaymentPaid")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -807,7 +865,7 @@ class ExpensesApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -836,7 +894,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -868,7 +930,7 @@ class ExpensesApi {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/sharedocument';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -897,7 +959,11 @@ class ExpensesApi {
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;
@@ -925,11 +991,11 @@ class ExpensesApi {
             });
         });
     }
-    expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard, options = { headers: {} }) {
+    expensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/expenses/with-payment';
             let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this.defaultHeaders);
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
             if (produces.indexOf('application/json') >= 0) {
                 localVarHeaderParams.Accept = 'application/json';
@@ -941,8 +1007,8 @@ class ExpensesApi {
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling expensesWithPaymentPost.');
             }
-            if (expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard === null || expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard === undefined) {
-                throw new Error('Required parameter expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard was null or undefined when calling expensesWithPaymentPost.');
+            if (expenseSimpleDocumentWithPaymentPaid === null || expenseSimpleDocumentWithPaymentPaid === undefined) {
+                throw new Error('Required parameter expenseSimpleDocumentWithPaymentPaid was null or undefined when calling expensesWithPaymentPost.');
             }
             localVarHeaderParams['Authorization'] = models_1.ObjectSerializer.serialize(authorization, "string");
             Object.assign(localVarHeaderParams, options.headers);
@@ -954,11 +1020,15 @@ class ExpensesApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(expenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard, "ExpenseSimpleDocumentWithPaymentPaidCash | ExpenseSimpleDocumentWithPaymentPaidTransfer | ExpenseSimpleDocumentWithPaymentPaidCheque | ExpenseSimpleDocumentWithPaymentPaidCreditCard")
+                body: models_1.ObjectSerializer.serialize(expenseSimpleDocumentWithPaymentPaid, "ExpenseSimpleDocumentWithPaymentPaid")
             };
             let authenticationPromise = Promise.resolve();
             authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            return authenticationPromise.then(() => {
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
                 if (Object.keys(localVarFormParams).length) {
                     if (localVarUseFormData) {
                         localVarRequestOptions.formData = localVarFormParams;

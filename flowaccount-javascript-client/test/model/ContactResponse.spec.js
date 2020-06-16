@@ -54,134 +54,26 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.ContactResponse);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
       //var instane = new FlowAccountOpenApi.ContactResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property contactGroup (base name: "contactGroup")', function() {
-      // uncomment below and update the code to test the property contactGroup
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
       //var instane = new FlowAccountOpenApi.ContactResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property contactType (base name: "contactType")', function() {
-      // uncomment below and update the code to test the property contactType
+    it('should have the property code (base name: "code")', function() {
+      // uncomment below and update the code to test the property code
       //var instane = new FlowAccountOpenApi.ContactResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property contactName (base name: "contactName")', function() {
-      // uncomment below and update the code to test the property contactName
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactAddress (base name: "contactAddress")', function() {
-      // uncomment below and update the code to test the property contactAddress
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactZipCode (base name: "contactZipCode")', function() {
-      // uncomment below and update the code to test the property contactZipCode
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactTaxId (base name: "contactTaxId")', function() {
-      // uncomment below and update the code to test the property contactTaxId
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactBranchCode (base name: "contactBranchCode")', function() {
-      // uncomment below and update the code to test the property contactBranchCode
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactBranch (base name: "contactBranch")', function() {
-      // uncomment below and update the code to test the property contactBranch
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactPerson (base name: "contactPerson")', function() {
-      // uncomment below and update the code to test the property contactPerson
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactEmail (base name: "contactEmail")', function() {
-      // uncomment below and update the code to test the property contactEmail
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactMobile (base name: "contactMobile")', function() {
-      // uncomment below and update the code to test the property contactMobile
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactBankId (base name: "contactBankId")', function() {
-      // uncomment below and update the code to test the property contactBankId
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactBankAccountNumber (base name: "contactBankAccountNumber")', function() {
-      // uncomment below and update the code to test the property contactBankAccountNumber
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactBankBranch (base name: "contactBankBranch")', function() {
-      // uncomment below and update the code to test the property contactBankBranch
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactBankAccountType (base name: "contactBankAccountType")', function() {
-      // uncomment below and update the code to test the property contactBankAccountType
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactCreditDays (base name: "contactCreditDays")', function() {
-      // uncomment below and update the code to test the property contactCreditDays
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactOffice (base name: "contactOffice")', function() {
-      // uncomment below and update the code to test the property contactOffice
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactFax (base name: "contactFax")', function() {
-      // uncomment below and update the code to test the property contactFax
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactWebsite (base name: "contactWebsite")', function() {
-      // uncomment below and update the code to test the property contactWebsite
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property conatactShippingAddress (base name: "conatactShippingAddress")', function() {
-      // uncomment below and update the code to test the property conatactShippingAddress
-      //var instane = new FlowAccountOpenApi.ContactResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactNote (base name: "contactNote")', function() {
-      // uncomment below and update the code to test the property contactNote
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
       //var instane = new FlowAccountOpenApi.ContactResponse();
       //expect(instance).to.be();
     });

@@ -70,7 +70,7 @@ No authorization required
 
 ## receiptsGet
 
-> InlineDocumentResponse receiptsGet(currentPage, pageSize, authorization, sortBy, filter)
+> AllDocumentResponse receiptsGet(currentPage, pageSize, authorization, sortBy, filter)
 
 Get list all receipt documents
 
@@ -89,7 +89,7 @@ String authorization = Bearer accessToken; // String |
 String sortBy = null; // String | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
 String filter = null; // String | 
 try {
-    InlineDocumentResponse result = apiInstance.receiptsGet(currentPage, pageSize, authorization, sortBy, filter);
+    AllDocumentResponse result = apiInstance.receiptsGet(currentPage, pageSize, authorization, sortBy, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceiptApi#receiptsGet");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Get receipt document.
 
 ReceiptApi apiInstance = new ReceiptApi();
 String authorization = Bearer accessToken; // String | 
-String id = null; // String | 
+String id = null; // String | ID เอกสารใช้ recordId
 try {
     InlineDocumentResponse result = apiInstance.receiptsIdGet(authorization, id);
     System.out.println(result);
@@ -252,7 +252,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **id** | **String**|  | [default to null]
+ **id** | **String**| ID เอกสารใช้ recordId | [default to null]
 
 ### Return type
 
@@ -270,7 +270,7 @@ No authorization required
 
 ## receiptsIdPaymentPost
 
-> InlineDocumentResponse receiptsIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse receiptsIdPaymentPost(authorization, id, paymentReceivingDocument)
 
 Change paid status of receipt document.
 
@@ -285,9 +285,9 @@ Change paid status of receipt document.
 ReceiptApi apiInstance = new ReceiptApi();
 String authorization = Bearer accessToken; // String | 
 String id = null; // String | ID เอกสารใช้ recordId หรือ documentId
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+PaymentReceivingDocument paymentReceivingDocument = new PaymentReceivingDocument(); // PaymentReceivingDocument | 
 try {
-    InlineDocumentResponse result = apiInstance.receiptsIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.receiptsIdPaymentPost(authorization, id, paymentReceivingDocument);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceiptApi#receiptsIdPaymentPost");
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  |
 
 ### Return type
 
@@ -468,7 +468,7 @@ No authorization required
 
 ## receiptsInlineWithPaymentPost
 
-> InlineDocumentResponse receiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse receiptsInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving)
 
 Create receipt document with discount and tax inline with payment.
 
@@ -482,9 +482,9 @@ Create receipt document with discount and tax inline with payment.
 
 ReceiptApi apiInstance = new ReceiptApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving = new InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
 try {
-    InlineDocumentResponse result = apiInstance.receiptsInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    InlineDocumentResponse result = apiInstance.receiptsInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceiptApi#receiptsInlineWithPaymentPost");
@@ -498,7 +498,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ No authorization required
 
 ## receiptsWithPaymentPost
 
-> SimpleDocumentResponse receiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse receiptsWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving)
 
 Create receipt document with payment.
 
@@ -626,9 +626,9 @@ Create receipt document with payment.
 
 ReceiptApi apiInstance = new ReceiptApi();
 String authorization = Bearer accessToken; // String | 
-UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving = new SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
 try {
-    SimpleDocumentResponse result = apiInstance.receiptsWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+    SimpleDocumentResponse result = apiInstance.receiptsWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReceiptApi#receiptsWithPaymentPost");
@@ -642,7 +642,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to Bearer accessToken]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  |
 
 ### Return type
 

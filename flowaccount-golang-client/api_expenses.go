@@ -15,7 +15,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"fmt"
 	"strings"
 	"github.com/antihax/optional"
 	"os"
@@ -48,7 +47,6 @@ func (a *ExpensesApiService) ExpensesCategoriesAccountingGet(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/categories/accounting"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -91,16 +89,6 @@ func (a *ExpensesApiService) ExpensesCategoriesAccountingGet(ctx _context.Contex
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v BusinessCategory
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -136,7 +124,6 @@ func (a *ExpensesApiService) ExpensesCategoriesBusinessGet(ctx _context.Context,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/categories/business"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -179,16 +166,6 @@ func (a *ExpensesApiService) ExpensesCategoriesBusinessGet(ctx _context.Context,
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v BusinessCategory
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -225,7 +202,6 @@ func (a *ExpensesApiService) ExpensesEmailDocumentPost(ctx _context.Context, aut
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/email-document"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -271,16 +247,6 @@ func (a *ExpensesApiService) ExpensesEmailDocumentPost(ctx _context.Context, aut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SendEmailResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -312,21 +278,20 @@ ExpensesGet Get list all expenses documents.
  * @param optional nil or *ExpensesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
  * @param "Filter" (optional.String) - 
-@return ExpenseInlineDocumentResponse
+@return AllExpenseDocumentResponse
 */
-func (a *ExpensesApiService) ExpensesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *ExpensesGetOpts) (ExpenseInlineDocumentResponse, *_nethttp.Response, error) {
+func (a *ExpensesApiService) ExpensesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *ExpensesGetOpts) (AllExpenseDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ExpenseInlineDocumentResponse
+		localVarReturnValue  AllExpenseDocumentResponse
 	)
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -378,16 +343,6 @@ func (a *ExpensesApiService) ExpensesGet(ctx _context.Context, currentPage int32
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseInlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -430,7 +385,7 @@ func (a *ExpensesApiService) ExpensesIdAttachmentPost(ctx _context.Context, auth
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/{id}/attachment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -490,16 +445,6 @@ func (a *ExpensesApiService) ExpensesIdAttachmentPost(ctx _context.Context, auth
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v AttachmentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -535,7 +480,7 @@ func (a *ExpensesApiService) ExpensesIdDelete(ctx _context.Context, authorizatio
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -579,16 +524,6 @@ func (a *ExpensesApiService) ExpensesIdDelete(ctx _context.Context, authorizatio
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DeleteResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -625,7 +560,7 @@ func (a *ExpensesApiService) ExpensesIdGet(ctx _context.Context, authorization s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -670,16 +605,6 @@ func (a *ExpensesApiService) ExpensesIdGet(ctx _context.Context, authorization s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseInlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -701,10 +626,10 @@ ExpensesIdPaymentPost Change paid status of expenses document.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
  * @param id ID เอกสารใช้ recordId หรือ documentId
- * @param uNKNOWNBASETYPE
+ * @param paymentPaidDocument
 @return ExpenseSimpleDocumentResponse
 */
-func (a *ExpensesApiService) ExpensesIdPaymentPost(ctx _context.Context, authorization string, id string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (ExpenseSimpleDocumentResponse, *_nethttp.Response, error) {
+func (a *ExpensesApiService) ExpensesIdPaymentPost(ctx _context.Context, authorization string, id string, paymentPaidDocument PaymentPaidDocument) (ExpenseSimpleDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -716,7 +641,7 @@ func (a *ExpensesApiService) ExpensesIdPaymentPost(ctx _context.Context, authori
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/{id}/payment"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -741,7 +666,7 @@ func (a *ExpensesApiService) ExpensesIdPaymentPost(ctx _context.Context, authori
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &paymentPaidDocument
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -762,16 +687,6 @@ func (a *ExpensesApiService) ExpensesIdPaymentPost(ctx _context.Context, authori
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseSimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -809,7 +724,7 @@ func (a *ExpensesApiService) ExpensesIdPut(ctx _context.Context, authorization s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -856,16 +771,6 @@ func (a *ExpensesApiService) ExpensesIdPut(ctx _context.Context, authorization s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseInlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -902,8 +807,9 @@ func (a *ExpensesApiService) ExpensesIdStatusStatusIdPost(ctx _context.Context, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/{id}/status/{statusId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", id)), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(fmt.Sprintf("%v", statusId)), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"statusId"+"}", _neturl.QueryEscape(parameterToString(statusId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -948,16 +854,6 @@ func (a *ExpensesApiService) ExpensesIdStatusStatusIdPost(ctx _context.Context, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseInlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -993,7 +889,6 @@ func (a *ExpensesApiService) ExpensesInlinePost(ctx _context.Context, authorizat
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/inline"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1039,16 +934,6 @@ func (a *ExpensesApiService) ExpensesInlinePost(ctx _context.Context, authorizat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseInlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1069,10 +954,10 @@ ExpensesInlineWithPaymentPost Create expenses document with discount and tax inl
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param expenseInlineDocumentWithPaymentPaid
 @return ExpenseInlineDocumentResponse
 */
-func (a *ExpensesApiService) ExpensesInlineWithPaymentPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (ExpenseInlineDocumentResponse, *_nethttp.Response, error) {
+func (a *ExpensesApiService) ExpensesInlineWithPaymentPost(ctx _context.Context, authorization string, expenseInlineDocumentWithPaymentPaid ExpenseInlineDocumentWithPaymentPaid) (ExpenseInlineDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1084,7 +969,6 @@ func (a *ExpensesApiService) ExpensesInlineWithPaymentPost(ctx _context.Context,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/inline/with-payment"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1108,7 +992,7 @@ func (a *ExpensesApiService) ExpensesInlineWithPaymentPost(ctx _context.Context,
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &expenseInlineDocumentWithPaymentPaid
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1129,16 +1013,6 @@ func (a *ExpensesApiService) ExpensesInlineWithPaymentPost(ctx _context.Context,
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseInlineDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1175,7 +1049,6 @@ func (a *ExpensesApiService) ExpensesPost(ctx _context.Context, authorization st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1221,16 +1094,6 @@ func (a *ExpensesApiService) ExpensesPost(ctx _context.Context, authorization st
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseSimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1266,7 +1129,6 @@ func (a *ExpensesApiService) ExpensesSharedocumentPost(ctx _context.Context, aut
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/sharedocument"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1312,16 +1174,6 @@ func (a *ExpensesApiService) ExpensesSharedocumentPost(ctx _context.Context, aut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ShareDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1342,10 +1194,10 @@ ExpensesWithPaymentPost Create expenses document with-payment.
 สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
- * @param uNKNOWNBASETYPE
+ * @param expenseSimpleDocumentWithPaymentPaid
 @return ExpenseSimpleDocumentResponse
 */
-func (a *ExpensesApiService) ExpensesWithPaymentPost(ctx _context.Context, authorization string, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (ExpenseSimpleDocumentResponse, *_nethttp.Response, error) {
+func (a *ExpensesApiService) ExpensesWithPaymentPost(ctx _context.Context, authorization string, expenseSimpleDocumentWithPaymentPaid ExpenseSimpleDocumentWithPaymentPaid) (ExpenseSimpleDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1357,7 +1209,6 @@ func (a *ExpensesApiService) ExpensesWithPaymentPost(ctx _context.Context, autho
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/expenses/with-payment"
-
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1381,7 +1232,7 @@ func (a *ExpensesApiService) ExpensesWithPaymentPost(ctx _context.Context, autho
 	}
 	localVarHeaderParams["Authorization"] = parameterToString(authorization, "")
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &expenseSimpleDocumentWithPaymentPaid
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1402,16 +1253,6 @@ func (a *ExpensesApiService) ExpensesWithPaymentPost(ctx _context.Context, autho
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v ExpenseSimpleDocumentResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

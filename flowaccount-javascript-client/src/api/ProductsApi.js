@@ -14,9 +14,8 @@
 
 import ApiClient from "../ApiClient";
 import DeleteResponse from '../model/DeleteResponse';
-import OneOfProductServiceProductNonInventoryProductInventoryProductInventoryBalance from '../model/OneOfProductServiceProductNonInventoryProductInventoryProductInventoryBalance';
 import ProductResponse from '../model/ProductResponse';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
+import ProductType from '../model/ProductType';
 
 /**
 * Products service.
@@ -205,12 +204,12 @@ export default class ProductsApi {
      * Update products.
      * @param {String} authorization เลข Id Product
      * @param {String} id 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/ProductType} productType 
      * @param {module:api/ProductsApi~productsIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProductResponse}
      */
-    productsIdPut(authorization, id, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    productsIdPut(authorization, id, productType, callback) {
+      let postBody = productType;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling productsIdPut");
@@ -219,9 +218,9 @@ export default class ProductsApi {
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling productsIdPut");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsIdPut");
+      // verify the required parameter 'productType' is set
+      if (productType === undefined || productType === null) {
+        throw new Error("Missing the required parameter 'productType' when calling productsIdPut");
       }
 
       let pathParams = {
@@ -257,19 +256,19 @@ export default class ProductsApi {
     /**
      * Create products.
      * @param {String} authorization 
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/ProductType} productType 
      * @param {module:api/ProductsApi~productsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProductResponse}
      */
-    productsPost(authorization, UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
+    productsPost(authorization, productType, callback) {
+      let postBody = productType;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling productsPost");
       }
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling productsPost");
+      // verify the required parameter 'productType' is set
+      if (productType === undefined || productType === null) {
+        throw new Error("Missing the required parameter 'productType' when calling productsPost");
       }
 
       let pathParams = {

@@ -101,7 +101,7 @@ No authorization required
 
 ## TaxInvoicesGet
 
-> InlineDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
+> AllDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all tax invocie documents.
 
@@ -127,13 +127,13 @@ namespace Example
             var currentPage = 56;  // int | Query current page document tax invoices. <br>Example Pattern: <ex>/tax-invoices?currentPage=1 </ex><ex>/tax-invoices?currentPage=1&pageSize=20</ex>
             var pageSize = 56;  // int | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var sortBy = sortBy_example;  // string |  (optional) 
+            var sortBy = sortBy_example;  // string | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
             var filter = filter_example;  // string |  (optional) 
 
             try
             {
                 // Get list all tax invocie documents.
-                InlineDocumentResponse result = apiInstance.TaxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
+                AllDocumentResponse result = apiInstance.TaxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -155,12 +155,12 @@ Name | Type | Description  | Notes
  **currentPage** | **int**| Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **pageSize** | **int**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **string**|  | [optional] 
+ **sortBy** | **string**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
  **filter** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -425,7 +425,7 @@ No authorization required
 
 ## TaxInvoicesIdPaymentPost
 
-> InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument)
 
 Change paid status of tax-invoice document.
 
@@ -450,12 +450,12 @@ namespace Example
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var paymentReceivingDocument = new PaymentReceivingDocument(); // PaymentReceivingDocument | 
 
             try
             {
                 // Change paid status of tax-invoice document.
-                InlineDocumentResponse result = apiInstance.TaxInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE);
+                InlineDocumentResponse result = apiInstance.TaxInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -747,7 +747,7 @@ No authorization required
 
 ## TaxInvoicesInlineWithPaymentPost
 
-> InlineDocumentResponse TaxInvoicesInlineWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse TaxInvoicesInlineWithPaymentPost (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving)
 
 Create tax invocie document with discount and tax inline with payment.
 
@@ -771,12 +771,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var inlineDocumentWithPaymentReceiving = new InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
 
             try
             {
                 // Create tax invocie document with discount and tax inline with payment.
-                InlineDocumentResponse result = apiInstance.TaxInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                InlineDocumentResponse result = apiInstance.TaxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -796,7 +796,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -984,7 +984,7 @@ No authorization required
 
 ## TaxInvoicesWithPaymentPost
 
-> SimpleDocumentResponse TaxInvoicesWithPaymentPost (string authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse TaxInvoicesWithPaymentPost (string authorization, SimpleDocumentWithPaymentReceiving simpleDocumentWithPaymentReceiving)
 
 Create tax invocie document with payment.
 
@@ -1008,12 +1008,12 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+            var simpleDocumentWithPaymentReceiving = new SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
 
             try
             {
                 // Create tax invocie document with payment.
-                SimpleDocumentResponse result = apiInstance.TaxInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE);
+                SimpleDocumentResponse result = apiInstance.TaxInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1033,7 +1033,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

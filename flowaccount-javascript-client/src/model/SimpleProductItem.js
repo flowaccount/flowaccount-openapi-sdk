@@ -25,15 +25,14 @@ class SimpleProductItem {
      * @alias module:model/SimpleProductItem
      * @extends module:model/ProductItem
      * @implements module:model/ProductItem
-     * @param documentStructureType {String} 
      * @param name {String} ชื่อสินค้า
      * @param quantity {Number} จำนวนสินค้า
      * @param pricePerUnit {Number} ราคาสินค้าต่อหน่วย
      * @param total {Number} ราคารวมสินค้า
      */
-    constructor(documentStructureType, name, quantity, pricePerUnit, total) { 
-        ProductItem.initialize(this, documentStructureType, name, quantity, pricePerUnit, total);
-        SimpleProductItem.initialize(this, documentStructureType, name, quantity, pricePerUnit, total);
+    constructor(name, quantity, pricePerUnit, total) { 
+        ProductItem.initialize(this, name, quantity, pricePerUnit, total);
+        SimpleProductItem.initialize(this, name, quantity, pricePerUnit, total);
     }
 
     /**
@@ -41,7 +40,7 @@ class SimpleProductItem {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, documentStructureType, name, quantity, pricePerUnit, total) { 
+    static initialize(obj, name, quantity, pricePerUnit, total) { 
     }
 
     /**
@@ -66,10 +65,6 @@ class SimpleProductItem {
 
 
 // Implement ProductItem interface:
-/**
- * @member {String} documentStructureType
- */
-ProductItem.prototype['documentStructureType'] = undefined;
 /**
  * ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก (non inventory) <br> 5 = สินค้านับสต๊อก (inventory)
  * @member {Number} type

@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **remarks** | **string** | หมายเหตุเอกสาร | [optional] 
 **internal_notes** | **string** | โน๊ตภายในบริษัท | [optional] 
 **show_signature_or_stamp** | **bool** | ลายเซ็นอิเล็กทรอนิกส์และตรายาง | [optional] [default to true]
-**company** | **object[]** | ข้อมูลบริษัทของคุณในเอกสาร | [optional] 
+**company** | [**\OpenAPI\Client\Model\SimpleDocumentResponseAllOfDataCompany**](SimpleDocumentResponseAllOfDataCompany.md) |  | [optional] 
 **status** | **int** | เลขสถานะเอกสารฉบับนี้ | [optional] 
 **status_string** | **int** | ชื่อสถานะเอกสารฉบับนี้ | [optional] 
 **document_type** | **int** | เลขประเภทเอกสารฉบับนี้ | [optional] 

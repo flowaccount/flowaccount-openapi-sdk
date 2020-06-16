@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## bankAccountsGet
 
-> BankAccountResponse bankAccountsGet(authorization)
+> AllBankAccountResponse bankAccountsGet(authorization)
 
 Get list all My Bank Account
 
@@ -24,7 +24,7 @@ Get list all My Bank Account
 BankAccountApi apiInstance = new BankAccountApi();
 String authorization = Bearer accessToken; // String | 
 try {
-    BankAccountResponse result = apiInstance.bankAccountsGet(authorization);
+    AllBankAccountResponse result = apiInstance.bankAccountsGet(authorization);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BankAccountApi#bankAccountsGet");
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BankAccountResponse**](BankAccountResponse.md)
+[**AllBankAccountResponse**](AllBankAccountResponse.md)
 
 ### Authorization
 

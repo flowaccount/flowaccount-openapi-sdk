@@ -2,7 +2,7 @@ export declare class ExpenseResponse {
     'status'?: boolean;
     'message'?: string;
     'code'?: number;
-    'expenseStructureType'?: string;
+    'expenseStructureType'?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

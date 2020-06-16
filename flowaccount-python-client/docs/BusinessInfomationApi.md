@@ -23,17 +23,25 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BusinessInfomationApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 
-try:
-    # Get business infomation
-    api_response = api_instance.company_info_get(authorization)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BusinessInfomationApi->company_info_get: %s\n" % e)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BusinessInfomationApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+    try:
+        # Get business infomation
+        api_response = api_instance.company_info_get(authorization)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BusinessInfomationApi->company_info_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -79,18 +87,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.BusinessInfomationApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.BusinessInfomationApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 company_info = openapi_client.CompanyInfo() # CompanyInfo | 
 
-try:
-    # Edit business infomation
-    api_response = api_instance.company_info_put(authorization, company_info)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BusinessInfomationApi->company_info_put: %s\n" % e)
+    try:
+        # Edit business infomation
+        api_response = api_instance.company_info_put(authorization, company_info)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BusinessInfomationApi->company_info_put: %s\n" % e)
 ```
 
 ### Parameters

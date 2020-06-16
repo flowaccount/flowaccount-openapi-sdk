@@ -30,18 +30,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 send_email_simple = openapi_client.SendEmailSimple() # SendEmailSimple | 
 
-try:
-    # Send email withholding tax document.
-    api_response = api_instance.withholding_taxes_email_document_post(authorization, send_email_simple)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_email_document_post: %s\n" % e)
+    try:
+        # Send email withholding tax document.
+        api_response = api_instance.withholding_taxes_email_document_post(authorization, send_email_simple)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_email_document_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -74,7 +82,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **withholding_taxes_get**
-> WithholidingTaxDocumentResponse withholding_taxes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+> AllWithholidingTaxDocumentResponse withholding_taxes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
 Get list all withholding tax documents.
 
@@ -88,21 +96,29 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-current_page = 56 # int | Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    current_page = 56 # int | Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
 page_size = 56 # int | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-sort_by = 'sort_by_example' # str |  (optional)
+sort_by = 'sort_by_example' # str | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
 filter = 'filter_example' # str |  (optional)
 
-try:
-    # Get list all withholding tax documents.
-    api_response = api_instance.withholding_taxes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_get: %s\n" % e)
+    try:
+        # Get list all withholding tax documents.
+        api_response = api_instance.withholding_taxes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -112,12 +128,12 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **page_size** | **int**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **str**|  | [optional] 
+ **sort_by** | **str**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
  **filter** | **str**|  | [optional] 
 
 ### Return type
 
-[**WithholidingTaxDocumentResponse**](WithholidingTaxDocumentResponse.md)
+[**AllWithholidingTaxDocumentResponse**](AllWithholidingTaxDocumentResponse.md)
 
 ### Authorization
 
@@ -152,19 +168,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | 
 file = '/path/to/file' # file |  (optional)
 
-try:
-    # Add Attachment to expenses.
-    api_response = api_instance.withholding_taxes_id_attachment_post(authorization, id, file=file)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_id_attachment_post: %s\n" % e)
+    try:
+        # Add Attachment to expenses.
+        api_response = api_instance.withholding_taxes_id_attachment_post(authorization, id, file=file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_id_attachment_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -212,18 +236,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 
-try:
-    # Delete withholding tax document.
-    api_response = api_instance.withholding_taxes_id_delete(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_id_delete: %s\n" % e)
+    try:
+        # Delete withholding tax document.
+        api_response = api_instance.withholding_taxes_id_delete(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_id_delete: %s\n" % e)
 ```
 
 ### Parameters
@@ -270,18 +302,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId หรือ documentId
 
-try:
-    # Get withholding tax document.
-    api_response = api_instance.withholding_taxes_id_get(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_id_get: %s\n" % e)
+    try:
+        # Get withholding tax document.
+        api_response = api_instance.withholding_taxes_id_get(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_id_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -328,19 +368,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 update_withholiding_tax_document = openapi_client.UpdateWithholidingTaxDocument() # UpdateWithholidingTaxDocument | 
 
-try:
-    # Edit withholding tax document.
-    api_response = api_instance.withholding_taxes_id_put(authorization, id, update_withholiding_tax_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_id_put: %s\n" % e)
+    try:
+        # Edit withholding tax document.
+        api_response = api_instance.withholding_taxes_id_put(authorization, id, update_withholiding_tax_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_id_put: %s\n" % e)
 ```
 
 ### Parameters
@@ -388,19 +436,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> processed = ดำเนินการแล้ว <br> void = ยกเลิก
 
-try:
-    # Change status of withholding tax document.
-    api_response = api_instance.withholding_taxes_id_status_status_id_post(authorization, id, status_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_id_status_status_id_post: %s\n" % e)
+    try:
+        # Change status of withholding tax document.
+        api_response = api_instance.withholding_taxes_id_status_status_id_post(authorization, id, status_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_id_status_status_id_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -448,18 +504,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 withholiding_tax_document = openapi_client.WithholidingTaxDocument() # WithholidingTaxDocument | 
 
-try:
-    # Create withholding tax document.
-    api_response = api_instance.withholding_taxes_post(authorization, withholiding_tax_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_post: %s\n" % e)
+    try:
+        # Create withholding tax document.
+        api_response = api_instance.withholding_taxes_post(authorization, withholiding_tax_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -506,18 +570,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.WithholdingTaxApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WithholdingTaxApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 share_document = openapi_client.ShareDocument() # ShareDocument | 
 
-try:
-    # Share link withholding tax documents.
-    api_response = api_instance.withholding_taxes_sharedocument_post(authorization, share_document)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WithholdingTaxApi->withholding_taxes_sharedocument_post: %s\n" % e)
+    try:
+        # Share link withholding tax documents.
+        api_response = api_instance.withholding_taxes_sharedocument_post(authorization, share_document)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WithholdingTaxApi->withholding_taxes_sharedocument_post: %s\n" % e)
 ```
 
 ### Parameters

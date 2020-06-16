@@ -54,122 +54,26 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.ProductResponseData);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property total (base name: "total")', function() {
+      // uncomment below and update the code to test the property total
       //var instane = new FlowAccountOpenApi.ProductResponseData();
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
+    it('should have the property currentPage (base name: "currentPage")', function() {
+      // uncomment below and update the code to test the property currentPage
       //var instane = new FlowAccountOpenApi.ProductResponseData();
       //expect(instance).to.be();
     });
 
-    it('should have the property code (base name: "code")', function() {
-      // uncomment below and update the code to test the property code
+    it('should have the property list (base name: "list")', function() {
+      // uncomment below and update the code to test the property list
       //var instane = new FlowAccountOpenApi.ProductResponseData();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property sellDescription (base name: "sellDescription")', function() {
-      // uncomment below and update the code to test the property sellDescription
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property sellPrice (base name: "sellPrice")', function() {
-      // uncomment below and update the code to test the property sellPrice
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property sellVatType (base name: "sellVatType")', function() {
-      // uncomment below and update the code to test the property sellVatType
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unitName (base name: "unitName")', function() {
-      // uncomment below and update the code to test the property unitName
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property categoryId (base name: "categoryId")', function() {
-      // uncomment below and update the code to test the property categoryId
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property categoryName (base name: "categoryName")', function() {
-      // uncomment below and update the code to test the property categoryName
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property barcode (base name: "barcode")', function() {
-      // uncomment below and update the code to test the property barcode
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property buyDescription (base name: "buyDescription")', function() {
-      // uncomment below and update the code to test the property buyDescription
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property buyPrice (base name: "buyPrice")', function() {
-      // uncomment below and update the code to test the property buyPrice
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property buyVatType (base name: "buyVatType")', function() {
-      // uncomment below and update the code to test the property buyVatType
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property inventoryPublishedOn (base name: "inventoryPublishedOn")', function() {
-      // uncomment below and update the code to test the property inventoryPublishedOn
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property inventoryQuantity (base name: "inventoryQuantity")', function() {
-      // uncomment below and update the code to test the property inventoryQuantity
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property averageBuyPrice (base name: "averageBuyPrice")', function() {
-      // uncomment below and update the code to test the property averageBuyPrice
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property averageSellPrice (base name: "averageSellPrice")', function() {
-      // uncomment below and update the code to test the property averageSellPrice
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property remainingStock (base name: "remainingStock")', function() {
-      // uncomment below and update the code to test the property remainingStock
-      //var instane = new FlowAccountOpenApi.ProductResponseData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property totalValueInHand (base name: "totalValueInHand")', function() {
-      // uncomment below and update the code to test the property totalValueInHand
+    it('should have the property isDB (base name: "isDB")', function() {
+      // uncomment below and update the code to test the property isDB
       //var instane = new FlowAccountOpenApi.ProductResponseData();
       //expect(instance).to.be();
     });

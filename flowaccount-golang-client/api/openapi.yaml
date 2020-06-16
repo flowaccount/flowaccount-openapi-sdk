@@ -67,15 +67,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all quotations documents.
       tags:
@@ -95,15 +95,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create quotations document.
       tags:
@@ -124,15 +124,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create quotations document with discount and tax inline.
       tags:
@@ -159,15 +159,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete quotations document.
       tags:
@@ -192,15 +192,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get quotations document.
       tags:
@@ -228,15 +228,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit quotations document.
       tags:
@@ -273,15 +273,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of quotations document.
       tags:
@@ -318,15 +318,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to quotations document.
       tags:
@@ -346,15 +346,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailSimple'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email quotations document.
       tags:
@@ -374,15 +374,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link quotations document.
       tags:
@@ -435,15 +435,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all billing notes documents.
       tags:
@@ -463,15 +463,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create billing notes document.
       tags:
@@ -492,15 +492,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create billing notes document with discount and tax inline.
       tags:
@@ -527,15 +527,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete billing notes document.
       tags:
@@ -560,15 +560,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get billing notes document.
       tags:
@@ -596,15 +596,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit billing notes document.
       tags:
@@ -640,15 +640,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of billing notes document.
       tags:
@@ -685,15 +685,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to billing notes document.
       tags:
@@ -713,15 +713,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailCoppies'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email billing notes document.
       tags:
@@ -741,15 +741,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link billing notes document.
       tags:
@@ -803,15 +803,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all tax invocie documents.
       tags:
@@ -831,15 +831,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create tax invocie document.
       tags:
@@ -860,15 +860,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocumentWithPaymentReceiving'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create tax invocie document with payment.
       tags:
@@ -890,15 +890,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create tax invocie document with discount and tax inline.
       tags:
@@ -920,15 +920,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocumentWithPaymentReceiving'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create tax invocie document with discount and tax inline with payment.
       tags:
@@ -955,15 +955,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete tax invoices document.
       tags:
@@ -990,15 +990,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get tax invoices document.
       tags:
@@ -1026,15 +1026,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit tax invoices document.
       tags:
@@ -1070,15 +1070,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of tax invoices document.
       tags:
@@ -1106,15 +1106,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PaymentReceivingDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change paid status of tax-invoice document.
       tags:
@@ -1152,15 +1152,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to tax Invoices document.
       tags:
@@ -1181,15 +1181,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailCoppies'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send Email tax invoice document
       tags:
@@ -1210,15 +1210,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link tax invoice document.
       tags:
@@ -1271,15 +1271,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all receipt documents
       tags:
@@ -1299,15 +1299,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receipt document.
       tags:
@@ -1328,15 +1328,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocumentWithPaymentReceiving'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receipt document with payment.
       tags:
@@ -1358,15 +1358,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receipt document with discount and tax inline.
       tags:
@@ -1387,15 +1387,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocumentWithPaymentReceiving'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receipt document with discount and tax inline with payment.
       tags:
@@ -1422,15 +1422,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete receipt document.
       tags:
@@ -1446,7 +1446,8 @@ paths:
           default: Bearer accessToken
           type: string
         style: simple
-      - explode: false
+      - description: ID เอกสารใช้ recordId
+        explode: false
         in: path
         name: id
         required: true
@@ -1454,15 +1455,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get receipt document.
       tags:
@@ -1490,15 +1491,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit receipt document.
       tags:
@@ -1533,15 +1534,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of receipt document.
       tags:
@@ -1569,15 +1570,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PaymentReceivingDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change paid status of receipt document.
       tags:
@@ -1615,15 +1616,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to receipt document.
       tags:
@@ -1643,15 +1644,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailCoppies'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email receipt document.
       tags:
@@ -1671,15 +1672,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link receipt document.
       tags:
@@ -1732,15 +1733,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all cash invoices documents
       tags:
@@ -1760,15 +1761,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create cash invoices document.
       tags:
@@ -1789,15 +1790,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocumentWithPaymentReceiving'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create cash invoices document with payment.
       tags:
@@ -1818,15 +1819,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create cash invoices document with discount and tax inline.
       tags:
@@ -1848,15 +1849,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocumentWithPaymentReceiving'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create cash invoices document with discount and tax inline with payment.
       tags:
@@ -1883,15 +1884,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete cash invoices document.
       tags:
@@ -1915,15 +1916,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get cash invoices document.
       tags:
@@ -1951,15 +1952,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit cash invoices document.
       tags:
@@ -1995,15 +1996,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of cash invoices document.
       tags:
@@ -2032,15 +2033,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PaymentReceivingDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change paid status of cash invoices document.
       tags:
@@ -2078,15 +2079,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to cash invoices document.
       tags:
@@ -2106,15 +2107,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailCoppies'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email cash invoices document.
       tags:
@@ -2134,15 +2135,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link cash invoices document.
       tags:
@@ -2195,15 +2196,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all purchase order documents.
       tags:
@@ -2223,15 +2224,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create purchase order document.
       tags:
@@ -2252,15 +2253,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create purchase order document with discount and tax inline.
       tags:
@@ -2287,15 +2288,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete purchase order document.
       tags:
@@ -2320,15 +2321,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get purchase order document.
       tags:
@@ -2356,15 +2357,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit purchase order document.
       tags:
@@ -2401,15 +2402,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of purchase order document.
       tags:
@@ -2446,15 +2447,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to purchase order document.
       tags:
@@ -2474,15 +2475,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailCoppies'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email purchase order document.
       tags:
@@ -2502,15 +2503,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link purchase order document.
       tags:
@@ -2563,15 +2564,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InlineDocumentResponse'
+                $ref: '#/components/schemas/AllDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all receiving inventory documents.
       tags:
@@ -2591,15 +2592,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receiving inventory document.
       tags:
@@ -2620,15 +2621,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SimpleDocumentWithPaymentPaid'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receiving inventory document with payment.
       tags:
@@ -2649,15 +2650,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receiving inventory document with discount and tax inline.
       tags:
@@ -2678,15 +2679,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/InlineDocumentWithPaymentPaid'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create receiving inventory document with discount and tax inline with
         payment.
@@ -2714,15 +2715,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete receiving inventory document.
       tags:
@@ -2747,15 +2748,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get receiving inventory document.
       tags:
@@ -2783,15 +2784,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit receiving inventory document.
       tags:
@@ -2827,15 +2828,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of receiving inventory document.
       tags:
@@ -2863,15 +2864,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PaymentPaidDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change paid status of receiving inventory document.
       tags:
@@ -2908,15 +2909,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to receiving inventory document.
       tags:
@@ -2936,15 +2937,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailCoppies'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email receiving inventory document.
       tags:
@@ -2964,15 +2965,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link receiving inventory document.
       tags:
@@ -3025,15 +3026,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
+                $ref: '#/components/schemas/AllExpenseDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all expenses documents.
       tags:
@@ -3053,15 +3054,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ExpenseSimpleDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseSimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create expenses document.
       tags:
@@ -3082,15 +3083,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ExpenseSimpleDocumentPaymentPaid'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseSimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create expenses document with-payment.
       tags:
@@ -3111,15 +3112,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ExpenseInlineDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create expenses document with discount and tax inline.
       tags:
@@ -3140,15 +3141,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ExpenseInlineDocumentPaymentPaid'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create expenses document with discount and tax inline with payment.
       tags:
@@ -3175,15 +3176,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete expenses document.
       tags:
@@ -3207,15 +3208,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get expenses document.
       tags:
@@ -3243,15 +3244,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateExpenseDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit expenses document.
       tags:
@@ -3287,15 +3288,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of expenses document.
       tags:
@@ -3323,15 +3324,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PaymentPaidDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExpenseSimpleDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change paid status of expenses document.
       tags:
@@ -3366,15 +3367,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to expenses.
       tags:
@@ -3394,15 +3395,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailSimple'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email expenses document.
       tags:
@@ -3422,15 +3423,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link expenses documents.
       tags:
@@ -3448,15 +3449,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BusinessCategory'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Business categorys expenses document.
       tags:
@@ -3474,15 +3475,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BusinessCategory'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Accounting categorys expenses document.
       tags:
@@ -3535,15 +3536,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WithholidingTaxDocumentResponse'
+                $ref: '#/components/schemas/AllWithholidingTaxDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all withholding tax documents.
       tags:
@@ -3563,15 +3564,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/WithholidingTaxDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/WithholidingTaxDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create withholding tax document.
       tags:
@@ -3598,15 +3599,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete withholding tax document.
       tags:
@@ -3631,15 +3632,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/WithholidingTaxDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get withholding tax document.
       tags:
@@ -3667,15 +3668,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateWithholidingTaxDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/WithholidingTaxDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit withholding tax document.
       tags:
@@ -3711,15 +3712,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/WithholidingTaxDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Change status of withholding tax document.
       tags:
@@ -3755,15 +3756,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Add Attachment to expenses.
       tags:
@@ -3783,15 +3784,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SendEmailSimple'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Send email withholding tax document.
       tags:
@@ -3811,15 +3812,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ShareDocument'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ShareDocumentResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Share link withholding tax documents.
       tags:
@@ -3873,15 +3874,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all products.
       tags:
@@ -3899,15 +3900,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Product'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create products.
       tags:
@@ -3932,15 +3933,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete products.
       tags:
@@ -3964,15 +3965,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get products.
       tags:
@@ -3998,15 +3999,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Product'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Update products.
       tags:
@@ -4061,15 +4062,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContactResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all contacts.
       tags:
@@ -4087,15 +4088,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Contact'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContactResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create contacts
       tags:
@@ -4120,15 +4121,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Delete contacts.
       tags:
@@ -4152,15 +4153,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContactResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get contacts.
       tags:
@@ -4186,15 +4187,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Contact'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContactResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Update contacts.
       tags:
@@ -4228,15 +4229,15 @@ paths:
                   type: string
               type: object
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthenResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Generate Access Token
       tags:
@@ -4253,15 +4254,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BankAccountResponse'
+                $ref: '#/components/schemas/AllBankAccountResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get list all My Bank Account
       tags:
@@ -4279,15 +4280,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/BankAccount'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BankAccountResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Create bank account.
       tags:
@@ -4305,15 +4306,15 @@ paths:
           type: string
         style: simple
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CompanyInfoResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Get business infomation
       tags:
@@ -4332,15 +4333,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/CompanyInfo'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CompanyInfoResponse'
           description: 200 response
-        401:
+        "401":
           description: 401 response
-        500:
+        "500":
           description: 500 response
       summary: Edit business infomation
       tags:
@@ -4357,25 +4358,13 @@ components:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: documentPaymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingCash'
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingTransfer'
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingCheque'
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingCreditCard'
+            $ref: '#/components/schemas/SimpleDocumentWithPaymentReceiving'
       required: true
     SimpleDocumentWithPaymentPaid:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: documentPaymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidCash'
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidTransfer'
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidCheque'
-            - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidCreditCard'
+            $ref: '#/components/schemas/SimpleDocumentWithPaymentPaid'
       required: true
     InlineDocument:
       content:
@@ -4387,25 +4376,13 @@ components:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: documentPaymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingCash'
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingTransfer'
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingCheque'
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingCreditCard'
+            $ref: '#/components/schemas/InlineDocumentWithPaymentReceiving'
       required: true
     InlineDocumentWithPaymentPaid:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: documentPaymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidCash'
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidTransfer'
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidCheque'
-            - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidCreditCard'
+            $ref: '#/components/schemas/InlineDocumentWithPaymentPaid'
       required: true
     UpdateDocument:
       content:
@@ -4429,13 +4406,7 @@ components:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: expensePaymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidCash'
-            - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidTransfer'
-            - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidCheque'
-            - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidCreditCard'
+            $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaid'
       required: true
     ExpenseInlineDocument:
       content:
@@ -4447,37 +4418,19 @@ components:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: expensePaymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidCash'
-            - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidTransfer'
-            - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidCheque'
-            - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidCreditCard'
+            $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaid'
       required: true
     PaymentReceivingDocument:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: paymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/PaymentReceivingCash'
-            - $ref: '#/components/schemas/PaymentReceivingTransfer'
-            - $ref: '#/components/schemas/PaymentReceivingCheque'
-            - $ref: '#/components/schemas/PaymentReceivingCreditCard'
+            $ref: '#/components/schemas/PaymentReceivingDocument'
       required: true
     PaymentPaidDocument:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: paymentStructureType
-            oneOf:
-            - $ref: '#/components/schemas/PaymentPaidCash'
-            - $ref: '#/components/schemas/PaymentPaidTransfer'
-            - $ref: '#/components/schemas/PaymentPaidCheque'
-            - $ref: '#/components/schemas/PaymentPaidCreditCard'
+            $ref: '#/components/schemas/PaymentPaidDocument'
       required: true
     Contact:
       content:
@@ -4489,13 +4442,7 @@ components:
       content:
         application/json:
           schema:
-            discriminator:
-              propertyName: productStructureType
-            oneOf:
-            - $ref: '#/components/schemas/ProductService'
-            - $ref: '#/components/schemas/ProductNonInventory'
-            - $ref: '#/components/schemas/ProductInventory'
-            - $ref: '#/components/schemas/ProductInventoryBalance'
+            $ref: '#/components/schemas/ProductType'
       required: true
     SendEmailSimple:
       content:
@@ -4777,6 +4724,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/Document'
       - $ref: '#/components/schemas/SimpleDocument_allOf'
+    SimpleDocumentWithPaymentReceiving:
+      discriminator:
+        propertyName: documentPaymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingCash'
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingTransfer'
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingCheque'
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentReceivingCreditCard'
     SimpleDocumentWithPaymentReceivingCash:
       discriminator:
         propertyName: documentPaymentStructureType
@@ -5757,6 +5712,14 @@ components:
       - total
       - totalAfterDiscount
       type: object
+    SimpleDocumentWithPaymentPaid:
+      discriminator:
+        propertyName: documentPaymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidCash'
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidTransfer'
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidCheque'
+      - $ref: '#/components/schemas/SimpleDocumentWithPaymentPaidCreditCard'
     SimpleDocumentWithPaymentPaidCash:
       discriminator:
         propertyName: documentPaymentStructureType
@@ -6714,6 +6677,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/Document'
       - $ref: '#/components/schemas/InlineDocument_allOf'
+    InlineDocumentWithPaymentReceiving:
+      discriminator:
+        propertyName: documentPaymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingCash'
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingTransfer'
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingCheque'
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentReceivingCreditCard'
     InlineDocumentWithPaymentReceivingCash:
       discriminator:
         propertyName: documentPaymentStructureType
@@ -7794,6 +7765,14 @@ components:
       - total
       - totalAfterDiscount
       type: object
+    InlineDocumentWithPaymentPaid:
+      discriminator:
+        propertyName: documentPaymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidCash'
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidTransfer'
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidCheque'
+      - $ref: '#/components/schemas/InlineDocumentWithPaymentPaidCreditCard'
     InlineDocumentWithPaymentPaidCash:
       discriminator:
         propertyName: documentPaymentStructureType
@@ -9080,6 +9059,238 @@ components:
       allOf:
       - $ref: '#/components/schemas/DocumentResponse'
       - $ref: '#/components/schemas/InlineDocumentResponse_allOf'
+    AllDocumentResponse:
+      example:
+        code: 0
+        data:
+          list:
+          - documentSerial: documentSerial
+            dueDate: 2020-01-01T00:00:00.000+0000
+            documentShowWithholdingTax: false
+            publishedOn: 2020-01-01T00:00:00.000+0000
+            discountAmount: 3.616076749251911
+            subTotal: 7.061401241503109
+            totalAfterDiscount: 2.027123023002322
+            creditType: 5
+            documentWithholdingTaxPercentage: 6
+            recordId: 6
+            reference: INV2020010001
+            useReceiptDeduction: false
+            referencedByMe:
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 9
+              documentSerial: 3
+              documentId: 6
+              type: 6
+              referenceId: 8
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 9
+              documentSerial: 3
+              documentId: 6
+              type: 6
+              referenceId: 8
+            contactAddress: contactAddress
+            documentDeductionType: 7
+            allowDelete: true
+            creditDays: 30
+            grandTotal: 1.4894159098541704
+            contactName: บริษัท ลูกค้า จำกัด, คุณลูกค้า ซื้อประจำ
+            contactZipCode: contactZipCode
+            vatAmount: 1.0246457001441578
+            salesName: พนักงาน ขายหน้าร้าน
+            projectName: projectName
+            isVatInclusive: false
+            items:
+            - null
+            - null
+            useInlineVat: true
+            status: 6
+            contactCode: contactCode
+            contactBranch: contactBranch
+            documentType: 4
+            showSignatureOrStamp: true
+            payments:
+              bankAccountName: bankAccountName
+              collected: 1.284659006116532
+              paymentCharge: 6.704019297950036
+              chequeNumber: chequeNumber
+              chequeDate: 2020-01-01T00:00:00.000+0000
+              paymentChannel: paymentChannel
+              remainingCollected: 7.058770351582356
+              paymentDeductionAmount: 6.778324963048013
+              withheldAmount: 5.944895607614016
+              bankAccountType: 3
+              paymentDeductionType: 2
+              creditCardBankAccountId: 7
+              remainingCollectedType: 0
+              paymentMethod: 3
+              paymentRemarks: paymentRemarks
+              bankAccountNumber: bankAccountNumber
+              paymentDate: 2020-01-01T00:00:00.000+0000
+              withheldPercentage: 6
+            documentDeductionAmount: 1.1730742509559433
+            contactPerson: contactPerson
+            exemptAmount: 7.386281948385884
+            totalWithoutVat: 4.145608029883936
+            discountPercentage: 9
+            useInlineDiscount: true
+            contactNumber: 099-999-9999
+            discountType: 2
+            company:
+              companyTaxId: companyTaxId
+              companyBranchEn: companyBranchEn
+              companyPhone: companyPhone
+              companyBranch: companyBranch
+              companyName: companyName
+              companyAddress: companyAddress
+              companyNameEn: companyNameEn
+              companyFax: companyFax
+              companyAddressEn: companyAddressEn
+              companyMobile: companyMobile
+              companyWebsite: companyWebsite
+            isVat: false
+            contactEmail: contact@email.com
+            contactGroup: 5
+            internalNotes: internalNotes
+            contactTaxId: "1234567890123"
+            vatableAmount: 1.2315135367772556
+            referencedToMe:
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 5
+              documentSerial: 9
+              documentId: 9
+              type: 6
+              referenceId: 4
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 5
+              documentSerial: 9
+              documentId: 9
+              type: 6
+              referenceId: 4
+            statusString: 0
+            documentId: 1
+            remarks: remarks
+          - documentSerial: documentSerial
+            dueDate: 2020-01-01T00:00:00.000+0000
+            documentShowWithholdingTax: false
+            publishedOn: 2020-01-01T00:00:00.000+0000
+            discountAmount: 3.616076749251911
+            subTotal: 7.061401241503109
+            totalAfterDiscount: 2.027123023002322
+            creditType: 5
+            documentWithholdingTaxPercentage: 6
+            recordId: 6
+            reference: INV2020010001
+            useReceiptDeduction: false
+            referencedByMe:
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 9
+              documentSerial: 3
+              documentId: 6
+              type: 6
+              referenceId: 8
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 9
+              documentSerial: 3
+              documentId: 6
+              type: 6
+              referenceId: 8
+            contactAddress: contactAddress
+            documentDeductionType: 7
+            allowDelete: true
+            creditDays: 30
+            grandTotal: 1.4894159098541704
+            contactName: บริษัท ลูกค้า จำกัด, คุณลูกค้า ซื้อประจำ
+            contactZipCode: contactZipCode
+            vatAmount: 1.0246457001441578
+            salesName: พนักงาน ขายหน้าร้าน
+            projectName: projectName
+            isVatInclusive: false
+            items:
+            - null
+            - null
+            useInlineVat: true
+            status: 6
+            contactCode: contactCode
+            contactBranch: contactBranch
+            documentType: 4
+            showSignatureOrStamp: true
+            payments:
+              bankAccountName: bankAccountName
+              collected: 1.284659006116532
+              paymentCharge: 6.704019297950036
+              chequeNumber: chequeNumber
+              chequeDate: 2020-01-01T00:00:00.000+0000
+              paymentChannel: paymentChannel
+              remainingCollected: 7.058770351582356
+              paymentDeductionAmount: 6.778324963048013
+              withheldAmount: 5.944895607614016
+              bankAccountType: 3
+              paymentDeductionType: 2
+              creditCardBankAccountId: 7
+              remainingCollectedType: 0
+              paymentMethod: 3
+              paymentRemarks: paymentRemarks
+              bankAccountNumber: bankAccountNumber
+              paymentDate: 2020-01-01T00:00:00.000+0000
+              withheldPercentage: 6
+            documentDeductionAmount: 1.1730742509559433
+            contactPerson: contactPerson
+            exemptAmount: 7.386281948385884
+            totalWithoutVat: 4.145608029883936
+            discountPercentage: 9
+            useInlineDiscount: true
+            contactNumber: 099-999-9999
+            discountType: 2
+            company:
+              companyTaxId: companyTaxId
+              companyBranchEn: companyBranchEn
+              companyPhone: companyPhone
+              companyBranch: companyBranch
+              companyName: companyName
+              companyAddress: companyAddress
+              companyNameEn: companyNameEn
+              companyFax: companyFax
+              companyAddressEn: companyAddressEn
+              companyMobile: companyMobile
+              companyWebsite: companyWebsite
+            isVat: false
+            contactEmail: contact@email.com
+            contactGroup: 5
+            internalNotes: internalNotes
+            contactTaxId: "1234567890123"
+            vatableAmount: 1.2315135367772556
+            referencedToMe:
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 5
+              documentSerial: 9
+              documentId: 9
+              type: 6
+              referenceId: 4
+            - referenceDocumentSerial: referenceDocumentSerial
+              referenceDocumentType: 5
+              documentSerial: 9
+              documentId: 9
+              type: 6
+              referenceId: 4
+            statusString: 0
+            documentId: 1
+            remarks: remarks
+        message: message
+        status: true
+      properties:
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
+          type: integer
+        data:
+          $ref: '#/components/schemas/AllDocumentResponse_data'
+      type: object
     DeleteResponse:
       example:
         code: 0
@@ -9101,12 +9312,7 @@ components:
           $ref: '#/components/schemas/DeleteResponse_data'
       type: object
     ProductItem:
-      discriminator:
-        propertyName: documentStructureType
       properties:
-        documentStructureType:
-          nullable: true
-          type: string
         type:
           default: 1
           description: ประเภทสินค้า <br> 1 = บริการ (service) <br> 3 = สินค้าไม่นับสต๊อก
@@ -9151,14 +9357,19 @@ components:
       type: object
     SimpleProductItem:
       allOf:
-      - description: ข้อมุลรายการสินค้า
-        type: object
       - $ref: '#/components/schemas/ProductItem'
     InlineProductItem:
       allOf:
       - $ref: '#/components/schemas/ProductItem'
       - $ref: '#/components/schemas/InlineProductItem_allOf'
     ReferencedToMe:
+      example:
+        referenceDocumentSerial: referenceDocumentSerial
+        referenceDocumentType: 5
+        documentSerial: 9
+        documentId: 9
+        type: 6
+        referenceId: 4
       properties:
         referenceId:
           description: ID เอกสารฉบับนี้
@@ -9180,6 +9391,13 @@ components:
           type: integer
       type: object
     ReferencedByMe:
+      example:
+        referenceDocumentSerial: referenceDocumentSerial
+        referenceDocumentType: 9
+        documentSerial: 3
+        documentId: 6
+        type: 6
+        referenceId: 8
       properties:
         referenceId:
           description: ID เอกสารฉบับนี้
@@ -9237,6 +9455,14 @@ components:
       - referenceDocumentSerial
       - referenceDocumentType
       type: object
+    PaymentReceivingDocument:
+      discriminator:
+        propertyName: paymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/PaymentReceivingCash'
+      - $ref: '#/components/schemas/PaymentReceivingTransfer'
+      - $ref: '#/components/schemas/PaymentReceivingCheque'
+      - $ref: '#/components/schemas/PaymentReceivingCreditCard'
     PaymentReceivingCash:
       discriminator:
         propertyName: paymentStructureType
@@ -9601,6 +9827,14 @@ components:
       - paymentMethod
       - paymentStructureType
       type: object
+    PaymentPaidDocument:
+      discriminator:
+        propertyName: paymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/PaymentPaidCash'
+      - $ref: '#/components/schemas/PaymentPaidTransfer'
+      - $ref: '#/components/schemas/PaymentPaidCheque'
+      - $ref: '#/components/schemas/PaymentPaidCreditCard'
     PaymentPaidCash:
       discriminator:
         propertyName: paymentStructureType
@@ -10069,6 +10303,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/ExpenseDocument'
       - $ref: '#/components/schemas/ExpenseSimpleDocument_allOf'
+    ExpenseSimpleDocumentWithPaymentPaid:
+      discriminator:
+        propertyName: expensePaymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidCash'
+      - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidTransfer'
+      - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidCheque'
+      - $ref: '#/components/schemas/ExpenseSimpleDocumentWithPaymentPaidCreditCard'
     ExpenseSimpleDocumentWithPaymentPaidCash:
       discriminator:
         propertyName: expensePaymentStructureType
@@ -10894,6 +11136,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/ExpenseDocument'
       - $ref: '#/components/schemas/ExpenseInlineDocument_allOf'
+    ExpenseInlineDocumentWithPaymentPaid:
+      discriminator:
+        propertyName: expensePaymentStructureType
+      oneOf:
+      - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidCash'
+      - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidTransfer'
+      - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidCheque'
+      - $ref: '#/components/schemas/ExpenseInlineDocumentWithPaymentPaidCreditCard'
     ExpenseInlineDocumentWithPaymentPaidCash:
       discriminator:
         propertyName: expensePaymentStructureType
@@ -12029,6 +12279,254 @@ components:
       allOf:
       - $ref: '#/components/schemas/ExpenseResponse'
       - $ref: '#/components/schemas/ExpenseInlineDocumentResponse_allOf'
+    AllExpenseDocumentResponse:
+      example:
+        code: 0
+        data:
+          list:
+          - documentSerial: documentSerial
+            contactCode: contactCode
+            contactBranch: contactBranch
+            documentType: 9
+            dueDate: 2020-01-01T00:00:00.000+0000
+            showSignatureOrStamp: true
+            payments:
+              bankAccountName: bankAccountName
+              collected: 1.284659006116532
+              paymentCharge: 6.704019297950036
+              chequeNumber: chequeNumber
+              chequeDate: 2020-01-01T00:00:00.000+0000
+              paymentChannel: paymentChannel
+              remainingCollected: 7.058770351582356
+              paymentDeductionAmount: 6.778324963048013
+              withheldAmount: 5.944895607614016
+              bankAccountType: 3
+              paymentDeductionType: 2
+              creditCardBankAccountId: 7
+              remainingCollectedType: 0
+              paymentMethod: 3
+              paymentRemarks: paymentRemarks
+              bankAccountNumber: bankAccountNumber
+              paymentDate: 2020-01-01T00:00:00.000+0000
+              withheldPercentage: 6
+            contactPerson: contactPerson
+            publishedOn: 2020-01-01T00:00:00.000+0000
+            discountAmount: 1.2315135367772556
+            subTotal: 4.145608029883936
+            totalAfterDiscount: 1.0246457001441578
+            exemptAmount: 1.1730742509559433
+            creditType: 5
+            recordId: 6
+            reference: INV2020010001
+            discountPercentage: 7
+            useInlineDiscount: true
+            contactNumber: 099-999-9999
+            contactAddress: contactAddress
+            discountType: 7
+            company:
+              companyTaxId: companyTaxId
+              companyBranchEn: companyBranchEn
+              companyPhone: companyPhone
+              companyBranch: companyBranch
+              companyName: companyName
+              companyAddress: companyAddress
+              companyNameEn: companyNameEn
+              companyFax: companyFax
+              companyAddressEn: companyAddressEn
+              companyMobile: companyMobile
+              companyWebsite: companyWebsite
+            allowDelete: true
+            isVat: false
+            contactEmail: supplier@email.com
+            creditDays: 30
+            grandTotal: 6.84685269835264
+            contactName: contactName
+            contactGroup: 5
+            contactZipCode: contactZipCode
+            internalNotes: internalNotes
+            contactTaxId: "1234567890123"
+            vatAmount: 1.4894159098541704
+            salesName: พนักงาน ขายหน้าร้าน
+            vatableAmount: 4.965218492984954
+            statusString: 9
+            documentId: 1
+            projectName: projectName
+            isVatInclusive: false
+            items:
+            - debitNameForeign: 53029 / Other advertising and marketing expenses
+              quantity: 2.3021358869347655
+              unitName: unitName
+              vatRate: 3
+              description: description
+              discountAmount: 9
+              debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+              nameForeign: Marketing & Advertising
+              pricePerUnit: 7.061401241503109
+              creditId: 1081994
+              total: 2.027123023002322
+              creditCode: "21399"
+              systemCode: 1001
+              creditNameForeign: 21399 / Other Payables
+              debitId: 1082099
+              debitCategory: 5
+              nameLocal: การตลาดและโฆษณา
+              debitCode: "53029"
+              categoryId: 40238
+              creditCategory: 2
+              creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+            - debitNameForeign: 53029 / Other advertising and marketing expenses
+              quantity: 2.3021358869347655
+              unitName: unitName
+              vatRate: 3
+              description: description
+              discountAmount: 9
+              debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+              nameForeign: Marketing & Advertising
+              pricePerUnit: 7.061401241503109
+              creditId: 1081994
+              total: 2.027123023002322
+              creditCode: "21399"
+              systemCode: 1001
+              creditNameForeign: 21399 / Other Payables
+              debitId: 1082099
+              debitCategory: 5
+              nameLocal: การตลาดและโฆษณา
+              debitCode: "53029"
+              categoryId: 40238
+              creditCategory: 2
+              creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+            remarks: remarks
+            useInlineVat: true
+            status: 5
+          - documentSerial: documentSerial
+            contactCode: contactCode
+            contactBranch: contactBranch
+            documentType: 9
+            dueDate: 2020-01-01T00:00:00.000+0000
+            showSignatureOrStamp: true
+            payments:
+              bankAccountName: bankAccountName
+              collected: 1.284659006116532
+              paymentCharge: 6.704019297950036
+              chequeNumber: chequeNumber
+              chequeDate: 2020-01-01T00:00:00.000+0000
+              paymentChannel: paymentChannel
+              remainingCollected: 7.058770351582356
+              paymentDeductionAmount: 6.778324963048013
+              withheldAmount: 5.944895607614016
+              bankAccountType: 3
+              paymentDeductionType: 2
+              creditCardBankAccountId: 7
+              remainingCollectedType: 0
+              paymentMethod: 3
+              paymentRemarks: paymentRemarks
+              bankAccountNumber: bankAccountNumber
+              paymentDate: 2020-01-01T00:00:00.000+0000
+              withheldPercentage: 6
+            contactPerson: contactPerson
+            publishedOn: 2020-01-01T00:00:00.000+0000
+            discountAmount: 1.2315135367772556
+            subTotal: 4.145608029883936
+            totalAfterDiscount: 1.0246457001441578
+            exemptAmount: 1.1730742509559433
+            creditType: 5
+            recordId: 6
+            reference: INV2020010001
+            discountPercentage: 7
+            useInlineDiscount: true
+            contactNumber: 099-999-9999
+            contactAddress: contactAddress
+            discountType: 7
+            company:
+              companyTaxId: companyTaxId
+              companyBranchEn: companyBranchEn
+              companyPhone: companyPhone
+              companyBranch: companyBranch
+              companyName: companyName
+              companyAddress: companyAddress
+              companyNameEn: companyNameEn
+              companyFax: companyFax
+              companyAddressEn: companyAddressEn
+              companyMobile: companyMobile
+              companyWebsite: companyWebsite
+            allowDelete: true
+            isVat: false
+            contactEmail: supplier@email.com
+            creditDays: 30
+            grandTotal: 6.84685269835264
+            contactName: contactName
+            contactGroup: 5
+            contactZipCode: contactZipCode
+            internalNotes: internalNotes
+            contactTaxId: "1234567890123"
+            vatAmount: 1.4894159098541704
+            salesName: พนักงาน ขายหน้าร้าน
+            vatableAmount: 4.965218492984954
+            statusString: 9
+            documentId: 1
+            projectName: projectName
+            isVatInclusive: false
+            items:
+            - debitNameForeign: 53029 / Other advertising and marketing expenses
+              quantity: 2.3021358869347655
+              unitName: unitName
+              vatRate: 3
+              description: description
+              discountAmount: 9
+              debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+              nameForeign: Marketing & Advertising
+              pricePerUnit: 7.061401241503109
+              creditId: 1081994
+              total: 2.027123023002322
+              creditCode: "21399"
+              systemCode: 1001
+              creditNameForeign: 21399 / Other Payables
+              debitId: 1082099
+              debitCategory: 5
+              nameLocal: การตลาดและโฆษณา
+              debitCode: "53029"
+              categoryId: 40238
+              creditCategory: 2
+              creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+            - debitNameForeign: 53029 / Other advertising and marketing expenses
+              quantity: 2.3021358869347655
+              unitName: unitName
+              vatRate: 3
+              description: description
+              discountAmount: 9
+              debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+              nameForeign: Marketing & Advertising
+              pricePerUnit: 7.061401241503109
+              creditId: 1081994
+              total: 2.027123023002322
+              creditCode: "21399"
+              systemCode: 1001
+              creditNameForeign: 21399 / Other Payables
+              debitId: 1082099
+              debitCategory: 5
+              nameLocal: การตลาดและโฆษณา
+              debitCode: "53029"
+              categoryId: 40238
+              creditCategory: 2
+              creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+            remarks: remarks
+            useInlineVat: true
+            status: 5
+        message: message
+        status: true
+      properties:
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
+          type: integer
+        data:
+          $ref: '#/components/schemas/AllExpenseDocumentResponse_data'
+      type: object
     ExpenseSimpleProductItem:
       properties:
         systemCode:
@@ -12138,6 +12636,28 @@ components:
       - total
       type: object
     ExpenseInlineProductItem:
+      example:
+        debitNameForeign: 53029 / Other advertising and marketing expenses
+        quantity: 2.3021358869347655
+        unitName: unitName
+        vatRate: 3
+        description: description
+        discountAmount: 9
+        debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+        nameForeign: Marketing & Advertising
+        pricePerUnit: 7.061401241503109
+        creditId: 1081994
+        total: 2.027123023002322
+        creditCode: "21399"
+        systemCode: 1001
+        creditNameForeign: 21399 / Other Payables
+        debitId: 1082099
+        debitCategory: 5
+        nameLocal: การตลาดและโฆษณา
+        debitCode: "53029"
+        categoryId: 40238
+        creditCategory: 2
+        creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
       properties:
         systemCode:
           description: เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
@@ -12733,6 +13253,142 @@ components:
         data:
           $ref: '#/components/schemas/WithholidingTaxDocumentResponse_data'
       type: object
+    AllWithholidingTaxDocumentResponse:
+      example:
+        code: 0
+        data:
+          list:
+          - providentFundNumber: providentFundNumber
+            documentSerial: documentSerial
+            contactCode: contactCode
+            contactBranch: contactBranch
+            documentType: 6
+            showSignatureOrStamp: true
+            contactPerson: contactPerson
+            publishedOn: 2020-01-01T00:00:00.000+0000
+            taxPayment: 1
+            total: 4.145608029883936
+            socialSecurityAmount: socialSecurityAmount
+            contactNumber: 099-999-9999
+            taxPaymentOthers: taxPaymentOthers
+            contactAddress: contactAddress
+            company:
+              companyTaxId: companyTaxId
+              companyBranchEn: companyBranchEn
+              companyPhone: companyPhone
+              companyBranch: companyBranch
+              companyName: companyName
+              companyAddress: companyAddress
+              companyNameEn: companyNameEn
+              companyFax: companyFax
+              companyAddressEn: companyAddressEn
+              companyMobile: companyMobile
+              companyWebsite: companyWebsite
+            providentFundAmount: providentFundAmount
+            allowDelete: true
+            contactEmail: contact@email.com
+            textOther: "2020"
+            contactName: contactName
+            contactGroup: 6
+            contactZipCode: contactZipCode
+            internalNotes: internalNotes
+            contactTaxId: "1234567890123"
+            withholdingTaxItems:
+            - taxAmountNoVat: 7.061401241503109
+              taxRate: 5.637376656633329
+              total: 3.616076749251911
+              vatType: 2
+              incomeType: 5
+              description: description
+              taxAmount: 2.3021358869347655
+              withheld: 9.301444243932576
+            - taxAmountNoVat: 7.061401241503109
+              taxRate: 5.637376656633329
+              total: 3.616076749251911
+              vatType: 2
+              incomeType: 5
+              description: description
+              taxAmount: 2.3021358869347655
+              withheld: 9.301444243932576
+            totalTaxWithheld: 7.386281948385884
+            statusString: 1
+            documentId: documentId
+            entity: 1
+            remarks: remarks
+            status: 1
+          - providentFundNumber: providentFundNumber
+            documentSerial: documentSerial
+            contactCode: contactCode
+            contactBranch: contactBranch
+            documentType: 6
+            showSignatureOrStamp: true
+            contactPerson: contactPerson
+            publishedOn: 2020-01-01T00:00:00.000+0000
+            taxPayment: 1
+            total: 4.145608029883936
+            socialSecurityAmount: socialSecurityAmount
+            contactNumber: 099-999-9999
+            taxPaymentOthers: taxPaymentOthers
+            contactAddress: contactAddress
+            company:
+              companyTaxId: companyTaxId
+              companyBranchEn: companyBranchEn
+              companyPhone: companyPhone
+              companyBranch: companyBranch
+              companyName: companyName
+              companyAddress: companyAddress
+              companyNameEn: companyNameEn
+              companyFax: companyFax
+              companyAddressEn: companyAddressEn
+              companyMobile: companyMobile
+              companyWebsite: companyWebsite
+            providentFundAmount: providentFundAmount
+            allowDelete: true
+            contactEmail: contact@email.com
+            textOther: "2020"
+            contactName: contactName
+            contactGroup: 6
+            contactZipCode: contactZipCode
+            internalNotes: internalNotes
+            contactTaxId: "1234567890123"
+            withholdingTaxItems:
+            - taxAmountNoVat: 7.061401241503109
+              taxRate: 5.637376656633329
+              total: 3.616076749251911
+              vatType: 2
+              incomeType: 5
+              description: description
+              taxAmount: 2.3021358869347655
+              withheld: 9.301444243932576
+            - taxAmountNoVat: 7.061401241503109
+              taxRate: 5.637376656633329
+              total: 3.616076749251911
+              vatType: 2
+              incomeType: 5
+              description: description
+              taxAmount: 2.3021358869347655
+              withheld: 9.301444243932576
+            totalTaxWithheld: 7.386281948385884
+            statusString: 1
+            documentId: documentId
+            entity: 1
+            remarks: remarks
+            status: 1
+        message: message
+        status: true
+      properties:
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
+          type: integer
+        data:
+          $ref: '#/components/schemas/AllWithholidingTaxDocumentResponse_data'
+      type: object
     WithholidingTaxItem:
       example:
         taxAmountNoVat: 7.061401241503109
@@ -12929,6 +13585,14 @@ components:
         data:
           $ref: '#/components/schemas/AttachmentResponse_data'
       type: object
+    ProductType:
+      discriminator:
+        propertyName: productStructureType
+      oneOf:
+      - $ref: '#/components/schemas/ProductService'
+      - $ref: '#/components/schemas/ProductNonInventory'
+      - $ref: '#/components/schemas/ProductInventory'
+      - $ref: '#/components/schemas/ProductInventoryBalance'
     ProductService:
       discriminator:
         propertyName: productStructureType
@@ -13180,30 +13844,158 @@ components:
       - type
       - unitName
       type: object
+    Product:
+      example:
+        buyPrice: 9.301444243932576
+        sellDescription: sellDescription
+        code: P001
+        unitName: unitName
+        averageSellPrice: 7.386281948385884
+        inventoryQuantity: 2.027123023002322
+        buyVatType: 3
+        buyDescription: buyDescription
+        sellPrice: 5.637376656633329
+        type: 5
+        sellVatType: 2
+        categoryName: categoryName
+        inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+        name: Product
+        totalValueInHand: 1.0246457001441578
+        id: id
+        remainingStock: 1.2315135367772556
+        barcode: barcode
+        averageBuyPrice: 4.145608029883936
+        categoryId: 7
+      properties:
+        id:
+          description: เลข id Product
+          type: string
+        type:
+          default: 1
+          description: 'ประเภทสินค้า: 1 = บริการ / 3 = ไม่นับสต๊อก / 5 = นับสต๊อก'
+          format: int64
+          type: integer
+        code:
+          description: 'รหัสสินค้า <br> <ex>Example: P001</ex>'
+          example: P001
+          type: string
+        name:
+          description: 'ชื่อสินค้า <br> <ex>Example: Product</ex>'
+          example: Product
+          type: string
+        sellDescription:
+          description: รายละเอียดสินค้า ฝั่งขาย
+          type: string
+        sellPrice:
+          description: ราคาขายสินค้า
+          format: decimal
+          type: number
+        sellVatType:
+          default: 3
+          description: 'ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี
+            <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี'
+          format: int64
+          type: integer
+        unitName:
+          description: หน่วยสินค้า
+          type: string
+        categoryId:
+          description: id หมวดสินค้า
+          format: int64
+          type: integer
+        categoryName:
+          description: หมวดสินค้า
+          type: string
+        barcode:
+          description: บาร์โค้ด
+          type: string
+        buyDescription:
+          description: รายละเอียดสินค้า ฝั่งซื้อ
+          type: string
+        buyPrice:
+          description: ราคาซื้อสินค้า
+          format: decimal
+          type: number
+        buyVatType:
+          default: 3
+          description: 'ภาษีซื้อ: <br> 1 = ราคาซื้อรวมภาษี <br> 3 = ราคาซื้อไม่รวมภาษี
+            <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี'
+          format: int64
+          type: integer
+        inventoryPublishedOn:
+          description: 'วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>'
+          example: 2020-01-01
+          format: date
+          type: string
+        inventoryQuantity:
+          description: จำนวนยอดตั้งต้นสินค้า
+          format: decimal
+          type: number
+        averageBuyPrice:
+          description: ราคาซื้อเฉลี่ยสินค้า
+          format: decimal
+          type: number
+        averageSellPrice:
+          description: ราคาขายเฉลี่ยสินค้า
+          format: decimal
+          type: number
+        remainingStock:
+          description: จำนวนสินค้าคงเหลือในสต๊อก
+          format: decimal
+          type: number
+        totalValueInHand:
+          description: มูลค่าสินค้าคงเหลือในสต๊อก
+          format: decimal
+          type: number
+      type: object
     ProductResponse:
       example:
         code: 0
         data:
-          buyPrice: 2.3021358869347655
-          sellDescription: sellDescription
-          code: P001
-          unitName: unitName
-          averageSellPrice: 2.027123023002322
-          inventoryQuantity: 9.301444243932576
-          buyVatType: 7
-          buyDescription: buyDescription
-          sellPrice: 1.4658129805029452
-          type: 6
-          sellVatType: 5
-          categoryName: categoryName
-          inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
-          name: Product
-          totalValueInHand: 7.386281948385884
-          id: id
-          remainingStock: 4.145608029883936
-          barcode: barcode
-          averageBuyPrice: 3.616076749251911
-          categoryId: 5
+          total: 6
+          isDB: true
+          currentPage: 1
+          list:
+          - buyPrice: 9.301444243932576
+            sellDescription: sellDescription
+            code: P001
+            unitName: unitName
+            averageSellPrice: 7.386281948385884
+            inventoryQuantity: 2.027123023002322
+            buyVatType: 3
+            buyDescription: buyDescription
+            sellPrice: 5.637376656633329
+            type: 5
+            sellVatType: 2
+            categoryName: categoryName
+            inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+            name: Product
+            totalValueInHand: 1.0246457001441578
+            id: id
+            remainingStock: 1.2315135367772556
+            barcode: barcode
+            averageBuyPrice: 4.145608029883936
+            categoryId: 7
+          - buyPrice: 9.301444243932576
+            sellDescription: sellDescription
+            code: P001
+            unitName: unitName
+            averageSellPrice: 7.386281948385884
+            inventoryQuantity: 2.027123023002322
+            buyVatType: 3
+            buyDescription: buyDescription
+            sellPrice: 5.637376656633329
+            type: 5
+            sellVatType: 2
+            categoryName: categoryName
+            inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+            name: Product
+            totalValueInHand: 1.0246457001441578
+            id: id
+            remainingStock: 1.2315135367772556
+            barcode: barcode
+            averageBuyPrice: 4.145608029883936
+            categoryId: 7
         message: message
         status: true
       properties:
@@ -13228,21 +14020,26 @@ components:
         contactEmail: contact@email.com
         conatactShippingAddress: conatactShippingAddress
         contactName: contactName
-        contactGroup: 0
+        contactGroup: 5
         contactZipCode: contactZipCode
-        contactCreditDays: 5
+        contactCreditDays: 9
         contactFax: 02-888-8888
         contactPerson: contactPerson
-        contactType: 6
-        contactBankId: 1
+        contactType: 2
+        contactBankId: 7
         contactWebsite: www.flowaccount.com
         contactBankAccountNumber: 1111111111
         contactTaxId: 1234567890123
         contactBranchCode: contactBranchCode
         contactOffice: 02-999-9999
         contactAddress: contactAddress
+        id: 5
         contactNote: contactNote
       properties:
+        id:
+          description: เลข id Contact
+          format: int64
+          type: integer
         contactGroup:
           default: 3
           description: 'ประเภทผู้ติดต่อ: 1 = บุคคลธรรมดา / 3 = นิติบุคคล'
@@ -13347,9 +14144,72 @@ components:
       - contactType
       type: object
     ContactResponse:
-      allOf:
-      - $ref: '#/components/schemas/ContactResponse_allOf'
-      - $ref: '#/components/schemas/Contact'
+      example:
+        code: 0
+        data:
+          total: 6
+          isDB: true
+          currentPage: 1
+          list:
+          - contactMobile: 099-999-9999
+            contactBankAccountType: 1
+            contactBankBranch: บางรัก
+            contactBranch: สำนักงานใหญ่
+            contactEmail: contact@email.com
+            conatactShippingAddress: conatactShippingAddress
+            contactName: contactName
+            contactGroup: 5
+            contactZipCode: contactZipCode
+            contactCreditDays: 9
+            contactFax: 02-888-8888
+            contactPerson: contactPerson
+            contactType: 2
+            contactBankId: 7
+            contactWebsite: www.flowaccount.com
+            contactBankAccountNumber: 1111111111
+            contactTaxId: 1234567890123
+            contactBranchCode: contactBranchCode
+            contactOffice: 02-999-9999
+            contactAddress: contactAddress
+            id: 5
+            contactNote: contactNote
+          - contactMobile: 099-999-9999
+            contactBankAccountType: 1
+            contactBankBranch: บางรัก
+            contactBranch: สำนักงานใหญ่
+            contactEmail: contact@email.com
+            conatactShippingAddress: conatactShippingAddress
+            contactName: contactName
+            contactGroup: 5
+            contactZipCode: contactZipCode
+            contactCreditDays: 9
+            contactFax: 02-888-8888
+            contactPerson: contactPerson
+            contactType: 2
+            contactBankId: 7
+            contactWebsite: www.flowaccount.com
+            contactBankAccountNumber: 1111111111
+            contactTaxId: 1234567890123
+            contactBranchCode: contactBranchCode
+            contactOffice: 02-999-9999
+            contactAddress: contactAddress
+            id: 5
+            contactNote: contactNote
+        message: message
+        status: true
+      properties:
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
+          type: integer
+        data:
+          $ref: '#/components/schemas/ContactResponse_data'
+      type: object
     BankAccount:
       example:
         bankAccountName: bankAccountName
@@ -13398,39 +14258,65 @@ components:
       type: object
     BankAccountResponse:
       example:
-        bankAccountName: bankAccountName
-        bankId: 1
-        bankAccountType: 6
-        bankBranch: bankBranch
-        bankAccountId: 0
-        bankAccountNumber: bankAccountNumber
-        bankName: bankName
+        code: 0
+        data:
+          bankAccountName: bankAccountName
+          bankId: 5
+          bankAccountType: 1
+          bankBranch: bankBranch
+          bankAccountId: 6
+          bankAccountNumber: bankAccountNumber
+          bankName: bankName
+        message: message
+        status: true
       properties:
-        bankAccountId:
-          description: เลข id บัญชีธนาคาร
-          format: int64
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
           type: integer
-        bankAccountNumber:
-          description: 'เลขบัญชี <br> <ex>Example: 0048620000 </ex>'
+        data:
+          $ref: '#/components/schemas/BankAccountResponse_data'
+      type: object
+    AllBankAccountResponse:
+      example:
+        code: 0
+        data:
+        - bankAccountName: bankAccountName
+          bankId: 5
+          bankAccountType: 1
+          bankBranch: bankBranch
+          bankAccountId: 6
+          bankAccountNumber: bankAccountNumber
+          bankName: bankName
+        - bankAccountName: bankAccountName
+          bankId: 5
+          bankAccountType: 1
+          bankBranch: bankBranch
+          bankAccountId: 6
+          bankAccountNumber: bankAccountNumber
+          bankName: bankName
+        message: message
+        status: true
+      properties:
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
           type: string
-        bankAccountName:
-          description: 'ชื่อบัญชี <br> <ex>Example: บัญชีใช้รับเงิน</ex>'
-          type: string
-        bankAccountType:
-          description: ประเภทบัญชีธนาคาร <br> 1 = บัญชีออมทรัพย์  <br> 3 = บัญชีกระรายวัน
-            <br> 7  = บัญชีฝากประจำ
-          format: int64
+        code:
+          description: error code
           type: integer
-        bankBranch:
-          description: ชื่อสาขาธนาคาร
-          type: string
-        bankId:
-          description: เลข id ธนาคาร
-          format: int64
-          type: integer
-        bankName:
-          description: ชื่อธนาคาร
-          type: string
+        data:
+          description: บัญชีธนาคารบริษัทเราทั้งหมด
+          items:
+            $ref: '#/components/schemas/BankAccountResponse_data'
+          type: array
       type: object
     CompanyInfo:
       example:
@@ -13501,9 +14387,57 @@ components:
       - compnayName
       type: object
     CompanyInfoResponse:
-      allOf:
-      - $ref: '#/components/schemas/CompanyInfoResponse_allOf'
-      - $ref: '#/components/schemas/CompanyInfo'
+      example:
+        code: 0
+        data:
+        - companyBranchEn: companyBranchEn
+          companyType: "10"
+          companyBranchCode: companyBranchCode
+          companyNameEn: companyNameEn
+          companyZipCode: companyZipCode
+          companyAddressEn: companyAddressEn
+          companyTaxId: companyTaxId
+          companyId: 6
+          compnayName: compnayName
+          companyPhone: companyPhone
+          companyBranch: สำนักงานใหญ่
+          companyAddress: companyAddress
+          companyFax: companyFax
+          companyMobile: companyMobile
+          companyWebsite: companyWebsite
+        - companyBranchEn: companyBranchEn
+          companyType: "10"
+          companyBranchCode: companyBranchCode
+          companyNameEn: companyNameEn
+          companyZipCode: companyZipCode
+          companyAddressEn: companyAddressEn
+          companyTaxId: companyTaxId
+          companyId: 6
+          compnayName: compnayName
+          companyPhone: companyPhone
+          companyBranch: สำนักงานใหญ่
+          companyAddress: companyAddress
+          companyFax: companyFax
+          companyMobile: companyMobile
+          companyWebsite: companyWebsite
+        message: message
+        status: true
+      properties:
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
+          type: integer
+        data:
+          description: ข้อมูลบริษัทเรา
+          items:
+            $ref: '#/components/schemas/CompanyInfoResponse_data'
+          type: array
+      type: object
     Empty:
       title: Empty Schema
       type: object
@@ -13635,6 +14569,25 @@ components:
         <br>1. ใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice) <br> 2. ใบเสร็จรับเงิน (Receipt)
         <br> 3. ใบกำกับภาษี/ใบเสร็จรับเงิน (Cash Invoice) <br> ข้อมูลการจ่ายเงิน:
         <br>1. เอกสารใบรับสินค้า (Receiving Inventory)'
+      example:
+        bankAccountName: bankAccountName
+        collected: 1.284659006116532
+        paymentCharge: 6.704019297950036
+        chequeNumber: chequeNumber
+        chequeDate: 2020-01-01T00:00:00.000+0000
+        paymentChannel: paymentChannel
+        remainingCollected: 7.058770351582356
+        paymentDeductionAmount: 6.778324963048013
+        withheldAmount: 5.944895607614016
+        bankAccountType: 3
+        paymentDeductionType: 2
+        creditCardBankAccountId: 7
+        remainingCollectedType: 0
+        paymentMethod: 3
+        paymentRemarks: paymentRemarks
+        bankAccountNumber: bankAccountNumber
+        paymentDate: 2020-01-01T00:00:00.000+0000
+        withheldPercentage: 6
       properties:
         paymentDate:
           description: 'วันที่รับชำระเงิน รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>'
@@ -13973,6 +14926,113 @@ components:
         data:
           $ref: '#/components/schemas/SimpleDocumentResponse_allOf_data'
     InlineDocumentResponse_allOf_data:
+      example:
+        documentSerial: documentSerial
+        dueDate: 2020-01-01T00:00:00.000+0000
+        documentShowWithholdingTax: false
+        publishedOn: 2020-01-01T00:00:00.000+0000
+        discountAmount: 3.616076749251911
+        subTotal: 7.061401241503109
+        totalAfterDiscount: 2.027123023002322
+        creditType: 5
+        documentWithholdingTaxPercentage: 6
+        recordId: 6
+        reference: INV2020010001
+        useReceiptDeduction: false
+        referencedByMe:
+        - referenceDocumentSerial: referenceDocumentSerial
+          referenceDocumentType: 9
+          documentSerial: 3
+          documentId: 6
+          type: 6
+          referenceId: 8
+        - referenceDocumentSerial: referenceDocumentSerial
+          referenceDocumentType: 9
+          documentSerial: 3
+          documentId: 6
+          type: 6
+          referenceId: 8
+        contactAddress: contactAddress
+        documentDeductionType: 7
+        allowDelete: true
+        creditDays: 30
+        grandTotal: 1.4894159098541704
+        contactName: บริษัท ลูกค้า จำกัด, คุณลูกค้า ซื้อประจำ
+        contactZipCode: contactZipCode
+        vatAmount: 1.0246457001441578
+        salesName: พนักงาน ขายหน้าร้าน
+        projectName: projectName
+        isVatInclusive: false
+        items:
+        - null
+        - null
+        useInlineVat: true
+        status: 6
+        contactCode: contactCode
+        contactBranch: contactBranch
+        documentType: 4
+        showSignatureOrStamp: true
+        payments:
+          bankAccountName: bankAccountName
+          collected: 1.284659006116532
+          paymentCharge: 6.704019297950036
+          chequeNumber: chequeNumber
+          chequeDate: 2020-01-01T00:00:00.000+0000
+          paymentChannel: paymentChannel
+          remainingCollected: 7.058770351582356
+          paymentDeductionAmount: 6.778324963048013
+          withheldAmount: 5.944895607614016
+          bankAccountType: 3
+          paymentDeductionType: 2
+          creditCardBankAccountId: 7
+          remainingCollectedType: 0
+          paymentMethod: 3
+          paymentRemarks: paymentRemarks
+          bankAccountNumber: bankAccountNumber
+          paymentDate: 2020-01-01T00:00:00.000+0000
+          withheldPercentage: 6
+        documentDeductionAmount: 1.1730742509559433
+        contactPerson: contactPerson
+        exemptAmount: 7.386281948385884
+        totalWithoutVat: 4.145608029883936
+        discountPercentage: 9
+        useInlineDiscount: true
+        contactNumber: 099-999-9999
+        discountType: 2
+        company:
+          companyTaxId: companyTaxId
+          companyBranchEn: companyBranchEn
+          companyPhone: companyPhone
+          companyBranch: companyBranch
+          companyName: companyName
+          companyAddress: companyAddress
+          companyNameEn: companyNameEn
+          companyFax: companyFax
+          companyAddressEn: companyAddressEn
+          companyMobile: companyMobile
+          companyWebsite: companyWebsite
+        isVat: false
+        contactEmail: contact@email.com
+        contactGroup: 5
+        internalNotes: internalNotes
+        contactTaxId: "1234567890123"
+        vatableAmount: 1.2315135367772556
+        referencedToMe:
+        - referenceDocumentSerial: referenceDocumentSerial
+          referenceDocumentType: 5
+          documentSerial: 9
+          documentId: 9
+          type: 6
+          referenceId: 4
+        - referenceDocumentSerial: referenceDocumentSerial
+          referenceDocumentType: 5
+          documentSerial: 9
+          documentId: 9
+          type: 6
+          referenceId: 4
+        statusString: 0
+        documentId: 1
+        remarks: remarks
       properties:
         recordId:
           default: 0
@@ -14189,6 +15249,227 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/InlineDocumentResponse_allOf_data'
+    AllDocumentResponse_data:
+      example:
+        list:
+        - documentSerial: documentSerial
+          dueDate: 2020-01-01T00:00:00.000+0000
+          documentShowWithholdingTax: false
+          publishedOn: 2020-01-01T00:00:00.000+0000
+          discountAmount: 3.616076749251911
+          subTotal: 7.061401241503109
+          totalAfterDiscount: 2.027123023002322
+          creditType: 5
+          documentWithholdingTaxPercentage: 6
+          recordId: 6
+          reference: INV2020010001
+          useReceiptDeduction: false
+          referencedByMe:
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 9
+            documentSerial: 3
+            documentId: 6
+            type: 6
+            referenceId: 8
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 9
+            documentSerial: 3
+            documentId: 6
+            type: 6
+            referenceId: 8
+          contactAddress: contactAddress
+          documentDeductionType: 7
+          allowDelete: true
+          creditDays: 30
+          grandTotal: 1.4894159098541704
+          contactName: บริษัท ลูกค้า จำกัด, คุณลูกค้า ซื้อประจำ
+          contactZipCode: contactZipCode
+          vatAmount: 1.0246457001441578
+          salesName: พนักงาน ขายหน้าร้าน
+          projectName: projectName
+          isVatInclusive: false
+          items:
+          - null
+          - null
+          useInlineVat: true
+          status: 6
+          contactCode: contactCode
+          contactBranch: contactBranch
+          documentType: 4
+          showSignatureOrStamp: true
+          payments:
+            bankAccountName: bankAccountName
+            collected: 1.284659006116532
+            paymentCharge: 6.704019297950036
+            chequeNumber: chequeNumber
+            chequeDate: 2020-01-01T00:00:00.000+0000
+            paymentChannel: paymentChannel
+            remainingCollected: 7.058770351582356
+            paymentDeductionAmount: 6.778324963048013
+            withheldAmount: 5.944895607614016
+            bankAccountType: 3
+            paymentDeductionType: 2
+            creditCardBankAccountId: 7
+            remainingCollectedType: 0
+            paymentMethod: 3
+            paymentRemarks: paymentRemarks
+            bankAccountNumber: bankAccountNumber
+            paymentDate: 2020-01-01T00:00:00.000+0000
+            withheldPercentage: 6
+          documentDeductionAmount: 1.1730742509559433
+          contactPerson: contactPerson
+          exemptAmount: 7.386281948385884
+          totalWithoutVat: 4.145608029883936
+          discountPercentage: 9
+          useInlineDiscount: true
+          contactNumber: 099-999-9999
+          discountType: 2
+          company:
+            companyTaxId: companyTaxId
+            companyBranchEn: companyBranchEn
+            companyPhone: companyPhone
+            companyBranch: companyBranch
+            companyName: companyName
+            companyAddress: companyAddress
+            companyNameEn: companyNameEn
+            companyFax: companyFax
+            companyAddressEn: companyAddressEn
+            companyMobile: companyMobile
+            companyWebsite: companyWebsite
+          isVat: false
+          contactEmail: contact@email.com
+          contactGroup: 5
+          internalNotes: internalNotes
+          contactTaxId: "1234567890123"
+          vatableAmount: 1.2315135367772556
+          referencedToMe:
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 5
+            documentSerial: 9
+            documentId: 9
+            type: 6
+            referenceId: 4
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 5
+            documentSerial: 9
+            documentId: 9
+            type: 6
+            referenceId: 4
+          statusString: 0
+          documentId: 1
+          remarks: remarks
+        - documentSerial: documentSerial
+          dueDate: 2020-01-01T00:00:00.000+0000
+          documentShowWithholdingTax: false
+          publishedOn: 2020-01-01T00:00:00.000+0000
+          discountAmount: 3.616076749251911
+          subTotal: 7.061401241503109
+          totalAfterDiscount: 2.027123023002322
+          creditType: 5
+          documentWithholdingTaxPercentage: 6
+          recordId: 6
+          reference: INV2020010001
+          useReceiptDeduction: false
+          referencedByMe:
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 9
+            documentSerial: 3
+            documentId: 6
+            type: 6
+            referenceId: 8
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 9
+            documentSerial: 3
+            documentId: 6
+            type: 6
+            referenceId: 8
+          contactAddress: contactAddress
+          documentDeductionType: 7
+          allowDelete: true
+          creditDays: 30
+          grandTotal: 1.4894159098541704
+          contactName: บริษัท ลูกค้า จำกัด, คุณลูกค้า ซื้อประจำ
+          contactZipCode: contactZipCode
+          vatAmount: 1.0246457001441578
+          salesName: พนักงาน ขายหน้าร้าน
+          projectName: projectName
+          isVatInclusive: false
+          items:
+          - null
+          - null
+          useInlineVat: true
+          status: 6
+          contactCode: contactCode
+          contactBranch: contactBranch
+          documentType: 4
+          showSignatureOrStamp: true
+          payments:
+            bankAccountName: bankAccountName
+            collected: 1.284659006116532
+            paymentCharge: 6.704019297950036
+            chequeNumber: chequeNumber
+            chequeDate: 2020-01-01T00:00:00.000+0000
+            paymentChannel: paymentChannel
+            remainingCollected: 7.058770351582356
+            paymentDeductionAmount: 6.778324963048013
+            withheldAmount: 5.944895607614016
+            bankAccountType: 3
+            paymentDeductionType: 2
+            creditCardBankAccountId: 7
+            remainingCollectedType: 0
+            paymentMethod: 3
+            paymentRemarks: paymentRemarks
+            bankAccountNumber: bankAccountNumber
+            paymentDate: 2020-01-01T00:00:00.000+0000
+            withheldPercentage: 6
+          documentDeductionAmount: 1.1730742509559433
+          contactPerson: contactPerson
+          exemptAmount: 7.386281948385884
+          totalWithoutVat: 4.145608029883936
+          discountPercentage: 9
+          useInlineDiscount: true
+          contactNumber: 099-999-9999
+          discountType: 2
+          company:
+            companyTaxId: companyTaxId
+            companyBranchEn: companyBranchEn
+            companyPhone: companyPhone
+            companyBranch: companyBranch
+            companyName: companyName
+            companyAddress: companyAddress
+            companyNameEn: companyNameEn
+            companyFax: companyFax
+            companyAddressEn: companyAddressEn
+            companyMobile: companyMobile
+            companyWebsite: companyWebsite
+          isVat: false
+          contactEmail: contact@email.com
+          contactGroup: 5
+          internalNotes: internalNotes
+          contactTaxId: "1234567890123"
+          vatableAmount: 1.2315135367772556
+          referencedToMe:
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 5
+            documentSerial: 9
+            documentId: 9
+            type: 6
+            referenceId: 4
+          - referenceDocumentSerial: referenceDocumentSerial
+            referenceDocumentType: 5
+            documentSerial: 9
+            documentId: 9
+            type: 6
+            referenceId: 4
+          statusString: 0
+          documentId: 1
+          remarks: remarks
+      properties:
+        list:
+          description: ข้อมูลรายการสินค้า
+          items:
+            $ref: '#/components/schemas/InlineDocumentResponse_allOf_data'
+          type: array
     DeleteResponse_data:
       description: data success
       example:
@@ -14402,6 +15683,121 @@ components:
         data:
           $ref: '#/components/schemas/ExpenseSimpleDocumentResponse_allOf_data'
     ExpenseInlineDocumentResponse_allOf_data:
+      example:
+        documentSerial: documentSerial
+        contactCode: contactCode
+        contactBranch: contactBranch
+        documentType: 9
+        dueDate: 2020-01-01T00:00:00.000+0000
+        showSignatureOrStamp: true
+        payments:
+          bankAccountName: bankAccountName
+          collected: 1.284659006116532
+          paymentCharge: 6.704019297950036
+          chequeNumber: chequeNumber
+          chequeDate: 2020-01-01T00:00:00.000+0000
+          paymentChannel: paymentChannel
+          remainingCollected: 7.058770351582356
+          paymentDeductionAmount: 6.778324963048013
+          withheldAmount: 5.944895607614016
+          bankAccountType: 3
+          paymentDeductionType: 2
+          creditCardBankAccountId: 7
+          remainingCollectedType: 0
+          paymentMethod: 3
+          paymentRemarks: paymentRemarks
+          bankAccountNumber: bankAccountNumber
+          paymentDate: 2020-01-01T00:00:00.000+0000
+          withheldPercentage: 6
+        contactPerson: contactPerson
+        publishedOn: 2020-01-01T00:00:00.000+0000
+        discountAmount: 1.2315135367772556
+        subTotal: 4.145608029883936
+        totalAfterDiscount: 1.0246457001441578
+        exemptAmount: 1.1730742509559433
+        creditType: 5
+        recordId: 6
+        reference: INV2020010001
+        discountPercentage: 7
+        useInlineDiscount: true
+        contactNumber: 099-999-9999
+        contactAddress: contactAddress
+        discountType: 7
+        company:
+          companyTaxId: companyTaxId
+          companyBranchEn: companyBranchEn
+          companyPhone: companyPhone
+          companyBranch: companyBranch
+          companyName: companyName
+          companyAddress: companyAddress
+          companyNameEn: companyNameEn
+          companyFax: companyFax
+          companyAddressEn: companyAddressEn
+          companyMobile: companyMobile
+          companyWebsite: companyWebsite
+        allowDelete: true
+        isVat: false
+        contactEmail: supplier@email.com
+        creditDays: 30
+        grandTotal: 6.84685269835264
+        contactName: contactName
+        contactGroup: 5
+        contactZipCode: contactZipCode
+        internalNotes: internalNotes
+        contactTaxId: "1234567890123"
+        vatAmount: 1.4894159098541704
+        salesName: พนักงาน ขายหน้าร้าน
+        vatableAmount: 4.965218492984954
+        statusString: 9
+        documentId: 1
+        projectName: projectName
+        isVatInclusive: false
+        items:
+        - debitNameForeign: 53029 / Other advertising and marketing expenses
+          quantity: 2.3021358869347655
+          unitName: unitName
+          vatRate: 3
+          description: description
+          discountAmount: 9
+          debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+          nameForeign: Marketing & Advertising
+          pricePerUnit: 7.061401241503109
+          creditId: 1081994
+          total: 2.027123023002322
+          creditCode: "21399"
+          systemCode: 1001
+          creditNameForeign: 21399 / Other Payables
+          debitId: 1082099
+          debitCategory: 5
+          nameLocal: การตลาดและโฆษณา
+          debitCode: "53029"
+          categoryId: 40238
+          creditCategory: 2
+          creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+        - debitNameForeign: 53029 / Other advertising and marketing expenses
+          quantity: 2.3021358869347655
+          unitName: unitName
+          vatRate: 3
+          description: description
+          discountAmount: 9
+          debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+          nameForeign: Marketing & Advertising
+          pricePerUnit: 7.061401241503109
+          creditId: 1081994
+          total: 2.027123023002322
+          creditCode: "21399"
+          systemCode: 1001
+          creditNameForeign: 21399 / Other Payables
+          debitId: 1082099
+          debitCategory: 5
+          nameLocal: การตลาดและโฆษณา
+          debitCode: "53029"
+          categoryId: 40238
+          creditCategory: 2
+          creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+        remarks: remarks
+        useInlineVat: true
+        status: 5
       properties:
         recordId:
           default: 0
@@ -14579,6 +15975,243 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/ExpenseInlineDocumentResponse_allOf_data'
+    AllExpenseDocumentResponse_data:
+      example:
+        list:
+        - documentSerial: documentSerial
+          contactCode: contactCode
+          contactBranch: contactBranch
+          documentType: 9
+          dueDate: 2020-01-01T00:00:00.000+0000
+          showSignatureOrStamp: true
+          payments:
+            bankAccountName: bankAccountName
+            collected: 1.284659006116532
+            paymentCharge: 6.704019297950036
+            chequeNumber: chequeNumber
+            chequeDate: 2020-01-01T00:00:00.000+0000
+            paymentChannel: paymentChannel
+            remainingCollected: 7.058770351582356
+            paymentDeductionAmount: 6.778324963048013
+            withheldAmount: 5.944895607614016
+            bankAccountType: 3
+            paymentDeductionType: 2
+            creditCardBankAccountId: 7
+            remainingCollectedType: 0
+            paymentMethod: 3
+            paymentRemarks: paymentRemarks
+            bankAccountNumber: bankAccountNumber
+            paymentDate: 2020-01-01T00:00:00.000+0000
+            withheldPercentage: 6
+          contactPerson: contactPerson
+          publishedOn: 2020-01-01T00:00:00.000+0000
+          discountAmount: 1.2315135367772556
+          subTotal: 4.145608029883936
+          totalAfterDiscount: 1.0246457001441578
+          exemptAmount: 1.1730742509559433
+          creditType: 5
+          recordId: 6
+          reference: INV2020010001
+          discountPercentage: 7
+          useInlineDiscount: true
+          contactNumber: 099-999-9999
+          contactAddress: contactAddress
+          discountType: 7
+          company:
+            companyTaxId: companyTaxId
+            companyBranchEn: companyBranchEn
+            companyPhone: companyPhone
+            companyBranch: companyBranch
+            companyName: companyName
+            companyAddress: companyAddress
+            companyNameEn: companyNameEn
+            companyFax: companyFax
+            companyAddressEn: companyAddressEn
+            companyMobile: companyMobile
+            companyWebsite: companyWebsite
+          allowDelete: true
+          isVat: false
+          contactEmail: supplier@email.com
+          creditDays: 30
+          grandTotal: 6.84685269835264
+          contactName: contactName
+          contactGroup: 5
+          contactZipCode: contactZipCode
+          internalNotes: internalNotes
+          contactTaxId: "1234567890123"
+          vatAmount: 1.4894159098541704
+          salesName: พนักงาน ขายหน้าร้าน
+          vatableAmount: 4.965218492984954
+          statusString: 9
+          documentId: 1
+          projectName: projectName
+          isVatInclusive: false
+          items:
+          - debitNameForeign: 53029 / Other advertising and marketing expenses
+            quantity: 2.3021358869347655
+            unitName: unitName
+            vatRate: 3
+            description: description
+            discountAmount: 9
+            debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+            nameForeign: Marketing & Advertising
+            pricePerUnit: 7.061401241503109
+            creditId: 1081994
+            total: 2.027123023002322
+            creditCode: "21399"
+            systemCode: 1001
+            creditNameForeign: 21399 / Other Payables
+            debitId: 1082099
+            debitCategory: 5
+            nameLocal: การตลาดและโฆษณา
+            debitCode: "53029"
+            categoryId: 40238
+            creditCategory: 2
+            creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+          - debitNameForeign: 53029 / Other advertising and marketing expenses
+            quantity: 2.3021358869347655
+            unitName: unitName
+            vatRate: 3
+            description: description
+            discountAmount: 9
+            debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+            nameForeign: Marketing & Advertising
+            pricePerUnit: 7.061401241503109
+            creditId: 1081994
+            total: 2.027123023002322
+            creditCode: "21399"
+            systemCode: 1001
+            creditNameForeign: 21399 / Other Payables
+            debitId: 1082099
+            debitCategory: 5
+            nameLocal: การตลาดและโฆษณา
+            debitCode: "53029"
+            categoryId: 40238
+            creditCategory: 2
+            creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+          remarks: remarks
+          useInlineVat: true
+          status: 5
+        - documentSerial: documentSerial
+          contactCode: contactCode
+          contactBranch: contactBranch
+          documentType: 9
+          dueDate: 2020-01-01T00:00:00.000+0000
+          showSignatureOrStamp: true
+          payments:
+            bankAccountName: bankAccountName
+            collected: 1.284659006116532
+            paymentCharge: 6.704019297950036
+            chequeNumber: chequeNumber
+            chequeDate: 2020-01-01T00:00:00.000+0000
+            paymentChannel: paymentChannel
+            remainingCollected: 7.058770351582356
+            paymentDeductionAmount: 6.778324963048013
+            withheldAmount: 5.944895607614016
+            bankAccountType: 3
+            paymentDeductionType: 2
+            creditCardBankAccountId: 7
+            remainingCollectedType: 0
+            paymentMethod: 3
+            paymentRemarks: paymentRemarks
+            bankAccountNumber: bankAccountNumber
+            paymentDate: 2020-01-01T00:00:00.000+0000
+            withheldPercentage: 6
+          contactPerson: contactPerson
+          publishedOn: 2020-01-01T00:00:00.000+0000
+          discountAmount: 1.2315135367772556
+          subTotal: 4.145608029883936
+          totalAfterDiscount: 1.0246457001441578
+          exemptAmount: 1.1730742509559433
+          creditType: 5
+          recordId: 6
+          reference: INV2020010001
+          discountPercentage: 7
+          useInlineDiscount: true
+          contactNumber: 099-999-9999
+          contactAddress: contactAddress
+          discountType: 7
+          company:
+            companyTaxId: companyTaxId
+            companyBranchEn: companyBranchEn
+            companyPhone: companyPhone
+            companyBranch: companyBranch
+            companyName: companyName
+            companyAddress: companyAddress
+            companyNameEn: companyNameEn
+            companyFax: companyFax
+            companyAddressEn: companyAddressEn
+            companyMobile: companyMobile
+            companyWebsite: companyWebsite
+          allowDelete: true
+          isVat: false
+          contactEmail: supplier@email.com
+          creditDays: 30
+          grandTotal: 6.84685269835264
+          contactName: contactName
+          contactGroup: 5
+          contactZipCode: contactZipCode
+          internalNotes: internalNotes
+          contactTaxId: "1234567890123"
+          vatAmount: 1.4894159098541704
+          salesName: พนักงาน ขายหน้าร้าน
+          vatableAmount: 4.965218492984954
+          statusString: 9
+          documentId: 1
+          projectName: projectName
+          isVatInclusive: false
+          items:
+          - debitNameForeign: 53029 / Other advertising and marketing expenses
+            quantity: 2.3021358869347655
+            unitName: unitName
+            vatRate: 3
+            description: description
+            discountAmount: 9
+            debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+            nameForeign: Marketing & Advertising
+            pricePerUnit: 7.061401241503109
+            creditId: 1081994
+            total: 2.027123023002322
+            creditCode: "21399"
+            systemCode: 1001
+            creditNameForeign: 21399 / Other Payables
+            debitId: 1082099
+            debitCategory: 5
+            nameLocal: การตลาดและโฆษณา
+            debitCode: "53029"
+            categoryId: 40238
+            creditCategory: 2
+            creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+          - debitNameForeign: 53029 / Other advertising and marketing expenses
+            quantity: 2.3021358869347655
+            unitName: unitName
+            vatRate: 3
+            description: description
+            discountAmount: 9
+            debitNameLocal: 53029 / ค่าใช้จ่ายด้านโฆษณาและการตลาดอื่นๆ
+            nameForeign: Marketing & Advertising
+            pricePerUnit: 7.061401241503109
+            creditId: 1081994
+            total: 2.027123023002322
+            creditCode: "21399"
+            systemCode: 1001
+            creditNameForeign: 21399 / Other Payables
+            debitId: 1082099
+            debitCategory: 5
+            nameLocal: การตลาดและโฆษณา
+            debitCode: "53029"
+            categoryId: 40238
+            creditCategory: 2
+            creditNameLocal: 21399 / เจ้าหนี้อื่นๆ
+          remarks: remarks
+          useInlineVat: true
+          status: 5
+      properties:
+        list:
+          description: ข้อมูลรายการสินค้า
+          items:
+            $ref: '#/components/schemas/ExpenseInlineDocumentResponse_allOf_data'
+          type: array
     WithholidingTaxDocumentResponse_data:
       example:
         providentFundNumber: providentFundNumber
@@ -14751,6 +16384,131 @@ components:
         allowDelete:
           description: สามารถลบเอกสาร :<br> true = ลบได้ <br> false = ลบไม่ได้
           type: boolean
+    AllWithholidingTaxDocumentResponse_data:
+      example:
+        list:
+        - providentFundNumber: providentFundNumber
+          documentSerial: documentSerial
+          contactCode: contactCode
+          contactBranch: contactBranch
+          documentType: 6
+          showSignatureOrStamp: true
+          contactPerson: contactPerson
+          publishedOn: 2020-01-01T00:00:00.000+0000
+          taxPayment: 1
+          total: 4.145608029883936
+          socialSecurityAmount: socialSecurityAmount
+          contactNumber: 099-999-9999
+          taxPaymentOthers: taxPaymentOthers
+          contactAddress: contactAddress
+          company:
+            companyTaxId: companyTaxId
+            companyBranchEn: companyBranchEn
+            companyPhone: companyPhone
+            companyBranch: companyBranch
+            companyName: companyName
+            companyAddress: companyAddress
+            companyNameEn: companyNameEn
+            companyFax: companyFax
+            companyAddressEn: companyAddressEn
+            companyMobile: companyMobile
+            companyWebsite: companyWebsite
+          providentFundAmount: providentFundAmount
+          allowDelete: true
+          contactEmail: contact@email.com
+          textOther: "2020"
+          contactName: contactName
+          contactGroup: 6
+          contactZipCode: contactZipCode
+          internalNotes: internalNotes
+          contactTaxId: "1234567890123"
+          withholdingTaxItems:
+          - taxAmountNoVat: 7.061401241503109
+            taxRate: 5.637376656633329
+            total: 3.616076749251911
+            vatType: 2
+            incomeType: 5
+            description: description
+            taxAmount: 2.3021358869347655
+            withheld: 9.301444243932576
+          - taxAmountNoVat: 7.061401241503109
+            taxRate: 5.637376656633329
+            total: 3.616076749251911
+            vatType: 2
+            incomeType: 5
+            description: description
+            taxAmount: 2.3021358869347655
+            withheld: 9.301444243932576
+          totalTaxWithheld: 7.386281948385884
+          statusString: 1
+          documentId: documentId
+          entity: 1
+          remarks: remarks
+          status: 1
+        - providentFundNumber: providentFundNumber
+          documentSerial: documentSerial
+          contactCode: contactCode
+          contactBranch: contactBranch
+          documentType: 6
+          showSignatureOrStamp: true
+          contactPerson: contactPerson
+          publishedOn: 2020-01-01T00:00:00.000+0000
+          taxPayment: 1
+          total: 4.145608029883936
+          socialSecurityAmount: socialSecurityAmount
+          contactNumber: 099-999-9999
+          taxPaymentOthers: taxPaymentOthers
+          contactAddress: contactAddress
+          company:
+            companyTaxId: companyTaxId
+            companyBranchEn: companyBranchEn
+            companyPhone: companyPhone
+            companyBranch: companyBranch
+            companyName: companyName
+            companyAddress: companyAddress
+            companyNameEn: companyNameEn
+            companyFax: companyFax
+            companyAddressEn: companyAddressEn
+            companyMobile: companyMobile
+            companyWebsite: companyWebsite
+          providentFundAmount: providentFundAmount
+          allowDelete: true
+          contactEmail: contact@email.com
+          textOther: "2020"
+          contactName: contactName
+          contactGroup: 6
+          contactZipCode: contactZipCode
+          internalNotes: internalNotes
+          contactTaxId: "1234567890123"
+          withholdingTaxItems:
+          - taxAmountNoVat: 7.061401241503109
+            taxRate: 5.637376656633329
+            total: 3.616076749251911
+            vatType: 2
+            incomeType: 5
+            description: description
+            taxAmount: 2.3021358869347655
+            withheld: 9.301444243932576
+          - taxAmountNoVat: 7.061401241503109
+            taxRate: 5.637376656633329
+            total: 3.616076749251911
+            vatType: 2
+            incomeType: 5
+            description: description
+            taxAmount: 2.3021358869347655
+            withheld: 9.301444243932576
+          totalTaxWithheld: 7.386281948385884
+          statusString: 1
+          documentId: documentId
+          entity: 1
+          remarks: remarks
+          status: 1
+      properties:
+        list:
+          description: ข้อมูลรายการสินค้า
+          items:
+            $ref: '#/components/schemas/WithholidingTaxDocumentResponse_data'
+          type: array
     SendEmailCoppies_allOf:
       properties:
         doCopy:
@@ -14814,121 +16572,236 @@ components:
           type: string
     ProductResponse_data:
       example:
-        buyPrice: 2.3021358869347655
-        sellDescription: sellDescription
-        code: P001
-        unitName: unitName
-        averageSellPrice: 2.027123023002322
-        inventoryQuantity: 9.301444243932576
-        buyVatType: 7
-        buyDescription: buyDescription
-        sellPrice: 1.4658129805029452
-        type: 6
-        sellVatType: 5
-        categoryName: categoryName
-        inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
-        name: Product
-        totalValueInHand: 7.386281948385884
-        id: id
-        remainingStock: 4.145608029883936
-        barcode: barcode
-        averageBuyPrice: 3.616076749251911
-        categoryId: 5
+        total: 6
+        isDB: true
+        currentPage: 1
+        list:
+        - buyPrice: 9.301444243932576
+          sellDescription: sellDescription
+          code: P001
+          unitName: unitName
+          averageSellPrice: 7.386281948385884
+          inventoryQuantity: 2.027123023002322
+          buyVatType: 3
+          buyDescription: buyDescription
+          sellPrice: 5.637376656633329
+          type: 5
+          sellVatType: 2
+          categoryName: categoryName
+          inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+          name: Product
+          totalValueInHand: 1.0246457001441578
+          id: id
+          remainingStock: 1.2315135367772556
+          barcode: barcode
+          averageBuyPrice: 4.145608029883936
+          categoryId: 7
+        - buyPrice: 9.301444243932576
+          sellDescription: sellDescription
+          code: P001
+          unitName: unitName
+          averageSellPrice: 7.386281948385884
+          inventoryQuantity: 2.027123023002322
+          buyVatType: 3
+          buyDescription: buyDescription
+          sellPrice: 5.637376656633329
+          type: 5
+          sellVatType: 2
+          categoryName: categoryName
+          inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+          name: Product
+          totalValueInHand: 1.0246457001441578
+          id: id
+          remainingStock: 1.2315135367772556
+          barcode: barcode
+          averageBuyPrice: 4.145608029883936
+          categoryId: 7
       properties:
-        id:
-          description: เลข id Product
-          type: string
-        type:
-          default: 1
-          description: 'ประเภทสินค้า: 1 = บริการ / 3 = ไม่นับสต๊อก / 5 = นับสต๊อก'
-          format: int64
+        total:
+          description: จำนวนสินค้าทั้งหมด
           type: integer
-        code:
-          description: 'รหัสสินค้า <br> <ex>Example: P001</ex>'
-          example: P001
-          type: string
-        name:
-          description: 'ชื่อสินค้า <br> <ex>Example: Product</ex>'
-          example: Product
-          type: string
-        sellDescription:
-          description: รายละเอียดสินค้า ฝั่งขาย
-          type: string
-        sellPrice:
-          description: ราคาขายสินค้า
-          format: decimal
-          type: number
-        sellVatType:
-          default: 3
-          description: 'ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี
-            <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี'
-          format: int64
+        currentPage:
+          description: หน้าที่แสดงรายการสินค้า
           type: integer
-        unitName:
-          description: หน่วยสินค้า
-          type: string
-        categoryId:
-          description: id หมวดสินค้า
-          format: int64
-          type: integer
-        categoryName:
-          description: หมวดสินค้า
-          type: string
-        barcode:
-          description: บาร์โค้ด
-          type: string
-        buyDescription:
-          description: รายละเอียดสินค้า ฝั่งซื้อ
-          type: string
-        buyPrice:
-          description: ราคาซื้อสินค้า
-          format: decimal
-          type: number
-        buyVatType:
-          default: 3
-          description: 'ภาษีซื้อ: <br> 1 = ราคาซื้อรวมภาษี <br> 3 = ราคาซื้อไม่รวมภาษี
-            <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี'
-          format: int64
-          type: integer
-        inventoryPublishedOn:
-          default: 2019-12-31T17:00:00.000+0000
-          description: 'วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>'
-          example: 2020-01-01
-          format: date
-          type: string
-        inventoryQuantity:
-          description: จำนวนยอดตั้งต้นสินค้า
-          format: decimal
-          type: number
-        averageBuyPrice:
-          description: ราคาซื้อเฉลี่ยสินค้า
-          format: decimal
-          type: number
-        averageSellPrice:
-          description: ราคาขายเฉลี่ยสินค้า
-          format: decimal
-          type: number
-        remainingStock:
-          description: จำนวนสินค้าคงเหลือในสต๊อก
-          format: decimal
-          type: number
-        totalValueInHand:
-          description: มูลค่าสินค้าคงเหลือในสต๊อก
-          format: decimal
-          type: number
-    ContactResponse_allOf:
+        list:
+          description: ข้อมูลรายการสินค้า
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        isDB:
+          description: database
+          type: boolean
+    ContactResponse_data:
+      example:
+        total: 6
+        isDB: true
+        currentPage: 1
+        list:
+        - contactMobile: 099-999-9999
+          contactBankAccountType: 1
+          contactBankBranch: บางรัก
+          contactBranch: สำนักงานใหญ่
+          contactEmail: contact@email.com
+          conatactShippingAddress: conatactShippingAddress
+          contactName: contactName
+          contactGroup: 5
+          contactZipCode: contactZipCode
+          contactCreditDays: 9
+          contactFax: 02-888-8888
+          contactPerson: contactPerson
+          contactType: 2
+          contactBankId: 7
+          contactWebsite: www.flowaccount.com
+          contactBankAccountNumber: 1111111111
+          contactTaxId: 1234567890123
+          contactBranchCode: contactBranchCode
+          contactOffice: 02-999-9999
+          contactAddress: contactAddress
+          id: 5
+          contactNote: contactNote
+        - contactMobile: 099-999-9999
+          contactBankAccountType: 1
+          contactBankBranch: บางรัก
+          contactBranch: สำนักงานใหญ่
+          contactEmail: contact@email.com
+          conatactShippingAddress: conatactShippingAddress
+          contactName: contactName
+          contactGroup: 5
+          contactZipCode: contactZipCode
+          contactCreditDays: 9
+          contactFax: 02-888-8888
+          contactPerson: contactPerson
+          contactType: 2
+          contactBankId: 7
+          contactWebsite: www.flowaccount.com
+          contactBankAccountNumber: 1111111111
+          contactTaxId: 1234567890123
+          contactBranchCode: contactBranchCode
+          contactOffice: 02-999-9999
+          contactAddress: contactAddress
+          id: 5
+          contactNote: contactNote
       properties:
-        id:
-          description: เลข id Contact
+        total:
+          description: จำนวนรายชื่อติดต่อทั้งหมด
+          type: integer
+        currentPage:
+          description: หน้าที่แสดงรายชื่อผู้ติดต่อ
+          type: integer
+        list:
+          description: ข้อมูลรายชื่อผู้ติดต่อ
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        isDB:
+          description: database
+          type: boolean
+    BankAccountResponse_data:
+      example:
+        bankAccountName: bankAccountName
+        bankId: 5
+        bankAccountType: 1
+        bankBranch: bankBranch
+        bankAccountId: 6
+        bankAccountNumber: bankAccountNumber
+        bankName: bankName
+      properties:
+        bankAccountId:
+          description: เลข id บัญชีธนาคาร
           format: int64
           type: integer
-    CompanyInfoResponse_allOf:
+        bankAccountNumber:
+          description: 'เลขบัญชี <br> <ex>Example: 0048620000 </ex>'
+          type: string
+        bankAccountName:
+          description: 'ชื่อบัญชี <br> <ex>Example: บัญชีใช้รับเงิน</ex>'
+          type: string
+        bankAccountType:
+          description: ประเภทบัญชีธนาคาร <br> 1 = บัญชีออมทรัพย์  <br> 3 = บัญชีกระรายวัน
+            <br> 7  = บัญชีฝากประจำ
+          format: int64
+          type: integer
+        bankBranch:
+          description: ชื่อสาขาธนาคาร
+          type: string
+        bankId:
+          description: เลข id ธนาคาร
+          format: int64
+          type: integer
+        bankName:
+          description: ชื่อธนาคาร
+          type: string
+    CompanyInfoResponse_data:
+      example:
+        companyBranchEn: companyBranchEn
+        companyType: "10"
+        companyBranchCode: companyBranchCode
+        companyNameEn: companyNameEn
+        companyZipCode: companyZipCode
+        companyAddressEn: companyAddressEn
+        companyTaxId: companyTaxId
+        companyId: 6
+        compnayName: compnayName
+        companyPhone: companyPhone
+        companyBranch: สำนักงานใหญ่
+        companyAddress: companyAddress
+        companyFax: companyFax
+        companyMobile: companyMobile
+        companyWebsite: companyWebsite
       properties:
         companyId:
           default: 0
           description: รหัสบริษัท
           format: int64
           type: integer
+        companyType:
+          default: "10"
+          description: ประเภทธุรกิจ <br> 10 = บริษัท - จดภาษีมูลค่าเพิ่มแล้ว <br>
+            20 = บริษัท - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 30 = บุคคลธรรมดา/ฟรีแลนซ์
+            - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 40 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม
+            <br> 50 = ห้างหุ้นส่วนจำกัด - จดภาษีมูลค่าเพิ่มแล้ว <br> 60 = ห้างหุ้นส่วนจำกัด
+            - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม
+          type: string
+        compnayName:
+          description: ชื่อบริษัท
+          type: string
+        companyNameEn:
+          description: ชื่อบริษัท ภาษาอังกฤษ
+          type: string
+        companyAddress:
+          description: ที่อยู่บริษัท
+          type: string
+        companyAddressEn:
+          description: ที่อยู่บริษัท ภาษาอังกฤษ
+          type: string
+        companyZipCode:
+          description: 'รหัสไปรษณีย์ บริษัท <br><ex>Example: 10150</ex>'
+          type: string
+        companyTaxId:
+          description: 'เลขประจำตัวผู้เสียภาษี บริษัท <br><ex>Example: 0105558096348</ex>'
+          type: string
+        companyBranch:
+          default: สำนักงานใหญ่
+          description: 'ชื่อ และ รหัสสาขา <br><ex>Example: สำนักงานใหญ่</ex>'
+          type: string
+        companyBranchEn:
+          description: 'ชื่อ และ รหัสสาขา ภาษาอังกฤษ <br><ex>Example: Head Office</ex>'
+          type: string
+        companyBranchCode:
+          description: 'รหัสสาขา <br><ex>Example: 00000</ex>'
+          type: string
+        companyPhone:
+          description: 'เบอร์โทรสำนักงาน <br><ex>Example: 02-999-9999</ex>'
+          type: string
+        companyMobile:
+          description: 'เบอร์โทรศัพท์มือถือ <br><ex>Example: 099-999-9999</ex>'
+          type: string
+        companyFax:
+          description: 'เบอร์โทรสาร <br><ex>Example: 02-999-9999 ต่อ 1</ex>'
+          type: string
+        companyWebsite:
+          description: 'เว็บไซต์ <br><ex>Example: www.flowaccount.com</ex>'
+          type: string
 x-tagGroups:
 - name: Sell Document
   tags:

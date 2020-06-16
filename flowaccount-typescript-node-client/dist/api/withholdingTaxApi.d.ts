@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import http = require('http');
+import { AllWithholidingTaxDocumentResponse } from '../model/allWithholidingTaxDocumentResponse';
 import { AttachmentResponse } from '../model/attachmentResponse';
 import { DeleteResponse } from '../model/deleteResponse';
 import { SendEmailResponse } from '../model/sendEmailResponse';
@@ -9,22 +10,25 @@ import { ShareDocumentResponse } from '../model/shareDocumentResponse';
 import { UpdateWithholidingTaxDocument } from '../model/updateWithholidingTaxDocument';
 import { WithholidingTaxDocument } from '../model/withholidingTaxDocument';
 import { WithholidingTaxDocumentResponse } from '../model/withholidingTaxDocumentResponse';
-import { Authentication } from '../model/models';
+import { Authentication, Interceptor } from '../model/models';
 import { RequestFile } from './apis';
 export declare enum WithholdingTaxApiApiKeys {
 }
 export declare class WithholdingTaxApi {
     protected _basePath: string;
-    protected defaultHeaders: any;
+    protected _defaultHeaders: any;
     protected _useQuerystring: boolean;
     protected authentications: {
         'default': Authentication;
     };
+    protected interceptors: Interceptor[];
     constructor(basePath?: string);
     useQuerystring: boolean;
     basePath: string;
+    defaultHeaders: any;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: WithholdingTaxApiApiKeys, value: string): void;
+    addInterceptor(interceptor: Interceptor): void;
     withholdingTaxesEmailDocumentPost(authorization: string, sendEmailSimple: SendEmailSimple, options?: {
         headers: {
             [name: string]: string;
@@ -39,7 +43,7 @@ export declare class WithholdingTaxApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: WithholidingTaxDocumentResponse;
+        body: AllWithholidingTaxDocumentResponse;
     }>;
     withholdingTaxesIdAttachmentPost(authorization: string, id: string, file?: RequestFile, options?: {
         headers: {

@@ -57,7 +57,7 @@ No authorization required
 
 ## TaxInvoicesGet
 
-> InlineDocumentResponse TaxInvoicesGet(ctx, currentPage, pageSize, authorization, optional)
+> AllDocumentResponse TaxInvoicesGet(ctx, currentPage, pageSize, authorization, optional)
 
 Get list all tax invocie documents.
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ No authorization required
 
 ## TaxInvoicesIdPaymentPost
 
-> InlineDocumentResponse TaxInvoicesIdPaymentPost(ctx, authorization, id, uNKNOWNBASETYPE)
+> InlineDocumentResponse TaxInvoicesIdPaymentPost(ctx, authorization, id, paymentReceivingDocument)
 
 Change paid status of tax-invoice document.
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
 **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -367,7 +367,7 @@ No authorization required
 
 ## TaxInvoicesInlineWithPaymentPost
 
-> InlineDocumentResponse TaxInvoicesInlineWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> InlineDocumentResponse TaxInvoicesInlineWithPaymentPost(ctx, authorization, inlineDocumentWithPaymentReceiving)
 
 Create tax invocie document with discount and tax inline with payment.
 
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -472,7 +472,7 @@ No authorization required
 
 ## TaxInvoicesWithPaymentPost
 
-> SimpleDocumentResponse TaxInvoicesWithPaymentPost(ctx, authorization, uNKNOWNBASETYPE)
+> SimpleDocumentResponse TaxInvoicesWithPaymentPost(ctx, authorization, simpleDocumentWithPaymentReceiving)
 
 Create tax invocie document with payment.
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **authorization** | **string**|  | [default to Bearer accessToken]
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

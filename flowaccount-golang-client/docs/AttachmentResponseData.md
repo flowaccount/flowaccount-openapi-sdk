@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttachmentId** | **int64** | เลข Id ไฟล์แนบเอกสาร | [optional] 
-**CreatedOn** | [**map[string]interface{}**](map[string]interface{}.md) | วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
+**CreatedOn** | [**interface{}**](.md) | วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
 **AttachmentName** | **string** | ชื่อไฟล์แนบเอกสาร | [optional] 
 **OrderNumber** | **int64** | ลำดับไฟล์แนบเอกสาร | [optional] 
 **IsDisplay** | **bool** | สถานะการแสดงไฟล์แนบเอกสาร | [optional] [default to true]

@@ -24,21 +24,29 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ProductsApi()
-current_page = 56 # int | Query current page products item. <br>Example Pattern: <ex>/products?currentPage=1 </ex><ex>/products?currentPage=1&pageSize=20</ex>
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ProductsApi(api_client)
+    current_page = 56 # int | Query current page products item. <br>Example Pattern: <ex>/products?currentPage=1 </ex><ex>/products?currentPage=1&pageSize=20</ex>
 page_size = 56 # int | Query products list amount per page. <br>Example Pattern: <ex> /products?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 sort_by = 'sort_by_example' # str | Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex> (optional)
 filter = 'filter_example' # str | Query products list amount per page. <br>Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex> (optional)
 
-try:
-    # Get list all products.
-    api_response = api_instance.products_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->products_get: %s\n" % e)
+    try:
+        # Get list all products.
+        api_response = api_instance.products_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProductsApi->products_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -86,18 +94,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ProductsApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ProductsApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 id = 'id_example' # str | เลข Id Contact
 
-try:
-    # Delete products.
-    api_response = api_instance.products_id_delete(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->products_id_delete: %s\n" % e)
+    try:
+        # Delete products.
+        api_response = api_instance.products_id_delete(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProductsApi->products_id_delete: %s\n" % e)
 ```
 
 ### Parameters
@@ -142,18 +158,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ProductsApi()
-authorization = 'Bearer accessToken' # str | เลข Id Product (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ProductsApi(api_client)
+    authorization = 'Bearer accessToken' # str | เลข Id Product (default to 'Bearer accessToken')
 id = 'id_example' # str | 
 
-try:
-    # Get products.
-    api_response = api_instance.products_id_get(authorization, id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->products_id_get: %s\n" % e)
+    try:
+        # Get products.
+        api_response = api_instance.products_id_get(authorization, id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProductsApi->products_id_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -186,7 +210,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **products_id_put**
-> ProductResponse products_id_put(authorization, id, unknown_base_type)
+> ProductResponse products_id_put(authorization, id, product_type)
 
 Update products.
 
@@ -198,19 +222,27 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ProductsApi()
-authorization = 'Bearer accessToken' # str | เลข Id Product (default to 'Bearer accessToken')
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ProductsApi(api_client)
+    authorization = 'Bearer accessToken' # str | เลข Id Product (default to 'Bearer accessToken')
 id = 'id_example' # str | 
-unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+product_type = openapi_client.ProductType() # ProductType | 
 
-try:
-    # Update products.
-    api_response = api_instance.products_id_put(authorization, id, unknown_base_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->products_id_put: %s\n" % e)
+    try:
+        # Update products.
+        api_response = api_instance.products_id_put(authorization, id, product_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProductsApi->products_id_put: %s\n" % e)
 ```
 
 ### Parameters
@@ -219,7 +251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| เลข Id Product | [default to &#39;Bearer accessToken&#39;]
  **id** | **str**|  | 
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **product_type** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 
@@ -244,7 +276,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **products_post**
-> ProductResponse products_post(authorization, unknown_base_type)
+> ProductResponse products_post(authorization, product_type)
 
 Create products.
 
@@ -256,18 +288,26 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://openapi.flowaccount.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://openapi.flowaccount.com/v1"
+)
 
-# Create an instance of the API class
-api_instance = openapi_client.ProductsApi()
-authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
-try:
-    # Create products.
-    api_response = api_instance.products_post(authorization, unknown_base_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->products_post: %s\n" % e)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ProductsApi(api_client)
+    authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
+product_type = openapi_client.ProductType() # ProductType | 
+
+    try:
+        # Create products.
+        api_response = api_instance.products_post(authorization, product_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProductsApi->products_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -275,7 +315,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **product_type** | [**ProductType**](ProductType.md)|  | 
 
 ### Return type
 

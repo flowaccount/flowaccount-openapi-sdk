@@ -23,22 +23,22 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.openapitools.client.model.AllExpenseDocumentResponse;
 import org.openapitools.client.model.AttachmentResponse;
 import org.openapitools.client.model.BusinessCategory;
 import org.openapitools.client.model.DeleteResponse;
 import org.openapitools.client.model.ExpenseInlineDocument;
 import org.openapitools.client.model.ExpenseInlineDocumentResponse;
+import org.openapitools.client.model.ExpenseInlineDocumentWithPaymentPaid;
 import org.openapitools.client.model.ExpenseSimpleDocument;
 import org.openapitools.client.model.ExpenseSimpleDocumentResponse;
+import org.openapitools.client.model.ExpenseSimpleDocumentWithPaymentPaid;
 import java.io.File;
-import org.openapitools.client.model.OneOfExpenseInlineDocumentWithPaymentPaidCashExpenseInlineDocumentWithPaymentPaidTransferExpenseInlineDocumentWithPaymentPaidChequeExpenseInlineDocumentWithPaymentPaidCreditCard;
-import org.openapitools.client.model.OneOfExpenseSimpleDocumentWithPaymentPaidCashExpenseSimpleDocumentWithPaymentPaidTransferExpenseSimpleDocumentWithPaymentPaidChequeExpenseSimpleDocumentWithPaymentPaidCreditCard;
-import org.openapitools.client.model.OneOfPaymentPaidCashPaymentPaidTransferPaymentPaidChequePaymentPaidCreditCard;
+import org.openapitools.client.model.PaymentPaidDocument;
 import org.openapitools.client.model.SendEmailResponse;
 import org.openapitools.client.model.SendEmailSimple;
 import org.openapitools.client.model.ShareDocument;
 import org.openapitools.client.model.ShareDocumentResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
 import org.openapitools.client.model.UpdateExpenseDocument;
 
 import org.apache.http.HttpEntity;
@@ -478,9 +478,9 @@ public class ExpensesApi {
    * @param authorization 
    * @param sortBy Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
    * @param filter 
-   * @return ExpenseInlineDocumentResponse
+   * @return AllExpenseDocumentResponse
   */
-  public ExpenseInlineDocumentResponse expensesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AllExpenseDocumentResponse expensesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'currentPage' is set
     if (currentPage == null) {
@@ -530,7 +530,7 @@ public class ExpensesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (ExpenseInlineDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", ExpenseInlineDocumentResponse.class);
+         return (AllExpenseDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", AllExpenseDocumentResponse.class);
       } else {
          return null;
       }
@@ -556,7 +556,7 @@ public class ExpensesApi {
    * เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
    * @param currentPage Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter 
   */
-  public void expensesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<ExpenseInlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void expensesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<AllExpenseDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'currentPage' is set
@@ -616,7 +616,7 @@ public class ExpensesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((ExpenseInlineDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", ExpenseInlineDocumentResponse.class));
+              responseListener.onResponse((AllExpenseDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", AllExpenseDocumentResponse.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1066,11 +1066,11 @@ public class ExpensesApi {
   * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
    * @param authorization 
    * @param id ID เอกสารใช้ recordId หรือ documentId
-   * @param UNKNOWN_BASE_TYPE 
+   * @param paymentPaidDocument 
    * @return ExpenseSimpleDocumentResponse
   */
-  public ExpenseSimpleDocumentResponse expensesIdPaymentPost (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public ExpenseSimpleDocumentResponse expensesIdPaymentPost (String authorization, String id, PaymentPaidDocument paymentPaidDocument) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = paymentPaidDocument;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling expensesIdPaymentPost",
@@ -1081,10 +1081,10 @@ public class ExpensesApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling expensesIdPaymentPost",
         new ApiException(400, "Missing the required parameter 'id' when calling expensesIdPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesIdPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesIdPaymentPost"));
+    // verify the required parameter 'paymentPaidDocument' is set
+    if (paymentPaidDocument == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'paymentPaidDocument' when calling expensesIdPaymentPost",
+        new ApiException(400, "Missing the required parameter 'paymentPaidDocument' when calling expensesIdPaymentPost"));
     }
 
     // create path and map variables
@@ -1140,10 +1140,10 @@ public class ExpensesApi {
       /**
    * Change paid status of expenses document.
    * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
-   * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param paymentPaidDocument 
   */
-  public void expensesIdPaymentPost (String authorization, String id, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<ExpenseSimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void expensesIdPaymentPost (String authorization, String id, PaymentPaidDocument paymentPaidDocument, final Response.Listener<ExpenseSimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = paymentPaidDocument;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
@@ -1155,10 +1155,10 @@ public class ExpensesApi {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling expensesIdPaymentPost",
         new ApiException(400, "Missing the required parameter 'id' when calling expensesIdPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesIdPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesIdPaymentPost"));
+    // verify the required parameter 'paymentPaidDocument' is set
+    if (paymentPaidDocument == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'paymentPaidDocument' when calling expensesIdPaymentPost",
+        new ApiException(400, "Missing the required parameter 'paymentPaidDocument' when calling expensesIdPaymentPost"));
     }
 
     // create path and map variables
@@ -1661,20 +1661,20 @@ public class ExpensesApi {
   * Create expenses document with discount and tax inline with payment.
   * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param expenseInlineDocumentWithPaymentPaid 
    * @return ExpenseInlineDocumentResponse
   */
-  public ExpenseInlineDocumentResponse expensesInlineWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public ExpenseInlineDocumentResponse expensesInlineWithPaymentPost (String authorization, ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = expenseInlineDocumentWithPaymentPaid;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling expensesInlineWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling expensesInlineWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesInlineWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesInlineWithPaymentPost"));
+    // verify the required parameter 'expenseInlineDocumentWithPaymentPaid' is set
+    if (expenseInlineDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'expenseInlineDocumentWithPaymentPaid' when calling expensesInlineWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'expenseInlineDocumentWithPaymentPaid' when calling expensesInlineWithPaymentPost"));
     }
 
     // create path and map variables
@@ -1730,20 +1730,20 @@ public class ExpensesApi {
       /**
    * Create expenses document with discount and tax inline with payment.
    * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param expenseInlineDocumentWithPaymentPaid 
   */
-  public void expensesInlineWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<ExpenseInlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void expensesInlineWithPaymentPost (String authorization, ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid, final Response.Listener<ExpenseInlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = expenseInlineDocumentWithPaymentPaid;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling expensesInlineWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling expensesInlineWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesInlineWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesInlineWithPaymentPost"));
+    // verify the required parameter 'expenseInlineDocumentWithPaymentPaid' is set
+    if (expenseInlineDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'expenseInlineDocumentWithPaymentPaid' when calling expensesInlineWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'expenseInlineDocumentWithPaymentPaid' when calling expensesInlineWithPaymentPost"));
     }
 
     // create path and map variables
@@ -2084,20 +2084,20 @@ public class ExpensesApi {
   * Create expenses document with-payment.
   * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization 
-   * @param UNKNOWN_BASE_TYPE 
+   * @param expenseSimpleDocumentWithPaymentPaid 
    * @return ExpenseSimpleDocumentResponse
   */
-  public ExpenseSimpleDocumentResponse expensesWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public ExpenseSimpleDocumentResponse expensesWithPaymentPost (String authorization, ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = expenseSimpleDocumentWithPaymentPaid;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling expensesWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling expensesWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesWithPaymentPost"));
+    // verify the required parameter 'expenseSimpleDocumentWithPaymentPaid' is set
+    if (expenseSimpleDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'expenseSimpleDocumentWithPaymentPaid' when calling expensesWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'expenseSimpleDocumentWithPaymentPaid' when calling expensesWithPaymentPost"));
     }
 
     // create path and map variables
@@ -2153,20 +2153,20 @@ public class ExpensesApi {
       /**
    * Create expenses document with-payment.
    * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
-   * @param authorization    * @param UNKNOWN_BASE_TYPE 
+   * @param authorization    * @param expenseSimpleDocumentWithPaymentPaid 
   */
-  public void expensesWithPaymentPost (String authorization, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final Response.Listener<ExpenseSimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = UNKNOWN_BASE_TYPE;
+  public void expensesWithPaymentPost (String authorization, ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid, final Response.Listener<ExpenseSimpleDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = expenseSimpleDocumentWithPaymentPaid;
 
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling expensesWithPaymentPost",
         new ApiException(400, "Missing the required parameter 'authorization' when calling expensesWithPaymentPost"));
     }
-    // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-    if (UNKNOWN_BASE_TYPE == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesWithPaymentPost",
-        new ApiException(400, "Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling expensesWithPaymentPost"));
+    // verify the required parameter 'expenseSimpleDocumentWithPaymentPaid' is set
+    if (expenseSimpleDocumentWithPaymentPaid == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'expenseSimpleDocumentWithPaymentPaid' when calling expensesWithPaymentPost",
+        new ApiException(400, "Missing the required parameter 'expenseSimpleDocumentWithPaymentPaid' when calling expensesWithPaymentPost"));
     }
 
     // create path and map variables

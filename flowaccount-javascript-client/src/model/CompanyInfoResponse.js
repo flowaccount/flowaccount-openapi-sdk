@@ -12,8 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import CompanyInfo from './CompanyInfo';
-import CompanyInfoResponseAllOf from './CompanyInfoResponseAllOf';
+import CompanyInfoResponseData from './CompanyInfoResponseData';
 
 /**
  * The CompanyInfoResponse model module.
@@ -24,13 +23,10 @@ class CompanyInfoResponse {
     /**
      * Constructs a new <code>CompanyInfoResponse</code>.
      * @alias module:model/CompanyInfoResponse
-     * @implements module:model/CompanyInfoResponseAllOf
-     * @implements module:model/CompanyInfo
-     * @param compnayName {String} ชื่อบริษัท
      */
-    constructor(compnayName) { 
-        CompanyInfoResponseAllOf.initialize(this);CompanyInfo.initialize(this, compnayName);
-        CompanyInfoResponse.initialize(this, compnayName);
+    constructor() { 
+        
+        CompanyInfoResponse.initialize(this);
     }
 
     /**
@@ -38,8 +34,7 @@ class CompanyInfoResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, compnayName) { 
-        obj['compnayName'] = compnayName;
+    static initialize(obj) { 
     }
 
     /**
@@ -52,53 +47,18 @@ class CompanyInfoResponse {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new CompanyInfoResponse();
-            CompanyInfoResponseAllOf.constructFromObject(data, obj);
-            CompanyInfo.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('companyId')) {
-                obj['companyId'] = ApiClient.convertToType(data['companyId'], 'Number');
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'Boolean');
             }
-            if (data.hasOwnProperty('companyType')) {
-                obj['companyType'] = ApiClient.convertToType(data['companyType'], 'String');
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('compnayName')) {
-                obj['compnayName'] = ApiClient.convertToType(data['compnayName'], 'String');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
-            if (data.hasOwnProperty('companyNameEn')) {
-                obj['companyNameEn'] = ApiClient.convertToType(data['companyNameEn'], 'String');
-            }
-            if (data.hasOwnProperty('companyAddress')) {
-                obj['companyAddress'] = ApiClient.convertToType(data['companyAddress'], 'String');
-            }
-            if (data.hasOwnProperty('companyAddressEn')) {
-                obj['companyAddressEn'] = ApiClient.convertToType(data['companyAddressEn'], 'String');
-            }
-            if (data.hasOwnProperty('companyZipCode')) {
-                obj['companyZipCode'] = ApiClient.convertToType(data['companyZipCode'], 'String');
-            }
-            if (data.hasOwnProperty('companyTaxId')) {
-                obj['companyTaxId'] = ApiClient.convertToType(data['companyTaxId'], 'String');
-            }
-            if (data.hasOwnProperty('companyBranch')) {
-                obj['companyBranch'] = ApiClient.convertToType(data['companyBranch'], 'String');
-            }
-            if (data.hasOwnProperty('companyBranchEn')) {
-                obj['companyBranchEn'] = ApiClient.convertToType(data['companyBranchEn'], 'String');
-            }
-            if (data.hasOwnProperty('companyBranchCode')) {
-                obj['companyBranchCode'] = ApiClient.convertToType(data['companyBranchCode'], 'String');
-            }
-            if (data.hasOwnProperty('companyPhone')) {
-                obj['companyPhone'] = ApiClient.convertToType(data['companyPhone'], 'String');
-            }
-            if (data.hasOwnProperty('companyMobile')) {
-                obj['companyMobile'] = ApiClient.convertToType(data['companyMobile'], 'String');
-            }
-            if (data.hasOwnProperty('companyFax')) {
-                obj['companyFax'] = ApiClient.convertToType(data['companyFax'], 'String');
-            }
-            if (data.hasOwnProperty('companyWebsite')) {
-                obj['companyWebsite'] = ApiClient.convertToType(data['companyWebsite'], 'String');
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ApiClient.convertToType(data['data'], [CompanyInfoResponseData]);
             }
         }
         return obj;
@@ -108,179 +68,30 @@ class CompanyInfoResponse {
 }
 
 /**
- * รหัสบริษัท
- * @member {Number} companyId
- * @default 0
+ * action success
+ * @member {Boolean} status
  */
-CompanyInfoResponse.prototype['companyId'] = 0;
+CompanyInfoResponse.prototype['status'] = undefined;
 
 /**
- * ประเภทธุรกิจ <br> 10 = บริษัท - จดภาษีมูลค่าเพิ่มแล้ว <br> 20 = บริษัท - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 30 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 40 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 50 = ห้างหุ้นส่วนจำกัด - จดภาษีมูลค่าเพิ่มแล้ว <br> 60 = ห้างหุ้นส่วนจำกัด - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม
- * @member {String} companyType
- * @default '10'
+ * error message
+ * @member {String} message
  */
-CompanyInfoResponse.prototype['companyType'] = '10';
+CompanyInfoResponse.prototype['message'] = undefined;
 
 /**
- * ชื่อบริษัท
- * @member {String} compnayName
+ * error code
+ * @member {Number} code
  */
-CompanyInfoResponse.prototype['compnayName'] = undefined;
+CompanyInfoResponse.prototype['code'] = undefined;
 
 /**
- * ชื่อบริษัท ภาษาอังกฤษ
- * @member {String} companyNameEn
+ * ข้อมูลบริษัทเรา
+ * @member {Array.<module:model/CompanyInfoResponseData>} data
  */
-CompanyInfoResponse.prototype['companyNameEn'] = undefined;
-
-/**
- * ที่อยู่บริษัท
- * @member {String} companyAddress
- */
-CompanyInfoResponse.prototype['companyAddress'] = undefined;
-
-/**
- * ที่อยู่บริษัท ภาษาอังกฤษ
- * @member {String} companyAddressEn
- */
-CompanyInfoResponse.prototype['companyAddressEn'] = undefined;
-
-/**
- * รหัสไปรษณีย์ บริษัท <br><ex>Example: 10150</ex>
- * @member {String} companyZipCode
- */
-CompanyInfoResponse.prototype['companyZipCode'] = undefined;
-
-/**
- * เลขประจำตัวผู้เสียภาษี บริษัท <br><ex>Example: 0105558096348</ex>
- * @member {String} companyTaxId
- */
-CompanyInfoResponse.prototype['companyTaxId'] = undefined;
-
-/**
- * ชื่อ และ รหัสสาขา <br><ex>Example: สำนักงานใหญ่</ex>
- * @member {String} companyBranch
- * @default 'สำนักงานใหญ่'
- */
-CompanyInfoResponse.prototype['companyBranch'] = 'สำนักงานใหญ่';
-
-/**
- * ชื่อ และ รหัสสาขา ภาษาอังกฤษ <br><ex>Example: Head Office</ex>
- * @member {String} companyBranchEn
- */
-CompanyInfoResponse.prototype['companyBranchEn'] = undefined;
-
-/**
- * รหัสสาขา <br><ex>Example: 00000</ex>
- * @member {String} companyBranchCode
- */
-CompanyInfoResponse.prototype['companyBranchCode'] = undefined;
-
-/**
- * เบอร์โทรสำนักงาน <br><ex>Example: 02-999-9999</ex>
- * @member {String} companyPhone
- */
-CompanyInfoResponse.prototype['companyPhone'] = undefined;
-
-/**
- * เบอร์โทรศัพท์มือถือ <br><ex>Example: 099-999-9999</ex>
- * @member {String} companyMobile
- */
-CompanyInfoResponse.prototype['companyMobile'] = undefined;
-
-/**
- * เบอร์โทรสาร <br><ex>Example: 02-999-9999 ต่อ 1</ex>
- * @member {String} companyFax
- */
-CompanyInfoResponse.prototype['companyFax'] = undefined;
-
-/**
- * เว็บไซต์ <br><ex>Example: www.flowaccount.com</ex>
- * @member {String} companyWebsite
- */
-CompanyInfoResponse.prototype['companyWebsite'] = undefined;
+CompanyInfoResponse.prototype['data'] = undefined;
 
 
-// Implement CompanyInfoResponseAllOf interface:
-/**
- * รหัสบริษัท
- * @member {Number} companyId
- * @default 0
- */
-CompanyInfoResponseAllOf.prototype['companyId'] = 0;
-// Implement CompanyInfo interface:
-/**
- * ประเภทธุรกิจ <br> 10 = บริษัท - จดภาษีมูลค่าเพิ่มแล้ว <br> 20 = บริษัท - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 30 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 40 = บุคคลธรรมดา/ฟรีแลนซ์ - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม <br> 50 = ห้างหุ้นส่วนจำกัด - จดภาษีมูลค่าเพิ่มแล้ว <br> 60 = ห้างหุ้นส่วนจำกัด - ยังไม่เข้าระบบภาษีมูลค่าเพิ่ม
- * @member {String} companyType
- * @default '10'
- */
-CompanyInfo.prototype['companyType'] = '10';
-/**
- * ชื่อบริษัท
- * @member {String} compnayName
- */
-CompanyInfo.prototype['compnayName'] = undefined;
-/**
- * ชื่อบริษัท ภาษาอังกฤษ
- * @member {String} companyNameEn
- */
-CompanyInfo.prototype['companyNameEn'] = undefined;
-/**
- * ที่อยู่บริษัท
- * @member {String} companyAddress
- */
-CompanyInfo.prototype['companyAddress'] = undefined;
-/**
- * ที่อยู่บริษัท ภาษาอังกฤษ
- * @member {String} companyAddressEn
- */
-CompanyInfo.prototype['companyAddressEn'] = undefined;
-/**
- * รหัสไปรษณีย์ บริษัท <br><ex>Example: 10150</ex>
- * @member {String} companyZipCode
- */
-CompanyInfo.prototype['companyZipCode'] = undefined;
-/**
- * เลขประจำตัวผู้เสียภาษี บริษัท <br><ex>Example: 0105558096348</ex>
- * @member {String} companyTaxId
- */
-CompanyInfo.prototype['companyTaxId'] = undefined;
-/**
- * ชื่อ และ รหัสสาขา <br><ex>Example: สำนักงานใหญ่</ex>
- * @member {String} companyBranch
- * @default 'สำนักงานใหญ่'
- */
-CompanyInfo.prototype['companyBranch'] = 'สำนักงานใหญ่';
-/**
- * ชื่อ และ รหัสสาขา ภาษาอังกฤษ <br><ex>Example: Head Office</ex>
- * @member {String} companyBranchEn
- */
-CompanyInfo.prototype['companyBranchEn'] = undefined;
-/**
- * รหัสสาขา <br><ex>Example: 00000</ex>
- * @member {String} companyBranchCode
- */
-CompanyInfo.prototype['companyBranchCode'] = undefined;
-/**
- * เบอร์โทรสำนักงาน <br><ex>Example: 02-999-9999</ex>
- * @member {String} companyPhone
- */
-CompanyInfo.prototype['companyPhone'] = undefined;
-/**
- * เบอร์โทรศัพท์มือถือ <br><ex>Example: 099-999-9999</ex>
- * @member {String} companyMobile
- */
-CompanyInfo.prototype['companyMobile'] = undefined;
-/**
- * เบอร์โทรสาร <br><ex>Example: 02-999-9999 ต่อ 1</ex>
- * @member {String} companyFax
- */
-CompanyInfo.prototype['companyFax'] = undefined;
-/**
- * เว็บไซต์ <br><ex>Example: www.flowaccount.com</ex>
- * @member {String} companyWebsite
- */
-CompanyInfo.prototype['companyWebsite'] = undefined;
 
 
 

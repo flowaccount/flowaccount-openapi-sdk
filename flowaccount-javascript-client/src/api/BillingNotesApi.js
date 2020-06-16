@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AllDocumentResponse from '../model/AllDocumentResponse';
 import AttachmentResponse from '../model/AttachmentResponse';
 import DeleteResponse from '../model/DeleteResponse';
 import InlineDocument from '../model/InlineDocument';
@@ -96,7 +97,7 @@ export default class BillingNotesApi {
      * Callback function to receive the result of the billingNotesGet operation.
      * @callback module:api/BillingNotesApi~billingNotesGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineDocumentResponse} data The data returned by the service call.
+     * @param {module:model/AllDocumentResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -110,7 +111,7 @@ export default class BillingNotesApi {
      * @param {String} opts.sortBy Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
      * @param {String} opts.filter 
      * @param {module:api/BillingNotesApi~billingNotesGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineDocumentResponse}
+     * data is of type: {@link module:model/AllDocumentResponse}
      */
     billingNotesGet(currentPage, pageSize, authorization, opts, callback) {
       opts = opts || {};
@@ -145,7 +146,7 @@ export default class BillingNotesApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineDocumentResponse;
+      let returnType = AllDocumentResponse;
       return this.apiClient.callApi(
         '/billing-notes', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

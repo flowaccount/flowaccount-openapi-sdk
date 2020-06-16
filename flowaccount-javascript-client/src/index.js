@@ -13,18 +13,26 @@
 
 
 import ApiClient from './ApiClient';
+import AllBankAccountResponse from './model/AllBankAccountResponse';
+import AllDocumentResponse from './model/AllDocumentResponse';
+import AllDocumentResponseData from './model/AllDocumentResponseData';
+import AllExpenseDocumentResponse from './model/AllExpenseDocumentResponse';
+import AllExpenseDocumentResponseData from './model/AllExpenseDocumentResponseData';
+import AllWithholidingTaxDocumentResponse from './model/AllWithholidingTaxDocumentResponse';
+import AllWithholidingTaxDocumentResponseData from './model/AllWithholidingTaxDocumentResponseData';
 import AttachmentResponse from './model/AttachmentResponse';
 import AttachmentResponseData from './model/AttachmentResponseData';
 import AuthenResponse from './model/AuthenResponse';
 import BankAccount from './model/BankAccount';
 import BankAccountResponse from './model/BankAccountResponse';
+import BankAccountResponseData from './model/BankAccountResponseData';
 import BusinessCategory from './model/BusinessCategory';
 import CompanyInfo from './model/CompanyInfo';
 import CompanyInfoResponse from './model/CompanyInfoResponse';
-import CompanyInfoResponseAllOf from './model/CompanyInfoResponseAllOf';
+import CompanyInfoResponseData from './model/CompanyInfoResponseData';
 import Contact from './model/Contact';
 import ContactResponse from './model/ContactResponse';
-import ContactResponseAllOf from './model/ContactResponseAllOf';
+import ContactResponseData from './model/ContactResponseData';
 import DeleteResponse from './model/DeleteResponse';
 import DeleteResponseData from './model/DeleteResponseData';
 import Document from './model/Document';
@@ -35,6 +43,7 @@ import ExpenseInlineDocumentAllOf from './model/ExpenseInlineDocumentAllOf';
 import ExpenseInlineDocumentResponse from './model/ExpenseInlineDocumentResponse';
 import ExpenseInlineDocumentResponseAllOf from './model/ExpenseInlineDocumentResponseAllOf';
 import ExpenseInlineDocumentResponseAllOfData from './model/ExpenseInlineDocumentResponseAllOfData';
+import ExpenseInlineDocumentWithPaymentPaid from './model/ExpenseInlineDocumentWithPaymentPaid';
 import ExpenseInlineDocumentWithPaymentPaidCash from './model/ExpenseInlineDocumentWithPaymentPaidCash';
 import ExpenseInlineDocumentWithPaymentPaidCheque from './model/ExpenseInlineDocumentWithPaymentPaidCheque';
 import ExpenseInlineDocumentWithPaymentPaidCreditCard from './model/ExpenseInlineDocumentWithPaymentPaidCreditCard';
@@ -46,6 +55,7 @@ import ExpenseSimpleDocumentAllOf from './model/ExpenseSimpleDocumentAllOf';
 import ExpenseSimpleDocumentResponse from './model/ExpenseSimpleDocumentResponse';
 import ExpenseSimpleDocumentResponseAllOf from './model/ExpenseSimpleDocumentResponseAllOf';
 import ExpenseSimpleDocumentResponseAllOfData from './model/ExpenseSimpleDocumentResponseAllOfData';
+import ExpenseSimpleDocumentWithPaymentPaid from './model/ExpenseSimpleDocumentWithPaymentPaid';
 import ExpenseSimpleDocumentWithPaymentPaidCash from './model/ExpenseSimpleDocumentWithPaymentPaidCash';
 import ExpenseSimpleDocumentWithPaymentPaidCheque from './model/ExpenseSimpleDocumentWithPaymentPaidCheque';
 import ExpenseSimpleDocumentWithPaymentPaidCreditCard from './model/ExpenseSimpleDocumentWithPaymentPaidCreditCard';
@@ -56,10 +66,12 @@ import InlineDocumentAllOf from './model/InlineDocumentAllOf';
 import InlineDocumentResponse from './model/InlineDocumentResponse';
 import InlineDocumentResponseAllOf from './model/InlineDocumentResponseAllOf';
 import InlineDocumentResponseAllOfData from './model/InlineDocumentResponseAllOfData';
+import InlineDocumentWithPaymentPaid from './model/InlineDocumentWithPaymentPaid';
 import InlineDocumentWithPaymentPaidCash from './model/InlineDocumentWithPaymentPaidCash';
 import InlineDocumentWithPaymentPaidCheque from './model/InlineDocumentWithPaymentPaidCheque';
 import InlineDocumentWithPaymentPaidCreditCard from './model/InlineDocumentWithPaymentPaidCreditCard';
 import InlineDocumentWithPaymentPaidTransfer from './model/InlineDocumentWithPaymentPaidTransfer';
+import InlineDocumentWithPaymentReceiving from './model/InlineDocumentWithPaymentReceiving';
 import InlineDocumentWithPaymentReceivingCash from './model/InlineDocumentWithPaymentReceivingCash';
 import InlineDocumentWithPaymentReceivingCheque from './model/InlineDocumentWithPaymentReceivingCheque';
 import InlineDocumentWithPaymentReceivingCreditCard from './model/InlineDocumentWithPaymentReceivingCreditCard';
@@ -79,11 +91,14 @@ import InlineProductItemAllOf from './model/InlineProductItemAllOf';
 import PaymentPaidCash from './model/PaymentPaidCash';
 import PaymentPaidCheque from './model/PaymentPaidCheque';
 import PaymentPaidCreditCard from './model/PaymentPaidCreditCard';
+import PaymentPaidDocument from './model/PaymentPaidDocument';
 import PaymentPaidTransfer from './model/PaymentPaidTransfer';
 import PaymentReceivingCash from './model/PaymentReceivingCash';
 import PaymentReceivingCheque from './model/PaymentReceivingCheque';
 import PaymentReceivingCreditCard from './model/PaymentReceivingCreditCard';
+import PaymentReceivingDocument from './model/PaymentReceivingDocument';
 import PaymentReceivingTransfer from './model/PaymentReceivingTransfer';
+import Product from './model/Product';
 import ProductInventory from './model/ProductInventory';
 import ProductInventoryBalance from './model/ProductInventoryBalance';
 import ProductItem from './model/ProductItem';
@@ -91,6 +106,7 @@ import ProductNonInventory from './model/ProductNonInventory';
 import ProductResponse from './model/ProductResponse';
 import ProductResponseData from './model/ProductResponseData';
 import ProductService from './model/ProductService';
+import ProductType from './model/ProductType';
 import ReferencedByMe from './model/ReferencedByMe';
 import ReferencedToMe from './model/ReferencedToMe';
 import SendEmail from './model/SendEmail';
@@ -109,10 +125,12 @@ import SimpleDocumentResponseAllOf from './model/SimpleDocumentResponseAllOf';
 import SimpleDocumentResponseAllOfData from './model/SimpleDocumentResponseAllOfData';
 import SimpleDocumentResponseAllOfDataCompany from './model/SimpleDocumentResponseAllOfDataCompany';
 import SimpleDocumentResponseAllOfDataPayments from './model/SimpleDocumentResponseAllOfDataPayments';
+import SimpleDocumentWithPaymentPaid from './model/SimpleDocumentWithPaymentPaid';
 import SimpleDocumentWithPaymentPaidCash from './model/SimpleDocumentWithPaymentPaidCash';
 import SimpleDocumentWithPaymentPaidCheque from './model/SimpleDocumentWithPaymentPaidCheque';
 import SimpleDocumentWithPaymentPaidCreditCard from './model/SimpleDocumentWithPaymentPaidCreditCard';
 import SimpleDocumentWithPaymentPaidTransfer from './model/SimpleDocumentWithPaymentPaidTransfer';
+import SimpleDocumentWithPaymentReceiving from './model/SimpleDocumentWithPaymentReceiving';
 import SimpleDocumentWithPaymentReceivingCash from './model/SimpleDocumentWithPaymentReceivingCash';
 import SimpleDocumentWithPaymentReceivingCheque from './model/SimpleDocumentWithPaymentReceivingCheque';
 import SimpleDocumentWithPaymentReceivingCreditCard from './model/SimpleDocumentWithPaymentReceivingCreditCard';
@@ -186,6 +204,48 @@ export {
     ApiClient,
 
     /**
+     * The AllBankAccountResponse model constructor.
+     * @property {module:model/AllBankAccountResponse}
+     */
+    AllBankAccountResponse,
+
+    /**
+     * The AllDocumentResponse model constructor.
+     * @property {module:model/AllDocumentResponse}
+     */
+    AllDocumentResponse,
+
+    /**
+     * The AllDocumentResponseData model constructor.
+     * @property {module:model/AllDocumentResponseData}
+     */
+    AllDocumentResponseData,
+
+    /**
+     * The AllExpenseDocumentResponse model constructor.
+     * @property {module:model/AllExpenseDocumentResponse}
+     */
+    AllExpenseDocumentResponse,
+
+    /**
+     * The AllExpenseDocumentResponseData model constructor.
+     * @property {module:model/AllExpenseDocumentResponseData}
+     */
+    AllExpenseDocumentResponseData,
+
+    /**
+     * The AllWithholidingTaxDocumentResponse model constructor.
+     * @property {module:model/AllWithholidingTaxDocumentResponse}
+     */
+    AllWithholidingTaxDocumentResponse,
+
+    /**
+     * The AllWithholidingTaxDocumentResponseData model constructor.
+     * @property {module:model/AllWithholidingTaxDocumentResponseData}
+     */
+    AllWithholidingTaxDocumentResponseData,
+
+    /**
      * The AttachmentResponse model constructor.
      * @property {module:model/AttachmentResponse}
      */
@@ -216,6 +276,12 @@ export {
     BankAccountResponse,
 
     /**
+     * The BankAccountResponseData model constructor.
+     * @property {module:model/BankAccountResponseData}
+     */
+    BankAccountResponseData,
+
+    /**
      * The BusinessCategory model constructor.
      * @property {module:model/BusinessCategory}
      */
@@ -234,10 +300,10 @@ export {
     CompanyInfoResponse,
 
     /**
-     * The CompanyInfoResponseAllOf model constructor.
-     * @property {module:model/CompanyInfoResponseAllOf}
+     * The CompanyInfoResponseData model constructor.
+     * @property {module:model/CompanyInfoResponseData}
      */
-    CompanyInfoResponseAllOf,
+    CompanyInfoResponseData,
 
     /**
      * The Contact model constructor.
@@ -252,10 +318,10 @@ export {
     ContactResponse,
 
     /**
-     * The ContactResponseAllOf model constructor.
-     * @property {module:model/ContactResponseAllOf}
+     * The ContactResponseData model constructor.
+     * @property {module:model/ContactResponseData}
      */
-    ContactResponseAllOf,
+    ContactResponseData,
 
     /**
      * The DeleteResponse model constructor.
@@ -316,6 +382,12 @@ export {
      * @property {module:model/ExpenseInlineDocumentResponseAllOfData}
      */
     ExpenseInlineDocumentResponseAllOfData,
+
+    /**
+     * The ExpenseInlineDocumentWithPaymentPaid model constructor.
+     * @property {module:model/ExpenseInlineDocumentWithPaymentPaid}
+     */
+    ExpenseInlineDocumentWithPaymentPaid,
 
     /**
      * The ExpenseInlineDocumentWithPaymentPaidCash model constructor.
@@ -384,6 +456,12 @@ export {
     ExpenseSimpleDocumentResponseAllOfData,
 
     /**
+     * The ExpenseSimpleDocumentWithPaymentPaid model constructor.
+     * @property {module:model/ExpenseSimpleDocumentWithPaymentPaid}
+     */
+    ExpenseSimpleDocumentWithPaymentPaid,
+
+    /**
      * The ExpenseSimpleDocumentWithPaymentPaidCash model constructor.
      * @property {module:model/ExpenseSimpleDocumentWithPaymentPaidCash}
      */
@@ -444,6 +522,12 @@ export {
     InlineDocumentResponseAllOfData,
 
     /**
+     * The InlineDocumentWithPaymentPaid model constructor.
+     * @property {module:model/InlineDocumentWithPaymentPaid}
+     */
+    InlineDocumentWithPaymentPaid,
+
+    /**
      * The InlineDocumentWithPaymentPaidCash model constructor.
      * @property {module:model/InlineDocumentWithPaymentPaidCash}
      */
@@ -466,6 +550,12 @@ export {
      * @property {module:model/InlineDocumentWithPaymentPaidTransfer}
      */
     InlineDocumentWithPaymentPaidTransfer,
+
+    /**
+     * The InlineDocumentWithPaymentReceiving model constructor.
+     * @property {module:model/InlineDocumentWithPaymentReceiving}
+     */
+    InlineDocumentWithPaymentReceiving,
 
     /**
      * The InlineDocumentWithPaymentReceivingCash model constructor.
@@ -582,6 +672,12 @@ export {
     PaymentPaidCreditCard,
 
     /**
+     * The PaymentPaidDocument model constructor.
+     * @property {module:model/PaymentPaidDocument}
+     */
+    PaymentPaidDocument,
+
+    /**
      * The PaymentPaidTransfer model constructor.
      * @property {module:model/PaymentPaidTransfer}
      */
@@ -606,10 +702,22 @@ export {
     PaymentReceivingCreditCard,
 
     /**
+     * The PaymentReceivingDocument model constructor.
+     * @property {module:model/PaymentReceivingDocument}
+     */
+    PaymentReceivingDocument,
+
+    /**
      * The PaymentReceivingTransfer model constructor.
      * @property {module:model/PaymentReceivingTransfer}
      */
     PaymentReceivingTransfer,
+
+    /**
+     * The Product model constructor.
+     * @property {module:model/Product}
+     */
+    Product,
 
     /**
      * The ProductInventory model constructor.
@@ -652,6 +760,12 @@ export {
      * @property {module:model/ProductService}
      */
     ProductService,
+
+    /**
+     * The ProductType model constructor.
+     * @property {module:model/ProductType}
+     */
+    ProductType,
 
     /**
      * The ReferencedByMe model constructor.
@@ -762,6 +876,12 @@ export {
     SimpleDocumentResponseAllOfDataPayments,
 
     /**
+     * The SimpleDocumentWithPaymentPaid model constructor.
+     * @property {module:model/SimpleDocumentWithPaymentPaid}
+     */
+    SimpleDocumentWithPaymentPaid,
+
+    /**
      * The SimpleDocumentWithPaymentPaidCash model constructor.
      * @property {module:model/SimpleDocumentWithPaymentPaidCash}
      */
@@ -784,6 +904,12 @@ export {
      * @property {module:model/SimpleDocumentWithPaymentPaidTransfer}
      */
     SimpleDocumentWithPaymentPaidTransfer,
+
+    /**
+     * The SimpleDocumentWithPaymentReceiving model constructor.
+     * @property {module:model/SimpleDocumentWithPaymentReceiving}
+     */
+    SimpleDocumentWithPaymentReceiving,
 
     /**
      * The SimpleDocumentWithPaymentReceivingCash model constructor.

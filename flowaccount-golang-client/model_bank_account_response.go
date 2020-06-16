@@ -11,18 +11,11 @@
 package openapi
 // BankAccountResponse struct for BankAccountResponse
 type BankAccountResponse struct {
-	// เลข id บัญชีธนาคาร
-	BankAccountId int64 `json:"bankAccountId,omitempty"`
-	// เลขบัญชี <br> <ex>Example: 0048620000 </ex>
-	BankAccountNumber string `json:"bankAccountNumber,omitempty"`
-	// ชื่อบัญชี <br> <ex>Example: บัญชีใช้รับเงิน</ex>
-	BankAccountName string `json:"bankAccountName,omitempty"`
-	// ประเภทบัญชีธนาคาร <br> 1 = บัญชีออมทรัพย์  <br> 3 = บัญชีกระรายวัน <br> 7  = บัญชีฝากประจำ
-	BankAccountType int64 `json:"bankAccountType,omitempty"`
-	// ชื่อสาขาธนาคาร
-	BankBranch string `json:"bankBranch,omitempty"`
-	// เลข id ธนาคาร
-	BankId int64 `json:"bankId,omitempty"`
-	// ชื่อธนาคาร
-	BankName string `json:"bankName,omitempty"`
+	// action success
+	Status bool `json:"status,omitempty"`
+	// error message
+	Message string `json:"message,omitempty"`
+	// error code
+	Code int32 `json:"code,omitempty"`
+	Data BankAccountResponseData `json:"data,omitempty"`
 }

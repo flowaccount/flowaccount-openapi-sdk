@@ -53,7 +53,7 @@ No authorization required
 
 ## WithholdingTaxesGet
 
-> WithholidingTaxDocumentResponse WithholdingTaxesGet(ctx, currentPage, pageSize, authorization, optional)
+> AllWithholidingTaxDocumentResponse WithholdingTaxesGet(ctx, currentPage, pageSize, authorization, optional)
 
 Get list all withholding tax documents.
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WithholidingTaxDocumentResponse**](WithholidingTaxDocumentResponse.md)
+[**AllWithholidingTaxDocumentResponse**](AllWithholidingTaxDocumentResponse.md)
 
 ### Authorization
 

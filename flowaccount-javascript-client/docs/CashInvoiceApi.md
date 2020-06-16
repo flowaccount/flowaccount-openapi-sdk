@@ -69,7 +69,7 @@ No authorization required
 
 ## cashInvoicesGet
 
-> InlineDocumentResponse cashInvoicesGet(currentPage, pageSize, authorization, opts)
+> AllDocumentResponse cashInvoicesGet(currentPage, pageSize, authorization, opts)
 
 Get list all cash invoices documents
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineDocumentResponse**](InlineDocumentResponse.md)
+[**AllDocumentResponse**](AllDocumentResponse.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ No authorization required
 
 ## cashInvoicesIdPaymentPost
 
-> InlineDocumentResponse cashInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse cashInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument)
 
 Change paid status of cash invoices document.
 
@@ -283,8 +283,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 let apiInstance = new FlowAccountOpenApi.CashInvoiceApi();
 let authorization = "'Bearer accessToken'"; // String | 
 let id = "id_example"; // String | ID เอกสารใช้ recordId หรือ documentId
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.cashInvoicesIdPaymentPost(authorization, id, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let paymentReceivingDocument = new FlowAccountOpenApi.PaymentReceivingDocument(); // PaymentReceivingDocument | 
+apiInstance.cashInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **id** | **String**| ID เอกสารใช้ recordId หรือ documentId | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **paymentReceivingDocument** | [**PaymentReceivingDocument**](PaymentReceivingDocument.md)|  | 
 
 ### Return type
 
@@ -463,7 +463,7 @@ No authorization required
 
 ## cashInvoicesInlineWithPaymentPost
 
-> InlineDocumentResponse cashInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> InlineDocumentResponse cashInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving)
 
 Create cash invoices document with discount and tax inline with payment.
 
@@ -476,8 +476,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.CashInvoiceApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.cashInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let inlineDocumentWithPaymentReceiving = new FlowAccountOpenApi.InlineDocumentWithPaymentReceiving(); // InlineDocumentWithPaymentReceiving | 
+apiInstance.cashInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -492,7 +492,7 @@ apiInstance.cashInvoicesInlineWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **inlineDocumentWithPaymentReceiving** | [**InlineDocumentWithPaymentReceiving**](InlineDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 
@@ -604,7 +604,7 @@ No authorization required
 
 ## cashInvoicesWithPaymentPost
 
-> SimpleDocumentResponse cashInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE)
+> SimpleDocumentResponse cashInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving)
 
 Create cash invoices document with payment.
 
@@ -617,8 +617,8 @@ import FlowAccountOpenApi from 'flow_account_open_api';
 
 let apiInstance = new FlowAccountOpenApi.CashInvoiceApi();
 let authorization = "'Bearer accessToken'"; // String | 
-let UNKNOWN_BASE_TYPE = new FlowAccountOpenApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.cashInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error, data, response) => {
+let simpleDocumentWithPaymentReceiving = new FlowAccountOpenApi.SimpleDocumentWithPaymentReceiving(); // SimpleDocumentWithPaymentReceiving | 
+apiInstance.cashInvoicesWithPaymentPost(authorization, simpleDocumentWithPaymentReceiving, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -633,7 +633,7 @@ apiInstance.cashInvoicesWithPaymentPost(authorization, UNKNOWN_BASE_TYPE, (error
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **simpleDocumentWithPaymentReceiving** | [**SimpleDocumentWithPaymentReceiving**](SimpleDocumentWithPaymentReceiving.md)|  | 
 
 ### Return type
 

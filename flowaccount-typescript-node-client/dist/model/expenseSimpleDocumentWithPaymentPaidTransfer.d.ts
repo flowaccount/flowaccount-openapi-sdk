@@ -29,7 +29,7 @@ export declare class ExpenseSimpleDocumentWithPaymentPaidTransfer {
     'remarks'?: string;
     'internalNotes'?: string;
     'showSignatureOrStamp'?: boolean;
-    'expensePaymentStructureType': string;
+    'expensePaymentStructureType': string | null;
     'paymentMethod': number;
     'paymentDate': string;
     'collected': number;

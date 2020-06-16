@@ -8,39 +8,24 @@ class BankAccountResponse {
 BankAccountResponse.discriminator = undefined;
 BankAccountResponse.attributeTypeMap = [
     {
-        "name": "bankAccountId",
-        "baseName": "bankAccountId",
+        "name": "status",
+        "baseName": "status",
+        "type": "boolean"
+    },
+    {
+        "name": "message",
+        "baseName": "message",
+        "type": "string"
+    },
+    {
+        "name": "code",
+        "baseName": "code",
         "type": "number"
     },
     {
-        "name": "bankAccountNumber",
-        "baseName": "bankAccountNumber",
-        "type": "string"
-    },
-    {
-        "name": "bankAccountName",
-        "baseName": "bankAccountName",
-        "type": "string"
-    },
-    {
-        "name": "bankAccountType",
-        "baseName": "bankAccountType",
-        "type": "number"
-    },
-    {
-        "name": "bankBranch",
-        "baseName": "bankBranch",
-        "type": "string"
-    },
-    {
-        "name": "bankId",
-        "baseName": "bankId",
-        "type": "number"
-    },
-    {
-        "name": "bankName",
-        "baseName": "bankName",
-        "type": "string"
+        "name": "data",
+        "baseName": "data",
+        "type": "BankAccountResponseData"
     }
 ];
 exports.BankAccountResponse = BankAccountResponse;
