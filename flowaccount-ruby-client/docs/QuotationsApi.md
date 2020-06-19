@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**quotations_email_document_post**](QuotationsApi.md#quotations_email_document_post) | **POST** /quotations/email-document | Send email quotations document.
-[**quotations_get**](QuotationsApi.md#quotations_get) | **GET** /quotations | Get list all quotations documents.
-[**quotations_id_attachment_post**](QuotationsApi.md#quotations_id_attachment_post) | **POST** /quotations/{id}/attachment | Add Attachment to quotations document.
+[**quotations_get**](QuotationsApi.md#quotations_get) | **GET** /quotations | Get all quotations documents.
+[**quotations_id_attachment_post**](QuotationsApi.md#quotations_id_attachment_post) | **POST** /quotations/{id}/attachment | Attachment quotations document.
 [**quotations_id_delete**](QuotationsApi.md#quotations_id_delete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**quotations_id_get**](QuotationsApi.md#quotations_id_get) | **GET** /quotations/{id} | Get quotations document.
 [**quotations_id_put**](QuotationsApi.md#quotations_id_put) | **PUT** /quotations/{id} | Edit quotations document.
-[**quotations_id_status_status_id_post**](QuotationsApi.md#quotations_id_status_status_id_post) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
-[**quotations_inline_post**](QuotationsApi.md#quotations_inline_post) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
+[**quotations_id_status_status_id_post**](QuotationsApi.md#quotations_id_status_status_id_post) | **POST** /quotations/{id}/status/{statusId} | Change status quotations document.
+[**quotations_inline_post**](QuotationsApi.md#quotations_inline_post) | **POST** /quotations/inline | Create quotations document inline discount or inline vat.
 [**quotations_post**](QuotationsApi.md#quotations_post) | **POST** /quotations | Create quotations document.
 [**quotations_sharedocument_post**](QuotationsApi.md#quotations_sharedocument_post) | **POST** /quotations/sharedocument | Share link quotations document.
 
@@ -70,7 +70,7 @@ No authorization required
 
 > AllDocumentResponse quotations_get(current_page, page_size, authorization, opts)
 
-Get list all quotations documents.
+Get all quotations documents.
 
 เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
 
@@ -86,11 +86,11 @@ page_size = 56 # Integer | Query document quotations list amount per page. <br>E
 authorization = 'Bearer accessToken' # String | 
 opts = {
   sort_by: 'sort_by_example', # String | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-  filter: 'filter_example' # String | 
+  filter: 'filter_example' # String | Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 }
 
 begin
-  #Get list all quotations documents.
+  #Get all quotations documents.
   result = api_instance.quotations_get(current_page, page_size, authorization, opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
  **page_size** | **Integer**| Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **String**| Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String**|  | [optional] 
+ **filter** | **String**| Query filter quotations. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -127,7 +127,7 @@ No authorization required
 
 > AttachmentResponse quotations_id_attachment_post(authorization, id, opts)
 
-Add Attachment to quotations document.
+Attachment quotations document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
 
@@ -145,7 +145,7 @@ opts = {
 }
 
 begin
-  #Add Attachment to quotations document.
+  #Attachment quotations document.
   result = api_instance.quotations_id_attachment_post(authorization, id, opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -329,7 +329,7 @@ No authorization required
 
 > InlineDocumentResponse quotations_id_status_status_id_post(authorization, id, status_id)
 
-Change status of quotations document.
+Change status quotations document.
 
 เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -345,7 +345,7 @@ id = 'id_example' # String | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # String | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> approvedandprocessed = ดำเนินการแล้ว <br> rejected = ยกเลิก
 
 begin
-  #Change status of quotations document.
+  #Change status quotations document.
   result = api_instance.quotations_id_status_status_id_post(authorization, id, status_id)
   p result
 rescue OpenapiClient::ApiError => e
@@ -380,7 +380,7 @@ No authorization required
 
 > InlineDocumentResponse quotations_inline_post(authorization, inline_document)
 
-Create quotations document with discount and tax inline.
+Create quotations document inline discount or inline vat.
 
 สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
 
@@ -395,7 +395,7 @@ authorization = 'Bearer accessToken' # String |
 inline_document = OpenapiClient::InlineDocument.new # InlineDocument | 
 
 begin
-  #Create quotations document with discount and tax inline.
+  #Create quotations document inline discount or inline vat.
   result = api_instance.quotations_inline_post(authorization, inline_document)
   p result
 rescue OpenapiClient::ApiError => e

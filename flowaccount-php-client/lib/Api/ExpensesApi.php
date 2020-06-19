@@ -118,7 +118,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesAccountingGet
      *
-     * Accounting categorys expenses document.
+     * Accounting categories expenses document.
      *
      * @param  string $authorization authorization (required)
      *
@@ -135,7 +135,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesAccountingGetWithHttpInfo
      *
-     * Accounting categorys expenses document.
+     * Accounting categories expenses document.
      *
      * @param  string $authorization (required)
      *
@@ -223,7 +223,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesAccountingGetAsync
      *
-     * Accounting categorys expenses document.
+     * Accounting categories expenses document.
      *
      * @param  string $authorization (required)
      *
@@ -243,7 +243,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesAccountingGetAsyncWithHttpInfo
      *
-     * Accounting categorys expenses document.
+     * Accounting categories expenses document.
      *
      * @param  string $authorization (required)
      *
@@ -387,7 +387,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesBusinessGet
      *
-     * Business categorys expenses document.
+     * Business categories expenses document.
      *
      * @param  string $authorization authorization (required)
      *
@@ -404,7 +404,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesBusinessGetWithHttpInfo
      *
-     * Business categorys expenses document.
+     * Business categories expenses document.
      *
      * @param  string $authorization (required)
      *
@@ -492,7 +492,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesBusinessGetAsync
      *
-     * Business categorys expenses document.
+     * Business categories expenses document.
      *
      * @param  string $authorization (required)
      *
@@ -512,7 +512,7 @@ class ExpensesApi
     /**
      * Operation expensesCategoriesBusinessGetAsyncWithHttpInfo
      *
-     * Business categorys expenses document.
+     * Business categories expenses document.
      *
      * @param  string $authorization (required)
      *
@@ -941,11 +941,11 @@ class ExpensesApi
      *
      * Get list all expenses documents.
      *
-     * @param  int $current_page Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
-     * @param  int $page_size Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
+     * @param  int $current_page Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
+     * @param  int $page_size Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization authorization (required)
-     * @param  string $sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter filter (optional)
+     * @param  string $sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     * @param  string $filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -962,11 +962,11 @@ class ExpensesApi
      *
      * Get list all expenses documents.
      *
-     * @param  int $current_page Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
-     * @param  int $page_size Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
+     * @param  int $current_page Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
+     * @param  int $page_size Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
-     * @param  string $sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     * @param  string $filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1054,11 +1054,11 @@ class ExpensesApi
      *
      * Get list all expenses documents.
      *
-     * @param  int $current_page Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
-     * @param  int $page_size Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
+     * @param  int $current_page Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
+     * @param  int $page_size Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
-     * @param  string $sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     * @param  string $filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1078,11 +1078,11 @@ class ExpensesApi
      *
      * Get list all expenses documents.
      *
-     * @param  int $current_page Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
-     * @param  int $page_size Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
+     * @param  int $current_page Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
+     * @param  int $page_size Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
-     * @param  string $sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     * @param  string $filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1129,11 +1129,11 @@ class ExpensesApi
     /**
      * Create request for operation 'expensesGet'
      *
-     * @param  int $current_page Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
-     * @param  int $page_size Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
+     * @param  int $current_page Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
+     * @param  int $page_size Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
-     * @param  string $sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     * @param  string $filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1284,7 +1284,7 @@ class ExpensesApi
     /**
      * Operation expensesIdAttachmentPost
      *
-     * Add Attachment to expenses.
+     * Attachment to expenses document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id id (required)
@@ -1303,7 +1303,7 @@ class ExpensesApi
     /**
      * Operation expensesIdAttachmentPostWithHttpInfo
      *
-     * Add Attachment to expenses.
+     * Attachment to expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id (required)
@@ -1393,7 +1393,7 @@ class ExpensesApi
     /**
      * Operation expensesIdAttachmentPostAsync
      *
-     * Add Attachment to expenses.
+     * Attachment to expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id (required)
@@ -1415,7 +1415,7 @@ class ExpensesApi
     /**
      * Operation expensesIdAttachmentPostAsyncWithHttpInfo
      *
-     * Add Attachment to expenses.
+     * Attachment to expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id (required)
@@ -1877,7 +1877,7 @@ class ExpensesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseInlineDocumentResponse
+     * @return \OpenAPI\Client\Model\AllExpenseDocumentResponse
      */
     public function expensesIdGet($authorization, $id)
     {
@@ -1895,7 +1895,7 @@ class ExpensesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseInlineDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\AllExpenseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function expensesIdGetWithHttpInfo($authorization, $id)
     {
@@ -1932,20 +1932,20 @@ class ExpensesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseInlineDocumentResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\AllExpenseDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AllExpenseDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse';
+            $returnType = '\OpenAPI\Client\Model\AllExpenseDocumentResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1964,7 +1964,7 @@ class ExpensesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse',
+                        '\OpenAPI\Client\Model\AllExpenseDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2008,7 +2008,7 @@ class ExpensesApi
      */
     public function expensesIdGetAsyncWithHttpInfo($authorization, $id)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseInlineDocumentResponse';
+        $returnType = '\OpenAPI\Client\Model\AllExpenseDocumentResponse';
         $request = $this->expensesIdGetRequest($authorization, $id);
 
         return $this->client
@@ -2158,7 +2158,7 @@ class ExpensesApi
     /**
      * Operation expensesIdPaymentPost
      *
-     * Change paid status of expenses document.
+     * Change status is paid expenses document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2177,7 +2177,7 @@ class ExpensesApi
     /**
      * Operation expensesIdPaymentPostWithHttpInfo
      *
-     * Change paid status of expenses document.
+     * Change status is paid expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2267,7 +2267,7 @@ class ExpensesApi
     /**
      * Operation expensesIdPaymentPostAsync
      *
-     * Change paid status of expenses document.
+     * Change status is paid expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2289,7 +2289,7 @@ class ExpensesApi
     /**
      * Operation expensesIdPaymentPostAsyncWithHttpInfo
      *
-     * Change paid status of expenses document.
+     * Change status is paid expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2762,7 +2762,7 @@ class ExpensesApi
     /**
      * Operation expensesIdStatusStatusIdPost
      *
-     * Change status of expenses document.
+     * Change status expenses document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2781,7 +2781,7 @@ class ExpensesApi
     /**
      * Operation expensesIdStatusStatusIdPostWithHttpInfo
      *
-     * Change status of expenses document.
+     * Change status expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2871,7 +2871,7 @@ class ExpensesApi
     /**
      * Operation expensesIdStatusStatusIdPostAsync
      *
-     * Change status of expenses document.
+     * Change status expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2893,7 +2893,7 @@ class ExpensesApi
     /**
      * Operation expensesIdStatusStatusIdPostAsyncWithHttpInfo
      *
-     * Change status of expenses document.
+     * Change status expenses document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -3069,7 +3069,7 @@ class ExpensesApi
     /**
      * Operation expensesInlinePost
      *
-     * Create expenses document with discount and tax inline.
+     * Create expenses document inline discount or inline vat.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document expense_inline_document (required)
@@ -3087,7 +3087,7 @@ class ExpensesApi
     /**
      * Operation expensesInlinePostWithHttpInfo
      *
-     * Create expenses document with discount and tax inline.
+     * Create expenses document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
@@ -3176,7 +3176,7 @@ class ExpensesApi
     /**
      * Operation expensesInlinePostAsync
      *
-     * Create expenses document with discount and tax inline.
+     * Create expenses document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
@@ -3197,7 +3197,7 @@ class ExpensesApi
     /**
      * Operation expensesInlinePostAsyncWithHttpInfo
      *
-     * Create expenses document with discount and tax inline.
+     * Create expenses document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocument $expense_inline_document (required)
@@ -3352,7 +3352,7 @@ class ExpensesApi
     /**
      * Operation expensesInlineWithPaymentPost
      *
-     * Create expenses document with discount and tax inline with payment.
+     * Create expenses document inline discount or inline vat with payment.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid $expense_inline_document_with_payment_paid expense_inline_document_with_payment_paid (required)
@@ -3370,7 +3370,7 @@ class ExpensesApi
     /**
      * Operation expensesInlineWithPaymentPostWithHttpInfo
      *
-     * Create expenses document with discount and tax inline with payment.
+     * Create expenses document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid $expense_inline_document_with_payment_paid (required)
@@ -3459,7 +3459,7 @@ class ExpensesApi
     /**
      * Operation expensesInlineWithPaymentPostAsync
      *
-     * Create expenses document with discount and tax inline with payment.
+     * Create expenses document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid $expense_inline_document_with_payment_paid (required)
@@ -3480,7 +3480,7 @@ class ExpensesApi
     /**
      * Operation expensesInlineWithPaymentPostAsyncWithHttpInfo
      *
-     * Create expenses document with discount and tax inline with payment.
+     * Create expenses document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseInlineDocumentWithPaymentPaid $expense_inline_document_with_payment_paid (required)
@@ -3918,7 +3918,7 @@ class ExpensesApi
     /**
      * Operation expensesSharedocumentPost
      *
-     * Share link expenses documents.
+     * Share link expenses document.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\ShareDocument $share_document share_document (required)
@@ -3936,7 +3936,7 @@ class ExpensesApi
     /**
      * Operation expensesSharedocumentPostWithHttpInfo
      *
-     * Share link expenses documents.
+     * Share link expenses document.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ShareDocument $share_document (required)
@@ -4025,7 +4025,7 @@ class ExpensesApi
     /**
      * Operation expensesSharedocumentPostAsync
      *
-     * Share link expenses documents.
+     * Share link expenses document.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ShareDocument $share_document (required)
@@ -4046,7 +4046,7 @@ class ExpensesApi
     /**
      * Operation expensesSharedocumentPostAsyncWithHttpInfo
      *
-     * Share link expenses documents.
+     * Share link expenses document.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ShareDocument $share_document (required)
@@ -4201,7 +4201,7 @@ class ExpensesApi
     /**
      * Operation expensesWithPaymentPost
      *
-     * Create expenses document with-payment.
+     * Create expenses document with payment.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid $expense_simple_document_with_payment_paid expense_simple_document_with_payment_paid (required)
@@ -4219,7 +4219,7 @@ class ExpensesApi
     /**
      * Operation expensesWithPaymentPostWithHttpInfo
      *
-     * Create expenses document with-payment.
+     * Create expenses document with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid $expense_simple_document_with_payment_paid (required)
@@ -4308,7 +4308,7 @@ class ExpensesApi
     /**
      * Operation expensesWithPaymentPostAsync
      *
-     * Create expenses document with-payment.
+     * Create expenses document with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid $expense_simple_document_with_payment_paid (required)
@@ -4329,7 +4329,7 @@ class ExpensesApi
     /**
      * Operation expensesWithPaymentPostAsyncWithHttpInfo
      *
-     * Create expenses document with-payment.
+     * Create expenses document with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\ExpenseSimpleDocumentWithPaymentPaid $expense_simple_document_with_payment_paid (required)

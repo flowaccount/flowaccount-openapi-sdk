@@ -25,7 +25,7 @@ namespace Flowaccount.OpenAPITools.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Accounting categorys expenses document.
+        /// Accounting categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
@@ -36,7 +36,7 @@ namespace Flowaccount.OpenAPITools.Api
         BusinessCategory ExpensesCategoriesAccountingGet (string authorization);
 
         /// <summary>
-        /// Accounting categorys expenses document.
+        /// Accounting categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
@@ -46,7 +46,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of BusinessCategory</returns>
         ApiResponse<BusinessCategory> ExpensesCategoriesAccountingGetWithHttpInfo (string authorization);
         /// <summary>
-        /// Business categorys expenses document.
+        /// Business categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
@@ -57,7 +57,7 @@ namespace Flowaccount.OpenAPITools.Api
         BusinessCategory ExpensesCategoriesBusinessGet (string authorization);
 
         /// <summary>
-        /// Business categorys expenses document.
+        /// Business categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
@@ -96,11 +96,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllExpenseDocumentResponse</returns>
         AllExpenseDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
@@ -111,15 +111,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllExpenseDocumentResponse</returns>
         ApiResponse<AllExpenseDocumentResponse> ExpensesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to expenses.
+        /// Attachment to expenses document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
@@ -132,7 +132,7 @@ namespace Flowaccount.OpenAPITools.Api
         AttachmentResponse ExpensesIdAttachmentPost (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to expenses.
+        /// Attachment to expenses document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
@@ -175,8 +175,8 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>ExpenseInlineDocumentResponse</returns>
-        ExpenseInlineDocumentResponse ExpensesIdGet (string authorization, string id);
+        /// <returns>AllExpenseDocumentResponse</returns>
+        AllExpenseDocumentResponse ExpensesIdGet (string authorization, string id);
 
         /// <summary>
         /// Get expenses document.
@@ -187,10 +187,10 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
-        ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdGetWithHttpInfo (string authorization, string id);
+        /// <returns>ApiResponse of AllExpenseDocumentResponse</returns>
+        ApiResponse<AllExpenseDocumentResponse> ExpensesIdGetWithHttpInfo (string authorization, string id);
         /// <summary>
-        /// Change paid status of expenses document.
+        /// Change status is paid expenses document.
         /// </summary>
         /// <remarks>
         /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
@@ -203,7 +203,7 @@ namespace Flowaccount.OpenAPITools.Api
         ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, PaymentPaidDocument paymentPaidDocument);
 
         /// <summary>
-        /// Change paid status of expenses document.
+        /// Change status is paid expenses document.
         /// </summary>
         /// <remarks>
         /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
@@ -240,7 +240,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
         ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdPutWithHttpInfo (string authorization, string id, UpdateExpenseDocument updateExpenseDocument);
         /// <summary>
-        /// Change status of expenses document.
+        /// Change status expenses document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -253,7 +253,7 @@ namespace Flowaccount.OpenAPITools.Api
         ExpenseInlineDocumentResponse ExpensesIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of expenses document.
+        /// Change status expenses document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -265,7 +265,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
         ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create expenses document with discount and tax inline.
+        /// Create expenses document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
@@ -277,7 +277,7 @@ namespace Flowaccount.OpenAPITools.Api
         ExpenseInlineDocumentResponse ExpensesInlinePost (string authorization, ExpenseInlineDocument expenseInlineDocument);
 
         /// <summary>
-        /// Create expenses document with discount and tax inline.
+        /// Create expenses document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
@@ -288,7 +288,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
         ApiResponse<ExpenseInlineDocumentResponse> ExpensesInlinePostWithHttpInfo (string authorization, ExpenseInlineDocument expenseInlineDocument);
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment.
+        /// Create expenses document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -300,7 +300,7 @@ namespace Flowaccount.OpenAPITools.Api
         ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost (string authorization, ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid);
 
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment.
+        /// Create expenses document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -334,7 +334,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of ExpenseSimpleDocumentResponse</returns>
         ApiResponse<ExpenseSimpleDocumentResponse> ExpensesPostWithHttpInfo (string authorization, ExpenseSimpleDocument expenseSimpleDocument);
         /// <summary>
-        /// Share link expenses documents.
+        /// Share link expenses document.
         /// </summary>
         /// <remarks>
         /// แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
@@ -346,7 +346,7 @@ namespace Flowaccount.OpenAPITools.Api
         ShareDocumentResponse ExpensesSharedocumentPost (string authorization, ShareDocument shareDocument);
 
         /// <summary>
-        /// Share link expenses documents.
+        /// Share link expenses document.
         /// </summary>
         /// <remarks>
         /// แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
@@ -357,7 +357,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of ShareDocumentResponse</returns>
         ApiResponse<ShareDocumentResponse> ExpensesSharedocumentPostWithHttpInfo (string authorization, ShareDocument shareDocument);
         /// <summary>
-        /// Create expenses document with-payment.
+        /// Create expenses document with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -369,7 +369,7 @@ namespace Flowaccount.OpenAPITools.Api
         ExpenseSimpleDocumentResponse ExpensesWithPaymentPost (string authorization, ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid);
 
         /// <summary>
-        /// Create expenses document with-payment.
+        /// Create expenses document with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -382,7 +382,7 @@ namespace Flowaccount.OpenAPITools.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Accounting categorys expenses document.
+        /// Accounting categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
@@ -393,7 +393,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<BusinessCategory> ExpensesCategoriesAccountingGetAsync (string authorization);
 
         /// <summary>
-        /// Accounting categorys expenses document.
+        /// Accounting categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
@@ -403,7 +403,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (BusinessCategory)</returns>
         System.Threading.Tasks.Task<ApiResponse<BusinessCategory>> ExpensesCategoriesAccountingGetAsyncWithHttpInfo (string authorization);
         /// <summary>
-        /// Business categorys expenses document.
+        /// Business categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
@@ -414,7 +414,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<BusinessCategory> ExpensesCategoriesBusinessGetAsync (string authorization);
 
         /// <summary>
-        /// Business categorys expenses document.
+        /// Business categories expenses document.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
@@ -453,11 +453,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllExpenseDocumentResponse</returns>
         System.Threading.Tasks.Task<AllExpenseDocumentResponse> ExpensesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
@@ -468,15 +468,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllExpenseDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AllExpenseDocumentResponse>> ExpensesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to expenses.
+        /// Attachment to expenses document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
@@ -489,7 +489,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<AttachmentResponse> ExpensesIdAttachmentPostAsync (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to expenses.
+        /// Attachment to expenses document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
@@ -532,8 +532,8 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>Task of ExpenseInlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdGetAsync (string authorization, string id);
+        /// <returns>Task of AllExpenseDocumentResponse</returns>
+        System.Threading.Tasks.Task<AllExpenseDocumentResponse> ExpensesIdGetAsync (string authorization, string id);
 
         /// <summary>
         /// Get expenses document.
@@ -544,10 +544,10 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdGetAsyncWithHttpInfo (string authorization, string id);
+        /// <returns>Task of ApiResponse (AllExpenseDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AllExpenseDocumentResponse>> ExpensesIdGetAsyncWithHttpInfo (string authorization, string id);
         /// <summary>
-        /// Change paid status of expenses document.
+        /// Change status is paid expenses document.
         /// </summary>
         /// <remarks>
         /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
@@ -560,7 +560,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesIdPaymentPostAsync (string authorization, string id, PaymentPaidDocument paymentPaidDocument);
 
         /// <summary>
-        /// Change paid status of expenses document.
+        /// Change status is paid expenses document.
         /// </summary>
         /// <remarks>
         /// ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
@@ -597,7 +597,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdPutAsyncWithHttpInfo (string authorization, string id, UpdateExpenseDocument updateExpenseDocument);
         /// <summary>
-        /// Change status of expenses document.
+        /// Change status expenses document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -610,7 +610,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of expenses document.
+        /// Change status expenses document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -622,7 +622,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create expenses document with discount and tax inline.
+        /// Create expenses document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
@@ -634,7 +634,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesInlinePostAsync (string authorization, ExpenseInlineDocument expenseInlineDocument);
 
         /// <summary>
-        /// Create expenses document with discount and tax inline.
+        /// Create expenses document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
@@ -645,7 +645,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesInlinePostAsyncWithHttpInfo (string authorization, ExpenseInlineDocument expenseInlineDocument);
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment.
+        /// Create expenses document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -657,7 +657,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesInlineWithPaymentPostAsync (string authorization, ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid);
 
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment.
+        /// Create expenses document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -691,7 +691,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (ExpenseSimpleDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExpenseSimpleDocumentResponse>> ExpensesPostAsyncWithHttpInfo (string authorization, ExpenseSimpleDocument expenseSimpleDocument);
         /// <summary>
-        /// Share link expenses documents.
+        /// Share link expenses document.
         /// </summary>
         /// <remarks>
         /// แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
@@ -703,7 +703,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<ShareDocumentResponse> ExpensesSharedocumentPostAsync (string authorization, ShareDocument shareDocument);
 
         /// <summary>
-        /// Share link expenses documents.
+        /// Share link expenses document.
         /// </summary>
         /// <remarks>
         /// แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
@@ -714,7 +714,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (ShareDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ShareDocumentResponse>> ExpensesSharedocumentPostAsyncWithHttpInfo (string authorization, ShareDocument shareDocument);
         /// <summary>
-        /// Create expenses document with-payment.
+        /// Create expenses document with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -726,7 +726,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<ExpenseSimpleDocumentResponse> ExpensesWithPaymentPostAsync (string authorization, ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid);
 
         /// <summary>
-        /// Create expenses document with-payment.
+        /// Create expenses document with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
@@ -848,7 +848,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Accounting categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
+        /// Accounting categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -860,7 +860,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Accounting categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
+        /// Accounting categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -914,7 +914,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Accounting categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
+        /// Accounting categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -927,7 +927,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Accounting categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
+        /// Accounting categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -981,7 +981,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Business categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
+        /// Business categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -993,7 +993,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Business categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
+        /// Business categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1047,7 +1047,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Business categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
+        /// Business categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1060,7 +1060,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Business categorys expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
+        /// Business categories expenses document. เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1278,11 +1278,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllExpenseDocumentResponse</returns>
         public AllExpenseDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1294,11 +1294,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllExpenseDocumentResponse</returns>
         public ApiResponse<AllExpenseDocumentResponse> ExpensesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1362,11 +1362,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllExpenseDocumentResponse</returns>
         public async System.Threading.Tasks.Task<AllExpenseDocumentResponse> ExpensesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1379,11 +1379,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
-        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
+        /// <param name="currentPage">Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
-        /// <param name="sortBy">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="sortBy">Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
+        /// <param name="filter">Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllExpenseDocumentResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AllExpenseDocumentResponse>> ExpensesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1444,7 +1444,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to expenses. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
+        /// Attachment to expenses document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1458,7 +1458,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to expenses. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
+        /// Attachment to expenses document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1520,7 +1520,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to expenses. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
+        /// Attachment to expenses document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1535,7 +1535,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to expenses. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
+        /// Attachment to expenses document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1747,10 +1747,10 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>ExpenseInlineDocumentResponse</returns>
-        public ExpenseInlineDocumentResponse ExpensesIdGet (string authorization, string id)
+        /// <returns>AllExpenseDocumentResponse</returns>
+        public AllExpenseDocumentResponse ExpensesIdGet (string authorization, string id)
         {
-             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesIdGetWithHttpInfo(authorization, id);
+             ApiResponse<AllExpenseDocumentResponse> localVarResponse = ExpensesIdGetWithHttpInfo(authorization, id);
              return localVarResponse.Data;
         }
 
@@ -1760,8 +1760,8 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
-        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesIdGetWithHttpInfo (string authorization, string id)
+        /// <returns>ApiResponse of AllExpenseDocumentResponse</returns>
+        public ApiResponse<AllExpenseDocumentResponse> ExpensesIdGetWithHttpInfo (string authorization, string id)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1808,9 +1808,9 @@ namespace Flowaccount.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExpenseInlineDocumentResponse>(localVarStatusCode,
+            return new ApiResponse<AllExpenseDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ExpenseInlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseInlineDocumentResponse)));
+                (AllExpenseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AllExpenseDocumentResponse)));
         }
 
         /// <summary>
@@ -1819,10 +1819,10 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>Task of ExpenseInlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesIdGetAsync (string authorization, string id)
+        /// <returns>Task of AllExpenseDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<AllExpenseDocumentResponse> ExpensesIdGetAsync (string authorization, string id)
         {
-             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesIdGetAsyncWithHttpInfo(authorization, id);
+             ApiResponse<AllExpenseDocumentResponse> localVarResponse = await ExpensesIdGetAsyncWithHttpInfo(authorization, id);
              return localVarResponse.Data;
 
         }
@@ -1833,8 +1833,8 @@ namespace Flowaccount.OpenAPITools.Api
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
         /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesIdGetAsyncWithHttpInfo (string authorization, string id)
+        /// <returns>Task of ApiResponse (AllExpenseDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AllExpenseDocumentResponse>> ExpensesIdGetAsyncWithHttpInfo (string authorization, string id)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1881,13 +1881,13 @@ namespace Flowaccount.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExpenseInlineDocumentResponse>(localVarStatusCode,
+            return new ApiResponse<AllExpenseDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ExpenseInlineDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExpenseInlineDocumentResponse)));
+                (AllExpenseDocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AllExpenseDocumentResponse)));
         }
 
         /// <summary>
-        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
+        /// Change status is paid expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1901,7 +1901,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
+        /// Change status is paid expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1973,7 +1973,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
+        /// Change status is paid expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1988,7 +1988,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
+        /// Change status is paid expenses document. ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2233,7 +2233,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2247,7 +2247,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2311,7 +2311,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2326,7 +2326,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status expenses document. เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2390,7 +2390,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
+        /// Create expenses document inline discount or inline vat. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2403,7 +2403,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
+        /// Create expenses document inline discount or inline vat. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2470,7 +2470,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
+        /// Create expenses document inline discount or inline vat. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2484,7 +2484,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
+        /// Create expenses document inline discount or inline vat. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2551,7 +2551,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document inline discount or inline vat with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2564,7 +2564,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document inline discount or inline vat with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2631,7 +2631,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document inline discount or inline vat with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2645,7 +2645,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with discount and tax inline with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document inline discount or inline vat with payment. สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2873,7 +2873,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Share link expenses documents. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
+        /// Share link expenses document. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2886,7 +2886,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Share link expenses documents. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
+        /// Share link expenses document. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2953,7 +2953,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Share link expenses documents. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
+        /// Share link expenses document. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2967,7 +2967,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Share link expenses documents. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
+        /// Share link expenses document. แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -3034,7 +3034,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document with payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -3047,7 +3047,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document with payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -3114,7 +3114,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document with payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -3128,7 +3128,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create expenses document with-payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
+        /// Create expenses document with payment. สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>

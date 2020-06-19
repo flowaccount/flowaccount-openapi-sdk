@@ -85,7 +85,7 @@ class QuotationsApiTest extends TestCase
     /**
      * Test case for quotationsGet
      *
-     * Get list all quotations documents..
+     * Get all quotations documents..
      *
      */
     public function testQuotationsGet()
@@ -95,7 +95,7 @@ class QuotationsApiTest extends TestCase
     /**
      * Test case for quotationsIdAttachmentPost
      *
-     * Add Attachment to quotations document..
+     * Attachment quotations document..
      *
      */
     public function testQuotationsIdAttachmentPost()
@@ -135,7 +135,7 @@ class QuotationsApiTest extends TestCase
     /**
      * Test case for quotationsIdStatusStatusIdPost
      *
-     * Change status of quotations document..
+     * Change status quotations document..
      *
      */
     public function testQuotationsIdStatusStatusIdPost()
@@ -145,7 +145,7 @@ class QuotationsApiTest extends TestCase
     /**
      * Test case for quotationsInlinePost
      *
-     * Create quotations document with discount and tax inline..
+     * Create quotations document inline discount or inline vat..
      *
      */
     public function testQuotationsInlinePost()

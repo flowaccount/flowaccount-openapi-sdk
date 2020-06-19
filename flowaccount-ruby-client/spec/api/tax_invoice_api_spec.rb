@@ -46,14 +46,14 @@ describe 'TaxInvoiceApi' do
   end
 
   # unit tests for tax_invoices_get
-  # Get list all tax invocie documents.
+  # Get all tax invocie documents.
   # เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
   # @param current_page Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
   # @param page_size Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;
   # @param authorization 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :sort_by Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-  # @option opts [String] :filter 
+  # @option opts [String] :filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
   # @return [AllDocumentResponse]
   describe 'tax_invoices_get test' do
     it 'should work' do
@@ -62,7 +62,7 @@ describe 'TaxInvoiceApi' do
   end
 
   # unit tests for tax_invoices_id_attachment_post
-  # Add Attachment to tax Invoices document.
+  # Attachment tax Invoices document.
   # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
   # @param authorization 
   # @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -102,7 +102,7 @@ describe 'TaxInvoiceApi' do
   end
 
   # unit tests for tax_invoices_id_payment_post
-  # Change paid status of tax-invoice document.
+  # Change status is paid tax-invoice document.
   # เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
   # @param authorization 
   # @param id ID เอกสารใช้ recordId หรือ documentId
@@ -130,7 +130,7 @@ describe 'TaxInvoiceApi' do
   end
 
   # unit tests for tax_invoices_id_status_status_id_post
-  # Change status of tax invoices document.
+  # Change status tax invoices document.
   # เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
   # @param authorization 
   # @param id ID เอกสารใช้ recordId
@@ -144,7 +144,7 @@ describe 'TaxInvoiceApi' do
   end
 
   # unit tests for tax_invoices_inline_post
-  # Create tax invocie document with discount and tax inline.
+  # Create tax invocie document inline discount or inline vat.
   # สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
   # @param authorization 
   # @param inline_document 
@@ -157,7 +157,7 @@ describe 'TaxInvoiceApi' do
   end
 
   # unit tests for tax_invoices_inline_with_payment_post
-  # Create tax invocie document with discount and tax inline with payment.
+  # Create tax invocie document inline discount or inline vat with payment.
   # สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
   # @param authorization 
   # @param inline_document_with_payment_receiving 

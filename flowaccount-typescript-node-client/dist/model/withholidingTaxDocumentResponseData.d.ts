@@ -1,6 +1,7 @@
 import { SimpleDocumentResponseAllOfDataCompany } from './simpleDocumentResponseAllOfDataCompany';
 import { WithholidingTaxItem } from './withholidingTaxItem';
 export declare class WithholidingTaxDocumentResponseData {
+    'recordId'?: string;
     'documentId'?: string;
     'documentSerial'?: string;
     'contactCode'?: string;

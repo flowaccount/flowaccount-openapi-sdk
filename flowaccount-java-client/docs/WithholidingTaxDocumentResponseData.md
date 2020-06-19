@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**recordId** | **String** | เลข Id เอกสารใบหัก ณ ที่จ่าย |  [optional]
 **documentId** | **String** | เลข Id เอกสารใบหัก ณ ที่จ่าย |  [optional]
 **documentSerial** | **String** | เลขที่เอกสารใบหัก ณ ที่จ่าย |  [optional]
 **contactCode** | **String** | รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า |  [optional]

@@ -401,13 +401,13 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersGet
      *
-     * Get list all purchase order documents.
+     * Get all purchase order documents.
      *
      * @param  int $current_page Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization authorization (required)
      * @param  string $sort_by Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter filter (optional)
+     * @param  string $filter Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -422,13 +422,13 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersGetWithHttpInfo
      *
-     * Get list all purchase order documents.
+     * Get all purchase order documents.
      *
      * @param  int $current_page Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -514,13 +514,13 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersGetAsync
      *
-     * Get list all purchase order documents.
+     * Get all purchase order documents.
      *
      * @param  int $current_page Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -538,13 +538,13 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersGetAsyncWithHttpInfo
      *
-     * Get list all purchase order documents.
+     * Get all purchase order documents.
      *
      * @param  int $current_page Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -595,7 +595,7 @@ class PurchaseOrderApi
      * @param  int $page_size Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -746,7 +746,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdAttachmentPost
      *
-     * Add Attachment to purchase order document.
+     * Attachment purchase order document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -765,7 +765,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdAttachmentPostWithHttpInfo
      *
-     * Add Attachment to purchase order document.
+     * Attachment purchase order document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -855,7 +855,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdAttachmentPostAsync
      *
-     * Add Attachment to purchase order document.
+     * Attachment purchase order document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -877,7 +877,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdAttachmentPostAsyncWithHttpInfo
      *
-     * Add Attachment to purchase order document.
+     * Attachment purchase order document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -1922,7 +1922,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdStatusStatusIdPost
      *
-     * Change status of purchase order document.
+     * Change status purchase order document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -1941,7 +1941,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdStatusStatusIdPostWithHttpInfo
      *
-     * Change status of purchase order document.
+     * Change status purchase order document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2031,7 +2031,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdStatusStatusIdPostAsync
      *
-     * Change status of purchase order document.
+     * Change status purchase order document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2053,7 +2053,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersIdStatusStatusIdPostAsyncWithHttpInfo
      *
-     * Change status of purchase order document.
+     * Change status purchase order document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2229,7 +2229,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersInlinePost
      *
-     * Create purchase order document with discount and tax inline.
+     * Create purchase order document inline discount or inline vat.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document inline_document (required)
@@ -2247,7 +2247,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersInlinePostWithHttpInfo
      *
-     * Create purchase order document with discount and tax inline.
+     * Create purchase order document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2336,7 +2336,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersInlinePostAsync
      *
-     * Create purchase order document with discount and tax inline.
+     * Create purchase order document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2357,7 +2357,7 @@ class PurchaseOrderApi
     /**
      * Operation purchasesOrdersInlinePostAsyncWithHttpInfo
      *
-     * Create purchase order document with discount and tax inline.
+     * Create purchase order document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)

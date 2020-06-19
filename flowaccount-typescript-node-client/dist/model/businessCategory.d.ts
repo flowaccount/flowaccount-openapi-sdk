@@ -1,20 +1,9 @@
+import { BusinessCategoryData } from './businessCategoryData';
 export declare class BusinessCategory {
-    'id'?: number;
-    'systemCode'?: number;
-    'categoryId'?: number;
-    'categoryNameLocal'?: string;
-    'categoryNameForeign'?: string;
-    'debitId'?: number;
-    'debitCategory'?: number;
-    'debitCode'?: string;
-    'debitNameLocal'?: string;
-    'debitNameForeign'?: string;
-    'creditId'?: number;
-    'creditCategory'?: number;
-    'creditCode'?: string;
-    'creditNameLocal'?: string;
-    'creditNameForeign'?: string;
-    'keywords'?: string;
+    'status'?: boolean;
+    'message'?: string;
+    'code'?: number;
+    'data'?: Array<BusinessCategoryData>;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

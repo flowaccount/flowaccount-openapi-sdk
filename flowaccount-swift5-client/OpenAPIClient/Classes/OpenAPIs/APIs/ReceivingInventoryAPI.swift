@@ -54,13 +54,13 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Get list all receiving inventory documents.
+     Get all receiving inventory documents.
      
      - parameter currentPage: (query) Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -76,14 +76,14 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Get list all receiving inventory documents.
+     Get all receiving inventory documents.
      - GET /purchases
      - เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
      - parameter currentPage: (query) Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - returns: RequestBuilder<AllDocumentResponse> 
      */
     open class func purchasesGetWithRequestBuilder(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil) -> RequestBuilder<AllDocumentResponse> {
@@ -109,7 +109,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Add Attachment to receiving inventory document.
+     Attachment receiving inventory document.
      
      - parameter authorization: (header)  
      - parameter id: (path) documentId หรือ recordId ของเอกสารที่ต้องการแนบ 
@@ -129,7 +129,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Add Attachment to receiving inventory document.
+     Attachment receiving inventory document.
      - POST /purchases/{id}/attachment
      - แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
      - parameter authorization: (header)  
@@ -254,7 +254,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Change paid status of receiving inventory document.
+     Change status is paid receiving inventory document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId หรือ documentId 
@@ -274,7 +274,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Change paid status of receiving inventory document.
+     Change status is paid receiving inventory document.
      - POST /purchases/{id}/payment
      - ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
      - parameter authorization: (header)  
@@ -350,7 +350,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Change status of receiving inventory document.
+     Change status receiving inventory document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId 
@@ -370,7 +370,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Change status of receiving inventory document.
+     Change status receiving inventory document.
      - POST /purchases/{id}/status/{statusId}
      - เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      - parameter authorization: (header)  
@@ -401,7 +401,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Create receiving inventory document with discount and tax inline.
+     Create receiving inventory document inline discount or inline vat.
      
      - parameter authorization: (header)  
      - parameter inlineDocument: (body)  
@@ -420,7 +420,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Create receiving inventory document with discount and tax inline.
+     Create receiving inventory document inline discount or inline vat.
      - POST /purchases/inline
      - สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
      - parameter authorization: (header)  
@@ -444,7 +444,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Create receiving inventory document with discount and tax inline with payment.
+     Create receiving inventory document inline discount or inline vat with payment.
      
      - parameter authorization: (header)  
      - parameter inlineDocumentWithPaymentPaid: (body)  
@@ -463,7 +463,7 @@ open class ReceivingInventoryAPI {
     }
 
     /**
-     Create receiving inventory document with discount and tax inline with payment.
+     Create receiving inventory document inline discount or inline vat with payment.
      - POST /purchases/inline/with-payment
      - สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      - parameter authorization: (header)  

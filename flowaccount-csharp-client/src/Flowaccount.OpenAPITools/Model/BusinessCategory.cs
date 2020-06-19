@@ -33,153 +33,45 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BusinessCategory" /> class.
         /// </summary>
-        /// <param name="id">id ของหมวดหมู่ค่าใช้จ่าย.</param>
-        /// <param name="systemCode">เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ).</param>
-        /// <param name="categoryId">เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ).</param>
-        /// <param name="categoryNameLocal">ชื่อหมวดหมู่ค่าใช้จ่าย.</param>
-        /// <param name="categoryNameForeign">ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ).</param>
-        /// <param name="debitId">เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต.</param>
-        /// <param name="debitCategory">เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย.</param>
-        /// <param name="debitCode">เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต.</param>
-        /// <param name="debitNameLocal">ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต.</param>
-        /// <param name="debitNameForeign">ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ).</param>
-        /// <param name="creditId">เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต.</param>
-        /// <param name="creditCategory">เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย.</param>
-        /// <param name="creditCode">เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต.</param>
-        /// <param name="creditNameLocal">ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต .</param>
-        /// <param name="creditNameForeign">ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ).</param>
-        /// <param name="keywords">keyword.</param>
-        public BusinessCategory(int id = default(int), int systemCode = default(int), int categoryId = default(int), string categoryNameLocal = default(string), string categoryNameForeign = default(string), int debitId = default(int), int debitCategory = default(int), string debitCode = default(string), string debitNameLocal = default(string), string debitNameForeign = default(string), int creditId = default(int), int creditCategory = default(int), string creditCode = default(string), string creditNameLocal = default(string), string creditNameForeign = default(string), string keywords = default(string))
+        /// <param name="status">action success.</param>
+        /// <param name="message">error message.</param>
+        /// <param name="code">error code.</param>
+        /// <param name="data">ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ.</param>
+        public BusinessCategory(bool status = default(bool), string message = default(string), int code = default(int), List<BusinessCategoryData> data = default(List<BusinessCategoryData>))
         {
-            this.Id = id;
-            this.SystemCode = systemCode;
-            this.CategoryId = categoryId;
-            this.CategoryNameLocal = categoryNameLocal;
-            this.CategoryNameForeign = categoryNameForeign;
-            this.DebitId = debitId;
-            this.DebitCategory = debitCategory;
-            this.DebitCode = debitCode;
-            this.DebitNameLocal = debitNameLocal;
-            this.DebitNameForeign = debitNameForeign;
-            this.CreditId = creditId;
-            this.CreditCategory = creditCategory;
-            this.CreditCode = creditCode;
-            this.CreditNameLocal = creditNameLocal;
-            this.CreditNameForeign = creditNameForeign;
-            this.Keywords = keywords;
+            this.Status = status;
+            this.Message = message;
+            this.Code = code;
+            this.Data = data;
         }
         
         /// <summary>
-        /// id ของหมวดหมู่ค่าใช้จ่าย
+        /// action success
         /// </summary>
-        /// <value>id ของหมวดหมู่ค่าใช้จ่าย</value>
-        [DataMember(Name="id", EmitDefaultValue=true)]
-        public int Id { get; set; }
+        /// <value>action success</value>
+        [DataMember(Name="status", EmitDefaultValue=true)]
+        public bool Status { get; set; }
 
         /// <summary>
-        /// เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+        /// error message
         /// </summary>
-        /// <value>เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)</value>
-        [DataMember(Name="systemCode", EmitDefaultValue=true)]
-        public int SystemCode { get; set; }
+        /// <value>error message</value>
+        [DataMember(Name="message", EmitDefaultValue=true)]
+        public string Message { get; set; }
 
         /// <summary>
-        /// เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+        /// error code
         /// </summary>
-        /// <value>เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)</value>
-        [DataMember(Name="categoryId", EmitDefaultValue=true)]
-        public int CategoryId { get; set; }
+        /// <value>error code</value>
+        [DataMember(Name="code", EmitDefaultValue=true)]
+        public int Code { get; set; }
 
         /// <summary>
-        /// ชื่อหมวดหมู่ค่าใช้จ่าย
+        /// ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
         /// </summary>
-        /// <value>ชื่อหมวดหมู่ค่าใช้จ่าย</value>
-        [DataMember(Name="categoryNameLocal", EmitDefaultValue=true)]
-        public string CategoryNameLocal { get; set; }
-
-        /// <summary>
-        /// ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-        /// </summary>
-        /// <value>ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)</value>
-        [DataMember(Name="categoryNameForeign", EmitDefaultValue=true)]
-        public string CategoryNameForeign { get; set; }
-
-        /// <summary>
-        /// เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-        /// </summary>
-        /// <value>เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต</value>
-        [DataMember(Name="debitId", EmitDefaultValue=true)]
-        public int DebitId { get; set; }
-
-        /// <summary>
-        /// เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-        /// </summary>
-        /// <value>เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย</value>
-        [DataMember(Name="debitCategory", EmitDefaultValue=true)]
-        public int DebitCategory { get; set; }
-
-        /// <summary>
-        /// เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-        /// </summary>
-        /// <value>เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต</value>
-        [DataMember(Name="debitCode", EmitDefaultValue=true)]
-        public string DebitCode { get; set; }
-
-        /// <summary>
-        /// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-        /// </summary>
-        /// <value>ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต</value>
-        [DataMember(Name="debitNameLocal", EmitDefaultValue=true)]
-        public string DebitNameLocal { get; set; }
-
-        /// <summary>
-        /// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-        /// </summary>
-        /// <value>ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)</value>
-        [DataMember(Name="debitNameForeign", EmitDefaultValue=true)]
-        public string DebitNameForeign { get; set; }
-
-        /// <summary>
-        /// เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-        /// </summary>
-        /// <value>เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต</value>
-        [DataMember(Name="creditId", EmitDefaultValue=true)]
-        public int CreditId { get; set; }
-
-        /// <summary>
-        /// เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-        /// </summary>
-        /// <value>เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย</value>
-        [DataMember(Name="creditCategory", EmitDefaultValue=true)]
-        public int CreditCategory { get; set; }
-
-        /// <summary>
-        /// เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-        /// </summary>
-        /// <value>เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต</value>
-        [DataMember(Name="creditCode", EmitDefaultValue=true)]
-        public string CreditCode { get; set; }
-
-        /// <summary>
-        /// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต 
-        /// </summary>
-        /// <value>ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต </value>
-        [DataMember(Name="creditNameLocal", EmitDefaultValue=true)]
-        public string CreditNameLocal { get; set; }
-
-        /// <summary>
-        /// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-        /// </summary>
-        /// <value>ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)</value>
-        [DataMember(Name="creditNameForeign", EmitDefaultValue=true)]
-        public string CreditNameForeign { get; set; }
-
-        /// <summary>
-        /// keyword
-        /// </summary>
-        /// <value>keyword</value>
-        [DataMember(Name="keywords", EmitDefaultValue=true)]
-        public string Keywords { get; set; }
+        /// <value>ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ</value>
+        [DataMember(Name="data", EmitDefaultValue=true)]
+        public List<BusinessCategoryData> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -189,22 +81,10 @@ namespace Flowaccount.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BusinessCategory {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  SystemCode: ").Append(SystemCode).Append("\n");
-            sb.Append("  CategoryId: ").Append(CategoryId).Append("\n");
-            sb.Append("  CategoryNameLocal: ").Append(CategoryNameLocal).Append("\n");
-            sb.Append("  CategoryNameForeign: ").Append(CategoryNameForeign).Append("\n");
-            sb.Append("  DebitId: ").Append(DebitId).Append("\n");
-            sb.Append("  DebitCategory: ").Append(DebitCategory).Append("\n");
-            sb.Append("  DebitCode: ").Append(DebitCode).Append("\n");
-            sb.Append("  DebitNameLocal: ").Append(DebitNameLocal).Append("\n");
-            sb.Append("  DebitNameForeign: ").Append(DebitNameForeign).Append("\n");
-            sb.Append("  CreditId: ").Append(CreditId).Append("\n");
-            sb.Append("  CreditCategory: ").Append(CreditCategory).Append("\n");
-            sb.Append("  CreditCode: ").Append(CreditCode).Append("\n");
-            sb.Append("  CreditNameLocal: ").Append(CreditNameLocal).Append("\n");
-            sb.Append("  CreditNameForeign: ").Append(CreditNameForeign).Append("\n");
-            sb.Append("  Keywords: ").Append(Keywords).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -240,84 +120,25 @@ namespace Flowaccount.OpenAPITools.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.SystemCode == input.SystemCode ||
-                    (this.SystemCode != null &&
-                    this.SystemCode.Equals(input.SystemCode))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.CategoryId == input.CategoryId ||
-                    (this.CategoryId != null &&
-                    this.CategoryId.Equals(input.CategoryId))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.CategoryNameLocal == input.CategoryNameLocal ||
-                    (this.CategoryNameLocal != null &&
-                    this.CategoryNameLocal.Equals(input.CategoryNameLocal))
-                ) && 
-                (
-                    this.CategoryNameForeign == input.CategoryNameForeign ||
-                    (this.CategoryNameForeign != null &&
-                    this.CategoryNameForeign.Equals(input.CategoryNameForeign))
-                ) && 
-                (
-                    this.DebitId == input.DebitId ||
-                    (this.DebitId != null &&
-                    this.DebitId.Equals(input.DebitId))
-                ) && 
-                (
-                    this.DebitCategory == input.DebitCategory ||
-                    (this.DebitCategory != null &&
-                    this.DebitCategory.Equals(input.DebitCategory))
-                ) && 
-                (
-                    this.DebitCode == input.DebitCode ||
-                    (this.DebitCode != null &&
-                    this.DebitCode.Equals(input.DebitCode))
-                ) && 
-                (
-                    this.DebitNameLocal == input.DebitNameLocal ||
-                    (this.DebitNameLocal != null &&
-                    this.DebitNameLocal.Equals(input.DebitNameLocal))
-                ) && 
-                (
-                    this.DebitNameForeign == input.DebitNameForeign ||
-                    (this.DebitNameForeign != null &&
-                    this.DebitNameForeign.Equals(input.DebitNameForeign))
-                ) && 
-                (
-                    this.CreditId == input.CreditId ||
-                    (this.CreditId != null &&
-                    this.CreditId.Equals(input.CreditId))
-                ) && 
-                (
-                    this.CreditCategory == input.CreditCategory ||
-                    (this.CreditCategory != null &&
-                    this.CreditCategory.Equals(input.CreditCategory))
-                ) && 
-                (
-                    this.CreditCode == input.CreditCode ||
-                    (this.CreditCode != null &&
-                    this.CreditCode.Equals(input.CreditCode))
-                ) && 
-                (
-                    this.CreditNameLocal == input.CreditNameLocal ||
-                    (this.CreditNameLocal != null &&
-                    this.CreditNameLocal.Equals(input.CreditNameLocal))
-                ) && 
-                (
-                    this.CreditNameForeign == input.CreditNameForeign ||
-                    (this.CreditNameForeign != null &&
-                    this.CreditNameForeign.Equals(input.CreditNameForeign))
-                ) && 
-                (
-                    this.Keywords == input.Keywords ||
-                    (this.Keywords != null &&
-                    this.Keywords.Equals(input.Keywords))
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -330,38 +151,14 @@ namespace Flowaccount.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.SystemCode != null)
-                    hashCode = hashCode * 59 + this.SystemCode.GetHashCode();
-                if (this.CategoryId != null)
-                    hashCode = hashCode * 59 + this.CategoryId.GetHashCode();
-                if (this.CategoryNameLocal != null)
-                    hashCode = hashCode * 59 + this.CategoryNameLocal.GetHashCode();
-                if (this.CategoryNameForeign != null)
-                    hashCode = hashCode * 59 + this.CategoryNameForeign.GetHashCode();
-                if (this.DebitId != null)
-                    hashCode = hashCode * 59 + this.DebitId.GetHashCode();
-                if (this.DebitCategory != null)
-                    hashCode = hashCode * 59 + this.DebitCategory.GetHashCode();
-                if (this.DebitCode != null)
-                    hashCode = hashCode * 59 + this.DebitCode.GetHashCode();
-                if (this.DebitNameLocal != null)
-                    hashCode = hashCode * 59 + this.DebitNameLocal.GetHashCode();
-                if (this.DebitNameForeign != null)
-                    hashCode = hashCode * 59 + this.DebitNameForeign.GetHashCode();
-                if (this.CreditId != null)
-                    hashCode = hashCode * 59 + this.CreditId.GetHashCode();
-                if (this.CreditCategory != null)
-                    hashCode = hashCode * 59 + this.CreditCategory.GetHashCode();
-                if (this.CreditCode != null)
-                    hashCode = hashCode * 59 + this.CreditCode.GetHashCode();
-                if (this.CreditNameLocal != null)
-                    hashCode = hashCode * 59 + this.CreditNameLocal.GetHashCode();
-                if (this.CreditNameForeign != null)
-                    hashCode = hashCode * 59 + this.CreditNameForeign.GetHashCode();
-                if (this.Keywords != null)
-                    hashCode = hashCode * 59 + this.Keywords.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

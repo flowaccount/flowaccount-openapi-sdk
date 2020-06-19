@@ -115,7 +115,7 @@ type QuotationsGetOpts struct {
 }
 
 /*
-QuotationsGet Get list all quotations documents.
+QuotationsGet Get all quotations documents.
 เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document quotations. <br>Example Pattern: <ex>/quotations?currentPage=1 </ex><ex>/quotations?currentPage=1&pageSize=20</ex>
@@ -123,7 +123,7 @@ QuotationsGet Get list all quotations documents.
  * @param authorization
  * @param optional nil or *QuotationsGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "Filter" (optional.String) -  Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllDocumentResponse
 */
 func (a *QuotationsApiService) QuotationsGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *QuotationsGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type QuotationsIdAttachmentPostOpts struct {
 }
 
 /*
-QuotationsIdAttachmentPost Add Attachment to quotations document.
+QuotationsIdAttachmentPost Attachment quotations document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -550,7 +550,7 @@ func (a *QuotationsApiService) QuotationsIdPut(ctx _context.Context, authorizati
 }
 
 /*
-QuotationsIdStatusStatusIdPost Change status of quotations document.
+QuotationsIdStatusStatusIdPost Change status quotations document.
 เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -633,7 +633,7 @@ func (a *QuotationsApiService) QuotationsIdStatusStatusIdPost(ctx _context.Conte
 }
 
 /*
-QuotationsInlinePost Create quotations document with discount and tax inline.
+QuotationsInlinePost Create quotations document inline discount or inline vat.
 สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

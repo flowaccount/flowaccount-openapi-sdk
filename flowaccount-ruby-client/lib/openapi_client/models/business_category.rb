@@ -14,95 +14,35 @@ require 'date'
 
 module OpenapiClient
   class BusinessCategory
-    # id ของหมวดหมู่ค่าใช้จ่าย
-    attr_accessor :id
+    # action success
+    attr_accessor :status
 
-    # เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-    attr_accessor :system_code
+    # error message
+    attr_accessor :message
 
-    # เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-    attr_accessor :category_id
+    # error code
+    attr_accessor :code
 
-    # ชื่อหมวดหมู่ค่าใช้จ่าย
-    attr_accessor :category_name_local
-
-    # ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-    attr_accessor :category_name_foreign
-
-    # เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-    attr_accessor :debit_id
-
-    # เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-    attr_accessor :debit_category
-
-    # เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-    attr_accessor :debit_code
-
-    # ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-    attr_accessor :debit_name_local
-
-    # ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-    attr_accessor :debit_name_foreign
-
-    # เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-    attr_accessor :credit_id
-
-    # เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-    attr_accessor :credit_category
-
-    # เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-    attr_accessor :credit_code
-
-    # ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต 
-    attr_accessor :credit_name_local
-
-    # ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-    attr_accessor :credit_name_foreign
-
-    # keyword
-    attr_accessor :keywords
+    # ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
+    attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'system_code' => :'systemCode',
-        :'category_id' => :'categoryId',
-        :'category_name_local' => :'categoryNameLocal',
-        :'category_name_foreign' => :'categoryNameForeign',
-        :'debit_id' => :'debitId',
-        :'debit_category' => :'debitCategory',
-        :'debit_code' => :'debitCode',
-        :'debit_name_local' => :'debitNameLocal',
-        :'debit_name_foreign' => :'debitNameForeign',
-        :'credit_id' => :'creditId',
-        :'credit_category' => :'creditCategory',
-        :'credit_code' => :'creditCode',
-        :'credit_name_local' => :'creditNameLocal',
-        :'credit_name_foreign' => :'creditNameForeign',
-        :'keywords' => :'keywords'
+        :'status' => :'status',
+        :'message' => :'message',
+        :'code' => :'code',
+        :'data' => :'data'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'system_code' => :'Integer',
-        :'category_id' => :'Integer',
-        :'category_name_local' => :'String',
-        :'category_name_foreign' => :'String',
-        :'debit_id' => :'Integer',
-        :'debit_category' => :'Integer',
-        :'debit_code' => :'String',
-        :'debit_name_local' => :'String',
-        :'debit_name_foreign' => :'String',
-        :'credit_id' => :'Integer',
-        :'credit_category' => :'Integer',
-        :'credit_code' => :'String',
-        :'credit_name_local' => :'String',
-        :'credit_name_foreign' => :'String',
-        :'keywords' => :'String'
+        :'status' => :'Boolean',
+        :'message' => :'String',
+        :'code' => :'Integer',
+        :'data' => :'Array<BusinessCategoryData>'
       }
     end
 
@@ -127,68 +67,22 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.key?(:'system_code')
-        self.system_code = attributes[:'system_code']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'category_id')
-        self.category_id = attributes[:'category_id']
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
-      if attributes.key?(:'category_name_local')
-        self.category_name_local = attributes[:'category_name_local']
-      end
-
-      if attributes.key?(:'category_name_foreign')
-        self.category_name_foreign = attributes[:'category_name_foreign']
-      end
-
-      if attributes.key?(:'debit_id')
-        self.debit_id = attributes[:'debit_id']
-      end
-
-      if attributes.key?(:'debit_category')
-        self.debit_category = attributes[:'debit_category']
-      end
-
-      if attributes.key?(:'debit_code')
-        self.debit_code = attributes[:'debit_code']
-      end
-
-      if attributes.key?(:'debit_name_local')
-        self.debit_name_local = attributes[:'debit_name_local']
-      end
-
-      if attributes.key?(:'debit_name_foreign')
-        self.debit_name_foreign = attributes[:'debit_name_foreign']
-      end
-
-      if attributes.key?(:'credit_id')
-        self.credit_id = attributes[:'credit_id']
-      end
-
-      if attributes.key?(:'credit_category')
-        self.credit_category = attributes[:'credit_category']
-      end
-
-      if attributes.key?(:'credit_code')
-        self.credit_code = attributes[:'credit_code']
-      end
-
-      if attributes.key?(:'credit_name_local')
-        self.credit_name_local = attributes[:'credit_name_local']
-      end
-
-      if attributes.key?(:'credit_name_foreign')
-        self.credit_name_foreign = attributes[:'credit_name_foreign']
-      end
-
-      if attributes.key?(:'keywords')
-        self.keywords = attributes[:'keywords']
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
     end
 
@@ -210,22 +104,10 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          system_code == o.system_code &&
-          category_id == o.category_id &&
-          category_name_local == o.category_name_local &&
-          category_name_foreign == o.category_name_foreign &&
-          debit_id == o.debit_id &&
-          debit_category == o.debit_category &&
-          debit_code == o.debit_code &&
-          debit_name_local == o.debit_name_local &&
-          debit_name_foreign == o.debit_name_foreign &&
-          credit_id == o.credit_id &&
-          credit_category == o.credit_category &&
-          credit_code == o.credit_code &&
-          credit_name_local == o.credit_name_local &&
-          credit_name_foreign == o.credit_name_foreign &&
-          keywords == o.keywords
+          status == o.status &&
+          message == o.message &&
+          code == o.code &&
+          data == o.data
     end
 
     # @see the `==` method
@@ -237,7 +119,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, system_code, category_id, category_name_local, category_name_foreign, debit_id, debit_category, debit_code, debit_name_local, debit_name_foreign, credit_id, credit_category, credit_code, credit_name_local, credit_name_foreign, keywords].hash
+      [status, message, code, data].hash
     end
 
     # Builds the object from hash

@@ -20,7 +20,7 @@ export class AttachmentResponseData {
     /**
     * วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
     */
-    'createdOn'?: object;
+    'createdOn'?: string;
     /**
     * ชื่อไฟล์แนบเอกสาร
     */
@@ -49,7 +49,7 @@ export class AttachmentResponseData {
         {
             "name": "createdOn",
             "baseName": "createdOn",
-            "type": "AnyType"
+            "type": "string"
         },
         {
             "name": "attachmentName",

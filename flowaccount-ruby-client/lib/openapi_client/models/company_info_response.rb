@@ -23,7 +23,6 @@ module OpenapiClient
     # error code
     attr_accessor :code
 
-    # ข้อมูลบริษัทเรา
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +41,7 @@ module OpenapiClient
         :'status' => :'Boolean',
         :'message' => :'String',
         :'code' => :'Integer',
-        :'data' => :'Array<CompanyInfoResponseData>'
+        :'data' => :'CompanyInfoResponseData'
       }
     end
 
@@ -80,9 +79,7 @@ module OpenapiClient
       end
 
       if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+        self.data = attributes[:'data']
       end
     end
 

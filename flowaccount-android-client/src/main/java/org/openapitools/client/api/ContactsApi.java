@@ -60,25 +60,15 @@ public class ContactsApi {
   /**
   * Get list all contacts.
   * 
+   * @param authorization 
    * @param currentPage Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
    * @param pageSize Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;
-   * @param authorization 
-   * @param sortBy Query contacts list amount per page. &lt;br&gt;Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-   * @param filter Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
+   * @param sortBy Contact Sort By Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+   * @param filter Contact Filter Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
    * @return ContactResponse
   */
-  public ContactResponse contactsGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ContactResponse contactsGet (String authorization, Integer currentPage, Integer pageSize, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'currentPage' is set
-    if (currentPage == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'currentPage' when calling contactsGet",
-        new ApiException(400, "Missing the required parameter 'currentPage' when calling contactsGet"));
-    }
-    // verify the required parameter 'pageSize' is set
-    if (pageSize == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'pageSize' when calling contactsGet",
-        new ApiException(400, "Missing the required parameter 'pageSize' when calling contactsGet"));
-    }
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling contactsGet",
@@ -141,21 +131,11 @@ public class ContactsApi {
       /**
    * Get list all contacts.
    * 
-   * @param currentPage Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query contacts list amount per page. &lt;br&gt;Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
+   * @param authorization    * @param currentPage Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;   * @param sortBy Contact Sort By Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter Contact Filter Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
   */
-  public void contactsGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<ContactResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void contactsGet (String authorization, Integer currentPage, Integer pageSize, String sortBy, String filter, final Response.Listener<ContactResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'currentPage' is set
-    if (currentPage == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'currentPage' when calling contactsGet",
-        new ApiException(400, "Missing the required parameter 'currentPage' when calling contactsGet"));
-    }
-    // verify the required parameter 'pageSize' is set
-    if (pageSize == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'pageSize' when calling contactsGet",
-        new ApiException(400, "Missing the required parameter 'pageSize' when calling contactsGet"));
-    }
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'authorization' when calling contactsGet",

@@ -165,7 +165,7 @@ class ReceivingInventoryApi(object):
             collection_formats=collection_formats)
 
     def purchases_get(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all receiving inventory documents.  # noqa: E501
+        """Get all receiving inventory documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -178,7 +178,7 @@ class ReceivingInventoryApi(object):
         :param int page_size: Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?pageSize=20 </ex> (required)
         :param str authorization: (required)
         :param str sort_by: Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str filter: Query filter purchases. <br>Example Pattern: <ex> /purchases?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -194,7 +194,7 @@ class ReceivingInventoryApi(object):
         return self.purchases_get_with_http_info(current_page, page_size, authorization, **kwargs)  # noqa: E501
 
     def purchases_get_with_http_info(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all receiving inventory documents.  # noqa: E501
+        """Get all receiving inventory documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -207,7 +207,7 @@ class ReceivingInventoryApi(object):
         :param int page_size: Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?pageSize=20 </ex> (required)
         :param str authorization: (required)
         :param str sort_by: Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str filter: Query filter purchases. <br>Example Pattern: <ex> /purchases?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -307,7 +307,7 @@ class ReceivingInventoryApi(object):
             collection_formats=collection_formats)
 
     def purchases_id_attachment_post(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to receiving inventory document.  # noqa: E501
+        """Attachment receiving inventory document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -334,7 +334,7 @@ class ReceivingInventoryApi(object):
         return self.purchases_id_attachment_post_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def purchases_id_attachment_post_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to receiving inventory document.  # noqa: E501
+        """Attachment receiving inventory document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -685,7 +685,7 @@ class ReceivingInventoryApi(object):
             collection_formats=collection_formats)
 
     def purchases_id_payment_post(self, authorization, id, payment_paid_document, **kwargs):  # noqa: E501
-        """Change paid status of receiving inventory document.  # noqa: E501
+        """Change status is paid receiving inventory document.  # noqa: E501
 
         ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -712,7 +712,7 @@ class ReceivingInventoryApi(object):
         return self.purchases_id_payment_post_with_http_info(authorization, id, payment_paid_document, **kwargs)  # noqa: E501
 
     def purchases_id_payment_post_with_http_info(self, authorization, id, payment_paid_document, **kwargs):  # noqa: E501
-        """Change paid status of receiving inventory document.  # noqa: E501
+        """Change status is paid receiving inventory document.  # noqa: E501
 
         ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -957,7 +957,7 @@ class ReceivingInventoryApi(object):
             collection_formats=collection_formats)
 
     def purchases_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of receiving inventory document.  # noqa: E501
+        """Change status receiving inventory document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -984,7 +984,7 @@ class ReceivingInventoryApi(object):
         return self.purchases_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
     def purchases_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of receiving inventory document.  # noqa: E501
+        """Change status receiving inventory document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1089,7 +1089,7 @@ class ReceivingInventoryApi(object):
             collection_formats=collection_formats)
 
     def purchases_inline_post(self, authorization, inline_document, **kwargs):  # noqa: E501
-        """Create receiving inventory document with discount and tax inline.  # noqa: E501
+        """Create receiving inventory document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1115,7 +1115,7 @@ class ReceivingInventoryApi(object):
         return self.purchases_inline_post_with_http_info(authorization, inline_document, **kwargs)  # noqa: E501
 
     def purchases_inline_post_with_http_info(self, authorization, inline_document, **kwargs):  # noqa: E501
-        """Create receiving inventory document with discount and tax inline.  # noqa: E501
+        """Create receiving inventory document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1216,7 +1216,7 @@ class ReceivingInventoryApi(object):
             collection_formats=collection_formats)
 
     def purchases_inline_with_payment_post(self, authorization, inline_document_with_payment_paid, **kwargs):  # noqa: E501
-        """Create receiving inventory document with discount and tax inline with payment.  # noqa: E501
+        """Create receiving inventory document inline discount or inline vat with payment.  # noqa: E501
 
         สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1242,7 +1242,7 @@ class ReceivingInventoryApi(object):
         return self.purchases_inline_with_payment_post_with_http_info(authorization, inline_document_with_payment_paid, **kwargs)  # noqa: E501
 
     def purchases_inline_with_payment_post_with_http_info(self, authorization, inline_document_with_payment_paid, **kwargs):  # noqa: E501
-        """Create receiving inventory document with discount and tax inline with payment.  # noqa: E501
+        """Create receiving inventory document inline discount or inline vat with payment.  # noqa: E501
 
         สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

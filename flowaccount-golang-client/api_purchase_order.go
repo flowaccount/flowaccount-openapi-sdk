@@ -115,7 +115,7 @@ type PurchasesOrdersGetOpts struct {
 }
 
 /*
-PurchasesOrdersGet Get list all purchase order documents.
+PurchasesOrdersGet Get all purchase order documents.
 เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document purchase orders. <br>Example Pattern: <ex>/purchases-orders?currentPage=1 </ex><ex>/purchases-orders?currentPage=1&pageSize=20</ex>
@@ -123,7 +123,7 @@ PurchasesOrdersGet Get list all purchase order documents.
  * @param authorization
  * @param optional nil or *PurchasesOrdersGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "Filter" (optional.String) -  Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllDocumentResponse
 */
 func (a *PurchaseOrderApiService) PurchasesOrdersGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *PurchasesOrdersGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type PurchasesOrdersIdAttachmentPostOpts struct {
 }
 
 /*
-PurchasesOrdersIdAttachmentPost Add Attachment to purchase order document.
+PurchasesOrdersIdAttachmentPost Attachment purchase order document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -550,7 +550,7 @@ func (a *PurchaseOrderApiService) PurchasesOrdersIdPut(ctx _context.Context, aut
 }
 
 /*
-PurchasesOrdersIdStatusStatusIdPost Change status of purchase order document.
+PurchasesOrdersIdStatusStatusIdPost Change status purchase order document.
 เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -633,7 +633,7 @@ func (a *PurchaseOrderApiService) PurchasesOrdersIdStatusStatusIdPost(ctx _conte
 }
 
 /*
-PurchasesOrdersInlinePost Create purchase order document with discount and tax inline.
+PurchasesOrdersInlinePost Create purchase order document inline discount or inline vat.
 สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

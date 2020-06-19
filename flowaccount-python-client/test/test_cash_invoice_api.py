@@ -39,14 +39,14 @@ class TestCashInvoiceApi(unittest.TestCase):
     def test_cash_invoices_get(self):
         """Test case for cash_invoices_get
 
-        Get list all cash invoices documents  # noqa: E501
+        Get all cash invoices documents  # noqa: E501
         """
         pass
 
     def test_cash_invoices_id_attachment_post(self):
         """Test case for cash_invoices_id_attachment_post
 
-        Add Attachment to cash invoices document.  # noqa: E501
+        Attachment cash invoices document.  # noqa: E501
         """
         pass
 
@@ -67,7 +67,7 @@ class TestCashInvoiceApi(unittest.TestCase):
     def test_cash_invoices_id_payment_post(self):
         """Test case for cash_invoices_id_payment_post
 
-        Change paid status of cash invoices document.  # noqa: E501
+        Change status is paid cash invoices document.  # noqa: E501
         """
         pass
 
@@ -81,21 +81,21 @@ class TestCashInvoiceApi(unittest.TestCase):
     def test_cash_invoices_id_status_status_id_post(self):
         """Test case for cash_invoices_id_status_status_id_post
 
-        Change status of cash invoices document.  # noqa: E501
+        Change status cash invoices document.  # noqa: E501
         """
         pass
 
     def test_cash_invoices_inline_post(self):
         """Test case for cash_invoices_inline_post
 
-        Create cash invoices document with discount and tax inline.  # noqa: E501
+        Create cash invoices document inline discount or inline vat.  # noqa: E501
         """
         pass
 
     def test_cash_invoices_inline_with_payment_post(self):
         """Test case for cash_invoices_inline_with_payment_post
 
-        Create cash invoices document with discount and tax inline with payment.  # noqa: E501
+        Create cash invoices document inline discount or inline vat with payment.  # noqa: E501
         """
         pass
 

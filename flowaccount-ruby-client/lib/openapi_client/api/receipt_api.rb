@@ -90,28 +90,28 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Get list all receipt documents
+    # Get all receipt documents
     # เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
     # @param current_page [Integer] Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
     # @param page_size [Integer] Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort_by Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter 
+    # @option opts [String] :filter Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
     # @return [AllDocumentResponse]
     def receipts_get(current_page, page_size, authorization, opts = {})
       data, _status_code, _headers = receipts_get_with_http_info(current_page, page_size, authorization, opts)
       data
     end
 
-    # Get list all receipt documents
+    # Get all receipt documents
     # เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
     # @param current_page [Integer] Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
     # @param page_size [Integer] Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort_by Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter 
+    # @option opts [String] :filter Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
     # @return [Array<(AllDocumentResponse, Integer, Hash)>] AllDocumentResponse data, response status code and response headers
     def receipts_get_with_http_info(current_page, page_size, authorization, opts = {})
       if @api_client.config.debugging
@@ -173,7 +173,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Add Attachment to receipt document.
+    # Attachment receipt document.
     # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
     # @param authorization [String] 
     # @param id [String] documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -185,7 +185,7 @@ module OpenapiClient
       data
     end
 
-    # Add Attachment to receipt document.
+    # Attachment receipt document.
     # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
     # @param authorization [String] 
     # @param id [String] documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -385,7 +385,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Change paid status of receipt document.
+    # Change status is paid receipt document.
     # เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId หรือ documentId
@@ -397,7 +397,7 @@ module OpenapiClient
       data
     end
 
-    # Change paid status of receipt document.
+    # Change status is paid receipt document.
     # เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId หรือ documentId
@@ -539,7 +539,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Change status of receipt document.
+    # Change status receipt document.
     # เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId
@@ -551,7 +551,7 @@ module OpenapiClient
       data
     end
 
-    # Change status of receipt document.
+    # Change status receipt document.
     # เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId
@@ -614,7 +614,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create receipt document with discount and tax inline.
+    # Create receipt document inline discount or inline vat.
     # สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
     # @param authorization [String] 
     # @param inline_document [InlineDocument] 
@@ -625,7 +625,7 @@ module OpenapiClient
       data
     end
 
-    # Create receipt document with discount and tax inline.
+    # Create receipt document inline discount or inline vat.
     # สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
     # @param authorization [String] 
     # @param inline_document [InlineDocument] 
@@ -685,7 +685,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create receipt document with discount and tax inline with payment.
+    # Create receipt document inline discount or inline vat with payment.
     # สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
     # @param authorization [String] 
     # @param inline_document_with_payment_receiving [InlineDocumentWithPaymentReceiving] 
@@ -696,7 +696,7 @@ module OpenapiClient
       data
     end
 
-    # Create receipt document with discount and tax inline with payment.
+    # Create receipt document inline discount or inline vat with payment.
     # สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
     # @param authorization [String] 
     # @param inline_document_with_payment_receiving [InlineDocumentWithPaymentReceiving] 

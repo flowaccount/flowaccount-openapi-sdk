@@ -115,7 +115,7 @@ type ReceiptsGetOpts struct {
 }
 
 /*
-ReceiptsGet Get list all receipt documents
+ReceiptsGet Get all receipt documents
 เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document receipts. <br>Example Pattern: <ex>/receipts?currentPage=1 </ex><ex>/receipts?currentPage=1&pageSize=20</ex>
@@ -123,7 +123,7 @@ ReceiptsGet Get list all receipt documents
  * @param authorization
  * @param optional nil or *ReceiptsGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "Filter" (optional.String) -  Query filter receipts. <br>Example Pattern: <ex> /receipts?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllDocumentResponse
 */
 func (a *ReceiptApiService) ReceiptsGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *ReceiptsGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type ReceiptsIdAttachmentPostOpts struct {
 }
 
 /*
-ReceiptsIdAttachmentPost Add Attachment to receipt document.
+ReceiptsIdAttachmentPost Attachment receipt document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -467,7 +467,7 @@ func (a *ReceiptApiService) ReceiptsIdGet(ctx _context.Context, authorization st
 }
 
 /*
-ReceiptsIdPaymentPost Change paid status of receipt document.
+ReceiptsIdPaymentPost Change status is paid receipt document.
 เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -633,7 +633,7 @@ func (a *ReceiptApiService) ReceiptsIdPut(ctx _context.Context, authorization st
 }
 
 /*
-ReceiptsIdStatusStatusIdPost Change status of receipt document.
+ReceiptsIdStatusStatusIdPost Change status receipt document.
 เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -716,7 +716,7 @@ func (a *ReceiptApiService) ReceiptsIdStatusStatusIdPost(ctx _context.Context, a
 }
 
 /*
-ReceiptsInlinePost Create receipt document with discount and tax inline.
+ReceiptsInlinePost Create receipt document inline discount or inline vat.
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -796,7 +796,7 @@ func (a *ReceiptApiService) ReceiptsInlinePost(ctx _context.Context, authorizati
 }
 
 /*
-ReceiptsInlineWithPaymentPost Create receipt document with discount and tax inline with payment.
+ReceiptsInlineWithPaymentPost Create receipt document inline discount or inline vat with payment.
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

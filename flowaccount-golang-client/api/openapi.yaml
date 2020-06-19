@@ -51,7 +51,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -77,7 +79,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all quotations documents.
+      summary: Get all quotations documents.
       tags:
       - Quotations
     post:
@@ -134,7 +136,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create quotations document with discount and tax inline.
+      summary: Create quotations document inline discount or inline vat.
       tags:
       - Quotations
   /quotations/{id}:
@@ -283,7 +285,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of quotations document.
+      summary: Change status quotations document.
       tags:
       - Quotations
   /quotations/{id}/attachment:
@@ -328,7 +330,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to quotations document.
+      summary: Attachment quotations document.
       tags:
       - Quotations
   /quotations/email-document:
@@ -419,7 +421,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter billing-notes. <br>Example Pattern: <ex> /billing-notes?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -445,7 +449,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all billing notes documents.
+      summary: Get all billing notes documents.
       tags:
       - Billing Notes
     post:
@@ -502,7 +506,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create billing notes document with discount and tax inline.
+      summary: Create billing notes document inline discount or inline vat.
       tags:
       - Billing Notes
   /billing-notes/{id}:
@@ -650,7 +654,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of billing notes document.
+      summary: Change status billing notes document.
       tags:
       - Billing Notes
   /billing-notes/{id}/attachment:
@@ -695,7 +699,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to billing notes document.
+      summary: Attachment billing notes document.
       tags:
       - Billing Notes
   /billing-notes/email-document:
@@ -787,7 +791,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter tax-invoices. <br>Example Pattern: <ex> /tax-invoices?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -813,7 +819,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all tax invocie documents.
+      summary: Get all tax invocie documents.
       tags:
       - Tax Invoice
     post:
@@ -900,7 +906,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create tax invocie document with discount and tax inline.
+      summary: Create tax invocie document inline discount or inline vat.
       tags:
       - Tax Invoice
   /tax-invoices/inline/with-payment:
@@ -930,7 +936,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create tax invocie document with discount and tax inline with payment.
+      summary: Create tax invocie document inline discount or inline vat with payment.
       tags:
       - Tax Invoice
   /tax-invoices/{id}:
@@ -1080,7 +1086,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of tax invoices document.
+      summary: Change status tax invoices document.
       tags:
       - Tax Invoice
   /tax-invoices/{id}/payment:
@@ -1116,7 +1122,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change paid status of tax-invoice document.
+      summary: Change status is paid tax-invoice document.
       tags:
       - Tax Invoice
   /tax-invoices/{id}/attachment:
@@ -1162,7 +1168,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to tax Invoices document.
+      summary: Attachment tax Invoices document.
       tags:
       - Tax Invoice
   /tax-invoices/email-document:
@@ -1255,7 +1261,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter receipts. <br>Example Pattern: <ex> /receipts?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -1281,7 +1289,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all receipt documents
+      summary: Get all receipt documents
       tags:
       - Receipt
     post:
@@ -1368,7 +1376,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create receipt document with discount and tax inline.
+      summary: Create receipt document inline discount or inline vat.
       tags:
       - Receipt
   /receipts/inline/with-payment:
@@ -1397,7 +1405,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create receipt document with discount and tax inline with payment.
+      summary: Create receipt document inline discount or inline vat with payment.
       tags:
       - Receipt
   /receipts/{id}:
@@ -1544,7 +1552,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of receipt document.
+      summary: Change status receipt document.
       tags:
       - Receipt
   /receipts/{id}/payment:
@@ -1580,7 +1588,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change paid status of receipt document.
+      summary: Change status is paid receipt document.
       tags:
       - Receipt
   /receipts/{id}/attachment:
@@ -1626,7 +1634,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to receipt document.
+      summary: Attachment receipt document.
       tags:
       - Receipt
   /receipts/email-document:
@@ -1717,7 +1725,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter cash-invoices. <br>Example Pattern: <ex> /cash-invoices?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -1743,7 +1753,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all cash invoices documents
+      summary: Get all cash invoices documents
       tags:
       - Cash Invoice
     post:
@@ -1829,7 +1839,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create cash invoices document with discount and tax inline.
+      summary: Create cash invoices document inline discount or inline vat.
       tags:
       - Cash Invoice
   /cash-invoices/inline/with-payment:
@@ -1859,7 +1869,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create cash invoices document with discount and tax inline with payment.
+      summary: Create cash invoices document inline discount or inline vat with payment.
       tags:
       - Cash Invoice
   /cash-invoices/{id}:
@@ -2006,7 +2016,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of cash invoices document.
+      summary: Change status cash invoices document.
       tags:
       - Cash Invoice
   /cash-invoices/{id}/payment:
@@ -2043,7 +2053,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change paid status of cash invoices document.
+      summary: Change status is paid cash invoices document.
       tags:
       - Cash Invoice
   /cash-invoices/{id}/attachment:
@@ -2089,7 +2099,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to cash invoices document.
+      summary: Attachment cash invoices document.
       tags:
       - Cash Invoice
   /cash-invoices/email-document:
@@ -2180,7 +2190,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -2206,7 +2218,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all purchase order documents.
+      summary: Get all purchase order documents.
       tags:
       - Purchase Order
     post:
@@ -2263,7 +2275,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create purchase order document with discount and tax inline.
+      summary: Create purchase order document inline discount or inline vat.
       tags:
       - Purchase Order
   /purchases-orders/{id}:
@@ -2412,7 +2424,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of purchase order document.
+      summary: Change status purchase order document.
       tags:
       - Purchase Order
   /purchases-orders/{id}/attachment:
@@ -2457,7 +2469,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to purchase order document.
+      summary: Attachment purchase order document.
       tags:
       - Purchase Order
   /purchases-orders/email-document:
@@ -2548,7 +2560,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter purchases. <br>Example Pattern: <ex> /purchases?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -2574,7 +2588,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all receiving inventory documents.
+      summary: Get all receiving inventory documents.
       tags:
       - Receiving Inventory
     post:
@@ -2660,7 +2674,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create receiving inventory document with discount and tax inline.
+      summary: Create receiving inventory document inline discount or inline vat.
       tags:
       - Receiving Inventory
   /purchases/inline/with-payment:
@@ -2689,7 +2703,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create receiving inventory document with discount and tax inline with
+      summary: Create receiving inventory document inline discount or inline vat with
         payment.
       tags:
       - Receiving Inventory
@@ -2838,7 +2852,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of receiving inventory document.
+      summary: Change status receiving inventory document.
       tags:
       - Receiving Inventory
   /purchases/{id}/payment:
@@ -2874,7 +2888,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change paid status of receiving inventory document.
+      summary: Change status is paid receiving inventory document.
       tags:
       - Receiving Inventory
   /purchases/{id}/attachment:
@@ -2919,7 +2933,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to receiving inventory document.
+      summary: Attachment receiving inventory document.
       tags:
       - Receiving Inventory
   /purchases/email-document:
@@ -2982,7 +2996,7 @@ paths:
     get:
       description: เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
       parameters:
-      - description: 'Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1
+      - description: 'Query current page expenses document. <br>Example Pattern: <ex>/expenses?currentPage=1
           </ex><ex>/expenses?currentPage=1&pageSize=20</ex>'
         explode: true
         in: query
@@ -2991,7 +3005,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: 'Query document expenses list amount per page. <br>Example Pattern:
+      - description: 'Query expenses document list amount per page. <br>Example Pattern:
           <ex> /expenses?pageSize=20 </ex>'
         explode: true
         in: query
@@ -3000,8 +3014,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: 'Query document expenses list amount per page. <br>Example Pattern:
-          <ex> /expenses?sortBy=[{''name'':''publishedOn'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]
+      - description: 'Query sort by expense document. <br>Example Pattern: <ex> /expenses?sortBy=[{''name'':''publishedOn'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]
           </ex><ex>/expenses?sortBy=[{''name'':''Contact.NameLocal'',''sortOrder'':''desc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]</ex><ex>/expenses?sortBy=[{''name'':''Value'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]</ex><ex>/expenses?sortBy=[{''name'':''Status'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]</ex>'
         explode: true
         in: query
@@ -3010,7 +3023,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter expenses document. <br>Example Pattern: <ex> /expenses?filter=[{''columnName'':''Status'',''columnValue'':''processed'',''columnPredicateOperator'':''And''}]
+          </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -3093,7 +3108,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create expenses document with-payment.
+      summary: Create expenses document with payment.
       tags:
       - Expenses
   /expenses/inline:
@@ -3122,7 +3137,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create expenses document with discount and tax inline.
+      summary: Create expenses document inline discount or inline vat.
       tags:
       - Expenses
   /expenses/inline/with-payment:
@@ -3151,7 +3166,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Create expenses document with discount and tax inline with payment.
+      summary: Create expenses document inline discount or inline vat with payment.
       tags:
       - Expenses
   /expenses/{id}:
@@ -3212,7 +3227,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExpenseInlineDocumentResponse'
+                $ref: '#/components/schemas/AllExpenseDocumentResponse'
           description: 200 response
         "401":
           description: 401 response
@@ -3298,7 +3313,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of expenses document.
+      summary: Change status expenses document.
       tags:
       - Expenses
   /expenses/{id}/payment:
@@ -3334,7 +3349,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change paid status of expenses document.
+      summary: Change status is paid expenses document.
       tags:
       - Expenses
   /expenses/{id}/attachment:
@@ -3377,7 +3392,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to expenses.
+      summary: Attachment to expenses document.
       tags:
       - Expenses
   /expenses/email-document:
@@ -3433,7 +3448,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Share link expenses documents.
+      summary: Share link expenses document.
       tags:
       - Expenses
   /expenses/categories/business:
@@ -3459,7 +3474,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Business categorys expenses document.
+      summary: Business categories expenses document.
       tags:
       - Expenses
   /expenses/categories/accounting:
@@ -3485,7 +3500,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Accounting categorys expenses document.
+      summary: Accounting categories expenses document.
       tags:
       - Expenses
   /withholding-taxes:
@@ -3510,8 +3525,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: 'Query document withholding tax list amount per page. <br>Example
-          Pattern: <ex> /withholding-taxes?sortBy=[{''name'':''publishedOn'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]
+      - description: 'Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{''name'':''publishedOn'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]
           </ex><ex>/withholding-taxes?sortBy=[{''name'':''Contact.NameLocal'',''sortOrder'':''desc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]</ex><ex>/withholding-taxes?sortBy=[{''name'':''entity'',''sortOrder'':''asc''}]</ex><ex>/withholding-taxes?sortBy=[{''name'':''Value'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]</ex><ex>/withholding-taxes?sortBy=[{''name'':''Status'',''sortOrder'':''asc''},{''name'':''documentSerial'',''sortOrder'':''desc''}]</ex>'
         explode: true
         in: query
@@ -3520,7 +3534,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: 'Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{''columnName'':''Contact.NameLocal'',''columnValue'':''Contact
+          Name'',''columnPredicateOperator'':''And''}] </ex>'
+        explode: true
         in: query
         name: filter
         required: false
@@ -3546,7 +3562,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Get list all withholding tax documents.
+      summary: Get all withholding tax documents.
       tags:
       - Withholding Tax
     post:
@@ -3722,7 +3738,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Change status of withholding tax document.
+      summary: Change status withholding tax document.
       tags:
       - Withholding Tax
   /withholding-taxes/{id}/attachment:
@@ -3766,7 +3782,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Add Attachment to expenses.
+      summary: Attachment withholding tax.
       tags:
       - Withholding Tax
   /withholding-taxes/email-document:
@@ -3794,7 +3810,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Send email withholding tax document.
+      summary: Send email withholding tax.
       tags:
       - Withholding Tax
   /withholding-taxes/sharedocument:
@@ -3822,7 +3838,7 @@ paths:
           description: 401 response
         "500":
           description: 500 response
-      summary: Share link withholding tax documents.
+      summary: Share link withholding tax.
       tags:
       - Withholding Tax
   /products:
@@ -3846,8 +3862,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: 'Query products list amount per page. <br>Example Pattern: <ex>
-          /products?sortBy=[{''name'':''productCode'',''sortOrder'':''asc''}]</ex>'
+      - description: 'Product Sort By Example Pattern: <ex> /products?sortBy=[{''name'':''productCode'',''sortOrder'':''asc''}]</ex>'
         explode: true
         in: query
         name: sortBy
@@ -3855,9 +3870,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: 'Query products list amount per page. <br>Example Pattern: <br>
-          name = Product Name <br> productCode = Product Code / SKU <br> barcode =
-          Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{''columnName'':''categoryId'',''columnValue'':''517727'',''columnPredicateOperator'':''And''}]</ex>'
+      - description: 'Product Filter Example Pattern: <br> name = Product Name <br>
+          productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId
+          = Product Category<br> <ex> /products?filter=[{''columnName'':''categoryId'',''columnValue'':''517727'',''columnPredicateOperator'':''And''}]</ex>'
         explode: true
         in: query
         name: filter
@@ -4020,7 +4035,7 @@ paths:
         explode: true
         in: query
         name: currentPage
-        required: true
+        required: false
         schema:
           type: integer
         style: form
@@ -4029,14 +4044,14 @@ paths:
         explode: true
         in: query
         name: pageSize
-        required: true
+        required: false
         schema:
           type: integer
         style: form
-      - description: Query contacts list amount per page. <br>Example Pattern:<br>
-          namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person
-          <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType
-          = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+      - description: Contact Sort By Example Pattern:<br> namelocal = Sort By Contact
+          Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email
+          <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact
+          Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
         explode: true
         in: query
         name: sortBy
@@ -4044,8 +4059,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: 'Query contacts list amount per page. <br>Example Pattern: <ex>
-          /contacts?filter=[{''columnName'':''contactType'',''columnValue'':''3'',''columnPredicateOperator'':''And''}]</ex>'
+      - description: 'Contact Filter Example Pattern: <ex> /contacts?filter=[{''columnName'':''contactType'',''columnValue'':''3'',''columnPredicateOperator'':''And''}]</ex>'
         explode: true
         in: query
         name: filter
@@ -12778,71 +12792,57 @@ components:
       type: object
     BusinessCategory:
       example:
-        debitNameForeign: debitNameForeign
-        keywords: keywords
-        categoryNameForeign: categoryNameForeign
-        debitNameLocal: debitNameLocal
-        creditId: 2
-        creditCode: creditCode
-        systemCode: 6
-        creditNameForeign: creditNameForeign
-        debitId: 5
-        debitCategory: 5
-        id: 0
-        categoryNameLocal: categoryNameLocal
-        debitCode: debitCode
-        categoryId: 1
-        creditCategory: 7
-        creditNameLocal: creditNameLocal
+        code: 0
+        data:
+        - debitNameForeign: debitNameForeign
+          keywords: keywords
+          categoryNameForeign: categoryNameForeign
+          debitNameLocal: debitNameLocal
+          creditId: 7
+          creditCode: creditCode
+          systemCode: 1
+          creditNameForeign: creditNameForeign
+          debitId: 5
+          debitCategory: 2
+          id: 6
+          categoryNameLocal: categoryNameLocal
+          debitCode: debitCode
+          categoryId: 5
+          creditCategory: 9
+          creditNameLocal: creditNameLocal
+        - debitNameForeign: debitNameForeign
+          keywords: keywords
+          categoryNameForeign: categoryNameForeign
+          debitNameLocal: debitNameLocal
+          creditId: 7
+          creditCode: creditCode
+          systemCode: 1
+          creditNameForeign: creditNameForeign
+          debitId: 5
+          debitCategory: 2
+          id: 6
+          categoryNameLocal: categoryNameLocal
+          debitCode: debitCode
+          categoryId: 5
+          creditCategory: 9
+          creditNameLocal: creditNameLocal
+        message: message
+        status: true
       properties:
-        id:
-          description: id ของหมวดหมู่ค่าใช้จ่าย
+        status:
+          description: action success
+          type: boolean
+        message:
+          description: error message
+          type: string
+        code:
+          description: error code
           type: integer
-        systemCode:
-          description: เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-          type: integer
-        categoryId:
-          description: เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-          type: integer
-        categoryNameLocal:
-          description: ชื่อหมวดหมู่ค่าใช้จ่าย
-          type: string
-        categoryNameForeign:
-          description: ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-          type: string
-        debitId:
-          description: เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-          type: integer
-        debitCategory:
-          description: เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-          type: integer
-        debitCode:
-          description: เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-          type: string
-        debitNameLocal:
-          description: ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-          type: string
-        debitNameForeign:
-          description: ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-          type: string
-        creditId:
-          description: เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-          type: integer
-        creditCategory:
-          description: เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-          type: integer
-        creditCode:
-          description: เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-          type: string
-        creditNameLocal:
-          description: 'ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต '
-          type: string
-        creditNameForeign:
-          description: ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-          type: string
-        keywords:
-          description: keyword
-          type: string
+        data:
+          description: ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
+          items:
+            $ref: '#/components/schemas/BusinessCategory_data'
+          type: array
       type: object
     WithholidingTaxDocument:
       example:
@@ -13189,6 +13189,7 @@ components:
           contactPerson: contactPerson
           publishedOn: 2020-01-01T00:00:00.000+0000
           taxPayment: 1
+          recordId: recordId
           total: 4.145608029883936
           socialSecurityAmount: socialSecurityAmount
           contactNumber: 099-999-9999
@@ -13267,6 +13268,7 @@ components:
             contactPerson: contactPerson
             publishedOn: 2020-01-01T00:00:00.000+0000
             taxPayment: 1
+            recordId: recordId
             total: 4.145608029883936
             socialSecurityAmount: socialSecurityAmount
             contactNumber: 099-999-9999
@@ -13325,6 +13327,7 @@ components:
             contactPerson: contactPerson
             publishedOn: 2020-01-01T00:00:00.000+0000
             taxPayment: 1
+            recordId: recordId
             total: 4.145608029883936
             socialSecurityAmount: socialSecurityAmount
             contactNumber: 099-999-9999
@@ -13564,10 +13567,16 @@ components:
       example:
         code: 0
         data:
-          orderNumber: 1
+        - orderNumber: 1
           attachmentName: attachmentName
           attachmentId: 6
-          createdOn: 2020-01-01
+          createdOn: 2020-01-01T00:00:00.000+0000
+          attachmentPath: attachmentPath
+          isDisplay: true
+        - orderNumber: 1
+          attachmentName: attachmentName
+          attachmentId: 6
+          createdOn: 2020-01-01T00:00:00.000+0000
           attachmentPath: attachmentPath
           isDisplay: true
         message: message
@@ -13583,7 +13592,10 @@ components:
           description: error code
           type: integer
         data:
-          $ref: '#/components/schemas/AttachmentResponse_data'
+          description: ข้อมูลไฟล์แนบเอกสาร
+          items:
+            $ref: '#/components/schemas/AttachmentResponse_data'
+          type: array
       type: object
     ProductType:
       discriminator:
@@ -13833,7 +13845,7 @@ components:
           type: number
         inventoryPrice:
           default: 0
-          description: ราคาซื้อสินค้า
+          description: ต้นทุนสินค้าต่อหน่วย
           format: decimal
           type: number
       required:
@@ -13846,26 +13858,30 @@ components:
       type: object
     Product:
       example:
-        buyPrice: 9.301444243932576
+        buyPrice: 3.616076749251911
+        inventoryTotal: 1.0246457001441578
         sellDescription: sellDescription
         code: P001
         unitName: unitName
-        averageSellPrice: 7.386281948385884
-        inventoryQuantity: 2.027123023002322
-        buyVatType: 3
+        averageSellPrice: 6.84685269835264
+        inventoryQuantity: 7.386281948385884
+        buyVatType: 2
         buyDescription: buyDescription
         sellPrice: 5.637376656633329
         type: 5
-        sellVatType: 2
+        sellVatType: 7
         categoryName: categoryName
         inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+        buyVatTypeWithVat: 4.145608029883936
         name: Product
-        totalValueInHand: 1.0246457001441578
+        totalValueInHand: 1.1730742509559433
+        sellPriceWithVat: 2.3021358869347655
         id: id
-        remainingStock: 1.2315135367772556
+        remainingStock: 7.457744773683766
         barcode: barcode
-        averageBuyPrice: 4.145608029883936
-        categoryId: 7
+        averageBuyPrice: 1.4894159098541704
+        categoryId: 9
+        inventoryPrice: 1.2315135367772556
       properties:
         id:
           description: เลข id Product
@@ -13888,6 +13904,10 @@ components:
           type: string
         sellPrice:
           description: ราคาขายสินค้า
+          format: decimal
+          type: number
+        sellPriceWithVat:
+          description: ราคาขายสินค้า รวมภาษี
           format: decimal
           type: number
         sellVatType:
@@ -13922,6 +13942,10 @@ components:
             <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี'
           format: int64
           type: integer
+        buyVatTypeWithVat:
+          description: ราคาซื้อสินค้า รวมภาษี
+          format: decimal
+          type: number
         inventoryPublishedOn:
           description: 'วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>'
           example: 2020-01-01
@@ -13931,12 +13955,22 @@ components:
           description: จำนวนยอดตั้งต้นสินค้า
           format: decimal
           type: number
+        inventoryPrice:
+          default: 0
+          description: ต้นทุนสินค้าต่อหน่วย
+          format: decimal
+          type: number
+        inventoryTotal:
+          default: 0
+          description: มูลค่ารวมยอดตั้งต้นสินค้า
+          format: decimal
+          type: number
         averageBuyPrice:
-          description: ราคาซื้อเฉลี่ยสินค้า
+          description: ราคาสินค้าซื้อเฉลี่ย
           format: decimal
           type: number
         averageSellPrice:
-          description: ราคาขายเฉลี่ยสินค้า
+          description: ราคาขายสินค้าเฉลี่ย
           format: decimal
           type: number
         remainingStock:
@@ -13956,46 +13990,54 @@ components:
           isDB: true
           currentPage: 1
           list:
-          - buyPrice: 9.301444243932576
+          - buyPrice: 3.616076749251911
+            inventoryTotal: 1.0246457001441578
             sellDescription: sellDescription
             code: P001
             unitName: unitName
-            averageSellPrice: 7.386281948385884
-            inventoryQuantity: 2.027123023002322
-            buyVatType: 3
+            averageSellPrice: 6.84685269835264
+            inventoryQuantity: 7.386281948385884
+            buyVatType: 2
             buyDescription: buyDescription
             sellPrice: 5.637376656633329
             type: 5
-            sellVatType: 2
+            sellVatType: 7
             categoryName: categoryName
             inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+            buyVatTypeWithVat: 4.145608029883936
             name: Product
-            totalValueInHand: 1.0246457001441578
+            totalValueInHand: 1.1730742509559433
+            sellPriceWithVat: 2.3021358869347655
             id: id
-            remainingStock: 1.2315135367772556
+            remainingStock: 7.457744773683766
             barcode: barcode
-            averageBuyPrice: 4.145608029883936
-            categoryId: 7
-          - buyPrice: 9.301444243932576
+            averageBuyPrice: 1.4894159098541704
+            categoryId: 9
+            inventoryPrice: 1.2315135367772556
+          - buyPrice: 3.616076749251911
+            inventoryTotal: 1.0246457001441578
             sellDescription: sellDescription
             code: P001
             unitName: unitName
-            averageSellPrice: 7.386281948385884
-            inventoryQuantity: 2.027123023002322
-            buyVatType: 3
+            averageSellPrice: 6.84685269835264
+            inventoryQuantity: 7.386281948385884
+            buyVatType: 2
             buyDescription: buyDescription
             sellPrice: 5.637376656633329
             type: 5
-            sellVatType: 2
+            sellVatType: 7
             categoryName: categoryName
             inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+            buyVatTypeWithVat: 4.145608029883936
             name: Product
-            totalValueInHand: 1.0246457001441578
+            totalValueInHand: 1.1730742509559433
+            sellPriceWithVat: 2.3021358869347655
             id: id
-            remainingStock: 1.2315135367772556
+            remainingStock: 7.457744773683766
             barcode: barcode
-            averageBuyPrice: 4.145608029883936
-            categoryId: 7
+            averageBuyPrice: 1.4894159098541704
+            categoryId: 9
+            inventoryPrice: 1.2315135367772556
         message: message
         status: true
       properties:
@@ -14016,17 +14058,18 @@ components:
         contactMobile: 099-999-9999
         contactBankAccountType: 1
         contactBankBranch: บางรัก
+        contactCode: 7
         contactBranch: สำนักงานใหญ่
         contactEmail: contact@email.com
         conatactShippingAddress: conatactShippingAddress
         contactName: contactName
         contactGroup: 5
         contactZipCode: contactZipCode
-        contactCreditDays: 9
+        contactCreditDays: 3
         contactFax: 02-888-8888
         contactPerson: contactPerson
         contactType: 2
-        contactBankId: 7
+        contactBankId: 9
         contactWebsite: www.flowaccount.com
         contactBankAccountNumber: 1111111111
         contactTaxId: 1234567890123
@@ -14048,6 +14091,10 @@ components:
         contactType:
           default: 3
           description: 'ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า'
+          format: int64
+          type: integer
+        contactCode:
+          description: 'รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>'
           format: int64
           type: integer
         contactName:
@@ -14138,7 +14185,6 @@ components:
           description: โน๊ต
           type: string
       required:
-      - contactCode
       - contactGroup
       - contactName
       - contactType
@@ -14154,17 +14200,18 @@ components:
           - contactMobile: 099-999-9999
             contactBankAccountType: 1
             contactBankBranch: บางรัก
+            contactCode: 7
             contactBranch: สำนักงานใหญ่
             contactEmail: contact@email.com
             conatactShippingAddress: conatactShippingAddress
             contactName: contactName
             contactGroup: 5
             contactZipCode: contactZipCode
-            contactCreditDays: 9
+            contactCreditDays: 3
             contactFax: 02-888-8888
             contactPerson: contactPerson
             contactType: 2
-            contactBankId: 7
+            contactBankId: 9
             contactWebsite: www.flowaccount.com
             contactBankAccountNumber: 1111111111
             contactTaxId: 1234567890123
@@ -14176,17 +14223,18 @@ components:
           - contactMobile: 099-999-9999
             contactBankAccountType: 1
             contactBankBranch: บางรัก
+            contactCode: 7
             contactBranch: สำนักงานใหญ่
             contactEmail: contact@email.com
             conatactShippingAddress: conatactShippingAddress
             contactName: contactName
             contactGroup: 5
             contactZipCode: contactZipCode
-            contactCreditDays: 9
+            contactCreditDays: 3
             contactFax: 02-888-8888
             contactPerson: contactPerson
             contactType: 2
-            contactBankId: 7
+            contactBankId: 9
             contactWebsite: www.flowaccount.com
             contactBankAccountNumber: 1111111111
             contactTaxId: 1234567890123
@@ -14390,22 +14438,7 @@ components:
       example:
         code: 0
         data:
-        - companyBranchEn: companyBranchEn
-          companyType: "10"
-          companyBranchCode: companyBranchCode
-          companyNameEn: companyNameEn
-          companyZipCode: companyZipCode
-          companyAddressEn: companyAddressEn
-          companyTaxId: companyTaxId
-          companyId: 6
-          compnayName: compnayName
-          companyPhone: companyPhone
-          companyBranch: สำนักงานใหญ่
-          companyAddress: companyAddress
-          companyFax: companyFax
-          companyMobile: companyMobile
-          companyWebsite: companyWebsite
-        - companyBranchEn: companyBranchEn
+          companyBranchEn: companyBranchEn
           companyType: "10"
           companyBranchCode: companyBranchCode
           companyNameEn: companyNameEn
@@ -14433,10 +14466,7 @@ components:
           description: error code
           type: integer
         data:
-          description: ข้อมูลบริษัทเรา
-          items:
-            $ref: '#/components/schemas/CompanyInfoResponse_data'
-          type: array
+          $ref: '#/components/schemas/CompanyInfoResponse_data'
       type: object
     Empty:
       title: Empty Schema
@@ -16212,6 +16242,73 @@ components:
           items:
             $ref: '#/components/schemas/ExpenseInlineDocumentResponse_allOf_data'
           type: array
+    BusinessCategory_data:
+      example:
+        debitNameForeign: debitNameForeign
+        keywords: keywords
+        categoryNameForeign: categoryNameForeign
+        debitNameLocal: debitNameLocal
+        creditId: 7
+        creditCode: creditCode
+        systemCode: 1
+        creditNameForeign: creditNameForeign
+        debitId: 5
+        debitCategory: 2
+        id: 6
+        categoryNameLocal: categoryNameLocal
+        debitCode: debitCode
+        categoryId: 5
+        creditCategory: 9
+        creditNameLocal: creditNameLocal
+      properties:
+        id:
+          description: id ของหมวดหมู่ค่าใช้จ่าย
+          type: integer
+        systemCode:
+          description: เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+          type: integer
+        categoryId:
+          description: เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+          type: integer
+        categoryNameLocal:
+          description: ชื่อหมวดหมู่ค่าใช้จ่าย
+          type: string
+        categoryNameForeign:
+          description: ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
+          type: string
+        debitId:
+          description: เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
+          type: integer
+        debitCategory:
+          description: เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
+          type: integer
+        debitCode:
+          description: เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
+          type: string
+        debitNameLocal:
+          description: ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
+          type: string
+        debitNameForeign:
+          description: ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
+          type: string
+        creditId:
+          description: เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
+          type: integer
+        creditCategory:
+          description: เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
+          type: integer
+        creditCode:
+          description: เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
+          type: string
+        creditNameLocal:
+          description: 'ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต '
+          type: string
+        creditNameForeign:
+          description: ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
+          type: string
+        keywords:
+          description: keyword
+          type: string
     WithholidingTaxDocumentResponse_data:
       example:
         providentFundNumber: providentFundNumber
@@ -16223,6 +16320,7 @@ components:
         contactPerson: contactPerson
         publishedOn: 2020-01-01T00:00:00.000+0000
         taxPayment: 1
+        recordId: recordId
         total: 4.145608029883936
         socialSecurityAmount: socialSecurityAmount
         contactNumber: 099-999-9999
@@ -16273,6 +16371,9 @@ components:
         remarks: remarks
         status: 1
       properties:
+        recordId:
+          description: เลข Id เอกสารใบหัก ณ ที่จ่าย
+          type: string
         documentId:
           description: เลข Id เอกสารใบหัก ณ ที่จ่าย
           type: string
@@ -16396,6 +16497,7 @@ components:
           contactPerson: contactPerson
           publishedOn: 2020-01-01T00:00:00.000+0000
           taxPayment: 1
+          recordId: recordId
           total: 4.145608029883936
           socialSecurityAmount: socialSecurityAmount
           contactNumber: 099-999-9999
@@ -16454,6 +16556,7 @@ components:
           contactPerson: contactPerson
           publishedOn: 2020-01-01T00:00:00.000+0000
           taxPayment: 1
+          recordId: recordId
           total: 4.145608029883936
           socialSecurityAmount: socialSecurityAmount
           contactNumber: 099-999-9999
@@ -16544,7 +16647,7 @@ components:
         orderNumber: 1
         attachmentName: attachmentName
         attachmentId: 6
-        createdOn: 2020-01-01
+        createdOn: 2020-01-01T00:00:00.000+0000
         attachmentPath: attachmentPath
         isDisplay: true
       properties:
@@ -16556,6 +16659,7 @@ components:
           description: 'วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>'
           example: 2020-01-01
           format: date
+          type: string
         attachmentName:
           description: ชื่อไฟล์แนบเอกสาร
           type: string
@@ -16576,46 +16680,54 @@ components:
         isDB: true
         currentPage: 1
         list:
-        - buyPrice: 9.301444243932576
+        - buyPrice: 3.616076749251911
+          inventoryTotal: 1.0246457001441578
           sellDescription: sellDescription
           code: P001
           unitName: unitName
-          averageSellPrice: 7.386281948385884
-          inventoryQuantity: 2.027123023002322
-          buyVatType: 3
+          averageSellPrice: 6.84685269835264
+          inventoryQuantity: 7.386281948385884
+          buyVatType: 2
           buyDescription: buyDescription
           sellPrice: 5.637376656633329
           type: 5
-          sellVatType: 2
+          sellVatType: 7
           categoryName: categoryName
           inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+          buyVatTypeWithVat: 4.145608029883936
           name: Product
-          totalValueInHand: 1.0246457001441578
+          totalValueInHand: 1.1730742509559433
+          sellPriceWithVat: 2.3021358869347655
           id: id
-          remainingStock: 1.2315135367772556
+          remainingStock: 7.457744773683766
           barcode: barcode
-          averageBuyPrice: 4.145608029883936
-          categoryId: 7
-        - buyPrice: 9.301444243932576
+          averageBuyPrice: 1.4894159098541704
+          categoryId: 9
+          inventoryPrice: 1.2315135367772556
+        - buyPrice: 3.616076749251911
+          inventoryTotal: 1.0246457001441578
           sellDescription: sellDescription
           code: P001
           unitName: unitName
-          averageSellPrice: 7.386281948385884
-          inventoryQuantity: 2.027123023002322
-          buyVatType: 3
+          averageSellPrice: 6.84685269835264
+          inventoryQuantity: 7.386281948385884
+          buyVatType: 2
           buyDescription: buyDescription
           sellPrice: 5.637376656633329
           type: 5
-          sellVatType: 2
+          sellVatType: 7
           categoryName: categoryName
           inventoryPublishedOn: 2020-01-01T00:00:00.000+0000
+          buyVatTypeWithVat: 4.145608029883936
           name: Product
-          totalValueInHand: 1.0246457001441578
+          totalValueInHand: 1.1730742509559433
+          sellPriceWithVat: 2.3021358869347655
           id: id
-          remainingStock: 1.2315135367772556
+          remainingStock: 7.457744773683766
           barcode: barcode
-          averageBuyPrice: 4.145608029883936
-          categoryId: 7
+          averageBuyPrice: 1.4894159098541704
+          categoryId: 9
+          inventoryPrice: 1.2315135367772556
       properties:
         total:
           description: จำนวนสินค้าทั้งหมด
@@ -16640,17 +16752,18 @@ components:
         - contactMobile: 099-999-9999
           contactBankAccountType: 1
           contactBankBranch: บางรัก
+          contactCode: 7
           contactBranch: สำนักงานใหญ่
           contactEmail: contact@email.com
           conatactShippingAddress: conatactShippingAddress
           contactName: contactName
           contactGroup: 5
           contactZipCode: contactZipCode
-          contactCreditDays: 9
+          contactCreditDays: 3
           contactFax: 02-888-8888
           contactPerson: contactPerson
           contactType: 2
-          contactBankId: 7
+          contactBankId: 9
           contactWebsite: www.flowaccount.com
           contactBankAccountNumber: 1111111111
           contactTaxId: 1234567890123
@@ -16662,17 +16775,18 @@ components:
         - contactMobile: 099-999-9999
           contactBankAccountType: 1
           contactBankBranch: บางรัก
+          contactCode: 7
           contactBranch: สำนักงานใหญ่
           contactEmail: contact@email.com
           conatactShippingAddress: conatactShippingAddress
           contactName: contactName
           contactGroup: 5
           contactZipCode: contactZipCode
-          contactCreditDays: 9
+          contactCreditDays: 3
           contactFax: 02-888-8888
           contactPerson: contactPerson
           contactType: 2
-          contactBankId: 7
+          contactBankId: 9
           contactWebsite: www.flowaccount.com
           contactBankAccountNumber: 1111111111
           contactTaxId: 1234567890123
@@ -16732,6 +16846,7 @@ components:
           description: ชื่อธนาคาร
           type: string
     CompanyInfoResponse_data:
+      description: ข้อมูลบริษัทเรา
       example:
         companyBranchEn: companyBranchEn
         companyType: "10"
@@ -16818,7 +16933,7 @@ x-tagGroups:
   tags:
   - Expenses
   - Withholding Tax
-- name: Prodcut and Contact
+- name: Product and Contact
   tags:
   - Products
   - Contacts

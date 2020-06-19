@@ -85,7 +85,7 @@ class ReceivingInventoryApiTest extends TestCase
     /**
      * Test case for purchasesGet
      *
-     * Get list all receiving inventory documents..
+     * Get all receiving inventory documents..
      *
      */
     public function testPurchasesGet()
@@ -95,7 +95,7 @@ class ReceivingInventoryApiTest extends TestCase
     /**
      * Test case for purchasesIdAttachmentPost
      *
-     * Add Attachment to receiving inventory document..
+     * Attachment receiving inventory document..
      *
      */
     public function testPurchasesIdAttachmentPost()
@@ -125,7 +125,7 @@ class ReceivingInventoryApiTest extends TestCase
     /**
      * Test case for purchasesIdPaymentPost
      *
-     * Change paid status of receiving inventory document..
+     * Change status is paid receiving inventory document..
      *
      */
     public function testPurchasesIdPaymentPost()
@@ -145,7 +145,7 @@ class ReceivingInventoryApiTest extends TestCase
     /**
      * Test case for purchasesIdStatusStatusIdPost
      *
-     * Change status of receiving inventory document..
+     * Change status receiving inventory document..
      *
      */
     public function testPurchasesIdStatusStatusIdPost()
@@ -155,7 +155,7 @@ class ReceivingInventoryApiTest extends TestCase
     /**
      * Test case for purchasesInlinePost
      *
-     * Create receiving inventory document with discount and tax inline..
+     * Create receiving inventory document inline discount or inline vat..
      *
      */
     public function testPurchasesInlinePost()
@@ -165,7 +165,7 @@ class ReceivingInventoryApiTest extends TestCase
     /**
      * Test case for purchasesInlineWithPaymentPost
      *
-     * Create receiving inventory document with discount and tax inline with payment..
+     * Create receiving inventory document inline discount or inline vat with payment..
      *
      */
     public function testPurchasesInlineWithPaymentPost()

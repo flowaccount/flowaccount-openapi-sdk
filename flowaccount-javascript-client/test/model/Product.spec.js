@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sellPriceWithVat (base name: "sellPriceWithVat")', function() {
+      // uncomment below and update the code to test the property sellPriceWithVat
+      //var instane = new FlowAccountOpenApi.Product();
+      //expect(instance).to.be();
+    });
+
     it('should have the property sellVatType (base name: "sellVatType")', function() {
       // uncomment below and update the code to test the property sellVatType
       //var instane = new FlowAccountOpenApi.Product();
@@ -138,6 +144,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property buyVatTypeWithVat (base name: "buyVatTypeWithVat")', function() {
+      // uncomment below and update the code to test the property buyVatTypeWithVat
+      //var instane = new FlowAccountOpenApi.Product();
+      //expect(instance).to.be();
+    });
+
     it('should have the property inventoryPublishedOn (base name: "inventoryPublishedOn")', function() {
       // uncomment below and update the code to test the property inventoryPublishedOn
       //var instane = new FlowAccountOpenApi.Product();
@@ -146,6 +158,18 @@
 
     it('should have the property inventoryQuantity (base name: "inventoryQuantity")', function() {
       // uncomment below and update the code to test the property inventoryQuantity
+      //var instane = new FlowAccountOpenApi.Product();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property inventoryPrice (base name: "inventoryPrice")', function() {
+      // uncomment below and update the code to test the property inventoryPrice
+      //var instane = new FlowAccountOpenApi.Product();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property inventoryTotal (base name: "inventoryTotal")', function() {
+      // uncomment below and update the code to test the property inventoryTotal
       //var instane = new FlowAccountOpenApi.Product();
       //expect(instance).to.be();
     });

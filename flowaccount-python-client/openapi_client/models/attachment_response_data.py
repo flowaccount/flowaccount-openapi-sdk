@@ -35,7 +35,7 @@ class AttachmentResponseData(object):
     """
     openapi_types = {
         'attachment_id': 'int',
-        'created_on': 'object',
+        'created_on': 'date',
         'attachment_name': 'str',
         'order_number': 'int',
         'is_display': 'bool',
@@ -108,7 +108,7 @@ class AttachmentResponseData(object):
         วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>  # noqa: E501
 
         :return: The created_on of this AttachmentResponseData.  # noqa: E501
-        :rtype: object
+        :rtype: date
         """
         return self._created_on
 
@@ -119,7 +119,7 @@ class AttachmentResponseData(object):
         วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>  # noqa: E501
 
         :param created_on: The created_on of this AttachmentResponseData.  # noqa: E501
-        :type: object
+        :type: date
         """
 
         self._created_on = created_on

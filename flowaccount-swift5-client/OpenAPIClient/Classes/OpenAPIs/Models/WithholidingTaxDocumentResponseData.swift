@@ -12,6 +12,8 @@ public struct WithholidingTaxDocumentResponseData: Codable {
 
 
     /** เลข Id เอกสารใบหัก ณ ที่จ่าย */
+    public var recordId: String?
+    /** เลข Id เอกสารใบหัก ณ ที่จ่าย */
     public var documentId: String?
     /** เลขที่เอกสารใบหัก ณ ที่จ่าย */
     public var documentSerial: String?
@@ -73,7 +75,8 @@ public struct WithholidingTaxDocumentResponseData: Codable {
     /** สามารถลบเอกสาร :&lt;br&gt; true &#x3D; ลบได้ &lt;br&gt; false &#x3D; ลบไม่ได้ */
     public var allowDelete: Bool?
 
-    public init(documentId: String?, documentSerial: String?, contactCode: String?, contactName: String?, contactAddress: String?, contactTaxId: String?, contactBranch: String?, contactPerson: String?, contactEmail: String?, contactNumber: String?, contactZipCode: String?, contactGroup: Int?, publishedOn: Date?, entity: Int?, textOther: String?, withholdingTaxItems: [WithholidingTaxItem]?, total: Double?, totalTaxWithheld: Double?, taxPayment: Int?, taxPaymentOthers: String?, providentFundNumber: String?, providentFundAmount: String?, socialSecurityAmount: String?, remarks: String?, internalNotes: String?, showSignatureOrStamp: Bool?, company: SimpleDocumentResponseAllOfDataCompany?, status: Int?, statusString: Int?, documentType: Int?, allowDelete: Bool?) {
+    public init(recordId: String?, documentId: String?, documentSerial: String?, contactCode: String?, contactName: String?, contactAddress: String?, contactTaxId: String?, contactBranch: String?, contactPerson: String?, contactEmail: String?, contactNumber: String?, contactZipCode: String?, contactGroup: Int?, publishedOn: Date?, entity: Int?, textOther: String?, withholdingTaxItems: [WithholidingTaxItem]?, total: Double?, totalTaxWithheld: Double?, taxPayment: Int?, taxPaymentOthers: String?, providentFundNumber: String?, providentFundAmount: String?, socialSecurityAmount: String?, remarks: String?, internalNotes: String?, showSignatureOrStamp: Bool?, company: SimpleDocumentResponseAllOfDataCompany?, status: Int?, statusString: Int?, documentType: Int?, allowDelete: Bool?) {
+        self.recordId = recordId
         self.documentId = documentId
         self.documentSerial = documentSerial
         self.contactCode = contactCode

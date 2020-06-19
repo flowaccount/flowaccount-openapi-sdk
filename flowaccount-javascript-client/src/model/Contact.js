@@ -62,6 +62,9 @@ class Contact {
             if (data.hasOwnProperty('contactType')) {
                 obj['contactType'] = ApiClient.convertToType(data['contactType'], 'Number');
             }
+            if (data.hasOwnProperty('contactCode')) {
+                obj['contactCode'] = ApiClient.convertToType(data['contactCode'], 'Number');
+            }
             if (data.hasOwnProperty('contactName')) {
                 obj['contactName'] = ApiClient.convertToType(data['contactName'], 'String');
             }
@@ -145,6 +148,12 @@ Contact.prototype['contactGroup'] = 3;
  * @default 3
  */
 Contact.prototype['contactType'] = 3;
+
+/**
+ * รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>
+ * @member {Number} contactCode
+ */
+Contact.prototype['contactCode'] = undefined;
 
 /**
  * ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย

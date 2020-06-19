@@ -14,7 +14,7 @@ public struct AttachmentResponseData: Codable {
     /** เลข Id ไฟล์แนบเอกสาร */
     public var attachmentId: Int64?
     /** วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; */
-    public var createdOn: AnyType?
+    public var createdOn: Date?
     /** ชื่อไฟล์แนบเอกสาร */
     public var attachmentName: String?
     /** ลำดับไฟล์แนบเอกสาร */
@@ -24,7 +24,7 @@ public struct AttachmentResponseData: Codable {
     /** path ที่อยู่ไฟล์แนบเอกสาร */
     public var attachmentPath: String?
 
-    public init(attachmentId: Int64?, createdOn: AnyType?, attachmentName: String?, orderNumber: Int64?, isDisplay: Bool?, attachmentPath: String?) {
+    public init(attachmentId: Int64?, createdOn: Date?, attachmentName: String?, orderNumber: Int64?, isDisplay: Bool?, attachmentPath: String?) {
         self.attachmentId = attachmentId
         self.createdOn = createdOn
         self.attachmentName = attachmentName

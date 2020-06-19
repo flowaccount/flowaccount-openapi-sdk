@@ -165,7 +165,7 @@ class PurchaseOrderApi(object):
             collection_formats=collection_formats)
 
     def purchases_orders_get(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all purchase order documents.  # noqa: E501
+        """Get all purchase order documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -178,7 +178,7 @@ class PurchaseOrderApi(object):
         :param int page_size: Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?pageSize=20 </ex> (required)
         :param str authorization: (required)
         :param str sort_by: Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str filter: Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -194,7 +194,7 @@ class PurchaseOrderApi(object):
         return self.purchases_orders_get_with_http_info(current_page, page_size, authorization, **kwargs)  # noqa: E501
 
     def purchases_orders_get_with_http_info(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all purchase order documents.  # noqa: E501
+        """Get all purchase order documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -207,7 +207,7 @@ class PurchaseOrderApi(object):
         :param int page_size: Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?pageSize=20 </ex> (required)
         :param str authorization: (required)
         :param str sort_by: Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str filter: Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -307,7 +307,7 @@ class PurchaseOrderApi(object):
             collection_formats=collection_formats)
 
     def purchases_orders_id_attachment_post(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to purchase order document.  # noqa: E501
+        """Attachment purchase order document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -334,7 +334,7 @@ class PurchaseOrderApi(object):
         return self.purchases_orders_id_attachment_post_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def purchases_orders_id_attachment_post_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to purchase order document.  # noqa: E501
+        """Attachment purchase order document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -821,7 +821,7 @@ class PurchaseOrderApi(object):
             collection_formats=collection_formats)
 
     def purchases_orders_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of purchase order document.  # noqa: E501
+        """Change status purchase order document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -848,7 +848,7 @@ class PurchaseOrderApi(object):
         return self.purchases_orders_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
     def purchases_orders_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of purchase order document.  # noqa: E501
+        """Change status purchase order document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -953,7 +953,7 @@ class PurchaseOrderApi(object):
             collection_formats=collection_formats)
 
     def purchases_orders_inline_post(self, authorization, inline_document, **kwargs):  # noqa: E501
-        """Create purchase order document with discount and tax inline.  # noqa: E501
+        """Create purchase order document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -979,7 +979,7 @@ class PurchaseOrderApi(object):
         return self.purchases_orders_inline_post_with_http_info(authorization, inline_document, **kwargs)  # noqa: E501
 
     def purchases_orders_inline_post_with_http_info(self, authorization, inline_document, **kwargs):  # noqa: E501
-        """Create purchase order document with discount and tax inline.  # noqa: E501
+        """Create purchase order document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

@@ -54,13 +54,13 @@ open class ReceiptAPI {
     }
 
     /**
-     Get list all receipt documents
+     Get all receipt documents
      
      - parameter currentPage: (query) Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -76,14 +76,14 @@ open class ReceiptAPI {
     }
 
     /**
-     Get list all receipt documents
+     Get all receipt documents
      - GET /receipts
      - เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
      - parameter currentPage: (query) Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - returns: RequestBuilder<AllDocumentResponse> 
      */
     open class func receiptsGetWithRequestBuilder(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil) -> RequestBuilder<AllDocumentResponse> {
@@ -109,7 +109,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Add Attachment to receipt document.
+     Attachment receipt document.
      
      - parameter authorization: (header)  
      - parameter id: (path) documentId หรือ recordId ของเอกสารที่ต้องการแนบ 
@@ -129,7 +129,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Add Attachment to receipt document.
+     Attachment receipt document.
      - POST /receipts/{id}/attachment
      - แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
      - parameter authorization: (header)  
@@ -254,7 +254,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Change paid status of receipt document.
+     Change status is paid receipt document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId หรือ documentId 
@@ -274,7 +274,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Change paid status of receipt document.
+     Change status is paid receipt document.
      - POST /receipts/{id}/payment
      - เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      - parameter authorization: (header)  
@@ -350,7 +350,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Change status of receipt document.
+     Change status receipt document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId 
@@ -370,7 +370,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Change status of receipt document.
+     Change status receipt document.
      - POST /receipts/{id}/status/{statusId}
      - เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      - parameter authorization: (header)  
@@ -401,7 +401,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Create receipt document with discount and tax inline.
+     Create receipt document inline discount or inline vat.
      
      - parameter authorization: (header)  
      - parameter inlineDocument: (body)  
@@ -420,7 +420,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Create receipt document with discount and tax inline.
+     Create receipt document inline discount or inline vat.
      - POST /receipts/inline
      - สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
      - parameter authorization: (header)  
@@ -444,7 +444,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Create receipt document with discount and tax inline with payment.
+     Create receipt document inline discount or inline vat with payment.
      
      - parameter authorization: (header)  
      - parameter inlineDocumentWithPaymentReceiving: (body)  
@@ -463,7 +463,7 @@ open class ReceiptAPI {
     }
 
     /**
-     Create receipt document with discount and tax inline with payment.
+     Create receipt document inline discount or inline vat with payment.
      - POST /receipts/inline/with-payment
      - สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      - parameter authorization: (header)  

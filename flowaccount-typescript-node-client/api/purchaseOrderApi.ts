@@ -174,12 +174,12 @@ export class PurchaseOrderApi {
     }
     /**
      * เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
-     * @summary Get list all purchase order documents.
+     * @summary Get all purchase order documents.
      * @param currentPage Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;
      * @param authorization 
      * @param sortBy Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;publishedOn\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Value\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Status\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
-     * @param filter 
+     * @param filter Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;columnValue\&#39;:\&#39;Contact Name\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}] &lt;/ex&gt;
      */
     public async purchasesOrdersGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AllDocumentResponse;  }> {
         const localVarPath = this.basePath + '/purchases-orders';
@@ -273,7 +273,7 @@ export class PurchaseOrderApi {
     }
     /**
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
-     * @summary Add Attachment to purchase order document.
+     * @summary Attachment purchase order document.
      * @param authorization 
      * @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
      * @param file รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary
@@ -590,7 +590,7 @@ export class PurchaseOrderApi {
     }
     /**
      * เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
-     * @summary Change status of purchase order document.
+     * @summary Change status purchase order document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; approvedandprocessed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก
@@ -673,7 +673,7 @@ export class PurchaseOrderApi {
     }
     /**
      * สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>
-     * @summary Create purchase order document with discount and tax inline.
+     * @summary Create purchase order document inline discount or inline vat.
      * @param authorization 
      * @param inlineDocument 
      */

@@ -100,6 +100,13 @@ class ContactTest extends TestCase
     }
 
     /**
+     * Test attribute "contact_code"
+     */
+    public function testPropertyContactCode()
+    {
+    }
+
+    /**
      * Test attribute "contact_name"
      */
     public function testPropertyContactName()

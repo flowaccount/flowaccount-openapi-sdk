@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**purchasesOrdersEmailDocumentPost**](PurchaseOrderAPI.md#purchasesordersemaildocumentpost) | **POST** /purchases-orders/email-document | Send email purchase order document.
-[**purchasesOrdersGet**](PurchaseOrderAPI.md#purchasesordersget) | **GET** /purchases-orders | Get list all purchase order documents.
-[**purchasesOrdersIdAttachmentPost**](PurchaseOrderAPI.md#purchasesordersidattachmentpost) | **POST** /purchases-orders/{id}/attachment | Add Attachment to purchase order document.
+[**purchasesOrdersGet**](PurchaseOrderAPI.md#purchasesordersget) | **GET** /purchases-orders | Get all purchase order documents.
+[**purchasesOrdersIdAttachmentPost**](PurchaseOrderAPI.md#purchasesordersidattachmentpost) | **POST** /purchases-orders/{id}/attachment | Attachment purchase order document.
 [**purchasesOrdersIdDelete**](PurchaseOrderAPI.md#purchasesordersiddelete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**purchasesOrdersIdGet**](PurchaseOrderAPI.md#purchasesordersidget) | **GET** /purchases-orders/{id} | Get purchase order document.
 [**purchasesOrdersIdPut**](PurchaseOrderAPI.md#purchasesordersidput) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-[**purchasesOrdersIdStatusStatusIdPost**](PurchaseOrderAPI.md#purchasesordersidstatusstatusidpost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
-[**purchasesOrdersInlinePost**](PurchaseOrderAPI.md#purchasesordersinlinepost) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
+[**purchasesOrdersIdStatusStatusIdPost**](PurchaseOrderAPI.md#purchasesordersidstatusstatusidpost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status purchase order document.
+[**purchasesOrdersInlinePost**](PurchaseOrderAPI.md#purchasesordersinlinepost) | **POST** /purchases-orders/inline | Create purchase order document inline discount or inline vat.
 [**purchasesOrdersPost**](PurchaseOrderAPI.md#purchasesorderspost) | **POST** /purchases-orders | Create purchase order document.
 [**purchasesOrdersSharedocumentPost**](PurchaseOrderAPI.md#purchasesorderssharedocumentpost) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
 
@@ -73,7 +73,7 @@ No authorization required
     open class func purchasesOrdersGet(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: AllDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Get list all purchase order documents.
+Get all purchase order documents.
 
 เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
 
@@ -86,9 +86,9 @@ let currentPage = 987 // Int | Query current page document purchase orders. <br>
 let pageSize = 987 // Int | Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?pageSize=20 </ex>
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let sortBy = "sortBy_example" // String | Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-let filter = "filter_example" // String |  (optional)
+let filter = "filter_example" // String | Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
-// Get list all purchase order documents.
+// Get all purchase order documents.
 PurchaseOrderAPI.purchasesOrdersGet(currentPage: currentPage, pageSize: pageSize, authorization: authorization, sortBy: sortBy, filter: filter) { (response, error) in
     guard error == nil else {
         print(error)
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String** |  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **String** | Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String** |  | [optional] 
+ **filter** | **String** | Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -131,7 +131,7 @@ No authorization required
     open class func purchasesOrdersIdAttachmentPost(authorization: String, id: String, file: URL? = nil, completion: @escaping (_ data: AttachmentResponse?, _ error: Error?) -> Void)
 ```
 
-Add Attachment to purchase order document.
+Attachment purchase order document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
 
@@ -144,7 +144,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
 let file = URL(string: "https://example.com")! // URL | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
-// Add Attachment to purchase order document.
+// Attachment purchase order document.
 PurchaseOrderAPI.purchasesOrdersIdAttachmentPost(authorization: authorization, id: id, file: file) { (response, error) in
     guard error == nil else {
         print(error)
@@ -343,7 +343,7 @@ No authorization required
     open class func purchasesOrdersIdStatusStatusIdPost(authorization: String, id: String, statusId: String, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change status of purchase order document.
+Change status purchase order document.
 
 เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -356,7 +356,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId
 let statusId = "statusId_example" // String | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> approvedandprocessed = ดำเนินการแล้ว <br> void = ยกเลิก
 
-// Change status of purchase order document.
+// Change status purchase order document.
 PurchaseOrderAPI.purchasesOrdersIdStatusStatusIdPost(authorization: authorization, id: id, statusId: statusId) { (response, error) in
     guard error == nil else {
         print(error)
@@ -397,7 +397,7 @@ No authorization required
     open class func purchasesOrdersInlinePost(authorization: String, inlineDocument: InlineDocument, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Create purchase order document with discount and tax inline.
+Create purchase order document inline discount or inline vat.
 
 สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>
 
@@ -409,7 +409,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let inlineDocument = InlineDocument(discountType: 123, useInlineDiscount: false, useInlineVat: false, exemptAmount: 123, vatableAmount: 123, items: [InlineProductItem(type: 123, name: "name_example", description: "description_example", quantity: 123, unitName: "unitName_example", pricePerUnit: 123, total: 123, sellChartOfAccountCode: "sellChartOfAccountCode_example", buyChartOfAccountCode: "buyChartOfAccountCode_example", discountAmount: 123, vatRate: 123)], documentReference: [UpgradeDocument(recordId: 123, referenceDocumentSerial: "referenceDocumentSerial_example", referenceDocumentType: 123)]) // InlineDocument | 
 
-// Create purchase order document with discount and tax inline.
+// Create purchase order document inline discount or inline vat.
 PurchaseOrderAPI.purchasesOrdersInlinePost(authorization: authorization, inlineDocument: inlineDocument) { (response, error) in
     guard error == nil else {
         print(error)

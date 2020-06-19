@@ -17,6 +17,5 @@ type CompanyInfoResponse struct {
 	Message string `json:"message,omitempty"`
 	// error code
 	Code int32 `json:"code,omitempty"`
-	// ข้อมูลบริษัทเรา
-	Data []CompanyInfoResponseData `json:"data,omitempty"`
+	Data CompanyInfoResponseData `json:"data,omitempty"`
 }

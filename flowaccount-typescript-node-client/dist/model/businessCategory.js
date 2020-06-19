@@ -8,84 +8,24 @@ class BusinessCategory {
 BusinessCategory.discriminator = undefined;
 BusinessCategory.attributeTypeMap = [
     {
-        "name": "id",
-        "baseName": "id",
+        "name": "status",
+        "baseName": "status",
+        "type": "boolean"
+    },
+    {
+        "name": "message",
+        "baseName": "message",
+        "type": "string"
+    },
+    {
+        "name": "code",
+        "baseName": "code",
         "type": "number"
     },
     {
-        "name": "systemCode",
-        "baseName": "systemCode",
-        "type": "number"
-    },
-    {
-        "name": "categoryId",
-        "baseName": "categoryId",
-        "type": "number"
-    },
-    {
-        "name": "categoryNameLocal",
-        "baseName": "categoryNameLocal",
-        "type": "string"
-    },
-    {
-        "name": "categoryNameForeign",
-        "baseName": "categoryNameForeign",
-        "type": "string"
-    },
-    {
-        "name": "debitId",
-        "baseName": "debitId",
-        "type": "number"
-    },
-    {
-        "name": "debitCategory",
-        "baseName": "debitCategory",
-        "type": "number"
-    },
-    {
-        "name": "debitCode",
-        "baseName": "debitCode",
-        "type": "string"
-    },
-    {
-        "name": "debitNameLocal",
-        "baseName": "debitNameLocal",
-        "type": "string"
-    },
-    {
-        "name": "debitNameForeign",
-        "baseName": "debitNameForeign",
-        "type": "string"
-    },
-    {
-        "name": "creditId",
-        "baseName": "creditId",
-        "type": "number"
-    },
-    {
-        "name": "creditCategory",
-        "baseName": "creditCategory",
-        "type": "number"
-    },
-    {
-        "name": "creditCode",
-        "baseName": "creditCode",
-        "type": "string"
-    },
-    {
-        "name": "creditNameLocal",
-        "baseName": "creditNameLocal",
-        "type": "string"
-    },
-    {
-        "name": "creditNameForeign",
-        "baseName": "creditNameForeign",
-        "type": "string"
-    },
-    {
-        "name": "keywords",
-        "baseName": "keywords",
-        "type": "string"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<BusinessCategoryData>"
     }
 ];
 exports.BusinessCategory = BusinessCategory;

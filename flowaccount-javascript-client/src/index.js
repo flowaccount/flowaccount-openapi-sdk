@@ -27,6 +27,7 @@ import BankAccount from './model/BankAccount';
 import BankAccountResponse from './model/BankAccountResponse';
 import BankAccountResponseData from './model/BankAccountResponseData';
 import BusinessCategory from './model/BusinessCategory';
+import BusinessCategoryData from './model/BusinessCategoryData';
 import CompanyInfo from './model/CompanyInfo';
 import CompanyInfoResponse from './model/CompanyInfoResponse';
 import CompanyInfoResponseData from './model/CompanyInfoResponseData';
@@ -286,6 +287,12 @@ export {
      * @property {module:model/BusinessCategory}
      */
     BusinessCategory,
+
+    /**
+     * The BusinessCategoryData model constructor.
+     * @property {module:model/BusinessCategoryData}
+     */
+    BusinessCategoryData,
 
     /**
      * The CompanyInfo model constructor.

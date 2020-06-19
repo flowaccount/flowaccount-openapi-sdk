@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CompanyInfoResponseDataTest Class Doc Comment
  *
  * @category    Class
- * @description CompanyInfoResponseData
+ * @description ข้อมูลบริษัทเรา
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

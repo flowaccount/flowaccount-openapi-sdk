@@ -23,12 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.oas_any_type_not_mapped;
+import org.threeten.bp.LocalDate;
 
 /**
  * AttachmentResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class AttachmentResponseData {
   public static final String SERIALIZED_NAME_ATTACHMENT_ID = "attachmentId";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_ID)
@@ -36,7 +36,7 @@ public class AttachmentResponseData {
 
   public static final String SERIALIZED_NAME_CREATED_ON = "createdOn";
   @SerializedName(SERIALIZED_NAME_CREATED_ON)
-  private oas_any_type_not_mapped createdOn = null;
+  private LocalDate createdOn;
 
   public static final String SERIALIZED_NAME_ATTACHMENT_NAME = "attachmentName";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_NAME)
@@ -78,7 +78,7 @@ public class AttachmentResponseData {
   }
 
 
-  public AttachmentResponseData createdOn(oas_any_type_not_mapped createdOn) {
+  public AttachmentResponseData createdOn(LocalDate createdOn) {
     
     this.createdOn = createdOn;
     return this;
@@ -89,14 +89,14 @@ public class AttachmentResponseData {
    * @return createdOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-01-01", value = "วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>")
+  @ApiModelProperty(example = "Wed Jan 01 07:00:00 ICT 2020", value = "วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>")
 
-  public oas_any_type_not_mapped getCreatedOn() {
+  public LocalDate getCreatedOn() {
     return createdOn;
   }
 
 
-  public void setCreatedOn(oas_any_type_not_mapped createdOn) {
+  public void setCreatedOn(LocalDate createdOn) {
     this.createdOn = createdOn;
   }
 

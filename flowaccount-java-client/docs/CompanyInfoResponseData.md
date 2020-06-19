@@ -2,6 +2,7 @@
 
 # CompanyInfoResponseData
 
+ข้อมูลบริษัทเรา
 ## Properties
 
 Name | Type | Description | Notes

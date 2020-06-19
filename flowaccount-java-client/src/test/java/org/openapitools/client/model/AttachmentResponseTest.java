@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.client.model.AttachmentResponseData;
 import org.junit.Assert;
 import org.junit.Ignore;

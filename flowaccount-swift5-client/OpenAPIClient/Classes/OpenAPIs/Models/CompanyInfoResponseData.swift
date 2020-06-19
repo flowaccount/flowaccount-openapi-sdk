@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/** ข้อมูลบริษัทเรา */
 public struct CompanyInfoResponseData: Codable { 
 
 

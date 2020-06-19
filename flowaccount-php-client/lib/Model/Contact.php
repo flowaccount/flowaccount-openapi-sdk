@@ -60,6 +60,7 @@ class Contact implements ModelInterface, ArrayAccess
         'id' => 'int',
         'contact_group' => 'int',
         'contact_type' => 'int',
+        'contact_code' => 'int',
         'contact_name' => 'string',
         'contact_address' => 'string',
         'contact_zip_code' => 'string',
@@ -90,6 +91,7 @@ class Contact implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'contact_group' => 'int64',
         'contact_type' => 'int64',
+        'contact_code' => 'int64',
         'contact_name' => null,
         'contact_address' => null,
         'contact_zip_code' => null,
@@ -141,6 +143,7 @@ class Contact implements ModelInterface, ArrayAccess
         'id' => 'id',
         'contact_group' => 'contactGroup',
         'contact_type' => 'contactType',
+        'contact_code' => 'contactCode',
         'contact_name' => 'contactName',
         'contact_address' => 'contactAddress',
         'contact_zip_code' => 'contactZipCode',
@@ -171,6 +174,7 @@ class Contact implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'contact_group' => 'setContactGroup',
         'contact_type' => 'setContactType',
+        'contact_code' => 'setContactCode',
         'contact_name' => 'setContactName',
         'contact_address' => 'setContactAddress',
         'contact_zip_code' => 'setContactZipCode',
@@ -201,6 +205,7 @@ class Contact implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'contact_group' => 'getContactGroup',
         'contact_type' => 'getContactType',
+        'contact_code' => 'getContactCode',
         'contact_name' => 'getContactName',
         'contact_address' => 'getContactAddress',
         'contact_zip_code' => 'getContactZipCode',
@@ -285,6 +290,7 @@ class Contact implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['contact_group'] = isset($data['contact_group']) ? $data['contact_group'] : 3;
         $this->container['contact_type'] = isset($data['contact_type']) ? $data['contact_type'] : 3;
+        $this->container['contact_code'] = isset($data['contact_code']) ? $data['contact_code'] : null;
         $this->container['contact_name'] = isset($data['contact_name']) ? $data['contact_name'] : null;
         $this->container['contact_address'] = isset($data['contact_address']) ? $data['contact_address'] : null;
         $this->container['contact_zip_code'] = isset($data['contact_zip_code']) ? $data['contact_zip_code'] : null;
@@ -407,6 +413,30 @@ class Contact implements ModelInterface, ArrayAccess
     public function setContactType($contact_type)
     {
         $this->container['contact_type'] = $contact_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_code
+     *
+     * @return int|null
+     */
+    public function getContactCode()
+    {
+        return $this->container['contact_code'];
+    }
+
+    /**
+     * Sets contact_code
+     *
+     * @param int|null $contact_code รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>
+     *
+     * @return $this
+     */
+    public function setContactCode($contact_code)
+    {
+        $this->container['contact_code'] = $contact_code;
 
         return $this;
     }

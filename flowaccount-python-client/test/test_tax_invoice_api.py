@@ -39,14 +39,14 @@ class TestTaxInvoiceApi(unittest.TestCase):
     def test_tax_invoices_get(self):
         """Test case for tax_invoices_get
 
-        Get list all tax invocie documents.  # noqa: E501
+        Get all tax invocie documents.  # noqa: E501
         """
         pass
 
     def test_tax_invoices_id_attachment_post(self):
         """Test case for tax_invoices_id_attachment_post
 
-        Add Attachment to tax Invoices document.  # noqa: E501
+        Attachment tax Invoices document.  # noqa: E501
         """
         pass
 
@@ -67,7 +67,7 @@ class TestTaxInvoiceApi(unittest.TestCase):
     def test_tax_invoices_id_payment_post(self):
         """Test case for tax_invoices_id_payment_post
 
-        Change paid status of tax-invoice document.  # noqa: E501
+        Change status is paid tax-invoice document.  # noqa: E501
         """
         pass
 
@@ -81,21 +81,21 @@ class TestTaxInvoiceApi(unittest.TestCase):
     def test_tax_invoices_id_status_status_id_post(self):
         """Test case for tax_invoices_id_status_status_id_post
 
-        Change status of tax invoices document.  # noqa: E501
+        Change status tax invoices document.  # noqa: E501
         """
         pass
 
     def test_tax_invoices_inline_post(self):
         """Test case for tax_invoices_inline_post
 
-        Create tax invocie document with discount and tax inline.  # noqa: E501
+        Create tax invocie document inline discount or inline vat.  # noqa: E501
         """
         pass
 
     def test_tax_invoices_inline_with_payment_post(self):
         """Test case for tax_invoices_inline_with_payment_post
 
-        Create tax invocie document with discount and tax inline with payment.  # noqa: E501
+        Create tax invocie document inline discount or inline vat with payment.  # noqa: E501
         """
         pass
 

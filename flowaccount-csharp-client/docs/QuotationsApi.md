@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**QuotationsEmailDocumentPost**](QuotationsApi.md#quotationsemaildocumentpost) | **POST** /quotations/email-document | Send email quotations document.
-[**QuotationsGet**](QuotationsApi.md#quotationsget) | **GET** /quotations | Get list all quotations documents.
-[**QuotationsIdAttachmentPost**](QuotationsApi.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Add Attachment to quotations document.
+[**QuotationsGet**](QuotationsApi.md#quotationsget) | **GET** /quotations | Get all quotations documents.
+[**QuotationsIdAttachmentPost**](QuotationsApi.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Attachment quotations document.
 [**QuotationsIdDelete**](QuotationsApi.md#quotationsiddelete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**QuotationsIdGet**](QuotationsApi.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document.
 [**QuotationsIdPut**](QuotationsApi.md#quotationsidput) | **PUT** /quotations/{id} | Edit quotations document.
-[**QuotationsIdStatusStatusIdPost**](QuotationsApi.md#quotationsidstatusstatusidpost) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
-[**QuotationsInlinePost**](QuotationsApi.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
+[**QuotationsIdStatusStatusIdPost**](QuotationsApi.md#quotationsidstatusstatusidpost) | **POST** /quotations/{id}/status/{statusId} | Change status quotations document.
+[**QuotationsInlinePost**](QuotationsApi.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document inline discount or inline vat.
 [**QuotationsPost**](QuotationsApi.md#quotationspost) | **POST** /quotations | Create quotations document.
 [**QuotationsSharedocumentPost**](QuotationsApi.md#quotationssharedocumentpost) | **POST** /quotations/sharedocument | Share link quotations document.
 
@@ -100,7 +100,7 @@ No authorization required
 
 > AllDocumentResponse QuotationsGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
-Get list all quotations documents.
+Get all quotations documents.
 
 เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
 
@@ -125,11 +125,11 @@ namespace Example
             var pageSize = 56;  // int | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var sortBy = sortBy_example;  // string | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
-            var filter = filter_example;  // string |  (optional) 
+            var filter = filter_example;  // string | Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional) 
 
             try
             {
-                // Get list all quotations documents.
+                // Get all quotations documents.
                 AllDocumentResponse result = apiInstance.QuotationsGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **string**| Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **string**|  | [optional] 
+ **filter** | **string**| Query filter quotations. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -185,7 +185,7 @@ No authorization required
 
 > AttachmentResponse QuotationsIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to quotations document.
+Attachment quotations document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
 
@@ -212,7 +212,7 @@ namespace Example
 
             try
             {
-                // Add Attachment to quotations document.
+                // Attachment quotations document.
                 AttachmentResponse result = apiInstance.QuotationsIdAttachmentPost(authorization, id, file);
                 Debug.WriteLine(result);
             }
@@ -505,7 +505,7 @@ No authorization required
 
 > InlineDocumentResponse QuotationsIdStatusStatusIdPost (string authorization, string id, string statusId)
 
-Change status of quotations document.
+Change status quotations document.
 
 เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -532,7 +532,7 @@ namespace Example
 
             try
             {
-                // Change status of quotations document.
+                // Change status quotations document.
                 InlineDocumentResponse result = apiInstance.QuotationsIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
@@ -586,7 +586,7 @@ No authorization required
 
 > InlineDocumentResponse QuotationsInlinePost (string authorization, InlineDocument inlineDocument)
 
-Create quotations document with discount and tax inline.
+Create quotations document inline discount or inline vat.
 
 สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
 
@@ -612,7 +612,7 @@ namespace Example
 
             try
             {
-                // Create quotations document with discount and tax inline.
+                // Create quotations document inline discount or inline vat.
                 InlineDocumentResponse result = apiInstance.QuotationsInlinePost(authorization, inlineDocument);
                 Debug.WriteLine(result);
             }

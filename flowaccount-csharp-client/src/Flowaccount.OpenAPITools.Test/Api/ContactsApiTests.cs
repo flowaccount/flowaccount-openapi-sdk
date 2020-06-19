@@ -70,12 +70,12 @@ namespace Flowaccount.OpenAPITools.Test
         public void ContactsGetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int currentPage = null;
-            //int pageSize = null;
             //string authorization = null;
+            //int? currentPage = null;
+            //int? pageSize = null;
             //string sortBy = null;
             //string filter = null;
-            //var response = instance.ContactsGet(currentPage, pageSize, authorization, sortBy, filter);
+            //var response = instance.ContactsGet(authorization, currentPage, pageSize, sortBy, filter);
             //Assert.IsInstanceOf(typeof(ContactResponse), response, "response is ContactResponse");
         }
         

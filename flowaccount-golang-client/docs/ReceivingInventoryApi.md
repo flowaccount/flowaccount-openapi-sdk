@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PurchasesEmailDocumentPost**](ReceivingInventoryApi.md#PurchasesEmailDocumentPost) | **Post** /purchases/email-document | Send email receiving inventory document.
-[**PurchasesGet**](ReceivingInventoryApi.md#PurchasesGet) | **Get** /purchases | Get list all receiving inventory documents.
-[**PurchasesIdAttachmentPost**](ReceivingInventoryApi.md#PurchasesIdAttachmentPost) | **Post** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
+[**PurchasesGet**](ReceivingInventoryApi.md#PurchasesGet) | **Get** /purchases | Get all receiving inventory documents.
+[**PurchasesIdAttachmentPost**](ReceivingInventoryApi.md#PurchasesIdAttachmentPost) | **Post** /purchases/{id}/attachment | Attachment receiving inventory document.
 [**PurchasesIdDelete**](ReceivingInventoryApi.md#PurchasesIdDelete) | **Delete** /purchases/{id} | Delete receiving inventory document.
 [**PurchasesIdGet**](ReceivingInventoryApi.md#PurchasesIdGet) | **Get** /purchases/{id} | Get receiving inventory document.
-[**PurchasesIdPaymentPost**](ReceivingInventoryApi.md#PurchasesIdPaymentPost) | **Post** /purchases/{id}/payment | Change paid status of receiving inventory document.
+[**PurchasesIdPaymentPost**](ReceivingInventoryApi.md#PurchasesIdPaymentPost) | **Post** /purchases/{id}/payment | Change status is paid receiving inventory document.
 [**PurchasesIdPut**](ReceivingInventoryApi.md#PurchasesIdPut) | **Put** /purchases/{id} | Edit receiving inventory document.
-[**PurchasesIdStatusStatusIdPost**](ReceivingInventoryApi.md#PurchasesIdStatusStatusIdPost) | **Post** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
-[**PurchasesInlinePost**](ReceivingInventoryApi.md#PurchasesInlinePost) | **Post** /purchases/inline | Create receiving inventory document with discount and tax inline.
-[**PurchasesInlineWithPaymentPost**](ReceivingInventoryApi.md#PurchasesInlineWithPaymentPost) | **Post** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
+[**PurchasesIdStatusStatusIdPost**](ReceivingInventoryApi.md#PurchasesIdStatusStatusIdPost) | **Post** /purchases/{id}/status/{statusId} | Change status receiving inventory document.
+[**PurchasesInlinePost**](ReceivingInventoryApi.md#PurchasesInlinePost) | **Post** /purchases/inline | Create receiving inventory document inline discount or inline vat.
+[**PurchasesInlineWithPaymentPost**](ReceivingInventoryApi.md#PurchasesInlineWithPaymentPost) | **Post** /purchases/inline/with-payment | Create receiving inventory document inline discount or inline vat with payment.
 [**PurchasesPost**](ReceivingInventoryApi.md#PurchasesPost) | **Post** /purchases | Create receiving inventory document.
 [**PurchasesSharedocumentPost**](ReceivingInventoryApi.md#PurchasesSharedocumentPost) | **Post** /purchases/sharedocument | Share link receiving inventory document.
 [**PurchasesWithPaymentPost**](ReceivingInventoryApi.md#PurchasesWithPaymentPost) | **Post** /purchases/with-payment | Create receiving inventory document with payment.
@@ -59,7 +59,7 @@ No authorization required
 
 > AllDocumentResponse PurchasesGet(ctx, currentPage, pageSize, authorization, optional)
 
-Get list all receiving inventory documents.
+Get all receiving inventory documents.
 
 เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 
  **sortBy** | **optional.String**| Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
- **filter** | **optional.String**|  | 
+ **filter** | **optional.String**| Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | 
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 
 > AttachmentResponse PurchasesIdAttachmentPost(ctx, authorization, id, optional)
 
-Add Attachment to receiving inventory document.
+Attachment receiving inventory document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
 
@@ -226,7 +226,7 @@ No authorization required
 
 > InlineDocumentResponse PurchasesIdPaymentPost(ctx, authorization, id, paymentPaidDocument)
 
-Change paid status of receiving inventory document.
+Change status is paid receiving inventory document.
 
 ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
 
@@ -298,7 +298,7 @@ No authorization required
 
 > InlineDocumentResponse PurchasesIdStatusStatusIdPost(ctx, authorization, id, statusId)
 
-Change status of receiving inventory document.
+Change status receiving inventory document.
 
 เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -334,7 +334,7 @@ No authorization required
 
 > InlineDocumentResponse PurchasesInlinePost(ctx, authorization, inlineDocument)
 
-Create receiving inventory document with discount and tax inline.
+Create receiving inventory document inline discount or inline vat.
 
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
 
@@ -369,7 +369,7 @@ No authorization required
 
 > InlineDocumentResponse PurchasesInlineWithPaymentPost(ctx, authorization, inlineDocumentWithPaymentPaid)
 
-Create receiving inventory document with discount and tax inline with payment.
+Create receiving inventory document inline discount or inline vat with payment.
 
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 

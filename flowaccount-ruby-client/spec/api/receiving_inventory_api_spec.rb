@@ -46,14 +46,14 @@ describe 'ReceivingInventoryApi' do
   end
 
   # unit tests for purchases_get
-  # Get list all receiving inventory documents.
+  # Get all receiving inventory documents.
   # เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
   # @param current_page Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
   # @param page_size Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt;
   # @param authorization 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :sort_by Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-  # @option opts [String] :filter 
+  # @option opts [String] :filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
   # @return [AllDocumentResponse]
   describe 'purchases_get test' do
     it 'should work' do
@@ -62,7 +62,7 @@ describe 'ReceivingInventoryApi' do
   end
 
   # unit tests for purchases_id_attachment_post
-  # Add Attachment to receiving inventory document.
+  # Attachment receiving inventory document.
   # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
   # @param authorization 
   # @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -102,7 +102,7 @@ describe 'ReceivingInventoryApi' do
   end
 
   # unit tests for purchases_id_payment_post
-  # Change paid status of receiving inventory document.
+  # Change status is paid receiving inventory document.
   # ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
   # @param authorization 
   # @param id ID เอกสารใช้ recordId หรือ documentId
@@ -130,7 +130,7 @@ describe 'ReceivingInventoryApi' do
   end
 
   # unit tests for purchases_id_status_status_id_post
-  # Change status of receiving inventory document.
+  # Change status receiving inventory document.
   # เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
   # @param authorization 
   # @param id ID เอกสารใช้ recordId
@@ -144,7 +144,7 @@ describe 'ReceivingInventoryApi' do
   end
 
   # unit tests for purchases_inline_post
-  # Create receiving inventory document with discount and tax inline.
+  # Create receiving inventory document inline discount or inline vat.
   # สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
   # @param authorization 
   # @param inline_document 
@@ -157,7 +157,7 @@ describe 'ReceivingInventoryApi' do
   end
 
   # unit tests for purchases_inline_with_payment_post
-  # Create receiving inventory document with discount and tax inline with payment.
+  # Create receiving inventory document inline discount or inline vat with payment.
   # สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
   # @param authorization 
   # @param inline_document_with_payment_paid 

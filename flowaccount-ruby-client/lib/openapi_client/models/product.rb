@@ -32,6 +32,9 @@ module OpenapiClient
     # ราคาขายสินค้า
     attr_accessor :sell_price
 
+    # ราคาขายสินค้า รวมภาษี
+    attr_accessor :sell_price_with_vat
+
     # ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี
     attr_accessor :sell_vat_type
 
@@ -56,16 +59,25 @@ module OpenapiClient
     # ภาษีซื้อ: <br> 1 = ราคาซื้อรวมภาษี <br> 3 = ราคาซื้อไม่รวมภาษี <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี
     attr_accessor :buy_vat_type
 
+    # ราคาซื้อสินค้า รวมภาษี
+    attr_accessor :buy_vat_type_with_vat
+
     # วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
     attr_accessor :inventory_published_on
 
     # จำนวนยอดตั้งต้นสินค้า
     attr_accessor :inventory_quantity
 
-    # ราคาซื้อเฉลี่ยสินค้า
+    # ต้นทุนสินค้าต่อหน่วย
+    attr_accessor :inventory_price
+
+    # มูลค่ารวมยอดตั้งต้นสินค้า
+    attr_accessor :inventory_total
+
+    # ราคาสินค้าซื้อเฉลี่ย
     attr_accessor :average_buy_price
 
-    # ราคาขายเฉลี่ยสินค้า
+    # ราคาขายสินค้าเฉลี่ย
     attr_accessor :average_sell_price
 
     # จำนวนสินค้าคงเหลือในสต๊อก
@@ -83,6 +95,7 @@ module OpenapiClient
         :'name' => :'name',
         :'sell_description' => :'sellDescription',
         :'sell_price' => :'sellPrice',
+        :'sell_price_with_vat' => :'sellPriceWithVat',
         :'sell_vat_type' => :'sellVatType',
         :'unit_name' => :'unitName',
         :'category_id' => :'categoryId',
@@ -91,8 +104,11 @@ module OpenapiClient
         :'buy_description' => :'buyDescription',
         :'buy_price' => :'buyPrice',
         :'buy_vat_type' => :'buyVatType',
+        :'buy_vat_type_with_vat' => :'buyVatTypeWithVat',
         :'inventory_published_on' => :'inventoryPublishedOn',
         :'inventory_quantity' => :'inventoryQuantity',
+        :'inventory_price' => :'inventoryPrice',
+        :'inventory_total' => :'inventoryTotal',
         :'average_buy_price' => :'averageBuyPrice',
         :'average_sell_price' => :'averageSellPrice',
         :'remaining_stock' => :'remainingStock',
@@ -109,6 +125,7 @@ module OpenapiClient
         :'name' => :'String',
         :'sell_description' => :'String',
         :'sell_price' => :'Float',
+        :'sell_price_with_vat' => :'Float',
         :'sell_vat_type' => :'Integer',
         :'unit_name' => :'String',
         :'category_id' => :'Integer',
@@ -117,8 +134,11 @@ module OpenapiClient
         :'buy_description' => :'String',
         :'buy_price' => :'Float',
         :'buy_vat_type' => :'Integer',
+        :'buy_vat_type_with_vat' => :'Float',
         :'inventory_published_on' => :'Date',
         :'inventory_quantity' => :'Float',
+        :'inventory_price' => :'Float',
+        :'inventory_total' => :'Float',
         :'average_buy_price' => :'Float',
         :'average_sell_price' => :'Float',
         :'remaining_stock' => :'Float',
@@ -173,6 +193,10 @@ module OpenapiClient
         self.sell_price = attributes[:'sell_price']
       end
 
+      if attributes.key?(:'sell_price_with_vat')
+        self.sell_price_with_vat = attributes[:'sell_price_with_vat']
+      end
+
       if attributes.key?(:'sell_vat_type')
         self.sell_vat_type = attributes[:'sell_vat_type']
       else
@@ -209,12 +233,28 @@ module OpenapiClient
         self.buy_vat_type = 3
       end
 
+      if attributes.key?(:'buy_vat_type_with_vat')
+        self.buy_vat_type_with_vat = attributes[:'buy_vat_type_with_vat']
+      end
+
       if attributes.key?(:'inventory_published_on')
         self.inventory_published_on = attributes[:'inventory_published_on']
       end
 
       if attributes.key?(:'inventory_quantity')
         self.inventory_quantity = attributes[:'inventory_quantity']
+      end
+
+      if attributes.key?(:'inventory_price')
+        self.inventory_price = attributes[:'inventory_price']
+      else
+        self.inventory_price = 0
+      end
+
+      if attributes.key?(:'inventory_total')
+        self.inventory_total = attributes[:'inventory_total']
+      else
+        self.inventory_total = 0
       end
 
       if attributes.key?(:'average_buy_price')
@@ -258,6 +298,7 @@ module OpenapiClient
           name == o.name &&
           sell_description == o.sell_description &&
           sell_price == o.sell_price &&
+          sell_price_with_vat == o.sell_price_with_vat &&
           sell_vat_type == o.sell_vat_type &&
           unit_name == o.unit_name &&
           category_id == o.category_id &&
@@ -266,8 +307,11 @@ module OpenapiClient
           buy_description == o.buy_description &&
           buy_price == o.buy_price &&
           buy_vat_type == o.buy_vat_type &&
+          buy_vat_type_with_vat == o.buy_vat_type_with_vat &&
           inventory_published_on == o.inventory_published_on &&
           inventory_quantity == o.inventory_quantity &&
+          inventory_price == o.inventory_price &&
+          inventory_total == o.inventory_total &&
           average_buy_price == o.average_buy_price &&
           average_sell_price == o.average_sell_price &&
           remaining_stock == o.remaining_stock &&
@@ -283,7 +327,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, code, name, sell_description, sell_price, sell_vat_type, unit_name, category_id, category_name, barcode, buy_description, buy_price, buy_vat_type, inventory_published_on, inventory_quantity, average_buy_price, average_sell_price, remaining_stock, total_value_in_hand].hash
+      [id, type, code, name, sell_description, sell_price, sell_price_with_vat, sell_vat_type, unit_name, category_id, category_name, barcode, buy_description, buy_price, buy_vat_type, buy_vat_type_with_vat, inventory_published_on, inventory_quantity, inventory_price, inventory_total, average_buy_price, average_sell_price, remaining_stock, total_value_in_hand].hash
     end
 
     # Builds the object from hash

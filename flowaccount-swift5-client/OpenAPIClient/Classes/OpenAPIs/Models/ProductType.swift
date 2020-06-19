@@ -41,7 +41,7 @@ public struct ProductType: Codable {
     public var inventoryPublishedOn: String = "2020-01-01"
     /** จำนวนยอดตั้งต้นสินค้า */
     public var inventoryQuantity: Double = 0
-    /** ราคาซื้อสินค้า */
+    /** ต้นทุนสินค้าต่อหน่วย */
     public var inventoryPrice: Double = 0
 
     public init(productStructureType: String?, type: Int64, code: String?, name: String, sellDescription: String?, sellPrice: Double?, sellVatType: Int64?, unitName: String, categoryName: String?, barcode: String?, buyDescription: String?, buyPrice: Double?, buyVatType: Int64?, inventoryPublishedOn: String, inventoryQuantity: Double, inventoryPrice: Double) {

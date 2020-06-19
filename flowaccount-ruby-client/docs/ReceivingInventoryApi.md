@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**purchases_email_document_post**](ReceivingInventoryApi.md#purchases_email_document_post) | **POST** /purchases/email-document | Send email receiving inventory document.
-[**purchases_get**](ReceivingInventoryApi.md#purchases_get) | **GET** /purchases | Get list all receiving inventory documents.
-[**purchases_id_attachment_post**](ReceivingInventoryApi.md#purchases_id_attachment_post) | **POST** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
+[**purchases_get**](ReceivingInventoryApi.md#purchases_get) | **GET** /purchases | Get all receiving inventory documents.
+[**purchases_id_attachment_post**](ReceivingInventoryApi.md#purchases_id_attachment_post) | **POST** /purchases/{id}/attachment | Attachment receiving inventory document.
 [**purchases_id_delete**](ReceivingInventoryApi.md#purchases_id_delete) | **DELETE** /purchases/{id} | Delete receiving inventory document.
 [**purchases_id_get**](ReceivingInventoryApi.md#purchases_id_get) | **GET** /purchases/{id} | Get receiving inventory document.
-[**purchases_id_payment_post**](ReceivingInventoryApi.md#purchases_id_payment_post) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
+[**purchases_id_payment_post**](ReceivingInventoryApi.md#purchases_id_payment_post) | **POST** /purchases/{id}/payment | Change status is paid receiving inventory document.
 [**purchases_id_put**](ReceivingInventoryApi.md#purchases_id_put) | **PUT** /purchases/{id} | Edit receiving inventory document.
-[**purchases_id_status_status_id_post**](ReceivingInventoryApi.md#purchases_id_status_status_id_post) | **POST** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
-[**purchases_inline_post**](ReceivingInventoryApi.md#purchases_inline_post) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
-[**purchases_inline_with_payment_post**](ReceivingInventoryApi.md#purchases_inline_with_payment_post) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
+[**purchases_id_status_status_id_post**](ReceivingInventoryApi.md#purchases_id_status_status_id_post) | **POST** /purchases/{id}/status/{statusId} | Change status receiving inventory document.
+[**purchases_inline_post**](ReceivingInventoryApi.md#purchases_inline_post) | **POST** /purchases/inline | Create receiving inventory document inline discount or inline vat.
+[**purchases_inline_with_payment_post**](ReceivingInventoryApi.md#purchases_inline_with_payment_post) | **POST** /purchases/inline/with-payment | Create receiving inventory document inline discount or inline vat with payment.
 [**purchases_post**](ReceivingInventoryApi.md#purchases_post) | **POST** /purchases | Create receiving inventory document.
 [**purchases_sharedocument_post**](ReceivingInventoryApi.md#purchases_sharedocument_post) | **POST** /purchases/sharedocument | Share link receiving inventory document.
 [**purchases_with_payment_post**](ReceivingInventoryApi.md#purchases_with_payment_post) | **POST** /purchases/with-payment | Create receiving inventory document with payment.
@@ -73,7 +73,7 @@ No authorization required
 
 > AllDocumentResponse purchases_get(current_page, page_size, authorization, opts)
 
-Get list all receiving inventory documents.
+Get all receiving inventory documents.
 
 เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
 
@@ -89,11 +89,11 @@ page_size = 56 # Integer | Query document purchases list amount per page. <br>Ex
 authorization = 'Bearer accessToken' # String | 
 opts = {
   sort_by: 'sort_by_example', # String | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-  filter: 'filter_example' # String | 
+  filter: 'filter_example' # String | Query filter purchases. <br>Example Pattern: <ex> /purchases?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 }
 
 begin
-  #Get list all receiving inventory documents.
+  #Get all receiving inventory documents.
   result = api_instance.purchases_get(current_page, page_size, authorization, opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
  **page_size** | **Integer**| Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **String**| Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String**|  | [optional] 
+ **filter** | **String**| Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -130,7 +130,7 @@ No authorization required
 
 > AttachmentResponse purchases_id_attachment_post(authorization, id, opts)
 
-Add Attachment to receiving inventory document.
+Attachment receiving inventory document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
 
@@ -148,7 +148,7 @@ opts = {
 }
 
 begin
-  #Add Attachment to receiving inventory document.
+  #Attachment receiving inventory document.
   result = api_instance.purchases_id_attachment_post(authorization, id, opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -281,7 +281,7 @@ No authorization required
 
 > InlineDocumentResponse purchases_id_payment_post(authorization, id, payment_paid_document)
 
-Change paid status of receiving inventory document.
+Change status is paid receiving inventory document.
 
 ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
 
@@ -297,7 +297,7 @@ id = 'id_example' # String | ID เอกสารใช้ recordId หรื�
 payment_paid_document = OpenapiClient::PaymentPaidDocument.new # PaymentPaidDocument | 
 
 begin
-  #Change paid status of receiving inventory document.
+  #Change status is paid receiving inventory document.
   result = api_instance.purchases_id_payment_post(authorization, id, payment_paid_document)
   p result
 rescue OpenapiClient::ApiError => e
@@ -383,7 +383,7 @@ No authorization required
 
 > InlineDocumentResponse purchases_id_status_status_id_post(authorization, id, status_id)
 
-Change status of receiving inventory document.
+Change status receiving inventory document.
 
 เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -399,7 +399,7 @@ id = 'id_example' # String | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # String | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
 
 begin
-  #Change status of receiving inventory document.
+  #Change status receiving inventory document.
   result = api_instance.purchases_id_status_status_id_post(authorization, id, status_id)
   p result
 rescue OpenapiClient::ApiError => e
@@ -434,7 +434,7 @@ No authorization required
 
 > InlineDocumentResponse purchases_inline_post(authorization, inline_document)
 
-Create receiving inventory document with discount and tax inline.
+Create receiving inventory document inline discount or inline vat.
 
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
 
@@ -449,7 +449,7 @@ authorization = 'Bearer accessToken' # String |
 inline_document = OpenapiClient::InlineDocument.new # InlineDocument | 
 
 begin
-  #Create receiving inventory document with discount and tax inline.
+  #Create receiving inventory document inline discount or inline vat.
   result = api_instance.purchases_inline_post(authorization, inline_document)
   p result
 rescue OpenapiClient::ApiError => e
@@ -483,7 +483,7 @@ No authorization required
 
 > InlineDocumentResponse purchases_inline_with_payment_post(authorization, inline_document_with_payment_paid)
 
-Create receiving inventory document with discount and tax inline with payment.
+Create receiving inventory document inline discount or inline vat with payment.
 
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 
@@ -498,7 +498,7 @@ authorization = 'Bearer accessToken' # String |
 inline_document_with_payment_paid = OpenapiClient::InlineDocumentWithPaymentPaid.new # InlineDocumentWithPaymentPaid | 
 
 begin
-  #Create receiving inventory document with discount and tax inline with payment.
+  #Create receiving inventory document inline discount or inline vat with payment.
   result = api_instance.purchases_inline_with_payment_post(authorization, inline_document_with_payment_paid)
   p result
 rescue OpenapiClient::ApiError => e

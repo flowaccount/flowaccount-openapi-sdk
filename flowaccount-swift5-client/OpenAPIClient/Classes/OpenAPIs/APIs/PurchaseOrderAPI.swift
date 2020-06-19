@@ -54,13 +54,13 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Get list all purchase order documents.
+     Get all purchase order documents.
      
      - parameter currentPage: (query) Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -76,14 +76,14 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Get list all purchase order documents.
+     Get all purchase order documents.
      - GET /purchases-orders
      - เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
      - parameter currentPage: (query) Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - returns: RequestBuilder<AllDocumentResponse> 
      */
     open class func purchasesOrdersGetWithRequestBuilder(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil) -> RequestBuilder<AllDocumentResponse> {
@@ -109,7 +109,7 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Add Attachment to purchase order document.
+     Attachment purchase order document.
      
      - parameter authorization: (header)  
      - parameter id: (path) documentId หรือ recordId ของเอกสารที่ต้องการแนบ 
@@ -129,7 +129,7 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Add Attachment to purchase order document.
+     Attachment purchase order document.
      - POST /purchases-orders/{id}/attachment
      - แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
      - parameter authorization: (header)  
@@ -302,7 +302,7 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Change status of purchase order document.
+     Change status purchase order document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId 
@@ -322,7 +322,7 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Change status of purchase order document.
+     Change status purchase order document.
      - POST /purchases-orders/{id}/status/{statusId}
      - เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      - parameter authorization: (header)  
@@ -353,7 +353,7 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Create purchase order document with discount and tax inline.
+     Create purchase order document inline discount or inline vat.
      
      - parameter authorization: (header)  
      - parameter inlineDocument: (body)  
@@ -372,7 +372,7 @@ open class PurchaseOrderAPI {
     }
 
     /**
-     Create purchase order document with discount and tax inline.
+     Create purchase order document inline discount or inline vat.
      - POST /purchases-orders/inline
      - สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>
      - parameter authorization: (header)  

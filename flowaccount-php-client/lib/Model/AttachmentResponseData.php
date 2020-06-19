@@ -58,7 +58,7 @@ class AttachmentResponseData implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'attachment_id' => 'int',
-        'created_on' => 'AnyType',
+        'created_on' => '\DateTime',
         'attachment_name' => 'string',
         'order_number' => 'int',
         'is_display' => 'bool',
@@ -261,7 +261,7 @@ class AttachmentResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets created_on
      *
-     * @return AnyType|null
+     * @return \DateTime|null
      */
     public function getCreatedOn()
     {
@@ -271,7 +271,7 @@ class AttachmentResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets created_on
      *
-     * @param AnyType|null $created_on วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
+     * @param \DateTime|null $created_on วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
      *
      * @return $this
      */

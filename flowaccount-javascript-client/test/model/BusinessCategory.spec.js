@@ -54,98 +54,26 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.BusinessCategory);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
       //var instane = new FlowAccountOpenApi.BusinessCategory();
       //expect(instance).to.be();
     });
 
-    it('should have the property systemCode (base name: "systemCode")', function() {
-      // uncomment below and update the code to test the property systemCode
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
       //var instane = new FlowAccountOpenApi.BusinessCategory();
       //expect(instance).to.be();
     });
 
-    it('should have the property categoryId (base name: "categoryId")', function() {
-      // uncomment below and update the code to test the property categoryId
+    it('should have the property code (base name: "code")', function() {
+      // uncomment below and update the code to test the property code
       //var instane = new FlowAccountOpenApi.BusinessCategory();
       //expect(instance).to.be();
     });
 
-    it('should have the property categoryNameLocal (base name: "categoryNameLocal")', function() {
-      // uncomment below and update the code to test the property categoryNameLocal
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property categoryNameForeign (base name: "categoryNameForeign")', function() {
-      // uncomment below and update the code to test the property categoryNameForeign
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property debitId (base name: "debitId")', function() {
-      // uncomment below and update the code to test the property debitId
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property debitCategory (base name: "debitCategory")', function() {
-      // uncomment below and update the code to test the property debitCategory
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property debitCode (base name: "debitCode")', function() {
-      // uncomment below and update the code to test the property debitCode
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property debitNameLocal (base name: "debitNameLocal")', function() {
-      // uncomment below and update the code to test the property debitNameLocal
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property debitNameForeign (base name: "debitNameForeign")', function() {
-      // uncomment below and update the code to test the property debitNameForeign
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property creditId (base name: "creditId")', function() {
-      // uncomment below and update the code to test the property creditId
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property creditCategory (base name: "creditCategory")', function() {
-      // uncomment below and update the code to test the property creditCategory
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property creditCode (base name: "creditCode")', function() {
-      // uncomment below and update the code to test the property creditCode
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property creditNameLocal (base name: "creditNameLocal")', function() {
-      // uncomment below and update the code to test the property creditNameLocal
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property creditNameForeign (base name: "creditNameForeign")', function() {
-      // uncomment below and update the code to test the property creditNameForeign
-      //var instane = new FlowAccountOpenApi.BusinessCategory();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property keywords (base name: "keywords")', function() {
-      // uncomment below and update the code to test the property keywords
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
       //var instane = new FlowAccountOpenApi.BusinessCategory();
       //expect(instance).to.be();
     });

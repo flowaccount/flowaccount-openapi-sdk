@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # ข้อมูลบริษัทเรา
   class CompanyInfoResponseData
     # รหัสบริษัท
     attr_accessor :company_id

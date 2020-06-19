@@ -102,14 +102,14 @@ export default class PurchaseOrderApi {
      */
 
     /**
-     * Get list all purchase order documents.
+     * Get all purchase order documents.
      * เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document purchase orders. <br>Example Pattern: <ex>/purchases-orders?currentPage=1 </ex><ex>/purchases-orders?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.filter Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/PurchaseOrderApi~purchasesOrdersGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllDocumentResponse}
      */
@@ -163,7 +163,7 @@ export default class PurchaseOrderApi {
      */
 
     /**
-     * Add Attachment to purchase order document.
+     * Attachment purchase order document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -368,7 +368,7 @@ export default class PurchaseOrderApi {
      */
 
     /**
-     * Change status of purchase order document.
+     * Change status purchase order document.
      * เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -423,7 +423,7 @@ export default class PurchaseOrderApi {
      */
 
     /**
-     * Create purchase order document with discount and tax inline.
+     * Create purchase order document inline discount or inline vat.
      * สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>
      * @param {String} authorization 
      * @param {module:model/InlineDocument} inlineDocument 

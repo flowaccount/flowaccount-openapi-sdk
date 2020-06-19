@@ -32,14 +32,14 @@ class TestExpensesApi(unittest.TestCase):
     def test_expenses_categories_accounting_get(self):
         """Test case for expenses_categories_accounting_get
 
-        Accounting categorys expenses document.  # noqa: E501
+        Accounting categories expenses document.  # noqa: E501
         """
         pass
 
     def test_expenses_categories_business_get(self):
         """Test case for expenses_categories_business_get
 
-        Business categorys expenses document.  # noqa: E501
+        Business categories expenses document.  # noqa: E501
         """
         pass
 
@@ -60,7 +60,7 @@ class TestExpensesApi(unittest.TestCase):
     def test_expenses_id_attachment_post(self):
         """Test case for expenses_id_attachment_post
 
-        Add Attachment to expenses.  # noqa: E501
+        Attachment to expenses document.  # noqa: E501
         """
         pass
 
@@ -81,7 +81,7 @@ class TestExpensesApi(unittest.TestCase):
     def test_expenses_id_payment_post(self):
         """Test case for expenses_id_payment_post
 
-        Change paid status of expenses document.  # noqa: E501
+        Change status is paid expenses document.  # noqa: E501
         """
         pass
 
@@ -95,21 +95,21 @@ class TestExpensesApi(unittest.TestCase):
     def test_expenses_id_status_status_id_post(self):
         """Test case for expenses_id_status_status_id_post
 
-        Change status of expenses document.  # noqa: E501
+        Change status expenses document.  # noqa: E501
         """
         pass
 
     def test_expenses_inline_post(self):
         """Test case for expenses_inline_post
 
-        Create expenses document with discount and tax inline.  # noqa: E501
+        Create expenses document inline discount or inline vat.  # noqa: E501
         """
         pass
 
     def test_expenses_inline_with_payment_post(self):
         """Test case for expenses_inline_with_payment_post
 
-        Create expenses document with discount and tax inline with payment.  # noqa: E501
+        Create expenses document inline discount or inline vat with payment.  # noqa: E501
         """
         pass
 
@@ -123,14 +123,14 @@ class TestExpensesApi(unittest.TestCase):
     def test_expenses_sharedocument_post(self):
         """Test case for expenses_sharedocument_post
 
-        Share link expenses documents.  # noqa: E501
+        Share link expenses document.  # noqa: E501
         """
         pass
 
     def test_expenses_with_payment_post(self):
         """Test case for expenses_with_payment_post
 
-        Create expenses document with-payment.  # noqa: E501
+        Create expenses document with payment.  # noqa: E501
         """
         pass
 

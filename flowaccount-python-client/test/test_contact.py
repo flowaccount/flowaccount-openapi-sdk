@@ -40,6 +40,7 @@ class TestContact(unittest.TestCase):
                 id = 56, 
                 contact_group = 56, 
                 contact_type = 56, 
+                contact_code = 56, 
                 contact_name = '0', 
                 contact_address = '0', 
                 contact_zip_code = '0', 

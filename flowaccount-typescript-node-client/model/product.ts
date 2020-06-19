@@ -38,6 +38,10 @@ export class Product {
     */
     'sellPrice'?: number;
     /**
+    * ราคาขายสินค้า รวมภาษี
+    */
+    'sellPriceWithVat'?: number;
+    /**
     * ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี
     */
     'sellVatType'?: number;
@@ -70,6 +74,10 @@ export class Product {
     */
     'buyVatType'?: number;
     /**
+    * ราคาซื้อสินค้า รวมภาษี
+    */
+    'buyVatTypeWithVat'?: number;
+    /**
     * วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
     */
     'inventoryPublishedOn'?: string;
@@ -78,11 +86,19 @@ export class Product {
     */
     'inventoryQuantity'?: number;
     /**
-    * ราคาซื้อเฉลี่ยสินค้า
+    * ต้นทุนสินค้าต่อหน่วย
+    */
+    'inventoryPrice'?: number;
+    /**
+    * มูลค่ารวมยอดตั้งต้นสินค้า
+    */
+    'inventoryTotal'?: number;
+    /**
+    * ราคาสินค้าซื้อเฉลี่ย
     */
     'averageBuyPrice'?: number;
     /**
-    * ราคาขายเฉลี่ยสินค้า
+    * ราคาขายสินค้าเฉลี่ย
     */
     'averageSellPrice'?: number;
     /**
@@ -128,6 +144,11 @@ export class Product {
             "type": "number"
         },
         {
+            "name": "sellPriceWithVat",
+            "baseName": "sellPriceWithVat",
+            "type": "number"
+        },
+        {
             "name": "sellVatType",
             "baseName": "sellVatType",
             "type": "number"
@@ -168,6 +189,11 @@ export class Product {
             "type": "number"
         },
         {
+            "name": "buyVatTypeWithVat",
+            "baseName": "buyVatTypeWithVat",
+            "type": "number"
+        },
+        {
             "name": "inventoryPublishedOn",
             "baseName": "inventoryPublishedOn",
             "type": "string"
@@ -175,6 +201,16 @@ export class Product {
         {
             "name": "inventoryQuantity",
             "baseName": "inventoryQuantity",
+            "type": "number"
+        },
+        {
+            "name": "inventoryPrice",
+            "baseName": "inventoryPrice",
+            "type": "number"
+        },
+        {
+            "name": "inventoryTotal",
+            "baseName": "inventoryTotal",
             "type": "number"
         },
         {

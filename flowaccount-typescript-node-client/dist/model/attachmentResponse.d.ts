@@ -3,7 +3,7 @@ export declare class AttachmentResponse {
     'status'?: boolean;
     'message'?: string;
     'code'?: number;
-    'data'?: AttachmentResponseData;
+    'data'?: Array<AttachmentResponseData>;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

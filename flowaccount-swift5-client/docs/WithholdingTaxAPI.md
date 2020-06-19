@@ -4,15 +4,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**withholdingTaxesEmailDocumentPost**](WithholdingTaxAPI.md#withholdingtaxesemaildocumentpost) | **POST** /withholding-taxes/email-document | Send email withholding tax document.
-[**withholdingTaxesGet**](WithholdingTaxAPI.md#withholdingtaxesget) | **GET** /withholding-taxes | Get list all withholding tax documents.
-[**withholdingTaxesIdAttachmentPost**](WithholdingTaxAPI.md#withholdingtaxesidattachmentpost) | **POST** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
+[**withholdingTaxesEmailDocumentPost**](WithholdingTaxAPI.md#withholdingtaxesemaildocumentpost) | **POST** /withholding-taxes/email-document | Send email withholding tax.
+[**withholdingTaxesGet**](WithholdingTaxAPI.md#withholdingtaxesget) | **GET** /withholding-taxes | Get all withholding tax documents.
+[**withholdingTaxesIdAttachmentPost**](WithholdingTaxAPI.md#withholdingtaxesidattachmentpost) | **POST** /withholding-taxes/{id}/attachment | Attachment withholding tax.
 [**withholdingTaxesIdDelete**](WithholdingTaxAPI.md#withholdingtaxesiddelete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**withholdingTaxesIdGet**](WithholdingTaxAPI.md#withholdingtaxesidget) | **GET** /withholding-taxes/{id} | Get withholding tax document.
 [**withholdingTaxesIdPut**](WithholdingTaxAPI.md#withholdingtaxesidput) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
-[**withholdingTaxesIdStatusStatusIdPost**](WithholdingTaxAPI.md#withholdingtaxesidstatusstatusidpost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
+[**withholdingTaxesIdStatusStatusIdPost**](WithholdingTaxAPI.md#withholdingtaxesidstatusstatusidpost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status withholding tax document.
 [**withholdingTaxesPost**](WithholdingTaxAPI.md#withholdingtaxespost) | **POST** /withholding-taxes | Create withholding tax document.
-[**withholdingTaxesSharedocumentPost**](WithholdingTaxAPI.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
+[**withholdingTaxesSharedocumentPost**](WithholdingTaxAPI.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax.
 
 
 # **withholdingTaxesEmailDocumentPost**
@@ -20,7 +20,7 @@ Method | HTTP request | Description
     open class func withholdingTaxesEmailDocumentPost(authorization: String, sendEmailSimple: SendEmailSimple, completion: @escaping (_ data: SendEmailResponse?, _ error: Error?) -> Void)
 ```
 
-Send email withholding tax document.
+Send email withholding tax.
 
 ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
@@ -32,7 +32,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let sendEmailSimple = SendEmailSimple() // SendEmailSimple | 
 
-// Send email withholding tax document.
+// Send email withholding tax.
 WithholdingTaxAPI.withholdingTaxesEmailDocumentPost(authorization: authorization, sendEmailSimple: sendEmailSimple) { (response, error) in
     guard error == nil else {
         print(error)
@@ -72,7 +72,7 @@ No authorization required
     open class func withholdingTaxesGet(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: AllWithholidingTaxDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Get list all withholding tax documents.
+Get all withholding tax documents.
 
 เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
 
@@ -84,10 +84,10 @@ import OpenAPIClient
 let currentPage = 987 // Int | Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
 let pageSize = 987 // Int | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex>
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
-let sortBy = "sortBy_example" // String | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-let filter = "filter_example" // String |  (optional)
+let sortBy = "sortBy_example" // String | Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
+let filter = "filter_example" // String | Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
-// Get list all withholding tax documents.
+// Get all withholding tax documents.
 WithholdingTaxAPI.withholdingTaxesGet(currentPage: currentPage, pageSize: pageSize, authorization: authorization, sortBy: sortBy, filter: filter) { (response, error) in
     guard error == nil else {
         print(error)
@@ -107,8 +107,8 @@ Name | Type | Description  | Notes
  **currentPage** | **Int** | Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **pageSize** | **Int** | Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String** |  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **String** | Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String** |  | [optional] 
+ **sortBy** | **String** | Query sort by withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
+ **filter** | **String** | Query filter withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -130,7 +130,7 @@ No authorization required
     open class func withholdingTaxesIdAttachmentPost(authorization: String, id: String, file: URL? = nil, completion: @escaping (_ data: AttachmentResponse?, _ error: Error?) -> Void)
 ```
 
-Add Attachment to expenses.
+Attachment withholding tax.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
 
@@ -143,7 +143,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | 
 let file = URL(string: "https://example.com")! // URL |  (optional)
 
-// Add Attachment to expenses.
+// Attachment withholding tax.
 WithholdingTaxAPI.withholdingTaxesIdAttachmentPost(authorization: authorization, id: id, file: file) { (response, error) in
     guard error == nil else {
         print(error)
@@ -342,7 +342,7 @@ No authorization required
     open class func withholdingTaxesIdStatusStatusIdPost(authorization: String, id: String, statusId: String, completion: @escaping (_ data: WithholidingTaxDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change status of withholding tax document.
+Change status withholding tax document.
 
 เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
 
@@ -355,7 +355,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId
 let statusId = "statusId_example" // String | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> processed = ดำเนินการแล้ว <br> void = ยกเลิก
 
-// Change status of withholding tax document.
+// Change status withholding tax document.
 WithholdingTaxAPI.withholdingTaxesIdStatusStatusIdPost(authorization: authorization, id: id, statusId: statusId) { (response, error) in
     guard error == nil else {
         print(error)
@@ -448,7 +448,7 @@ No authorization required
     open class func withholdingTaxesSharedocumentPost(authorization: String, shareDocument: ShareDocument, completion: @escaping (_ data: ShareDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Share link withholding tax documents.
+Share link withholding tax.
 
 แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
@@ -460,7 +460,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let shareDocument = ShareDocument(documentId: 123, culture: "culture_example") // ShareDocument | 
 
-// Share link withholding tax documents.
+// Share link withholding tax.
 WithholdingTaxAPI.withholdingTaxesSharedocumentPost(authorization: authorization, shareDocument: shareDocument) { (response, error) in
     guard error == nil else {
         print(error)

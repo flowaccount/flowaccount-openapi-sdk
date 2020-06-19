@@ -58,7 +58,7 @@ class AttachmentResponse {
                 obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = AttachmentResponseData.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [AttachmentResponseData]);
             }
         }
         return obj;
@@ -86,7 +86,8 @@ AttachmentResponse.prototype['message'] = undefined;
 AttachmentResponse.prototype['code'] = undefined;
 
 /**
- * @member {module:model/AttachmentResponseData} data
+ * ข้อมูลไฟล์แนบเอกสาร
+ * @member {Array.<module:model/AttachmentResponseData>} data
  */
 AttachmentResponse.prototype['data'] = undefined;
 

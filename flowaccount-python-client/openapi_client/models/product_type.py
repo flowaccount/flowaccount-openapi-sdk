@@ -483,7 +483,7 @@ class ProductType(object):
     def inventory_price(self):
         """Gets the inventory_price of this ProductType.  # noqa: E501
 
-        ราคาซื้อสินค้า  # noqa: E501
+        ต้นทุนสินค้าต่อหน่วย  # noqa: E501
 
         :return: The inventory_price of this ProductType.  # noqa: E501
         :rtype: float
@@ -494,7 +494,7 @@ class ProductType(object):
     def inventory_price(self, inventory_price):
         """Sets the inventory_price of this ProductType.
 
-        ราคาซื้อสินค้า  # noqa: E501
+        ต้นทุนสินค้าต่อหน่วย  # noqa: E501
 
         :param inventory_price: The inventory_price of this ProductType.  # noqa: E501
         :type: float

@@ -5,6 +5,7 @@ export declare class Product {
     'name'?: string;
     'sellDescription'?: string;
     'sellPrice'?: number;
+    'sellPriceWithVat'?: number;
     'sellVatType'?: number;
     'unitName'?: string;
     'categoryId'?: number;
@@ -13,8 +14,11 @@ export declare class Product {
     'buyDescription'?: string;
     'buyPrice'?: number;
     'buyVatType'?: number;
+    'buyVatTypeWithVat'?: number;
     'inventoryPublishedOn'?: string;
     'inventoryQuantity'?: number;
+    'inventoryPrice'?: number;
+    'inventoryTotal'?: number;
     'averageBuyPrice'?: number;
     'averageSellPrice'?: number;
     'remainingStock'?: number;

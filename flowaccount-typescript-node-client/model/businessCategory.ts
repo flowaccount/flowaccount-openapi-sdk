@@ -11,155 +11,48 @@
  */
 
 import { RequestFile } from '../api';
+import { BusinessCategoryData } from './businessCategoryData';
 
 export class BusinessCategory {
     /**
-    * id ของหมวดหมู่ค่าใช้จ่าย
+    * action success
     */
-    'id'?: number;
+    'status'?: boolean;
     /**
-    * เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+    * error message
     */
-    'systemCode'?: number;
+    'message'?: string;
     /**
-    * เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+    * error code
     */
-    'categoryId'?: number;
+    'code'?: number;
     /**
-    * ชื่อหมวดหมู่ค่าใช้จ่าย
+    * ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
     */
-    'categoryNameLocal'?: string;
-    /**
-    * ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-    */
-    'categoryNameForeign'?: string;
-    /**
-    * เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-    */
-    'debitId'?: number;
-    /**
-    * เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-    */
-    'debitCategory'?: number;
-    /**
-    * เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-    */
-    'debitCode'?: string;
-    /**
-    * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-    */
-    'debitNameLocal'?: string;
-    /**
-    * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-    */
-    'debitNameForeign'?: string;
-    /**
-    * เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-    */
-    'creditId'?: number;
-    /**
-    * เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-    */
-    'creditCategory'?: number;
-    /**
-    * เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-    */
-    'creditCode'?: string;
-    /**
-    * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต 
-    */
-    'creditNameLocal'?: string;
-    /**
-    * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-    */
-    'creditNameForeign'?: string;
-    /**
-    * keyword
-    */
-    'keywords'?: string;
+    'data'?: Array<BusinessCategoryData>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "status",
+            "baseName": "status",
+            "type": "boolean"
+        },
+        {
+            "name": "message",
+            "baseName": "message",
+            "type": "string"
+        },
+        {
+            "name": "code",
+            "baseName": "code",
             "type": "number"
         },
         {
-            "name": "systemCode",
-            "baseName": "systemCode",
-            "type": "number"
-        },
-        {
-            "name": "categoryId",
-            "baseName": "categoryId",
-            "type": "number"
-        },
-        {
-            "name": "categoryNameLocal",
-            "baseName": "categoryNameLocal",
-            "type": "string"
-        },
-        {
-            "name": "categoryNameForeign",
-            "baseName": "categoryNameForeign",
-            "type": "string"
-        },
-        {
-            "name": "debitId",
-            "baseName": "debitId",
-            "type": "number"
-        },
-        {
-            "name": "debitCategory",
-            "baseName": "debitCategory",
-            "type": "number"
-        },
-        {
-            "name": "debitCode",
-            "baseName": "debitCode",
-            "type": "string"
-        },
-        {
-            "name": "debitNameLocal",
-            "baseName": "debitNameLocal",
-            "type": "string"
-        },
-        {
-            "name": "debitNameForeign",
-            "baseName": "debitNameForeign",
-            "type": "string"
-        },
-        {
-            "name": "creditId",
-            "baseName": "creditId",
-            "type": "number"
-        },
-        {
-            "name": "creditCategory",
-            "baseName": "creditCategory",
-            "type": "number"
-        },
-        {
-            "name": "creditCode",
-            "baseName": "creditCode",
-            "type": "string"
-        },
-        {
-            "name": "creditNameLocal",
-            "baseName": "creditNameLocal",
-            "type": "string"
-        },
-        {
-            "name": "creditNameForeign",
-            "baseName": "creditNameForeign",
-            "type": "string"
-        },
-        {
-            "name": "keywords",
-            "baseName": "keywords",
-            "type": "string"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<BusinessCategoryData>"
         }    ];
 
     static getAttributeTypeMap() {

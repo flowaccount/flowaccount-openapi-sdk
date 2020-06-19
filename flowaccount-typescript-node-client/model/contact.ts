@@ -26,6 +26,10 @@ export class Contact {
     */
     'contactType': number;
     /**
+    * รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>
+    */
+    'contactCode'?: number;
+    /**
     * ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
     */
     'contactName': string;
@@ -118,6 +122,11 @@ export class Contact {
         {
             "name": "contactType",
             "baseName": "contactType",
+            "type": "number"
+        },
+        {
+            "name": "contactCode",
+            "baseName": "contactCode",
             "type": "number"
         },
         {

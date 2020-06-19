@@ -36,8 +36,8 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="status">action success.</param>
         /// <param name="message">error message.</param>
         /// <param name="code">error code.</param>
-        /// <param name="data">data.</param>
-        public AttachmentResponse(bool status = default(bool), string message = default(string), int code = default(int), AttachmentResponseData data = default(AttachmentResponseData))
+        /// <param name="data">ข้อมูลไฟล์แนบเอกสาร.</param>
+        public AttachmentResponse(bool status = default(bool), string message = default(string), int code = default(int), List<AttachmentResponseData> data = default(List<AttachmentResponseData>))
         {
             this.Status = status;
             this.Message = message;
@@ -67,10 +67,11 @@ namespace Flowaccount.OpenAPITools.Model
         public int Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// ข้อมูลไฟล์แนบเอกสาร
         /// </summary>
+        /// <value>ข้อมูลไฟล์แนบเอกสาร</value>
         [DataMember(Name="data", EmitDefaultValue=true)]
-        public AttachmentResponseData Data { get; set; }
+        public List<AttachmentResponseData> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,8 +136,9 @@ namespace Flowaccount.OpenAPITools.Model
                 ) && 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 

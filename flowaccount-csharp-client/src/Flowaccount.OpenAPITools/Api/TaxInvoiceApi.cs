@@ -48,7 +48,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of SendEmailResponse</returns>
         ApiResponse<SendEmailResponse> TaxInvoicesEmailDocumentPostWithHttpInfo (string authorization, SendEmailCoppies sendEmailCoppies);
         /// <summary>
-        /// Get list all tax invocie documents.
+        /// Get all tax invocie documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -58,12 +58,12 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllDocumentResponse</returns>
         AllDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
-        /// Get list all tax invocie documents.
+        /// Get all tax invocie documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -73,11 +73,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllDocumentResponse</returns>
         ApiResponse<AllDocumentResponse> TaxInvoicesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to tax Invoices document.
+        /// Attachment tax Invoices document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -90,7 +90,7 @@ namespace Flowaccount.OpenAPITools.Api
         AttachmentResponse TaxInvoicesIdAttachmentPost (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to tax Invoices document.
+        /// Attachment tax Invoices document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -148,7 +148,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of SimpleDocumentResponse</returns>
         ApiResponse<SimpleDocumentResponse> TaxInvoicesIdGetWithHttpInfo (string authorization, string id);
         /// <summary>
-        /// Change paid status of tax-invoice document.
+        /// Change status is paid tax-invoice document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -161,7 +161,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument);
 
         /// <summary>
-        /// Change paid status of tax-invoice document.
+        /// Change status is paid tax-invoice document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -198,7 +198,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> TaxInvoicesIdPutWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
-        /// Change status of tax invoices document.
+        /// Change status tax invoices document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -211,7 +211,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse TaxInvoicesIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of tax invoices document.
+        /// Change status tax invoices document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -223,7 +223,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> TaxInvoicesIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create tax invocie document with discount and tax inline.
+        /// Create tax invocie document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
@@ -235,7 +235,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse TaxInvoicesInlinePost (string authorization, InlineDocument inlineDocument);
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline.
+        /// Create tax invocie document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
@@ -246,7 +246,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> TaxInvoicesInlinePostWithHttpInfo (string authorization, InlineDocument inlineDocument);
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment.
+        /// Create tax invocie document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -258,7 +258,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse TaxInvoicesInlineWithPaymentPost (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving);
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment.
+        /// Create tax invocie document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -363,7 +363,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (SendEmailResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SendEmailResponse>> TaxInvoicesEmailDocumentPostAsyncWithHttpInfo (string authorization, SendEmailCoppies sendEmailCoppies);
         /// <summary>
-        /// Get list all tax invocie documents.
+        /// Get all tax invocie documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -373,12 +373,12 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllDocumentResponse</returns>
         System.Threading.Tasks.Task<AllDocumentResponse> TaxInvoicesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
-        /// Get list all tax invocie documents.
+        /// Get all tax invocie documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -388,11 +388,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AllDocumentResponse>> TaxInvoicesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to tax Invoices document.
+        /// Attachment tax Invoices document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -405,7 +405,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<AttachmentResponse> TaxInvoicesIdAttachmentPostAsync (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to tax Invoices document.
+        /// Attachment tax Invoices document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -463,7 +463,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (SimpleDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SimpleDocumentResponse>> TaxInvoicesIdGetAsyncWithHttpInfo (string authorization, string id);
         /// <summary>
-        /// Change paid status of tax-invoice document.
+        /// Change status is paid tax-invoice document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -476,7 +476,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdPaymentPostAsync (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument);
 
         /// <summary>
-        /// Change paid status of tax-invoice document.
+        /// Change status is paid tax-invoice document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -513,7 +513,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdPutAsyncWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
-        /// Change status of tax invoices document.
+        /// Change status tax invoices document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -526,7 +526,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of tax invoices document.
+        /// Change status tax invoices document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -538,7 +538,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create tax invocie document with discount and tax inline.
+        /// Create tax invocie document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
@@ -550,7 +550,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesInlinePostAsync (string authorization, InlineDocument inlineDocument);
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline.
+        /// Create tax invocie document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
@@ -561,7 +561,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesInlinePostAsyncWithHttpInfo (string authorization, InlineDocument inlineDocument);
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment.
+        /// Create tax invocie document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -573,7 +573,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesInlineWithPaymentPostAsync (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving);
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment.
+        /// Create tax invocie document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -925,14 +925,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllDocumentResponse</returns>
         public AllDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -941,14 +941,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllDocumentResponse</returns>
         public ApiResponse<AllDocumentResponse> TaxInvoicesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1009,14 +1009,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllDocumentResponse</returns>
         public async System.Threading.Tasks.Task<AllDocumentResponse> TaxInvoicesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1026,14 +1026,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllDocumentResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AllDocumentResponse>> TaxInvoicesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1094,7 +1094,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1108,7 +1108,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1170,7 +1170,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1185,7 +1185,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment tax Invoices document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1537,7 +1537,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1551,7 +1551,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1623,7 +1623,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1638,7 +1638,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid tax-invoice document. เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1883,7 +1883,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1897,7 +1897,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1961,7 +1961,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1976,7 +1976,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status tax invoices document. เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2040,7 +2040,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
+        /// Create tax invocie document inline discount or inline vat. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2053,7 +2053,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
+        /// Create tax invocie document inline discount or inline vat. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2120,7 +2120,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
+        /// Create tax invocie document inline discount or inline vat. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2134,7 +2134,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
+        /// Create tax invocie document inline discount or inline vat. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2201,7 +2201,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create tax invocie document inline discount or inline vat with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2214,7 +2214,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create tax invocie document inline discount or inline vat with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2281,7 +2281,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create tax invocie document inline discount or inline vat with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2295,7 +2295,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create tax invocie document with discount and tax inline with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create tax invocie document inline discount or inline vat with payment. สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>

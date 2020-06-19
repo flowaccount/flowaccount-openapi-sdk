@@ -38,6 +38,11 @@ Product.attributeTypeMap = [
         "type": "number"
     },
     {
+        "name": "sellPriceWithVat",
+        "baseName": "sellPriceWithVat",
+        "type": "number"
+    },
+    {
         "name": "sellVatType",
         "baseName": "sellVatType",
         "type": "number"
@@ -78,6 +83,11 @@ Product.attributeTypeMap = [
         "type": "number"
     },
     {
+        "name": "buyVatTypeWithVat",
+        "baseName": "buyVatTypeWithVat",
+        "type": "number"
+    },
+    {
         "name": "inventoryPublishedOn",
         "baseName": "inventoryPublishedOn",
         "type": "string"
@@ -85,6 +95,16 @@ Product.attributeTypeMap = [
     {
         "name": "inventoryQuantity",
         "baseName": "inventoryQuantity",
+        "type": "number"
+    },
+    {
+        "name": "inventoryPrice",
+        "baseName": "inventoryPrice",
+        "type": "number"
+    },
+    {
+        "name": "inventoryTotal",
+        "baseName": "inventoryTotal",
         "type": "number"
     },
     {

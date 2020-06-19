@@ -18,6 +18,10 @@ export class WithholidingTaxDocumentResponseData {
     /**
     * เลข Id เอกสารใบหัก ณ ที่จ่าย
     */
+    'recordId'?: string;
+    /**
+    * เลข Id เอกสารใบหัก ณ ที่จ่าย
+    */
     'documentId'?: string;
     /**
     * เลขที่เอกสารใบหัก ณ ที่จ่าย
@@ -140,6 +144,11 @@ export class WithholidingTaxDocumentResponseData {
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "recordId",
+            "baseName": "recordId",
+            "type": "string"
+        },
         {
             "name": "documentId",
             "baseName": "documentId",

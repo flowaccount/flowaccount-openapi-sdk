@@ -17,6 +17,8 @@ public struct Contact: Codable {
     public var contactGroup: Int64 = 3
     /** ประเภท: 3 &#x3D; ลูกค้า / 5 &#x3D; ผู้จำหน่าย / 7 &#x3D; ผู้จำหน่ายและลูกค้า */
     public var contactType: Int64 = 3
+    /** รหัสผู้ติดต่อ ​&lt;br&gt;&lt;ex&gt;Example: C0001&lt;/ex&gt; */
+    public var contactCode: Int64?
     /** ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย */
     public var contactName: String
     /** ที่อยู่ผู้ติดต่อ */
@@ -56,10 +58,11 @@ public struct Contact: Codable {
     /** โน๊ต */
     public var contactNote: String?
 
-    public init(id: Int64?, contactGroup: Int64, contactType: Int64, contactName: String, contactAddress: String?, contactZipCode: String?, contactTaxId: Int64?, contactBranchCode: String?, contactBranch: String?, contactPerson: String?, contactEmail: String?, contactMobile: String?, contactBankId: Int64?, contactBankAccountNumber: Int64?, contactBankBranch: String?, contactBankAccountType: Int64?, contactCreditDays: Int64?, contactOffice: String?, contactFax: String?, contactWebsite: String?, conatactShippingAddress: String?, contactNote: String?) {
+    public init(id: Int64?, contactGroup: Int64, contactType: Int64, contactCode: Int64?, contactName: String, contactAddress: String?, contactZipCode: String?, contactTaxId: Int64?, contactBranchCode: String?, contactBranch: String?, contactPerson: String?, contactEmail: String?, contactMobile: String?, contactBankId: Int64?, contactBankAccountNumber: Int64?, contactBankBranch: String?, contactBankAccountType: Int64?, contactCreditDays: Int64?, contactOffice: String?, contactFax: String?, contactWebsite: String?, conatactShippingAddress: String?, contactNote: String?) {
         self.id = id
         self.contactGroup = contactGroup
         self.contactType = contactType
+        self.contactCode = contactCode
         self.contactName = contactName
         self.contactAddress = contactAddress
         self.contactZipCode = contactZipCode

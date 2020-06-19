@@ -177,12 +177,12 @@ export class ReceivingInventoryApi {
     }
     /**
      * เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
-     * @summary Get list all receiving inventory documents.
+     * @summary Get all receiving inventory documents.
      * @param currentPage Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt;
      * @param authorization 
      * @param sortBy Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;publishedOn\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Value\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Status\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
-     * @param filter 
+     * @param filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;columnValue\&#39;:\&#39;Contact Name\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}] &lt;/ex&gt;
      */
     public async purchasesGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AllDocumentResponse;  }> {
         const localVarPath = this.basePath + '/purchases';
@@ -276,7 +276,7 @@ export class ReceivingInventoryApi {
     }
     /**
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
-     * @summary Add Attachment to receiving inventory document.
+     * @summary Attachment receiving inventory document.
      * @param authorization 
      * @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
      * @param file รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary
@@ -510,7 +510,7 @@ export class ReceivingInventoryApi {
     }
     /**
      * ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
-     * @summary Change paid status of receiving inventory document.
+     * @summary Change status is paid receiving inventory document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId หรือ documentId
      * @param paymentPaidDocument 
@@ -676,7 +676,7 @@ export class ReceivingInventoryApi {
     }
     /**
      * เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
-     * @summary Change status of receiving inventory document.
+     * @summary Change status receiving inventory document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รออนุมัติ &lt;br&gt; approved &#x3D; อนุมัติ &lt;br&gt; void &#x3D; ยกเลิก
@@ -759,7 +759,7 @@ export class ReceivingInventoryApi {
     }
     /**
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
-     * @summary Create receiving inventory document with discount and tax inline.
+     * @summary Create receiving inventory document inline discount or inline vat.
      * @param authorization 
      * @param inlineDocument 
      */
@@ -835,7 +835,7 @@ export class ReceivingInventoryApi {
     }
     /**
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
-     * @summary Create receiving inventory document with discount and tax inline with payment.
+     * @summary Create receiving inventory document inline discount or inline vat with payment.
      * @param authorization 
      * @param inlineDocumentWithPaymentPaid 
      */

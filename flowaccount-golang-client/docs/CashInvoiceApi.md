@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CashInvoicesEmailDocumentPost**](CashInvoiceApi.md#CashInvoicesEmailDocumentPost) | **Post** /cash-invoices/email-document | Send email cash invoices document.
-[**CashInvoicesGet**](CashInvoiceApi.md#CashInvoicesGet) | **Get** /cash-invoices | Get list all cash invoices documents
-[**CashInvoicesIdAttachmentPost**](CashInvoiceApi.md#CashInvoicesIdAttachmentPost) | **Post** /cash-invoices/{id}/attachment | Add Attachment to cash invoices document.
+[**CashInvoicesGet**](CashInvoiceApi.md#CashInvoicesGet) | **Get** /cash-invoices | Get all cash invoices documents
+[**CashInvoicesIdAttachmentPost**](CashInvoiceApi.md#CashInvoicesIdAttachmentPost) | **Post** /cash-invoices/{id}/attachment | Attachment cash invoices document.
 [**CashInvoicesIdDelete**](CashInvoiceApi.md#CashInvoicesIdDelete) | **Delete** /cash-invoices/{id} | Delete cash invoices document.
 [**CashInvoicesIdGet**](CashInvoiceApi.md#CashInvoicesIdGet) | **Get** /cash-invoices/{id} | Get cash invoices document.
-[**CashInvoicesIdPaymentPost**](CashInvoiceApi.md#CashInvoicesIdPaymentPost) | **Post** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
+[**CashInvoicesIdPaymentPost**](CashInvoiceApi.md#CashInvoicesIdPaymentPost) | **Post** /cash-invoices/{id}/payment | Change status is paid cash invoices document.
 [**CashInvoicesIdPut**](CashInvoiceApi.md#CashInvoicesIdPut) | **Put** /cash-invoices/{id} | Edit cash invoices document.
-[**CashInvoicesIdStatusStatusIdPost**](CashInvoiceApi.md#CashInvoicesIdStatusStatusIdPost) | **Post** /cash-invoices/{id}/status/{statusId} | Change status of cash invoices document.
-[**CashInvoicesInlinePost**](CashInvoiceApi.md#CashInvoicesInlinePost) | **Post** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
-[**CashInvoicesInlineWithPaymentPost**](CashInvoiceApi.md#CashInvoicesInlineWithPaymentPost) | **Post** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
+[**CashInvoicesIdStatusStatusIdPost**](CashInvoiceApi.md#CashInvoicesIdStatusStatusIdPost) | **Post** /cash-invoices/{id}/status/{statusId} | Change status cash invoices document.
+[**CashInvoicesInlinePost**](CashInvoiceApi.md#CashInvoicesInlinePost) | **Post** /cash-invoices/inline | Create cash invoices document inline discount or inline vat.
+[**CashInvoicesInlineWithPaymentPost**](CashInvoiceApi.md#CashInvoicesInlineWithPaymentPost) | **Post** /cash-invoices/inline/with-payment | Create cash invoices document inline discount or inline vat with payment.
 [**CashInvoicesPost**](CashInvoiceApi.md#CashInvoicesPost) | **Post** /cash-invoices | Create cash invoices document.
 [**CashInvoicesSharedocumentPost**](CashInvoiceApi.md#CashInvoicesSharedocumentPost) | **Post** /cash-invoices/sharedocument | Share link cash invoices document.
 [**CashInvoicesWithPaymentPost**](CashInvoiceApi.md#CashInvoicesWithPaymentPost) | **Post** /cash-invoices/with-payment | Create cash invoices document with payment.
@@ -59,7 +59,7 @@ No authorization required
 
 > AllDocumentResponse CashInvoicesGet(ctx, currentPage, pageSize, authorization, optional)
 
-Get list all cash invoices documents
+Get all cash invoices documents
 
 เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 
  **sortBy** | **optional.String**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
- **filter** | **optional.String**|  | 
+ **filter** | **optional.String**| Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | 
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 
 > AttachmentResponse CashInvoicesIdAttachmentPost(ctx, authorization, id, optional)
 
-Add Attachment to cash invoices document.
+Attachment cash invoices document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) ตามเลขที่เอกสารที่ต้องการ
 
@@ -226,7 +226,7 @@ No authorization required
 
 > InlineDocumentResponse CashInvoicesIdPaymentPost(ctx, authorization, id, paymentReceivingDocument)
 
-Change paid status of cash invoices document.
+Change status is paid cash invoices document.
 
 เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -298,7 +298,7 @@ No authorization required
 
 > InlineDocumentResponse CashInvoicesIdStatusStatusIdPost(ctx, authorization, id, statusId)
 
-Change status of cash invoices document.
+Change status cash invoices document.
 
 เปลี่ยนสถานะของเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -334,7 +334,7 @@ No authorization required
 
 > InlineDocumentResponse CashInvoicesInlinePost(ctx, authorization, inlineDocument)
 
-Create cash invoices document with discount and tax inline.
+Create cash invoices document inline discount or inline vat.
 
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
 
@@ -369,7 +369,7 @@ No authorization required
 
 > InlineDocumentResponse CashInvoicesInlineWithPaymentPost(ctx, authorization, inlineDocumentWithPaymentReceiving)
 
-Create cash invoices document with discount and tax inline with payment.
+Create cash invoices document inline discount or inline vat with payment.
 
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 

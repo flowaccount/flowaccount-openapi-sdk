@@ -174,12 +174,12 @@ export class BillingNotesApi {
     }
     /**
      * เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
-     * @summary Get list all billing notes documents.
+     * @summary Get all billing notes documents.
      * @param currentPage Query current page document billing notes. &lt;br&gt;Example Pattern: &lt;ex&gt;/billing-notes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/billing-notes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt;
      * @param authorization 
      * @param sortBy Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;publishedOn\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Value\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Status\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
-     * @param filter 
+     * @param filter Query filter billing-notes. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;columnValue\&#39;:\&#39;Contact Name\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}] &lt;/ex&gt;
      */
     public async billingNotesGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AllDocumentResponse;  }> {
         const localVarPath = this.basePath + '/billing-notes';
@@ -273,7 +273,7 @@ export class BillingNotesApi {
     }
     /**
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
-     * @summary Add Attachment to billing notes document.
+     * @summary Attachment billing notes document.
      * @param authorization 
      * @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
      * @param file รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary
@@ -590,7 +590,7 @@ export class BillingNotesApi {
     }
     /**
      * เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
-     * @summary Change status of billing notes document.
+     * @summary Change status billing notes document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 4 สถานะ &lt;br&gt; awaiting &#x3D; รอวางบิล &lt;br&gt; approved &#x3D; วางบิลแล้ว &lt;br&gt; approvedandprocessed &#x3D; เปิดบิลแล้ว &lt;br&gt; void &#x3D; ยกเลิก
@@ -673,7 +673,7 @@ export class BillingNotesApi {
     }
     /**
      * สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
-     * @summary Create billing notes document with discount and tax inline.
+     * @summary Create billing notes document inline discount or inline vat.
      * @param authorization 
      * @param inlineDocument 
      */

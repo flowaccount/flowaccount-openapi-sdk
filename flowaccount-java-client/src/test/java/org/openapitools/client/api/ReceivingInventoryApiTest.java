@@ -65,7 +65,7 @@ public class ReceivingInventoryApiTest {
     }
     
     /**
-     * Get list all receiving inventory documents.
+     * Get all receiving inventory documents.
      *
      * เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
      *
@@ -85,7 +85,7 @@ public class ReceivingInventoryApiTest {
     }
     
     /**
-     * Add Attachment to receiving inventory document.
+     * Attachment receiving inventory document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
      *
@@ -137,7 +137,7 @@ public class ReceivingInventoryApiTest {
     }
     
     /**
-     * Change paid status of receiving inventory document.
+     * Change status is paid receiving inventory document.
      *
      * ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
      *
@@ -173,7 +173,7 @@ public class ReceivingInventoryApiTest {
     }
     
     /**
-     * Change status of receiving inventory document.
+     * Change status receiving inventory document.
      *
      * เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      *
@@ -191,7 +191,7 @@ public class ReceivingInventoryApiTest {
     }
     
     /**
-     * Create receiving inventory document with discount and tax inline.
+     * Create receiving inventory document inline discount or inline vat.
      *
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
      *
@@ -208,7 +208,7 @@ public class ReceivingInventoryApiTest {
     }
     
     /**
-     * Create receiving inventory document with discount and tax inline with payment.
+     * Create receiving inventory document inline discount or inline vat with payment.
      *
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      *

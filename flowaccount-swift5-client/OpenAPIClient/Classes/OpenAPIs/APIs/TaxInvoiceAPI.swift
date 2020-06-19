@@ -54,13 +54,13 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Get list all tax invocie documents.
+     Get all tax invocie documents.
      
      - parameter currentPage: (query) Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -76,14 +76,14 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Get list all tax invocie documents.
+     Get all tax invocie documents.
      - GET /tax-invoices
      - เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
      - parameter currentPage: (query) Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
      - parameter pageSize: (query) Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
      - parameter sortBy: (query) Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter filter: (query) Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - returns: RequestBuilder<AllDocumentResponse> 
      */
     open class func taxInvoicesGetWithRequestBuilder(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil) -> RequestBuilder<AllDocumentResponse> {
@@ -109,7 +109,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Add Attachment to tax Invoices document.
+     Attachment tax Invoices document.
      
      - parameter authorization: (header)  
      - parameter id: (path) documentId หรือ recordId ของเอกสารที่ต้องการแนบ 
@@ -129,7 +129,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Add Attachment to tax Invoices document.
+     Attachment tax Invoices document.
      - POST /tax-invoices/{id}/attachment
      - แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
      - parameter authorization: (header)  
@@ -254,7 +254,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Change paid status of tax-invoice document.
+     Change status is paid tax-invoice document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId หรือ documentId 
@@ -274,7 +274,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Change paid status of tax-invoice document.
+     Change status is paid tax-invoice document.
      - POST /tax-invoices/{id}/payment
      - เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      - parameter authorization: (header)  
@@ -350,7 +350,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Change status of tax invoices document.
+     Change status tax invoices document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId 
@@ -370,7 +370,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Change status of tax invoices document.
+     Change status tax invoices document.
      - POST /tax-invoices/{id}/status/{statusId}
      - เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      - parameter authorization: (header)  
@@ -401,7 +401,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Create tax invocie document with discount and tax inline.
+     Create tax invocie document inline discount or inline vat.
      
      - parameter authorization: (header)  
      - parameter inlineDocument: (body)  
@@ -420,7 +420,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Create tax invocie document with discount and tax inline.
+     Create tax invocie document inline discount or inline vat.
      - POST /tax-invoices/inline
      - สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
      - parameter authorization: (header)  
@@ -444,7 +444,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Create tax invocie document with discount and tax inline with payment.
+     Create tax invocie document inline discount or inline vat with payment.
      
      - parameter authorization: (header)  
      - parameter inlineDocumentWithPaymentReceiving: (body)  
@@ -463,7 +463,7 @@ open class TaxInvoiceAPI {
     }
 
     /**
-     Create tax invocie document with discount and tax inline with payment.
+     Create tax invocie document inline discount or inline vat with payment.
      - POST /tax-invoices/inline/with-payment
      - สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      - parameter authorization: (header)  

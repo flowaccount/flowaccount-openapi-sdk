@@ -41,6 +41,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="id">เลข id Contact.</param>
         /// <param name="contactGroup">ประเภทผู้ติดต่อ: 1 &#x3D; บุคคลธรรมดา / 3 &#x3D; นิติบุคคล (required) (default to 3).</param>
         /// <param name="contactType">ประเภท: 3 &#x3D; ลูกค้า / 5 &#x3D; ผู้จำหน่าย / 7 &#x3D; ผู้จำหน่ายและลูกค้า (required) (default to 3).</param>
+        /// <param name="contactCode">รหัสผู้ติดต่อ ​&lt;br&gt;&lt;ex&gt;Example: C0001&lt;/ex&gt;.</param>
         /// <param name="contactName">ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย (required).</param>
         /// <param name="contactAddress">ที่อยู่ผู้ติดต่อ.</param>
         /// <param name="contactZipCode">รหัสไปรษณีย์ติดต่อ &lt;ex&gt;Example: 10140 &lt;/ex&gt;.</param>
@@ -60,7 +61,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="contactWebsite">เว็บไซต์ ผู้ติดต่อ &lt;br&gt; &lt;ex&gt;Eample: www.flowaccount.com&lt;/ex&gt;.</param>
         /// <param name="conatactShippingAddress">ที่อยู่สำหรับจัดส่ง.</param>
         /// <param name="contactNote">โน๊ต.</param>
-        public Contact(long id = default(long), long contactGroup = 3, long contactType = 3, string contactName = default(string), string contactAddress = default(string), string contactZipCode = default(string), long contactTaxId = default(long), string contactBranchCode = default(string), string contactBranch = "สำนักงานใหญ่", string contactPerson = default(string), string contactEmail = default(string), string contactMobile = default(string), long contactBankId = 0, long contactBankAccountNumber = default(long), string contactBankBranch = default(string), long contactBankAccountType = 1, long contactCreditDays = 0, string contactOffice = default(string), string contactFax = default(string), string contactWebsite = default(string), string conatactShippingAddress = default(string), string contactNote = default(string))
+        public Contact(long id = default(long), long contactGroup = 3, long contactType = 3, long contactCode = default(long), string contactName = default(string), string contactAddress = default(string), string contactZipCode = default(string), long contactTaxId = default(long), string contactBranchCode = default(string), string contactBranch = "สำนักงานใหญ่", string contactPerson = default(string), string contactEmail = default(string), string contactMobile = default(string), long contactBankId = 0, long contactBankAccountNumber = default(long), string contactBankBranch = default(string), long contactBankAccountType = 1, long contactCreditDays = 0, string contactOffice = default(string), string contactFax = default(string), string contactWebsite = default(string), string conatactShippingAddress = default(string), string contactNote = default(string))
         {
             // to ensure "contactGroup" is required (not null)
             if (contactGroup == null)
@@ -93,6 +94,7 @@ namespace Flowaccount.OpenAPITools.Model
             }
             
             this.Id = id;
+            this.ContactCode = contactCode;
             this.ContactAddress = contactAddress;
             this.ContactZipCode = contactZipCode;
             this.ContactTaxId = contactTaxId;
@@ -165,6 +167,13 @@ namespace Flowaccount.OpenAPITools.Model
         /// <value>ประเภท: 3 &#x3D; ลูกค้า / 5 &#x3D; ผู้จำหน่าย / 7 &#x3D; ผู้จำหน่ายและลูกค้า</value>
         [DataMember(Name="contactType", EmitDefaultValue=true)]
         public long ContactType { get; set; }
+
+        /// <summary>
+        /// รหัสผู้ติดต่อ ​&lt;br&gt;&lt;ex&gt;Example: C0001&lt;/ex&gt;
+        /// </summary>
+        /// <value>รหัสผู้ติดต่อ ​&lt;br&gt;&lt;ex&gt;Example: C0001&lt;/ex&gt;</value>
+        [DataMember(Name="contactCode", EmitDefaultValue=true)]
+        public long ContactCode { get; set; }
 
         /// <summary>
         /// ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
@@ -310,6 +319,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ContactGroup: ").Append(ContactGroup).Append("\n");
             sb.Append("  ContactType: ").Append(ContactType).Append("\n");
+            sb.Append("  ContactCode: ").Append(ContactCode).Append("\n");
             sb.Append("  ContactName: ").Append(ContactName).Append("\n");
             sb.Append("  ContactAddress: ").Append(ContactAddress).Append("\n");
             sb.Append("  ContactZipCode: ").Append(ContactZipCode).Append("\n");
@@ -377,6 +387,11 @@ namespace Flowaccount.OpenAPITools.Model
                     this.ContactType == input.ContactType ||
                     (this.ContactType != null &&
                     this.ContactType.Equals(input.ContactType))
+                ) && 
+                (
+                    this.ContactCode == input.ContactCode ||
+                    (this.ContactCode != null &&
+                    this.ContactCode.Equals(input.ContactCode))
                 ) && 
                 (
                     this.ContactName == input.ContactName ||
@@ -490,6 +505,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.ContactGroup.GetHashCode();
                 if (this.ContactType != null)
                     hashCode = hashCode * 59 + this.ContactType.GetHashCode();
+                if (this.ContactCode != null)
+                    hashCode = hashCode * 59 + this.ContactCode.GetHashCode();
                 if (this.ContactName != null)
                     hashCode = hashCode * 59 + this.ContactName.GetHashCode();
                 if (this.ContactAddress != null)

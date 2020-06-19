@@ -62,7 +62,7 @@ public class BillingNotesApiTest {
     }
     
     /**
-     * Get list all billing notes documents.
+     * Get all billing notes documents.
      *
      * เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
      *
@@ -82,7 +82,7 @@ public class BillingNotesApiTest {
     }
     
     /**
-     * Add Attachment to billing notes document.
+     * Attachment billing notes document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
      *
@@ -152,7 +152,7 @@ public class BillingNotesApiTest {
     }
     
     /**
-     * Change status of billing notes document.
+     * Change status billing notes document.
      *
      * เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
      *
@@ -170,7 +170,7 @@ public class BillingNotesApiTest {
     }
     
     /**
-     * Create billing notes document with discount and tax inline.
+     * Create billing notes document inline discount or inline vat.
      *
      * สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
      *

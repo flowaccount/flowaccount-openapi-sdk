@@ -4,21 +4,21 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ExpensesCategoriesAccountingGet**](ExpensesApi.md#ExpensesCategoriesAccountingGet) | **Get** /expenses/categories/accounting | Accounting categorys expenses document.
-[**ExpensesCategoriesBusinessGet**](ExpensesApi.md#ExpensesCategoriesBusinessGet) | **Get** /expenses/categories/business | Business categorys expenses document.
+[**ExpensesCategoriesAccountingGet**](ExpensesApi.md#ExpensesCategoriesAccountingGet) | **Get** /expenses/categories/accounting | Accounting categories expenses document.
+[**ExpensesCategoriesBusinessGet**](ExpensesApi.md#ExpensesCategoriesBusinessGet) | **Get** /expenses/categories/business | Business categories expenses document.
 [**ExpensesEmailDocumentPost**](ExpensesApi.md#ExpensesEmailDocumentPost) | **Post** /expenses/email-document | Send email expenses document.
 [**ExpensesGet**](ExpensesApi.md#ExpensesGet) | **Get** /expenses | Get list all expenses documents.
-[**ExpensesIdAttachmentPost**](ExpensesApi.md#ExpensesIdAttachmentPost) | **Post** /expenses/{id}/attachment | Add Attachment to expenses.
+[**ExpensesIdAttachmentPost**](ExpensesApi.md#ExpensesIdAttachmentPost) | **Post** /expenses/{id}/attachment | Attachment to expenses document.
 [**ExpensesIdDelete**](ExpensesApi.md#ExpensesIdDelete) | **Delete** /expenses/{id} | Delete expenses document.
 [**ExpensesIdGet**](ExpensesApi.md#ExpensesIdGet) | **Get** /expenses/{id} | Get expenses document.
-[**ExpensesIdPaymentPost**](ExpensesApi.md#ExpensesIdPaymentPost) | **Post** /expenses/{id}/payment | Change paid status of expenses document.
+[**ExpensesIdPaymentPost**](ExpensesApi.md#ExpensesIdPaymentPost) | **Post** /expenses/{id}/payment | Change status is paid expenses document.
 [**ExpensesIdPut**](ExpensesApi.md#ExpensesIdPut) | **Put** /expenses/{id} | Edit expenses document.
-[**ExpensesIdStatusStatusIdPost**](ExpensesApi.md#ExpensesIdStatusStatusIdPost) | **Post** /expenses/{id}/status/{statusId} | Change status of expenses document.
-[**ExpensesInlinePost**](ExpensesApi.md#ExpensesInlinePost) | **Post** /expenses/inline | Create expenses document with discount and tax inline.
-[**ExpensesInlineWithPaymentPost**](ExpensesApi.md#ExpensesInlineWithPaymentPost) | **Post** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
+[**ExpensesIdStatusStatusIdPost**](ExpensesApi.md#ExpensesIdStatusStatusIdPost) | **Post** /expenses/{id}/status/{statusId} | Change status expenses document.
+[**ExpensesInlinePost**](ExpensesApi.md#ExpensesInlinePost) | **Post** /expenses/inline | Create expenses document inline discount or inline vat.
+[**ExpensesInlineWithPaymentPost**](ExpensesApi.md#ExpensesInlineWithPaymentPost) | **Post** /expenses/inline/with-payment | Create expenses document inline discount or inline vat with payment.
 [**ExpensesPost**](ExpensesApi.md#ExpensesPost) | **Post** /expenses | Create expenses document.
-[**ExpensesSharedocumentPost**](ExpensesApi.md#ExpensesSharedocumentPost) | **Post** /expenses/sharedocument | Share link expenses documents.
-[**ExpensesWithPaymentPost**](ExpensesApi.md#ExpensesWithPaymentPost) | **Post** /expenses/with-payment | Create expenses document with-payment.
+[**ExpensesSharedocumentPost**](ExpensesApi.md#ExpensesSharedocumentPost) | **Post** /expenses/sharedocument | Share link expenses document.
+[**ExpensesWithPaymentPost**](ExpensesApi.md#ExpensesWithPaymentPost) | **Post** /expenses/with-payment | Create expenses document with payment.
 
 
 
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 > BusinessCategory ExpensesCategoriesAccountingGet(ctx, authorization)
 
-Accounting categorys expenses document.
+Accounting categories expenses document.
 
 เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
 
@@ -60,7 +60,7 @@ No authorization required
 
 > BusinessCategory ExpensesCategoriesBusinessGet(ctx, authorization)
 
-Business categorys expenses document.
+Business categories expenses document.
 
 เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
 
@@ -139,8 +139,8 @@ Get list all expenses documents.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**currentPage** | **int32**| Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
-**pageSize** | **int32**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; | 
+**currentPage** | **int32**| Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+**pageSize** | **int32**| Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; | 
 **authorization** | **string**|  | [default to Bearer accessToken]
  **optional** | ***ExpensesGetOpts** | optional parameters | nil if no parameters
 
@@ -154,8 +154,8 @@ Name | Type | Description  | Notes
 
 
 
- **sortBy** | **optional.String**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
- **filter** | **optional.String**|  | 
+ **sortBy** | **optional.String**| Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
+ **filter** | **optional.String**| Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ No authorization required
 
 > AttachmentResponse ExpensesIdAttachmentPost(ctx, authorization, id, optional)
 
-Add Attachment to expenses.
+Attachment to expenses document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
 
@@ -259,7 +259,7 @@ No authorization required
 
 ## ExpensesIdGet
 
-> ExpenseInlineDocumentResponse ExpensesIdGet(ctx, authorization, id)
+> AllExpenseDocumentResponse ExpensesIdGet(ctx, authorization, id)
 
 Get expenses document.
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+[**AllExpenseDocumentResponse**](AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -296,7 +296,7 @@ No authorization required
 
 > ExpenseSimpleDocumentResponse ExpensesIdPaymentPost(ctx, authorization, id, paymentPaidDocument)
 
-Change paid status of expenses document.
+Change status is paid expenses document.
 
 ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
 
@@ -368,7 +368,7 @@ No authorization required
 
 > ExpenseInlineDocumentResponse ExpensesIdStatusStatusIdPost(ctx, authorization, id, statusId)
 
-Change status of expenses document.
+Change status expenses document.
 
 เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -404,7 +404,7 @@ No authorization required
 
 > ExpenseInlineDocumentResponse ExpensesInlinePost(ctx, authorization, expenseInlineDocument)
 
-Create expenses document with discount and tax inline.
+Create expenses document inline discount or inline vat.
 
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
 
@@ -439,7 +439,7 @@ No authorization required
 
 > ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost(ctx, authorization, expenseInlineDocumentWithPaymentPaid)
 
-Create expenses document with discount and tax inline with payment.
+Create expenses document inline discount or inline vat with payment.
 
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 
@@ -509,7 +509,7 @@ No authorization required
 
 > ShareDocumentResponse ExpensesSharedocumentPost(ctx, authorization, shareDocument)
 
-Share link expenses documents.
+Share link expenses document.
 
 แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
@@ -544,7 +544,7 @@ No authorization required
 
 > ExpenseSimpleDocumentResponse ExpensesWithPaymentPost(ctx, authorization, expenseSimpleDocumentWithPaymentPaid)
 
-Create expenses document with-payment.
+Create expenses document with payment.
 
 สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 

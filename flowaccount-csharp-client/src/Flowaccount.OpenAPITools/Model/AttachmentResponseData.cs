@@ -39,7 +39,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="orderNumber">ลำดับไฟล์แนบเอกสาร.</param>
         /// <param name="isDisplay">สถานะการแสดงไฟล์แนบเอกสาร (default to true).</param>
         /// <param name="attachmentPath">path ที่อยู่ไฟล์แนบเอกสาร.</param>
-        public AttachmentResponseData(long attachmentId = default(long), AnyType createdOn = default(AnyType), string attachmentName = default(string), long orderNumber = default(long), bool isDisplay = true, string attachmentPath = default(string))
+        public AttachmentResponseData(long attachmentId = default(long), DateTime createdOn = default(DateTime), string attachmentName = default(string), long orderNumber = default(long), bool isDisplay = true, string attachmentPath = default(string))
         {
             this.AttachmentId = attachmentId;
             this.CreatedOn = createdOn;
@@ -69,7 +69,8 @@ namespace Flowaccount.OpenAPITools.Model
         /// </summary>
         /// <value>วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;</value>
         [DataMember(Name="createdOn", EmitDefaultValue=true)]
-        public AnyType CreatedOn { get; set; }
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime CreatedOn { get; set; }
 
         /// <summary>
         /// ชื่อไฟล์แนบเอกสาร

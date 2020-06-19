@@ -49,6 +49,9 @@ class WithholidingTaxDocumentResponseData {
         if (data) {
             obj = obj || new WithholidingTaxDocumentResponseData();
 
+            if (data.hasOwnProperty('recordId')) {
+                obj['recordId'] = ApiClient.convertToType(data['recordId'], 'String');
+            }
             if (data.hasOwnProperty('documentId')) {
                 obj['documentId'] = ApiClient.convertToType(data['documentId'], 'String');
             }
@@ -148,6 +151,12 @@ class WithholidingTaxDocumentResponseData {
 
 
 }
+
+/**
+ * เลข Id เอกสารใบหัก ณ ที่จ่าย
+ * @member {String} recordId
+ */
+WithholidingTaxDocumentResponseData.prototype['recordId'] = undefined;
 
 /**
  * เลข Id เอกสารใบหัก ณ ที่จ่าย

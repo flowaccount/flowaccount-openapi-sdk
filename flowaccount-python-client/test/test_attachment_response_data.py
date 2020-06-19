@@ -38,7 +38,7 @@ class TestAttachmentResponseData(unittest.TestCase):
         if include_optional :
             return AttachmentResponseData(
                 attachment_id = 56, 
-                created_on = 2020-01-01, 
+                created_on = 'Wed Jan 01 07:00:00 ICT 2020', 
                 attachment_name = '0', 
                 order_number = 56, 
                 is_display = True, 

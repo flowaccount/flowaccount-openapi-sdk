@@ -59,7 +59,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Accounting categorys expenses document.
+     * Accounting categories expenses document.
      * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
      * @param {String} authorization 
      * @param {module:api/ExpensesApi~expensesCategoriesAccountingGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -102,7 +102,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Business categorys expenses document.
+     * Business categories expenses document.
      * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
      * @param {String} authorization 
      * @param {module:api/ExpensesApi~expensesCategoriesBusinessGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -195,12 +195,12 @@ export default class ExpensesApi {
     /**
      * Get list all expenses documents.
      * เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-     * @param {Number} currentPage Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
-     * @param {Number} pageSize Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
+     * @param {Number} currentPage Query current page expenses document. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
+     * @param {Number} pageSize Query expenses document list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sortBy Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.sortBy Query sort by expense document. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+     * @param {String} opts.filter Query filter expenses document. <br>Example Pattern: <ex> /expenses?filter=[{'columnName':'Status','columnValue':'processed','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/ExpensesApi~expensesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllExpenseDocumentResponse}
      */
@@ -254,7 +254,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Add Attachment to expenses.
+     * Attachment to expenses document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id 
@@ -351,7 +351,7 @@ export default class ExpensesApi {
      * Callback function to receive the result of the expensesIdGet operation.
      * @callback module:api/ExpensesApi~expensesIdGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExpenseInlineDocumentResponse} data The data returned by the service call.
+     * @param {module:model/AllExpenseDocumentResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -361,7 +361,7 @@ export default class ExpensesApi {
      * @param {String} authorization 
      * @param {String} id 
      * @param {module:api/ExpensesApi~expensesIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExpenseInlineDocumentResponse}
+     * data is of type: {@link module:model/AllExpenseDocumentResponse}
      */
     expensesIdGet(authorization, id, callback) {
       let postBody = null;
@@ -388,7 +388,7 @@ export default class ExpensesApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ExpenseInlineDocumentResponse;
+      let returnType = AllExpenseDocumentResponse;
       return this.apiClient.callApi(
         '/expenses/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -405,7 +405,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Change paid status of expenses document.
+     * Change status is paid expenses document.
      * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
@@ -513,7 +513,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Change status of expenses document.
+     * Change status expenses document.
      * เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -568,7 +568,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Create expenses document with discount and tax inline.
+     * Create expenses document inline discount or inline vat.
      * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
      * @param {String} authorization 
      * @param {module:model/ExpenseInlineDocument} expenseInlineDocument 
@@ -616,7 +616,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Create expenses document with discount and tax inline with payment.
+     * Create expenses document inline discount or inline vat with payment.
      * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
      * @param {module:model/ExpenseInlineDocumentWithPaymentPaid} expenseInlineDocumentWithPaymentPaid 
@@ -712,7 +712,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Share link expenses documents.
+     * Share link expenses document.
      * แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
      * @param {String} authorization 
      * @param {module:model/ShareDocument} shareDocument 
@@ -760,7 +760,7 @@ export default class ExpensesApi {
      */
 
     /**
-     * Create expenses document with-payment.
+     * Create expenses document with payment.
      * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
      * @param {module:model/ExpenseSimpleDocumentWithPaymentPaid} expenseSimpleDocumentWithPaymentPaid 

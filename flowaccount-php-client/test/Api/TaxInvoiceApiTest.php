@@ -85,7 +85,7 @@ class TaxInvoiceApiTest extends TestCase
     /**
      * Test case for taxInvoicesGet
      *
-     * Get list all tax invocie documents..
+     * Get all tax invocie documents..
      *
      */
     public function testTaxInvoicesGet()
@@ -95,7 +95,7 @@ class TaxInvoiceApiTest extends TestCase
     /**
      * Test case for taxInvoicesIdAttachmentPost
      *
-     * Add Attachment to tax Invoices document..
+     * Attachment tax Invoices document..
      *
      */
     public function testTaxInvoicesIdAttachmentPost()
@@ -125,7 +125,7 @@ class TaxInvoiceApiTest extends TestCase
     /**
      * Test case for taxInvoicesIdPaymentPost
      *
-     * Change paid status of tax-invoice document..
+     * Change status is paid tax-invoice document..
      *
      */
     public function testTaxInvoicesIdPaymentPost()
@@ -145,7 +145,7 @@ class TaxInvoiceApiTest extends TestCase
     /**
      * Test case for taxInvoicesIdStatusStatusIdPost
      *
-     * Change status of tax invoices document..
+     * Change status tax invoices document..
      *
      */
     public function testTaxInvoicesIdStatusStatusIdPost()
@@ -155,7 +155,7 @@ class TaxInvoiceApiTest extends TestCase
     /**
      * Test case for taxInvoicesInlinePost
      *
-     * Create tax invocie document with discount and tax inline..
+     * Create tax invocie document inline discount or inline vat..
      *
      */
     public function testTaxInvoicesInlinePost()
@@ -165,7 +165,7 @@ class TaxInvoiceApiTest extends TestCase
     /**
      * Test case for taxInvoicesInlineWithPaymentPost
      *
-     * Create tax invocie document with discount and tax inline with payment..
+     * Create tax invocie document inline discount or inline vat with payment..
      *
      */
     public function testTaxInvoicesInlineWithPaymentPost()

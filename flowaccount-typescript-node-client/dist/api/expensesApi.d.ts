@@ -89,7 +89,7 @@ export declare class ExpensesApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: ExpenseInlineDocumentResponse;
+        body: AllExpenseDocumentResponse;
     }>;
     expensesIdPaymentPost(authorization: string, id: string, paymentPaidDocument: PaymentPaidDocument, options?: {
         headers: {

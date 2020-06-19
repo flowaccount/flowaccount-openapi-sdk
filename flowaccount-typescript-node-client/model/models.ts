@@ -12,6 +12,7 @@ export * from './bankAccount';
 export * from './bankAccountResponse';
 export * from './bankAccountResponseData';
 export * from './businessCategory';
+export * from './businessCategoryData';
 export * from './companyInfo';
 export * from './companyInfoResponse';
 export * from './companyInfoResponseData';
@@ -151,6 +152,7 @@ import { BankAccount } from './bankAccount';
 import { BankAccountResponse } from './bankAccountResponse';
 import { BankAccountResponseData } from './bankAccountResponseData';
 import { BusinessCategory } from './businessCategory';
+import { BusinessCategoryData } from './businessCategoryData';
 import { CompanyInfo } from './companyInfo';
 import { CompanyInfoResponse } from './companyInfoResponse';
 import { CompanyInfoResponseData } from './companyInfoResponseData';
@@ -304,6 +306,7 @@ let typeMap: {[index: string]: any} = {
     "BankAccountResponse": BankAccountResponse,
     "BankAccountResponseData": BankAccountResponseData,
     "BusinessCategory": BusinessCategory,
+    "BusinessCategoryData": BusinessCategoryData,
     "CompanyInfo": CompanyInfo,
     "CompanyInfoResponse": CompanyInfoResponse,
     "CompanyInfoResponseData": CompanyInfoResponseData,

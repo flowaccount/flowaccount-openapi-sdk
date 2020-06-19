@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ReceiptsEmailDocumentPost**](ReceiptApi.md#ReceiptsEmailDocumentPost) | **Post** /receipts/email-document | Send email receipt document.
-[**ReceiptsGet**](ReceiptApi.md#ReceiptsGet) | **Get** /receipts | Get list all receipt documents
-[**ReceiptsIdAttachmentPost**](ReceiptApi.md#ReceiptsIdAttachmentPost) | **Post** /receipts/{id}/attachment | Add Attachment to receipt document.
+[**ReceiptsGet**](ReceiptApi.md#ReceiptsGet) | **Get** /receipts | Get all receipt documents
+[**ReceiptsIdAttachmentPost**](ReceiptApi.md#ReceiptsIdAttachmentPost) | **Post** /receipts/{id}/attachment | Attachment receipt document.
 [**ReceiptsIdDelete**](ReceiptApi.md#ReceiptsIdDelete) | **Delete** /receipts/{id} | Delete receipt document.
 [**ReceiptsIdGet**](ReceiptApi.md#ReceiptsIdGet) | **Get** /receipts/{id} | Get receipt document.
-[**ReceiptsIdPaymentPost**](ReceiptApi.md#ReceiptsIdPaymentPost) | **Post** /receipts/{id}/payment | Change paid status of receipt document.
+[**ReceiptsIdPaymentPost**](ReceiptApi.md#ReceiptsIdPaymentPost) | **Post** /receipts/{id}/payment | Change status is paid receipt document.
 [**ReceiptsIdPut**](ReceiptApi.md#ReceiptsIdPut) | **Put** /receipts/{id} | Edit receipt document.
-[**ReceiptsIdStatusStatusIdPost**](ReceiptApi.md#ReceiptsIdStatusStatusIdPost) | **Post** /receipts/{id}/status/{statusId} | Change status of receipt document.
-[**ReceiptsInlinePost**](ReceiptApi.md#ReceiptsInlinePost) | **Post** /receipts/inline | Create receipt document with discount and tax inline.
-[**ReceiptsInlineWithPaymentPost**](ReceiptApi.md#ReceiptsInlineWithPaymentPost) | **Post** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+[**ReceiptsIdStatusStatusIdPost**](ReceiptApi.md#ReceiptsIdStatusStatusIdPost) | **Post** /receipts/{id}/status/{statusId} | Change status receipt document.
+[**ReceiptsInlinePost**](ReceiptApi.md#ReceiptsInlinePost) | **Post** /receipts/inline | Create receipt document inline discount or inline vat.
+[**ReceiptsInlineWithPaymentPost**](ReceiptApi.md#ReceiptsInlineWithPaymentPost) | **Post** /receipts/inline/with-payment | Create receipt document inline discount or inline vat with payment.
 [**ReceiptsPost**](ReceiptApi.md#ReceiptsPost) | **Post** /receipts | Create receipt document.
 [**ReceiptsSharedocumentPost**](ReceiptApi.md#ReceiptsSharedocumentPost) | **Post** /receipts/sharedocument | Share link receipt document.
 [**ReceiptsWithPaymentPost**](ReceiptApi.md#ReceiptsWithPaymentPost) | **Post** /receipts/with-payment | Create receipt document with payment.
@@ -59,7 +59,7 @@ No authorization required
 
 > AllDocumentResponse ReceiptsGet(ctx, currentPage, pageSize, authorization, optional)
 
-Get list all receipt documents
+Get all receipt documents
 
 เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 
  **sortBy** | **optional.String**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
- **filter** | **optional.String**|  | 
+ **filter** | **optional.String**| Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | 
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 
 > AttachmentResponse ReceiptsIdAttachmentPost(ctx, authorization, id, optional)
 
-Add Attachment to receipt document.
+Attachment receipt document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
@@ -226,7 +226,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsIdPaymentPost(ctx, authorization, id, paymentReceivingDocument)
 
-Change paid status of receipt document.
+Change status is paid receipt document.
 
 เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -298,7 +298,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsIdStatusStatusIdPost(ctx, authorization, id, statusId)
 
-Change status of receipt document.
+Change status receipt document.
 
 เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -334,7 +334,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsInlinePost(ctx, authorization, inlineDocument)
 
-Create receipt document with discount and tax inline.
+Create receipt document inline discount or inline vat.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
 
@@ -369,7 +369,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsInlineWithPaymentPost(ctx, authorization, inlineDocumentWithPaymentReceiving)
 
-Create receipt document with discount and tax inline with payment.
+Create receipt document inline discount or inline vat with payment.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 

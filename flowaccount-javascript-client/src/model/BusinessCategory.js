@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import BusinessCategoryData from './BusinessCategoryData';
 
 /**
  * The BusinessCategory model module.
@@ -47,53 +48,17 @@ class BusinessCategory {
         if (data) {
             obj = obj || new BusinessCategory();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'Boolean');
             }
-            if (data.hasOwnProperty('systemCode')) {
-                obj['systemCode'] = ApiClient.convertToType(data['systemCode'], 'Number');
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('categoryId')) {
-                obj['categoryId'] = ApiClient.convertToType(data['categoryId'], 'Number');
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
-            if (data.hasOwnProperty('categoryNameLocal')) {
-                obj['categoryNameLocal'] = ApiClient.convertToType(data['categoryNameLocal'], 'String');
-            }
-            if (data.hasOwnProperty('categoryNameForeign')) {
-                obj['categoryNameForeign'] = ApiClient.convertToType(data['categoryNameForeign'], 'String');
-            }
-            if (data.hasOwnProperty('debitId')) {
-                obj['debitId'] = ApiClient.convertToType(data['debitId'], 'Number');
-            }
-            if (data.hasOwnProperty('debitCategory')) {
-                obj['debitCategory'] = ApiClient.convertToType(data['debitCategory'], 'Number');
-            }
-            if (data.hasOwnProperty('debitCode')) {
-                obj['debitCode'] = ApiClient.convertToType(data['debitCode'], 'String');
-            }
-            if (data.hasOwnProperty('debitNameLocal')) {
-                obj['debitNameLocal'] = ApiClient.convertToType(data['debitNameLocal'], 'String');
-            }
-            if (data.hasOwnProperty('debitNameForeign')) {
-                obj['debitNameForeign'] = ApiClient.convertToType(data['debitNameForeign'], 'String');
-            }
-            if (data.hasOwnProperty('creditId')) {
-                obj['creditId'] = ApiClient.convertToType(data['creditId'], 'Number');
-            }
-            if (data.hasOwnProperty('creditCategory')) {
-                obj['creditCategory'] = ApiClient.convertToType(data['creditCategory'], 'Number');
-            }
-            if (data.hasOwnProperty('creditCode')) {
-                obj['creditCode'] = ApiClient.convertToType(data['creditCode'], 'String');
-            }
-            if (data.hasOwnProperty('creditNameLocal')) {
-                obj['creditNameLocal'] = ApiClient.convertToType(data['creditNameLocal'], 'String');
-            }
-            if (data.hasOwnProperty('creditNameForeign')) {
-                obj['creditNameForeign'] = ApiClient.convertToType(data['creditNameForeign'], 'String');
-            }
-            if (data.hasOwnProperty('keywords')) {
-                obj['keywords'] = ApiClient.convertToType(data['keywords'], 'String');
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ApiClient.convertToType(data['data'], [BusinessCategoryData]);
             }
         }
         return obj;
@@ -103,100 +68,28 @@ class BusinessCategory {
 }
 
 /**
- * id ของหมวดหมู่ค่าใช้จ่าย
- * @member {Number} id
+ * action success
+ * @member {Boolean} status
  */
-BusinessCategory.prototype['id'] = undefined;
+BusinessCategory.prototype['status'] = undefined;
 
 /**
- * เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
- * @member {Number} systemCode
+ * error message
+ * @member {String} message
  */
-BusinessCategory.prototype['systemCode'] = undefined;
+BusinessCategory.prototype['message'] = undefined;
 
 /**
- * เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
- * @member {Number} categoryId
+ * error code
+ * @member {Number} code
  */
-BusinessCategory.prototype['categoryId'] = undefined;
+BusinessCategory.prototype['code'] = undefined;
 
 /**
- * ชื่อหมวดหมู่ค่าใช้จ่าย
- * @member {String} categoryNameLocal
+ * ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
+ * @member {Array.<module:model/BusinessCategoryData>} data
  */
-BusinessCategory.prototype['categoryNameLocal'] = undefined;
-
-/**
- * ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
- * @member {String} categoryNameForeign
- */
-BusinessCategory.prototype['categoryNameForeign'] = undefined;
-
-/**
- * เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
- * @member {Number} debitId
- */
-BusinessCategory.prototype['debitId'] = undefined;
-
-/**
- * เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
- * @member {Number} debitCategory
- */
-BusinessCategory.prototype['debitCategory'] = undefined;
-
-/**
- * เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
- * @member {String} debitCode
- */
-BusinessCategory.prototype['debitCode'] = undefined;
-
-/**
- * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
- * @member {String} debitNameLocal
- */
-BusinessCategory.prototype['debitNameLocal'] = undefined;
-
-/**
- * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
- * @member {String} debitNameForeign
- */
-BusinessCategory.prototype['debitNameForeign'] = undefined;
-
-/**
- * เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
- * @member {Number} creditId
- */
-BusinessCategory.prototype['creditId'] = undefined;
-
-/**
- * เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
- * @member {Number} creditCategory
- */
-BusinessCategory.prototype['creditCategory'] = undefined;
-
-/**
- * เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
- * @member {String} creditCode
- */
-BusinessCategory.prototype['creditCode'] = undefined;
-
-/**
- * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต 
- * @member {String} creditNameLocal
- */
-BusinessCategory.prototype['creditNameLocal'] = undefined;
-
-/**
- * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
- * @member {String} creditNameForeign
- */
-BusinessCategory.prototype['creditNameForeign'] = undefined;
-
-/**
- * keyword
- * @member {String} keywords
- */
-BusinessCategory.prototype['keywords'] = undefined;
+BusinessCategory.prototype['data'] = undefined;
 
 
 

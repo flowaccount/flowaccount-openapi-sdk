@@ -32,21 +32,21 @@ class TestWithholdingTaxApi(unittest.TestCase):
     def test_withholding_taxes_email_document_post(self):
         """Test case for withholding_taxes_email_document_post
 
-        Send email withholding tax document.  # noqa: E501
+        Send email withholding tax.  # noqa: E501
         """
         pass
 
     def test_withholding_taxes_get(self):
         """Test case for withholding_taxes_get
 
-        Get list all withholding tax documents.  # noqa: E501
+        Get all withholding tax documents.  # noqa: E501
         """
         pass
 
     def test_withholding_taxes_id_attachment_post(self):
         """Test case for withholding_taxes_id_attachment_post
 
-        Add Attachment to expenses.  # noqa: E501
+        Attachment withholding tax.  # noqa: E501
         """
         pass
 
@@ -74,7 +74,7 @@ class TestWithholdingTaxApi(unittest.TestCase):
     def test_withholding_taxes_id_status_status_id_post(self):
         """Test case for withholding_taxes_id_status_status_id_post
 
-        Change status of withholding tax document.  # noqa: E501
+        Change status withholding tax document.  # noqa: E501
         """
         pass
 
@@ -88,7 +88,7 @@ class TestWithholdingTaxApi(unittest.TestCase):
     def test_withholding_taxes_sharedocument_post(self):
         """Test case for withholding_taxes_sharedocument_post
 
-        Share link withholding tax documents.  # noqa: E501
+        Share link withholding tax.  # noqa: E501
         """
         pass
 

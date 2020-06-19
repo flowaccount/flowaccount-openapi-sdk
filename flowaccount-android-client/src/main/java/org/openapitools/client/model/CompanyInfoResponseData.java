@@ -15,7 +15,10 @@ package org.openapitools.client.model;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * ข้อมูลบริษัทเรา
+ **/
+@ApiModel(description = "ข้อมูลบริษัทเรา")
 public class CompanyInfoResponseData {
   
   @SerializedName("companyId")

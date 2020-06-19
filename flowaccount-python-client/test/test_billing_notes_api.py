@@ -39,14 +39,14 @@ class TestBillingNotesApi(unittest.TestCase):
     def test_billing_notes_get(self):
         """Test case for billing_notes_get
 
-        Get list all billing notes documents.  # noqa: E501
+        Get all billing notes documents.  # noqa: E501
         """
         pass
 
     def test_billing_notes_id_attachment_post(self):
         """Test case for billing_notes_id_attachment_post
 
-        Add Attachment to billing notes document.  # noqa: E501
+        Attachment billing notes document.  # noqa: E501
         """
         pass
 
@@ -74,14 +74,14 @@ class TestBillingNotesApi(unittest.TestCase):
     def test_billing_notes_id_status_status_id_post(self):
         """Test case for billing_notes_id_status_status_id_post
 
-        Change status of billing notes document.  # noqa: E501
+        Change status billing notes document.  # noqa: E501
         """
         pass
 
     def test_billing_notes_inline_post(self):
         """Test case for billing_notes_inline_post
 
-        Create billing notes document with discount and tax inline.  # noqa: E501
+        Create billing notes document inline discount or inline vat.  # noqa: E501
         """
         pass
 

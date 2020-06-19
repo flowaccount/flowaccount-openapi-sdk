@@ -91,6 +91,14 @@ public class ProductTest {
     }
 
     /**
+     * Test the property 'sellPriceWithVat'
+     */
+    @Test
+    public void sellPriceWithVatTest() {
+        // TODO: test sellPriceWithVat
+    }
+
+    /**
      * Test the property 'sellVatType'
      */
     @Test
@@ -155,6 +163,14 @@ public class ProductTest {
     }
 
     /**
+     * Test the property 'buyVatTypeWithVat'
+     */
+    @Test
+    public void buyVatTypeWithVatTest() {
+        // TODO: test buyVatTypeWithVat
+    }
+
+    /**
      * Test the property 'inventoryPublishedOn'
      */
     @Test
@@ -168,6 +184,22 @@ public class ProductTest {
     @Test
     public void inventoryQuantityTest() {
         // TODO: test inventoryQuantity
+    }
+
+    /**
+     * Test the property 'inventoryPrice'
+     */
+    @Test
+    public void inventoryPriceTest() {
+        // TODO: test inventoryPrice
+    }
+
+    /**
+     * Test the property 'inventoryTotal'
+     */
+    @Test
+    public void inventoryTotalTest() {
+        // TODO: test inventoryTotal
     }
 
     /**

@@ -115,7 +115,7 @@ type TaxInvoicesGetOpts struct {
 }
 
 /*
-TaxInvoicesGet Get list all tax invocie documents.
+TaxInvoicesGet Get all tax invocie documents.
 เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document tax invoices. <br>Example Pattern: <ex>/tax-invoices?currentPage=1 </ex><ex>/tax-invoices?currentPage=1&pageSize=20</ex>
@@ -123,7 +123,7 @@ TaxInvoicesGet Get list all tax invocie documents.
  * @param authorization
  * @param optional nil or *TaxInvoicesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "Filter" (optional.String) -  Query filter tax-invoices. <br>Example Pattern: <ex> /tax-invoices?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllDocumentResponse
 */
 func (a *TaxInvoiceApiService) TaxInvoicesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *TaxInvoicesGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type TaxInvoicesIdAttachmentPostOpts struct {
 }
 
 /*
-TaxInvoicesIdAttachmentPost Add Attachment to tax Invoices document.
+TaxInvoicesIdAttachmentPost Attachment tax Invoices document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -467,7 +467,7 @@ func (a *TaxInvoiceApiService) TaxInvoicesIdGet(ctx _context.Context, authorizat
 }
 
 /*
-TaxInvoicesIdPaymentPost Change paid status of tax-invoice document.
+TaxInvoicesIdPaymentPost Change status is paid tax-invoice document.
 เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -633,7 +633,7 @@ func (a *TaxInvoiceApiService) TaxInvoicesIdPut(ctx _context.Context, authorizat
 }
 
 /*
-TaxInvoicesIdStatusStatusIdPost Change status of tax invoices document.
+TaxInvoicesIdStatusStatusIdPost Change status tax invoices document.
 เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -716,7 +716,7 @@ func (a *TaxInvoiceApiService) TaxInvoicesIdStatusStatusIdPost(ctx _context.Cont
 }
 
 /*
-TaxInvoicesInlinePost Create tax invocie document with discount and tax inline.
+TaxInvoicesInlinePost Create tax invocie document inline discount or inline vat.
 สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -796,7 +796,7 @@ func (a *TaxInvoiceApiService) TaxInvoicesInlinePost(ctx _context.Context, autho
 }
 
 /*
-TaxInvoicesInlineWithPaymentPost Create tax invocie document with discount and tax inline with payment.
+TaxInvoicesInlineWithPaymentPost Create tax invocie document inline discount or inline vat with payment.
 สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

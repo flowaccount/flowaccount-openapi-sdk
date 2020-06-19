@@ -40,8 +40,8 @@ ProductsGet Get list all products.
  * @param pageSize Query products list amount per page. <br>Example Pattern: <ex> /products?pageSize=20 </ex>
  * @param authorization
  * @param optional nil or *ProductsGetOpts - Optional Parameters:
- * @param "SortBy" (optional.String) -  Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex>
- * @param "Filter" (optional.String) -  Query products list amount per page. <br>Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
+ * @param "SortBy" (optional.String) -  Product Sort By Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex>
+ * @param "Filter" (optional.String) -  Product Filter Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
 @return ProductResponse
 */
 func (a *ProductsApiService) ProductsGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *ProductsGetOpts) (ProductResponse, *_nethttp.Response, error) {

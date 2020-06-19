@@ -2,6 +2,7 @@ export declare class Contact {
     'id'?: number;
     'contactGroup': number;
     'contactType': number;
+    'contactCode'?: number;
     'contactName': string;
     'contactAddress'?: string;
     'contactZipCode'?: string;

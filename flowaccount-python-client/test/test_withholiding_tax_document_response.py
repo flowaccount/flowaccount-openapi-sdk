@@ -41,6 +41,7 @@ class TestWithholidingTaxDocumentResponse(unittest.TestCase):
                 message = '0', 
                 code = 56, 
                 data = openapi_client.models.withholiding_tax_document_response_data.WithholidingTaxDocumentResponse_data(
+                    record_id = '0', 
                     document_id = '0', 
                     document_serial = '0', 
                     contact_code = '0', 

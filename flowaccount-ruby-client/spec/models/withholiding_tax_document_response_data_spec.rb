@@ -32,6 +32,12 @@ describe 'WithholidingTaxDocumentResponseData' do
       expect(@instance).to be_instance_of(OpenapiClient::WithholidingTaxDocumentResponseData)
     end
   end
+  describe 'test attribute "record_id"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "document_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

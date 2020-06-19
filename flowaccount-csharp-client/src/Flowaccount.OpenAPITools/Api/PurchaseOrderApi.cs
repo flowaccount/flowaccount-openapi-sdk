@@ -48,7 +48,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of SendEmailResponse</returns>
         ApiResponse<SendEmailResponse> PurchasesOrdersEmailDocumentPostWithHttpInfo (string authorization, SendEmailCoppies sendEmailCoppies);
         /// <summary>
-        /// Get list all purchase order documents.
+        /// Get all purchase order documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
@@ -58,12 +58,12 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllDocumentResponse</returns>
         AllDocumentResponse PurchasesOrdersGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
-        /// Get list all purchase order documents.
+        /// Get all purchase order documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
@@ -73,11 +73,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllDocumentResponse</returns>
         ApiResponse<AllDocumentResponse> PurchasesOrdersGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to purchase order document.
+        /// Attachment purchase order document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
@@ -90,7 +90,7 @@ namespace Flowaccount.OpenAPITools.Api
         AttachmentResponse PurchasesOrdersIdAttachmentPost (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to purchase order document.
+        /// Attachment purchase order document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
@@ -173,7 +173,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> PurchasesOrdersIdPutWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
-        /// Change status of purchase order document.
+        /// Change status purchase order document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
@@ -186,7 +186,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse PurchasesOrdersIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of purchase order document.
+        /// Change status purchase order document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
@@ -198,7 +198,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> PurchasesOrdersIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create purchase order document with discount and tax inline.
+        /// Create purchase order document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
@@ -210,7 +210,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse PurchasesOrdersInlinePost (string authorization, InlineDocument inlineDocument);
 
         /// <summary>
-        /// Create purchase order document with discount and tax inline.
+        /// Create purchase order document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
@@ -292,7 +292,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (SendEmailResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SendEmailResponse>> PurchasesOrdersEmailDocumentPostAsyncWithHttpInfo (string authorization, SendEmailCoppies sendEmailCoppies);
         /// <summary>
-        /// Get list all purchase order documents.
+        /// Get all purchase order documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
@@ -302,12 +302,12 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllDocumentResponse</returns>
         System.Threading.Tasks.Task<AllDocumentResponse> PurchasesOrdersGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
-        /// Get list all purchase order documents.
+        /// Get all purchase order documents.
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
@@ -317,11 +317,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AllDocumentResponse>> PurchasesOrdersGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to purchase order document.
+        /// Attachment purchase order document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
@@ -334,7 +334,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<AttachmentResponse> PurchasesOrdersIdAttachmentPostAsync (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to purchase order document.
+        /// Attachment purchase order document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
@@ -417,7 +417,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersIdPutAsyncWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
-        /// Change status of purchase order document.
+        /// Change status purchase order document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
@@ -430,7 +430,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of purchase order document.
+        /// Change status purchase order document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
@@ -442,7 +442,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create purchase order document with discount and tax inline.
+        /// Create purchase order document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
@@ -454,7 +454,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersInlinePostAsync (string authorization, InlineDocument inlineDocument);
 
         /// <summary>
-        /// Create purchase order document with discount and tax inline.
+        /// Create purchase order document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
@@ -783,14 +783,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
+        /// Get all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllDocumentResponse</returns>
         public AllDocumentResponse PurchasesOrdersGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -799,14 +799,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
+        /// Get all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllDocumentResponse</returns>
         public ApiResponse<AllDocumentResponse> PurchasesOrdersGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -867,14 +867,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
+        /// Get all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllDocumentResponse</returns>
         public async System.Threading.Tasks.Task<AllDocumentResponse> PurchasesOrdersGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -884,14 +884,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
+        /// Get all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllDocumentResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AllDocumentResponse>> PurchasesOrdersGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -952,7 +952,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
+        /// Attachment purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -966,7 +966,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
+        /// Attachment purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1028,7 +1028,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
+        /// Attachment purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1043,7 +1043,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
+        /// Attachment purchase order document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1568,7 +1568,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
+        /// Change status purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1582,7 +1582,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
+        /// Change status purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1646,7 +1646,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
+        /// Change status purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1661,7 +1661,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
+        /// Change status purchase order document. เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1725,7 +1725,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create purchase order document with discount and tax inline. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
+        /// Create purchase order document inline discount or inline vat. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1738,7 +1738,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create purchase order document with discount and tax inline. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
+        /// Create purchase order document inline discount or inline vat. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1805,7 +1805,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create purchase order document with discount and tax inline. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
+        /// Create purchase order document inline discount or inline vat. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1819,7 +1819,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create purchase order document with discount and tax inline. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
+        /// Create purchase order document inline discount or inline vat. สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>

@@ -57,22 +57,10 @@ class BusinessCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'system_code' => 'int',
-        'category_id' => 'int',
-        'category_name_local' => 'string',
-        'category_name_foreign' => 'string',
-        'debit_id' => 'int',
-        'debit_category' => 'int',
-        'debit_code' => 'string',
-        'debit_name_local' => 'string',
-        'debit_name_foreign' => 'string',
-        'credit_id' => 'int',
-        'credit_category' => 'int',
-        'credit_code' => 'string',
-        'credit_name_local' => 'string',
-        'credit_name_foreign' => 'string',
-        'keywords' => 'string'
+        'status' => 'bool',
+        'message' => 'string',
+        'code' => 'int',
+        'data' => '\OpenAPI\Client\Model\BusinessCategoryData[]'
     ];
 
     /**
@@ -81,22 +69,10 @@ class BusinessCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'system_code' => null,
-        'category_id' => null,
-        'category_name_local' => null,
-        'category_name_foreign' => null,
-        'debit_id' => null,
-        'debit_category' => null,
-        'debit_code' => null,
-        'debit_name_local' => null,
-        'debit_name_foreign' => null,
-        'credit_id' => null,
-        'credit_category' => null,
-        'credit_code' => null,
-        'credit_name_local' => null,
-        'credit_name_foreign' => null,
-        'keywords' => null
+        'status' => null,
+        'message' => null,
+        'code' => null,
+        'data' => null
     ];
 
     /**
@@ -126,22 +102,10 @@ class BusinessCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'system_code' => 'systemCode',
-        'category_id' => 'categoryId',
-        'category_name_local' => 'categoryNameLocal',
-        'category_name_foreign' => 'categoryNameForeign',
-        'debit_id' => 'debitId',
-        'debit_category' => 'debitCategory',
-        'debit_code' => 'debitCode',
-        'debit_name_local' => 'debitNameLocal',
-        'debit_name_foreign' => 'debitNameForeign',
-        'credit_id' => 'creditId',
-        'credit_category' => 'creditCategory',
-        'credit_code' => 'creditCode',
-        'credit_name_local' => 'creditNameLocal',
-        'credit_name_foreign' => 'creditNameForeign',
-        'keywords' => 'keywords'
+        'status' => 'status',
+        'message' => 'message',
+        'code' => 'code',
+        'data' => 'data'
     ];
 
     /**
@@ -150,22 +114,10 @@ class BusinessCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'system_code' => 'setSystemCode',
-        'category_id' => 'setCategoryId',
-        'category_name_local' => 'setCategoryNameLocal',
-        'category_name_foreign' => 'setCategoryNameForeign',
-        'debit_id' => 'setDebitId',
-        'debit_category' => 'setDebitCategory',
-        'debit_code' => 'setDebitCode',
-        'debit_name_local' => 'setDebitNameLocal',
-        'debit_name_foreign' => 'setDebitNameForeign',
-        'credit_id' => 'setCreditId',
-        'credit_category' => 'setCreditCategory',
-        'credit_code' => 'setCreditCode',
-        'credit_name_local' => 'setCreditNameLocal',
-        'credit_name_foreign' => 'setCreditNameForeign',
-        'keywords' => 'setKeywords'
+        'status' => 'setStatus',
+        'message' => 'setMessage',
+        'code' => 'setCode',
+        'data' => 'setData'
     ];
 
     /**
@@ -174,22 +126,10 @@ class BusinessCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'system_code' => 'getSystemCode',
-        'category_id' => 'getCategoryId',
-        'category_name_local' => 'getCategoryNameLocal',
-        'category_name_foreign' => 'getCategoryNameForeign',
-        'debit_id' => 'getDebitId',
-        'debit_category' => 'getDebitCategory',
-        'debit_code' => 'getDebitCode',
-        'debit_name_local' => 'getDebitNameLocal',
-        'debit_name_foreign' => 'getDebitNameForeign',
-        'credit_id' => 'getCreditId',
-        'credit_category' => 'getCreditCategory',
-        'credit_code' => 'getCreditCode',
-        'credit_name_local' => 'getCreditNameLocal',
-        'credit_name_foreign' => 'getCreditNameForeign',
-        'keywords' => 'getKeywords'
+        'status' => 'getStatus',
+        'message' => 'getMessage',
+        'code' => 'getCode',
+        'data' => 'getData'
     ];
 
     /**
@@ -252,22 +192,10 @@ class BusinessCategory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['system_code'] = isset($data['system_code']) ? $data['system_code'] : null;
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_name_local'] = isset($data['category_name_local']) ? $data['category_name_local'] : null;
-        $this->container['category_name_foreign'] = isset($data['category_name_foreign']) ? $data['category_name_foreign'] : null;
-        $this->container['debit_id'] = isset($data['debit_id']) ? $data['debit_id'] : null;
-        $this->container['debit_category'] = isset($data['debit_category']) ? $data['debit_category'] : null;
-        $this->container['debit_code'] = isset($data['debit_code']) ? $data['debit_code'] : null;
-        $this->container['debit_name_local'] = isset($data['debit_name_local']) ? $data['debit_name_local'] : null;
-        $this->container['debit_name_foreign'] = isset($data['debit_name_foreign']) ? $data['debit_name_foreign'] : null;
-        $this->container['credit_id'] = isset($data['credit_id']) ? $data['credit_id'] : null;
-        $this->container['credit_category'] = isset($data['credit_category']) ? $data['credit_category'] : null;
-        $this->container['credit_code'] = isset($data['credit_code']) ? $data['credit_code'] : null;
-        $this->container['credit_name_local'] = isset($data['credit_name_local']) ? $data['credit_name_local'] : null;
-        $this->container['credit_name_foreign'] = isset($data['credit_name_foreign']) ? $data['credit_name_foreign'] : null;
-        $this->container['keywords'] = isset($data['keywords']) ? $data['keywords'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -295,385 +223,97 @@ class BusinessCategory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets status
+     *
+     * @return bool|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param bool|null $status action success
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message error message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
      *
      * @return int|null
      */
-    public function getId()
+    public function getCode()
     {
-        return $this->container['id'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets id
+     * Sets code
      *
-     * @param int|null $id id ของหมวดหมู่ค่าใช้จ่าย
+     * @param int|null $code error code
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCode($code)
     {
-        $this->container['id'] = $id;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets system_code
+     * Gets data
      *
-     * @return int|null
+     * @return \OpenAPI\Client\Model\BusinessCategoryData[]|null
      */
-    public function getSystemCode()
+    public function getData()
     {
-        return $this->container['system_code'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets system_code
+     * Sets data
      *
-     * @param int|null $system_code เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
+     * @param \OpenAPI\Client\Model\BusinessCategoryData[]|null $data ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
      *
      * @return $this
      */
-    public function setSystemCode($system_code)
+    public function setData($data)
     {
-        $this->container['system_code'] = $system_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_id
-     *
-     * @return int|null
-     */
-    public function getCategoryId()
-    {
-        return $this->container['category_id'];
-    }
-
-    /**
-     * Sets category_id
-     *
-     * @param int|null $category_id เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-     *
-     * @return $this
-     */
-    public function setCategoryId($category_id)
-    {
-        $this->container['category_id'] = $category_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_name_local
-     *
-     * @return string|null
-     */
-    public function getCategoryNameLocal()
-    {
-        return $this->container['category_name_local'];
-    }
-
-    /**
-     * Sets category_name_local
-     *
-     * @param string|null $category_name_local ชื่อหมวดหมู่ค่าใช้จ่าย
-     *
-     * @return $this
-     */
-    public function setCategoryNameLocal($category_name_local)
-    {
-        $this->container['category_name_local'] = $category_name_local;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_name_foreign
-     *
-     * @return string|null
-     */
-    public function getCategoryNameForeign()
-    {
-        return $this->container['category_name_foreign'];
-    }
-
-    /**
-     * Sets category_name_foreign
-     *
-     * @param string|null $category_name_foreign ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-     *
-     * @return $this
-     */
-    public function setCategoryNameForeign($category_name_foreign)
-    {
-        $this->container['category_name_foreign'] = $category_name_foreign;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_id
-     *
-     * @return int|null
-     */
-    public function getDebitId()
-    {
-        return $this->container['debit_id'];
-    }
-
-    /**
-     * Sets debit_id
-     *
-     * @param int|null $debit_id เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-     *
-     * @return $this
-     */
-    public function setDebitId($debit_id)
-    {
-        $this->container['debit_id'] = $debit_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_category
-     *
-     * @return int|null
-     */
-    public function getDebitCategory()
-    {
-        return $this->container['debit_category'];
-    }
-
-    /**
-     * Sets debit_category
-     *
-     * @param int|null $debit_category เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-     *
-     * @return $this
-     */
-    public function setDebitCategory($debit_category)
-    {
-        $this->container['debit_category'] = $debit_category;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_code
-     *
-     * @return string|null
-     */
-    public function getDebitCode()
-    {
-        return $this->container['debit_code'];
-    }
-
-    /**
-     * Sets debit_code
-     *
-     * @param string|null $debit_code เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-     *
-     * @return $this
-     */
-    public function setDebitCode($debit_code)
-    {
-        $this->container['debit_code'] = $debit_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_name_local
-     *
-     * @return string|null
-     */
-    public function getDebitNameLocal()
-    {
-        return $this->container['debit_name_local'];
-    }
-
-    /**
-     * Sets debit_name_local
-     *
-     * @param string|null $debit_name_local ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-     *
-     * @return $this
-     */
-    public function setDebitNameLocal($debit_name_local)
-    {
-        $this->container['debit_name_local'] = $debit_name_local;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_name_foreign
-     *
-     * @return string|null
-     */
-    public function getDebitNameForeign()
-    {
-        return $this->container['debit_name_foreign'];
-    }
-
-    /**
-     * Sets debit_name_foreign
-     *
-     * @param string|null $debit_name_foreign ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-     *
-     * @return $this
-     */
-    public function setDebitNameForeign($debit_name_foreign)
-    {
-        $this->container['debit_name_foreign'] = $debit_name_foreign;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_id
-     *
-     * @return int|null
-     */
-    public function getCreditId()
-    {
-        return $this->container['credit_id'];
-    }
-
-    /**
-     * Sets credit_id
-     *
-     * @param int|null $credit_id เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-     *
-     * @return $this
-     */
-    public function setCreditId($credit_id)
-    {
-        $this->container['credit_id'] = $credit_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_category
-     *
-     * @return int|null
-     */
-    public function getCreditCategory()
-    {
-        return $this->container['credit_category'];
-    }
-
-    /**
-     * Sets credit_category
-     *
-     * @param int|null $credit_category เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-     *
-     * @return $this
-     */
-    public function setCreditCategory($credit_category)
-    {
-        $this->container['credit_category'] = $credit_category;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_code
-     *
-     * @return string|null
-     */
-    public function getCreditCode()
-    {
-        return $this->container['credit_code'];
-    }
-
-    /**
-     * Sets credit_code
-     *
-     * @param string|null $credit_code เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-     *
-     * @return $this
-     */
-    public function setCreditCode($credit_code)
-    {
-        $this->container['credit_code'] = $credit_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_name_local
-     *
-     * @return string|null
-     */
-    public function getCreditNameLocal()
-    {
-        return $this->container['credit_name_local'];
-    }
-
-    /**
-     * Sets credit_name_local
-     *
-     * @param string|null $credit_name_local ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-     *
-     * @return $this
-     */
-    public function setCreditNameLocal($credit_name_local)
-    {
-        $this->container['credit_name_local'] = $credit_name_local;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_name_foreign
-     *
-     * @return string|null
-     */
-    public function getCreditNameForeign()
-    {
-        return $this->container['credit_name_foreign'];
-    }
-
-    /**
-     * Sets credit_name_foreign
-     *
-     * @param string|null $credit_name_foreign ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-     *
-     * @return $this
-     */
-    public function setCreditNameForeign($credit_name_foreign)
-    {
-        $this->container['credit_name_foreign'] = $credit_name_foreign;
-
-        return $this;
-    }
-
-    /**
-     * Gets keywords
-     *
-     * @return string|null
-     */
-    public function getKeywords()
-    {
-        return $this->container['keywords'];
-    }
-
-    /**
-     * Sets keywords
-     *
-     * @param string|null $keywords keyword
-     *
-     * @return $this
-     */
-    public function setKeywords($keywords)
-    {
-        $this->container['keywords'] = $keywords;
+        $this->container['data'] = $data;
 
         return $this;
     }

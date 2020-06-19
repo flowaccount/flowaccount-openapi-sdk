@@ -26,10 +26,7 @@ export class CompanyInfoResponse {
     * error code
     */
     'code'?: number;
-    /**
-    * ข้อมูลบริษัทเรา
-    */
-    'data'?: Array<CompanyInfoResponseData>;
+    'data'?: CompanyInfoResponseData;
 
     static discriminator: string | undefined = undefined;
 
@@ -52,7 +49,7 @@ export class CompanyInfoResponse {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<CompanyInfoResponseData>"
+            "type": "CompanyInfoResponseData"
         }    ];
 
     static getAttributeTypeMap() {

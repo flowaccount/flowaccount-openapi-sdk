@@ -33,7 +33,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_categories_accounting_get
-  # Accounting categorys expenses document.
+  # Accounting categories expenses document.
   # เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
   # @param authorization 
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_categories_business_get
-  # Business categorys expenses document.
+  # Business categories expenses document.
   # เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
   # @param authorization 
   # @param [Hash] opts the optional parameters
@@ -72,12 +72,12 @@ describe 'ExpensesApi' do
   # unit tests for expenses_get
   # Get list all expenses documents.
   # เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-  # @param current_page Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
-  # @param page_size Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
+  # @param current_page Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
+  # @param page_size Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
   # @param authorization 
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-  # @option opts [String] :filter 
+  # @option opts [String] :sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+  # @option opts [String] :filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
   # @return [AllExpenseDocumentResponse]
   describe 'expenses_get test' do
     it 'should work' do
@@ -86,7 +86,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_id_attachment_post
-  # Add Attachment to expenses.
+  # Attachment to expenses document.
   # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
   # @param authorization 
   # @param id 
@@ -118,7 +118,7 @@ describe 'ExpensesApi' do
   # @param authorization 
   # @param id 
   # @param [Hash] opts the optional parameters
-  # @return [ExpenseInlineDocumentResponse]
+  # @return [AllExpenseDocumentResponse]
   describe 'expenses_id_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -126,7 +126,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_id_payment_post
-  # Change paid status of expenses document.
+  # Change status is paid expenses document.
   # ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
   # @param authorization 
   # @param id ID เอกสารใช้ recordId หรือ documentId
@@ -154,7 +154,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_id_status_status_id_post
-  # Change status of expenses document.
+  # Change status expenses document.
   # เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
   # @param authorization 
   # @param id ID เอกสารใช้ recordId
@@ -168,7 +168,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_inline_post
-  # Create expenses document with discount and tax inline.
+  # Create expenses document inline discount or inline vat.
   # สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
   # @param authorization 
   # @param expense_inline_document 
@@ -181,7 +181,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_inline_with_payment_post
-  # Create expenses document with discount and tax inline with payment.
+  # Create expenses document inline discount or inline vat with payment.
   # สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
   # @param authorization 
   # @param expense_inline_document_with_payment_paid 
@@ -207,7 +207,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_sharedocument_post
-  # Share link expenses documents.
+  # Share link expenses document.
   # แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
   # @param authorization 
   # @param share_document 
@@ -220,7 +220,7 @@ describe 'ExpensesApi' do
   end
 
   # unit tests for expenses_with_payment_post
-  # Create expenses document with-payment.
+  # Create expenses document with payment.
   # สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
   # @param authorization 
   # @param expense_simple_document_with_payment_paid 

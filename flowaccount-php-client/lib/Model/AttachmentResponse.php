@@ -60,7 +60,7 @@ class AttachmentResponse implements ModelInterface, ArrayAccess
         'status' => 'bool',
         'message' => 'string',
         'code' => 'int',
-        'data' => '\OpenAPI\Client\Model\AttachmentResponseData'
+        'data' => '\OpenAPI\Client\Model\AttachmentResponseData[]'
     ];
 
     /**
@@ -297,7 +297,7 @@ class AttachmentResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\AttachmentResponseData|null
+     * @return \OpenAPI\Client\Model\AttachmentResponseData[]|null
      */
     public function getData()
     {
@@ -307,7 +307,7 @@ class AttachmentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\AttachmentResponseData|null $data data
+     * @param \OpenAPI\Client\Model\AttachmentResponseData[]|null $data ข้อมูลไฟล์แนบเอกสาร
      *
      * @return $this
      */

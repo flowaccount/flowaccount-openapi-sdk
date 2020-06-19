@@ -37,6 +37,7 @@ class Contact(object):
         'id': 'int',
         'contact_group': 'int',
         'contact_type': 'int',
+        'contact_code': 'int',
         'contact_name': 'str',
         'contact_address': 'str',
         'contact_zip_code': 'str',
@@ -62,6 +63,7 @@ class Contact(object):
         'id': 'id',
         'contact_group': 'contactGroup',
         'contact_type': 'contactType',
+        'contact_code': 'contactCode',
         'contact_name': 'contactName',
         'contact_address': 'contactAddress',
         'contact_zip_code': 'contactZipCode',
@@ -83,7 +85,7 @@ class Contact(object):
         'contact_note': 'contactNote'
     }
 
-    def __init__(self, id=None, contact_group=3, contact_type=3, contact_name=None, contact_address=None, contact_zip_code=None, contact_tax_id=None, contact_branch_code=None, contact_branch='สำนักงานใหญ่', contact_person=None, contact_email=None, contact_mobile=None, contact_bank_id=0, contact_bank_account_number=None, contact_bank_branch=None, contact_bank_account_type=1, contact_credit_days=0, contact_office=None, contact_fax=None, contact_website=None, conatact_shipping_address=None, contact_note=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, contact_group=3, contact_type=3, contact_code=None, contact_name=None, contact_address=None, contact_zip_code=None, contact_tax_id=None, contact_branch_code=None, contact_branch='สำนักงานใหญ่', contact_person=None, contact_email=None, contact_mobile=None, contact_bank_id=0, contact_bank_account_number=None, contact_bank_branch=None, contact_bank_account_type=1, contact_credit_days=0, contact_office=None, contact_fax=None, contact_website=None, conatact_shipping_address=None, contact_note=None, local_vars_configuration=None):  # noqa: E501
         """Contact - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +94,7 @@ class Contact(object):
         self._id = None
         self._contact_group = None
         self._contact_type = None
+        self._contact_code = None
         self._contact_name = None
         self._contact_address = None
         self._contact_zip_code = None
@@ -117,6 +120,8 @@ class Contact(object):
             self.id = id
         self.contact_group = contact_group
         self.contact_type = contact_type
+        if contact_code is not None:
+            self.contact_code = contact_code
         self.contact_name = contact_name
         if contact_address is not None:
             self.contact_address = contact_address
@@ -227,6 +232,29 @@ class Contact(object):
             raise ValueError("Invalid value for `contact_type`, must not be `None`")  # noqa: E501
 
         self._contact_type = contact_type
+
+    @property
+    def contact_code(self):
+        """Gets the contact_code of this Contact.  # noqa: E501
+
+        รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>  # noqa: E501
+
+        :return: The contact_code of this Contact.  # noqa: E501
+        :rtype: int
+        """
+        return self._contact_code
+
+    @contact_code.setter
+    def contact_code(self, contact_code):
+        """Sets the contact_code of this Contact.
+
+        รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>  # noqa: E501
+
+        :param contact_code: The contact_code of this Contact.  # noqa: E501
+        :type: int
+        """
+
+        self._contact_code = contact_code
 
     @property
     def contact_name(self):

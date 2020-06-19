@@ -90,28 +90,28 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Get list all billing notes documents.
+    # Get all billing notes documents.
     # เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
     # @param current_page [Integer] Query current page document billing notes. &lt;br&gt;Example Pattern: &lt;ex&gt;/billing-notes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/billing-notes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
     # @param page_size [Integer] Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort_by Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter 
+    # @option opts [String] :filter Query filter billing-notes. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
     # @return [AllDocumentResponse]
     def billing_notes_get(current_page, page_size, authorization, opts = {})
       data, _status_code, _headers = billing_notes_get_with_http_info(current_page, page_size, authorization, opts)
       data
     end
 
-    # Get list all billing notes documents.
+    # Get all billing notes documents.
     # เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
     # @param current_page [Integer] Query current page document billing notes. &lt;br&gt;Example Pattern: &lt;ex&gt;/billing-notes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/billing-notes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
     # @param page_size [Integer] Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort_by Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter 
+    # @option opts [String] :filter Query filter billing-notes. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
     # @return [Array<(AllDocumentResponse, Integer, Hash)>] AllDocumentResponse data, response status code and response headers
     def billing_notes_get_with_http_info(current_page, page_size, authorization, opts = {})
       if @api_client.config.debugging
@@ -173,7 +173,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Add Attachment to billing notes document.
+    # Attachment billing notes document.
     # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
     # @param authorization [String] 
     # @param id [String] documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -185,7 +185,7 @@ module OpenapiClient
       data
     end
 
-    # Add Attachment to billing notes document.
+    # Attachment billing notes document.
     # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
     # @param authorization [String] 
     # @param id [String] documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -462,7 +462,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Change status of billing notes document.
+    # Change status billing notes document.
     # เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId
@@ -474,7 +474,7 @@ module OpenapiClient
       data
     end
 
-    # Change status of billing notes document.
+    # Change status billing notes document.
     # เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId
@@ -537,7 +537,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create billing notes document with discount and tax inline.
+    # Create billing notes document inline discount or inline vat.
     # สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
     # @param authorization [String] 
     # @param inline_document [InlineDocument] 
@@ -548,7 +548,7 @@ module OpenapiClient
       data
     end
 
-    # Create billing notes document with discount and tax inline.
+    # Create billing notes document inline discount or inline vat.
     # สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
     # @param authorization [String] 
     # @param inline_document [InlineDocument] 

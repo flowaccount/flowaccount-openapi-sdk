@@ -66,6 +66,14 @@ namespace Flowaccount.OpenAPITools.Test
 
 
         /// <summary>
+        /// Test the property 'RecordId'
+        /// </summary>
+        [Test]
+        public void RecordIdTest()
+        {
+            // TODO unit test for the property 'RecordId'
+        }
+        /// <summary>
         /// Test the property 'DocumentId'
         /// </summary>
         [Test]

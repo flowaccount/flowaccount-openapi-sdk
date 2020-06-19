@@ -62,7 +62,7 @@ public class QuotationsApiTest {
     }
     
     /**
-     * Get list all quotations documents.
+     * Get all quotations documents.
      *
      * เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
      *
@@ -82,7 +82,7 @@ public class QuotationsApiTest {
     }
     
     /**
-     * Add Attachment to quotations document.
+     * Attachment quotations document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
      *
@@ -152,7 +152,7 @@ public class QuotationsApiTest {
     }
     
     /**
-     * Change status of quotations document.
+     * Change status quotations document.
      *
      * เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      *
@@ -170,7 +170,7 @@ public class QuotationsApiTest {
     }
     
     /**
-     * Create quotations document with discount and tax inline.
+     * Create quotations document inline discount or inline vat.
      *
      * สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
      *

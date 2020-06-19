@@ -4,21 +4,21 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**withholding_taxes_email_document_post**](WithholdingTaxApi.md#withholding_taxes_email_document_post) | **POST** /withholding-taxes/email-document | Send email withholding tax document.
-[**withholding_taxes_get**](WithholdingTaxApi.md#withholding_taxes_get) | **GET** /withholding-taxes | Get list all withholding tax documents.
-[**withholding_taxes_id_attachment_post**](WithholdingTaxApi.md#withholding_taxes_id_attachment_post) | **POST** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
+[**withholding_taxes_email_document_post**](WithholdingTaxApi.md#withholding_taxes_email_document_post) | **POST** /withholding-taxes/email-document | Send email withholding tax.
+[**withholding_taxes_get**](WithholdingTaxApi.md#withholding_taxes_get) | **GET** /withholding-taxes | Get all withholding tax documents.
+[**withholding_taxes_id_attachment_post**](WithholdingTaxApi.md#withholding_taxes_id_attachment_post) | **POST** /withholding-taxes/{id}/attachment | Attachment withholding tax.
 [**withholding_taxes_id_delete**](WithholdingTaxApi.md#withholding_taxes_id_delete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**withholding_taxes_id_get**](WithholdingTaxApi.md#withholding_taxes_id_get) | **GET** /withholding-taxes/{id} | Get withholding tax document.
 [**withholding_taxes_id_put**](WithholdingTaxApi.md#withholding_taxes_id_put) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
-[**withholding_taxes_id_status_status_id_post**](WithholdingTaxApi.md#withholding_taxes_id_status_status_id_post) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
+[**withholding_taxes_id_status_status_id_post**](WithholdingTaxApi.md#withholding_taxes_id_status_status_id_post) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status withholding tax document.
 [**withholding_taxes_post**](WithholdingTaxApi.md#withholding_taxes_post) | **POST** /withholding-taxes | Create withholding tax document.
-[**withholding_taxes_sharedocument_post**](WithholdingTaxApi.md#withholding_taxes_sharedocument_post) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
+[**withholding_taxes_sharedocument_post**](WithholdingTaxApi.md#withholding_taxes_sharedocument_post) | **POST** /withholding-taxes/sharedocument | Share link withholding tax.
 
 
 # **withholding_taxes_email_document_post**
 > SendEmailResponse withholding_taxes_email_document_post(authorization, send_email_simple)
 
-Send email withholding tax document.
+Send email withholding tax.
 
 ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
@@ -45,7 +45,7 @@ with openapi_client.ApiClient() as api_client:
 send_email_simple = openapi_client.SendEmailSimple() # SendEmailSimple | 
 
     try:
-        # Send email withholding tax document.
+        # Send email withholding tax.
         api_response = api_instance.withholding_taxes_email_document_post(authorization, send_email_simple)
         pprint(api_response)
     except ApiException as e:
@@ -84,7 +84,7 @@ No authorization required
 # **withholding_taxes_get**
 > AllWithholidingTaxDocumentResponse withholding_taxes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
-Get list all withholding tax documents.
+Get all withholding tax documents.
 
 เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
 
@@ -110,11 +110,11 @@ with openapi_client.ApiClient() as api_client:
     current_page = 56 # int | Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
 page_size = 56 # int | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
-sort_by = 'sort_by_example' # str | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-filter = 'filter_example' # str |  (optional)
+sort_by = 'sort_by_example' # str | Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
+filter = 'filter_example' # str | Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
     try:
-        # Get list all withholding tax documents.
+        # Get all withholding tax documents.
         api_response = api_instance.withholding_taxes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -128,8 +128,8 @@ Name | Type | Description  | Notes
  **current_page** | **int**| Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **page_size** | **int**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
- **sort_by** | **str**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **str**|  | [optional] 
+ **sort_by** | **str**| Query sort by withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
+ **filter** | **str**| Query filter withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -156,7 +156,7 @@ No authorization required
 # **withholding_taxes_id_attachment_post**
 > AttachmentResponse withholding_taxes_id_attachment_post(authorization, id, file=file)
 
-Add Attachment to expenses.
+Attachment withholding tax.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
 
@@ -184,7 +184,7 @@ id = 'id_example' # str |
 file = '/path/to/file' # file |  (optional)
 
     try:
-        # Add Attachment to expenses.
+        # Attachment withholding tax.
         api_response = api_instance.withholding_taxes_id_attachment_post(authorization, id, file=file)
         pprint(api_response)
     except ApiException as e:
@@ -424,7 +424,7 @@ No authorization required
 # **withholding_taxes_id_status_status_id_post**
 > WithholidingTaxDocumentResponse withholding_taxes_id_status_status_id_post(authorization, id, status_id)
 
-Change status of withholding tax document.
+Change status withholding tax document.
 
 เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
 
@@ -452,7 +452,7 @@ id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> processed = ดำเนินการแล้ว <br> void = ยกเลิก
 
     try:
-        # Change status of withholding tax document.
+        # Change status withholding tax document.
         api_response = api_instance.withholding_taxes_id_status_status_id_post(authorization, id, status_id)
         pprint(api_response)
     except ApiException as e:
@@ -558,7 +558,7 @@ No authorization required
 # **withholding_taxes_sharedocument_post**
 > ShareDocumentResponse withholding_taxes_sharedocument_post(authorization, share_document)
 
-Share link withholding tax documents.
+Share link withholding tax.
 
 แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
@@ -585,7 +585,7 @@ with openapi_client.ApiClient() as api_client:
 share_document = openapi_client.ShareDocument() # ShareDocument | 
 
     try:
-        # Share link withholding tax documents.
+        # Share link withholding tax.
         api_response = api_instance.withholding_taxes_sharedocument_post(authorization, share_document)
         pprint(api_response)
     except ApiException as e:

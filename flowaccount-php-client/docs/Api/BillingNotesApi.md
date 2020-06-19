@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**billingNotesEmailDocumentPost**](BillingNotesApi.md#billingNotesEmailDocumentPost) | **POST** /billing-notes/email-document | Send email billing notes document.
-[**billingNotesGet**](BillingNotesApi.md#billingNotesGet) | **GET** /billing-notes | Get list all billing notes documents.
-[**billingNotesIdAttachmentPost**](BillingNotesApi.md#billingNotesIdAttachmentPost) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes document.
+[**billingNotesGet**](BillingNotesApi.md#billingNotesGet) | **GET** /billing-notes | Get all billing notes documents.
+[**billingNotesIdAttachmentPost**](BillingNotesApi.md#billingNotesIdAttachmentPost) | **POST** /billing-notes/{id}/attachment | Attachment billing notes document.
 [**billingNotesIdDelete**](BillingNotesApi.md#billingNotesIdDelete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**billingNotesIdGet**](BillingNotesApi.md#billingNotesIdGet) | **GET** /billing-notes/{id} | Get billing notes document.
 [**billingNotesIdPut**](BillingNotesApi.md#billingNotesIdPut) | **PUT** /billing-notes/{id} | Edit billing notes document.
-[**billingNotesIdStatusStatusIdPost**](BillingNotesApi.md#billingNotesIdStatusStatusIdPost) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
-[**billingNotesInlinePost**](BillingNotesApi.md#billingNotesInlinePost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
+[**billingNotesIdStatusStatusIdPost**](BillingNotesApi.md#billingNotesIdStatusStatusIdPost) | **POST** /billing-notes/{id}/status/{statusId} | Change status billing notes document.
+[**billingNotesInlinePost**](BillingNotesApi.md#billingNotesInlinePost) | **POST** /billing-notes/inline | Create billing notes document inline discount or inline vat.
 [**billingNotesPost**](BillingNotesApi.md#billingNotesPost) | **POST** /billing-notes | Create billing notes document.
 [**billingNotesSharedocumentPost**](BillingNotesApi.md#billingNotesSharedocumentPost) | **POST** /billing-notes/sharedocument | Share link billing notes document.
 
@@ -79,7 +79,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\AllDocumentResponse billingNotesGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
-Get list all billing notes documents.
+Get all billing notes documents.
 
 เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
 
@@ -99,7 +99,7 @@ $current_page = 56; // int | Query current page document billing notes. <br>Exam
 $page_size = 56; // int | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
 $sort_by = 'sort_by_example'; // string | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-$filter = 'filter_example'; // string | 
+$filter = 'filter_example'; // string | Query filter billing-notes. <br>Example Pattern: <ex> /billing-notes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 
 try {
     $result = $apiInstance->billingNotesGet($current_page, $page_size, $authorization, $sort_by, $filter);
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **string**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
- **filter** | **string**|  | [optional]
+ **filter** | **string**| Query filter billing-notes. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional]
 
 ### Return type
 
@@ -143,7 +143,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\AttachmentResponse billingNotesIdAttachmentPost($authorization, $id, $file)
 
-Add Attachment to billing notes document.
+Attachment billing notes document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
 
@@ -379,7 +379,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse billingNotesIdStatusStatusIdPost($authorization, $id, $status_id)
 
-Change status of billing notes document.
+Change status billing notes document.
 
 เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
 
@@ -439,7 +439,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse billingNotesInlinePost($authorization, $inline_document)
 
-Create billing notes document with discount and tax inline.
+Create billing notes document inline discount or inline vat.
 
 สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
 

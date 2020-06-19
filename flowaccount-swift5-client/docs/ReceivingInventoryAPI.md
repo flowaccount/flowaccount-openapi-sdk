@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**purchasesEmailDocumentPost**](ReceivingInventoryAPI.md#purchasesemaildocumentpost) | **POST** /purchases/email-document | Send email receiving inventory document.
-[**purchasesGet**](ReceivingInventoryAPI.md#purchasesget) | **GET** /purchases | Get list all receiving inventory documents.
-[**purchasesIdAttachmentPost**](ReceivingInventoryAPI.md#purchasesidattachmentpost) | **POST** /purchases/{id}/attachment | Add Attachment to receiving inventory document.
+[**purchasesGet**](ReceivingInventoryAPI.md#purchasesget) | **GET** /purchases | Get all receiving inventory documents.
+[**purchasesIdAttachmentPost**](ReceivingInventoryAPI.md#purchasesidattachmentpost) | **POST** /purchases/{id}/attachment | Attachment receiving inventory document.
 [**purchasesIdDelete**](ReceivingInventoryAPI.md#purchasesiddelete) | **DELETE** /purchases/{id} | Delete receiving inventory document.
 [**purchasesIdGet**](ReceivingInventoryAPI.md#purchasesidget) | **GET** /purchases/{id} | Get receiving inventory document.
-[**purchasesIdPaymentPost**](ReceivingInventoryAPI.md#purchasesidpaymentpost) | **POST** /purchases/{id}/payment | Change paid status of receiving inventory document.
+[**purchasesIdPaymentPost**](ReceivingInventoryAPI.md#purchasesidpaymentpost) | **POST** /purchases/{id}/payment | Change status is paid receiving inventory document.
 [**purchasesIdPut**](ReceivingInventoryAPI.md#purchasesidput) | **PUT** /purchases/{id} | Edit receiving inventory document.
-[**purchasesIdStatusStatusIdPost**](ReceivingInventoryAPI.md#purchasesidstatusstatusidpost) | **POST** /purchases/{id}/status/{statusId} | Change status of receiving inventory document.
-[**purchasesInlinePost**](ReceivingInventoryAPI.md#purchasesinlinepost) | **POST** /purchases/inline | Create receiving inventory document with discount and tax inline.
-[**purchasesInlineWithPaymentPost**](ReceivingInventoryAPI.md#purchasesinlinewithpaymentpost) | **POST** /purchases/inline/with-payment | Create receiving inventory document with discount and tax inline with payment.
+[**purchasesIdStatusStatusIdPost**](ReceivingInventoryAPI.md#purchasesidstatusstatusidpost) | **POST** /purchases/{id}/status/{statusId} | Change status receiving inventory document.
+[**purchasesInlinePost**](ReceivingInventoryAPI.md#purchasesinlinepost) | **POST** /purchases/inline | Create receiving inventory document inline discount or inline vat.
+[**purchasesInlineWithPaymentPost**](ReceivingInventoryAPI.md#purchasesinlinewithpaymentpost) | **POST** /purchases/inline/with-payment | Create receiving inventory document inline discount or inline vat with payment.
 [**purchasesPost**](ReceivingInventoryAPI.md#purchasespost) | **POST** /purchases | Create receiving inventory document.
 [**purchasesSharedocumentPost**](ReceivingInventoryAPI.md#purchasessharedocumentpost) | **POST** /purchases/sharedocument | Share link receiving inventory document.
 [**purchasesWithPaymentPost**](ReceivingInventoryAPI.md#purchaseswithpaymentpost) | **POST** /purchases/with-payment | Create receiving inventory document with payment.
@@ -76,7 +76,7 @@ No authorization required
     open class func purchasesGet(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: AllDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Get list all receiving inventory documents.
+Get all receiving inventory documents.
 
 เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
 
@@ -89,9 +89,9 @@ let currentPage = 987 // Int | Query current page document purchases. <br>Exampl
 let pageSize = 987 // Int | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?pageSize=20 </ex>
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let sortBy = "sortBy_example" // String | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-let filter = "filter_example" // String |  (optional)
+let filter = "filter_example" // String | Query filter purchases. <br>Example Pattern: <ex> /purchases?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
-// Get list all receiving inventory documents.
+// Get all receiving inventory documents.
 ReceivingInventoryAPI.purchasesGet(currentPage: currentPage, pageSize: pageSize, authorization: authorization, sortBy: sortBy, filter: filter) { (response, error) in
     guard error == nil else {
         print(error)
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String** |  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **String** | Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String** |  | [optional] 
+ **filter** | **String** | Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -134,7 +134,7 @@ No authorization required
     open class func purchasesIdAttachmentPost(authorization: String, id: String, file: URL? = nil, completion: @escaping (_ data: AttachmentResponse?, _ error: Error?) -> Void)
 ```
 
-Add Attachment to receiving inventory document.
+Attachment receiving inventory document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
 
@@ -147,7 +147,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
 let file = URL(string: "https://example.com")! // URL | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
-// Add Attachment to receiving inventory document.
+// Attachment receiving inventory document.
 ReceivingInventoryAPI.purchasesIdAttachmentPost(authorization: authorization, id: id, file: file) { (response, error) in
     guard error == nil else {
         print(error)
@@ -292,7 +292,7 @@ No authorization required
     open class func purchasesIdPaymentPost(authorization: String, id: String, paymentPaidDocument: PaymentPaidDocument, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change paid status of receiving inventory document.
+Change status is paid receiving inventory document.
 
 ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
 
@@ -305,7 +305,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId หรือ documentId
 let paymentPaidDocument = PaymentPaidDocument(paymentStructureType: "paymentStructureType_example", documentId: 123, paymentMethod: 123, paymentDate: Date(), collected: 123, withheldPercentage: 123, withheldAmount: 123, paymentRemarks: "paymentRemarks_example", remainingCollectedType: 123, remainingCollected: 123, transferBankAccountId: 123, bankAccountId: 123, paymentCharge: 123, chequeDate: Date(), chequeNumber: "chequeNumber_example", chequeBankAccountId: 123, creditCardBankAccountId: 123) // PaymentPaidDocument | 
 
-// Change paid status of receiving inventory document.
+// Change status is paid receiving inventory document.
 ReceivingInventoryAPI.purchasesIdPaymentPost(authorization: authorization, id: id, paymentPaidDocument: paymentPaidDocument) { (response, error) in
     guard error == nil else {
         print(error)
@@ -400,7 +400,7 @@ No authorization required
     open class func purchasesIdStatusStatusIdPost(authorization: String, id: String, statusId: String, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change status of receiving inventory document.
+Change status receiving inventory document.
 
 เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -413,7 +413,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId
 let statusId = "statusId_example" // String | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> void = ยกเลิก
 
-// Change status of receiving inventory document.
+// Change status receiving inventory document.
 ReceivingInventoryAPI.purchasesIdStatusStatusIdPost(authorization: authorization, id: id, statusId: statusId) { (response, error) in
     guard error == nil else {
         print(error)
@@ -454,7 +454,7 @@ No authorization required
     open class func purchasesInlinePost(authorization: String, inlineDocument: InlineDocument, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Create receiving inventory document with discount and tax inline.
+Create receiving inventory document inline discount or inline vat.
 
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
 
@@ -466,7 +466,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let inlineDocument = InlineDocument(discountType: 123, useInlineDiscount: false, useInlineVat: false, exemptAmount: 123, vatableAmount: 123, items: [InlineProductItem(type: 123, name: "name_example", description: "description_example", quantity: 123, unitName: "unitName_example", pricePerUnit: 123, total: 123, sellChartOfAccountCode: "sellChartOfAccountCode_example", buyChartOfAccountCode: "buyChartOfAccountCode_example", discountAmount: 123, vatRate: 123)], documentReference: [UpgradeDocument(recordId: 123, referenceDocumentSerial: "referenceDocumentSerial_example", referenceDocumentType: 123)]) // InlineDocument | 
 
-// Create receiving inventory document with discount and tax inline.
+// Create receiving inventory document inline discount or inline vat.
 ReceivingInventoryAPI.purchasesInlinePost(authorization: authorization, inlineDocument: inlineDocument) { (response, error) in
     guard error == nil else {
         print(error)
@@ -506,7 +506,7 @@ No authorization required
     open class func purchasesInlineWithPaymentPost(authorization: String, inlineDocumentWithPaymentPaid: InlineDocumentWithPaymentPaid, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Create receiving inventory document with discount and tax inline with payment.
+Create receiving inventory document inline discount or inline vat with payment.
 
 สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 
@@ -518,7 +518,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let inlineDocumentWithPaymentPaid = InlineDocumentWithPaymentPaid(contactCode: "contactCode_example", contactName: "contactName_example", contactAddress: "contactAddress_example", contactTaxId: "contactTaxId_example", contactBranch: "contactBranch_example", contactPerson: "contactPerson_example", contactEmail: "contactEmail_example", contactNumber: "contactNumber_example", contactZipCode: "contactZipCode_example", contactGroup: 123, publishedOn: Date(), creditType: 123, creditDays: 123, dueDate: Date(), salesName: "salesName_example", projectName: "projectName_example", reference: "reference_example", isVatInclusive: false, useReceiptDeduction: false, items: [SimpleProductItem()], subTotal: 123, discountPercentage: 123, discountAmount: 123, totalAfterDiscount: 123, isVat: false, vatAmount: 123, grandTotal: 123, discountType: 123, useInlineDiscount: false, useInlineVat: false, exemptAmount: 123, vatableAmount: 123, documentShowWithholdingTax: false, documentWithholdingTaxPercentage: 123, documentWithholdingTaxAmount: 123, documentDeductionType: 123, documentDeductionAmount: 123, remarks: "remarks_example", internalNotes: "internalNotes_example", showSignatureOrStamp: false, documentReference: [UpgradeDocument(recordId: 123, referenceDocumentSerial: "referenceDocumentSerial_example", referenceDocumentType: 123)], documentPaymentStructureType: "documentPaymentStructureType_example", paymentMethod: 123, paymentDate: Date(), collected: 123, withheldPercentage: 123, withheldAmount: 123, paymentRemarks: "paymentRemarks_example", remainingCollectedType: 123, remainingCollected: 123, transferBankAccountId: 123, bankAccountId: 123, paymentCharge: 123, chequeDate: Date(), chequeNumber: "chequeNumber_example", chequeBankAccountId: 123, creditCardBankAccountId: 123) // InlineDocumentWithPaymentPaid | 
 
-// Create receiving inventory document with discount and tax inline with payment.
+// Create receiving inventory document inline discount or inline vat with payment.
 ReceivingInventoryAPI.purchasesInlineWithPaymentPost(authorization: authorization, inlineDocumentWithPaymentPaid: inlineDocumentWithPaymentPaid) { (response, error) in
     guard error == nil else {
         print(error)

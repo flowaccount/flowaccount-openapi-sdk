@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property contactCode (base name: "contactCode")', function() {
+      // uncomment below and update the code to test the property contactCode
+      //var instane = new FlowAccountOpenApi.Contact();
+      //expect(instance).to.be();
+    });
+
     it('should have the property contactName (base name: "contactName")', function() {
       // uncomment below and update the code to test the property contactName
       //var instane = new FlowAccountOpenApi.Contact();

@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(FlowAccountOpenApi.WithholidingTaxDocumentResponseData);
     });
 
+    it('should have the property recordId (base name: "recordId")', function() {
+      // uncomment below and update the code to test the property recordId
+      //var instane = new FlowAccountOpenApi.WithholidingTaxDocumentResponseData();
+      //expect(instance).to.be();
+    });
+
     it('should have the property documentId (base name: "documentId")', function() {
       // uncomment below and update the code to test the property documentId
       //var instane = new FlowAccountOpenApi.WithholidingTaxDocumentResponseData();

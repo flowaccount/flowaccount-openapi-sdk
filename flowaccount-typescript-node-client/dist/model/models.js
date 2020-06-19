@@ -17,6 +17,7 @@ __export(require("./bankAccount"));
 __export(require("./bankAccountResponse"));
 __export(require("./bankAccountResponseData"));
 __export(require("./businessCategory"));
+__export(require("./businessCategoryData"));
 __export(require("./companyInfo"));
 __export(require("./companyInfoResponse"));
 __export(require("./companyInfoResponseData"));
@@ -153,6 +154,7 @@ const bankAccount_1 = require("./bankAccount");
 const bankAccountResponse_1 = require("./bankAccountResponse");
 const bankAccountResponseData_1 = require("./bankAccountResponseData");
 const businessCategory_1 = require("./businessCategory");
+const businessCategoryData_1 = require("./businessCategoryData");
 const companyInfo_1 = require("./companyInfo");
 const companyInfoResponse_1 = require("./companyInfoResponse");
 const companyInfoResponseData_1 = require("./companyInfoResponseData");
@@ -301,6 +303,7 @@ let typeMap = {
     "BankAccountResponse": bankAccountResponse_1.BankAccountResponse,
     "BankAccountResponseData": bankAccountResponseData_1.BankAccountResponseData,
     "BusinessCategory": businessCategory_1.BusinessCategory,
+    "BusinessCategoryData": businessCategoryData_1.BusinessCategoryData,
     "CompanyInfo": companyInfo_1.CompanyInfo,
     "CompanyInfoResponse": companyInfoResponse_1.CompanyInfoResponse,
     "CompanyInfoResponseData": companyInfoResponseData_1.CompanyInfoResponseData,

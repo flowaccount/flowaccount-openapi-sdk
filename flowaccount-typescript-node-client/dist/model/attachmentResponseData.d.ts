@@ -1,6 +1,6 @@
 export declare class AttachmentResponseData {
     'attachmentId'?: number;
-    'createdOn'?: object;
+    'createdOn'?: string;
     'attachmentName'?: string;
     'orderNumber'?: number;
     'isDisplay'?: boolean;

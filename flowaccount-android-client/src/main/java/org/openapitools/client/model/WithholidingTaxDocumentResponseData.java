@@ -23,6 +23,8 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class WithholidingTaxDocumentResponseData {
   
+  @SerializedName("recordId")
+  private String recordId = null;
   @SerializedName("documentId")
   private String documentId = null;
   @SerializedName("documentSerial")
@@ -85,6 +87,17 @@ public class WithholidingTaxDocumentResponseData {
   private Integer documentType = null;
   @SerializedName("allowDelete")
   private Boolean allowDelete = null;
+
+  /**
+   * เลข Id เอกสารใบหัก ณ ที่จ่าย
+   **/
+  @ApiModelProperty(value = "เลข Id เอกสารใบหัก ณ ที่จ่าย")
+  public String getRecordId() {
+    return recordId;
+  }
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
 
   /**
    * เลข Id เอกสารใบหัก ณ ที่จ่าย
@@ -436,7 +449,8 @@ public class WithholidingTaxDocumentResponseData {
       return false;
     }
     WithholidingTaxDocumentResponseData withholidingTaxDocumentResponseData = (WithholidingTaxDocumentResponseData) o;
-    return (this.documentId == null ? withholidingTaxDocumentResponseData.documentId == null : this.documentId.equals(withholidingTaxDocumentResponseData.documentId)) &&
+    return (this.recordId == null ? withholidingTaxDocumentResponseData.recordId == null : this.recordId.equals(withholidingTaxDocumentResponseData.recordId)) &&
+        (this.documentId == null ? withholidingTaxDocumentResponseData.documentId == null : this.documentId.equals(withholidingTaxDocumentResponseData.documentId)) &&
         (this.documentSerial == null ? withholidingTaxDocumentResponseData.documentSerial == null : this.documentSerial.equals(withholidingTaxDocumentResponseData.documentSerial)) &&
         (this.contactCode == null ? withholidingTaxDocumentResponseData.contactCode == null : this.contactCode.equals(withholidingTaxDocumentResponseData.contactCode)) &&
         (this.contactName == null ? withholidingTaxDocumentResponseData.contactName == null : this.contactName.equals(withholidingTaxDocumentResponseData.contactName)) &&
@@ -472,6 +486,7 @@ public class WithholidingTaxDocumentResponseData {
   @Override
   public int hashCode() {
     int result = 17;
+    result = 31 * result + (this.recordId == null ? 0: this.recordId.hashCode());
     result = 31 * result + (this.documentId == null ? 0: this.documentId.hashCode());
     result = 31 * result + (this.documentSerial == null ? 0: this.documentSerial.hashCode());
     result = 31 * result + (this.contactCode == null ? 0: this.contactCode.hashCode());
@@ -511,6 +526,7 @@ public class WithholidingTaxDocumentResponseData {
     StringBuilder sb = new StringBuilder();
     sb.append("class WithholidingTaxDocumentResponseData {\n");
     
+    sb.append("  recordId: ").append(recordId).append("\n");
     sb.append("  documentId: ").append(documentId).append("\n");
     sb.append("  documentSerial: ").append(documentSerial).append("\n");
     sb.append("  contactCode: ").append(contactCode).append("\n");

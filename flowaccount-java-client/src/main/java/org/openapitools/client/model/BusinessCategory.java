@@ -23,442 +23,129 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.BusinessCategoryData;
 
 /**
  * BusinessCategory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class BusinessCategory {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private Boolean status;
 
-  public static final String SERIALIZED_NAME_SYSTEM_CODE = "systemCode";
-  @SerializedName(SERIALIZED_NAME_SYSTEM_CODE)
-  private Integer systemCode;
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
 
-  public static final String SERIALIZED_NAME_CATEGORY_ID = "categoryId";
-  @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
-  private Integer categoryId;
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private Integer code;
 
-  public static final String SERIALIZED_NAME_CATEGORY_NAME_LOCAL = "categoryNameLocal";
-  @SerializedName(SERIALIZED_NAME_CATEGORY_NAME_LOCAL)
-  private String categoryNameLocal;
-
-  public static final String SERIALIZED_NAME_CATEGORY_NAME_FOREIGN = "categoryNameForeign";
-  @SerializedName(SERIALIZED_NAME_CATEGORY_NAME_FOREIGN)
-  private String categoryNameForeign;
-
-  public static final String SERIALIZED_NAME_DEBIT_ID = "debitId";
-  @SerializedName(SERIALIZED_NAME_DEBIT_ID)
-  private Integer debitId;
-
-  public static final String SERIALIZED_NAME_DEBIT_CATEGORY = "debitCategory";
-  @SerializedName(SERIALIZED_NAME_DEBIT_CATEGORY)
-  private Integer debitCategory;
-
-  public static final String SERIALIZED_NAME_DEBIT_CODE = "debitCode";
-  @SerializedName(SERIALIZED_NAME_DEBIT_CODE)
-  private String debitCode;
-
-  public static final String SERIALIZED_NAME_DEBIT_NAME_LOCAL = "debitNameLocal";
-  @SerializedName(SERIALIZED_NAME_DEBIT_NAME_LOCAL)
-  private String debitNameLocal;
-
-  public static final String SERIALIZED_NAME_DEBIT_NAME_FOREIGN = "debitNameForeign";
-  @SerializedName(SERIALIZED_NAME_DEBIT_NAME_FOREIGN)
-  private String debitNameForeign;
-
-  public static final String SERIALIZED_NAME_CREDIT_ID = "creditId";
-  @SerializedName(SERIALIZED_NAME_CREDIT_ID)
-  private Integer creditId;
-
-  public static final String SERIALIZED_NAME_CREDIT_CATEGORY = "creditCategory";
-  @SerializedName(SERIALIZED_NAME_CREDIT_CATEGORY)
-  private Integer creditCategory;
-
-  public static final String SERIALIZED_NAME_CREDIT_CODE = "creditCode";
-  @SerializedName(SERIALIZED_NAME_CREDIT_CODE)
-  private String creditCode;
-
-  public static final String SERIALIZED_NAME_CREDIT_NAME_LOCAL = "creditNameLocal";
-  @SerializedName(SERIALIZED_NAME_CREDIT_NAME_LOCAL)
-  private String creditNameLocal;
-
-  public static final String SERIALIZED_NAME_CREDIT_NAME_FOREIGN = "creditNameForeign";
-  @SerializedName(SERIALIZED_NAME_CREDIT_NAME_FOREIGN)
-  private String creditNameForeign;
-
-  public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
-  @SerializedName(SERIALIZED_NAME_KEYWORDS)
-  private String keywords;
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<BusinessCategoryData> data = null;
 
 
-  public BusinessCategory id(Integer id) {
+  public BusinessCategory status(Boolean status) {
     
-    this.id = id;
+    this.status = status;
     return this;
   }
 
    /**
-   * id ของหมวดหมู่ค่าใช้จ่าย
-   * @return id
+   * action success
+   * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "id ของหมวดหมู่ค่าใช้จ่าย")
+  @ApiModelProperty(value = "action success")
 
-  public Integer getId() {
-    return id;
+  public Boolean getStatus() {
+    return status;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setStatus(Boolean status) {
+    this.status = status;
   }
 
 
-  public BusinessCategory systemCode(Integer systemCode) {
+  public BusinessCategory message(String message) {
     
-    this.systemCode = systemCode;
+    this.message = message;
     return this;
   }
 
    /**
-   * เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-   * @return systemCode
+   * error message
+   * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)")
+  @ApiModelProperty(value = "error message")
 
-  public Integer getSystemCode() {
-    return systemCode;
+  public String getMessage() {
+    return message;
   }
 
 
-  public void setSystemCode(Integer systemCode) {
-    this.systemCode = systemCode;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
-  public BusinessCategory categoryId(Integer categoryId) {
+  public BusinessCategory code(Integer code) {
     
-    this.categoryId = categoryId;
+    this.code = code;
     return this;
   }
 
    /**
-   * เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-   * @return categoryId
+   * error code
+   * @return code
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)")
+  @ApiModelProperty(value = "error code")
 
-  public Integer getCategoryId() {
-    return categoryId;
+  public Integer getCode() {
+    return code;
   }
 
 
-  public void setCategoryId(Integer categoryId) {
-    this.categoryId = categoryId;
+  public void setCode(Integer code) {
+    this.code = code;
   }
 
 
-  public BusinessCategory categoryNameLocal(String categoryNameLocal) {
+  public BusinessCategory data(List<BusinessCategoryData> data) {
     
-    this.categoryNameLocal = categoryNameLocal;
+    this.data = data;
+    return this;
+  }
+
+  public BusinessCategory addDataItem(BusinessCategoryData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<BusinessCategoryData>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * ชื่อหมวดหมู่ค่าใช้จ่าย
-   * @return categoryNameLocal
+   * ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
+   * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ชื่อหมวดหมู่ค่าใช้จ่าย")
+  @ApiModelProperty(value = "ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ")
 
-  public String getCategoryNameLocal() {
-    return categoryNameLocal;
+  public List<BusinessCategoryData> getData() {
+    return data;
   }
 
 
-  public void setCategoryNameLocal(String categoryNameLocal) {
-    this.categoryNameLocal = categoryNameLocal;
-  }
-
-
-  public BusinessCategory categoryNameForeign(String categoryNameForeign) {
-    
-    this.categoryNameForeign = categoryNameForeign;
-    return this;
-  }
-
-   /**
-   * ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-   * @return categoryNameForeign
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)")
-
-  public String getCategoryNameForeign() {
-    return categoryNameForeign;
-  }
-
-
-  public void setCategoryNameForeign(String categoryNameForeign) {
-    this.categoryNameForeign = categoryNameForeign;
-  }
-
-
-  public BusinessCategory debitId(Integer debitId) {
-    
-    this.debitId = debitId;
-    return this;
-  }
-
-   /**
-   * เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-   * @return debitId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต")
-
-  public Integer getDebitId() {
-    return debitId;
-  }
-
-
-  public void setDebitId(Integer debitId) {
-    this.debitId = debitId;
-  }
-
-
-  public BusinessCategory debitCategory(Integer debitCategory) {
-    
-    this.debitCategory = debitCategory;
-    return this;
-  }
-
-   /**
-   * เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-   * @return debitCategory
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย")
-
-  public Integer getDebitCategory() {
-    return debitCategory;
-  }
-
-
-  public void setDebitCategory(Integer debitCategory) {
-    this.debitCategory = debitCategory;
-  }
-
-
-  public BusinessCategory debitCode(String debitCode) {
-    
-    this.debitCode = debitCode;
-    return this;
-  }
-
-   /**
-   * เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-   * @return debitCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต")
-
-  public String getDebitCode() {
-    return debitCode;
-  }
-
-
-  public void setDebitCode(String debitCode) {
-    this.debitCode = debitCode;
-  }
-
-
-  public BusinessCategory debitNameLocal(String debitNameLocal) {
-    
-    this.debitNameLocal = debitNameLocal;
-    return this;
-  }
-
-   /**
-   * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-   * @return debitNameLocal
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต")
-
-  public String getDebitNameLocal() {
-    return debitNameLocal;
-  }
-
-
-  public void setDebitNameLocal(String debitNameLocal) {
-    this.debitNameLocal = debitNameLocal;
-  }
-
-
-  public BusinessCategory debitNameForeign(String debitNameForeign) {
-    
-    this.debitNameForeign = debitNameForeign;
-    return this;
-  }
-
-   /**
-   * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-   * @return debitNameForeign
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)")
-
-  public String getDebitNameForeign() {
-    return debitNameForeign;
-  }
-
-
-  public void setDebitNameForeign(String debitNameForeign) {
-    this.debitNameForeign = debitNameForeign;
-  }
-
-
-  public BusinessCategory creditId(Integer creditId) {
-    
-    this.creditId = creditId;
-    return this;
-  }
-
-   /**
-   * เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-   * @return creditId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต")
-
-  public Integer getCreditId() {
-    return creditId;
-  }
-
-
-  public void setCreditId(Integer creditId) {
-    this.creditId = creditId;
-  }
-
-
-  public BusinessCategory creditCategory(Integer creditCategory) {
-    
-    this.creditCategory = creditCategory;
-    return this;
-  }
-
-   /**
-   * เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-   * @return creditCategory
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย")
-
-  public Integer getCreditCategory() {
-    return creditCategory;
-  }
-
-
-  public void setCreditCategory(Integer creditCategory) {
-    this.creditCategory = creditCategory;
-  }
-
-
-  public BusinessCategory creditCode(String creditCode) {
-    
-    this.creditCode = creditCode;
-    return this;
-  }
-
-   /**
-   * เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-   * @return creditCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต")
-
-  public String getCreditCode() {
-    return creditCode;
-  }
-
-
-  public void setCreditCode(String creditCode) {
-    this.creditCode = creditCode;
-  }
-
-
-  public BusinessCategory creditNameLocal(String creditNameLocal) {
-    
-    this.creditNameLocal = creditNameLocal;
-    return this;
-  }
-
-   /**
-   * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต 
-   * @return creditNameLocal
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต ")
-
-  public String getCreditNameLocal() {
-    return creditNameLocal;
-  }
-
-
-  public void setCreditNameLocal(String creditNameLocal) {
-    this.creditNameLocal = creditNameLocal;
-  }
-
-
-  public BusinessCategory creditNameForeign(String creditNameForeign) {
-    
-    this.creditNameForeign = creditNameForeign;
-    return this;
-  }
-
-   /**
-   * ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-   * @return creditNameForeign
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)")
-
-  public String getCreditNameForeign() {
-    return creditNameForeign;
-  }
-
-
-  public void setCreditNameForeign(String creditNameForeign) {
-    this.creditNameForeign = creditNameForeign;
-  }
-
-
-  public BusinessCategory keywords(String keywords) {
-    
-    this.keywords = keywords;
-    return this;
-  }
-
-   /**
-   * keyword
-   * @return keywords
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "keyword")
-
-  public String getKeywords() {
-    return keywords;
-  }
-
-
-  public void setKeywords(String keywords) {
-    this.keywords = keywords;
+  public void setData(List<BusinessCategoryData> data) {
+    this.data = data;
   }
 
 
@@ -471,27 +158,15 @@ public class BusinessCategory {
       return false;
     }
     BusinessCategory businessCategory = (BusinessCategory) o;
-    return Objects.equals(this.id, businessCategory.id) &&
-        Objects.equals(this.systemCode, businessCategory.systemCode) &&
-        Objects.equals(this.categoryId, businessCategory.categoryId) &&
-        Objects.equals(this.categoryNameLocal, businessCategory.categoryNameLocal) &&
-        Objects.equals(this.categoryNameForeign, businessCategory.categoryNameForeign) &&
-        Objects.equals(this.debitId, businessCategory.debitId) &&
-        Objects.equals(this.debitCategory, businessCategory.debitCategory) &&
-        Objects.equals(this.debitCode, businessCategory.debitCode) &&
-        Objects.equals(this.debitNameLocal, businessCategory.debitNameLocal) &&
-        Objects.equals(this.debitNameForeign, businessCategory.debitNameForeign) &&
-        Objects.equals(this.creditId, businessCategory.creditId) &&
-        Objects.equals(this.creditCategory, businessCategory.creditCategory) &&
-        Objects.equals(this.creditCode, businessCategory.creditCode) &&
-        Objects.equals(this.creditNameLocal, businessCategory.creditNameLocal) &&
-        Objects.equals(this.creditNameForeign, businessCategory.creditNameForeign) &&
-        Objects.equals(this.keywords, businessCategory.keywords);
+    return Objects.equals(this.status, businessCategory.status) &&
+        Objects.equals(this.message, businessCategory.message) &&
+        Objects.equals(this.code, businessCategory.code) &&
+        Objects.equals(this.data, businessCategory.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, systemCode, categoryId, categoryNameLocal, categoryNameForeign, debitId, debitCategory, debitCode, debitNameLocal, debitNameForeign, creditId, creditCategory, creditCode, creditNameLocal, creditNameForeign, keywords);
+    return Objects.hash(status, message, code, data);
   }
 
 
@@ -499,22 +174,10 @@ public class BusinessCategory {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BusinessCategory {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    systemCode: ").append(toIndentedString(systemCode)).append("\n");
-    sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    categoryNameLocal: ").append(toIndentedString(categoryNameLocal)).append("\n");
-    sb.append("    categoryNameForeign: ").append(toIndentedString(categoryNameForeign)).append("\n");
-    sb.append("    debitId: ").append(toIndentedString(debitId)).append("\n");
-    sb.append("    debitCategory: ").append(toIndentedString(debitCategory)).append("\n");
-    sb.append("    debitCode: ").append(toIndentedString(debitCode)).append("\n");
-    sb.append("    debitNameLocal: ").append(toIndentedString(debitNameLocal)).append("\n");
-    sb.append("    debitNameForeign: ").append(toIndentedString(debitNameForeign)).append("\n");
-    sb.append("    creditId: ").append(toIndentedString(creditId)).append("\n");
-    sb.append("    creditCategory: ").append(toIndentedString(creditCategory)).append("\n");
-    sb.append("    creditCode: ").append(toIndentedString(creditCode)).append("\n");
-    sb.append("    creditNameLocal: ").append(toIndentedString(creditNameLocal)).append("\n");
-    sb.append("    creditNameForeign: ").append(toIndentedString(creditNameForeign)).append("\n");
-    sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

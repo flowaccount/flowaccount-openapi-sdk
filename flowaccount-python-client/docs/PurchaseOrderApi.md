@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**purchases_orders_email_document_post**](PurchaseOrderApi.md#purchases_orders_email_document_post) | **POST** /purchases-orders/email-document | Send email purchase order document.
-[**purchases_orders_get**](PurchaseOrderApi.md#purchases_orders_get) | **GET** /purchases-orders | Get list all purchase order documents.
-[**purchases_orders_id_attachment_post**](PurchaseOrderApi.md#purchases_orders_id_attachment_post) | **POST** /purchases-orders/{id}/attachment | Add Attachment to purchase order document.
+[**purchases_orders_get**](PurchaseOrderApi.md#purchases_orders_get) | **GET** /purchases-orders | Get all purchase order documents.
+[**purchases_orders_id_attachment_post**](PurchaseOrderApi.md#purchases_orders_id_attachment_post) | **POST** /purchases-orders/{id}/attachment | Attachment purchase order document.
 [**purchases_orders_id_delete**](PurchaseOrderApi.md#purchases_orders_id_delete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**purchases_orders_id_get**](PurchaseOrderApi.md#purchases_orders_id_get) | **GET** /purchases-orders/{id} | Get purchase order document.
 [**purchases_orders_id_put**](PurchaseOrderApi.md#purchases_orders_id_put) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-[**purchases_orders_id_status_status_id_post**](PurchaseOrderApi.md#purchases_orders_id_status_status_id_post) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
-[**purchases_orders_inline_post**](PurchaseOrderApi.md#purchases_orders_inline_post) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
+[**purchases_orders_id_status_status_id_post**](PurchaseOrderApi.md#purchases_orders_id_status_status_id_post) | **POST** /purchases-orders/{id}/status/{statusId} | Change status purchase order document.
+[**purchases_orders_inline_post**](PurchaseOrderApi.md#purchases_orders_inline_post) | **POST** /purchases-orders/inline | Create purchase order document inline discount or inline vat.
 [**purchases_orders_post**](PurchaseOrderApi.md#purchases_orders_post) | **POST** /purchases-orders | Create purchase order document.
 [**purchases_orders_sharedocument_post**](PurchaseOrderApi.md#purchases_orders_sharedocument_post) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
 
@@ -85,7 +85,7 @@ No authorization required
 # **purchases_orders_get**
 > AllDocumentResponse purchases_orders_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
-Get list all purchase order documents.
+Get all purchase order documents.
 
 เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
 
@@ -112,10 +112,10 @@ with openapi_client.ApiClient() as api_client:
 page_size = 56 # int | Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 sort_by = 'sort_by_example' # str | Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-filter = 'filter_example' # str |  (optional)
+filter = 'filter_example' # str | Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
     try:
-        # Get list all purchase order documents.
+        # Get all purchase order documents.
         api_response = api_instance.purchases_orders_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **str**| Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **str**|  | [optional] 
+ **filter** | **str**| Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -157,7 +157,7 @@ No authorization required
 # **purchases_orders_id_attachment_post**
 > AttachmentResponse purchases_orders_id_attachment_post(authorization, id, file=file)
 
-Add Attachment to purchase order document.
+Attachment purchase order document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
 
@@ -185,7 +185,7 @@ id = 'id_example' # str | documentId หรือ recordId ของเอกส
 file = '/path/to/file' # file | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
     try:
-        # Add Attachment to purchase order document.
+        # Attachment purchase order document.
         api_response = api_instance.purchases_orders_id_attachment_post(authorization, id, file=file)
         pprint(api_response)
     except ApiException as e:
@@ -425,7 +425,7 @@ No authorization required
 # **purchases_orders_id_status_status_id_post**
 > InlineDocumentResponse purchases_orders_id_status_status_id_post(authorization, id, status_id)
 
-Change status of purchase order document.
+Change status purchase order document.
 
 เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -453,7 +453,7 @@ id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> approvedandprocessed = ดำเนินการแล้ว <br> void = ยกเลิก
 
     try:
-        # Change status of purchase order document.
+        # Change status purchase order document.
         api_response = api_instance.purchases_orders_id_status_status_id_post(authorization, id, status_id)
         pprint(api_response)
     except ApiException as e:
@@ -493,7 +493,7 @@ No authorization required
 # **purchases_orders_inline_post**
 > InlineDocumentResponse purchases_orders_inline_post(authorization, inline_document)
 
-Create purchase order document with discount and tax inline.
+Create purchase order document inline discount or inline vat.
 
 สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>
 
@@ -520,7 +520,7 @@ with openapi_client.ApiClient() as api_client:
 inline_document = openapi_client.InlineDocument() # InlineDocument | 
 
     try:
-        # Create purchase order document with discount and tax inline.
+        # Create purchase order document inline discount or inline vat.
         api_response = api_instance.purchases_orders_inline_post(authorization, inline_document)
         pprint(api_response)
     except ApiException as e:

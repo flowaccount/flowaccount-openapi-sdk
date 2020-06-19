@@ -39,14 +39,14 @@ class TestQuotationsApi(unittest.TestCase):
     def test_quotations_get(self):
         """Test case for quotations_get
 
-        Get list all quotations documents.  # noqa: E501
+        Get all quotations documents.  # noqa: E501
         """
         pass
 
     def test_quotations_id_attachment_post(self):
         """Test case for quotations_id_attachment_post
 
-        Add Attachment to quotations document.  # noqa: E501
+        Attachment quotations document.  # noqa: E501
         """
         pass
 
@@ -74,14 +74,14 @@ class TestQuotationsApi(unittest.TestCase):
     def test_quotations_id_status_status_id_post(self):
         """Test case for quotations_id_status_status_id_post
 
-        Change status of quotations document.  # noqa: E501
+        Change status quotations document.  # noqa: E501
         """
         pass
 
     def test_quotations_inline_post(self):
         """Test case for quotations_inline_post
 
-        Create quotations document with discount and tax inline.  # noqa: E501
+        Create quotations document inline discount or inline vat.  # noqa: E501
         """
         pass
 

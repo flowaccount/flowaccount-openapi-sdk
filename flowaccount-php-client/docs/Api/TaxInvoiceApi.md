@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**taxInvoicesEmailDocumentPost**](TaxInvoiceApi.md#taxInvoicesEmailDocumentPost) | **POST** /tax-invoices/email-document | Send Email tax invoice document
-[**taxInvoicesGet**](TaxInvoiceApi.md#taxInvoicesGet) | **GET** /tax-invoices | Get list all tax invocie documents.
-[**taxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxInvoicesIdAttachmentPost) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
+[**taxInvoicesGet**](TaxInvoiceApi.md#taxInvoicesGet) | **GET** /tax-invoices | Get all tax invocie documents.
+[**taxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxInvoicesIdAttachmentPost) | **POST** /tax-invoices/{id}/attachment | Attachment tax Invoices document.
 [**taxInvoicesIdDelete**](TaxInvoiceApi.md#taxInvoicesIdDelete) | **DELETE** /tax-invoices/{id} | Delete tax invoices document.
 [**taxInvoicesIdGet**](TaxInvoiceApi.md#taxInvoicesIdGet) | **GET** /tax-invoices/{id} | Get tax invoices document.
-[**taxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxInvoicesIdPaymentPost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
+[**taxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxInvoicesIdPaymentPost) | **POST** /tax-invoices/{id}/payment | Change status is paid tax-invoice document.
 [**taxInvoicesIdPut**](TaxInvoiceApi.md#taxInvoicesIdPut) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
-[**taxInvoicesIdStatusStatusIdPost**](TaxInvoiceApi.md#taxInvoicesIdStatusStatusIdPost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status of tax invoices document.
-[**taxInvoicesInlinePost**](TaxInvoiceApi.md#taxInvoicesInlinePost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
-[**taxInvoicesInlineWithPaymentPost**](TaxInvoiceApi.md#taxInvoicesInlineWithPaymentPost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
+[**taxInvoicesIdStatusStatusIdPost**](TaxInvoiceApi.md#taxInvoicesIdStatusStatusIdPost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status tax invoices document.
+[**taxInvoicesInlinePost**](TaxInvoiceApi.md#taxInvoicesInlinePost) | **POST** /tax-invoices/inline | Create tax invocie document inline discount or inline vat.
+[**taxInvoicesInlineWithPaymentPost**](TaxInvoiceApi.md#taxInvoicesInlineWithPaymentPost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document inline discount or inline vat with payment.
 [**taxInvoicesPost**](TaxInvoiceApi.md#taxInvoicesPost) | **POST** /tax-invoices | Create tax invocie document.
 [**taxInvoicesSharedocumentPost**](TaxInvoiceApi.md#taxInvoicesSharedocumentPost) | **POST** /tax-invoices/sharedocument | Share link tax invoice document.
 [**taxInvoicesWithPaymentPost**](TaxInvoiceApi.md#taxInvoicesWithPaymentPost) | **POST** /tax-invoices/with-payment | Create tax invocie document with payment.
@@ -82,7 +82,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\AllDocumentResponse taxInvoicesGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
-Get list all tax invocie documents.
+Get all tax invocie documents.
 
 เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
 
@@ -102,7 +102,7 @@ $current_page = 56; // int | Query current page document tax invoices. <br>Examp
 $page_size = 56; // int | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
 $sort_by = 'sort_by_example'; // string | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-$filter = 'filter_example'; // string | 
+$filter = 'filter_example'; // string | Query filter tax-invoices. <br>Example Pattern: <ex> /tax-invoices?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 
 try {
     $result = $apiInstance->taxInvoicesGet($current_page, $page_size, $authorization, $sort_by, $filter);
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **string**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
- **filter** | **string**|  | [optional]
+ **filter** | **string**| Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional]
 
 ### Return type
 
@@ -146,7 +146,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\AttachmentResponse taxInvoicesIdAttachmentPost($authorization, $id, $file)
 
-Add Attachment to tax Invoices document.
+Attachment tax Invoices document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
@@ -322,7 +322,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdPaymentPost($authorization, $id, $payment_receiving_document)
 
-Change paid status of tax-invoice document.
+Change status is paid tax-invoice document.
 
 เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -442,7 +442,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesIdStatusStatusIdPost($authorization, $id, $status_id)
 
-Change status of tax invoices document.
+Change status tax invoices document.
 
 เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -502,7 +502,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesInlinePost($authorization, $inline_document)
 
-Create tax invocie document with discount and tax inline.
+Create tax invocie document inline discount or inline vat.
 
 สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
 
@@ -560,7 +560,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse taxInvoicesInlineWithPaymentPost($authorization, $inline_document_with_payment_receiving)
 
-Create tax invocie document with discount and tax inline with payment.
+Create tax invocie document inline discount or inline vat with payment.
 
 สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 

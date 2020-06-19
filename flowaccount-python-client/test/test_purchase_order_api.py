@@ -39,14 +39,14 @@ class TestPurchaseOrderApi(unittest.TestCase):
     def test_purchases_orders_get(self):
         """Test case for purchases_orders_get
 
-        Get list all purchase order documents.  # noqa: E501
+        Get all purchase order documents.  # noqa: E501
         """
         pass
 
     def test_purchases_orders_id_attachment_post(self):
         """Test case for purchases_orders_id_attachment_post
 
-        Add Attachment to purchase order document.  # noqa: E501
+        Attachment purchase order document.  # noqa: E501
         """
         pass
 
@@ -74,14 +74,14 @@ class TestPurchaseOrderApi(unittest.TestCase):
     def test_purchases_orders_id_status_status_id_post(self):
         """Test case for purchases_orders_id_status_status_id_post
 
-        Change status of purchase order document.  # noqa: E501
+        Change status purchase order document.  # noqa: E501
         """
         pass
 
     def test_purchases_orders_inline_post(self):
         """Test case for purchases_orders_inline_post
 
-        Create purchase order document with discount and tax inline.  # noqa: E501
+        Create purchase order document inline discount or inline vat.  # noqa: E501
         """
         pass
 

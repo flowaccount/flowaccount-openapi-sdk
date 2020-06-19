@@ -9,7 +9,7 @@
  */
 
 package openapi
-// CompanyInfoResponseData struct for CompanyInfoResponseData
+// CompanyInfoResponseData ข้อมูลบริษัทเรา
 type CompanyInfoResponseData struct {
 	// รหัสบริษัท
 	CompanyId int64 `json:"companyId,omitempty"`

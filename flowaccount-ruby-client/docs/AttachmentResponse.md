@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **status** | **Boolean** | action success | [optional] 
 **message** | **String** | error message | [optional] 
 **code** | **Integer** | error code | [optional] 
-**data** | [**AttachmentResponseData**](AttachmentResponseData.md) |  | [optional] 
+**data** | [**Array&lt;AttachmentResponseData&gt;**](AttachmentResponseData.md) | ข้อมูลไฟล์แนบเอกสาร | [optional] 
 
 ## Code Sample
 

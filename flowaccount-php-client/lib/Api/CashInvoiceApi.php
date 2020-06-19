@@ -401,13 +401,13 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesGet
      *
-     * Get list all cash invoices documents
+     * Get all cash invoices documents
      *
      * @param  int $current_page Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization authorization (required)
      * @param  string $sort_by Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter filter (optional)
+     * @param  string $filter Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -422,13 +422,13 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesGetWithHttpInfo
      *
-     * Get list all cash invoices documents
+     * Get all cash invoices documents
      *
      * @param  int $current_page Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -514,13 +514,13 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesGetAsync
      *
-     * Get list all cash invoices documents
+     * Get all cash invoices documents
      *
      * @param  int $current_page Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -538,13 +538,13 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesGetAsyncWithHttpInfo
      *
-     * Get list all cash invoices documents
+     * Get all cash invoices documents
      *
      * @param  int $current_page Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -595,7 +595,7 @@ class CashInvoiceApi
      * @param  int $page_size Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -746,7 +746,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdAttachmentPost
      *
-     * Add Attachment to cash invoices document.
+     * Attachment cash invoices document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -765,7 +765,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdAttachmentPostWithHttpInfo
      *
-     * Add Attachment to cash invoices document.
+     * Attachment cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -855,7 +855,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdAttachmentPostAsync
      *
-     * Add Attachment to cash invoices document.
+     * Attachment cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -877,7 +877,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdAttachmentPostAsyncWithHttpInfo
      *
-     * Add Attachment to cash invoices document.
+     * Attachment cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -1620,7 +1620,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdPaymentPost
      *
-     * Change paid status of cash invoices document.
+     * Change status is paid cash invoices document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1639,7 +1639,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdPaymentPostWithHttpInfo
      *
-     * Change paid status of cash invoices document.
+     * Change status is paid cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1729,7 +1729,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdPaymentPostAsync
      *
-     * Change paid status of cash invoices document.
+     * Change status is paid cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1751,7 +1751,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdPaymentPostAsyncWithHttpInfo
      *
-     * Change paid status of cash invoices document.
+     * Change status is paid cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2224,7 +2224,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdStatusStatusIdPost
      *
-     * Change status of cash invoices document.
+     * Change status cash invoices document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2243,7 +2243,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdStatusStatusIdPostWithHttpInfo
      *
-     * Change status of cash invoices document.
+     * Change status cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2333,7 +2333,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdStatusStatusIdPostAsync
      *
-     * Change status of cash invoices document.
+     * Change status cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2355,7 +2355,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesIdStatusStatusIdPostAsyncWithHttpInfo
      *
-     * Change status of cash invoices document.
+     * Change status cash invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2531,7 +2531,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlinePost
      *
-     * Create cash invoices document with discount and tax inline.
+     * Create cash invoices document inline discount or inline vat.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document inline_document (required)
@@ -2549,7 +2549,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlinePostWithHttpInfo
      *
-     * Create cash invoices document with discount and tax inline.
+     * Create cash invoices document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2638,7 +2638,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlinePostAsync
      *
-     * Create cash invoices document with discount and tax inline.
+     * Create cash invoices document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2659,7 +2659,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlinePostAsyncWithHttpInfo
      *
-     * Create cash invoices document with discount and tax inline.
+     * Create cash invoices document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2814,7 +2814,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlineWithPaymentPost
      *
-     * Create cash invoices document with discount and tax inline with payment.
+     * Create cash invoices document inline discount or inline vat with payment.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving inline_document_with_payment_receiving (required)
@@ -2832,7 +2832,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlineWithPaymentPostWithHttpInfo
      *
-     * Create cash invoices document with discount and tax inline with payment.
+     * Create cash invoices document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving (required)
@@ -2921,7 +2921,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlineWithPaymentPostAsync
      *
-     * Create cash invoices document with discount and tax inline with payment.
+     * Create cash invoices document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving (required)
@@ -2942,7 +2942,7 @@ class CashInvoiceApi
     /**
      * Operation cashInvoicesInlineWithPaymentPostAsyncWithHttpInfo
      *
-     * Create cash invoices document with discount and tax inline with payment.
+     * Create cash invoices document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving (required)

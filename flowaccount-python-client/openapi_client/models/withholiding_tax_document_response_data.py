@@ -34,6 +34,7 @@ class WithholidingTaxDocumentResponseData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'record_id': 'str',
         'document_id': 'str',
         'document_serial': 'str',
         'contact_code': 'str',
@@ -68,6 +69,7 @@ class WithholidingTaxDocumentResponseData(object):
     }
 
     attribute_map = {
+        'record_id': 'recordId',
         'document_id': 'documentId',
         'document_serial': 'documentSerial',
         'contact_code': 'contactCode',
@@ -101,12 +103,13 @@ class WithholidingTaxDocumentResponseData(object):
         'allow_delete': 'allowDelete'
     }
 
-    def __init__(self, document_id=None, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, entity=1, text_other=None, withholding_tax_items=None, total=None, total_tax_withheld=None, tax_payment=1, tax_payment_others=None, provident_fund_number=None, provident_fund_amount=None, social_security_amount=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, company=None, status=None, status_string=None, document_type=None, allow_delete=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, record_id=None, document_id=None, document_serial=None, contact_code=None, contact_name=None, contact_address=None, contact_tax_id=None, contact_branch=None, contact_person=None, contact_email=None, contact_number=None, contact_zip_code=None, contact_group=1, published_on=None, entity=1, text_other=None, withholding_tax_items=None, total=None, total_tax_withheld=None, tax_payment=1, tax_payment_others=None, provident_fund_number=None, provident_fund_amount=None, social_security_amount=None, remarks=None, internal_notes=None, show_signature_or_stamp=True, company=None, status=None, status_string=None, document_type=None, allow_delete=None, local_vars_configuration=None):  # noqa: E501
         """WithholidingTaxDocumentResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._record_id = None
         self._document_id = None
         self._document_serial = None
         self._contact_code = None
@@ -140,6 +143,8 @@ class WithholidingTaxDocumentResponseData(object):
         self._allow_delete = None
         self.discriminator = None
 
+        if record_id is not None:
+            self.record_id = record_id
         if document_id is not None:
             self.document_id = document_id
         if document_serial is not None:
@@ -202,6 +207,29 @@ class WithholidingTaxDocumentResponseData(object):
             self.document_type = document_type
         if allow_delete is not None:
             self.allow_delete = allow_delete
+
+    @property
+    def record_id(self):
+        """Gets the record_id of this WithholidingTaxDocumentResponseData.  # noqa: E501
+
+        เลข Id เอกสารใบหัก ณ ที่จ่าย  # noqa: E501
+
+        :return: The record_id of this WithholidingTaxDocumentResponseData.  # noqa: E501
+        :rtype: str
+        """
+        return self._record_id
+
+    @record_id.setter
+    def record_id(self, record_id):
+        """Sets the record_id of this WithholidingTaxDocumentResponseData.
+
+        เลข Id เอกสารใบหัก ณ ที่จ่าย  # noqa: E501
+
+        :param record_id: The record_id of this WithholidingTaxDocumentResponseData.  # noqa: E501
+        :type: str
+        """
+
+        self._record_id = record_id
 
     @property
     def document_id(self):

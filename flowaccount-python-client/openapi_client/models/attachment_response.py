@@ -37,7 +37,7 @@ class AttachmentResponse(object):
         'status': 'bool',
         'message': 'str',
         'code': 'int',
-        'data': 'AttachmentResponseData'
+        'data': 'list[AttachmentResponseData]'
     }
 
     attribute_map = {
@@ -141,9 +141,10 @@ class AttachmentResponse(object):
     def data(self):
         """Gets the data of this AttachmentResponse.  # noqa: E501
 
+        ข้อมูลไฟล์แนบเอกสาร  # noqa: E501
 
         :return: The data of this AttachmentResponse.  # noqa: E501
-        :rtype: AttachmentResponseData
+        :rtype: list[AttachmentResponseData]
         """
         return self._data
 
@@ -151,9 +152,10 @@ class AttachmentResponse(object):
     def data(self, data):
         """Sets the data of this AttachmentResponse.
 
+        ข้อมูลไฟล์แนบเอกสาร  # noqa: E501
 
         :param data: The data of this AttachmentResponse.  # noqa: E501
-        :type: AttachmentResponseData
+        :type: list[AttachmentResponseData]
         """
 
         self._data = data

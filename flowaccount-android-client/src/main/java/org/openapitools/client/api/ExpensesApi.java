@@ -72,7 +72,7 @@ public class ExpensesApi {
   }
 
   /**
-  * Accounting categorys expenses document.
+  * Accounting categories expenses document.
   * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
    * @param authorization 
    * @return BusinessCategory
@@ -135,7 +135,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Accounting categorys expenses document.
+   * Accounting categories expenses document.
    * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
    * @param authorization 
   */
@@ -201,7 +201,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Business categorys expenses document.
+  * Business categories expenses document.
   * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
    * @param authorization 
    * @return BusinessCategory
@@ -264,7 +264,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Business categorys expenses document.
+   * Business categories expenses document.
    * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
    * @param authorization 
   */
@@ -473,11 +473,11 @@ public class ExpensesApi {
   /**
   * Get list all expenses documents.
   * เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-   * @param currentPage Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
-   * @param pageSize Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
+   * @param currentPage Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
+   * @param pageSize Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
    * @param authorization 
-   * @param sortBy Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-   * @param filter 
+   * @param sortBy Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+   * @param filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
    * @return AllExpenseDocumentResponse
   */
   public AllExpenseDocumentResponse expensesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -554,7 +554,7 @@ public class ExpensesApi {
       /**
    * Get list all expenses documents.
    * เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-   * @param currentPage Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter 
+   * @param currentPage Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
   */
   public void expensesGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<AllExpenseDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -632,7 +632,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Add Attachment to expenses.
+  * Attachment to expenses document.
   * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
    * @param authorization 
    * @param id 
@@ -706,7 +706,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Add Attachment to expenses.
+   * Attachment to expenses document.
    * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
    * @param authorization    * @param id    * @param file 
   */
@@ -926,9 +926,9 @@ public class ExpensesApi {
   * เรียกดูข้อมูลเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
    * @param authorization 
    * @param id 
-   * @return ExpenseInlineDocumentResponse
+   * @return AllExpenseDocumentResponse
   */
-  public ExpenseInlineDocumentResponse expensesIdGet (String authorization, String id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AllExpenseDocumentResponse expensesIdGet (String authorization, String id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'authorization' is set
     if (authorization == null) {
@@ -969,7 +969,7 @@ public class ExpensesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (ExpenseInlineDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", ExpenseInlineDocumentResponse.class);
+         return (AllExpenseDocumentResponse) ApiInvoker.deserialize(localVarResponse, "", AllExpenseDocumentResponse.class);
       } else {
          return null;
       }
@@ -995,7 +995,7 @@ public class ExpensesApi {
    * เรียกดูข้อมูลเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
    * @param authorization    * @param id 
   */
-  public void expensesIdGet (String authorization, String id, final Response.Listener<ExpenseInlineDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void expensesIdGet (String authorization, String id, final Response.Listener<AllExpenseDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'authorization' is set
@@ -1046,7 +1046,7 @@ public class ExpensesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((ExpenseInlineDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", ExpenseInlineDocumentResponse.class));
+              responseListener.onResponse((AllExpenseDocumentResponse) ApiInvoker.deserialize(localVarResponse,  "", AllExpenseDocumentResponse.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1062,7 +1062,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Change paid status of expenses document.
+  * Change status is paid expenses document.
   * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
    * @param authorization 
    * @param id ID เอกสารใช้ recordId หรือ documentId
@@ -1138,7 +1138,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Change paid status of expenses document.
+   * Change status is paid expenses document.
    * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
    * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param paymentPaidDocument 
   */
@@ -1366,7 +1366,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Change status of expenses document.
+  * Change status expenses document.
   * เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
    * @param authorization 
    * @param id ID เอกสารใช้ recordId
@@ -1441,7 +1441,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Change status of expenses document.
+   * Change status expenses document.
    * เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
    * @param authorization    * @param id ID เอกสารใช้ recordId   * @param statusId เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; received &#x3D; รับใบเสร็จแล้ว &lt;br&gt; void &#x3D; ยกเลิก
   */
@@ -1517,7 +1517,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Create expenses document with discount and tax inline.
+  * Create expenses document inline discount or inline vat.
   * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
    * @param authorization 
    * @param expenseInlineDocument 
@@ -1587,7 +1587,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Create expenses document with discount and tax inline.
+   * Create expenses document inline discount or inline vat.
    * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
    * @param authorization    * @param expenseInlineDocument 
   */
@@ -1658,7 +1658,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Create expenses document with discount and tax inline with payment.
+  * Create expenses document inline discount or inline vat with payment.
   * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization 
    * @param expenseInlineDocumentWithPaymentPaid 
@@ -1728,7 +1728,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Create expenses document with discount and tax inline with payment.
+   * Create expenses document inline discount or inline vat with payment.
    * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization    * @param expenseInlineDocumentWithPaymentPaid 
   */
@@ -1940,7 +1940,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Share link expenses documents.
+  * Share link expenses document.
   * แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
    * @param authorization 
    * @param shareDocument 
@@ -2010,7 +2010,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Share link expenses documents.
+   * Share link expenses document.
    * แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
    * @param authorization    * @param shareDocument 
   */
@@ -2081,7 +2081,7 @@ public class ExpensesApi {
     }
   }
   /**
-  * Create expenses document with-payment.
+  * Create expenses document with payment.
   * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization 
    * @param expenseSimpleDocumentWithPaymentPaid 
@@ -2151,7 +2151,7 @@ public class ExpensesApi {
   }
 
       /**
-   * Create expenses document with-payment.
+   * Create expenses document with payment.
    * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
    * @param authorization    * @param expenseSimpleDocumentWithPaymentPaid 
   */

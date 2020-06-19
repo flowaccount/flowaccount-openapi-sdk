@@ -37,20 +37,20 @@ class ContactsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def contacts_get(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
+    def contacts_get(self, authorization, **kwargs):  # noqa: E501
         """Get list all contacts.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.contacts_get(current_page, page_size, authorization, async_req=True)
+        >>> thread = api.contacts_get(authorization, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int current_page: Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex> (required)
-        :param int page_size: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
-        :param str filter: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
+        :param int current_page: Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
+        :param int page_size: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
+        :param str sort_by: Contact Sort By Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+        :param str filter: Contact Filter Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -63,22 +63,22 @@ class ContactsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.contacts_get_with_http_info(current_page, page_size, authorization, **kwargs)  # noqa: E501
+        return self.contacts_get_with_http_info(authorization, **kwargs)  # noqa: E501
 
-    def contacts_get_with_http_info(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
+    def contacts_get_with_http_info(self, authorization, **kwargs):  # noqa: E501
         """Get list all contacts.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.contacts_get_with_http_info(current_page, page_size, authorization, async_req=True)
+        >>> thread = api.contacts_get_with_http_info(authorization, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int current_page: Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex> (required)
-        :param int page_size: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
-        :param str filter: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
+        :param int current_page: Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
+        :param int page_size: Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
+        :param str sort_by: Contact Sort By Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+        :param str filter: Contact Filter Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -96,9 +96,9 @@ class ContactsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'authorization',
             'current_page',
             'page_size',
-            'authorization',
             'sort_by',
             'filter'
         ]
@@ -119,14 +119,6 @@ class ContactsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'current_page' is set
-        if self.api_client.client_side_validation and ('current_page' not in local_var_params or  # noqa: E501
-                                                        local_var_params['current_page'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `current_page` when calling `contacts_get`")  # noqa: E501
-        # verify the required parameter 'page_size' is set
-        if self.api_client.client_side_validation and ('page_size' not in local_var_params or  # noqa: E501
-                                                        local_var_params['page_size'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `page_size` when calling `contacts_get`")  # noqa: E501
         # verify the required parameter 'authorization' is set
         if self.api_client.client_side_validation and ('authorization' not in local_var_params or  # noqa: E501
                                                         local_var_params['authorization'] is None):  # noqa: E501

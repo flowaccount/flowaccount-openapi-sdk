@@ -63,6 +63,7 @@ class Product implements ModelInterface, ArrayAccess
         'name' => 'string',
         'sell_description' => 'string',
         'sell_price' => 'float',
+        'sell_price_with_vat' => 'float',
         'sell_vat_type' => 'int',
         'unit_name' => 'string',
         'category_id' => 'int',
@@ -71,8 +72,11 @@ class Product implements ModelInterface, ArrayAccess
         'buy_description' => 'string',
         'buy_price' => 'float',
         'buy_vat_type' => 'int',
+        'buy_vat_type_with_vat' => 'float',
         'inventory_published_on' => '\DateTime',
         'inventory_quantity' => 'float',
+        'inventory_price' => 'float',
+        'inventory_total' => 'float',
         'average_buy_price' => 'float',
         'average_sell_price' => 'float',
         'remaining_stock' => 'float',
@@ -91,6 +95,7 @@ class Product implements ModelInterface, ArrayAccess
         'name' => null,
         'sell_description' => null,
         'sell_price' => 'decimal',
+        'sell_price_with_vat' => 'decimal',
         'sell_vat_type' => 'int64',
         'unit_name' => null,
         'category_id' => 'int64',
@@ -99,8 +104,11 @@ class Product implements ModelInterface, ArrayAccess
         'buy_description' => null,
         'buy_price' => 'decimal',
         'buy_vat_type' => 'int64',
+        'buy_vat_type_with_vat' => 'decimal',
         'inventory_published_on' => 'date',
         'inventory_quantity' => 'decimal',
+        'inventory_price' => 'decimal',
+        'inventory_total' => 'decimal',
         'average_buy_price' => 'decimal',
         'average_sell_price' => 'decimal',
         'remaining_stock' => 'decimal',
@@ -140,6 +148,7 @@ class Product implements ModelInterface, ArrayAccess
         'name' => 'name',
         'sell_description' => 'sellDescription',
         'sell_price' => 'sellPrice',
+        'sell_price_with_vat' => 'sellPriceWithVat',
         'sell_vat_type' => 'sellVatType',
         'unit_name' => 'unitName',
         'category_id' => 'categoryId',
@@ -148,8 +157,11 @@ class Product implements ModelInterface, ArrayAccess
         'buy_description' => 'buyDescription',
         'buy_price' => 'buyPrice',
         'buy_vat_type' => 'buyVatType',
+        'buy_vat_type_with_vat' => 'buyVatTypeWithVat',
         'inventory_published_on' => 'inventoryPublishedOn',
         'inventory_quantity' => 'inventoryQuantity',
+        'inventory_price' => 'inventoryPrice',
+        'inventory_total' => 'inventoryTotal',
         'average_buy_price' => 'averageBuyPrice',
         'average_sell_price' => 'averageSellPrice',
         'remaining_stock' => 'remainingStock',
@@ -168,6 +180,7 @@ class Product implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'sell_description' => 'setSellDescription',
         'sell_price' => 'setSellPrice',
+        'sell_price_with_vat' => 'setSellPriceWithVat',
         'sell_vat_type' => 'setSellVatType',
         'unit_name' => 'setUnitName',
         'category_id' => 'setCategoryId',
@@ -176,8 +189,11 @@ class Product implements ModelInterface, ArrayAccess
         'buy_description' => 'setBuyDescription',
         'buy_price' => 'setBuyPrice',
         'buy_vat_type' => 'setBuyVatType',
+        'buy_vat_type_with_vat' => 'setBuyVatTypeWithVat',
         'inventory_published_on' => 'setInventoryPublishedOn',
         'inventory_quantity' => 'setInventoryQuantity',
+        'inventory_price' => 'setInventoryPrice',
+        'inventory_total' => 'setInventoryTotal',
         'average_buy_price' => 'setAverageBuyPrice',
         'average_sell_price' => 'setAverageSellPrice',
         'remaining_stock' => 'setRemainingStock',
@@ -196,6 +212,7 @@ class Product implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'sell_description' => 'getSellDescription',
         'sell_price' => 'getSellPrice',
+        'sell_price_with_vat' => 'getSellPriceWithVat',
         'sell_vat_type' => 'getSellVatType',
         'unit_name' => 'getUnitName',
         'category_id' => 'getCategoryId',
@@ -204,8 +221,11 @@ class Product implements ModelInterface, ArrayAccess
         'buy_description' => 'getBuyDescription',
         'buy_price' => 'getBuyPrice',
         'buy_vat_type' => 'getBuyVatType',
+        'buy_vat_type_with_vat' => 'getBuyVatTypeWithVat',
         'inventory_published_on' => 'getInventoryPublishedOn',
         'inventory_quantity' => 'getInventoryQuantity',
+        'inventory_price' => 'getInventoryPrice',
+        'inventory_total' => 'getInventoryTotal',
         'average_buy_price' => 'getAverageBuyPrice',
         'average_sell_price' => 'getAverageSellPrice',
         'remaining_stock' => 'getRemainingStock',
@@ -278,6 +298,7 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['sell_description'] = isset($data['sell_description']) ? $data['sell_description'] : null;
         $this->container['sell_price'] = isset($data['sell_price']) ? $data['sell_price'] : null;
+        $this->container['sell_price_with_vat'] = isset($data['sell_price_with_vat']) ? $data['sell_price_with_vat'] : null;
         $this->container['sell_vat_type'] = isset($data['sell_vat_type']) ? $data['sell_vat_type'] : 3;
         $this->container['unit_name'] = isset($data['unit_name']) ? $data['unit_name'] : null;
         $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
@@ -286,8 +307,11 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['buy_description'] = isset($data['buy_description']) ? $data['buy_description'] : null;
         $this->container['buy_price'] = isset($data['buy_price']) ? $data['buy_price'] : null;
         $this->container['buy_vat_type'] = isset($data['buy_vat_type']) ? $data['buy_vat_type'] : 3;
+        $this->container['buy_vat_type_with_vat'] = isset($data['buy_vat_type_with_vat']) ? $data['buy_vat_type_with_vat'] : null;
         $this->container['inventory_published_on'] = isset($data['inventory_published_on']) ? $data['inventory_published_on'] : null;
         $this->container['inventory_quantity'] = isset($data['inventory_quantity']) ? $data['inventory_quantity'] : null;
+        $this->container['inventory_price'] = isset($data['inventory_price']) ? $data['inventory_price'] : 0;
+        $this->container['inventory_total'] = isset($data['inventory_total']) ? $data['inventory_total'] : 0;
         $this->container['average_buy_price'] = isset($data['average_buy_price']) ? $data['average_buy_price'] : null;
         $this->container['average_sell_price'] = isset($data['average_sell_price']) ? $data['average_sell_price'] : null;
         $this->container['remaining_stock'] = isset($data['remaining_stock']) ? $data['remaining_stock'] : null;
@@ -458,6 +482,30 @@ class Product implements ModelInterface, ArrayAccess
     public function setSellPrice($sell_price)
     {
         $this->container['sell_price'] = $sell_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets sell_price_with_vat
+     *
+     * @return float|null
+     */
+    public function getSellPriceWithVat()
+    {
+        return $this->container['sell_price_with_vat'];
+    }
+
+    /**
+     * Sets sell_price_with_vat
+     *
+     * @param float|null $sell_price_with_vat ราคาขายสินค้า รวมภาษี
+     *
+     * @return $this
+     */
+    public function setSellPriceWithVat($sell_price_with_vat)
+    {
+        $this->container['sell_price_with_vat'] = $sell_price_with_vat;
 
         return $this;
     }
@@ -655,6 +703,30 @@ class Product implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets buy_vat_type_with_vat
+     *
+     * @return float|null
+     */
+    public function getBuyVatTypeWithVat()
+    {
+        return $this->container['buy_vat_type_with_vat'];
+    }
+
+    /**
+     * Sets buy_vat_type_with_vat
+     *
+     * @param float|null $buy_vat_type_with_vat ราคาซื้อสินค้า รวมภาษี
+     *
+     * @return $this
+     */
+    public function setBuyVatTypeWithVat($buy_vat_type_with_vat)
+    {
+        $this->container['buy_vat_type_with_vat'] = $buy_vat_type_with_vat;
+
+        return $this;
+    }
+
+    /**
      * Gets inventory_published_on
      *
      * @return \DateTime|null
@@ -703,6 +775,54 @@ class Product implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets inventory_price
+     *
+     * @return float|null
+     */
+    public function getInventoryPrice()
+    {
+        return $this->container['inventory_price'];
+    }
+
+    /**
+     * Sets inventory_price
+     *
+     * @param float|null $inventory_price ต้นทุนสินค้าต่อหน่วย
+     *
+     * @return $this
+     */
+    public function setInventoryPrice($inventory_price)
+    {
+        $this->container['inventory_price'] = $inventory_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets inventory_total
+     *
+     * @return float|null
+     */
+    public function getInventoryTotal()
+    {
+        return $this->container['inventory_total'];
+    }
+
+    /**
+     * Sets inventory_total
+     *
+     * @param float|null $inventory_total มูลค่ารวมยอดตั้งต้นสินค้า
+     *
+     * @return $this
+     */
+    public function setInventoryTotal($inventory_total)
+    {
+        $this->container['inventory_total'] = $inventory_total;
+
+        return $this;
+    }
+
+    /**
      * Gets average_buy_price
      *
      * @return float|null
@@ -715,7 +835,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Sets average_buy_price
      *
-     * @param float|null $average_buy_price ราคาซื้อเฉลี่ยสินค้า
+     * @param float|null $average_buy_price ราคาสินค้าซื้อเฉลี่ย
      *
      * @return $this
      */
@@ -739,7 +859,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Sets average_sell_price
      *
-     * @param float|null $average_sell_price ราคาขายเฉลี่ยสินค้า
+     * @param float|null $average_sell_price ราคาขายสินค้าเฉลี่ย
      *
      * @return $this
      */

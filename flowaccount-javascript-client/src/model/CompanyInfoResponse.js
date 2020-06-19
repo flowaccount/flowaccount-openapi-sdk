@@ -58,7 +58,7 @@ class CompanyInfoResponse {
                 obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [CompanyInfoResponseData]);
+                obj['data'] = CompanyInfoResponseData.constructFromObject(data['data']);
             }
         }
         return obj;
@@ -86,8 +86,7 @@ CompanyInfoResponse.prototype['message'] = undefined;
 CompanyInfoResponse.prototype['code'] = undefined;
 
 /**
- * ข้อมูลบริษัทเรา
- * @member {Array.<module:model/CompanyInfoResponseData>} data
+ * @member {module:model/CompanyInfoResponseData} data
  */
 CompanyInfoResponse.prototype['data'] = undefined;
 

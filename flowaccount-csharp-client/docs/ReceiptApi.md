@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ReceiptsEmailDocumentPost**](ReceiptApi.md#receiptsemaildocumentpost) | **POST** /receipts/email-document | Send email receipt document.
-[**ReceiptsGet**](ReceiptApi.md#receiptsget) | **GET** /receipts | Get list all receipt documents
-[**ReceiptsIdAttachmentPost**](ReceiptApi.md#receiptsidattachmentpost) | **POST** /receipts/{id}/attachment | Add Attachment to receipt document.
+[**ReceiptsGet**](ReceiptApi.md#receiptsget) | **GET** /receipts | Get all receipt documents
+[**ReceiptsIdAttachmentPost**](ReceiptApi.md#receiptsidattachmentpost) | **POST** /receipts/{id}/attachment | Attachment receipt document.
 [**ReceiptsIdDelete**](ReceiptApi.md#receiptsiddelete) | **DELETE** /receipts/{id} | Delete receipt document.
 [**ReceiptsIdGet**](ReceiptApi.md#receiptsidget) | **GET** /receipts/{id} | Get receipt document.
-[**ReceiptsIdPaymentPost**](ReceiptApi.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
+[**ReceiptsIdPaymentPost**](ReceiptApi.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change status is paid receipt document.
 [**ReceiptsIdPut**](ReceiptApi.md#receiptsidput) | **PUT** /receipts/{id} | Edit receipt document.
-[**ReceiptsIdStatusStatusIdPost**](ReceiptApi.md#receiptsidstatusstatusidpost) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
-[**ReceiptsInlinePost**](ReceiptApi.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
-[**ReceiptsInlineWithPaymentPost**](ReceiptApi.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+[**ReceiptsIdStatusStatusIdPost**](ReceiptApi.md#receiptsidstatusstatusidpost) | **POST** /receipts/{id}/status/{statusId} | Change status receipt document.
+[**ReceiptsInlinePost**](ReceiptApi.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document inline discount or inline vat.
+[**ReceiptsInlineWithPaymentPost**](ReceiptApi.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document inline discount or inline vat with payment.
 [**ReceiptsPost**](ReceiptApi.md#receiptspost) | **POST** /receipts | Create receipt document.
 [**ReceiptsSharedocumentPost**](ReceiptApi.md#receiptssharedocumentpost) | **POST** /receipts/sharedocument | Share link receipt document.
 [**ReceiptsWithPaymentPost**](ReceiptApi.md#receiptswithpaymentpost) | **POST** /receipts/with-payment | Create receipt document with payment.
@@ -103,7 +103,7 @@ No authorization required
 
 > AllDocumentResponse ReceiptsGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
-Get list all receipt documents
+Get all receipt documents
 
 เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
 
@@ -128,11 +128,11 @@ namespace Example
             var pageSize = 56;  // int | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var sortBy = sortBy_example;  // string | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
-            var filter = filter_example;  // string |  (optional) 
+            var filter = filter_example;  // string | Query filter receipts. <br>Example Pattern: <ex> /receipts?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional) 
 
             try
             {
-                // Get list all receipt documents
+                // Get all receipt documents
                 AllDocumentResponse result = apiInstance.ReceiptsGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **string**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **string**|  | [optional] 
+ **filter** | **string**| Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -188,7 +188,7 @@ No authorization required
 
 > AttachmentResponse ReceiptsIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to receipt document.
+Attachment receipt document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
@@ -215,7 +215,7 @@ namespace Example
 
             try
             {
-                // Add Attachment to receipt document.
+                // Attachment receipt document.
                 AttachmentResponse result = apiInstance.ReceiptsIdAttachmentPost(authorization, id, file);
                 Debug.WriteLine(result);
             }
@@ -427,7 +427,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsIdPaymentPost (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument)
 
-Change paid status of receipt document.
+Change status is paid receipt document.
 
 เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -454,7 +454,7 @@ namespace Example
 
             try
             {
-                // Change paid status of receipt document.
+                // Change status is paid receipt document.
                 InlineDocumentResponse result = apiInstance.ReceiptsIdPaymentPost(authorization, id, paymentReceivingDocument);
                 Debug.WriteLine(result);
             }
@@ -589,7 +589,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsIdStatusStatusIdPost (string authorization, string id, string statusId)
 
-Change status of receipt document.
+Change status receipt document.
 
 เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -616,7 +616,7 @@ namespace Example
 
             try
             {
-                // Change status of receipt document.
+                // Change status receipt document.
                 InlineDocumentResponse result = apiInstance.ReceiptsIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
@@ -670,7 +670,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsInlinePost (string authorization, InlineDocument inlineDocument)
 
-Create receipt document with discount and tax inline.
+Create receipt document inline discount or inline vat.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
 
@@ -696,7 +696,7 @@ namespace Example
 
             try
             {
-                // Create receipt document with discount and tax inline.
+                // Create receipt document inline discount or inline vat.
                 InlineDocumentResponse result = apiInstance.ReceiptsInlinePost(authorization, inlineDocument);
                 Debug.WriteLine(result);
             }
@@ -749,7 +749,7 @@ No authorization required
 
 > InlineDocumentResponse ReceiptsInlineWithPaymentPost (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving)
 
-Create receipt document with discount and tax inline with payment.
+Create receipt document inline discount or inline vat with payment.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 
@@ -775,7 +775,7 @@ namespace Example
 
             try
             {
-                // Create receipt document with discount and tax inline with payment.
+                // Create receipt document inline discount or inline vat with payment.
                 InlineDocumentResponse result = apiInstance.ReceiptsInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
                 Debug.WriteLine(result);
             }

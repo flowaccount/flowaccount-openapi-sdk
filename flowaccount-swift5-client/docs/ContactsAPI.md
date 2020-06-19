@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **contactsGet**
 ```swift
-    open class func contactsGet(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: ContactResponse?, _ error: Error?) -> Void)
+    open class func contactsGet(authorization: String, currentPage: Int? = nil, pageSize: Int? = nil, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: ContactResponse?, _ error: Error?) -> Void)
 ```
 
 Get list all contacts.
@@ -23,14 +23,14 @@ Get list all contacts.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let currentPage = 987 // Int | Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
-let pageSize = 987 // Int | Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
-let sortBy = "sortBy_example" // String | Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex> (optional)
-let filter = "filter_example" // String | Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex> (optional)
+let currentPage = 987 // Int | Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex> (optional)
+let pageSize = 987 // Int | Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex> (optional)
+let sortBy = "sortBy_example" // String | Contact Sort By Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex> (optional)
+let filter = "filter_example" // String | Contact Filter Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex> (optional)
 
 // Get list all contacts.
-ContactsAPI.contactsGet(currentPage: currentPage, pageSize: pageSize, authorization: authorization, sortBy: sortBy, filter: filter) { (response, error) in
+ContactsAPI.contactsGet(authorization: authorization, currentPage: currentPage, pageSize: pageSize, sortBy: sortBy, filter: filter) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -46,11 +46,11 @@ ContactsAPI.contactsGet(currentPage: currentPage, pageSize: pageSize, authorizat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currentPage** | **Int** | Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
- **pageSize** | **Int** | Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String** |  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **String** | Query contacts list amount per page. &lt;br&gt;Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String** | Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt; | [optional] 
+ **currentPage** | **Int** | Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | [optional] 
+ **pageSize** | **Int** | Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt; | [optional] 
+ **sortBy** | **String** | Contact Sort By Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
+ **filter** | **String** | Contact Filter Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -181,7 +181,7 @@ import OpenAPIClient
 
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let id = "id_example" // String | เลข Id Contact
-let contact = Contact(id: 123, contactGroup: 123, contactType: 123, contactName: "contactName_example", contactAddress: "contactAddress_example", contactZipCode: "contactZipCode_example", contactTaxId: 123, contactBranchCode: "contactBranchCode_example", contactBranch: "contactBranch_example", contactPerson: "contactPerson_example", contactEmail: "contactEmail_example", contactMobile: "contactMobile_example", contactBankId: 123, contactBankAccountNumber: 123, contactBankBranch: "contactBankBranch_example", contactBankAccountType: 123, contactCreditDays: 123, contactOffice: "contactOffice_example", contactFax: "contactFax_example", contactWebsite: "contactWebsite_example", conatactShippingAddress: "conatactShippingAddress_example", contactNote: "contactNote_example") // Contact | 
+let contact = Contact(id: 123, contactGroup: 123, contactType: 123, contactCode: 123, contactName: "contactName_example", contactAddress: "contactAddress_example", contactZipCode: "contactZipCode_example", contactTaxId: 123, contactBranchCode: "contactBranchCode_example", contactBranch: "contactBranch_example", contactPerson: "contactPerson_example", contactEmail: "contactEmail_example", contactMobile: "contactMobile_example", contactBankId: 123, contactBankAccountNumber: 123, contactBankBranch: "contactBankBranch_example", contactBankAccountType: 123, contactCreditDays: 123, contactOffice: "contactOffice_example", contactFax: "contactFax_example", contactWebsite: "contactWebsite_example", conatactShippingAddress: "conatactShippingAddress_example", contactNote: "contactNote_example") // Contact | 
 
 // Update contacts.
 ContactsAPI.contactsIdPut(authorization: authorization, id: id, contact: contact) { (response, error) in
@@ -232,7 +232,7 @@ Create contacts
 import OpenAPIClient
 
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
-let contact = Contact(id: 123, contactGroup: 123, contactType: 123, contactName: "contactName_example", contactAddress: "contactAddress_example", contactZipCode: "contactZipCode_example", contactTaxId: 123, contactBranchCode: "contactBranchCode_example", contactBranch: "contactBranch_example", contactPerson: "contactPerson_example", contactEmail: "contactEmail_example", contactMobile: "contactMobile_example", contactBankId: 123, contactBankAccountNumber: 123, contactBankBranch: "contactBankBranch_example", contactBankAccountType: 123, contactCreditDays: 123, contactOffice: "contactOffice_example", contactFax: "contactFax_example", contactWebsite: "contactWebsite_example", conatactShippingAddress: "conatactShippingAddress_example", contactNote: "contactNote_example") // Contact | 
+let contact = Contact(id: 123, contactGroup: 123, contactType: 123, contactCode: 123, contactName: "contactName_example", contactAddress: "contactAddress_example", contactZipCode: "contactZipCode_example", contactTaxId: 123, contactBranchCode: "contactBranchCode_example", contactBranch: "contactBranch_example", contactPerson: "contactPerson_example", contactEmail: "contactEmail_example", contactMobile: "contactMobile_example", contactBankId: 123, contactBankAccountNumber: 123, contactBankBranch: "contactBankBranch_example", contactBankAccountType: 123, contactCreditDays: 123, contactOffice: "contactOffice_example", contactFax: "contactFax_example", contactWebsite: "contactWebsite_example", conatactShippingAddress: "conatactShippingAddress_example", contactNote: "contactNote_example") // Contact | 
 
 // Create contacts
 ContactsAPI.contactsPost(authorization: authorization, contact: contact) { (response, error) in

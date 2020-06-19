@@ -59,7 +59,7 @@ class ContactsApi {
     addInterceptor(interceptor) {
         this.interceptors.push(interceptor);
     }
-    contactsGet(currentPage, pageSize, authorization, sortBy, filter, options = { headers: {} }) {
+    contactsGet(authorization, currentPage, pageSize, sortBy, filter, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/contacts';
             let localVarQueryParameters = {};
@@ -72,12 +72,6 @@ class ContactsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            if (currentPage === null || currentPage === undefined) {
-                throw new Error('Required parameter currentPage was null or undefined when calling contactsGet.');
-            }
-            if (pageSize === null || pageSize === undefined) {
-                throw new Error('Required parameter pageSize was null or undefined when calling contactsGet.');
-            }
             if (authorization === null || authorization === undefined) {
                 throw new Error('Required parameter authorization was null or undefined when calling contactsGet.');
             }

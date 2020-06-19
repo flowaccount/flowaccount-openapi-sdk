@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**TaxInvoicesEmailDocumentPost**](TaxInvoiceApi.md#taxinvoicesemaildocumentpost) | **POST** /tax-invoices/email-document | Send Email tax invoice document
-[**TaxInvoicesGet**](TaxInvoiceApi.md#taxinvoicesget) | **GET** /tax-invoices | Get list all tax invocie documents.
-[**TaxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxinvoicesidattachmentpost) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
+[**TaxInvoicesGet**](TaxInvoiceApi.md#taxinvoicesget) | **GET** /tax-invoices | Get all tax invocie documents.
+[**TaxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxinvoicesidattachmentpost) | **POST** /tax-invoices/{id}/attachment | Attachment tax Invoices document.
 [**TaxInvoicesIdDelete**](TaxInvoiceApi.md#taxinvoicesiddelete) | **DELETE** /tax-invoices/{id} | Delete tax invoices document.
 [**TaxInvoicesIdGet**](TaxInvoiceApi.md#taxinvoicesidget) | **GET** /tax-invoices/{id} | Get tax invoices document.
-[**TaxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxinvoicesidpaymentpost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
+[**TaxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxinvoicesidpaymentpost) | **POST** /tax-invoices/{id}/payment | Change status is paid tax-invoice document.
 [**TaxInvoicesIdPut**](TaxInvoiceApi.md#taxinvoicesidput) | **PUT** /tax-invoices/{id} | Edit tax invoices document.
-[**TaxInvoicesIdStatusStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatusstatusidpost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status of tax invoices document.
-[**TaxInvoicesInlinePost**](TaxInvoiceApi.md#taxinvoicesinlinepost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
-[**TaxInvoicesInlineWithPaymentPost**](TaxInvoiceApi.md#taxinvoicesinlinewithpaymentpost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document with discount and tax inline with payment.
+[**TaxInvoicesIdStatusStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatusstatusidpost) | **POST** /tax-invoices/{id}/status/{statusId} | Change status tax invoices document.
+[**TaxInvoicesInlinePost**](TaxInvoiceApi.md#taxinvoicesinlinepost) | **POST** /tax-invoices/inline | Create tax invocie document inline discount or inline vat.
+[**TaxInvoicesInlineWithPaymentPost**](TaxInvoiceApi.md#taxinvoicesinlinewithpaymentpost) | **POST** /tax-invoices/inline/with-payment | Create tax invocie document inline discount or inline vat with payment.
 [**TaxInvoicesPost**](TaxInvoiceApi.md#taxinvoicespost) | **POST** /tax-invoices | Create tax invocie document.
 [**TaxInvoicesSharedocumentPost**](TaxInvoiceApi.md#taxinvoicessharedocumentpost) | **POST** /tax-invoices/sharedocument | Share link tax invoice document.
 [**TaxInvoicesWithPaymentPost**](TaxInvoiceApi.md#taxinvoiceswithpaymentpost) | **POST** /tax-invoices/with-payment | Create tax invocie document with payment.
@@ -103,7 +103,7 @@ No authorization required
 
 > AllDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
-Get list all tax invocie documents.
+Get all tax invocie documents.
 
 เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
 
@@ -128,11 +128,11 @@ namespace Example
             var pageSize = 56;  // int | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var sortBy = sortBy_example;  // string | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
-            var filter = filter_example;  // string |  (optional) 
+            var filter = filter_example;  // string | Query filter tax-invoices. <br>Example Pattern: <ex> /tax-invoices?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional) 
 
             try
             {
-                // Get list all tax invocie documents.
+                // Get all tax invocie documents.
                 AllDocumentResponse result = apiInstance.TaxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **string**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **string**|  | [optional] 
+ **filter** | **string**| Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -188,7 +188,7 @@ No authorization required
 
 > AttachmentResponse TaxInvoicesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to tax Invoices document.
+Attachment tax Invoices document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
@@ -215,7 +215,7 @@ namespace Example
 
             try
             {
-                // Add Attachment to tax Invoices document.
+                // Attachment tax Invoices document.
                 AttachmentResponse result = apiInstance.TaxInvoicesIdAttachmentPost(authorization, id, file);
                 Debug.WriteLine(result);
             }
@@ -427,7 +427,7 @@ No authorization required
 
 > InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument)
 
-Change paid status of tax-invoice document.
+Change status is paid tax-invoice document.
 
 เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -454,7 +454,7 @@ namespace Example
 
             try
             {
-                // Change paid status of tax-invoice document.
+                // Change status is paid tax-invoice document.
                 InlineDocumentResponse result = apiInstance.TaxInvoicesIdPaymentPost(authorization, id, paymentReceivingDocument);
                 Debug.WriteLine(result);
             }
@@ -589,7 +589,7 @@ No authorization required
 
 > InlineDocumentResponse TaxInvoicesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
-Change status of tax invoices document.
+Change status tax invoices document.
 
 เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -616,7 +616,7 @@ namespace Example
 
             try
             {
-                // Change status of tax invoices document.
+                // Change status tax invoices document.
                 InlineDocumentResponse result = apiInstance.TaxInvoicesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
@@ -670,7 +670,7 @@ No authorization required
 
 > InlineDocumentResponse TaxInvoicesInlinePost (string authorization, InlineDocument inlineDocument)
 
-Create tax invocie document with discount and tax inline.
+Create tax invocie document inline discount or inline vat.
 
 สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
 
@@ -696,7 +696,7 @@ namespace Example
 
             try
             {
-                // Create tax invocie document with discount and tax inline.
+                // Create tax invocie document inline discount or inline vat.
                 InlineDocumentResponse result = apiInstance.TaxInvoicesInlinePost(authorization, inlineDocument);
                 Debug.WriteLine(result);
             }
@@ -749,7 +749,7 @@ No authorization required
 
 > InlineDocumentResponse TaxInvoicesInlineWithPaymentPost (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving)
 
-Create tax invocie document with discount and tax inline with payment.
+Create tax invocie document inline discount or inline vat with payment.
 
 สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 
@@ -775,7 +775,7 @@ namespace Example
 
             try
             {
-                // Create tax invocie document with discount and tax inline with payment.
+                // Create tax invocie document inline discount or inline vat with payment.
                 InlineDocumentResponse result = apiInstance.TaxInvoicesInlineWithPaymentPost(authorization, inlineDocumentWithPaymentReceiving);
                 Debug.WriteLine(result);
             }

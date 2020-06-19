@@ -102,14 +102,14 @@ export default class QuotationsApi {
      */
 
     /**
-     * Get list all quotations documents.
+     * Get all quotations documents.
      * เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document quotations. <br>Example Pattern: <ex>/quotations?currentPage=1 </ex><ex>/quotations?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.filter Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/QuotationsApi~quotationsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllDocumentResponse}
      */
@@ -163,7 +163,7 @@ export default class QuotationsApi {
      */
 
     /**
-     * Add Attachment to quotations document.
+     * Attachment quotations document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -368,7 +368,7 @@ export default class QuotationsApi {
      */
 
     /**
-     * Change status of quotations document.
+     * Change status quotations document.
      * เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -423,7 +423,7 @@ export default class QuotationsApi {
      */
 
     /**
-     * Create quotations document with discount and tax inline.
+     * Create quotations document inline discount or inline vat.
      * สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
      * @param {String} authorization 
      * @param {module:model/InlineDocument} inlineDocument 

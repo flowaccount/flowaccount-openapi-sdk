@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CompanyInfoResponseData Class Doc Comment
  *
  * @category Class
+ * @description ข้อมูลบริษัทเรา
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

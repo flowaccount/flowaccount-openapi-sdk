@@ -90,6 +90,14 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'ContactType'
         }
         /// <summary>
+        /// Test the property 'ContactCode'
+        /// </summary>
+        [Test]
+        public void ContactCodeTest()
+        {
+            // TODO unit test for the property 'ContactCode'
+        }
+        /// <summary>
         /// Test the property 'ContactName'
         /// </summary>
         [Test]

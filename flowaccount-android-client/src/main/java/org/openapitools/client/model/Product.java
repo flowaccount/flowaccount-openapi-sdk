@@ -32,6 +32,8 @@ public class Product {
   private String sellDescription = null;
   @SerializedName("sellPrice")
   private BigDecimal sellPrice = null;
+  @SerializedName("sellPriceWithVat")
+  private BigDecimal sellPriceWithVat = null;
   @SerializedName("sellVatType")
   private Long sellVatType = 3;
   @SerializedName("unitName")
@@ -48,10 +50,16 @@ public class Product {
   private BigDecimal buyPrice = null;
   @SerializedName("buyVatType")
   private Long buyVatType = 3;
+  @SerializedName("buyVatTypeWithVat")
+  private BigDecimal buyVatTypeWithVat = null;
   @SerializedName("inventoryPublishedOn")
   private Date inventoryPublishedOn = null;
   @SerializedName("inventoryQuantity")
   private BigDecimal inventoryQuantity = null;
+  @SerializedName("inventoryPrice")
+  private BigDecimal inventoryPrice = 0;
+  @SerializedName("inventoryTotal")
+  private BigDecimal inventoryTotal = 0;
   @SerializedName("averageBuyPrice")
   private BigDecimal averageBuyPrice = null;
   @SerializedName("averageSellPrice")
@@ -125,6 +133,17 @@ public class Product {
   }
   public void setSellPrice(BigDecimal sellPrice) {
     this.sellPrice = sellPrice;
+  }
+
+  /**
+   * ราคาขายสินค้า รวมภาษี
+   **/
+  @ApiModelProperty(value = "ราคาขายสินค้า รวมภาษี")
+  public BigDecimal getSellPriceWithVat() {
+    return sellPriceWithVat;
+  }
+  public void setSellPriceWithVat(BigDecimal sellPriceWithVat) {
+    this.sellPriceWithVat = sellPriceWithVat;
   }
 
   /**
@@ -216,6 +235,17 @@ public class Product {
   }
 
   /**
+   * ราคาซื้อสินค้า รวมภาษี
+   **/
+  @ApiModelProperty(value = "ราคาซื้อสินค้า รวมภาษี")
+  public BigDecimal getBuyVatTypeWithVat() {
+    return buyVatTypeWithVat;
+  }
+  public void setBuyVatTypeWithVat(BigDecimal buyVatTypeWithVat) {
+    this.buyVatTypeWithVat = buyVatTypeWithVat;
+  }
+
+  /**
    * วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
    **/
   @ApiModelProperty(value = "วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>")
@@ -238,9 +268,31 @@ public class Product {
   }
 
   /**
-   * ราคาซื้อเฉลี่ยสินค้า
+   * ต้นทุนสินค้าต่อหน่วย
    **/
-  @ApiModelProperty(value = "ราคาซื้อเฉลี่ยสินค้า")
+  @ApiModelProperty(value = "ต้นทุนสินค้าต่อหน่วย")
+  public BigDecimal getInventoryPrice() {
+    return inventoryPrice;
+  }
+  public void setInventoryPrice(BigDecimal inventoryPrice) {
+    this.inventoryPrice = inventoryPrice;
+  }
+
+  /**
+   * มูลค่ารวมยอดตั้งต้นสินค้า
+   **/
+  @ApiModelProperty(value = "มูลค่ารวมยอดตั้งต้นสินค้า")
+  public BigDecimal getInventoryTotal() {
+    return inventoryTotal;
+  }
+  public void setInventoryTotal(BigDecimal inventoryTotal) {
+    this.inventoryTotal = inventoryTotal;
+  }
+
+  /**
+   * ราคาสินค้าซื้อเฉลี่ย
+   **/
+  @ApiModelProperty(value = "ราคาสินค้าซื้อเฉลี่ย")
   public BigDecimal getAverageBuyPrice() {
     return averageBuyPrice;
   }
@@ -249,9 +301,9 @@ public class Product {
   }
 
   /**
-   * ราคาขายเฉลี่ยสินค้า
+   * ราคาขายสินค้าเฉลี่ย
    **/
-  @ApiModelProperty(value = "ราคาขายเฉลี่ยสินค้า")
+  @ApiModelProperty(value = "ราคาขายสินค้าเฉลี่ย")
   public BigDecimal getAverageSellPrice() {
     return averageSellPrice;
   }
@@ -297,6 +349,7 @@ public class Product {
         (this.name == null ? product.name == null : this.name.equals(product.name)) &&
         (this.sellDescription == null ? product.sellDescription == null : this.sellDescription.equals(product.sellDescription)) &&
         (this.sellPrice == null ? product.sellPrice == null : this.sellPrice.equals(product.sellPrice)) &&
+        (this.sellPriceWithVat == null ? product.sellPriceWithVat == null : this.sellPriceWithVat.equals(product.sellPriceWithVat)) &&
         (this.sellVatType == null ? product.sellVatType == null : this.sellVatType.equals(product.sellVatType)) &&
         (this.unitName == null ? product.unitName == null : this.unitName.equals(product.unitName)) &&
         (this.categoryId == null ? product.categoryId == null : this.categoryId.equals(product.categoryId)) &&
@@ -305,8 +358,11 @@ public class Product {
         (this.buyDescription == null ? product.buyDescription == null : this.buyDescription.equals(product.buyDescription)) &&
         (this.buyPrice == null ? product.buyPrice == null : this.buyPrice.equals(product.buyPrice)) &&
         (this.buyVatType == null ? product.buyVatType == null : this.buyVatType.equals(product.buyVatType)) &&
+        (this.buyVatTypeWithVat == null ? product.buyVatTypeWithVat == null : this.buyVatTypeWithVat.equals(product.buyVatTypeWithVat)) &&
         (this.inventoryPublishedOn == null ? product.inventoryPublishedOn == null : this.inventoryPublishedOn.equals(product.inventoryPublishedOn)) &&
         (this.inventoryQuantity == null ? product.inventoryQuantity == null : this.inventoryQuantity.equals(product.inventoryQuantity)) &&
+        (this.inventoryPrice == null ? product.inventoryPrice == null : this.inventoryPrice.equals(product.inventoryPrice)) &&
+        (this.inventoryTotal == null ? product.inventoryTotal == null : this.inventoryTotal.equals(product.inventoryTotal)) &&
         (this.averageBuyPrice == null ? product.averageBuyPrice == null : this.averageBuyPrice.equals(product.averageBuyPrice)) &&
         (this.averageSellPrice == null ? product.averageSellPrice == null : this.averageSellPrice.equals(product.averageSellPrice)) &&
         (this.remainingStock == null ? product.remainingStock == null : this.remainingStock.equals(product.remainingStock)) &&
@@ -322,6 +378,7 @@ public class Product {
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.sellDescription == null ? 0: this.sellDescription.hashCode());
     result = 31 * result + (this.sellPrice == null ? 0: this.sellPrice.hashCode());
+    result = 31 * result + (this.sellPriceWithVat == null ? 0: this.sellPriceWithVat.hashCode());
     result = 31 * result + (this.sellVatType == null ? 0: this.sellVatType.hashCode());
     result = 31 * result + (this.unitName == null ? 0: this.unitName.hashCode());
     result = 31 * result + (this.categoryId == null ? 0: this.categoryId.hashCode());
@@ -330,8 +387,11 @@ public class Product {
     result = 31 * result + (this.buyDescription == null ? 0: this.buyDescription.hashCode());
     result = 31 * result + (this.buyPrice == null ? 0: this.buyPrice.hashCode());
     result = 31 * result + (this.buyVatType == null ? 0: this.buyVatType.hashCode());
+    result = 31 * result + (this.buyVatTypeWithVat == null ? 0: this.buyVatTypeWithVat.hashCode());
     result = 31 * result + (this.inventoryPublishedOn == null ? 0: this.inventoryPublishedOn.hashCode());
     result = 31 * result + (this.inventoryQuantity == null ? 0: this.inventoryQuantity.hashCode());
+    result = 31 * result + (this.inventoryPrice == null ? 0: this.inventoryPrice.hashCode());
+    result = 31 * result + (this.inventoryTotal == null ? 0: this.inventoryTotal.hashCode());
     result = 31 * result + (this.averageBuyPrice == null ? 0: this.averageBuyPrice.hashCode());
     result = 31 * result + (this.averageSellPrice == null ? 0: this.averageSellPrice.hashCode());
     result = 31 * result + (this.remainingStock == null ? 0: this.remainingStock.hashCode());
@@ -350,6 +410,7 @@ public class Product {
     sb.append("  name: ").append(name).append("\n");
     sb.append("  sellDescription: ").append(sellDescription).append("\n");
     sb.append("  sellPrice: ").append(sellPrice).append("\n");
+    sb.append("  sellPriceWithVat: ").append(sellPriceWithVat).append("\n");
     sb.append("  sellVatType: ").append(sellVatType).append("\n");
     sb.append("  unitName: ").append(unitName).append("\n");
     sb.append("  categoryId: ").append(categoryId).append("\n");
@@ -358,8 +419,11 @@ public class Product {
     sb.append("  buyDescription: ").append(buyDescription).append("\n");
     sb.append("  buyPrice: ").append(buyPrice).append("\n");
     sb.append("  buyVatType: ").append(buyVatType).append("\n");
+    sb.append("  buyVatTypeWithVat: ").append(buyVatTypeWithVat).append("\n");
     sb.append("  inventoryPublishedOn: ").append(inventoryPublishedOn).append("\n");
     sb.append("  inventoryQuantity: ").append(inventoryQuantity).append("\n");
+    sb.append("  inventoryPrice: ").append(inventoryPrice).append("\n");
+    sb.append("  inventoryTotal: ").append(inventoryTotal).append("\n");
     sb.append("  averageBuyPrice: ").append(averageBuyPrice).append("\n");
     sb.append("  averageSellPrice: ").append(averageSellPrice).append("\n");
     sb.append("  remainingStock: ").append(remainingStock).append("\n");

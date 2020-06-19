@@ -37,6 +37,7 @@ class TestWithholidingTaxDocumentResponseData(unittest.TestCase):
         # model = openapi_client.models.withholiding_tax_document_response_data.WithholidingTaxDocumentResponseData()  # noqa: E501
         if include_optional :
             return WithholidingTaxDocumentResponseData(
+                record_id = '0', 
                 document_id = '0', 
                 document_serial = '0', 
                 contact_code = '0', 

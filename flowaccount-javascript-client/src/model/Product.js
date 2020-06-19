@@ -65,6 +65,9 @@ class Product {
             if (data.hasOwnProperty('sellPrice')) {
                 obj['sellPrice'] = ApiClient.convertToType(data['sellPrice'], 'Number');
             }
+            if (data.hasOwnProperty('sellPriceWithVat')) {
+                obj['sellPriceWithVat'] = ApiClient.convertToType(data['sellPriceWithVat'], 'Number');
+            }
             if (data.hasOwnProperty('sellVatType')) {
                 obj['sellVatType'] = ApiClient.convertToType(data['sellVatType'], 'Number');
             }
@@ -89,11 +92,20 @@ class Product {
             if (data.hasOwnProperty('buyVatType')) {
                 obj['buyVatType'] = ApiClient.convertToType(data['buyVatType'], 'Number');
             }
+            if (data.hasOwnProperty('buyVatTypeWithVat')) {
+                obj['buyVatTypeWithVat'] = ApiClient.convertToType(data['buyVatTypeWithVat'], 'Number');
+            }
             if (data.hasOwnProperty('inventoryPublishedOn')) {
                 obj['inventoryPublishedOn'] = ApiClient.convertToType(data['inventoryPublishedOn'], 'Date');
             }
             if (data.hasOwnProperty('inventoryQuantity')) {
                 obj['inventoryQuantity'] = ApiClient.convertToType(data['inventoryQuantity'], 'Number');
+            }
+            if (data.hasOwnProperty('inventoryPrice')) {
+                obj['inventoryPrice'] = ApiClient.convertToType(data['inventoryPrice'], 'Number');
+            }
+            if (data.hasOwnProperty('inventoryTotal')) {
+                obj['inventoryTotal'] = ApiClient.convertToType(data['inventoryTotal'], 'Number');
             }
             if (data.hasOwnProperty('averageBuyPrice')) {
                 obj['averageBuyPrice'] = ApiClient.convertToType(data['averageBuyPrice'], 'Number');
@@ -152,6 +164,12 @@ Product.prototype['sellDescription'] = undefined;
 Product.prototype['sellPrice'] = undefined;
 
 /**
+ * ราคาขายสินค้า รวมภาษี
+ * @member {Number} sellPriceWithVat
+ */
+Product.prototype['sellPriceWithVat'] = undefined;
+
+/**
  * ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี
  * @member {Number} sellVatType
  * @default 3
@@ -202,6 +220,12 @@ Product.prototype['buyPrice'] = undefined;
 Product.prototype['buyVatType'] = 3;
 
 /**
+ * ราคาซื้อสินค้า รวมภาษี
+ * @member {Number} buyVatTypeWithVat
+ */
+Product.prototype['buyVatTypeWithVat'] = undefined;
+
+/**
  * วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
  * @member {Date} inventoryPublishedOn
  */
@@ -214,13 +238,27 @@ Product.prototype['inventoryPublishedOn'] = undefined;
 Product.prototype['inventoryQuantity'] = undefined;
 
 /**
- * ราคาซื้อเฉลี่ยสินค้า
+ * ต้นทุนสินค้าต่อหน่วย
+ * @member {Number} inventoryPrice
+ * @default 0
+ */
+Product.prototype['inventoryPrice'] = 0;
+
+/**
+ * มูลค่ารวมยอดตั้งต้นสินค้า
+ * @member {Number} inventoryTotal
+ * @default 0
+ */
+Product.prototype['inventoryTotal'] = 0;
+
+/**
+ * ราคาสินค้าซื้อเฉลี่ย
  * @member {Number} averageBuyPrice
  */
 Product.prototype['averageBuyPrice'] = undefined;
 
 /**
- * ราคาขายเฉลี่ยสินค้า
+ * ราคาขายสินค้าเฉลี่ย
  * @member {Number} averageSellPrice
  */
 Product.prototype['averageSellPrice'] = undefined;

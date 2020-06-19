@@ -97,7 +97,7 @@ export class WithholdingTaxApi {
 
     /**
      * ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
-     * @summary Send email withholding tax document.
+     * @summary Send email withholding tax.
      * @param authorization 
      * @param sendEmailSimple 
      */
@@ -173,12 +173,12 @@ export class WithholdingTaxApi {
     }
     /**
      * เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
-     * @summary Get list all withholding tax documents.
+     * @summary Get all withholding tax documents.
      * @param currentPage Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;
      * @param authorization 
-     * @param sortBy Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;publishedOn\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;entity\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Value\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Status\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
-     * @param filter 
+     * @param sortBy Query sort by withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;publishedOn\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;entity\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Value\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Status\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
+     * @param filter Query filter withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;columnValue\&#39;:\&#39;Contact Name\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}] &lt;/ex&gt;
      */
     public async withholdingTaxesGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AllWithholidingTaxDocumentResponse;  }> {
         const localVarPath = this.basePath + '/withholding-taxes';
@@ -272,7 +272,7 @@ export class WithholdingTaxApi {
     }
     /**
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
-     * @summary Add Attachment to expenses.
+     * @summary Attachment withholding tax.
      * @param authorization 
      * @param id 
      * @param file 
@@ -589,7 +589,7 @@ export class WithholdingTaxApi {
     }
     /**
      * เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
-     * @summary Change status of withholding tax document.
+     * @summary Change status withholding tax document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; processed &#x3D; ดำเนินการแล้ว &lt;br&gt; void &#x3D; ยกเลิก
@@ -748,7 +748,7 @@ export class WithholdingTaxApi {
     }
     /**
      * แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
-     * @summary Share link withholding tax documents.
+     * @summary Share link withholding tax.
      * @param authorization 
      * @param shareDocument 
      */

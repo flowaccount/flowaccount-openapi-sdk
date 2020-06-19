@@ -19,7 +19,7 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Accounting categorys expenses document.
+    # Accounting categories expenses document.
     # เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module OpenapiClient
       data
     end
 
-    # Accounting categorys expenses document.
+    # Accounting categories expenses document.
     # เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
@@ -82,7 +82,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Business categorys expenses document.
+    # Business categories expenses document.
     # เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
@@ -92,7 +92,7 @@ module OpenapiClient
       data
     end
 
-    # Business categorys expenses document.
+    # Business categories expenses document.
     # เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
@@ -218,12 +218,12 @@ module OpenapiClient
 
     # Get list all expenses documents.
     # เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-    # @param current_page [Integer] Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
-    # @param page_size [Integer] Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
+    # @param current_page [Integer] Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
+    # @param page_size [Integer] Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter 
+    # @option opts [String] :sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+    # @option opts [String] :filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
     # @return [AllExpenseDocumentResponse]
     def expenses_get(current_page, page_size, authorization, opts = {})
       data, _status_code, _headers = expenses_get_with_http_info(current_page, page_size, authorization, opts)
@@ -232,12 +232,12 @@ module OpenapiClient
 
     # Get list all expenses documents.
     # เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-    # @param current_page [Integer] Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
-    # @param page_size [Integer] Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
+    # @param current_page [Integer] Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
+    # @param page_size [Integer] Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort_by Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter 
+    # @option opts [String] :sort_by Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+    # @option opts [String] :filter Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
     # @return [Array<(AllExpenseDocumentResponse, Integer, Hash)>] AllExpenseDocumentResponse data, response status code and response headers
     def expenses_get_with_http_info(current_page, page_size, authorization, opts = {})
       if @api_client.config.debugging
@@ -299,7 +299,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Add Attachment to expenses.
+    # Attachment to expenses document.
     # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
     # @param authorization [String] 
     # @param id [String] 
@@ -311,7 +311,7 @@ module OpenapiClient
       data
     end
 
-    # Add Attachment to expenses.
+    # Attachment to expenses document.
     # แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
     # @param authorization [String] 
     # @param id [String] 
@@ -447,7 +447,7 @@ module OpenapiClient
     # @param authorization [String] 
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [ExpenseInlineDocumentResponse]
+    # @return [AllExpenseDocumentResponse]
     def expenses_id_get(authorization, id, opts = {})
       data, _status_code, _headers = expenses_id_get_with_http_info(authorization, id, opts)
       data
@@ -458,7 +458,7 @@ module OpenapiClient
     # @param authorization [String] 
     # @param id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ExpenseInlineDocumentResponse, Integer, Hash)>] ExpenseInlineDocumentResponse data, response status code and response headers
+    # @return [Array<(AllExpenseDocumentResponse, Integer, Hash)>] AllExpenseDocumentResponse data, response status code and response headers
     def expenses_id_get_with_http_info(authorization, id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ExpensesApi.expenses_id_get ...'
@@ -490,7 +490,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'ExpenseInlineDocumentResponse' 
+      return_type = opts[:return_type] || 'AllExpenseDocumentResponse' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -511,7 +511,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Change paid status of expenses document.
+    # Change status is paid expenses document.
     # ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId หรือ documentId
@@ -523,7 +523,7 @@ module OpenapiClient
       data
     end
 
-    # Change paid status of expenses document.
+    # Change status is paid expenses document.
     # ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId หรือ documentId
@@ -665,7 +665,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Change status of expenses document.
+    # Change status expenses document.
     # เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId
@@ -677,7 +677,7 @@ module OpenapiClient
       data
     end
 
-    # Change status of expenses document.
+    # Change status expenses document.
     # เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
     # @param authorization [String] 
     # @param id [String] ID เอกสารใช้ recordId
@@ -740,7 +740,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create expenses document with discount and tax inline.
+    # Create expenses document inline discount or inline vat.
     # สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
     # @param authorization [String] 
     # @param expense_inline_document [ExpenseInlineDocument] 
@@ -751,7 +751,7 @@ module OpenapiClient
       data
     end
 
-    # Create expenses document with discount and tax inline.
+    # Create expenses document inline discount or inline vat.
     # สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
     # @param authorization [String] 
     # @param expense_inline_document [ExpenseInlineDocument] 
@@ -811,7 +811,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create expenses document with discount and tax inline with payment.
+    # Create expenses document inline discount or inline vat with payment.
     # สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
     # @param authorization [String] 
     # @param expense_inline_document_with_payment_paid [ExpenseInlineDocumentWithPaymentPaid] 
@@ -822,7 +822,7 @@ module OpenapiClient
       data
     end
 
-    # Create expenses document with discount and tax inline with payment.
+    # Create expenses document inline discount or inline vat with payment.
     # สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
     # @param authorization [String] 
     # @param expense_inline_document_with_payment_paid [ExpenseInlineDocumentWithPaymentPaid] 
@@ -953,7 +953,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Share link expenses documents.
+    # Share link expenses document.
     # แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
     # @param authorization [String] 
     # @param share_document [ShareDocument] 
@@ -964,7 +964,7 @@ module OpenapiClient
       data
     end
 
-    # Share link expenses documents.
+    # Share link expenses document.
     # แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
     # @param authorization [String] 
     # @param share_document [ShareDocument] 
@@ -1024,7 +1024,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create expenses document with-payment.
+    # Create expenses document with payment.
     # สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
     # @param authorization [String] 
     # @param expense_simple_document_with_payment_paid [ExpenseSimpleDocumentWithPaymentPaid] 
@@ -1035,7 +1035,7 @@ module OpenapiClient
       data
     end
 
-    # Create expenses document with-payment.
+    # Create expenses document with payment.
     # สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
     # @param authorization [String] 
     # @param expense_simple_document_with_payment_paid [ExpenseSimpleDocumentWithPaymentPaid] 

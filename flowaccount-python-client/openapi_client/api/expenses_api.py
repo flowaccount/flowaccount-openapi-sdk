@@ -38,7 +38,7 @@ class ExpensesApi(object):
         self.api_client = api_client
 
     def expenses_categories_accounting_get(self, authorization, **kwargs):  # noqa: E501
-        """Accounting categorys expenses document.  # noqa: E501
+        """Accounting categories expenses document.  # noqa: E501
 
         เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -63,7 +63,7 @@ class ExpensesApi(object):
         return self.expenses_categories_accounting_get_with_http_info(authorization, **kwargs)  # noqa: E501
 
     def expenses_categories_accounting_get_with_http_info(self, authorization, **kwargs):  # noqa: E501
-        """Accounting categorys expenses document.  # noqa: E501
+        """Accounting categories expenses document.  # noqa: E501
 
         เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -152,7 +152,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_categories_business_get(self, authorization, **kwargs):  # noqa: E501
-        """Business categorys expenses document.  # noqa: E501
+        """Business categories expenses document.  # noqa: E501
 
         เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -177,7 +177,7 @@ class ExpensesApi(object):
         return self.expenses_categories_business_get_with_http_info(authorization, **kwargs)  # noqa: E501
 
     def expenses_categories_business_get_with_http_info(self, authorization, **kwargs):  # noqa: E501
-        """Business categorys expenses document.  # noqa: E501
+        """Business categories expenses document.  # noqa: E501
 
         เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -402,11 +402,11 @@ class ExpensesApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int current_page: Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex> (required)
-        :param int page_size: Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex> (required)
+        :param int current_page: Query current page expenses document. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex> (required)
+        :param int page_size: Query expenses document list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str sort_by: Query sort by expense document. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+        :param str filter: Query filter expenses document. <br>Example Pattern: <ex> /expenses?filter=[{'columnName':'Status','columnValue':'processed','columnPredicateOperator':'And'}] </ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -431,11 +431,11 @@ class ExpensesApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int current_page: Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex> (required)
-        :param int page_size: Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex> (required)
+        :param int current_page: Query current page expenses document. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex> (required)
+        :param int page_size: Query expenses document list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str sort_by: Query sort by expense document. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+        :param str filter: Query filter expenses document. <br>Example Pattern: <ex> /expenses?filter=[{'columnName':'Status','columnValue':'processed','columnPredicateOperator':'And'}] </ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -535,7 +535,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_id_attachment_post(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to expenses.  # noqa: E501
+        """Attachment to expenses document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -562,7 +562,7 @@ class ExpensesApi(object):
         return self.expenses_id_attachment_post_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def expenses_id_attachment_post_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to expenses.  # noqa: E501
+        """Attachment to expenses document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -808,7 +808,7 @@ class ExpensesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ExpenseInlineDocumentResponse
+        :return: AllExpenseDocumentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -836,7 +836,7 @@ class ExpensesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ExpenseInlineDocumentResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(AllExpenseDocumentResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -904,7 +904,7 @@ class ExpensesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ExpenseInlineDocumentResponse',  # noqa: E501
+            response_type='AllExpenseDocumentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -913,7 +913,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_id_payment_post(self, authorization, id, payment_paid_document, **kwargs):  # noqa: E501
-        """Change paid status of expenses document.  # noqa: E501
+        """Change status is paid expenses document.  # noqa: E501
 
         ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -940,7 +940,7 @@ class ExpensesApi(object):
         return self.expenses_id_payment_post_with_http_info(authorization, id, payment_paid_document, **kwargs)  # noqa: E501
 
     def expenses_id_payment_post_with_http_info(self, authorization, id, payment_paid_document, **kwargs):  # noqa: E501
-        """Change paid status of expenses document.  # noqa: E501
+        """Change status is paid expenses document.  # noqa: E501
 
         ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1185,7 +1185,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of expenses document.  # noqa: E501
+        """Change status expenses document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1212,7 +1212,7 @@ class ExpensesApi(object):
         return self.expenses_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
     def expenses_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of expenses document.  # noqa: E501
+        """Change status expenses document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1317,7 +1317,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_inline_post(self, authorization, expense_inline_document, **kwargs):  # noqa: E501
-        """Create expenses document with discount and tax inline.  # noqa: E501
+        """Create expenses document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1343,7 +1343,7 @@ class ExpensesApi(object):
         return self.expenses_inline_post_with_http_info(authorization, expense_inline_document, **kwargs)  # noqa: E501
 
     def expenses_inline_post_with_http_info(self, authorization, expense_inline_document, **kwargs):  # noqa: E501
-        """Create expenses document with discount and tax inline.  # noqa: E501
+        """Create expenses document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1444,7 +1444,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_inline_with_payment_post(self, authorization, expense_inline_document_with_payment_paid, **kwargs):  # noqa: E501
-        """Create expenses document with discount and tax inline with payment.  # noqa: E501
+        """Create expenses document inline discount or inline vat with payment.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1470,7 +1470,7 @@ class ExpensesApi(object):
         return self.expenses_inline_with_payment_post_with_http_info(authorization, expense_inline_document_with_payment_paid, **kwargs)  # noqa: E501
 
     def expenses_inline_with_payment_post_with_http_info(self, authorization, expense_inline_document_with_payment_paid, **kwargs):  # noqa: E501
-        """Create expenses document with discount and tax inline with payment.  # noqa: E501
+        """Create expenses document inline discount or inline vat with payment.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1698,7 +1698,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_sharedocument_post(self, authorization, share_document, **kwargs):  # noqa: E501
-        """Share link expenses documents.  # noqa: E501
+        """Share link expenses document.  # noqa: E501
 
         แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1724,7 +1724,7 @@ class ExpensesApi(object):
         return self.expenses_sharedocument_post_with_http_info(authorization, share_document, **kwargs)  # noqa: E501
 
     def expenses_sharedocument_post_with_http_info(self, authorization, share_document, **kwargs):  # noqa: E501
-        """Share link expenses documents.  # noqa: E501
+        """Share link expenses document.  # noqa: E501
 
         แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1825,7 +1825,7 @@ class ExpensesApi(object):
             collection_formats=collection_formats)
 
     def expenses_with_payment_post(self, authorization, expense_simple_document_with_payment_paid, **kwargs):  # noqa: E501
-        """Create expenses document with-payment.  # noqa: E501
+        """Create expenses document with payment.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1851,7 +1851,7 @@ class ExpensesApi(object):
         return self.expenses_with_payment_post_with_http_info(authorization, expense_simple_document_with_payment_paid, **kwargs)  # noqa: E501
 
     def expenses_with_payment_post_with_http_info(self, authorization, expense_simple_document_with_payment_paid, **kwargs):  # noqa: E501
-        """Create expenses document with-payment.  # noqa: E501
+        """Create expenses document with payment.  # noqa: E501
 
         สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

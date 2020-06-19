@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**receiptsEmailDocumentPost**](ReceiptAPI.md#receiptsemaildocumentpost) | **POST** /receipts/email-document | Send email receipt document.
-[**receiptsGet**](ReceiptAPI.md#receiptsget) | **GET** /receipts | Get list all receipt documents
-[**receiptsIdAttachmentPost**](ReceiptAPI.md#receiptsidattachmentpost) | **POST** /receipts/{id}/attachment | Add Attachment to receipt document.
+[**receiptsGet**](ReceiptAPI.md#receiptsget) | **GET** /receipts | Get all receipt documents
+[**receiptsIdAttachmentPost**](ReceiptAPI.md#receiptsidattachmentpost) | **POST** /receipts/{id}/attachment | Attachment receipt document.
 [**receiptsIdDelete**](ReceiptAPI.md#receiptsiddelete) | **DELETE** /receipts/{id} | Delete receipt document.
 [**receiptsIdGet**](ReceiptAPI.md#receiptsidget) | **GET** /receipts/{id} | Get receipt document.
-[**receiptsIdPaymentPost**](ReceiptAPI.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
+[**receiptsIdPaymentPost**](ReceiptAPI.md#receiptsidpaymentpost) | **POST** /receipts/{id}/payment | Change status is paid receipt document.
 [**receiptsIdPut**](ReceiptAPI.md#receiptsidput) | **PUT** /receipts/{id} | Edit receipt document.
-[**receiptsIdStatusStatusIdPost**](ReceiptAPI.md#receiptsidstatusstatusidpost) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
-[**receiptsInlinePost**](ReceiptAPI.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
-[**receiptsInlineWithPaymentPost**](ReceiptAPI.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+[**receiptsIdStatusStatusIdPost**](ReceiptAPI.md#receiptsidstatusstatusidpost) | **POST** /receipts/{id}/status/{statusId} | Change status receipt document.
+[**receiptsInlinePost**](ReceiptAPI.md#receiptsinlinepost) | **POST** /receipts/inline | Create receipt document inline discount or inline vat.
+[**receiptsInlineWithPaymentPost**](ReceiptAPI.md#receiptsinlinewithpaymentpost) | **POST** /receipts/inline/with-payment | Create receipt document inline discount or inline vat with payment.
 [**receiptsPost**](ReceiptAPI.md#receiptspost) | **POST** /receipts | Create receipt document.
 [**receiptsSharedocumentPost**](ReceiptAPI.md#receiptssharedocumentpost) | **POST** /receipts/sharedocument | Share link receipt document.
 [**receiptsWithPaymentPost**](ReceiptAPI.md#receiptswithpaymentpost) | **POST** /receipts/with-payment | Create receipt document with payment.
@@ -76,7 +76,7 @@ No authorization required
     open class func receiptsGet(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: AllDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Get list all receipt documents
+Get all receipt documents
 
 เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
 
@@ -89,9 +89,9 @@ let currentPage = 987 // Int | Query current page document receipts. <br>Example
 let pageSize = 987 // Int | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?pageSize=20 </ex>
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let sortBy = "sortBy_example" // String | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-let filter = "filter_example" // String |  (optional)
+let filter = "filter_example" // String | Query filter receipts. <br>Example Pattern: <ex> /receipts?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
-// Get list all receipt documents
+// Get all receipt documents
 ReceiptAPI.receiptsGet(currentPage: currentPage, pageSize: pageSize, authorization: authorization, sortBy: sortBy, filter: filter) { (response, error) in
     guard error == nil else {
         print(error)
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String** |  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **String** | Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String** |  | [optional] 
+ **filter** | **String** | Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -134,7 +134,7 @@ No authorization required
     open class func receiptsIdAttachmentPost(authorization: String, id: String, file: URL? = nil, completion: @escaping (_ data: AttachmentResponse?, _ error: Error?) -> Void)
 ```
 
-Add Attachment to receipt document.
+Attachment receipt document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
@@ -147,7 +147,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
 let file = URL(string: "https://example.com")! // URL | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
-// Add Attachment to receipt document.
+// Attachment receipt document.
 ReceiptAPI.receiptsIdAttachmentPost(authorization: authorization, id: id, file: file) { (response, error) in
     guard error == nil else {
         print(error)
@@ -292,7 +292,7 @@ No authorization required
     open class func receiptsIdPaymentPost(authorization: String, id: String, paymentReceivingDocument: PaymentReceivingDocument, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change paid status of receipt document.
+Change status is paid receipt document.
 
 เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -305,7 +305,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId หรือ documentId
 let paymentReceivingDocument = PaymentReceivingDocument(paymentStructureType: "paymentStructureType_example", documentId: 123, paymentMethod: 123, paymentDate: Date(), collected: 123, paymentDeductionType: 123, paymentDeductionAmount: 123, withheldPercentage: 123, withheldAmount: 123, paymentRemarks: "paymentRemarks_example", remainingCollectedType: 123, remainingCollected: 123, transferBankAccountId: 123, bankAccountId: 123, chequeDate: Date(), chequeNumber: "chequeNumber_example", chequeBankAccountId: 123, creditCardBankAccountId: 123) // PaymentReceivingDocument | 
 
-// Change paid status of receipt document.
+// Change status is paid receipt document.
 ReceiptAPI.receiptsIdPaymentPost(authorization: authorization, id: id, paymentReceivingDocument: paymentReceivingDocument) { (response, error) in
     guard error == nil else {
         print(error)
@@ -400,7 +400,7 @@ No authorization required
     open class func receiptsIdStatusStatusIdPost(authorization: String, id: String, statusId: String, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change status of receipt document.
+Change status receipt document.
 
 เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -413,7 +413,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId
 let statusId = "statusId_example" // String | เปลี่ยนสถานะเอกสารได้ 1 สถานะ <br> void = ยกเลิก
 
-// Change status of receipt document.
+// Change status receipt document.
 ReceiptAPI.receiptsIdStatusStatusIdPost(authorization: authorization, id: id, statusId: statusId) { (response, error) in
     guard error == nil else {
         print(error)
@@ -454,7 +454,7 @@ No authorization required
     open class func receiptsInlinePost(authorization: String, inlineDocument: InlineDocument, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Create receipt document with discount and tax inline.
+Create receipt document inline discount or inline vat.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
 
@@ -466,7 +466,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let inlineDocument = InlineDocument(discountType: 123, useInlineDiscount: false, useInlineVat: false, exemptAmount: 123, vatableAmount: 123, items: [InlineProductItem(type: 123, name: "name_example", description: "description_example", quantity: 123, unitName: "unitName_example", pricePerUnit: 123, total: 123, sellChartOfAccountCode: "sellChartOfAccountCode_example", buyChartOfAccountCode: "buyChartOfAccountCode_example", discountAmount: 123, vatRate: 123)], documentReference: [UpgradeDocument(recordId: 123, referenceDocumentSerial: "referenceDocumentSerial_example", referenceDocumentType: 123)]) // InlineDocument | 
 
-// Create receipt document with discount and tax inline.
+// Create receipt document inline discount or inline vat.
 ReceiptAPI.receiptsInlinePost(authorization: authorization, inlineDocument: inlineDocument) { (response, error) in
     guard error == nil else {
         print(error)
@@ -506,7 +506,7 @@ No authorization required
     open class func receiptsInlineWithPaymentPost(authorization: String, inlineDocumentWithPaymentReceiving: InlineDocumentWithPaymentReceiving, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Create receipt document with discount and tax inline with payment.
+Create receipt document inline discount or inline vat with payment.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 
@@ -518,7 +518,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let inlineDocumentWithPaymentReceiving = InlineDocumentWithPaymentReceiving(contactCode: "contactCode_example", contactName: "contactName_example", contactAddress: "contactAddress_example", contactTaxId: "contactTaxId_example", contactBranch: "contactBranch_example", contactPerson: "contactPerson_example", contactEmail: "contactEmail_example", contactNumber: "contactNumber_example", contactZipCode: "contactZipCode_example", contactGroup: 123, publishedOn: Date(), creditType: 123, creditDays: 123, dueDate: Date(), salesName: "salesName_example", projectName: "projectName_example", reference: "reference_example", isVatInclusive: false, useReceiptDeduction: false, items: [SimpleProductItem()], subTotal: 123, discountPercentage: 123, discountAmount: 123, totalAfterDiscount: 123, isVat: false, vatAmount: 123, grandTotal: 123, discountType: 123, useInlineDiscount: false, useInlineVat: false, exemptAmount: 123, vatableAmount: 123, documentShowWithholdingTax: false, documentWithholdingTaxPercentage: 123, documentWithholdingTaxAmount: 123, documentDeductionType: 123, documentDeductionAmount: 123, remarks: "remarks_example", internalNotes: "internalNotes_example", showSignatureOrStamp: false, documentReference: [UpgradeDocument(recordId: 123, referenceDocumentSerial: "referenceDocumentSerial_example", referenceDocumentType: 123)], documentPaymentStructureType: "documentPaymentStructureType_example", paymentMethod: 123, paymentDate: Date(), collected: 123, paymentDeductionType: 123, paymentDeductionAmount: 123, withheldPercentage: 123, withheldAmount: 123, paymentRemarks: "paymentRemarks_example", remainingCollectedType: 123, remainingCollected: 123, transferBankAccountId: 123, bankAccountId: 123, chequeDate: Date(), chequeNumber: "chequeNumber_example", chequeBankAccountId: 123, creditCardBankAccountId: 123) // InlineDocumentWithPaymentReceiving | 
 
-// Create receipt document with discount and tax inline with payment.
+// Create receipt document inline discount or inline vat with payment.
 ReceiptAPI.receiptsInlineWithPaymentPost(authorization: authorization, inlineDocumentWithPaymentReceiving: inlineDocumentWithPaymentReceiving) { (response, error) in
     guard error == nil else {
         print(error)

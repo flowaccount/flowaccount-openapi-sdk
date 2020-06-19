@@ -23,12 +23,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.client.model.AttachmentResponseData;
 
 /**
  * AttachmentResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class AttachmentResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -44,7 +46,7 @@ public class AttachmentResponse {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private AttachmentResponseData data;
+  private List<AttachmentResponseData> data = null;
 
 
   public AttachmentResponse status(Boolean status) {
@@ -116,25 +118,33 @@ public class AttachmentResponse {
   }
 
 
-  public AttachmentResponse data(AttachmentResponseData data) {
+  public AttachmentResponse data(List<AttachmentResponseData> data) {
     
     this.data = data;
     return this;
   }
 
+  public AttachmentResponse addDataItem(AttachmentResponseData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<AttachmentResponseData>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * ข้อมูลไฟล์แนบเอกสาร
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ข้อมูลไฟล์แนบเอกสาร")
 
-  public AttachmentResponseData getData() {
+  public List<AttachmentResponseData> getData() {
     return data;
   }
 
 
-  public void setData(AttachmentResponseData data) {
+  public void setData(List<AttachmentResponseData> data) {
     this.data = data;
   }
 

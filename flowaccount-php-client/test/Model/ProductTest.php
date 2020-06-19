@@ -121,6 +121,13 @@ class ProductTest extends TestCase
     }
 
     /**
+     * Test attribute "sell_price_with_vat"
+     */
+    public function testPropertySellPriceWithVat()
+    {
+    }
+
+    /**
      * Test attribute "sell_vat_type"
      */
     public function testPropertySellVatType()
@@ -177,6 +184,13 @@ class ProductTest extends TestCase
     }
 
     /**
+     * Test attribute "buy_vat_type_with_vat"
+     */
+    public function testPropertyBuyVatTypeWithVat()
+    {
+    }
+
+    /**
      * Test attribute "inventory_published_on"
      */
     public function testPropertyInventoryPublishedOn()
@@ -187,6 +201,20 @@ class ProductTest extends TestCase
      * Test attribute "inventory_quantity"
      */
     public function testPropertyInventoryQuantity()
+    {
+    }
+
+    /**
+     * Test attribute "inventory_price"
+     */
+    public function testPropertyInventoryPrice()
+    {
+    }
+
+    /**
+     * Test attribute "inventory_total"
+     */
+    public function testPropertyInventoryTotal()
     {
     }
 

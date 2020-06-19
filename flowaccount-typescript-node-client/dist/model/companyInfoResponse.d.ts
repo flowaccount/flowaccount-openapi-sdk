@@ -3,7 +3,7 @@ export declare class CompanyInfoResponse {
     'status'?: boolean;
     'message'?: string;
     'code'?: number;
-    'data'?: Array<CompanyInfoResponseData>;
+    'data'?: CompanyInfoResponseData;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

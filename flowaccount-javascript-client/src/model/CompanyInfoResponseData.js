@@ -21,6 +21,7 @@ import ApiClient from '../ApiClient';
 class CompanyInfoResponseData {
     /**
      * Constructs a new <code>CompanyInfoResponseData</code>.
+     * ข้อมูลบริษัทเรา
      * @alias module:model/CompanyInfoResponseData
      */
     constructor() { 

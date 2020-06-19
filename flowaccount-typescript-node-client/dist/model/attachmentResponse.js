@@ -25,7 +25,7 @@ AttachmentResponse.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "AttachmentResponseData"
+        "type": "Array<AttachmentResponseData>"
     }
 ];
 exports.AttachmentResponse = AttachmentResponse;

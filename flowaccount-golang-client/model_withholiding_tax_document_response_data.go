@@ -12,6 +12,8 @@ package openapi
 // WithholidingTaxDocumentResponseData struct for WithholidingTaxDocumentResponseData
 type WithholidingTaxDocumentResponseData struct {
 	// เลข Id เอกสารใบหัก ณ ที่จ่าย
+	RecordId string `json:"recordId,omitempty"`
+	// เลข Id เอกสารใบหัก ณ ที่จ่าย
 	DocumentId string `json:"documentId,omitempty"`
 	// เลขที่เอกสารใบหัก ณ ที่จ่าย
 	DocumentSerial string `json:"documentSerial,omitempty"`

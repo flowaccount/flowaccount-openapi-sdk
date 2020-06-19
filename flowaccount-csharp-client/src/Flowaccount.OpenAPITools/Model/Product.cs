@@ -39,6 +39,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="name">ชื่อสินค้า &lt;br&gt; &lt;ex&gt;Example: Product&lt;/ex&gt;.</param>
         /// <param name="sellDescription">รายละเอียดสินค้า ฝั่งขาย.</param>
         /// <param name="sellPrice">ราคาขายสินค้า.</param>
+        /// <param name="sellPriceWithVat">ราคาขายสินค้า รวมภาษี.</param>
         /// <param name="sellVatType">ภาษีขาย: &lt;br&gt; 1 &#x3D; ราคาขายรวมภาษี &lt;br&gt; 3 &#x3D; ราคาขายไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาขายภาษี 0% &lt;br&gt; 7 &#x3D; ราคาขายสินค้าได้รับการยกเว้นภาษี (default to 3).</param>
         /// <param name="unitName">หน่วยสินค้า.</param>
         /// <param name="categoryId">id หมวดสินค้า.</param>
@@ -47,13 +48,16 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="buyDescription">รายละเอียดสินค้า ฝั่งซื้อ.</param>
         /// <param name="buyPrice">ราคาซื้อสินค้า.</param>
         /// <param name="buyVatType">ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี (default to 3).</param>
+        /// <param name="buyVatTypeWithVat">ราคาซื้อสินค้า รวมภาษี.</param>
         /// <param name="inventoryPublishedOn">วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;.</param>
         /// <param name="inventoryQuantity">จำนวนยอดตั้งต้นสินค้า.</param>
-        /// <param name="averageBuyPrice">ราคาซื้อเฉลี่ยสินค้า.</param>
-        /// <param name="averageSellPrice">ราคาขายเฉลี่ยสินค้า.</param>
+        /// <param name="inventoryPrice">ต้นทุนสินค้าต่อหน่วย (default to 0M).</param>
+        /// <param name="inventoryTotal">มูลค่ารวมยอดตั้งต้นสินค้า (default to 0M).</param>
+        /// <param name="averageBuyPrice">ราคาสินค้าซื้อเฉลี่ย.</param>
+        /// <param name="averageSellPrice">ราคาขายสินค้าเฉลี่ย.</param>
         /// <param name="remainingStock">จำนวนสินค้าคงเหลือในสต๊อก.</param>
         /// <param name="totalValueInHand">มูลค่าสินค้าคงเหลือในสต๊อก.</param>
-        public Product(string id = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), long sellVatType = 3, string unitName = default(string), long categoryId = default(long), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, DateTime inventoryPublishedOn = default(DateTime), decimal inventoryQuantity = default(decimal), decimal averageBuyPrice = default(decimal), decimal averageSellPrice = default(decimal), decimal remainingStock = default(decimal), decimal totalValueInHand = default(decimal))
+        public Product(string id = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), decimal sellPriceWithVat = default(decimal), long sellVatType = 3, string unitName = default(string), long categoryId = default(long), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, decimal buyVatTypeWithVat = default(decimal), DateTime inventoryPublishedOn = default(DateTime), decimal inventoryQuantity = default(decimal), decimal inventoryPrice = 0M, decimal inventoryTotal = 0M, decimal averageBuyPrice = default(decimal), decimal averageSellPrice = default(decimal), decimal remainingStock = default(decimal), decimal totalValueInHand = default(decimal))
         {
             this.Id = id;
             // use default value if no "type" provided
@@ -69,6 +73,7 @@ namespace Flowaccount.OpenAPITools.Model
             this.Name = name;
             this.SellDescription = sellDescription;
             this.SellPrice = sellPrice;
+            this.SellPriceWithVat = sellPriceWithVat;
             // use default value if no "sellVatType" provided
             if (sellVatType == null)
             {
@@ -93,8 +98,27 @@ namespace Flowaccount.OpenAPITools.Model
             {
                 this.BuyVatType = buyVatType;
             }
+            this.BuyVatTypeWithVat = buyVatTypeWithVat;
             this.InventoryPublishedOn = inventoryPublishedOn;
             this.InventoryQuantity = inventoryQuantity;
+            // use default value if no "inventoryPrice" provided
+            if (inventoryPrice == null)
+            {
+                this.InventoryPrice = 0M;
+            }
+            else
+            {
+                this.InventoryPrice = inventoryPrice;
+            }
+            // use default value if no "inventoryTotal" provided
+            if (inventoryTotal == null)
+            {
+                this.InventoryTotal = 0M;
+            }
+            else
+            {
+                this.InventoryTotal = inventoryTotal;
+            }
             this.AverageBuyPrice = averageBuyPrice;
             this.AverageSellPrice = averageSellPrice;
             this.RemainingStock = remainingStock;
@@ -142,6 +166,13 @@ namespace Flowaccount.OpenAPITools.Model
         /// <value>ราคาขายสินค้า</value>
         [DataMember(Name="sellPrice", EmitDefaultValue=true)]
         public decimal SellPrice { get; set; }
+
+        /// <summary>
+        /// ราคาขายสินค้า รวมภาษี
+        /// </summary>
+        /// <value>ราคาขายสินค้า รวมภาษี</value>
+        [DataMember(Name="sellPriceWithVat", EmitDefaultValue=true)]
+        public decimal SellPriceWithVat { get; set; }
 
         /// <summary>
         /// ภาษีขาย: &lt;br&gt; 1 &#x3D; ราคาขายรวมภาษี &lt;br&gt; 3 &#x3D; ราคาขายไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาขายภาษี 0% &lt;br&gt; 7 &#x3D; ราคาขายสินค้าได้รับการยกเว้นภาษี
@@ -200,6 +231,13 @@ namespace Flowaccount.OpenAPITools.Model
         public long BuyVatType { get; set; }
 
         /// <summary>
+        /// ราคาซื้อสินค้า รวมภาษี
+        /// </summary>
+        /// <value>ราคาซื้อสินค้า รวมภาษี</value>
+        [DataMember(Name="buyVatTypeWithVat", EmitDefaultValue=true)]
+        public decimal BuyVatTypeWithVat { get; set; }
+
+        /// <summary>
         /// วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;
         /// </summary>
         /// <value>วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt;</value>
@@ -215,16 +253,30 @@ namespace Flowaccount.OpenAPITools.Model
         public decimal InventoryQuantity { get; set; }
 
         /// <summary>
-        /// ราคาซื้อเฉลี่ยสินค้า
+        /// ต้นทุนสินค้าต่อหน่วย
         /// </summary>
-        /// <value>ราคาซื้อเฉลี่ยสินค้า</value>
+        /// <value>ต้นทุนสินค้าต่อหน่วย</value>
+        [DataMember(Name="inventoryPrice", EmitDefaultValue=true)]
+        public decimal InventoryPrice { get; set; }
+
+        /// <summary>
+        /// มูลค่ารวมยอดตั้งต้นสินค้า
+        /// </summary>
+        /// <value>มูลค่ารวมยอดตั้งต้นสินค้า</value>
+        [DataMember(Name="inventoryTotal", EmitDefaultValue=true)]
+        public decimal InventoryTotal { get; set; }
+
+        /// <summary>
+        /// ราคาสินค้าซื้อเฉลี่ย
+        /// </summary>
+        /// <value>ราคาสินค้าซื้อเฉลี่ย</value>
         [DataMember(Name="averageBuyPrice", EmitDefaultValue=true)]
         public decimal AverageBuyPrice { get; set; }
 
         /// <summary>
-        /// ราคาขายเฉลี่ยสินค้า
+        /// ราคาขายสินค้าเฉลี่ย
         /// </summary>
-        /// <value>ราคาขายเฉลี่ยสินค้า</value>
+        /// <value>ราคาขายสินค้าเฉลี่ย</value>
         [DataMember(Name="averageSellPrice", EmitDefaultValue=true)]
         public decimal AverageSellPrice { get; set; }
 
@@ -256,6 +308,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  SellDescription: ").Append(SellDescription).Append("\n");
             sb.Append("  SellPrice: ").Append(SellPrice).Append("\n");
+            sb.Append("  SellPriceWithVat: ").Append(SellPriceWithVat).Append("\n");
             sb.Append("  SellVatType: ").Append(SellVatType).Append("\n");
             sb.Append("  UnitName: ").Append(UnitName).Append("\n");
             sb.Append("  CategoryId: ").Append(CategoryId).Append("\n");
@@ -264,8 +317,11 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  BuyDescription: ").Append(BuyDescription).Append("\n");
             sb.Append("  BuyPrice: ").Append(BuyPrice).Append("\n");
             sb.Append("  BuyVatType: ").Append(BuyVatType).Append("\n");
+            sb.Append("  BuyVatTypeWithVat: ").Append(BuyVatTypeWithVat).Append("\n");
             sb.Append("  InventoryPublishedOn: ").Append(InventoryPublishedOn).Append("\n");
             sb.Append("  InventoryQuantity: ").Append(InventoryQuantity).Append("\n");
+            sb.Append("  InventoryPrice: ").Append(InventoryPrice).Append("\n");
+            sb.Append("  InventoryTotal: ").Append(InventoryTotal).Append("\n");
             sb.Append("  AverageBuyPrice: ").Append(AverageBuyPrice).Append("\n");
             sb.Append("  AverageSellPrice: ").Append(AverageSellPrice).Append("\n");
             sb.Append("  RemainingStock: ").Append(RemainingStock).Append("\n");
@@ -335,6 +391,11 @@ namespace Flowaccount.OpenAPITools.Model
                     this.SellPrice.Equals(input.SellPrice))
                 ) && 
                 (
+                    this.SellPriceWithVat == input.SellPriceWithVat ||
+                    (this.SellPriceWithVat != null &&
+                    this.SellPriceWithVat.Equals(input.SellPriceWithVat))
+                ) && 
+                (
                     this.SellVatType == input.SellVatType ||
                     (this.SellVatType != null &&
                     this.SellVatType.Equals(input.SellVatType))
@@ -375,6 +436,11 @@ namespace Flowaccount.OpenAPITools.Model
                     this.BuyVatType.Equals(input.BuyVatType))
                 ) && 
                 (
+                    this.BuyVatTypeWithVat == input.BuyVatTypeWithVat ||
+                    (this.BuyVatTypeWithVat != null &&
+                    this.BuyVatTypeWithVat.Equals(input.BuyVatTypeWithVat))
+                ) && 
+                (
                     this.InventoryPublishedOn == input.InventoryPublishedOn ||
                     (this.InventoryPublishedOn != null &&
                     this.InventoryPublishedOn.Equals(input.InventoryPublishedOn))
@@ -383,6 +449,16 @@ namespace Flowaccount.OpenAPITools.Model
                     this.InventoryQuantity == input.InventoryQuantity ||
                     (this.InventoryQuantity != null &&
                     this.InventoryQuantity.Equals(input.InventoryQuantity))
+                ) && 
+                (
+                    this.InventoryPrice == input.InventoryPrice ||
+                    (this.InventoryPrice != null &&
+                    this.InventoryPrice.Equals(input.InventoryPrice))
+                ) && 
+                (
+                    this.InventoryTotal == input.InventoryTotal ||
+                    (this.InventoryTotal != null &&
+                    this.InventoryTotal.Equals(input.InventoryTotal))
                 ) && 
                 (
                     this.AverageBuyPrice == input.AverageBuyPrice ||
@@ -427,6 +503,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.SellDescription.GetHashCode();
                 if (this.SellPrice != null)
                     hashCode = hashCode * 59 + this.SellPrice.GetHashCode();
+                if (this.SellPriceWithVat != null)
+                    hashCode = hashCode * 59 + this.SellPriceWithVat.GetHashCode();
                 if (this.SellVatType != null)
                     hashCode = hashCode * 59 + this.SellVatType.GetHashCode();
                 if (this.UnitName != null)
@@ -443,10 +521,16 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.BuyPrice.GetHashCode();
                 if (this.BuyVatType != null)
                     hashCode = hashCode * 59 + this.BuyVatType.GetHashCode();
+                if (this.BuyVatTypeWithVat != null)
+                    hashCode = hashCode * 59 + this.BuyVatTypeWithVat.GetHashCode();
                 if (this.InventoryPublishedOn != null)
                     hashCode = hashCode * 59 + this.InventoryPublishedOn.GetHashCode();
                 if (this.InventoryQuantity != null)
                     hashCode = hashCode * 59 + this.InventoryQuantity.GetHashCode();
+                if (this.InventoryPrice != null)
+                    hashCode = hashCode * 59 + this.InventoryPrice.GetHashCode();
+                if (this.InventoryTotal != null)
+                    hashCode = hashCode * 59 + this.InventoryTotal.GetHashCode();
                 if (this.AverageBuyPrice != null)
                     hashCode = hashCode * 59 + this.AverageBuyPrice.GetHashCode();
                 if (this.AverageSellPrice != null)

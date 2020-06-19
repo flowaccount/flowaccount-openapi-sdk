@@ -11,7 +11,7 @@ import Foundation
 
 open class ExpensesAPI {
     /**
-     Accounting categorys expenses document.
+     Accounting categories expenses document.
      
      - parameter authorization: (header)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -29,7 +29,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Accounting categorys expenses document.
+     Accounting categories expenses document.
      - GET /expenses/categories/accounting
      - เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
      - parameter authorization: (header)  
@@ -52,7 +52,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Business categorys expenses document.
+     Business categories expenses document.
      
      - parameter authorization: (header)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -70,7 +70,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Business categorys expenses document.
+     Business categories expenses document.
      - GET /expenses/categories/business
      - เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
      - parameter authorization: (header)  
@@ -138,11 +138,11 @@ open class ExpensesAPI {
     /**
      Get list all expenses documents.
      
-     - parameter currentPage: (query) Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
-     - parameter pageSize: (query) Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; 
+     - parameter currentPage: (query) Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
+     - parameter pageSize: (query) Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
-     - parameter sortBy: (query) Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter sortBy: (query) Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     - parameter filter: (query) Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -161,11 +161,11 @@ open class ExpensesAPI {
      Get list all expenses documents.
      - GET /expenses
      - เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
-     - parameter currentPage: (query) Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
-     - parameter pageSize: (query) Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; 
+     - parameter currentPage: (query) Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; 
+     - parameter pageSize: (query) Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; 
      - parameter authorization: (header)  
-     - parameter sortBy: (query) Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     - parameter filter: (query)  (optional)
+     - parameter sortBy: (query) Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
+     - parameter filter: (query) Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      - returns: RequestBuilder<AllExpenseDocumentResponse> 
      */
     open class func expensesGetWithRequestBuilder(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil) -> RequestBuilder<AllExpenseDocumentResponse> {
@@ -191,7 +191,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Add Attachment to expenses.
+     Attachment to expenses document.
      
      - parameter authorization: (header)  
      - parameter id: (path)  
@@ -211,7 +211,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Add Attachment to expenses.
+     Attachment to expenses document.
      - POST /expenses/{id}/attachment
      - แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
      - parameter authorization: (header)  
@@ -297,7 +297,7 @@ open class ExpensesAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func expensesIdGet(authorization: String, id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ExpenseInlineDocumentResponse?,_ error: Error?) -> Void)) {
+    open class func expensesIdGet(authorization: String, id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AllExpenseDocumentResponse?,_ error: Error?) -> Void)) {
         expensesIdGetWithRequestBuilder(authorization: authorization, id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -314,9 +314,9 @@ open class ExpensesAPI {
      - เรียกดูข้อมูลเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
      - parameter authorization: (header)  
      - parameter id: (path)  
-     - returns: RequestBuilder<ExpenseInlineDocumentResponse> 
+     - returns: RequestBuilder<AllExpenseDocumentResponse> 
      */
-    open class func expensesIdGetWithRequestBuilder(authorization: String, id: String) -> RequestBuilder<ExpenseInlineDocumentResponse> {
+    open class func expensesIdGetWithRequestBuilder(authorization: String, id: String) -> RequestBuilder<AllExpenseDocumentResponse> {
         var path = "/expenses/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -330,13 +330,13 @@ open class ExpensesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<ExpenseInlineDocumentResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AllExpenseDocumentResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
 
     /**
-     Change paid status of expenses document.
+     Change status is paid expenses document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId หรือ documentId 
@@ -356,7 +356,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Change paid status of expenses document.
+     Change status is paid expenses document.
      - POST /expenses/{id}/payment
      - ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
      - parameter authorization: (header)  
@@ -432,7 +432,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Change status of expenses document.
+     Change status expenses document.
      
      - parameter authorization: (header)  
      - parameter id: (path) ID เอกสารใช้ recordId 
@@ -452,7 +452,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Change status of expenses document.
+     Change status expenses document.
      - POST /expenses/{id}/status/{statusId}
      - เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      - parameter authorization: (header)  
@@ -483,7 +483,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Create expenses document with discount and tax inline.
+     Create expenses document inline discount or inline vat.
      
      - parameter authorization: (header)  
      - parameter expenseInlineDocument: (body)  
@@ -502,7 +502,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Create expenses document with discount and tax inline.
+     Create expenses document inline discount or inline vat.
      - POST /expenses/inline
      - สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
      - parameter authorization: (header)  
@@ -526,7 +526,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Create expenses document with discount and tax inline with payment.
+     Create expenses document inline discount or inline vat with payment.
      
      - parameter authorization: (header)  
      - parameter expenseInlineDocumentWithPaymentPaid: (body)  
@@ -545,7 +545,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Create expenses document with discount and tax inline with payment.
+     Create expenses document inline discount or inline vat with payment.
      - POST /expenses/inline/with-payment
      - สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      - parameter authorization: (header)  
@@ -612,7 +612,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Share link expenses documents.
+     Share link expenses document.
      
      - parameter authorization: (header)  
      - parameter shareDocument: (body)  
@@ -631,7 +631,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Share link expenses documents.
+     Share link expenses document.
      - POST /expenses/sharedocument
      - แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
      - parameter authorization: (header)  
@@ -655,7 +655,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Create expenses document with-payment.
+     Create expenses document with payment.
      
      - parameter authorization: (header)  
      - parameter expenseSimpleDocumentWithPaymentPaid: (body)  
@@ -674,7 +674,7 @@ open class ExpensesAPI {
     }
 
     /**
-     Create expenses document with-payment.
+     Create expenses document with payment.
      - POST /expenses/with-payment
      - สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      - parameter authorization: (header)  

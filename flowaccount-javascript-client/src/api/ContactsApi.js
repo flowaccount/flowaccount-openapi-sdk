@@ -46,26 +46,18 @@ export default class ContactsApi {
 
     /**
      * Get list all contacts.
-     * @param {Number} currentPage Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
-     * @param {Number} pageSize Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sortBy Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
+     * @param {Number} opts.currentPage Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
+     * @param {Number} opts.pageSize Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
+     * @param {String} opts.sortBy Contact Sort By Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+     * @param {String} opts.filter Contact Filter Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
      * @param {module:api/ContactsApi~contactsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ContactResponse}
      */
-    contactsGet(currentPage, pageSize, authorization, opts, callback) {
+    contactsGet(authorization, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'currentPage' is set
-      if (currentPage === undefined || currentPage === null) {
-        throw new Error("Missing the required parameter 'currentPage' when calling contactsGet");
-      }
-      // verify the required parameter 'pageSize' is set
-      if (pageSize === undefined || pageSize === null) {
-        throw new Error("Missing the required parameter 'pageSize' when calling contactsGet");
-      }
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling contactsGet");
@@ -74,8 +66,8 @@ export default class ContactsApi {
       let pathParams = {
       };
       let queryParams = {
-        'currentPage': currentPage,
-        'pageSize': pageSize,
+        'currentPage': opts['currentPage'],
+        'pageSize': opts['pageSize'],
         'sortBy': opts['sortBy'],
         'filter': opts['filter']
       };

@@ -23,6 +23,11 @@ Contact.attributeTypeMap = [
         "type": "number"
     },
     {
+        "name": "contactCode",
+        "baseName": "contactCode",
+        "type": "number"
+    },
+    {
         "name": "contactName",
         "baseName": "contactName",
         "type": "string"

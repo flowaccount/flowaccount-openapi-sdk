@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **status** | **Boolean** | action success | [optional] 
 **message** | **String** | error message | [optional] 
 **code** | **Number** | error code | [optional] 
-**data** | [**AttachmentResponseData**](AttachmentResponseData.md) |  | [optional] 
+**data** | [**[AttachmentResponseData]**](AttachmentResponseData.md) | ข้อมูลไฟล์แนบเอกสาร | [optional] 
 
 

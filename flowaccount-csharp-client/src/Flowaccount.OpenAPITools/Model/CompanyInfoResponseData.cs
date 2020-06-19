@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Flowaccount.OpenAPITools.Client.OpenAPIDateConverte
 namespace Flowaccount.OpenAPITools.Model
 {
     /// <summary>
-    /// CompanyInfoResponseData
+    /// ข้อมูลบริษัทเรา
     /// </summary>
     [DataContract]
     public partial class CompanyInfoResponseData :  IEquatable<CompanyInfoResponseData>, IValidatableObject

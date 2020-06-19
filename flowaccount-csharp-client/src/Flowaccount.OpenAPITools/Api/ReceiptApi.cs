@@ -48,7 +48,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of SendEmailResponse</returns>
         ApiResponse<SendEmailResponse> ReceiptsEmailDocumentPostWithHttpInfo (string authorization, SendEmailCoppies sendEmailCoppies);
         /// <summary>
-        /// Get list all receipt documents
+        /// Get all receipt documents
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -58,12 +58,12 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllDocumentResponse</returns>
         AllDocumentResponse ReceiptsGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
-        /// Get list all receipt documents
+        /// Get all receipt documents
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -73,11 +73,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllDocumentResponse</returns>
         ApiResponse<AllDocumentResponse> ReceiptsGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to receipt document.
+        /// Attachment receipt document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -90,7 +90,7 @@ namespace Flowaccount.OpenAPITools.Api
         AttachmentResponse ReceiptsIdAttachmentPost (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to receipt document.
+        /// Attachment receipt document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -148,7 +148,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> ReceiptsIdGetWithHttpInfo (string authorization, string id);
         /// <summary>
-        /// Change paid status of receipt document.
+        /// Change status is paid receipt document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -161,7 +161,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse ReceiptsIdPaymentPost (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument);
 
         /// <summary>
-        /// Change paid status of receipt document.
+        /// Change status is paid receipt document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -198,7 +198,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> ReceiptsIdPutWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
-        /// Change status of receipt document.
+        /// Change status receipt document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -211,7 +211,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse ReceiptsIdStatusStatusIdPost (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of receipt document.
+        /// Change status receipt document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -223,7 +223,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> ReceiptsIdStatusStatusIdPostWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create receipt document with discount and tax inline.
+        /// Create receipt document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
@@ -235,7 +235,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse ReceiptsInlinePost (string authorization, InlineDocument inlineDocument);
 
         /// <summary>
-        /// Create receipt document with discount and tax inline.
+        /// Create receipt document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
@@ -246,7 +246,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
         ApiResponse<InlineDocumentResponse> ReceiptsInlinePostWithHttpInfo (string authorization, InlineDocument inlineDocument);
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment.
+        /// Create receipt document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -258,7 +258,7 @@ namespace Flowaccount.OpenAPITools.Api
         InlineDocumentResponse ReceiptsInlineWithPaymentPost (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving);
 
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment.
+        /// Create receipt document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -363,7 +363,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (SendEmailResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SendEmailResponse>> ReceiptsEmailDocumentPostAsyncWithHttpInfo (string authorization, SendEmailCoppies sendEmailCoppies);
         /// <summary>
-        /// Get list all receipt documents
+        /// Get all receipt documents
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -373,12 +373,12 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllDocumentResponse</returns>
         System.Threading.Tasks.Task<AllDocumentResponse> ReceiptsGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
-        /// Get list all receipt documents
+        /// Get all receipt documents
         /// </summary>
         /// <remarks>
         /// เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
@@ -388,11 +388,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AllDocumentResponse>> ReceiptsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
-        /// Add Attachment to receipt document.
+        /// Attachment receipt document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -405,7 +405,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<AttachmentResponse> ReceiptsIdAttachmentPostAsync (string authorization, string id, System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
-        /// Add Attachment to receipt document.
+        /// Attachment receipt document.
         /// </summary>
         /// <remarks>
         /// แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
@@ -463,7 +463,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdGetAsyncWithHttpInfo (string authorization, string id);
         /// <summary>
-        /// Change paid status of receipt document.
+        /// Change status is paid receipt document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -476,7 +476,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdPaymentPostAsync (string authorization, string id, PaymentReceivingDocument paymentReceivingDocument);
 
         /// <summary>
-        /// Change paid status of receipt document.
+        /// Change status is paid receipt document.
         /// </summary>
         /// <remarks>
         /// เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
@@ -513,7 +513,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdPutAsyncWithHttpInfo (string authorization, string id, UpdateInlineDocument updateInlineDocument);
         /// <summary>
-        /// Change status of receipt document.
+        /// Change status receipt document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -526,7 +526,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsIdStatusStatusIdPostAsync (string authorization, string id, string statusId);
 
         /// <summary>
-        /// Change status of receipt document.
+        /// Change status receipt document.
         /// </summary>
         /// <remarks>
         /// เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
@@ -538,7 +538,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsIdStatusStatusIdPostAsyncWithHttpInfo (string authorization, string id, string statusId);
         /// <summary>
-        /// Create receipt document with discount and tax inline.
+        /// Create receipt document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
@@ -550,7 +550,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsInlinePostAsync (string authorization, InlineDocument inlineDocument);
 
         /// <summary>
-        /// Create receipt document with discount and tax inline.
+        /// Create receipt document inline discount or inline vat.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
@@ -561,7 +561,7 @@ namespace Flowaccount.OpenAPITools.Api
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> ReceiptsInlinePostAsyncWithHttpInfo (string authorization, InlineDocument inlineDocument);
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment.
+        /// Create receipt document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -573,7 +573,7 @@ namespace Flowaccount.OpenAPITools.Api
         System.Threading.Tasks.Task<InlineDocumentResponse> ReceiptsInlineWithPaymentPostAsync (string authorization, InlineDocumentWithPaymentReceiving inlineDocumentWithPaymentReceiving);
 
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment.
+        /// Create receipt document inline discount or inline vat with payment.
         /// </summary>
         /// <remarks>
         /// สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
@@ -925,14 +925,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>AllDocumentResponse</returns>
         public AllDocumentResponse ReceiptsGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -941,14 +941,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>ApiResponse of AllDocumentResponse</returns>
         public ApiResponse<AllDocumentResponse> ReceiptsGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1009,14 +1009,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of AllDocumentResponse</returns>
         public async System.Threading.Tasks.Task<AllDocumentResponse> ReceiptsGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1026,14 +1026,14 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Get list all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
+        /// Get all receipt documents เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currentPage">Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
         /// <param name="pageSize">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy">Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)</param>
-        /// <param name="filter"> (optional)</param>
+        /// <param name="filter">Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)</param>
         /// <returns>Task of ApiResponse (AllDocumentResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AllDocumentResponse>> ReceiptsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
@@ -1094,7 +1094,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1108,7 +1108,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1170,7 +1170,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1185,7 +1185,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Add Attachment to receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
+        /// Attachment receipt document. แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1537,7 +1537,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1551,7 +1551,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1623,7 +1623,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1638,7 +1638,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change paid status of receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
+        /// Change status is paid receipt document. เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1883,7 +1883,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1897,7 +1897,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1961,7 +1961,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -1976,7 +1976,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Change status of receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
+        /// Change status receipt document. เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2040,7 +2040,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
+        /// Create receipt document inline discount or inline vat. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2053,7 +2053,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
+        /// Create receipt document inline discount or inline vat. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2120,7 +2120,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
+        /// Create receipt document inline discount or inline vat. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2134,7 +2134,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
+        /// Create receipt document inline discount or inline vat. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2201,7 +2201,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create receipt document inline discount or inline vat with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2214,7 +2214,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create receipt document inline discount or inline vat with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2281,7 +2281,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create receipt document inline discount or inline vat with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>
@@ -2295,7 +2295,7 @@ namespace Flowaccount.OpenAPITools.Api
         }
 
         /// <summary>
-        /// Create receipt document with discount and tax inline with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
+        /// Create receipt document inline discount or inline vat with payment. สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization"></param>

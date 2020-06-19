@@ -212,13 +212,13 @@ public class ReceiptApi {
     }
   }
   /**
-  * Get list all receipt documents
+  * Get all receipt documents
   * เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
    * @param currentPage Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
    * @param pageSize Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;
    * @param authorization 
    * @param sortBy Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-   * @param filter 
+   * @param filter Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
    * @return AllDocumentResponse
   */
   public AllDocumentResponse receiptsGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -293,9 +293,9 @@ public class ReceiptApi {
   }
 
       /**
-   * Get list all receipt documents
+   * Get all receipt documents
    * เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
-   * @param currentPage Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter 
+   * @param currentPage Query current page document receipts. &lt;br&gt;Example Pattern: &lt;ex&gt;/receipts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/receipts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;   * @param pageSize Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt;   * @param authorization    * @param sortBy Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;   * @param filter Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt;
   */
   public void receiptsGet (Integer currentPage, Integer pageSize, String authorization, String sortBy, String filter, final Response.Listener<AllDocumentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -373,7 +373,7 @@ public class ReceiptApi {
     }
   }
   /**
-  * Add Attachment to receipt document.
+  * Attachment receipt document.
   * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
    * @param authorization 
    * @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -447,7 +447,7 @@ public class ReceiptApi {
   }
 
       /**
-   * Add Attachment to receipt document.
+   * Attachment receipt document.
    * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
    * @param authorization    * @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ   * @param file รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary
   */
@@ -803,7 +803,7 @@ public class ReceiptApi {
     }
   }
   /**
-  * Change paid status of receipt document.
+  * Change status is paid receipt document.
   * เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
    * @param authorization 
    * @param id ID เอกสารใช้ recordId หรือ documentId
@@ -879,7 +879,7 @@ public class ReceiptApi {
   }
 
       /**
-   * Change paid status of receipt document.
+   * Change status is paid receipt document.
    * เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
    * @param authorization    * @param id ID เอกสารใช้ recordId หรือ documentId   * @param paymentReceivingDocument 
   */
@@ -1107,7 +1107,7 @@ public class ReceiptApi {
     }
   }
   /**
-  * Change status of receipt document.
+  * Change status receipt document.
   * เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
    * @param authorization 
    * @param id ID เอกสารใช้ recordId
@@ -1182,7 +1182,7 @@ public class ReceiptApi {
   }
 
       /**
-   * Change status of receipt document.
+   * Change status receipt document.
    * เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
    * @param authorization    * @param id ID เอกสารใช้ recordId   * @param statusId เปลี่ยนสถานะเอกสารได้ 1 สถานะ &lt;br&gt; void &#x3D; ยกเลิก
   */
@@ -1258,7 +1258,7 @@ public class ReceiptApi {
     }
   }
   /**
-  * Create receipt document with discount and tax inline.
+  * Create receipt document inline discount or inline vat.
   * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
    * @param authorization 
    * @param inlineDocument 
@@ -1328,7 +1328,7 @@ public class ReceiptApi {
   }
 
       /**
-   * Create receipt document with discount and tax inline.
+   * Create receipt document inline discount or inline vat.
    * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
    * @param authorization    * @param inlineDocument 
   */
@@ -1399,7 +1399,7 @@ public class ReceiptApi {
     }
   }
   /**
-  * Create receipt document with discount and tax inline with payment.
+  * Create receipt document inline discount or inline vat with payment.
   * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
    * @param authorization 
    * @param inlineDocumentWithPaymentReceiving 
@@ -1469,7 +1469,7 @@ public class ReceiptApi {
   }
 
       /**
-   * Create receipt document with discount and tax inline with payment.
+   * Create receipt document inline discount or inline vat with payment.
    * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
    * @param authorization    * @param inlineDocumentWithPaymentReceiving 
   */

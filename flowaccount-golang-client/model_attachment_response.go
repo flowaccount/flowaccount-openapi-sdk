@@ -17,5 +17,6 @@ type AttachmentResponse struct {
 	Message string `json:"message,omitempty"`
 	// error code
 	Code int32 `json:"code,omitempty"`
-	Data AttachmentResponseData `json:"data,omitempty"`
+	// ข้อมูลไฟล์แนบเอกสาร
+	Data []AttachmentResponseData `json:"data,omitempty"`
 }

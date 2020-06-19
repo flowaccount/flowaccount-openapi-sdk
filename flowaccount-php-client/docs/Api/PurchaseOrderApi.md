@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**purchasesOrdersEmailDocumentPost**](PurchaseOrderApi.md#purchasesOrdersEmailDocumentPost) | **POST** /purchases-orders/email-document | Send email purchase order document.
-[**purchasesOrdersGet**](PurchaseOrderApi.md#purchasesOrdersGet) | **GET** /purchases-orders | Get list all purchase order documents.
-[**purchasesOrdersIdAttachmentPost**](PurchaseOrderApi.md#purchasesOrdersIdAttachmentPost) | **POST** /purchases-orders/{id}/attachment | Add Attachment to purchase order document.
+[**purchasesOrdersGet**](PurchaseOrderApi.md#purchasesOrdersGet) | **GET** /purchases-orders | Get all purchase order documents.
+[**purchasesOrdersIdAttachmentPost**](PurchaseOrderApi.md#purchasesOrdersIdAttachmentPost) | **POST** /purchases-orders/{id}/attachment | Attachment purchase order document.
 [**purchasesOrdersIdDelete**](PurchaseOrderApi.md#purchasesOrdersIdDelete) | **DELETE** /purchases-orders/{id} | Delete purchase order document.
 [**purchasesOrdersIdGet**](PurchaseOrderApi.md#purchasesOrdersIdGet) | **GET** /purchases-orders/{id} | Get purchase order document.
 [**purchasesOrdersIdPut**](PurchaseOrderApi.md#purchasesOrdersIdPut) | **PUT** /purchases-orders/{id} | Edit purchase order document.
-[**purchasesOrdersIdStatusStatusIdPost**](PurchaseOrderApi.md#purchasesOrdersIdStatusStatusIdPost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status of purchase order document.
-[**purchasesOrdersInlinePost**](PurchaseOrderApi.md#purchasesOrdersInlinePost) | **POST** /purchases-orders/inline | Create purchase order document with discount and tax inline.
+[**purchasesOrdersIdStatusStatusIdPost**](PurchaseOrderApi.md#purchasesOrdersIdStatusStatusIdPost) | **POST** /purchases-orders/{id}/status/{statusId} | Change status purchase order document.
+[**purchasesOrdersInlinePost**](PurchaseOrderApi.md#purchasesOrdersInlinePost) | **POST** /purchases-orders/inline | Create purchase order document inline discount or inline vat.
 [**purchasesOrdersPost**](PurchaseOrderApi.md#purchasesOrdersPost) | **POST** /purchases-orders | Create purchase order document.
 [**purchasesOrdersSharedocumentPost**](PurchaseOrderApi.md#purchasesOrdersSharedocumentPost) | **POST** /purchases-orders/sharedocument | Share link purchase order document.
 
@@ -79,7 +79,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\AllDocumentResponse purchasesOrdersGet($current_page, $page_size, $authorization, $sort_by, $filter)
 
-Get list all purchase order documents.
+Get all purchase order documents.
 
 เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
 
@@ -99,7 +99,7 @@ $current_page = 56; // int | Query current page document purchase orders. <br>Ex
 $page_size = 56; // int | Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?pageSize=20 </ex>
 $authorization = 'Bearer accessToken'; // string | 
 $sort_by = 'sort_by_example'; // string | Query document purchase orders list amount per page. <br>Example Pattern: <ex> /purchases-orders?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases-orders?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases-orders?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-$filter = 'filter_example'; // string | 
+$filter = 'filter_example'; // string | Query filter purchases-orders. <br>Example Pattern: <ex> /purchases-orders?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 
 try {
     $result = $apiInstance->purchasesOrdersGet($current_page, $page_size, $authorization, $sort_by, $filter);
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt; |
  **authorization** | **string**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **string**| Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases-orders?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional]
- **filter** | **string**|  | [optional]
+ **filter** | **string**| Query filter purchases-orders. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional]
 
 ### Return type
 
@@ -143,7 +143,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\AttachmentResponse purchasesOrdersIdAttachmentPost($authorization, $id, $file)
 
-Add Attachment to purchase order document.
+Attachment purchase order document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
 
@@ -379,7 +379,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse purchasesOrdersIdStatusStatusIdPost($authorization, $id, $status_id)
 
-Change status of purchase order document.
+Change status purchase order document.
 
 เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -439,7 +439,7 @@ No authorization required
 
 > \OpenAPI\Client\Model\InlineDocumentResponse purchasesOrdersInlinePost($authorization, $inline_document)
 
-Create purchase order document with discount and tax inline.
+Create purchase order document inline discount or inline vat.
 
 สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br>
 

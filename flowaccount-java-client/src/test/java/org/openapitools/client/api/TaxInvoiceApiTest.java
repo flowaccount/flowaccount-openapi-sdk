@@ -65,7 +65,7 @@ public class TaxInvoiceApiTest {
     }
     
     /**
-     * Get list all tax invocie documents.
+     * Get all tax invocie documents.
      *
      * เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
      *
@@ -85,7 +85,7 @@ public class TaxInvoiceApiTest {
     }
     
     /**
-     * Add Attachment to tax Invoices document.
+     * Attachment tax Invoices document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
      *
@@ -137,7 +137,7 @@ public class TaxInvoiceApiTest {
     }
     
     /**
-     * Change paid status of tax-invoice document.
+     * Change status is paid tax-invoice document.
      *
      * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      *
@@ -173,7 +173,7 @@ public class TaxInvoiceApiTest {
     }
     
     /**
-     * Change status of tax invoices document.
+     * Change status tax invoices document.
      *
      * เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      *
@@ -191,7 +191,7 @@ public class TaxInvoiceApiTest {
     }
     
     /**
-     * Create tax invocie document with discount and tax inline.
+     * Create tax invocie document inline discount or inline vat.
      *
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
      *
@@ -208,7 +208,7 @@ public class TaxInvoiceApiTest {
     }
     
     /**
-     * Create tax invocie document with discount and tax inline with payment.
+     * Create tax invocie document inline discount or inline vat with payment.
      *
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      *

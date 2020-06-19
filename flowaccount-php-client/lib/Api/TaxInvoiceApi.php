@@ -401,13 +401,13 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesGet
      *
-     * Get list all tax invocie documents.
+     * Get all tax invocie documents.
      *
      * @param  int $current_page Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization authorization (required)
      * @param  string $sort_by Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter filter (optional)
+     * @param  string $filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -422,13 +422,13 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesGetWithHttpInfo
      *
-     * Get list all tax invocie documents.
+     * Get all tax invocie documents.
      *
      * @param  int $current_page Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -514,13 +514,13 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesGetAsync
      *
-     * Get list all tax invocie documents.
+     * Get all tax invocie documents.
      *
      * @param  int $current_page Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -538,13 +538,13 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesGetAsyncWithHttpInfo
      *
-     * Get list all tax invocie documents.
+     * Get all tax invocie documents.
      *
      * @param  int $current_page Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -595,7 +595,7 @@ class TaxInvoiceApi
      * @param  int $page_size Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -746,7 +746,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdAttachmentPost
      *
-     * Add Attachment to tax Invoices document.
+     * Attachment tax Invoices document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -765,7 +765,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdAttachmentPostWithHttpInfo
      *
-     * Add Attachment to tax Invoices document.
+     * Attachment tax Invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -855,7 +855,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdAttachmentPostAsync
      *
-     * Add Attachment to tax Invoices document.
+     * Attachment tax Invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -877,7 +877,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdAttachmentPostAsyncWithHttpInfo
      *
-     * Add Attachment to tax Invoices document.
+     * Attachment tax Invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -1620,7 +1620,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdPaymentPost
      *
-     * Change paid status of tax-invoice document.
+     * Change status is paid tax-invoice document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1639,7 +1639,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdPaymentPostWithHttpInfo
      *
-     * Change paid status of tax-invoice document.
+     * Change status is paid tax-invoice document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1729,7 +1729,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdPaymentPostAsync
      *
-     * Change paid status of tax-invoice document.
+     * Change status is paid tax-invoice document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1751,7 +1751,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdPaymentPostAsyncWithHttpInfo
      *
-     * Change paid status of tax-invoice document.
+     * Change status is paid tax-invoice document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2224,7 +2224,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdStatusStatusIdPost
      *
-     * Change status of tax invoices document.
+     * Change status tax invoices document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2243,7 +2243,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdStatusStatusIdPostWithHttpInfo
      *
-     * Change status of tax invoices document.
+     * Change status tax invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2333,7 +2333,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdStatusStatusIdPostAsync
      *
-     * Change status of tax invoices document.
+     * Change status tax invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2355,7 +2355,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesIdStatusStatusIdPostAsyncWithHttpInfo
      *
-     * Change status of tax invoices document.
+     * Change status tax invoices document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2531,7 +2531,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlinePost
      *
-     * Create tax invocie document with discount and tax inline.
+     * Create tax invocie document inline discount or inline vat.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document inline_document (required)
@@ -2549,7 +2549,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlinePostWithHttpInfo
      *
-     * Create tax invocie document with discount and tax inline.
+     * Create tax invocie document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2638,7 +2638,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlinePostAsync
      *
-     * Create tax invocie document with discount and tax inline.
+     * Create tax invocie document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2659,7 +2659,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlinePostAsyncWithHttpInfo
      *
-     * Create tax invocie document with discount and tax inline.
+     * Create tax invocie document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2814,7 +2814,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlineWithPaymentPost
      *
-     * Create tax invocie document with discount and tax inline with payment.
+     * Create tax invocie document inline discount or inline vat with payment.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving inline_document_with_payment_receiving (required)
@@ -2832,7 +2832,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlineWithPaymentPostWithHttpInfo
      *
-     * Create tax invocie document with discount and tax inline with payment.
+     * Create tax invocie document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving (required)
@@ -2921,7 +2921,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlineWithPaymentPostAsync
      *
-     * Create tax invocie document with discount and tax inline with payment.
+     * Create tax invocie document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving (required)
@@ -2942,7 +2942,7 @@ class TaxInvoiceApi
     /**
      * Operation taxInvoicesInlineWithPaymentPostAsyncWithHttpInfo
      *
-     * Create tax invocie document with discount and tax inline with payment.
+     * Create tax invocie document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentReceiving $inline_document_with_payment_receiving (required)

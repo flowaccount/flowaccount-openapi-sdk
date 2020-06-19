@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **Integer** | เลข id Contact | [optional] 
 **contact_group** | **Integer** | ประเภทผู้ติดต่อ: 1 &#x3D; บุคคลธรรมดา / 3 &#x3D; นิติบุคคล | [default to 3]
 **contact_type** | **Integer** | ประเภท: 3 &#x3D; ลูกค้า / 5 &#x3D; ผู้จำหน่าย / 7 &#x3D; ผู้จำหน่ายและลูกค้า | [default to 3]
+**contact_code** | **Integer** | รหัสผู้ติดต่อ ​&lt;br&gt;&lt;ex&gt;Example: C0001&lt;/ex&gt; | [optional] 
 **contact_name** | **String** | ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย | 
 **contact_address** | **String** | ที่อยู่ผู้ติดต่อ | [optional] 
 **contact_zip_code** | **String** | รหัสไปรษณีย์ติดต่อ &lt;ex&gt;Example: 10140 &lt;/ex&gt; | [optional] 
@@ -35,6 +36,7 @@ require 'OpenapiClient'
 instance = OpenapiClient::Contact.new(id: null,
                                  contact_group: null,
                                  contact_type: null,
+                                 contact_code: null,
                                  contact_name: null,
                                  contact_address: null,
                                  contact_zip_code: null,

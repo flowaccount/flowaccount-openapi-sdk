@@ -78,7 +78,7 @@ export class ProductType {
     */
     'inventoryQuantity': number;
     /**
-    * ราคาซื้อสินค้า
+    * ต้นทุนสินค้าต่อหน่วย
     */
     'inventoryPrice': number;
 

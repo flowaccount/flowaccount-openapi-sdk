@@ -23,14 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.client.model.CompanyInfoResponseData;
 
 /**
  * CompanyInfoResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class CompanyInfoResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -46,7 +44,7 @@ public class CompanyInfoResponse {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<CompanyInfoResponseData> data = null;
+  private CompanyInfoResponseData data;
 
 
   public CompanyInfoResponse status(Boolean status) {
@@ -118,33 +116,25 @@ public class CompanyInfoResponse {
   }
 
 
-  public CompanyInfoResponse data(List<CompanyInfoResponseData> data) {
+  public CompanyInfoResponse data(CompanyInfoResponseData data) {
     
     this.data = data;
     return this;
   }
 
-  public CompanyInfoResponse addDataItem(CompanyInfoResponseData dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<CompanyInfoResponseData>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * ข้อมูลบริษัทเรา
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ข้อมูลบริษัทเรา")
+  @ApiModelProperty(value = "")
 
-  public List<CompanyInfoResponseData> getData() {
+  public CompanyInfoResponseData getData() {
     return data;
   }
 
 
-  public void setData(List<CompanyInfoResponseData> data) {
+  public void setData(CompanyInfoResponseData data) {
     this.data = data;
   }
 

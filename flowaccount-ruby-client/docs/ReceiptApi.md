@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**receipts_email_document_post**](ReceiptApi.md#receipts_email_document_post) | **POST** /receipts/email-document | Send email receipt document.
-[**receipts_get**](ReceiptApi.md#receipts_get) | **GET** /receipts | Get list all receipt documents
-[**receipts_id_attachment_post**](ReceiptApi.md#receipts_id_attachment_post) | **POST** /receipts/{id}/attachment | Add Attachment to receipt document.
+[**receipts_get**](ReceiptApi.md#receipts_get) | **GET** /receipts | Get all receipt documents
+[**receipts_id_attachment_post**](ReceiptApi.md#receipts_id_attachment_post) | **POST** /receipts/{id}/attachment | Attachment receipt document.
 [**receipts_id_delete**](ReceiptApi.md#receipts_id_delete) | **DELETE** /receipts/{id} | Delete receipt document.
 [**receipts_id_get**](ReceiptApi.md#receipts_id_get) | **GET** /receipts/{id} | Get receipt document.
-[**receipts_id_payment_post**](ReceiptApi.md#receipts_id_payment_post) | **POST** /receipts/{id}/payment | Change paid status of receipt document.
+[**receipts_id_payment_post**](ReceiptApi.md#receipts_id_payment_post) | **POST** /receipts/{id}/payment | Change status is paid receipt document.
 [**receipts_id_put**](ReceiptApi.md#receipts_id_put) | **PUT** /receipts/{id} | Edit receipt document.
-[**receipts_id_status_status_id_post**](ReceiptApi.md#receipts_id_status_status_id_post) | **POST** /receipts/{id}/status/{statusId} | Change status of receipt document.
-[**receipts_inline_post**](ReceiptApi.md#receipts_inline_post) | **POST** /receipts/inline | Create receipt document with discount and tax inline.
-[**receipts_inline_with_payment_post**](ReceiptApi.md#receipts_inline_with_payment_post) | **POST** /receipts/inline/with-payment | Create receipt document with discount and tax inline with payment.
+[**receipts_id_status_status_id_post**](ReceiptApi.md#receipts_id_status_status_id_post) | **POST** /receipts/{id}/status/{statusId} | Change status receipt document.
+[**receipts_inline_post**](ReceiptApi.md#receipts_inline_post) | **POST** /receipts/inline | Create receipt document inline discount or inline vat.
+[**receipts_inline_with_payment_post**](ReceiptApi.md#receipts_inline_with_payment_post) | **POST** /receipts/inline/with-payment | Create receipt document inline discount or inline vat with payment.
 [**receipts_post**](ReceiptApi.md#receipts_post) | **POST** /receipts | Create receipt document.
 [**receipts_sharedocument_post**](ReceiptApi.md#receipts_sharedocument_post) | **POST** /receipts/sharedocument | Share link receipt document.
 [**receipts_with_payment_post**](ReceiptApi.md#receipts_with_payment_post) | **POST** /receipts/with-payment | Create receipt document with payment.
@@ -73,7 +73,7 @@ No authorization required
 
 > AllDocumentResponse receipts_get(current_page, page_size, authorization, opts)
 
-Get list all receipt documents
+Get all receipt documents
 
 เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
 
@@ -89,11 +89,11 @@ page_size = 56 # Integer | Query document receipts list amount per page. <br>Exa
 authorization = 'Bearer accessToken' # String | 
 opts = {
   sort_by: 'sort_by_example', # String | Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-  filter: 'filter_example' # String | 
+  filter: 'filter_example' # String | Query filter receipts. <br>Example Pattern: <ex> /receipts?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 }
 
 begin
-  #Get list all receipt documents
+  #Get all receipt documents
   result = api_instance.receipts_get(current_page, page_size, authorization, opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
  **page_size** | **Integer**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **String**| Query document receipts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/receipts?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String**|  | [optional] 
+ **filter** | **String**| Query filter receipts. &lt;br&gt;Example Pattern: &lt;ex&gt; /receipts?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -130,7 +130,7 @@ No authorization required
 
 > AttachmentResponse receipts_id_attachment_post(authorization, id, opts)
 
-Add Attachment to receipt document.
+Attachment receipt document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
@@ -148,7 +148,7 @@ opts = {
 }
 
 begin
-  #Add Attachment to receipt document.
+  #Attachment receipt document.
   result = api_instance.receipts_id_attachment_post(authorization, id, opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -281,7 +281,7 @@ No authorization required
 
 > InlineDocumentResponse receipts_id_payment_post(authorization, id, payment_receiving_document)
 
-Change paid status of receipt document.
+Change status is paid receipt document.
 
 เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -297,7 +297,7 @@ id = 'id_example' # String | ID เอกสารใช้ recordId หรื�
 payment_receiving_document = OpenapiClient::PaymentReceivingDocument.new # PaymentReceivingDocument | 
 
 begin
-  #Change paid status of receipt document.
+  #Change status is paid receipt document.
   result = api_instance.receipts_id_payment_post(authorization, id, payment_receiving_document)
   p result
 rescue OpenapiClient::ApiError => e
@@ -383,7 +383,7 @@ No authorization required
 
 > InlineDocumentResponse receipts_id_status_status_id_post(authorization, id, status_id)
 
-Change status of receipt document.
+Change status receipt document.
 
 เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -399,7 +399,7 @@ id = 'id_example' # String | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # String | เปลี่ยนสถานะเอกสารได้ 1 สถานะ <br> void = ยกเลิก
 
 begin
-  #Change status of receipt document.
+  #Change status receipt document.
   result = api_instance.receipts_id_status_status_id_post(authorization, id, status_id)
   p result
 rescue OpenapiClient::ApiError => e
@@ -434,7 +434,7 @@ No authorization required
 
 > InlineDocumentResponse receipts_inline_post(authorization, inline_document)
 
-Create receipt document with discount and tax inline.
+Create receipt document inline discount or inline vat.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
 
@@ -449,7 +449,7 @@ authorization = 'Bearer accessToken' # String |
 inline_document = OpenapiClient::InlineDocument.new # InlineDocument | 
 
 begin
-  #Create receipt document with discount and tax inline.
+  #Create receipt document inline discount or inline vat.
   result = api_instance.receipts_inline_post(authorization, inline_document)
   p result
 rescue OpenapiClient::ApiError => e
@@ -483,7 +483,7 @@ No authorization required
 
 > InlineDocumentResponse receipts_inline_with_payment_post(authorization, inline_document_with_payment_receiving)
 
-Create receipt document with discount and tax inline with payment.
+Create receipt document inline discount or inline vat with payment.
 
 สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 
@@ -498,7 +498,7 @@ authorization = 'Bearer accessToken' # String |
 inline_document_with_payment_receiving = OpenapiClient::InlineDocumentWithPaymentReceiving.new # InlineDocumentWithPaymentReceiving | 
 
 begin
-  #Create receipt document with discount and tax inline with payment.
+  #Create receipt document inline discount or inline vat with payment.
   result = api_instance.receipts_inline_with_payment_post(authorization, inline_document_with_payment_receiving)
   p result
 rescue OpenapiClient::ApiError => e

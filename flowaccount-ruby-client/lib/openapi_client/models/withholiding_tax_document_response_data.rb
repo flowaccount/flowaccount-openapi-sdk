@@ -15,6 +15,9 @@ require 'date'
 module OpenapiClient
   class WithholidingTaxDocumentResponseData
     # เลข Id เอกสารใบหัก ณ ที่จ่าย
+    attr_accessor :record_id
+
+    # เลข Id เอกสารใบหัก ณ ที่จ่าย
     attr_accessor :document_id
 
     # เลขที่เอกสารใบหัก ณ ที่จ่าย
@@ -109,6 +112,7 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'record_id' => :'recordId',
         :'document_id' => :'documentId',
         :'document_serial' => :'documentSerial',
         :'contact_code' => :'contactCode',
@@ -146,6 +150,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'record_id' => :'String',
         :'document_id' => :'String',
         :'document_serial' => :'String',
         :'contact_code' => :'String',
@@ -200,6 +205,10 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'record_id')
+        self.record_id = attributes[:'record_id']
+      end
 
       if attributes.key?(:'document_id')
         self.document_id = attributes[:'document_id']
@@ -354,6 +363,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          record_id == o.record_id &&
           document_id == o.document_id &&
           document_serial == o.document_serial &&
           contact_code == o.contact_code &&
@@ -396,7 +406,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [document_id, document_serial, contact_code, contact_name, contact_address, contact_tax_id, contact_branch, contact_person, contact_email, contact_number, contact_zip_code, contact_group, published_on, entity, text_other, withholding_tax_items, total, total_tax_withheld, tax_payment, tax_payment_others, provident_fund_number, provident_fund_amount, social_security_amount, remarks, internal_notes, show_signature_or_stamp, company, status, status_string, document_type, allow_delete].hash
+      [record_id, document_id, document_serial, contact_code, contact_name, contact_address, contact_tax_id, contact_branch, contact_person, contact_email, contact_number, contact_zip_code, contact_group, published_on, entity, text_other, withholding_tax_items, total, total_tax_withheld, tax_payment, tax_payment_others, provident_fund_number, provident_fund_amount, social_security_amount, remarks, internal_notes, show_signature_or_stamp, company, status, status_string, document_type, allow_delete].hash
     end
 
     # Builds the object from hash

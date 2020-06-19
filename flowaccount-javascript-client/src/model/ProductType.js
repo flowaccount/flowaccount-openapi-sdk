@@ -35,7 +35,7 @@ class ProductType {
      * @param unitName {String} หน่วยสินค้า
      * @param inventoryPublishedOn {String} วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
      * @param inventoryQuantity {Number} จำนวนยอดตั้งต้นสินค้า
-     * @param inventoryPrice {Number} ราคาซื้อสินค้า
+     * @param inventoryPrice {Number} ต้นทุนสินค้าต่อหน่วย
      */
     constructor(type, name, unitName, inventoryPublishedOn, inventoryQuantity, inventoryPrice) { 
         ProductService.initialize(this, type, name);ProductNonInventory.initialize(this, type, name);ProductInventory.initialize(this, type, name, unitName);ProductInventoryBalance.initialize(this, type, name, unitName, inventoryPublishedOn, inventoryQuantity, inventoryPrice);
@@ -222,7 +222,7 @@ ProductType.prototype['inventoryPublishedOn'] = '2020-01-01';
 ProductType.prototype['inventoryQuantity'] = 0;
 
 /**
- * ราคาซื้อสินค้า
+ * ต้นทุนสินค้าต่อหน่วย
  * @member {Number} inventoryPrice
  * @default 0
  */
@@ -502,7 +502,7 @@ ProductInventoryBalance.prototype['inventoryPublishedOn'] = '2020-01-01';
  */
 ProductInventoryBalance.prototype['inventoryQuantity'] = 0;
 /**
- * ราคาซื้อสินค้า
+ * ต้นทุนสินค้าต่อหน่วย
  * @member {Number} inventoryPrice
  * @default 0
  */

@@ -85,7 +85,7 @@ class ReceiptApiTest extends TestCase
     /**
      * Test case for receiptsGet
      *
-     * Get list all receipt documents.
+     * Get all receipt documents.
      *
      */
     public function testReceiptsGet()
@@ -95,7 +95,7 @@ class ReceiptApiTest extends TestCase
     /**
      * Test case for receiptsIdAttachmentPost
      *
-     * Add Attachment to receipt document..
+     * Attachment receipt document..
      *
      */
     public function testReceiptsIdAttachmentPost()
@@ -125,7 +125,7 @@ class ReceiptApiTest extends TestCase
     /**
      * Test case for receiptsIdPaymentPost
      *
-     * Change paid status of receipt document..
+     * Change status is paid receipt document..
      *
      */
     public function testReceiptsIdPaymentPost()
@@ -145,7 +145,7 @@ class ReceiptApiTest extends TestCase
     /**
      * Test case for receiptsIdStatusStatusIdPost
      *
-     * Change status of receipt document..
+     * Change status receipt document..
      *
      */
     public function testReceiptsIdStatusStatusIdPost()
@@ -155,7 +155,7 @@ class ReceiptApiTest extends TestCase
     /**
      * Test case for receiptsInlinePost
      *
-     * Create receipt document with discount and tax inline..
+     * Create receipt document inline discount or inline vat..
      *
      */
     public function testReceiptsInlinePost()
@@ -165,7 +165,7 @@ class ReceiptApiTest extends TestCase
     /**
      * Test case for receiptsInlineWithPaymentPost
      *
-     * Create receipt document with discount and tax inline with payment..
+     * Create receipt document inline discount or inline vat with payment..
      *
      */
     public function testReceiptsInlineWithPaymentPost()

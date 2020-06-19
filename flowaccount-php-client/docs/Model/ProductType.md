@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **buy_vat_type** | **int** | ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี | [optional] [default to 3]
 **inventory_published_on** | **string** | วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [default to '2020-01-01']
 **inventory_quantity** | **float** | จำนวนยอดตั้งต้นสินค้า | [default to 0]
-**inventory_price** | **float** | ราคาซื้อสินค้า | [default to 0]
+**inventory_price** | **float** | ต้นทุนสินค้าต่อหน่วย | [default to 0]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

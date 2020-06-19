@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**record_id** | **str** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **document_id** | **str** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **document_serial** | **str** | เลขที่เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **contact_code** | **str** | รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า | [optional] 

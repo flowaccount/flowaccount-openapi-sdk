@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**record_id** | **string** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **document_id** | **string** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **document_serial** | **string** | เลขที่เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **contact_code** | **string** | รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า | [optional] 

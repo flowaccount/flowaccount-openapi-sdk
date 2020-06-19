@@ -44,7 +44,7 @@ public class WithholdingTaxApiTest {
 
     
     /**
-     * Send email withholding tax document.
+     * Send email withholding tax.
      *
      * ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
      *
@@ -61,7 +61,7 @@ public class WithholdingTaxApiTest {
     }
     
     /**
-     * Get list all withholding tax documents.
+     * Get all withholding tax documents.
      *
      * เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
      *
@@ -81,7 +81,7 @@ public class WithholdingTaxApiTest {
     }
     
     /**
-     * Add Attachment to expenses.
+     * Attachment withholding tax.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
      *
@@ -151,7 +151,7 @@ public class WithholdingTaxApiTest {
     }
     
     /**
-     * Change status of withholding tax document.
+     * Change status withholding tax document.
      *
      * เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
      *
@@ -186,7 +186,7 @@ public class WithholdingTaxApiTest {
     }
     
     /**
-     * Share link withholding tax documents.
+     * Share link withholding tax.
      *
      * แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
      *

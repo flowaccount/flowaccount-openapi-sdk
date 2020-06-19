@@ -50,7 +50,7 @@ public class ExpensesApiTest {
 
     
     /**
-     * Accounting categorys expenses document.
+     * Accounting categories expenses document.
      *
      * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
      *
@@ -66,7 +66,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Business categorys expenses document.
+     * Business categories expenses document.
      *
      * เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
      *
@@ -119,7 +119,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Add Attachment to expenses.
+     * Attachment to expenses document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
      *
@@ -165,13 +165,13 @@ public class ExpensesApiTest {
     public void expensesIdGetTest() throws ApiException {
         String authorization = null;
         String id = null;
-        ExpenseInlineDocumentResponse response = api.expensesIdGet(authorization, id);
+        AllExpenseDocumentResponse response = api.expensesIdGet(authorization, id);
 
         // TODO: test validations
     }
     
     /**
-     * Change paid status of expenses document.
+     * Change status is paid expenses document.
      *
      * ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
      *
@@ -207,7 +207,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Change status of expenses document.
+     * Change status expenses document.
      *
      * เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      *
@@ -225,7 +225,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Create expenses document with discount and tax inline.
+     * Create expenses document inline discount or inline vat.
      *
      * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
      *
@@ -242,7 +242,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Create expenses document with discount and tax inline with payment.
+     * Create expenses document inline discount or inline vat with payment.
      *
      * สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      *
@@ -276,7 +276,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Share link expenses documents.
+     * Share link expenses document.
      *
      * แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
      *
@@ -293,7 +293,7 @@ public class ExpensesApiTest {
     }
     
     /**
-     * Create expenses document with-payment.
+     * Create expenses document with payment.
      *
      * สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      *

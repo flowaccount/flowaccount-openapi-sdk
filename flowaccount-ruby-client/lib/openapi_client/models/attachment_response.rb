@@ -23,6 +23,7 @@ module OpenapiClient
     # error code
     attr_accessor :code
 
+    # ข้อมูลไฟล์แนบเอกสาร
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -41,7 +42,7 @@ module OpenapiClient
         :'status' => :'Boolean',
         :'message' => :'String',
         :'code' => :'Integer',
-        :'data' => :'AttachmentResponseData'
+        :'data' => :'Array<AttachmentResponseData>'
       }
     end
 
@@ -79,7 +80,9 @@ module OpenapiClient
       end
 
       if attributes.key?(:'data')
-        self.data = attributes[:'data']
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
       end
     end
 

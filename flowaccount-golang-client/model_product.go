@@ -23,6 +23,8 @@ type Product struct {
 	SellDescription string `json:"sellDescription,omitempty"`
 	// ราคาขายสินค้า
 	SellPrice float32 `json:"sellPrice,omitempty"`
+	// ราคาขายสินค้า รวมภาษี
+	SellPriceWithVat float32 `json:"sellPriceWithVat,omitempty"`
 	// ภาษีขาย: <br> 1 = ราคาขายรวมภาษี <br> 3 = ราคาขายไม่รวมภาษี <br> 5 = ราคาขายภาษี 0% <br> 7 = ราคาขายสินค้าได้รับการยกเว้นภาษี
 	SellVatType int64 `json:"sellVatType,omitempty"`
 	// หน่วยสินค้า
@@ -39,13 +41,19 @@ type Product struct {
 	BuyPrice float32 `json:"buyPrice,omitempty"`
 	// ภาษีซื้อ: <br> 1 = ราคาซื้อรวมภาษี <br> 3 = ราคาซื้อไม่รวมภาษี <br> 5 = ราคาซื้อภาษี 0% <br> 7 = ราคาซื้อสินค้าได้รับการยกเว้นภาษี
 	BuyVatType int64 `json:"buyVatType,omitempty"`
+	// ราคาซื้อสินค้า รวมภาษี
+	BuyVatTypeWithVat float32 `json:"buyVatTypeWithVat,omitempty"`
 	// วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
 	InventoryPublishedOn string `json:"inventoryPublishedOn,omitempty"`
 	// จำนวนยอดตั้งต้นสินค้า
 	InventoryQuantity float32 `json:"inventoryQuantity,omitempty"`
-	// ราคาซื้อเฉลี่ยสินค้า
+	// ต้นทุนสินค้าต่อหน่วย
+	InventoryPrice float32 `json:"inventoryPrice,omitempty"`
+	// มูลค่ารวมยอดตั้งต้นสินค้า
+	InventoryTotal float32 `json:"inventoryTotal,omitempty"`
+	// ราคาสินค้าซื้อเฉลี่ย
 	AverageBuyPrice float32 `json:"averageBuyPrice,omitempty"`
-	// ราคาขายเฉลี่ยสินค้า
+	// ราคาขายสินค้าเฉลี่ย
 	AverageSellPrice float32 `json:"averageSellPrice,omitempty"`
 	// จำนวนสินค้าคงเหลือในสต๊อก
 	RemainingStock float32 `json:"remainingStock,omitempty"`

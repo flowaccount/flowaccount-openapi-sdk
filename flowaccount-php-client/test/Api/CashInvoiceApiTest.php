@@ -85,7 +85,7 @@ class CashInvoiceApiTest extends TestCase
     /**
      * Test case for cashInvoicesGet
      *
-     * Get list all cash invoices documents.
+     * Get all cash invoices documents.
      *
      */
     public function testCashInvoicesGet()
@@ -95,7 +95,7 @@ class CashInvoiceApiTest extends TestCase
     /**
      * Test case for cashInvoicesIdAttachmentPost
      *
-     * Add Attachment to cash invoices document..
+     * Attachment cash invoices document..
      *
      */
     public function testCashInvoicesIdAttachmentPost()
@@ -125,7 +125,7 @@ class CashInvoiceApiTest extends TestCase
     /**
      * Test case for cashInvoicesIdPaymentPost
      *
-     * Change paid status of cash invoices document..
+     * Change status is paid cash invoices document..
      *
      */
     public function testCashInvoicesIdPaymentPost()
@@ -145,7 +145,7 @@ class CashInvoiceApiTest extends TestCase
     /**
      * Test case for cashInvoicesIdStatusStatusIdPost
      *
-     * Change status of cash invoices document..
+     * Change status cash invoices document..
      *
      */
     public function testCashInvoicesIdStatusStatusIdPost()
@@ -155,7 +155,7 @@ class CashInvoiceApiTest extends TestCase
     /**
      * Test case for cashInvoicesInlinePost
      *
-     * Create cash invoices document with discount and tax inline..
+     * Create cash invoices document inline discount or inline vat..
      *
      */
     public function testCashInvoicesInlinePost()
@@ -165,7 +165,7 @@ class CashInvoiceApiTest extends TestCase
     /**
      * Test case for cashInvoicesInlineWithPaymentPost
      *
-     * Create cash invoices document with discount and tax inline with payment..
+     * Create cash invoices document inline discount or inline vat with payment..
      *
      */
     public function testCashInvoicesInlineWithPaymentPost()

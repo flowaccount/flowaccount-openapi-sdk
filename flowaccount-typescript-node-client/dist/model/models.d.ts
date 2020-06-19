@@ -12,6 +12,7 @@ export * from './bankAccount';
 export * from './bankAccountResponse';
 export * from './bankAccountResponseData';
 export * from './businessCategory';
+export * from './businessCategoryData';
 export * from './companyInfo';
 export * from './companyInfoResponse';
 export * from './companyInfoResponseData';

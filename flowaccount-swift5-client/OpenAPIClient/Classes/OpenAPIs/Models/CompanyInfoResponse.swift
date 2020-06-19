@@ -17,10 +17,9 @@ public struct CompanyInfoResponse: Codable {
     public var message: String?
     /** error code */
     public var code: Int?
-    /** ข้อมูลบริษัทเรา */
-    public var data: [CompanyInfoResponseData]?
+    public var data: CompanyInfoResponseData?
 
-    public init(status: Bool?, message: String?, code: Int?, data: [CompanyInfoResponseData]?) {
+    public init(status: Bool?, message: String?, code: Int?, data: CompanyInfoResponseData?) {
         self.status = status
         self.message = message
         self.code = code

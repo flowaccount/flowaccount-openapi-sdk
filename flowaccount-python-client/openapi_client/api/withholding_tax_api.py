@@ -38,7 +38,7 @@ class WithholdingTaxApi(object):
         self.api_client = api_client
 
     def withholding_taxes_email_document_post(self, authorization, send_email_simple, **kwargs):  # noqa: E501
-        """Send email withholding tax document.  # noqa: E501
+        """Send email withholding tax.  # noqa: E501
 
         ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -64,7 +64,7 @@ class WithholdingTaxApi(object):
         return self.withholding_taxes_email_document_post_with_http_info(authorization, send_email_simple, **kwargs)  # noqa: E501
 
     def withholding_taxes_email_document_post_with_http_info(self, authorization, send_email_simple, **kwargs):  # noqa: E501
-        """Send email withholding tax document.  # noqa: E501
+        """Send email withholding tax.  # noqa: E501
 
         ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -165,7 +165,7 @@ class WithholdingTaxApi(object):
             collection_formats=collection_formats)
 
     def withholding_taxes_get(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all withholding tax documents.  # noqa: E501
+        """Get all withholding tax documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -177,8 +177,8 @@ class WithholdingTaxApi(object):
         :param int current_page: Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex> (required)
         :param int page_size: Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str sort_by: Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+        :param str filter: Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -194,7 +194,7 @@ class WithholdingTaxApi(object):
         return self.withholding_taxes_get_with_http_info(current_page, page_size, authorization, **kwargs)  # noqa: E501
 
     def withholding_taxes_get_with_http_info(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all withholding tax documents.  # noqa: E501
+        """Get all withholding tax documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -206,8 +206,8 @@ class WithholdingTaxApi(object):
         :param int current_page: Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex> (required)
         :param int page_size: Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex> (required)
         :param str authorization: (required)
-        :param str sort_by: Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str sort_by: Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+        :param str filter: Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -307,7 +307,7 @@ class WithholdingTaxApi(object):
             collection_formats=collection_formats)
 
     def withholding_taxes_id_attachment_post(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to expenses.  # noqa: E501
+        """Attachment withholding tax.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -334,7 +334,7 @@ class WithholdingTaxApi(object):
         return self.withholding_taxes_id_attachment_post_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def withholding_taxes_id_attachment_post_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to expenses.  # noqa: E501
+        """Attachment withholding tax.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -821,7 +821,7 @@ class WithholdingTaxApi(object):
             collection_formats=collection_formats)
 
     def withholding_taxes_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of withholding tax document.  # noqa: E501
+        """Change status withholding tax document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -848,7 +848,7 @@ class WithholdingTaxApi(object):
         return self.withholding_taxes_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
     def withholding_taxes_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of withholding tax document.  # noqa: E501
+        """Change status withholding tax document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1080,7 +1080,7 @@ class WithholdingTaxApi(object):
             collection_formats=collection_formats)
 
     def withholding_taxes_sharedocument_post(self, authorization, share_document, **kwargs):  # noqa: E501
-        """Share link withholding tax documents.  # noqa: E501
+        """Share link withholding tax.  # noqa: E501
 
         แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1106,7 +1106,7 @@ class WithholdingTaxApi(object):
         return self.withholding_taxes_sharedocument_post_with_http_info(authorization, share_document, **kwargs)  # noqa: E501
 
     def withholding_taxes_sharedocument_post_with_http_info(self, authorization, share_document, **kwargs):  # noqa: E501
-        """Share link withholding tax documents.  # noqa: E501
+        """Share link withholding tax.  # noqa: E501
 
         แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

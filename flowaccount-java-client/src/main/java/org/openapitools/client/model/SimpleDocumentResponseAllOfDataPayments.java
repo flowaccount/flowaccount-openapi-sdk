@@ -30,7 +30,7 @@ import org.threeten.bp.LocalDate;
  * ข้อมูลการเก็บเงินและจ่ายเงินของเอกสาร &lt;br&gt; ข้อมูลการเก็บเงิน: &lt;br&gt;1. ใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice) &lt;br&gt; 2. ใบเสร็จรับเงิน (Receipt) &lt;br&gt; 3. ใบกำกับภาษี/ใบเสร็จรับเงิน (Cash Invoice) &lt;br&gt; ข้อมูลการจ่ายเงิน: &lt;br&gt;1. เอกสารใบรับสินค้า (Receiving Inventory)
  */
 @ApiModel(description = "ข้อมูลการเก็บเงินและจ่ายเงินของเอกสาร <br> ข้อมูลการเก็บเงิน: <br>1. ใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice) <br> 2. ใบเสร็จรับเงิน (Receipt) <br> 3. ใบกำกับภาษี/ใบเสร็จรับเงิน (Cash Invoice) <br> ข้อมูลการจ่ายเงิน: <br>1. เอกสารใบรับสินค้า (Receiving Inventory)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class SimpleDocumentResponseAllOfDataPayments {
   public static final String SERIALIZED_NAME_PAYMENT_DATE = "paymentDate";
   @SerializedName(SERIALIZED_NAME_PAYMENT_DATE)

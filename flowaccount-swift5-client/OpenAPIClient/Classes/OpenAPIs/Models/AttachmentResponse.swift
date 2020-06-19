@@ -17,9 +17,10 @@ public struct AttachmentResponse: Codable {
     public var message: String?
     /** error code */
     public var code: Int?
-    public var data: AttachmentResponseData?
+    /** ข้อมูลไฟล์แนบเอกสาร */
+    public var data: [AttachmentResponseData]?
 
-    public init(status: Bool?, message: String?, code: Int?, data: AttachmentResponseData?) {
+    public init(status: Bool?, message: String?, code: Int?, data: [AttachmentResponseData]?) {
         self.status = status
         self.message = message
         self.code = code

@@ -47,6 +47,14 @@ public class WithholidingTaxDocumentResponseDataTest {
     }
 
     /**
+     * Test the property 'recordId'
+     */
+    @Test
+    public void recordIdTest() {
+        // TODO: test recordId
+    }
+
+    /**
      * Test the property 'documentId'
      */
     @Test

@@ -40,6 +40,7 @@ class Product(object):
         'name': 'str',
         'sell_description': 'str',
         'sell_price': 'float',
+        'sell_price_with_vat': 'float',
         'sell_vat_type': 'int',
         'unit_name': 'str',
         'category_id': 'int',
@@ -48,8 +49,11 @@ class Product(object):
         'buy_description': 'str',
         'buy_price': 'float',
         'buy_vat_type': 'int',
+        'buy_vat_type_with_vat': 'float',
         'inventory_published_on': 'date',
         'inventory_quantity': 'float',
+        'inventory_price': 'float',
+        'inventory_total': 'float',
         'average_buy_price': 'float',
         'average_sell_price': 'float',
         'remaining_stock': 'float',
@@ -63,6 +67,7 @@ class Product(object):
         'name': 'name',
         'sell_description': 'sellDescription',
         'sell_price': 'sellPrice',
+        'sell_price_with_vat': 'sellPriceWithVat',
         'sell_vat_type': 'sellVatType',
         'unit_name': 'unitName',
         'category_id': 'categoryId',
@@ -71,15 +76,18 @@ class Product(object):
         'buy_description': 'buyDescription',
         'buy_price': 'buyPrice',
         'buy_vat_type': 'buyVatType',
+        'buy_vat_type_with_vat': 'buyVatTypeWithVat',
         'inventory_published_on': 'inventoryPublishedOn',
         'inventory_quantity': 'inventoryQuantity',
+        'inventory_price': 'inventoryPrice',
+        'inventory_total': 'inventoryTotal',
         'average_buy_price': 'averageBuyPrice',
         'average_sell_price': 'averageSellPrice',
         'remaining_stock': 'remainingStock',
         'total_value_in_hand': 'totalValueInHand'
     }
 
-    def __init__(self, id=None, type=1, code=None, name=None, sell_description=None, sell_price=None, sell_vat_type=3, unit_name=None, category_id=None, category_name=None, barcode=None, buy_description=None, buy_price=None, buy_vat_type=3, inventory_published_on=None, inventory_quantity=None, average_buy_price=None, average_sell_price=None, remaining_stock=None, total_value_in_hand=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=1, code=None, name=None, sell_description=None, sell_price=None, sell_price_with_vat=None, sell_vat_type=3, unit_name=None, category_id=None, category_name=None, barcode=None, buy_description=None, buy_price=None, buy_vat_type=3, buy_vat_type_with_vat=None, inventory_published_on=None, inventory_quantity=None, inventory_price=0, inventory_total=0, average_buy_price=None, average_sell_price=None, remaining_stock=None, total_value_in_hand=None, local_vars_configuration=None):  # noqa: E501
         """Product - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +99,7 @@ class Product(object):
         self._name = None
         self._sell_description = None
         self._sell_price = None
+        self._sell_price_with_vat = None
         self._sell_vat_type = None
         self._unit_name = None
         self._category_id = None
@@ -99,8 +108,11 @@ class Product(object):
         self._buy_description = None
         self._buy_price = None
         self._buy_vat_type = None
+        self._buy_vat_type_with_vat = None
         self._inventory_published_on = None
         self._inventory_quantity = None
+        self._inventory_price = None
+        self._inventory_total = None
         self._average_buy_price = None
         self._average_sell_price = None
         self._remaining_stock = None
@@ -119,6 +131,8 @@ class Product(object):
             self.sell_description = sell_description
         if sell_price is not None:
             self.sell_price = sell_price
+        if sell_price_with_vat is not None:
+            self.sell_price_with_vat = sell_price_with_vat
         if sell_vat_type is not None:
             self.sell_vat_type = sell_vat_type
         if unit_name is not None:
@@ -135,10 +149,16 @@ class Product(object):
             self.buy_price = buy_price
         if buy_vat_type is not None:
             self.buy_vat_type = buy_vat_type
+        if buy_vat_type_with_vat is not None:
+            self.buy_vat_type_with_vat = buy_vat_type_with_vat
         if inventory_published_on is not None:
             self.inventory_published_on = inventory_published_on
         if inventory_quantity is not None:
             self.inventory_quantity = inventory_quantity
+        if inventory_price is not None:
+            self.inventory_price = inventory_price
+        if inventory_total is not None:
+            self.inventory_total = inventory_total
         if average_buy_price is not None:
             self.average_buy_price = average_buy_price
         if average_sell_price is not None:
@@ -285,6 +305,29 @@ class Product(object):
         """
 
         self._sell_price = sell_price
+
+    @property
+    def sell_price_with_vat(self):
+        """Gets the sell_price_with_vat of this Product.  # noqa: E501
+
+        ราคาขายสินค้า รวมภาษี  # noqa: E501
+
+        :return: The sell_price_with_vat of this Product.  # noqa: E501
+        :rtype: float
+        """
+        return self._sell_price_with_vat
+
+    @sell_price_with_vat.setter
+    def sell_price_with_vat(self, sell_price_with_vat):
+        """Sets the sell_price_with_vat of this Product.
+
+        ราคาขายสินค้า รวมภาษี  # noqa: E501
+
+        :param sell_price_with_vat: The sell_price_with_vat of this Product.  # noqa: E501
+        :type: float
+        """
+
+        self._sell_price_with_vat = sell_price_with_vat
 
     @property
     def sell_vat_type(self):
@@ -471,6 +514,29 @@ class Product(object):
         self._buy_vat_type = buy_vat_type
 
     @property
+    def buy_vat_type_with_vat(self):
+        """Gets the buy_vat_type_with_vat of this Product.  # noqa: E501
+
+        ราคาซื้อสินค้า รวมภาษี  # noqa: E501
+
+        :return: The buy_vat_type_with_vat of this Product.  # noqa: E501
+        :rtype: float
+        """
+        return self._buy_vat_type_with_vat
+
+    @buy_vat_type_with_vat.setter
+    def buy_vat_type_with_vat(self, buy_vat_type_with_vat):
+        """Sets the buy_vat_type_with_vat of this Product.
+
+        ราคาซื้อสินค้า รวมภาษี  # noqa: E501
+
+        :param buy_vat_type_with_vat: The buy_vat_type_with_vat of this Product.  # noqa: E501
+        :type: float
+        """
+
+        self._buy_vat_type_with_vat = buy_vat_type_with_vat
+
+    @property
     def inventory_published_on(self):
         """Gets the inventory_published_on of this Product.  # noqa: E501
 
@@ -517,10 +583,56 @@ class Product(object):
         self._inventory_quantity = inventory_quantity
 
     @property
+    def inventory_price(self):
+        """Gets the inventory_price of this Product.  # noqa: E501
+
+        ต้นทุนสินค้าต่อหน่วย  # noqa: E501
+
+        :return: The inventory_price of this Product.  # noqa: E501
+        :rtype: float
+        """
+        return self._inventory_price
+
+    @inventory_price.setter
+    def inventory_price(self, inventory_price):
+        """Sets the inventory_price of this Product.
+
+        ต้นทุนสินค้าต่อหน่วย  # noqa: E501
+
+        :param inventory_price: The inventory_price of this Product.  # noqa: E501
+        :type: float
+        """
+
+        self._inventory_price = inventory_price
+
+    @property
+    def inventory_total(self):
+        """Gets the inventory_total of this Product.  # noqa: E501
+
+        มูลค่ารวมยอดตั้งต้นสินค้า  # noqa: E501
+
+        :return: The inventory_total of this Product.  # noqa: E501
+        :rtype: float
+        """
+        return self._inventory_total
+
+    @inventory_total.setter
+    def inventory_total(self, inventory_total):
+        """Sets the inventory_total of this Product.
+
+        มูลค่ารวมยอดตั้งต้นสินค้า  # noqa: E501
+
+        :param inventory_total: The inventory_total of this Product.  # noqa: E501
+        :type: float
+        """
+
+        self._inventory_total = inventory_total
+
+    @property
     def average_buy_price(self):
         """Gets the average_buy_price of this Product.  # noqa: E501
 
-        ราคาซื้อเฉลี่ยสินค้า  # noqa: E501
+        ราคาสินค้าซื้อเฉลี่ย  # noqa: E501
 
         :return: The average_buy_price of this Product.  # noqa: E501
         :rtype: float
@@ -531,7 +643,7 @@ class Product(object):
     def average_buy_price(self, average_buy_price):
         """Sets the average_buy_price of this Product.
 
-        ราคาซื้อเฉลี่ยสินค้า  # noqa: E501
+        ราคาสินค้าซื้อเฉลี่ย  # noqa: E501
 
         :param average_buy_price: The average_buy_price of this Product.  # noqa: E501
         :type: float
@@ -543,7 +655,7 @@ class Product(object):
     def average_sell_price(self):
         """Gets the average_sell_price of this Product.  # noqa: E501
 
-        ราคาขายเฉลี่ยสินค้า  # noqa: E501
+        ราคาขายสินค้าเฉลี่ย  # noqa: E501
 
         :return: The average_sell_price of this Product.  # noqa: E501
         :rtype: float
@@ -554,7 +666,7 @@ class Product(object):
     def average_sell_price(self, average_sell_price):
         """Sets the average_sell_price of this Product.
 
-        ราคาขายเฉลี่ยสินค้า  # noqa: E501
+        ราคาขายสินค้าเฉลี่ย  # noqa: E501
 
         :param average_sell_price: The average_sell_price of this Product.  # noqa: E501
         :type: float

@@ -29,7 +29,7 @@ var (
 type WithholdingTaxApiService service
 
 /*
-WithholdingTaxesEmailDocumentPost Send email withholding tax document.
+WithholdingTaxesEmailDocumentPost Send email withholding tax.
 ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -115,15 +115,15 @@ type WithholdingTaxesGetOpts struct {
 }
 
 /*
-WithholdingTaxesGet Get list all withholding tax documents.
+WithholdingTaxesGet Get all withholding tax documents.
 เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
  * @param pageSize Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex>
  * @param authorization
  * @param optional nil or *WithholdingTaxesGetOpts - Optional Parameters:
- * @param "SortBy" (optional.String) -  Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "SortBy" (optional.String) -  Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+ * @param "Filter" (optional.String) -  Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllWithholidingTaxDocumentResponse
 */
 func (a *WithholdingTaxApiService) WithholdingTaxesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *WithholdingTaxesGetOpts) (AllWithholidingTaxDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type WithholdingTaxesIdAttachmentPostOpts struct {
 }
 
 /*
-WithholdingTaxesIdAttachmentPost Add Attachment to expenses.
+WithholdingTaxesIdAttachmentPost Attachment withholding tax.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -550,7 +550,7 @@ func (a *WithholdingTaxApiService) WithholdingTaxesIdPut(ctx _context.Context, a
 }
 
 /*
-WithholdingTaxesIdStatusStatusIdPost Change status of withholding tax document.
+WithholdingTaxesIdStatusStatusIdPost Change status withholding tax document.
 เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -713,7 +713,7 @@ func (a *WithholdingTaxApiService) WithholdingTaxesPost(ctx _context.Context, au
 }
 
 /*
-WithholdingTaxesSharedocumentPost Share link withholding tax documents.
+WithholdingTaxesSharedocumentPost Share link withholding tax.
 แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

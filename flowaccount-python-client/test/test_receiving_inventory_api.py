@@ -39,14 +39,14 @@ class TestReceivingInventoryApi(unittest.TestCase):
     def test_purchases_get(self):
         """Test case for purchases_get
 
-        Get list all receiving inventory documents.  # noqa: E501
+        Get all receiving inventory documents.  # noqa: E501
         """
         pass
 
     def test_purchases_id_attachment_post(self):
         """Test case for purchases_id_attachment_post
 
-        Add Attachment to receiving inventory document.  # noqa: E501
+        Attachment receiving inventory document.  # noqa: E501
         """
         pass
 
@@ -67,7 +67,7 @@ class TestReceivingInventoryApi(unittest.TestCase):
     def test_purchases_id_payment_post(self):
         """Test case for purchases_id_payment_post
 
-        Change paid status of receiving inventory document.  # noqa: E501
+        Change status is paid receiving inventory document.  # noqa: E501
         """
         pass
 
@@ -81,21 +81,21 @@ class TestReceivingInventoryApi(unittest.TestCase):
     def test_purchases_id_status_status_id_post(self):
         """Test case for purchases_id_status_status_id_post
 
-        Change status of receiving inventory document.  # noqa: E501
+        Change status receiving inventory document.  # noqa: E501
         """
         pass
 
     def test_purchases_inline_post(self):
         """Test case for purchases_inline_post
 
-        Create receiving inventory document with discount and tax inline.  # noqa: E501
+        Create receiving inventory document inline discount or inline vat.  # noqa: E501
         """
         pass
 
     def test_purchases_inline_with_payment_post(self):
         """Test case for purchases_inline_with_payment_post
 
-        Create receiving inventory document with discount and tax inline with payment.  # noqa: E501
+        Create receiving inventory document inline discount or inline vat with payment.  # noqa: E501
         """
         pass
 

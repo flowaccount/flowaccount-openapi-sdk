@@ -21,7 +21,7 @@ export declare class ContactsApi {
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ContactsApiApiKeys, value: string): void;
     addInterceptor(interceptor: Interceptor): void;
-    contactsGet(currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options?: {
+    contactsGet(authorization: string, currentPage?: number, pageSize?: number, sortBy?: string, filter?: string, options?: {
         headers: {
             [name: string]: string;
         };

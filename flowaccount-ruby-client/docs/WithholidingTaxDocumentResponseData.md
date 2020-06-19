@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**record_id** | **String** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **document_id** | **String** | เลข Id เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **document_serial** | **String** | เลขที่เอกสารใบหัก ณ ที่จ่าย | [optional] 
 **contact_code** | **String** | รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า | [optional] 
@@ -41,7 +42,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::WithholidingTaxDocumentResponseData.new(document_id: null,
+instance = OpenapiClient::WithholidingTaxDocumentResponseData.new(record_id: null,
+                                 document_id: null,
                                  document_serial: null,
                                  contact_code: null,
                                  contact_name: null,

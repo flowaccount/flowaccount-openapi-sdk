@@ -17,6 +17,8 @@ type Contact struct {
 	ContactGroup int64 `json:"contactGroup"`
 	// ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า
 	ContactType int64 `json:"contactType"`
+	// รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>
+	ContactCode int64 `json:"contactCode,omitempty"`
 	// ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
 	ContactName string `json:"contactName"`
 	// ที่อยู่ผู้ติดต่อ

@@ -20,37 +20,29 @@ module OpenapiClient
       @api_client = api_client
     end
     # Get list all contacts.
-    # @param current_page [Integer] Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
-    # @param page_size [Integer] Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort_by Query contacts list amount per page. &lt;br&gt;Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
+    # @option opts [Integer] :current_page Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
+    # @option opts [Integer] :page_size Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;
+    # @option opts [String] :sort_by Contact Sort By Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+    # @option opts [String] :filter Contact Filter Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
     # @return [ContactResponse]
-    def contacts_get(current_page, page_size, authorization, opts = {})
-      data, _status_code, _headers = contacts_get_with_http_info(current_page, page_size, authorization, opts)
+    def contacts_get(authorization, opts = {})
+      data, _status_code, _headers = contacts_get_with_http_info(authorization, opts)
       data
     end
 
     # Get list all contacts.
-    # @param current_page [Integer] Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
-    # @param page_size [Integer] Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;
     # @param authorization [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort_by Query contacts list amount per page. &lt;br&gt;Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
-    # @option opts [String] :filter Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
+    # @option opts [Integer] :current_page Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
+    # @option opts [Integer] :page_size Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;
+    # @option opts [String] :sort_by Contact Sort By Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{&#39;name&#39;:&#39;contactPerson&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;
+    # @option opts [String] :filter Contact Filter Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{&#39;columnName&#39;:&#39;contactType&#39;,&#39;columnValue&#39;:&#39;3&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}]&lt;/ex&gt;
     # @return [Array<(ContactResponse, Integer, Hash)>] ContactResponse data, response status code and response headers
-    def contacts_get_with_http_info(current_page, page_size, authorization, opts = {})
+    def contacts_get_with_http_info(authorization, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContactsApi.contacts_get ...'
-      end
-      # verify the required parameter 'current_page' is set
-      if @api_client.config.client_side_validation && current_page.nil?
-        fail ArgumentError, "Missing the required parameter 'current_page' when calling ContactsApi.contacts_get"
-      end
-      # verify the required parameter 'page_size' is set
-      if @api_client.config.client_side_validation && page_size.nil?
-        fail ArgumentError, "Missing the required parameter 'page_size' when calling ContactsApi.contacts_get"
       end
       # verify the required parameter 'authorization' is set
       if @api_client.config.client_side_validation && authorization.nil?
@@ -61,8 +53,8 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'currentPage'] = current_page
-      query_params[:'pageSize'] = page_size
+      query_params[:'currentPage'] = opts[:'current_page'] if !opts[:'current_page'].nil?
+      query_params[:'pageSize'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'sortBy'] = opts[:'sort_by'] if !opts[:'sort_by'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 

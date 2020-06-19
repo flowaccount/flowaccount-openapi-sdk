@@ -23,6 +23,8 @@ public struct Product: Codable {
     public var sellDescription: String?
     /** ราคาขายสินค้า */
     public var sellPrice: Double?
+    /** ราคาขายสินค้า รวมภาษี */
+    public var sellPriceWithVat: Double?
     /** ภาษีขาย: &lt;br&gt; 1 &#x3D; ราคาขายรวมภาษี &lt;br&gt; 3 &#x3D; ราคาขายไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาขายภาษี 0% &lt;br&gt; 7 &#x3D; ราคาขายสินค้าได้รับการยกเว้นภาษี */
     public var sellVatType: Int64? = 3
     /** หน่วยสินค้า */
@@ -39,26 +41,33 @@ public struct Product: Codable {
     public var buyPrice: Double?
     /** ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี */
     public var buyVatType: Int64? = 3
+    /** ราคาซื้อสินค้า รวมภาษี */
+    public var buyVatTypeWithVat: Double?
     /** วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; */
     public var inventoryPublishedOn: Date?
     /** จำนวนยอดตั้งต้นสินค้า */
     public var inventoryQuantity: Double?
-    /** ราคาซื้อเฉลี่ยสินค้า */
+    /** ต้นทุนสินค้าต่อหน่วย */
+    public var inventoryPrice: Double? = 0
+    /** มูลค่ารวมยอดตั้งต้นสินค้า */
+    public var inventoryTotal: Double? = 0
+    /** ราคาสินค้าซื้อเฉลี่ย */
     public var averageBuyPrice: Double?
-    /** ราคาขายเฉลี่ยสินค้า */
+    /** ราคาขายสินค้าเฉลี่ย */
     public var averageSellPrice: Double?
     /** จำนวนสินค้าคงเหลือในสต๊อก */
     public var remainingStock: Double?
     /** มูลค่าสินค้าคงเหลือในสต๊อก */
     public var totalValueInHand: Double?
 
-    public init(id: String?, type: Int64?, code: String?, name: String?, sellDescription: String?, sellPrice: Double?, sellVatType: Int64?, unitName: String?, categoryId: Int64?, categoryName: String?, barcode: String?, buyDescription: String?, buyPrice: Double?, buyVatType: Int64?, inventoryPublishedOn: Date?, inventoryQuantity: Double?, averageBuyPrice: Double?, averageSellPrice: Double?, remainingStock: Double?, totalValueInHand: Double?) {
+    public init(id: String?, type: Int64?, code: String?, name: String?, sellDescription: String?, sellPrice: Double?, sellPriceWithVat: Double?, sellVatType: Int64?, unitName: String?, categoryId: Int64?, categoryName: String?, barcode: String?, buyDescription: String?, buyPrice: Double?, buyVatType: Int64?, buyVatTypeWithVat: Double?, inventoryPublishedOn: Date?, inventoryQuantity: Double?, inventoryPrice: Double?, inventoryTotal: Double?, averageBuyPrice: Double?, averageSellPrice: Double?, remainingStock: Double?, totalValueInHand: Double?) {
         self.id = id
         self.type = type
         self.code = code
         self.name = name
         self.sellDescription = sellDescription
         self.sellPrice = sellPrice
+        self.sellPriceWithVat = sellPriceWithVat
         self.sellVatType = sellVatType
         self.unitName = unitName
         self.categoryId = categoryId
@@ -67,8 +76,11 @@ public struct Product: Codable {
         self.buyDescription = buyDescription
         self.buyPrice = buyPrice
         self.buyVatType = buyVatType
+        self.buyVatTypeWithVat = buyVatTypeWithVat
         self.inventoryPublishedOn = inventoryPublishedOn
         self.inventoryQuantity = inventoryQuantity
+        self.inventoryPrice = inventoryPrice
+        self.inventoryTotal = inventoryTotal
         self.averageBuyPrice = averageBuyPrice
         self.averageSellPrice = averageSellPrice
         self.remainingStock = remainingStock

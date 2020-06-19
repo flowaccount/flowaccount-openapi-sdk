@@ -85,7 +85,7 @@ class PurchaseOrderApiTest extends TestCase
     /**
      * Test case for purchasesOrdersGet
      *
-     * Get list all purchase order documents..
+     * Get all purchase order documents..
      *
      */
     public function testPurchasesOrdersGet()
@@ -95,7 +95,7 @@ class PurchaseOrderApiTest extends TestCase
     /**
      * Test case for purchasesOrdersIdAttachmentPost
      *
-     * Add Attachment to purchase order document..
+     * Attachment purchase order document..
      *
      */
     public function testPurchasesOrdersIdAttachmentPost()
@@ -135,7 +135,7 @@ class PurchaseOrderApiTest extends TestCase
     /**
      * Test case for purchasesOrdersIdStatusStatusIdPost
      *
-     * Change status of purchase order document..
+     * Change status purchase order document..
      *
      */
     public function testPurchasesOrdersIdStatusStatusIdPost()
@@ -145,7 +145,7 @@ class PurchaseOrderApiTest extends TestCase
     /**
      * Test case for purchasesOrdersInlinePost
      *
-     * Create purchase order document with discount and tax inline..
+     * Create purchase order document inline discount or inline vat..
      *
      */
     public function testPurchasesOrdersInlinePost()

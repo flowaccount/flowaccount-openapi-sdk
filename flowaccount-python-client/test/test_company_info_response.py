@@ -40,24 +40,22 @@ class TestCompanyInfoResponse(unittest.TestCase):
                 status = True, 
                 message = '0', 
                 code = 56, 
-                data = [
-                    openapi_client.models.company_info_response_data.CompanyInfoResponse_data(
-                        company_id = 56, 
-                        company_type = '10', 
-                        compnay_name = '0', 
-                        company_name_en = '0', 
-                        company_address = '0', 
-                        company_address_en = '0', 
-                        company_zip_code = '0', 
-                        company_tax_id = '0', 
-                        company_branch = 'สำนักงานใหญ่', 
-                        company_branch_en = '0', 
-                        company_branch_code = '0', 
-                        company_phone = '0', 
-                        company_mobile = '0', 
-                        company_fax = '0', 
-                        company_website = '0', )
-                    ]
+                data = openapi_client.models.company_info_response_data.CompanyInfoResponse_data(
+                    company_id = 56, 
+                    company_type = '10', 
+                    compnay_name = '0', 
+                    company_name_en = '0', 
+                    company_address = '0', 
+                    company_address_en = '0', 
+                    company_zip_code = '0', 
+                    company_tax_id = '0', 
+                    company_branch = 'สำนักงานใหญ่', 
+                    company_branch_en = '0', 
+                    company_branch_code = '0', 
+                    company_phone = '0', 
+                    company_mobile = '0', 
+                    company_fax = '0', 
+                    company_website = '0', )
             )
         else :
             return CompanyInfoResponse(

@@ -93,8 +93,8 @@ export class ProductsApi {
      * @param currentPage Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;
      * @param authorization 
-     * @param sortBy Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;productCode\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;}]&lt;/ex&gt;
-     * @param filter Query products list amount per page. &lt;br&gt;Example Pattern: &lt;br&gt; name &#x3D; Product Name &lt;br&gt; productCode &#x3D; Product Code / SKU &lt;br&gt; barcode &#x3D; Product Barcode &lt;br&gt; categoryId &#x3D; Product Category&lt;br&gt; &lt;ex&gt; /products?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;categoryId\&#39;,\&#39;columnValue\&#39;:\&#39;517727\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}]&lt;/ex&gt;
+     * @param sortBy Product Sort By Example Pattern: &lt;ex&gt; /products?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;productCode\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;}]&lt;/ex&gt;
+     * @param filter Product Filter Example Pattern: &lt;br&gt; name &#x3D; Product Name &lt;br&gt; productCode &#x3D; Product Code / SKU &lt;br&gt; barcode &#x3D; Product Barcode &lt;br&gt; categoryId &#x3D; Product Category&lt;br&gt; &lt;ex&gt; /products?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;categoryId\&#39;,\&#39;columnValue\&#39;:\&#39;517727\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}]&lt;/ex&gt;
      */
     public async productsGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ProductResponse;  }> {
         const localVarPath = this.basePath + '/products';

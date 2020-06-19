@@ -12,7 +12,6 @@
 
 package org.openapitools.client.model;
 
-import java.util.*;
 import org.openapitools.client.model.CompanyInfoResponseData;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ public class CompanyInfoResponse {
   @SerializedName("code")
   private Integer code = null;
   @SerializedName("data")
-  private List<CompanyInfoResponseData> data = null;
+  private CompanyInfoResponseData data = null;
 
   /**
    * action success
@@ -63,13 +62,12 @@ public class CompanyInfoResponse {
   }
 
   /**
-   * ข้อมูลบริษัทเรา
    **/
-  @ApiModelProperty(value = "ข้อมูลบริษัทเรา")
-  public List<CompanyInfoResponseData> getData() {
+  @ApiModelProperty(value = "")
+  public CompanyInfoResponseData getData() {
     return data;
   }
-  public void setData(List<CompanyInfoResponseData> data) {
+  public void setData(CompanyInfoResponseData data) {
     this.data = data;
   }
 

@@ -50,8 +50,8 @@ export default class ProductsApi {
      * @param {Number} pageSize Query products list amount per page. <br>Example Pattern: <ex> /products?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sortBy Query products list amount per page. <br>Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex>
-     * @param {String} opts.filter Query products list amount per page. <br>Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
+     * @param {String} opts.sortBy Product Sort By Example Pattern: <ex> /products?sortBy=[{'name':'productCode','sortOrder':'asc'}]</ex>
+     * @param {String} opts.filter Product Filter Example Pattern: <br> name = Product Name <br> productCode = Product Code / SKU <br> barcode = Product Barcode <br> categoryId = Product Category<br> <ex> /products?filter=[{'columnName':'categoryId','columnValue':'517727','columnPredicateOperator':'And'}]</ex>
      * @param {module:api/ProductsApi~productsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProductResponse}
      */

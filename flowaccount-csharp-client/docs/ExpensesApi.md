@@ -4,21 +4,21 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ExpensesCategoriesAccountingGet**](ExpensesApi.md#expensescategoriesaccountingget) | **GET** /expenses/categories/accounting | Accounting categorys expenses document.
-[**ExpensesCategoriesBusinessGet**](ExpensesApi.md#expensescategoriesbusinessget) | **GET** /expenses/categories/business | Business categorys expenses document.
+[**ExpensesCategoriesAccountingGet**](ExpensesApi.md#expensescategoriesaccountingget) | **GET** /expenses/categories/accounting | Accounting categories expenses document.
+[**ExpensesCategoriesBusinessGet**](ExpensesApi.md#expensescategoriesbusinessget) | **GET** /expenses/categories/business | Business categories expenses document.
 [**ExpensesEmailDocumentPost**](ExpensesApi.md#expensesemaildocumentpost) | **POST** /expenses/email-document | Send email expenses document.
 [**ExpensesGet**](ExpensesApi.md#expensesget) | **GET** /expenses | Get list all expenses documents.
-[**ExpensesIdAttachmentPost**](ExpensesApi.md#expensesidattachmentpost) | **POST** /expenses/{id}/attachment | Add Attachment to expenses.
+[**ExpensesIdAttachmentPost**](ExpensesApi.md#expensesidattachmentpost) | **POST** /expenses/{id}/attachment | Attachment to expenses document.
 [**ExpensesIdDelete**](ExpensesApi.md#expensesiddelete) | **DELETE** /expenses/{id} | Delete expenses document.
 [**ExpensesIdGet**](ExpensesApi.md#expensesidget) | **GET** /expenses/{id} | Get expenses document.
-[**ExpensesIdPaymentPost**](ExpensesApi.md#expensesidpaymentpost) | **POST** /expenses/{id}/payment | Change paid status of expenses document.
+[**ExpensesIdPaymentPost**](ExpensesApi.md#expensesidpaymentpost) | **POST** /expenses/{id}/payment | Change status is paid expenses document.
 [**ExpensesIdPut**](ExpensesApi.md#expensesidput) | **PUT** /expenses/{id} | Edit expenses document.
-[**ExpensesIdStatusStatusIdPost**](ExpensesApi.md#expensesidstatusstatusidpost) | **POST** /expenses/{id}/status/{statusId} | Change status of expenses document.
-[**ExpensesInlinePost**](ExpensesApi.md#expensesinlinepost) | **POST** /expenses/inline | Create expenses document with discount and tax inline.
-[**ExpensesInlineWithPaymentPost**](ExpensesApi.md#expensesinlinewithpaymentpost) | **POST** /expenses/inline/with-payment | Create expenses document with discount and tax inline with payment.
+[**ExpensesIdStatusStatusIdPost**](ExpensesApi.md#expensesidstatusstatusidpost) | **POST** /expenses/{id}/status/{statusId} | Change status expenses document.
+[**ExpensesInlinePost**](ExpensesApi.md#expensesinlinepost) | **POST** /expenses/inline | Create expenses document inline discount or inline vat.
+[**ExpensesInlineWithPaymentPost**](ExpensesApi.md#expensesinlinewithpaymentpost) | **POST** /expenses/inline/with-payment | Create expenses document inline discount or inline vat with payment.
 [**ExpensesPost**](ExpensesApi.md#expensespost) | **POST** /expenses | Create expenses document.
-[**ExpensesSharedocumentPost**](ExpensesApi.md#expensessharedocumentpost) | **POST** /expenses/sharedocument | Share link expenses documents.
-[**ExpensesWithPaymentPost**](ExpensesApi.md#expenseswithpaymentpost) | **POST** /expenses/with-payment | Create expenses document with-payment.
+[**ExpensesSharedocumentPost**](ExpensesApi.md#expensessharedocumentpost) | **POST** /expenses/sharedocument | Share link expenses document.
+[**ExpensesWithPaymentPost**](ExpensesApi.md#expenseswithpaymentpost) | **POST** /expenses/with-payment | Create expenses document with payment.
 
 
 
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 > BusinessCategory ExpensesCategoriesAccountingGet (string authorization)
 
-Accounting categorys expenses document.
+Accounting categories expenses document.
 
 เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
 
@@ -51,7 +51,7 @@ namespace Example
 
             try
             {
-                // Accounting categorys expenses document.
+                // Accounting categories expenses document.
                 BusinessCategory result = apiInstance.ExpensesCategoriesAccountingGet(authorization);
                 Debug.WriteLine(result);
             }
@@ -103,7 +103,7 @@ No authorization required
 
 > BusinessCategory ExpensesCategoriesBusinessGet (string authorization)
 
-Business categorys expenses document.
+Business categories expenses document.
 
 เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
 
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Business categorys expenses document.
+                // Business categories expenses document.
                 BusinessCategory result = apiInstance.ExpensesCategoriesBusinessGet(authorization);
                 Debug.WriteLine(result);
             }
@@ -280,11 +280,11 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ExpensesApi(Configuration.Default);
-            var currentPage = 56;  // int | Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
-            var pageSize = 56;  // int | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
+            var currentPage = 56;  // int | Query current page expenses document. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query expenses document list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var sortBy = sortBy_example;  // string | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
-            var filter = filter_example;  // string |  (optional) 
+            var sortBy = sortBy_example;  // string | Query sort by expense document. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
+            var filter = filter_example;  // string | Query filter expenses document. <br>Example Pattern: <ex> /expenses?filter=[{'columnName':'Status','columnValue':'processed','columnPredicateOperator':'And'}] </ex> (optional) 
 
             try
             {
@@ -308,11 +308,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currentPage** | **int**| Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
- **pageSize** | **int**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; | 
+ **currentPage** | **int**| Query current page expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query expenses document list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **string**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **string**|  | [optional] 
+ **sortBy** | **string**| Query sort by expense document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/expenses?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
+ **filter** | **string**| Query filter expenses document. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?filter&#x3D;[{&#39;columnName&#39;:&#39;Status&#39;,&#39;columnValue&#39;:&#39;processed&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -344,7 +344,7 @@ No authorization required
 
 > AttachmentResponse ExpensesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to expenses.
+Attachment to expenses document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
 
@@ -371,7 +371,7 @@ namespace Example
 
             try
             {
-                // Add Attachment to expenses.
+                // Attachment to expenses document.
                 AttachmentResponse result = apiInstance.ExpensesIdAttachmentPost(authorization, id, file);
                 Debug.WriteLine(result);
             }
@@ -502,7 +502,7 @@ No authorization required
 
 ## ExpensesIdGet
 
-> ExpenseInlineDocumentResponse ExpensesIdGet (string authorization, string id)
+> AllExpenseDocumentResponse ExpensesIdGet (string authorization, string id)
 
 Get expenses document.
 
@@ -531,7 +531,7 @@ namespace Example
             try
             {
                 // Get expenses document.
-                ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdGet(authorization, id);
+                AllExpenseDocumentResponse result = apiInstance.ExpensesIdGet(authorization, id);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExpenseInlineDocumentResponse**](ExpenseInlineDocumentResponse.md)
+[**AllExpenseDocumentResponse**](AllExpenseDocumentResponse.md)
 
 ### Authorization
 
@@ -583,7 +583,7 @@ No authorization required
 
 > ExpenseSimpleDocumentResponse ExpensesIdPaymentPost (string authorization, string id, PaymentPaidDocument paymentPaidDocument)
 
-Change paid status of expenses document.
+Change status is paid expenses document.
 
 ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
 
@@ -610,7 +610,7 @@ namespace Example
 
             try
             {
-                // Change paid status of expenses document.
+                // Change status is paid expenses document.
                 ExpenseSimpleDocumentResponse result = apiInstance.ExpensesIdPaymentPost(authorization, id, paymentPaidDocument);
                 Debug.WriteLine(result);
             }
@@ -745,7 +745,7 @@ No authorization required
 
 > ExpenseInlineDocumentResponse ExpensesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
-Change status of expenses document.
+Change status expenses document.
 
 เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -772,7 +772,7 @@ namespace Example
 
             try
             {
-                // Change status of expenses document.
+                // Change status expenses document.
                 ExpenseInlineDocumentResponse result = apiInstance.ExpensesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
@@ -826,7 +826,7 @@ No authorization required
 
 > ExpenseInlineDocumentResponse ExpensesInlinePost (string authorization, ExpenseInlineDocument expenseInlineDocument)
 
-Create expenses document with discount and tax inline.
+Create expenses document inline discount or inline vat.
 
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
 
@@ -852,7 +852,7 @@ namespace Example
 
             try
             {
-                // Create expenses document with discount and tax inline.
+                // Create expenses document inline discount or inline vat.
                 ExpenseInlineDocumentResponse result = apiInstance.ExpensesInlinePost(authorization, expenseInlineDocument);
                 Debug.WriteLine(result);
             }
@@ -905,7 +905,7 @@ No authorization required
 
 > ExpenseInlineDocumentResponse ExpensesInlineWithPaymentPost (string authorization, ExpenseInlineDocumentWithPaymentPaid expenseInlineDocumentWithPaymentPaid)
 
-Create expenses document with discount and tax inline with payment.
+Create expenses document inline discount or inline vat with payment.
 
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 
@@ -931,7 +931,7 @@ namespace Example
 
             try
             {
-                // Create expenses document with discount and tax inline with payment.
+                // Create expenses document inline discount or inline vat with payment.
                 ExpenseInlineDocumentResponse result = apiInstance.ExpensesInlineWithPaymentPost(authorization, expenseInlineDocumentWithPaymentPaid);
                 Debug.WriteLine(result);
             }
@@ -1063,7 +1063,7 @@ No authorization required
 
 > ShareDocumentResponse ExpensesSharedocumentPost (string authorization, ShareDocument shareDocument)
 
-Share link expenses documents.
+Share link expenses document.
 
 แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
@@ -1089,7 +1089,7 @@ namespace Example
 
             try
             {
-                // Share link expenses documents.
+                // Share link expenses document.
                 ShareDocumentResponse result = apiInstance.ExpensesSharedocumentPost(authorization, shareDocument);
                 Debug.WriteLine(result);
             }
@@ -1142,7 +1142,7 @@ No authorization required
 
 > ExpenseSimpleDocumentResponse ExpensesWithPaymentPost (string authorization, ExpenseSimpleDocumentWithPaymentPaid expenseSimpleDocumentWithPaymentPaid)
 
-Create expenses document with-payment.
+Create expenses document with payment.
 
 สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
 
@@ -1168,7 +1168,7 @@ namespace Example
 
             try
             {
-                // Create expenses document with-payment.
+                // Create expenses document with payment.
                 ExpenseSimpleDocumentResponse result = apiInstance.ExpensesWithPaymentPost(authorization, expenseSimpleDocumentWithPaymentPaid);
                 Debug.WriteLine(result);
             }

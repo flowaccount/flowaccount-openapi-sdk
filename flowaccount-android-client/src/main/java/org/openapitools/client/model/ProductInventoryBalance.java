@@ -218,9 +218,9 @@ public class ProductInventoryBalance {
   }
 
   /**
-   * ราคาซื้อสินค้า
+   * ต้นทุนสินค้าต่อหน่วย
    **/
-  @ApiModelProperty(required = true, value = "ราคาซื้อสินค้า")
+  @ApiModelProperty(required = true, value = "ต้นทุนสินค้าต่อหน่วย")
   public BigDecimal getInventoryPrice() {
     return inventoryPrice;
   }

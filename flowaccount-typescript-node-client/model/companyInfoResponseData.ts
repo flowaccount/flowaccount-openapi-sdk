@@ -12,6 +12,9 @@
 
 import { RequestFile } from '../api';
 
+/**
+* ข้อมูลบริษัทเรา
+*/
 export class CompanyInfoResponseData {
     /**
     * รหัสบริษัท

@@ -65,7 +65,7 @@ public class ReceiptApiTest {
     }
     
     /**
-     * Get list all receipt documents
+     * Get all receipt documents
      *
      * เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
      *
@@ -85,7 +85,7 @@ public class ReceiptApiTest {
     }
     
     /**
-     * Add Attachment to receipt document.
+     * Attachment receipt document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
      *
@@ -137,7 +137,7 @@ public class ReceiptApiTest {
     }
     
     /**
-     * Change paid status of receipt document.
+     * Change status is paid receipt document.
      *
      * เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      *
@@ -173,7 +173,7 @@ public class ReceiptApiTest {
     }
     
     /**
-     * Change status of receipt document.
+     * Change status receipt document.
      *
      * เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      *
@@ -191,7 +191,7 @@ public class ReceiptApiTest {
     }
     
     /**
-     * Create receipt document with discount and tax inline.
+     * Create receipt document inline discount or inline vat.
      *
      * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
      *
@@ -208,7 +208,7 @@ public class ReceiptApiTest {
     }
     
     /**
-     * Create receipt document with discount and tax inline with payment.
+     * Create receipt document inline discount or inline vat with payment.
      *
      * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      *

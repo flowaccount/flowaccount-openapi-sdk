@@ -48,7 +48,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'attachment_id' => :'Integer',
-        :'created_on' => :'AnyType',
+        :'created_on' => :'Date',
         :'attachment_name' => :'String',
         :'order_number' => :'Integer',
         :'is_display' => :'Boolean',

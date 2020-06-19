@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attachment_id** | **int** | เลข Id ไฟล์แนบเอกสาร | [optional] 
-**created_on** | [**object**](.md) | วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
+**created_on** | **date** | วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] 
 **attachment_name** | **str** | ชื่อไฟล์แนบเอกสาร | [optional] 
 **order_number** | **int** | ลำดับไฟล์แนบเอกสาร | [optional] 
 **is_display** | **bool** | สถานะการแสดงไฟล์แนบเอกสาร | [optional] [default to True]

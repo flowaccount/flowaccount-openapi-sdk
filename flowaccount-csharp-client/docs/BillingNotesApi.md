@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BillingNotesEmailDocumentPost**](BillingNotesApi.md#billingnotesemaildocumentpost) | **POST** /billing-notes/email-document | Send email billing notes document.
-[**BillingNotesGet**](BillingNotesApi.md#billingnotesget) | **GET** /billing-notes | Get list all billing notes documents.
-[**BillingNotesIdAttachmentPost**](BillingNotesApi.md#billingnotesidattachmentpost) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes document.
+[**BillingNotesGet**](BillingNotesApi.md#billingnotesget) | **GET** /billing-notes | Get all billing notes documents.
+[**BillingNotesIdAttachmentPost**](BillingNotesApi.md#billingnotesidattachmentpost) | **POST** /billing-notes/{id}/attachment | Attachment billing notes document.
 [**BillingNotesIdDelete**](BillingNotesApi.md#billingnotesiddelete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**BillingNotesIdGet**](BillingNotesApi.md#billingnotesidget) | **GET** /billing-notes/{id} | Get billing notes document.
 [**BillingNotesIdPut**](BillingNotesApi.md#billingnotesidput) | **PUT** /billing-notes/{id} | Edit billing notes document.
-[**BillingNotesIdStatusStatusIdPost**](BillingNotesApi.md#billingnotesidstatusstatusidpost) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
-[**BillingNotesInlinePost**](BillingNotesApi.md#billingnotesinlinepost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
+[**BillingNotesIdStatusStatusIdPost**](BillingNotesApi.md#billingnotesidstatusstatusidpost) | **POST** /billing-notes/{id}/status/{statusId} | Change status billing notes document.
+[**BillingNotesInlinePost**](BillingNotesApi.md#billingnotesinlinepost) | **POST** /billing-notes/inline | Create billing notes document inline discount or inline vat.
 [**BillingNotesPost**](BillingNotesApi.md#billingnotespost) | **POST** /billing-notes | Create billing notes document.
 [**BillingNotesSharedocumentPost**](BillingNotesApi.md#billingnotessharedocumentpost) | **POST** /billing-notes/sharedocument | Share link billing notes document.
 
@@ -100,7 +100,7 @@ No authorization required
 
 > AllDocumentResponse BillingNotesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
-Get list all billing notes documents.
+Get all billing notes documents.
 
 เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
 
@@ -125,11 +125,11 @@ namespace Example
             var pageSize = 56;  // int | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var sortBy = sortBy_example;  // string | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
-            var filter = filter_example;  // string |  (optional) 
+            var filter = filter_example;  // string | Query filter billing-notes. <br>Example Pattern: <ex> /billing-notes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional) 
 
             try
             {
-                // Get list all billing notes documents.
+                // Get all billing notes documents.
                 AllDocumentResponse result = apiInstance.BillingNotesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **string**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **string**|  | [optional] 
+ **filter** | **string**| Query filter billing-notes. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -185,7 +185,7 @@ No authorization required
 
 > AttachmentResponse BillingNotesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to billing notes document.
+Attachment billing notes document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
 
@@ -212,7 +212,7 @@ namespace Example
 
             try
             {
-                // Add Attachment to billing notes document.
+                // Attachment billing notes document.
                 AttachmentResponse result = apiInstance.BillingNotesIdAttachmentPost(authorization, id, file);
                 Debug.WriteLine(result);
             }
@@ -505,7 +505,7 @@ No authorization required
 
 > InlineDocumentResponse BillingNotesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
-Change status of billing notes document.
+Change status billing notes document.
 
 เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
 
@@ -532,7 +532,7 @@ namespace Example
 
             try
             {
-                // Change status of billing notes document.
+                // Change status billing notes document.
                 InlineDocumentResponse result = apiInstance.BillingNotesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
@@ -586,7 +586,7 @@ No authorization required
 
 > InlineDocumentResponse BillingNotesInlinePost (string authorization, InlineDocument inlineDocument)
 
-Create billing notes document with discount and tax inline.
+Create billing notes document inline discount or inline vat.
 
 สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
 
@@ -612,7 +612,7 @@ namespace Example
 
             try
             {
-                // Create billing notes document with discount and tax inline.
+                // Create billing notes document inline discount or inline vat.
                 InlineDocumentResponse result = apiInstance.BillingNotesInlinePost(authorization, inlineDocument);
                 Debug.WriteLine(result);
             }

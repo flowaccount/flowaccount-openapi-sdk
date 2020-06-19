@@ -41,6 +41,6 @@ type ProductInventoryBalance struct {
 	InventoryPublishedOn string `json:"inventoryPublishedOn"`
 	// จำนวนยอดตั้งต้นสินค้า
 	InventoryQuantity float32 `json:"inventoryQuantity"`
-	// ราคาซื้อสินค้า
+	// ต้นทุนสินค้าต่อหน่วย
 	InventoryPrice float32 `json:"inventoryPrice"`
 }

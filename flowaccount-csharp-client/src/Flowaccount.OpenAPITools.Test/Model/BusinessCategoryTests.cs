@@ -66,132 +66,36 @@ namespace Flowaccount.OpenAPITools.Test
 
 
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'Id'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'SystemCode'
+        /// Test the property 'Message'
         /// </summary>
         [Test]
-        public void SystemCodeTest()
+        public void MessageTest()
         {
-            // TODO unit test for the property 'SystemCode'
+            // TODO unit test for the property 'Message'
         }
         /// <summary>
-        /// Test the property 'CategoryId'
+        /// Test the property 'Code'
         /// </summary>
         [Test]
-        public void CategoryIdTest()
+        public void CodeTest()
         {
-            // TODO unit test for the property 'CategoryId'
+            // TODO unit test for the property 'Code'
         }
         /// <summary>
-        /// Test the property 'CategoryNameLocal'
+        /// Test the property 'Data'
         /// </summary>
         [Test]
-        public void CategoryNameLocalTest()
+        public void DataTest()
         {
-            // TODO unit test for the property 'CategoryNameLocal'
-        }
-        /// <summary>
-        /// Test the property 'CategoryNameForeign'
-        /// </summary>
-        [Test]
-        public void CategoryNameForeignTest()
-        {
-            // TODO unit test for the property 'CategoryNameForeign'
-        }
-        /// <summary>
-        /// Test the property 'DebitId'
-        /// </summary>
-        [Test]
-        public void DebitIdTest()
-        {
-            // TODO unit test for the property 'DebitId'
-        }
-        /// <summary>
-        /// Test the property 'DebitCategory'
-        /// </summary>
-        [Test]
-        public void DebitCategoryTest()
-        {
-            // TODO unit test for the property 'DebitCategory'
-        }
-        /// <summary>
-        /// Test the property 'DebitCode'
-        /// </summary>
-        [Test]
-        public void DebitCodeTest()
-        {
-            // TODO unit test for the property 'DebitCode'
-        }
-        /// <summary>
-        /// Test the property 'DebitNameLocal'
-        /// </summary>
-        [Test]
-        public void DebitNameLocalTest()
-        {
-            // TODO unit test for the property 'DebitNameLocal'
-        }
-        /// <summary>
-        /// Test the property 'DebitNameForeign'
-        /// </summary>
-        [Test]
-        public void DebitNameForeignTest()
-        {
-            // TODO unit test for the property 'DebitNameForeign'
-        }
-        /// <summary>
-        /// Test the property 'CreditId'
-        /// </summary>
-        [Test]
-        public void CreditIdTest()
-        {
-            // TODO unit test for the property 'CreditId'
-        }
-        /// <summary>
-        /// Test the property 'CreditCategory'
-        /// </summary>
-        [Test]
-        public void CreditCategoryTest()
-        {
-            // TODO unit test for the property 'CreditCategory'
-        }
-        /// <summary>
-        /// Test the property 'CreditCode'
-        /// </summary>
-        [Test]
-        public void CreditCodeTest()
-        {
-            // TODO unit test for the property 'CreditCode'
-        }
-        /// <summary>
-        /// Test the property 'CreditNameLocal'
-        /// </summary>
-        [Test]
-        public void CreditNameLocalTest()
-        {
-            // TODO unit test for the property 'CreditNameLocal'
-        }
-        /// <summary>
-        /// Test the property 'CreditNameForeign'
-        /// </summary>
-        [Test]
-        public void CreditNameForeignTest()
-        {
-            // TODO unit test for the property 'CreditNameForeign'
-        }
-        /// <summary>
-        /// Test the property 'Keywords'
-        /// </summary>
-        [Test]
-        public void KeywordsTest()
-        {
-            // TODO unit test for the property 'Keywords'
+            // TODO unit test for the property 'Data'
         }
 
     }

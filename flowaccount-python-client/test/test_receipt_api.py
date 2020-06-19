@@ -39,14 +39,14 @@ class TestReceiptApi(unittest.TestCase):
     def test_receipts_get(self):
         """Test case for receipts_get
 
-        Get list all receipt documents  # noqa: E501
+        Get all receipt documents  # noqa: E501
         """
         pass
 
     def test_receipts_id_attachment_post(self):
         """Test case for receipts_id_attachment_post
 
-        Add Attachment to receipt document.  # noqa: E501
+        Attachment receipt document.  # noqa: E501
         """
         pass
 
@@ -67,7 +67,7 @@ class TestReceiptApi(unittest.TestCase):
     def test_receipts_id_payment_post(self):
         """Test case for receipts_id_payment_post
 
-        Change paid status of receipt document.  # noqa: E501
+        Change status is paid receipt document.  # noqa: E501
         """
         pass
 
@@ -81,21 +81,21 @@ class TestReceiptApi(unittest.TestCase):
     def test_receipts_id_status_status_id_post(self):
         """Test case for receipts_id_status_status_id_post
 
-        Change status of receipt document.  # noqa: E501
+        Change status receipt document.  # noqa: E501
         """
         pass
 
     def test_receipts_inline_post(self):
         """Test case for receipts_inline_post
 
-        Create receipt document with discount and tax inline.  # noqa: E501
+        Create receipt document inline discount or inline vat.  # noqa: E501
         """
         pass
 
     def test_receipts_inline_with_payment_post(self):
         """Test case for receipts_inline_with_payment_post
 
-        Create receipt document with discount and tax inline with payment.  # noqa: E501
+        Create receipt document inline discount or inline vat with payment.  # noqa: E501
         """
         pass
 

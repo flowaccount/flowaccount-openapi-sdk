@@ -165,7 +165,7 @@ class QuotationsApi(object):
             collection_formats=collection_formats)
 
     def quotations_get(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all quotations documents.  # noqa: E501
+        """Get all quotations documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -178,7 +178,7 @@ class QuotationsApi(object):
         :param int page_size: Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?pageSize=20 </ex> (required)
         :param str authorization: (required)
         :param str sort_by: Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str filter: Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -194,7 +194,7 @@ class QuotationsApi(object):
         return self.quotations_get_with_http_info(current_page, page_size, authorization, **kwargs)  # noqa: E501
 
     def quotations_get_with_http_info(self, current_page, page_size, authorization, **kwargs):  # noqa: E501
-        """Get list all quotations documents.  # noqa: E501
+        """Get all quotations documents.  # noqa: E501
 
         เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -207,7 +207,7 @@ class QuotationsApi(object):
         :param int page_size: Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?pageSize=20 </ex> (required)
         :param str authorization: (required)
         :param str sort_by: Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-        :param str filter:
+        :param str filter: Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -307,7 +307,7 @@ class QuotationsApi(object):
             collection_formats=collection_formats)
 
     def quotations_id_attachment_post(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to quotations document.  # noqa: E501
+        """Attachment quotations document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -334,7 +334,7 @@ class QuotationsApi(object):
         return self.quotations_id_attachment_post_with_http_info(authorization, id, **kwargs)  # noqa: E501
 
     def quotations_id_attachment_post_with_http_info(self, authorization, id, **kwargs):  # noqa: E501
-        """Add Attachment to quotations document.  # noqa: E501
+        """Attachment quotations document.  # noqa: E501
 
         แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -821,7 +821,7 @@ class QuotationsApi(object):
             collection_formats=collection_formats)
 
     def quotations_id_status_status_id_post(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of quotations document.  # noqa: E501
+        """Change status quotations document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -848,7 +848,7 @@ class QuotationsApi(object):
         return self.quotations_id_status_status_id_post_with_http_info(authorization, id, status_id, **kwargs)  # noqa: E501
 
     def quotations_id_status_status_id_post_with_http_info(self, authorization, id, status_id, **kwargs):  # noqa: E501
-        """Change status of quotations document.  # noqa: E501
+        """Change status quotations document.  # noqa: E501
 
         เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -953,7 +953,7 @@ class QuotationsApi(object):
             collection_formats=collection_formats)
 
     def quotations_inline_post(self, authorization, inline_document, **kwargs):  # noqa: E501
-        """Create quotations document with discount and tax inline.  # noqa: E501
+        """Create quotations document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -979,7 +979,7 @@ class QuotationsApi(object):
         return self.quotations_inline_post_with_http_info(authorization, inline_document, **kwargs)  # noqa: E501
 
     def quotations_inline_post_with_http_info(self, authorization, inline_document, **kwargs):  # noqa: E501
-        """Create quotations document with discount and tax inline.  # noqa: E501
+        """Create quotations document inline discount or inline vat.  # noqa: E501
 
         สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

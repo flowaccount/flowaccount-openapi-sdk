@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * ProductInventoryBalance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 
 public class ProductInventoryBalance {
   public static final String SERIALIZED_NAME_PRODUCT_STRUCTURE_TYPE = "productStructureType";
@@ -446,10 +446,10 @@ public class ProductInventoryBalance {
   }
 
    /**
-   * ราคาซื้อสินค้า
+   * ต้นทุนสินค้าต่อหน่วย
    * @return inventoryPrice
   **/
-  @ApiModelProperty(required = true, value = "ราคาซื้อสินค้า")
+  @ApiModelProperty(required = true, value = "ต้นทุนสินค้าต่อหน่วย")
 
   public BigDecimal getInventoryPrice() {
     return inventoryPrice;

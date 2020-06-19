@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**quotationsEmailDocumentPost**](QuotationsAPI.md#quotationsemaildocumentpost) | **POST** /quotations/email-document | Send email quotations document.
-[**quotationsGet**](QuotationsAPI.md#quotationsget) | **GET** /quotations | Get list all quotations documents.
-[**quotationsIdAttachmentPost**](QuotationsAPI.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Add Attachment to quotations document.
+[**quotationsGet**](QuotationsAPI.md#quotationsget) | **GET** /quotations | Get all quotations documents.
+[**quotationsIdAttachmentPost**](QuotationsAPI.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Attachment quotations document.
 [**quotationsIdDelete**](QuotationsAPI.md#quotationsiddelete) | **DELETE** /quotations/{id} | Delete quotations document.
 [**quotationsIdGet**](QuotationsAPI.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document.
 [**quotationsIdPut**](QuotationsAPI.md#quotationsidput) | **PUT** /quotations/{id} | Edit quotations document.
-[**quotationsIdStatusStatusIdPost**](QuotationsAPI.md#quotationsidstatusstatusidpost) | **POST** /quotations/{id}/status/{statusId} | Change status of quotations document.
-[**quotationsInlinePost**](QuotationsAPI.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
+[**quotationsIdStatusStatusIdPost**](QuotationsAPI.md#quotationsidstatusstatusidpost) | **POST** /quotations/{id}/status/{statusId} | Change status quotations document.
+[**quotationsInlinePost**](QuotationsAPI.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document inline discount or inline vat.
 [**quotationsPost**](QuotationsAPI.md#quotationspost) | **POST** /quotations | Create quotations document.
 [**quotationsSharedocumentPost**](QuotationsAPI.md#quotationssharedocumentpost) | **POST** /quotations/sharedocument | Share link quotations document.
 
@@ -73,7 +73,7 @@ No authorization required
     open class func quotationsGet(currentPage: Int, pageSize: Int, authorization: String, sortBy: String? = nil, filter: String? = nil, completion: @escaping (_ data: AllDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Get list all quotations documents.
+Get all quotations documents.
 
 เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
 
@@ -86,9 +86,9 @@ let currentPage = 987 // Int | Query current page document quotations. <br>Examp
 let pageSize = 987 // Int | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?pageSize=20 </ex>
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let sortBy = "sortBy_example" // String | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/quotations?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/quotations?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-let filter = "filter_example" // String |  (optional)
+let filter = "filter_example" // String | Query filter quotations. <br>Example Pattern: <ex> /quotations?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
-// Get list all quotations documents.
+// Get all quotations documents.
 QuotationsAPI.quotationsGet(currentPage: currentPage, pageSize: pageSize, authorization: authorization, sortBy: sortBy, filter: filter) { (response, error) in
     guard error == nil else {
         print(error)
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
  **pageSize** | **Int** | Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **String** |  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **String** | Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/quotations?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **String** |  | [optional] 
+ **filter** | **String** | Query filter quotations. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -131,7 +131,7 @@ No authorization required
     open class func quotationsIdAttachmentPost(authorization: String, id: String, file: URL? = nil, completion: @escaping (_ data: AttachmentResponse?, _ error: Error?) -> Void)
 ```
 
-Add Attachment to quotations document.
+Attachment quotations document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
 
@@ -144,7 +144,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
 let file = URL(string: "https://example.com")! // URL | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
-// Add Attachment to quotations document.
+// Attachment quotations document.
 QuotationsAPI.quotationsIdAttachmentPost(authorization: authorization, id: id, file: file) { (response, error) in
     guard error == nil else {
         print(error)
@@ -343,7 +343,7 @@ No authorization required
     open class func quotationsIdStatusStatusIdPost(authorization: String, id: String, statusId: String, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Change status of quotations document.
+Change status quotations document.
 
 เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
@@ -356,7 +356,7 @@ let authorization = "authorization_example" // String |  (default to "Bearer acc
 let id = "id_example" // String | ID เอกสารใช้ recordId
 let statusId = "statusId_example" // String | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รออนุมัติ <br> approved = อนุมัติ <br> approvedandprocessed = ดำเนินการแล้ว <br> rejected = ยกเลิก
 
-// Change status of quotations document.
+// Change status quotations document.
 QuotationsAPI.quotationsIdStatusStatusIdPost(authorization: authorization, id: id, statusId: statusId) { (response, error) in
     guard error == nil else {
         print(error)
@@ -397,7 +397,7 @@ No authorization required
     open class func quotationsInlinePost(authorization: String, inlineDocument: InlineDocument, completion: @escaping (_ data: InlineDocumentResponse?, _ error: Error?) -> Void)
 ```
 
-Create quotations document with discount and tax inline.
+Create quotations document inline discount or inline vat.
 
 สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
 
@@ -409,7 +409,7 @@ import OpenAPIClient
 let authorization = "authorization_example" // String |  (default to "Bearer accessToken")
 let inlineDocument = InlineDocument(discountType: 123, useInlineDiscount: false, useInlineVat: false, exemptAmount: 123, vatableAmount: 123, items: [InlineProductItem(type: 123, name: "name_example", description: "description_example", quantity: 123, unitName: "unitName_example", pricePerUnit: 123, total: 123, sellChartOfAccountCode: "sellChartOfAccountCode_example", buyChartOfAccountCode: "buyChartOfAccountCode_example", discountAmount: 123, vatRate: 123)], documentReference: [UpgradeDocument(recordId: 123, referenceDocumentSerial: "referenceDocumentSerial_example", referenceDocumentType: 123)]) // InlineDocument | 
 
-// Create quotations document with discount and tax inline.
+// Create quotations document inline discount or inline vat.
 QuotationsAPI.quotationsInlinePost(authorization: authorization, inlineDocument: inlineDocument) { (response, error) in
     guard error == nil else {
         print(error)

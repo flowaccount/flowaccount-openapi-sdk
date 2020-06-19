@@ -26,7 +26,10 @@ export class AttachmentResponse {
     * error code
     */
     'code'?: number;
-    'data'?: AttachmentResponseData;
+    /**
+    * ข้อมูลไฟล์แนบเอกสาร
+    */
+    'data'?: Array<AttachmentResponseData>;
 
     static discriminator: string | undefined = undefined;
 
@@ -49,7 +52,7 @@ export class AttachmentResponse {
         {
             "name": "data",
             "baseName": "data",
-            "type": "AttachmentResponseData"
+            "type": "Array<AttachmentResponseData>"
         }    ];
 
     static getAttributeTypeMap() {

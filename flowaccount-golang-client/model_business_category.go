@@ -11,36 +11,12 @@
 package openapi
 // BusinessCategory struct for BusinessCategory
 type BusinessCategory struct {
-	// id ของหมวดหมู่ค่าใช้จ่าย
-	Id int32 `json:"id,omitempty"`
-	// เลขที่ system code หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-	SystemCode int32 `json:"systemCode,omitempty"`
-	// เลขที่ id หมวดหมู่ค่าใช้จ่าย (เลือกใช้ หมวดหมู่ค่าใช้จ่ายสำหรับธุรกิจ)
-	CategoryId int32 `json:"categoryId,omitempty"`
-	// ชื่อหมวดหมู่ค่าใช้จ่าย
-	CategoryNameLocal string `json:"categoryNameLocal,omitempty"`
-	// ชื่อหมวดหมู่ค่าใช้จ่าย (ภาษาอังกฤษ)
-	CategoryNameForeign string `json:"categoryNameForeign,omitempty"`
-	// เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-	DebitId int32 `json:"debitId,omitempty"`
-	// เลขหมวดหมู่ ฝั่งเดบิต ของ หมวดหมู่ค่าใช้จ่าย
-	DebitCategory int32 `json:"debitCategory,omitempty"`
-	// เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-	DebitCode string `json:"debitCode,omitempty"`
-	// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต
-	DebitNameLocal string `json:"debitNameLocal,omitempty"`
-	// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเดบิต (ภาษาอังกฤษ)
-	DebitNameForeign string `json:"debitNameForeign,omitempty"`
-	// เลข id หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิิต
-	CreditId int32 `json:"creditId,omitempty"`
-	// เลขหมวดหมู่ ฝั่งเครดิต ของ หมวดหมู่ค่าใช้จ่าย
-	CreditCategory int32 `json:"creditCategory,omitempty"`
-	// เลขที่หมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต
-	CreditCode string `json:"creditCode,omitempty"`
-	// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต 
-	CreditNameLocal string `json:"creditNameLocal,omitempty"`
-	// ชื่อหมวดหมู่ค่าใช้จ่ายทางบัญชี ฝั่งเครดิต (ภาษาอังกฤษ)
-	CreditNameForeign string `json:"creditNameForeign,omitempty"`
-	// keyword
-	Keywords string `json:"keywords,omitempty"`
+	// action success
+	Status bool `json:"status,omitempty"`
+	// error message
+	Message string `json:"message,omitempty"`
+	// error code
+	Code int32 `json:"code,omitempty"`
+	// ข้อมูลหมวดหมู่ค่าใช้จ่าย ในระบบ
+	Data []BusinessCategoryData `json:"data,omitempty"`
 }

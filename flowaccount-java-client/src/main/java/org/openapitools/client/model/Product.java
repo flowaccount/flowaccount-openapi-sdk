@@ -29,7 +29,7 @@ import org.threeten.bp.LocalDate;
 /**
  * Product
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class Product {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -54,6 +54,10 @@ public class Product {
   public static final String SERIALIZED_NAME_SELL_PRICE = "sellPrice";
   @SerializedName(SERIALIZED_NAME_SELL_PRICE)
   private BigDecimal sellPrice;
+
+  public static final String SERIALIZED_NAME_SELL_PRICE_WITH_VAT = "sellPriceWithVat";
+  @SerializedName(SERIALIZED_NAME_SELL_PRICE_WITH_VAT)
+  private BigDecimal sellPriceWithVat;
 
   public static final String SERIALIZED_NAME_SELL_VAT_TYPE = "sellVatType";
   @SerializedName(SERIALIZED_NAME_SELL_VAT_TYPE)
@@ -87,6 +91,10 @@ public class Product {
   @SerializedName(SERIALIZED_NAME_BUY_VAT_TYPE)
   private Long buyVatType = 3l;
 
+  public static final String SERIALIZED_NAME_BUY_VAT_TYPE_WITH_VAT = "buyVatTypeWithVat";
+  @SerializedName(SERIALIZED_NAME_BUY_VAT_TYPE_WITH_VAT)
+  private BigDecimal buyVatTypeWithVat;
+
   public static final String SERIALIZED_NAME_INVENTORY_PUBLISHED_ON = "inventoryPublishedOn";
   @SerializedName(SERIALIZED_NAME_INVENTORY_PUBLISHED_ON)
   private LocalDate inventoryPublishedOn;
@@ -94,6 +102,14 @@ public class Product {
   public static final String SERIALIZED_NAME_INVENTORY_QUANTITY = "inventoryQuantity";
   @SerializedName(SERIALIZED_NAME_INVENTORY_QUANTITY)
   private BigDecimal inventoryQuantity;
+
+  public static final String SERIALIZED_NAME_INVENTORY_PRICE = "inventoryPrice";
+  @SerializedName(SERIALIZED_NAME_INVENTORY_PRICE)
+  private BigDecimal inventoryPrice = 0d;
+
+  public static final String SERIALIZED_NAME_INVENTORY_TOTAL = "inventoryTotal";
+  @SerializedName(SERIALIZED_NAME_INVENTORY_TOTAL)
+  private BigDecimal inventoryTotal = 0d;
 
   public static final String SERIALIZED_NAME_AVERAGE_BUY_PRICE = "averageBuyPrice";
   @SerializedName(SERIALIZED_NAME_AVERAGE_BUY_PRICE)
@@ -247,6 +263,29 @@ public class Product {
 
   public void setSellPrice(BigDecimal sellPrice) {
     this.sellPrice = sellPrice;
+  }
+
+
+  public Product sellPriceWithVat(BigDecimal sellPriceWithVat) {
+    
+    this.sellPriceWithVat = sellPriceWithVat;
+    return this;
+  }
+
+   /**
+   * ราคาขายสินค้า รวมภาษี
+   * @return sellPriceWithVat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ราคาขายสินค้า รวมภาษี")
+
+  public BigDecimal getSellPriceWithVat() {
+    return sellPriceWithVat;
+  }
+
+
+  public void setSellPriceWithVat(BigDecimal sellPriceWithVat) {
+    this.sellPriceWithVat = sellPriceWithVat;
   }
 
 
@@ -434,6 +473,29 @@ public class Product {
   }
 
 
+  public Product buyVatTypeWithVat(BigDecimal buyVatTypeWithVat) {
+    
+    this.buyVatTypeWithVat = buyVatTypeWithVat;
+    return this;
+  }
+
+   /**
+   * ราคาซื้อสินค้า รวมภาษี
+   * @return buyVatTypeWithVat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ราคาซื้อสินค้า รวมภาษี")
+
+  public BigDecimal getBuyVatTypeWithVat() {
+    return buyVatTypeWithVat;
+  }
+
+
+  public void setBuyVatTypeWithVat(BigDecimal buyVatTypeWithVat) {
+    this.buyVatTypeWithVat = buyVatTypeWithVat;
+  }
+
+
   public Product inventoryPublishedOn(LocalDate inventoryPublishedOn) {
     
     this.inventoryPublishedOn = inventoryPublishedOn;
@@ -480,6 +542,52 @@ public class Product {
   }
 
 
+  public Product inventoryPrice(BigDecimal inventoryPrice) {
+    
+    this.inventoryPrice = inventoryPrice;
+    return this;
+  }
+
+   /**
+   * ต้นทุนสินค้าต่อหน่วย
+   * @return inventoryPrice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ต้นทุนสินค้าต่อหน่วย")
+
+  public BigDecimal getInventoryPrice() {
+    return inventoryPrice;
+  }
+
+
+  public void setInventoryPrice(BigDecimal inventoryPrice) {
+    this.inventoryPrice = inventoryPrice;
+  }
+
+
+  public Product inventoryTotal(BigDecimal inventoryTotal) {
+    
+    this.inventoryTotal = inventoryTotal;
+    return this;
+  }
+
+   /**
+   * มูลค่ารวมยอดตั้งต้นสินค้า
+   * @return inventoryTotal
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "มูลค่ารวมยอดตั้งต้นสินค้า")
+
+  public BigDecimal getInventoryTotal() {
+    return inventoryTotal;
+  }
+
+
+  public void setInventoryTotal(BigDecimal inventoryTotal) {
+    this.inventoryTotal = inventoryTotal;
+  }
+
+
   public Product averageBuyPrice(BigDecimal averageBuyPrice) {
     
     this.averageBuyPrice = averageBuyPrice;
@@ -487,11 +595,11 @@ public class Product {
   }
 
    /**
-   * ราคาซื้อเฉลี่ยสินค้า
+   * ราคาสินค้าซื้อเฉลี่ย
    * @return averageBuyPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ราคาซื้อเฉลี่ยสินค้า")
+  @ApiModelProperty(value = "ราคาสินค้าซื้อเฉลี่ย")
 
   public BigDecimal getAverageBuyPrice() {
     return averageBuyPrice;
@@ -510,11 +618,11 @@ public class Product {
   }
 
    /**
-   * ราคาขายเฉลี่ยสินค้า
+   * ราคาขายสินค้าเฉลี่ย
    * @return averageSellPrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ราคาขายเฉลี่ยสินค้า")
+  @ApiModelProperty(value = "ราคาขายสินค้าเฉลี่ย")
 
   public BigDecimal getAverageSellPrice() {
     return averageSellPrice;
@@ -587,6 +695,7 @@ public class Product {
         Objects.equals(this.name, product.name) &&
         Objects.equals(this.sellDescription, product.sellDescription) &&
         Objects.equals(this.sellPrice, product.sellPrice) &&
+        Objects.equals(this.sellPriceWithVat, product.sellPriceWithVat) &&
         Objects.equals(this.sellVatType, product.sellVatType) &&
         Objects.equals(this.unitName, product.unitName) &&
         Objects.equals(this.categoryId, product.categoryId) &&
@@ -595,8 +704,11 @@ public class Product {
         Objects.equals(this.buyDescription, product.buyDescription) &&
         Objects.equals(this.buyPrice, product.buyPrice) &&
         Objects.equals(this.buyVatType, product.buyVatType) &&
+        Objects.equals(this.buyVatTypeWithVat, product.buyVatTypeWithVat) &&
         Objects.equals(this.inventoryPublishedOn, product.inventoryPublishedOn) &&
         Objects.equals(this.inventoryQuantity, product.inventoryQuantity) &&
+        Objects.equals(this.inventoryPrice, product.inventoryPrice) &&
+        Objects.equals(this.inventoryTotal, product.inventoryTotal) &&
         Objects.equals(this.averageBuyPrice, product.averageBuyPrice) &&
         Objects.equals(this.averageSellPrice, product.averageSellPrice) &&
         Objects.equals(this.remainingStock, product.remainingStock) &&
@@ -605,7 +717,7 @@ public class Product {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, code, name, sellDescription, sellPrice, sellVatType, unitName, categoryId, categoryName, barcode, buyDescription, buyPrice, buyVatType, inventoryPublishedOn, inventoryQuantity, averageBuyPrice, averageSellPrice, remainingStock, totalValueInHand);
+    return Objects.hash(id, type, code, name, sellDescription, sellPrice, sellPriceWithVat, sellVatType, unitName, categoryId, categoryName, barcode, buyDescription, buyPrice, buyVatType, buyVatTypeWithVat, inventoryPublishedOn, inventoryQuantity, inventoryPrice, inventoryTotal, averageBuyPrice, averageSellPrice, remainingStock, totalValueInHand);
   }
 
 
@@ -619,6 +731,7 @@ public class Product {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sellDescription: ").append(toIndentedString(sellDescription)).append("\n");
     sb.append("    sellPrice: ").append(toIndentedString(sellPrice)).append("\n");
+    sb.append("    sellPriceWithVat: ").append(toIndentedString(sellPriceWithVat)).append("\n");
     sb.append("    sellVatType: ").append(toIndentedString(sellVatType)).append("\n");
     sb.append("    unitName: ").append(toIndentedString(unitName)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
@@ -627,8 +740,11 @@ public class Product {
     sb.append("    buyDescription: ").append(toIndentedString(buyDescription)).append("\n");
     sb.append("    buyPrice: ").append(toIndentedString(buyPrice)).append("\n");
     sb.append("    buyVatType: ").append(toIndentedString(buyVatType)).append("\n");
+    sb.append("    buyVatTypeWithVat: ").append(toIndentedString(buyVatTypeWithVat)).append("\n");
     sb.append("    inventoryPublishedOn: ").append(toIndentedString(inventoryPublishedOn)).append("\n");
     sb.append("    inventoryQuantity: ").append(toIndentedString(inventoryQuantity)).append("\n");
+    sb.append("    inventoryPrice: ").append(toIndentedString(inventoryPrice)).append("\n");
+    sb.append("    inventoryTotal: ").append(toIndentedString(inventoryTotal)).append("\n");
     sb.append("    averageBuyPrice: ").append(toIndentedString(averageBuyPrice)).append("\n");
     sb.append("    averageSellPrice: ").append(toIndentedString(averageSellPrice)).append("\n");
     sb.append("    remainingStock: ").append(toIndentedString(remainingStock)).append("\n");

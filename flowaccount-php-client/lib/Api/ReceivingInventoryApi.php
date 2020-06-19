@@ -401,13 +401,13 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesGet
      *
-     * Get list all receiving inventory documents.
+     * Get all receiving inventory documents.
      *
      * @param  int $current_page Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization authorization (required)
      * @param  string $sort_by Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter filter (optional)
+     * @param  string $filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -422,13 +422,13 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesGetWithHttpInfo
      *
-     * Get list all receiving inventory documents.
+     * Get all receiving inventory documents.
      *
      * @param  int $current_page Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -514,13 +514,13 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesGetAsync
      *
-     * Get list all receiving inventory documents.
+     * Get all receiving inventory documents.
      *
      * @param  int $current_page Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -538,13 +538,13 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesGetAsyncWithHttpInfo
      *
-     * Get list all receiving inventory documents.
+     * Get all receiving inventory documents.
      *
      * @param  int $current_page Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; (required)
      * @param  int $page_size Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -595,7 +595,7 @@ class ReceivingInventoryApi
      * @param  int $page_size Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; (required)
      * @param  string $authorization (required)
      * @param  string $sort_by Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/purchases?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; (optional)
-     * @param  string $filter (optional)
+     * @param  string $filter Query filter purchases. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -746,7 +746,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdAttachmentPost
      *
-     * Add Attachment to receiving inventory document.
+     * Attachment receiving inventory document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -765,7 +765,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdAttachmentPostWithHttpInfo
      *
-     * Add Attachment to receiving inventory document.
+     * Attachment receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -855,7 +855,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdAttachmentPostAsync
      *
-     * Add Attachment to receiving inventory document.
+     * Attachment receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -877,7 +877,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdAttachmentPostAsyncWithHttpInfo
      *
-     * Add Attachment to receiving inventory document.
+     * Attachment receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id documentId หรือ recordId ของเอกสารที่ต้องการแนบ (required)
@@ -1620,7 +1620,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdPaymentPost
      *
-     * Change paid status of receiving inventory document.
+     * Change status is paid receiving inventory document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1639,7 +1639,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdPaymentPostWithHttpInfo
      *
-     * Change paid status of receiving inventory document.
+     * Change status is paid receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1729,7 +1729,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdPaymentPostAsync
      *
-     * Change paid status of receiving inventory document.
+     * Change status is paid receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -1751,7 +1751,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdPaymentPostAsyncWithHttpInfo
      *
-     * Change paid status of receiving inventory document.
+     * Change status is paid receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId หรือ documentId (required)
@@ -2224,7 +2224,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdStatusStatusIdPost
      *
-     * Change status of receiving inventory document.
+     * Change status receiving inventory document.
      *
      * @param  string $authorization authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2243,7 +2243,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdStatusStatusIdPostWithHttpInfo
      *
-     * Change status of receiving inventory document.
+     * Change status receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2333,7 +2333,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdStatusStatusIdPostAsync
      *
-     * Change status of receiving inventory document.
+     * Change status receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2355,7 +2355,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesIdStatusStatusIdPostAsyncWithHttpInfo
      *
-     * Change status of receiving inventory document.
+     * Change status receiving inventory document.
      *
      * @param  string $authorization (required)
      * @param  string $id ID เอกสารใช้ recordId (required)
@@ -2531,7 +2531,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlinePost
      *
-     * Create receiving inventory document with discount and tax inline.
+     * Create receiving inventory document inline discount or inline vat.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document inline_document (required)
@@ -2549,7 +2549,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlinePostWithHttpInfo
      *
-     * Create receiving inventory document with discount and tax inline.
+     * Create receiving inventory document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2638,7 +2638,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlinePostAsync
      *
-     * Create receiving inventory document with discount and tax inline.
+     * Create receiving inventory document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2659,7 +2659,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlinePostAsyncWithHttpInfo
      *
-     * Create receiving inventory document with discount and tax inline.
+     * Create receiving inventory document inline discount or inline vat.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocument $inline_document (required)
@@ -2814,7 +2814,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlineWithPaymentPost
      *
-     * Create receiving inventory document with discount and tax inline with payment.
+     * Create receiving inventory document inline discount or inline vat with payment.
      *
      * @param  string $authorization authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentPaid $inline_document_with_payment_paid inline_document_with_payment_paid (required)
@@ -2832,7 +2832,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlineWithPaymentPostWithHttpInfo
      *
-     * Create receiving inventory document with discount and tax inline with payment.
+     * Create receiving inventory document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentPaid $inline_document_with_payment_paid (required)
@@ -2921,7 +2921,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlineWithPaymentPostAsync
      *
-     * Create receiving inventory document with discount and tax inline with payment.
+     * Create receiving inventory document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentPaid $inline_document_with_payment_paid (required)
@@ -2942,7 +2942,7 @@ class ReceivingInventoryApi
     /**
      * Operation purchasesInlineWithPaymentPostAsyncWithHttpInfo
      *
-     * Create receiving inventory document with discount and tax inline with payment.
+     * Create receiving inventory document inline discount or inline vat with payment.
      *
      * @param  string $authorization (required)
      * @param  \OpenAPI\Client\Model\InlineDocumentWithPaymentPaid $inline_document_with_payment_paid (required)

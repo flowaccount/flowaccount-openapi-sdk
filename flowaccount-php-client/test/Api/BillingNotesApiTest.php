@@ -85,7 +85,7 @@ class BillingNotesApiTest extends TestCase
     /**
      * Test case for billingNotesGet
      *
-     * Get list all billing notes documents..
+     * Get all billing notes documents..
      *
      */
     public function testBillingNotesGet()
@@ -95,7 +95,7 @@ class BillingNotesApiTest extends TestCase
     /**
      * Test case for billingNotesIdAttachmentPost
      *
-     * Add Attachment to billing notes document..
+     * Attachment billing notes document..
      *
      */
     public function testBillingNotesIdAttachmentPost()
@@ -135,7 +135,7 @@ class BillingNotesApiTest extends TestCase
     /**
      * Test case for billingNotesIdStatusStatusIdPost
      *
-     * Change status of billing notes document..
+     * Change status billing notes document..
      *
      */
     public function testBillingNotesIdStatusStatusIdPost()
@@ -145,7 +145,7 @@ class BillingNotesApiTest extends TestCase
     /**
      * Test case for billingNotesInlinePost
      *
-     * Create billing notes document with discount and tax inline..
+     * Create billing notes document inline discount or inline vat..
      *
      */
     public function testBillingNotesInlinePost()

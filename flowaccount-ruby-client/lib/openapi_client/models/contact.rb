@@ -23,6 +23,9 @@ module OpenapiClient
     # ประเภท: 3 = ลูกค้า / 5 = ผู้จำหน่าย / 7 = ผู้จำหน่ายและลูกค้า
     attr_accessor :contact_type
 
+    # รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>
+    attr_accessor :contact_code
+
     # ชื่อผู้ธุรกิจ หรือ ชื่อลูกค้า หรือ ชื่อผู้จำหน่าย
     attr_accessor :contact_name
 
@@ -86,6 +89,7 @@ module OpenapiClient
         :'id' => :'id',
         :'contact_group' => :'contactGroup',
         :'contact_type' => :'contactType',
+        :'contact_code' => :'contactCode',
         :'contact_name' => :'contactName',
         :'contact_address' => :'contactAddress',
         :'contact_zip_code' => :'contactZipCode',
@@ -114,6 +118,7 @@ module OpenapiClient
         :'id' => :'Integer',
         :'contact_group' => :'Integer',
         :'contact_type' => :'Integer',
+        :'contact_code' => :'Integer',
         :'contact_name' => :'String',
         :'contact_address' => :'String',
         :'contact_zip_code' => :'String',
@@ -171,6 +176,10 @@ module OpenapiClient
         self.contact_type = attributes[:'contact_type']
       else
         self.contact_type = 3
+      end
+
+      if attributes.key?(:'contact_code')
+        self.contact_code = attributes[:'contact_code']
       end
 
       if attributes.key?(:'contact_name')
@@ -294,6 +303,7 @@ module OpenapiClient
           id == o.id &&
           contact_group == o.contact_group &&
           contact_type == o.contact_type &&
+          contact_code == o.contact_code &&
           contact_name == o.contact_name &&
           contact_address == o.contact_address &&
           contact_zip_code == o.contact_zip_code &&
@@ -324,7 +334,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, contact_group, contact_type, contact_name, contact_address, contact_zip_code, contact_tax_id, contact_branch_code, contact_branch, contact_person, contact_email, contact_mobile, contact_bank_id, contact_bank_account_number, contact_bank_branch, contact_bank_account_type, contact_credit_days, contact_office, contact_fax, contact_website, conatact_shipping_address, contact_note].hash
+      [id, contact_group, contact_type, contact_code, contact_name, contact_address, contact_zip_code, contact_tax_id, contact_branch_code, contact_branch, contact_person, contact_email, contact_mobile, contact_bank_id, contact_bank_account_number, contact_bank_branch, contact_bank_account_type, contact_credit_days, contact_office, contact_fax, contact_website, conatact_shipping_address, contact_note].hash
     end
 
     # Builds the object from hash

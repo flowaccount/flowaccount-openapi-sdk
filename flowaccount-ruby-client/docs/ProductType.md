@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **buy_vat_type** | **Integer** | ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี | [optional] [default to 3]
 **inventory_published_on** | **String** | วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [default to &#39;2020-01-01&#39;]
 **inventory_quantity** | **Float** | จำนวนยอดตั้งต้นสินค้า | [default to 0]
-**inventory_price** | **Float** | ราคาซื้อสินค้า | [default to 0]
+**inventory_price** | **Float** | ต้นทุนสินค้าต่อหน่วย | [default to 0]
 
 ## Code Sample
 

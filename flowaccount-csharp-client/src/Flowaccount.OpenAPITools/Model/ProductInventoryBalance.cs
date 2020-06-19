@@ -55,7 +55,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="buyVatType">ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี (default to 3).</param>
         /// <param name="inventoryPublishedOn">วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; (required) (default to &quot;2020-01-01&quot;).</param>
         /// <param name="inventoryQuantity">จำนวนยอดตั้งต้นสินค้า (required) (default to 0M).</param>
-        /// <param name="inventoryPrice">ราคาซื้อสินค้า (required) (default to 0M).</param>
+        /// <param name="inventoryPrice">ต้นทุนสินค้าต่อหน่วย (required) (default to 0M).</param>
         public ProductInventoryBalance(string productStructureType = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), long sellVatType = 3, string unitName = default(string), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, string inventoryPublishedOn = "2020-01-01", decimal inventoryQuantity = 0M, decimal inventoryPrice = 0M)
         {
             this.ProductStructureType = productStructureType;
@@ -253,9 +253,9 @@ namespace Flowaccount.OpenAPITools.Model
         public decimal InventoryQuantity { get; set; }
 
         /// <summary>
-        /// ราคาซื้อสินค้า
+        /// ต้นทุนสินค้าต่อหน่วย
         /// </summary>
-        /// <value>ราคาซื้อสินค้า</value>
+        /// <value>ต้นทุนสินค้าต่อหน่วย</value>
         [DataMember(Name="inventoryPrice", EmitDefaultValue=true)]
         public decimal InventoryPrice { get; set; }
 

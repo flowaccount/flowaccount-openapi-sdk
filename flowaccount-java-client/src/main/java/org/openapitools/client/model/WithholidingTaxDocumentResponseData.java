@@ -33,8 +33,12 @@ import org.threeten.bp.LocalDate;
 /**
  * WithholidingTaxDocumentResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class WithholidingTaxDocumentResponseData {
+  public static final String SERIALIZED_NAME_RECORD_ID = "recordId";
+  @SerializedName(SERIALIZED_NAME_RECORD_ID)
+  private String recordId;
+
   public static final String SERIALIZED_NAME_DOCUMENT_ID = "documentId";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
   private String documentId;
@@ -158,6 +162,29 @@ public class WithholidingTaxDocumentResponseData {
   public static final String SERIALIZED_NAME_ALLOW_DELETE = "allowDelete";
   @SerializedName(SERIALIZED_NAME_ALLOW_DELETE)
   private Boolean allowDelete;
+
+
+  public WithholidingTaxDocumentResponseData recordId(String recordId) {
+    
+    this.recordId = recordId;
+    return this;
+  }
+
+   /**
+   * เลข Id เอกสารใบหัก ณ ที่จ่าย
+   * @return recordId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "เลข Id เอกสารใบหัก ณ ที่จ่าย")
+
+  public String getRecordId() {
+    return recordId;
+  }
+
+
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
 
 
   public WithholidingTaxDocumentResponseData documentId(String documentId) {
@@ -890,7 +917,8 @@ public class WithholidingTaxDocumentResponseData {
       return false;
     }
     WithholidingTaxDocumentResponseData withholidingTaxDocumentResponseData = (WithholidingTaxDocumentResponseData) o;
-    return Objects.equals(this.documentId, withholidingTaxDocumentResponseData.documentId) &&
+    return Objects.equals(this.recordId, withholidingTaxDocumentResponseData.recordId) &&
+        Objects.equals(this.documentId, withholidingTaxDocumentResponseData.documentId) &&
         Objects.equals(this.documentSerial, withholidingTaxDocumentResponseData.documentSerial) &&
         Objects.equals(this.contactCode, withholidingTaxDocumentResponseData.contactCode) &&
         Objects.equals(this.contactName, withholidingTaxDocumentResponseData.contactName) &&
@@ -925,7 +953,7 @@ public class WithholidingTaxDocumentResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, documentSerial, contactCode, contactName, contactAddress, contactTaxId, contactBranch, contactPerson, contactEmail, contactNumber, contactZipCode, contactGroup, publishedOn, entity, textOther, withholdingTaxItems, total, totalTaxWithheld, taxPayment, taxPaymentOthers, providentFundNumber, providentFundAmount, socialSecurityAmount, remarks, internalNotes, showSignatureOrStamp, company, status, statusString, documentType, allowDelete);
+    return Objects.hash(recordId, documentId, documentSerial, contactCode, contactName, contactAddress, contactTaxId, contactBranch, contactPerson, contactEmail, contactNumber, contactZipCode, contactGroup, publishedOn, entity, textOther, withholdingTaxItems, total, totalTaxWithheld, taxPayment, taxPaymentOthers, providentFundNumber, providentFundAmount, socialSecurityAmount, remarks, internalNotes, showSignatureOrStamp, company, status, statusString, documentType, allowDelete);
   }
 
 
@@ -933,6 +961,7 @@ public class WithholidingTaxDocumentResponseData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WithholidingTaxDocumentResponseData {\n");
+    sb.append("    recordId: ").append(toIndentedString(recordId)).append("\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    documentSerial: ").append(toIndentedString(documentSerial)).append("\n");
     sb.append("    contactCode: ").append(toIndentedString(contactCode)).append("\n");

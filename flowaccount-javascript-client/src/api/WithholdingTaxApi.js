@@ -53,7 +53,7 @@ export default class WithholdingTaxApi {
      */
 
     /**
-     * Send email withholding tax document.
+     * Send email withholding tax.
      * ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {module:model/SendEmailSimple} sendEmailSimple 
@@ -101,14 +101,14 @@ export default class WithholdingTaxApi {
      */
 
     /**
-     * Get list all withholding tax documents.
+     * Get all withholding tax documents.
      * เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sortBy Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.sortBy Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+     * @param {String} opts.filter Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/WithholdingTaxApi~withholdingTaxesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllWithholidingTaxDocumentResponse}
      */
@@ -162,7 +162,7 @@ export default class WithholdingTaxApi {
      */
 
     /**
-     * Add Attachment to expenses.
+     * Attachment withholding tax.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id 
@@ -367,7 +367,7 @@ export default class WithholdingTaxApi {
      */
 
     /**
-     * Change status of withholding tax document.
+     * Change status withholding tax document.
      * เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -470,7 +470,7 @@ export default class WithholdingTaxApi {
      */
 
     /**
-     * Share link withholding tax documents.
+     * Share link withholding tax.
      * แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
      * @param {String} authorization 
      * @param {module:model/ShareDocument} shareDocument 

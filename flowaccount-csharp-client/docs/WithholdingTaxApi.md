@@ -4,15 +4,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WithholdingTaxesEmailDocumentPost**](WithholdingTaxApi.md#withholdingtaxesemaildocumentpost) | **POST** /withholding-taxes/email-document | Send email withholding tax document.
-[**WithholdingTaxesGet**](WithholdingTaxApi.md#withholdingtaxesget) | **GET** /withholding-taxes | Get list all withholding tax documents.
-[**WithholdingTaxesIdAttachmentPost**](WithholdingTaxApi.md#withholdingtaxesidattachmentpost) | **POST** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
+[**WithholdingTaxesEmailDocumentPost**](WithholdingTaxApi.md#withholdingtaxesemaildocumentpost) | **POST** /withholding-taxes/email-document | Send email withholding tax.
+[**WithholdingTaxesGet**](WithholdingTaxApi.md#withholdingtaxesget) | **GET** /withholding-taxes | Get all withholding tax documents.
+[**WithholdingTaxesIdAttachmentPost**](WithholdingTaxApi.md#withholdingtaxesidattachmentpost) | **POST** /withholding-taxes/{id}/attachment | Attachment withholding tax.
 [**WithholdingTaxesIdDelete**](WithholdingTaxApi.md#withholdingtaxesiddelete) | **DELETE** /withholding-taxes/{id} | Delete withholding tax document.
 [**WithholdingTaxesIdGet**](WithholdingTaxApi.md#withholdingtaxesidget) | **GET** /withholding-taxes/{id} | Get withholding tax document.
 [**WithholdingTaxesIdPut**](WithholdingTaxApi.md#withholdingtaxesidput) | **PUT** /withholding-taxes/{id} | Edit withholding tax document.
-[**WithholdingTaxesIdStatusStatusIdPost**](WithholdingTaxApi.md#withholdingtaxesidstatusstatusidpost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
+[**WithholdingTaxesIdStatusStatusIdPost**](WithholdingTaxApi.md#withholdingtaxesidstatusstatusidpost) | **POST** /withholding-taxes/{id}/status/{statusId} | Change status withholding tax document.
 [**WithholdingTaxesPost**](WithholdingTaxApi.md#withholdingtaxespost) | **POST** /withholding-taxes | Create withholding tax document.
-[**WithholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax documents.
+[**WithholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#withholdingtaxessharedocumentpost) | **POST** /withholding-taxes/sharedocument | Share link withholding tax.
 
 
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > SendEmailResponse WithholdingTaxesEmailDocumentPost (string authorization, SendEmailSimple sendEmailSimple)
 
-Send email withholding tax document.
+Send email withholding tax.
 
 ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Send email withholding tax document.
+                // Send email withholding tax.
                 SendEmailResponse result = apiInstance.WithholdingTaxesEmailDocumentPost(authorization, sendEmailSimple);
                 Debug.WriteLine(result);
             }
@@ -99,7 +99,7 @@ No authorization required
 
 > AllWithholidingTaxDocumentResponse WithholdingTaxesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
-Get list all withholding tax documents.
+Get all withholding tax documents.
 
 เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
 
@@ -123,12 +123,12 @@ namespace Example
             var currentPage = 56;  // int | Query current page document withholding tax. <br>Example Pattern: <ex>/withholding-taxes?currentPage=1 </ex><ex>/withholding-taxes?currentPage=1&pageSize=20</ex>
             var pageSize = 56;  // int | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var sortBy = sortBy_example;  // string | Query document withholding tax list amount per page. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
-            var filter = filter_example;  // string |  (optional) 
+            var sortBy = sortBy_example;  // string | Query sort by withholding tax. <br>Example Pattern: <ex> /withholding-taxes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/withholding-taxes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'entity','sortOrder':'asc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/withholding-taxes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional) 
+            var filter = filter_example;  // string | Query filter withholding tax. <br>Example Pattern: <ex> /withholding-taxes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional) 
 
             try
             {
-                // Get list all withholding tax documents.
+                // Get all withholding tax documents.
                 AllWithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
@@ -151,8 +151,8 @@ Name | Type | Description  | Notes
  **currentPage** | **int**| Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
  **pageSize** | **int**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **sortBy** | **string**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **string**|  | [optional] 
+ **sortBy** | **string**| Query sort by withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
+ **filter** | **string**| Query filter withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -184,7 +184,7 @@ No authorization required
 
 > AttachmentResponse WithholdingTaxesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to expenses.
+Attachment withholding tax.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
 
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // Add Attachment to expenses.
+                // Attachment withholding tax.
                 AttachmentResponse result = apiInstance.WithholdingTaxesIdAttachmentPost(authorization, id, file);
                 Debug.WriteLine(result);
             }
@@ -504,7 +504,7 @@ No authorization required
 
 > WithholidingTaxDocumentResponse WithholdingTaxesIdStatusStatusIdPost (string authorization, string id, string statusId)
 
-Change status of withholding tax document.
+Change status withholding tax document.
 
 เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
 
@@ -531,7 +531,7 @@ namespace Example
 
             try
             {
-                // Change status of withholding tax document.
+                // Change status withholding tax document.
                 WithholidingTaxDocumentResponse result = apiInstance.WithholdingTaxesIdStatusStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
@@ -664,7 +664,7 @@ No authorization required
 
 > ShareDocumentResponse WithholdingTaxesSharedocumentPost (string authorization, ShareDocument shareDocument)
 
-Share link withholding tax documents.
+Share link withholding tax.
 
 แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
@@ -690,7 +690,7 @@ namespace Example
 
             try
             {
-                // Share link withholding tax documents.
+                // Share link withholding tax.
                 ShareDocumentResponse result = apiInstance.WithholdingTaxesSharedocumentPost(authorization, shareDocument);
                 Debug.WriteLine(result);
             }

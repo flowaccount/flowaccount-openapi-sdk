@@ -59,7 +59,7 @@ module OpenapiClient
     # จำนวนยอดตั้งต้นสินค้า
     attr_accessor :inventory_quantity
 
-    # ราคาซื้อสินค้า
+    # ต้นทุนสินค้าต่อหน่วย
     attr_accessor :inventory_price
 
     # Attribute mapping from ruby-style variable name to JSON key.

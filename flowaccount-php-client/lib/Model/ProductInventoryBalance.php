@@ -688,7 +688,7 @@ class ProductInventoryBalance implements ModelInterface, ArrayAccess
     /**
      * Sets inventory_price
      *
-     * @param float $inventory_price ราคาซื้อสินค้า
+     * @param float $inventory_price ต้นทุนสินค้าต่อหน่วย
      *
      * @return $this
      */

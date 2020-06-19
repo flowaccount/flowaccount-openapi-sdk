@@ -75,7 +75,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesCategoriesAccountingGet
      *
-     * Accounting categorys expenses document..
+     * Accounting categories expenses document..
      *
      */
     public function testExpensesCategoriesAccountingGet()
@@ -85,7 +85,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesCategoriesBusinessGet
      *
-     * Business categorys expenses document..
+     * Business categories expenses document..
      *
      */
     public function testExpensesCategoriesBusinessGet()
@@ -115,7 +115,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesIdAttachmentPost
      *
-     * Add Attachment to expenses..
+     * Attachment to expenses document..
      *
      */
     public function testExpensesIdAttachmentPost()
@@ -145,7 +145,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesIdPaymentPost
      *
-     * Change paid status of expenses document..
+     * Change status is paid expenses document..
      *
      */
     public function testExpensesIdPaymentPost()
@@ -165,7 +165,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesIdStatusStatusIdPost
      *
-     * Change status of expenses document..
+     * Change status expenses document..
      *
      */
     public function testExpensesIdStatusStatusIdPost()
@@ -175,7 +175,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesInlinePost
      *
-     * Create expenses document with discount and tax inline..
+     * Create expenses document inline discount or inline vat..
      *
      */
     public function testExpensesInlinePost()
@@ -185,7 +185,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesInlineWithPaymentPost
      *
-     * Create expenses document with discount and tax inline with payment..
+     * Create expenses document inline discount or inline vat with payment..
      *
      */
     public function testExpensesInlineWithPaymentPost()
@@ -205,7 +205,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesSharedocumentPost
      *
-     * Share link expenses documents..
+     * Share link expenses document..
      *
      */
     public function testExpensesSharedocumentPost()
@@ -215,7 +215,7 @@ class ExpensesApiTest extends TestCase
     /**
      * Test case for expensesWithPaymentPost
      *
-     * Create expenses document with-payment..
+     * Create expenses document with payment..
      *
      */
     public function testExpensesWithPaymentPost()

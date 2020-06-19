@@ -37,7 +37,7 @@ class CompanyInfoResponse(object):
         'status': 'bool',
         'message': 'str',
         'code': 'int',
-        'data': 'list[CompanyInfoResponseData]'
+        'data': 'CompanyInfoResponseData'
     }
 
     attribute_map = {
@@ -141,10 +141,9 @@ class CompanyInfoResponse(object):
     def data(self):
         """Gets the data of this CompanyInfoResponse.  # noqa: E501
 
-        ข้อมูลบริษัทเรา  # noqa: E501
 
         :return: The data of this CompanyInfoResponse.  # noqa: E501
-        :rtype: list[CompanyInfoResponseData]
+        :rtype: CompanyInfoResponseData
         """
         return self._data
 
@@ -152,10 +151,9 @@ class CompanyInfoResponse(object):
     def data(self, data):
         """Sets the data of this CompanyInfoResponse.
 
-        ข้อมูลบริษัทเรา  # noqa: E501
 
         :param data: The data of this CompanyInfoResponse.  # noqa: E501
-        :type: list[CompanyInfoResponseData]
+        :type: CompanyInfoResponseData
         """
 
         self._data = data

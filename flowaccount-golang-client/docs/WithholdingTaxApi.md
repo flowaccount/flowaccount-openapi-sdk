@@ -4,15 +4,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WithholdingTaxesEmailDocumentPost**](WithholdingTaxApi.md#WithholdingTaxesEmailDocumentPost) | **Post** /withholding-taxes/email-document | Send email withholding tax document.
-[**WithholdingTaxesGet**](WithholdingTaxApi.md#WithholdingTaxesGet) | **Get** /withholding-taxes | Get list all withholding tax documents.
-[**WithholdingTaxesIdAttachmentPost**](WithholdingTaxApi.md#WithholdingTaxesIdAttachmentPost) | **Post** /withholding-taxes/{id}/attachment | Add Attachment to expenses.
+[**WithholdingTaxesEmailDocumentPost**](WithholdingTaxApi.md#WithholdingTaxesEmailDocumentPost) | **Post** /withholding-taxes/email-document | Send email withholding tax.
+[**WithholdingTaxesGet**](WithholdingTaxApi.md#WithholdingTaxesGet) | **Get** /withholding-taxes | Get all withholding tax documents.
+[**WithholdingTaxesIdAttachmentPost**](WithholdingTaxApi.md#WithholdingTaxesIdAttachmentPost) | **Post** /withholding-taxes/{id}/attachment | Attachment withholding tax.
 [**WithholdingTaxesIdDelete**](WithholdingTaxApi.md#WithholdingTaxesIdDelete) | **Delete** /withholding-taxes/{id} | Delete withholding tax document.
 [**WithholdingTaxesIdGet**](WithholdingTaxApi.md#WithholdingTaxesIdGet) | **Get** /withholding-taxes/{id} | Get withholding tax document.
 [**WithholdingTaxesIdPut**](WithholdingTaxApi.md#WithholdingTaxesIdPut) | **Put** /withholding-taxes/{id} | Edit withholding tax document.
-[**WithholdingTaxesIdStatusStatusIdPost**](WithholdingTaxApi.md#WithholdingTaxesIdStatusStatusIdPost) | **Post** /withholding-taxes/{id}/status/{statusId} | Change status of withholding tax document.
+[**WithholdingTaxesIdStatusStatusIdPost**](WithholdingTaxApi.md#WithholdingTaxesIdStatusStatusIdPost) | **Post** /withholding-taxes/{id}/status/{statusId} | Change status withholding tax document.
 [**WithholdingTaxesPost**](WithholdingTaxApi.md#WithholdingTaxesPost) | **Post** /withholding-taxes | Create withholding tax document.
-[**WithholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#WithholdingTaxesSharedocumentPost) | **Post** /withholding-taxes/sharedocument | Share link withholding tax documents.
+[**WithholdingTaxesSharedocumentPost**](WithholdingTaxApi.md#WithholdingTaxesSharedocumentPost) | **Post** /withholding-taxes/sharedocument | Share link withholding tax.
 
 
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > SendEmailResponse WithholdingTaxesEmailDocumentPost(ctx, authorization, sendEmailSimple)
 
-Send email withholding tax document.
+Send email withholding tax.
 
 ส่งเอกสารใบหัก ณ ที่จ่าย ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
@@ -55,7 +55,7 @@ No authorization required
 
 > AllWithholidingTaxDocumentResponse WithholdingTaxesGet(ctx, currentPage, pageSize, authorization, optional)
 
-Get list all withholding tax documents.
+Get all withholding tax documents.
 
 เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
 
@@ -80,8 +80,8 @@ Name | Type | Description  | Notes
 
 
 
- **sortBy** | **optional.String**| Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
- **filter** | **optional.String**|  | 
+ **sortBy** | **optional.String**| Query sort by withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;entity&#39;,&#39;sortOrder&#39;:&#39;asc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/withholding-taxes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | 
+ **filter** | **optional.String**| Query filter withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | 
 
 ### Return type
 
@@ -105,7 +105,7 @@ No authorization required
 
 > AttachmentResponse WithholdingTaxesIdAttachmentPost(ctx, authorization, id, optional)
 
-Add Attachment to expenses.
+Attachment withholding tax.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบหัก ณ ที่จ่าย ตามเลขที่เอกสารที่ต้องการ
 
@@ -258,7 +258,7 @@ No authorization required
 
 > WithholidingTaxDocumentResponse WithholdingTaxesIdStatusStatusIdPost(ctx, authorization, id, statusId)
 
-Change status of withholding tax document.
+Change status withholding tax document.
 
 เปลี่ยนสถานะของเอกสารใบหัก ณ ที่จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ ดำเนินการแล้ว (processed)
 
@@ -329,7 +329,7 @@ No authorization required
 
 > ShareDocumentResponse WithholdingTaxesSharedocumentPost(ctx, authorization, shareDocument)
 
-Share link withholding tax documents.
+Share link withholding tax.
 
 แชร์ลิงค์ เอกสารใบหัก ณ ที่จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 

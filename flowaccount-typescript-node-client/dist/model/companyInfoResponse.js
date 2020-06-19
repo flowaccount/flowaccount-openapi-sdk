@@ -25,7 +25,7 @@ CompanyInfoResponse.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Array<CompanyInfoResponseData>"
+        "type": "CompanyInfoResponseData"
     }
 ];
 exports.CompanyInfoResponse = CompanyInfoResponse;

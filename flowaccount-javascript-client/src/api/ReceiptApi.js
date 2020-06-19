@@ -105,14 +105,14 @@ export default class ReceiptApi {
      */
 
     /**
-     * Get list all receipt documents
+     * Get all receipt documents
      * เรียกดูข้อมูลเอกสารใบเสร็จรับเงิน ทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document receipts. <br>Example Pattern: <ex>/receipts?currentPage=1 </ex><ex>/receipts?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy Query document receipts list amount per page. <br>Example Pattern: <ex> /receipts?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/receipts?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/receipts?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.filter Query filter receipts. <br>Example Pattern: <ex> /receipts?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/ReceiptApi~receiptsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllDocumentResponse}
      */
@@ -166,7 +166,7 @@ export default class ReceiptApi {
      */
 
     /**
-     * Add Attachment to receipt document.
+     * Attachment receipt document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -317,7 +317,7 @@ export default class ReceiptApi {
      */
 
     /**
-     * Change paid status of receipt document.
+     * Change status is paid receipt document.
      * เก็บเงิน เอกสารใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
@@ -425,7 +425,7 @@ export default class ReceiptApi {
      */
 
     /**
-     * Change status of receipt document.
+     * Change status receipt document.
      * เปลี่ยนสถานะของเอกสารใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -480,7 +480,7 @@ export default class ReceiptApi {
      */
 
     /**
-     * Create receipt document with discount and tax inline.
+     * Create receipt document inline discount or inline vat.
      * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสร็จรับเงิน : https://flowaccount.com/blog/ใบเสร็จรับเงิน
      * @param {String} authorization 
      * @param {module:model/InlineDocument} inlineDocument 
@@ -528,7 +528,7 @@ export default class ReceiptApi {
      */
 
     /**
-     * Create receipt document with discount and tax inline with payment.
+     * Create receipt document inline discount or inline vat with payment.
      * สร้างเอกสารใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      * @param {String} authorization 
      * @param {module:model/InlineDocumentWithPaymentReceiving} inlineDocumentWithPaymentReceiving 

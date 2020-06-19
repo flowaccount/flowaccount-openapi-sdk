@@ -79,114 +79,30 @@ class BusinessCategoryTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "status"
      */
-    public function testPropertyId()
+    public function testPropertyStatus()
     {
     }
 
     /**
-     * Test attribute "system_code"
+     * Test attribute "message"
      */
-    public function testPropertySystemCode()
+    public function testPropertyMessage()
     {
     }
 
     /**
-     * Test attribute "category_id"
+     * Test attribute "code"
      */
-    public function testPropertyCategoryId()
+    public function testPropertyCode()
     {
     }
 
     /**
-     * Test attribute "category_name_local"
+     * Test attribute "data"
      */
-    public function testPropertyCategoryNameLocal()
-    {
-    }
-
-    /**
-     * Test attribute "category_name_foreign"
-     */
-    public function testPropertyCategoryNameForeign()
-    {
-    }
-
-    /**
-     * Test attribute "debit_id"
-     */
-    public function testPropertyDebitId()
-    {
-    }
-
-    /**
-     * Test attribute "debit_category"
-     */
-    public function testPropertyDebitCategory()
-    {
-    }
-
-    /**
-     * Test attribute "debit_code"
-     */
-    public function testPropertyDebitCode()
-    {
-    }
-
-    /**
-     * Test attribute "debit_name_local"
-     */
-    public function testPropertyDebitNameLocal()
-    {
-    }
-
-    /**
-     * Test attribute "debit_name_foreign"
-     */
-    public function testPropertyDebitNameForeign()
-    {
-    }
-
-    /**
-     * Test attribute "credit_id"
-     */
-    public function testPropertyCreditId()
-    {
-    }
-
-    /**
-     * Test attribute "credit_category"
-     */
-    public function testPropertyCreditCategory()
-    {
-    }
-
-    /**
-     * Test attribute "credit_code"
-     */
-    public function testPropertyCreditCode()
-    {
-    }
-
-    /**
-     * Test attribute "credit_name_local"
-     */
-    public function testPropertyCreditNameLocal()
-    {
-    }
-
-    /**
-     * Test attribute "credit_name_foreign"
-     */
-    public function testPropertyCreditNameForeign()
-    {
-    }
-
-    /**
-     * Test attribute "keywords"
-     */
-    public function testPropertyKeywords()
+    public function testPropertyData()
     {
     }
 }

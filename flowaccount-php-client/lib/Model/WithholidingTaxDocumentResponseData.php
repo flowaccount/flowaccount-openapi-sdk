@@ -57,6 +57,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'record_id' => 'string',
         'document_id' => 'string',
         'document_serial' => 'string',
         'contact_code' => 'string',
@@ -96,6 +97,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'record_id' => null,
         'document_id' => null,
         'document_serial' => null,
         'contact_code' => null,
@@ -156,6 +158,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'record_id' => 'recordId',
         'document_id' => 'documentId',
         'document_serial' => 'documentSerial',
         'contact_code' => 'contactCode',
@@ -195,6 +198,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'record_id' => 'setRecordId',
         'document_id' => 'setDocumentId',
         'document_serial' => 'setDocumentSerial',
         'contact_code' => 'setContactCode',
@@ -234,6 +238,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'record_id' => 'getRecordId',
         'document_id' => 'getDocumentId',
         'document_serial' => 'getDocumentSerial',
         'contact_code' => 'getContactCode',
@@ -327,6 +332,7 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['record_id'] = isset($data['record_id']) ? $data['record_id'] : null;
         $this->container['document_id'] = isset($data['document_id']) ? $data['document_id'] : null;
         $this->container['document_serial'] = isset($data['document_serial']) ? $data['document_serial'] : null;
         $this->container['contact_code'] = isset($data['contact_code']) ? $data['contact_code'] : null;
@@ -383,6 +389,30 @@ class WithholidingTaxDocumentResponseData implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets record_id
+     *
+     * @return string|null
+     */
+    public function getRecordId()
+    {
+        return $this->container['record_id'];
+    }
+
+    /**
+     * Sets record_id
+     *
+     * @param string|null $record_id เลข Id เอกสารใบหัก ณ ที่จ่าย
+     *
+     * @return $this
+     */
+    public function setRecordId($record_id)
+    {
+        $this->container['record_id'] = $record_id;
+
+        return $this;
+    }
 
     /**
      * Gets document_id

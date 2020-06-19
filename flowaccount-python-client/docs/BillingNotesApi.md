@@ -5,13 +5,13 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**billing_notes_email_document_post**](BillingNotesApi.md#billing_notes_email_document_post) | **POST** /billing-notes/email-document | Send email billing notes document.
-[**billing_notes_get**](BillingNotesApi.md#billing_notes_get) | **GET** /billing-notes | Get list all billing notes documents.
-[**billing_notes_id_attachment_post**](BillingNotesApi.md#billing_notes_id_attachment_post) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes document.
+[**billing_notes_get**](BillingNotesApi.md#billing_notes_get) | **GET** /billing-notes | Get all billing notes documents.
+[**billing_notes_id_attachment_post**](BillingNotesApi.md#billing_notes_id_attachment_post) | **POST** /billing-notes/{id}/attachment | Attachment billing notes document.
 [**billing_notes_id_delete**](BillingNotesApi.md#billing_notes_id_delete) | **DELETE** /billing-notes/{id} | Delete billing notes document.
 [**billing_notes_id_get**](BillingNotesApi.md#billing_notes_id_get) | **GET** /billing-notes/{id} | Get billing notes document.
 [**billing_notes_id_put**](BillingNotesApi.md#billing_notes_id_put) | **PUT** /billing-notes/{id} | Edit billing notes document.
-[**billing_notes_id_status_status_id_post**](BillingNotesApi.md#billing_notes_id_status_status_id_post) | **POST** /billing-notes/{id}/status/{statusId} | Change status of billing notes document.
-[**billing_notes_inline_post**](BillingNotesApi.md#billing_notes_inline_post) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
+[**billing_notes_id_status_status_id_post**](BillingNotesApi.md#billing_notes_id_status_status_id_post) | **POST** /billing-notes/{id}/status/{statusId} | Change status billing notes document.
+[**billing_notes_inline_post**](BillingNotesApi.md#billing_notes_inline_post) | **POST** /billing-notes/inline | Create billing notes document inline discount or inline vat.
 [**billing_notes_post**](BillingNotesApi.md#billing_notes_post) | **POST** /billing-notes | Create billing notes document.
 [**billing_notes_sharedocument_post**](BillingNotesApi.md#billing_notes_sharedocument_post) | **POST** /billing-notes/sharedocument | Share link billing notes document.
 
@@ -85,7 +85,7 @@ No authorization required
 # **billing_notes_get**
 > AllDocumentResponse billing_notes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
-Get list all billing notes documents.
+Get all billing notes documents.
 
 เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
 
@@ -112,10 +112,10 @@ with openapi_client.ApiClient() as api_client:
 page_size = 56 # int | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 sort_by = 'sort_by_example' # str | Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-filter = 'filter_example' # str |  (optional)
+filter = 'filter_example' # str | Query filter billing-notes. <br>Example Pattern: <ex> /billing-notes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
     try:
-        # Get list all billing notes documents.
+        # Get all billing notes documents.
         api_response = api_instance.billing_notes_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **str**| Query document billing notes list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/billing-notes?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **str**|  | [optional] 
+ **filter** | **str**| Query filter billing-notes. &lt;br&gt;Example Pattern: &lt;ex&gt; /billing-notes?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -157,7 +157,7 @@ No authorization required
 # **billing_notes_id_attachment_post**
 > AttachmentResponse billing_notes_id_attachment_post(authorization, id, file=file)
 
-Add Attachment to billing notes document.
+Attachment billing notes document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
 
@@ -185,7 +185,7 @@ id = 'id_example' # str | documentId หรือ recordId ของเอกส
 file = '/path/to/file' # file | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
     try:
-        # Add Attachment to billing notes document.
+        # Attachment billing notes document.
         api_response = api_instance.billing_notes_id_attachment_post(authorization, id, file=file)
         pprint(api_response)
     except ApiException as e:
@@ -425,7 +425,7 @@ No authorization required
 # **billing_notes_id_status_status_id_post**
 > InlineDocumentResponse billing_notes_id_status_status_id_post(authorization, id, status_id)
 
-Change status of billing notes document.
+Change status billing notes document.
 
 เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
 
@@ -453,7 +453,7 @@ id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 4 สถานะ <br> awaiting = รอวางบิล <br> approved = วางบิลแล้ว <br> approvedandprocessed = เปิดบิลแล้ว <br> void = ยกเลิก
 
     try:
-        # Change status of billing notes document.
+        # Change status billing notes document.
         api_response = api_instance.billing_notes_id_status_status_id_post(authorization, id, status_id)
         pprint(api_response)
     except ApiException as e:
@@ -493,7 +493,7 @@ No authorization required
 # **billing_notes_inline_post**
 > InlineDocumentResponse billing_notes_inline_post(authorization, inline_document)
 
-Create billing notes document with discount and tax inline.
+Create billing notes document inline discount or inline vat.
 
 สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
 
@@ -520,7 +520,7 @@ with openapi_client.ApiClient() as api_client:
 inline_document = openapi_client.InlineDocument() # InlineDocument | 
 
     try:
-        # Create billing notes document with discount and tax inline.
+        # Create billing notes document inline discount or inline vat.
         api_response = api_instance.billing_notes_inline_post(authorization, inline_document)
         pprint(api_response)
     except ApiException as e:

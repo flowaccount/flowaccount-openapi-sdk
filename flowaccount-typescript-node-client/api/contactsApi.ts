@@ -90,13 +90,13 @@ export class ContactsApi {
     /**
      * 
      * @summary Get list all contacts.
+     * @param authorization 
      * @param currentPage Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;
-     * @param authorization 
-     * @param sortBy Query contacts list amount per page. &lt;br&gt;Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;contactPerson\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
-     * @param filter Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;contactType\&#39;,\&#39;columnValue\&#39;:\&#39;3\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}]&lt;/ex&gt;
+     * @param sortBy Contact Sort By Example Pattern:&lt;br&gt; namelocal &#x3D; Sort By Contact Name &lt;br&gt; contactPerson &#x3D; Sort By Contact Person &lt;br&gt; email &#x3D; Sort By Email &lt;br&gt; phone2 &#x3D; Sort By Contact Mobile &lt;br&gt; contactType &#x3D; Sort By Contact Type &lt;ex&gt; /contacts?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;contactPerson\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
+     * @param filter Contact Filter Example Pattern: &lt;ex&gt; /contacts?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;contactType\&#39;,\&#39;columnValue\&#39;:\&#39;3\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}]&lt;/ex&gt;
      */
-    public async contactsGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ContactResponse;  }> {
+    public async contactsGet (authorization: string, currentPage?: number, pageSize?: number, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ContactResponse;  }> {
         const localVarPath = this.basePath + '/contacts';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -108,16 +108,6 @@ export class ContactsApi {
             localVarHeaderParams.Accept = produces.join(',');
         }
         let localVarFormParams: any = {};
-
-        // verify required parameter 'currentPage' is not null or undefined
-        if (currentPage === null || currentPage === undefined) {
-            throw new Error('Required parameter currentPage was null or undefined when calling contactsGet.');
-        }
-
-        // verify required parameter 'pageSize' is not null or undefined
-        if (pageSize === null || pageSize === undefined) {
-            throw new Error('Required parameter pageSize was null or undefined when calling contactsGet.');
-        }
 
         // verify required parameter 'authorization' is not null or undefined
         if (authorization === null || authorization === undefined) {

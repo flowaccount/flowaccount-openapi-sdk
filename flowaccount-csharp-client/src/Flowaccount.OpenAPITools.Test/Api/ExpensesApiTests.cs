@@ -153,7 +153,7 @@ namespace Flowaccount.OpenAPITools.Test
             //string authorization = null;
             //string id = null;
             //var response = instance.ExpensesIdGet(authorization, id);
-            //Assert.IsInstanceOf(typeof(ExpenseInlineDocumentResponse), response, "response is ExpenseInlineDocumentResponse");
+            //Assert.IsInstanceOf(typeof(AllExpenseDocumentResponse), response, "response is AllExpenseDocumentResponse");
         }
         
         /// <summary>

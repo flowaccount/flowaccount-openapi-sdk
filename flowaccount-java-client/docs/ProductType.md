@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **buyVatType** | **Long** | ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี |  [optional]
 **inventoryPublishedOn** | **String** | วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | 
 **inventoryQuantity** | [**BigDecimal**](BigDecimal.md) | จำนวนยอดตั้งต้นสินค้า | 
-**inventoryPrice** | [**BigDecimal**](BigDecimal.md) | ราคาซื้อสินค้า | 
+**inventoryPrice** | [**BigDecimal**](BigDecimal.md) | ต้นทุนสินค้าต่อหน่วย | 
 
 
 

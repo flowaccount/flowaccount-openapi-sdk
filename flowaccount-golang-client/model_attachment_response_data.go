@@ -14,7 +14,7 @@ type AttachmentResponseData struct {
 	// เลข Id ไฟล์แนบเอกสาร
 	AttachmentId int64 `json:"attachmentId,omitempty"`
 	// วันที่แนบไฟล์เอกสาร รูปแบบ yyyy-MM-dd <br> <ex>Example: 2020-01-01</ex>
-	CreatedOn interface{} `json:"createdOn,omitempty"`
+	CreatedOn string `json:"createdOn,omitempty"`
 	// ชื่อไฟล์แนบเอกสาร
 	AttachmentName string `json:"attachmentName,omitempty"`
 	// ลำดับไฟล์แนบเอกสาร

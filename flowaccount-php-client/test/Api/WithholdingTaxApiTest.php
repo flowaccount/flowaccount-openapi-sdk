@@ -75,7 +75,7 @@ class WithholdingTaxApiTest extends TestCase
     /**
      * Test case for withholdingTaxesEmailDocumentPost
      *
-     * Send email withholding tax document..
+     * Send email withholding tax..
      *
      */
     public function testWithholdingTaxesEmailDocumentPost()
@@ -85,7 +85,7 @@ class WithholdingTaxApiTest extends TestCase
     /**
      * Test case for withholdingTaxesGet
      *
-     * Get list all withholding tax documents..
+     * Get all withholding tax documents..
      *
      */
     public function testWithholdingTaxesGet()
@@ -95,7 +95,7 @@ class WithholdingTaxApiTest extends TestCase
     /**
      * Test case for withholdingTaxesIdAttachmentPost
      *
-     * Add Attachment to expenses..
+     * Attachment withholding tax..
      *
      */
     public function testWithholdingTaxesIdAttachmentPost()
@@ -135,7 +135,7 @@ class WithholdingTaxApiTest extends TestCase
     /**
      * Test case for withholdingTaxesIdStatusStatusIdPost
      *
-     * Change status of withholding tax document..
+     * Change status withholding tax document..
      *
      */
     public function testWithholdingTaxesIdStatusStatusIdPost()
@@ -155,7 +155,7 @@ class WithholdingTaxApiTest extends TestCase
     /**
      * Test case for withholdingTaxesSharedocumentPost
      *
-     * Share link withholding tax documents..
+     * Share link withholding tax..
      *
      */
     public function testWithholdingTaxesSharedocumentPost()

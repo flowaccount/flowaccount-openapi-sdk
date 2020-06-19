@@ -62,7 +62,7 @@ public class PurchaseOrderApiTest {
     }
     
     /**
-     * Get list all purchase order documents.
+     * Get all purchase order documents.
      *
      * เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
      *
@@ -82,7 +82,7 @@ public class PurchaseOrderApiTest {
     }
     
     /**
-     * Add Attachment to purchase order document.
+     * Attachment purchase order document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบสั่งซื้อตามเลขที่เอกสารที่ต้องการ
      *
@@ -152,7 +152,7 @@ public class PurchaseOrderApiTest {
     }
     
     /**
-     * Change status of purchase order document.
+     * Change status purchase order document.
      *
      * เปลี่ยนสถานะของเอกสารใบสั่งซื้อ สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      *
@@ -170,7 +170,7 @@ public class PurchaseOrderApiTest {
     }
     
     /**
-     * Create purchase order document with discount and tax inline.
+     * Create purchase order document inline discount or inline vat.
      *
      * สร้างเอกสารใบสั่งซื้อ แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) &lt;br&gt;
      *

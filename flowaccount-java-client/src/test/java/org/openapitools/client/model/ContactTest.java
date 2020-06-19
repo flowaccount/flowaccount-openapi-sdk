@@ -65,6 +65,14 @@ public class ContactTest {
     }
 
     /**
+     * Test the property 'contactCode'
+     */
+    @Test
+    public void contactCodeTest() {
+        // TODO: test contactCode
+    }
+
+    /**
      * Test the property 'contactName'
      */
     @Test

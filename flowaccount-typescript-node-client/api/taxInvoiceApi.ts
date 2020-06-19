@@ -177,12 +177,12 @@ export class TaxInvoiceApi {
     }
     /**
      * เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
-     * @summary Get list all tax invocie documents.
+     * @summary Get all tax invocie documents.
      * @param currentPage Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;
      * @param pageSize Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;
      * @param authorization 
      * @param sortBy Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;publishedOn\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}] &lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Value\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;&lt;ex&gt;/tax-invoices?sortBy&#x3D;[{\&#39;name\&#39;:\&#39;Status\&#39;,\&#39;sortOrder\&#39;:\&#39;asc\&#39;},{\&#39;name\&#39;:\&#39;documentSerial\&#39;,\&#39;sortOrder\&#39;:\&#39;desc\&#39;}]&lt;/ex&gt;
-     * @param filter 
+     * @param filter Query filter tax-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?filter&#x3D;[{\&#39;columnName\&#39;:\&#39;Contact.NameLocal\&#39;,\&#39;columnValue\&#39;:\&#39;Contact Name\&#39;,\&#39;columnPredicateOperator\&#39;:\&#39;And\&#39;}] &lt;/ex&gt;
      */
     public async taxInvoicesGet (currentPage: number, pageSize: number, authorization: string, sortBy?: string, filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AllDocumentResponse;  }> {
         const localVarPath = this.basePath + '/tax-invoices';
@@ -276,7 +276,7 @@ export class TaxInvoiceApi {
     }
     /**
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
-     * @summary Add Attachment to tax Invoices document.
+     * @summary Attachment tax Invoices document.
      * @param authorization 
      * @param id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
      * @param file รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary
@@ -510,7 +510,7 @@ export class TaxInvoiceApi {
     }
     /**
      * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
-     * @summary Change paid status of tax-invoice document.
+     * @summary Change status is paid tax-invoice document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId หรือ documentId
      * @param paymentReceivingDocument 
@@ -676,7 +676,7 @@ export class TaxInvoiceApi {
     }
     /**
      * เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
-     * @summary Change status of tax invoices document.
+     * @summary Change status tax invoices document.
      * @param authorization 
      * @param id ID เอกสารใช้ recordId
      * @param statusId เปลี่ยนสถานะเอกสารได้ 3 สถานะ &lt;br&gt; awaiting &#x3D; รอดำเนินการ &lt;br&gt; invoicedelivered &#x3D; รอเก็บเงิน &lt;br&gt; void &#x3D; ยกเลิก
@@ -759,7 +759,7 @@ export class TaxInvoiceApi {
     }
     /**
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
-     * @summary Create tax invocie document with discount and tax inline.
+     * @summary Create tax invocie document inline discount or inline vat.
      * @param authorization 
      * @param inlineDocument 
      */
@@ -835,7 +835,7 @@ export class TaxInvoiceApi {
     }
     /**
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
-     * @summary Create tax invocie document with discount and tax inline with payment.
+     * @summary Create tax invocie document inline discount or inline vat with payment.
      * @param authorization 
      * @param inlineDocumentWithPaymentReceiving 
      */

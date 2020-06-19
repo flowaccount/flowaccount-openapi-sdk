@@ -21,6 +21,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.BusinessCategoryData;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -41,131 +44,35 @@ public class BusinessCategoryTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'status'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void statusTest() {
+        // TODO: test status
     }
 
     /**
-     * Test the property 'systemCode'
+     * Test the property 'message'
      */
     @Test
-    public void systemCodeTest() {
-        // TODO: test systemCode
+    public void messageTest() {
+        // TODO: test message
     }
 
     /**
-     * Test the property 'categoryId'
+     * Test the property 'code'
      */
     @Test
-    public void categoryIdTest() {
-        // TODO: test categoryId
+    public void codeTest() {
+        // TODO: test code
     }
 
     /**
-     * Test the property 'categoryNameLocal'
+     * Test the property 'data'
      */
     @Test
-    public void categoryNameLocalTest() {
-        // TODO: test categoryNameLocal
-    }
-
-    /**
-     * Test the property 'categoryNameForeign'
-     */
-    @Test
-    public void categoryNameForeignTest() {
-        // TODO: test categoryNameForeign
-    }
-
-    /**
-     * Test the property 'debitId'
-     */
-    @Test
-    public void debitIdTest() {
-        // TODO: test debitId
-    }
-
-    /**
-     * Test the property 'debitCategory'
-     */
-    @Test
-    public void debitCategoryTest() {
-        // TODO: test debitCategory
-    }
-
-    /**
-     * Test the property 'debitCode'
-     */
-    @Test
-    public void debitCodeTest() {
-        // TODO: test debitCode
-    }
-
-    /**
-     * Test the property 'debitNameLocal'
-     */
-    @Test
-    public void debitNameLocalTest() {
-        // TODO: test debitNameLocal
-    }
-
-    /**
-     * Test the property 'debitNameForeign'
-     */
-    @Test
-    public void debitNameForeignTest() {
-        // TODO: test debitNameForeign
-    }
-
-    /**
-     * Test the property 'creditId'
-     */
-    @Test
-    public void creditIdTest() {
-        // TODO: test creditId
-    }
-
-    /**
-     * Test the property 'creditCategory'
-     */
-    @Test
-    public void creditCategoryTest() {
-        // TODO: test creditCategory
-    }
-
-    /**
-     * Test the property 'creditCode'
-     */
-    @Test
-    public void creditCodeTest() {
-        // TODO: test creditCode
-    }
-
-    /**
-     * Test the property 'creditNameLocal'
-     */
-    @Test
-    public void creditNameLocalTest() {
-        // TODO: test creditNameLocal
-    }
-
-    /**
-     * Test the property 'creditNameForeign'
-     */
-    @Test
-    public void creditNameForeignTest() {
-        // TODO: test creditNameForeign
-    }
-
-    /**
-     * Test the property 'keywords'
-     */
-    @Test
-    public void keywordsTest() {
-        // TODO: test keywords
+    public void dataTest() {
+        // TODO: test data
     }
 
 }

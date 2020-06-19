@@ -115,7 +115,7 @@ type BillingNotesGetOpts struct {
 }
 
 /*
-BillingNotesGet Get list all billing notes documents.
+BillingNotesGet Get all billing notes documents.
 เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document billing notes. <br>Example Pattern: <ex>/billing-notes?currentPage=1 </ex><ex>/billing-notes?currentPage=1&pageSize=20</ex>
@@ -123,7 +123,7 @@ BillingNotesGet Get list all billing notes documents.
  * @param authorization
  * @param optional nil or *BillingNotesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "Filter" (optional.String) -  Query filter billing-notes. <br>Example Pattern: <ex> /billing-notes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllDocumentResponse
 */
 func (a *BillingNotesApiService) BillingNotesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *BillingNotesGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type BillingNotesIdAttachmentPostOpts struct {
 }
 
 /*
-BillingNotesIdAttachmentPost Add Attachment to billing notes document.
+BillingNotesIdAttachmentPost Attachment billing notes document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -550,7 +550,7 @@ func (a *BillingNotesApiService) BillingNotesIdPut(ctx _context.Context, authori
 }
 
 /*
-BillingNotesIdStatusStatusIdPost Change status of billing notes document.
+BillingNotesIdStatusStatusIdPost Change status billing notes document.
 เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -633,7 +633,7 @@ func (a *BillingNotesApiService) BillingNotesIdStatusStatusIdPost(ctx _context.C
 }
 
 /*
-BillingNotesInlinePost Create billing notes document with discount and tax inline.
+BillingNotesInlinePost Create billing notes document inline discount or inline vat.
 สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) &lt;br&gt; &lt;br&gt; ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

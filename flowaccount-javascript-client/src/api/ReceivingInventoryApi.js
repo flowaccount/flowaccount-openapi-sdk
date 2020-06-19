@@ -105,14 +105,14 @@ export default class ReceivingInventoryApi {
      */
 
     /**
-     * Get list all receiving inventory documents.
+     * Get all receiving inventory documents.
      * เรียกดูข้อมูลเอกสารใบรับสินค้าทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document purchases. <br>Example Pattern: <ex>/purchases?currentPage=1 </ex><ex>/purchases?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/purchases?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/purchases?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.filter Query filter purchases. <br>Example Pattern: <ex> /purchases?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/ReceivingInventoryApi~purchasesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllDocumentResponse}
      */
@@ -166,7 +166,7 @@ export default class ReceivingInventoryApi {
      */
 
     /**
-     * Add Attachment to receiving inventory document.
+     * Attachment receiving inventory document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบรับสินค้าตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -317,7 +317,7 @@ export default class ReceivingInventoryApi {
      */
 
     /**
-     * Change paid status of receiving inventory document.
+     * Change status is paid receiving inventory document.
      * ขำระเงิน เอกสารใบรับสินค้าเปลี่ยนสถานะเป็น ชำระเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
@@ -425,7 +425,7 @@ export default class ReceivingInventoryApi {
      */
 
     /**
-     * Change status of receiving inventory document.
+     * Change status receiving inventory document.
      * เปลี่ยนสถานะของเอกสารใบรับสินค้า สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -480,7 +480,7 @@ export default class ReceivingInventoryApi {
      */
 
     /**
-     * Create receiving inventory document with discount and tax inline.
+     * Create receiving inventory document inline discount or inline vat.
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting)
      * @param {String} authorization 
      * @param {module:model/InlineDocument} inlineDocument 
@@ -528,7 +528,7 @@ export default class ReceivingInventoryApi {
      */
 
     /**
-     * Create receiving inventory document with discount and tax inline with payment.
+     * Create receiving inventory document inline discount or inline vat with payment.
      * สร้างเอกสารใบรับสินค้า แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
      * @param {String} authorization 
      * @param {module:model/InlineDocumentWithPaymentPaid} inlineDocumentWithPaymentPaid 

@@ -102,14 +102,14 @@ export default class BillingNotesApi {
      */
 
     /**
-     * Get list all billing notes documents.
+     * Get all billing notes documents.
      * เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document billing notes. <br>Example Pattern: <ex>/billing-notes?currentPage=1 </ex><ex>/billing-notes?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy Query document billing notes list amount per page. <br>Example Pattern: <ex> /billing-notes?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/billing-notes?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/billing-notes?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.filter Query filter billing-notes. <br>Example Pattern: <ex> /billing-notes?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/BillingNotesApi~billingNotesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllDocumentResponse}
      */
@@ -163,7 +163,7 @@ export default class BillingNotesApi {
      */
 
     /**
-     * Add Attachment to billing notes document.
+     * Attachment billing notes document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -368,7 +368,7 @@ export default class BillingNotesApi {
      */
 
     /**
-     * Change status of billing notes document.
+     * Change status billing notes document.
      * เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -423,7 +423,7 @@ export default class BillingNotesApi {
      */
 
     /**
-     * Create billing notes document with discount and tax inline.
+     * Create billing notes document inline discount or inline vat.
      * สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
      * @param {String} authorization 
      * @param {module:model/InlineDocument} inlineDocument 

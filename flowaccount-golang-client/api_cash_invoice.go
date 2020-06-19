@@ -115,7 +115,7 @@ type CashInvoicesGetOpts struct {
 }
 
 /*
-CashInvoicesGet Get list all cash invoices documents
+CashInvoicesGet Get all cash invoices documents
 เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param currentPage Query current page document cash invoices. <br>Example Pattern: <ex>/cash-invoices?currentPage=1 </ex><ex>/cash-invoices?currentPage=1&pageSize=20</ex>
@@ -123,7 +123,7 @@ CashInvoicesGet Get list all cash invoices documents
  * @param authorization
  * @param optional nil or *CashInvoicesGetOpts - Optional Parameters:
  * @param "SortBy" (optional.String) -  Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/cash-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "Filter" (optional.String) -  Query filter cash-invoices. <br>Example Pattern: <ex> /cash-invoices?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
 @return AllDocumentResponse
 */
 func (a *CashInvoiceApiService) CashInvoicesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *CashInvoicesGetOpts) (AllDocumentResponse, *_nethttp.Response, error) {
@@ -210,7 +210,7 @@ type CashInvoicesIdAttachmentPostOpts struct {
 }
 
 /*
-CashInvoicesIdAttachmentPost Add Attachment to cash invoices document.
+CashInvoicesIdAttachmentPost Attachment cash invoices document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) ตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -467,7 +467,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdGet(ctx _context.Context, authoriz
 }
 
 /*
-CashInvoicesIdPaymentPost Change paid status of cash invoices document.
+CashInvoicesIdPaymentPost Change status is paid cash invoices document.
 เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -633,7 +633,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdPut(ctx _context.Context, authoriz
 }
 
 /*
-CashInvoicesIdStatusStatusIdPost Change status of cash invoices document.
+CashInvoicesIdStatusStatusIdPost Change status cash invoices document.
 เปลี่ยนสถานะของเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -716,7 +716,7 @@ func (a *CashInvoiceApiService) CashInvoicesIdStatusStatusIdPost(ctx _context.Co
 }
 
 /*
-CashInvoicesInlinePost Create cash invoices document with discount and tax inline.
+CashInvoicesInlinePost Create cash invoices document inline discount or inline vat.
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -796,7 +796,7 @@ func (a *CashInvoiceApiService) CashInvoicesInlinePost(ctx _context.Context, aut
 }
 
 /*
-CashInvoicesInlineWithPaymentPost Create cash invoices document with discount and tax inline with payment.
+CashInvoicesInlineWithPaymentPost Create cash invoices document inline discount or inline vat with payment.
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

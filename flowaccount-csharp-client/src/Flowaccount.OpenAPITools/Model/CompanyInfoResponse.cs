@@ -36,8 +36,8 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="status">action success.</param>
         /// <param name="message">error message.</param>
         /// <param name="code">error code.</param>
-        /// <param name="data">ข้อมูลบริษัทเรา.</param>
-        public CompanyInfoResponse(bool status = default(bool), string message = default(string), int code = default(int), List<CompanyInfoResponseData> data = default(List<CompanyInfoResponseData>))
+        /// <param name="data">data.</param>
+        public CompanyInfoResponse(bool status = default(bool), string message = default(string), int code = default(int), CompanyInfoResponseData data = default(CompanyInfoResponseData))
         {
             this.Status = status;
             this.Message = message;
@@ -67,11 +67,10 @@ namespace Flowaccount.OpenAPITools.Model
         public int Code { get; set; }
 
         /// <summary>
-        /// ข้อมูลบริษัทเรา
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>ข้อมูลบริษัทเรา</value>
         [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<CompanyInfoResponseData> Data { get; set; }
+        public CompanyInfoResponseData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,9 +135,8 @@ namespace Flowaccount.OpenAPITools.Model
                 ) && 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 

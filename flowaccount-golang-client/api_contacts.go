@@ -29,6 +29,8 @@ type ContactsApiService service
 
 // ContactsGetOpts Optional parameters for the method 'ContactsGet'
 type ContactsGetOpts struct {
+    CurrentPage optional.Int32
+    PageSize optional.Int32
     SortBy optional.String
     Filter optional.String
 }
@@ -36,15 +38,15 @@ type ContactsGetOpts struct {
 /*
 ContactsGet Get list all contacts.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param currentPage Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
- * @param pageSize Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
  * @param authorization
  * @param optional nil or *ContactsGetOpts - Optional Parameters:
- * @param "SortBy" (optional.String) -  Query contacts list amount per page. <br>Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) -  Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
+ * @param "CurrentPage" (optional.Int32) -  Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
+ * @param "PageSize" (optional.Int32) -  Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
+ * @param "SortBy" (optional.String) -  Contact Sort By Example Pattern:<br> namelocal = Sort By Contact Name <br> contactPerson = Sort By Contact Person <br> email = Sort By Email <br> phone2 = Sort By Contact Mobile <br> contactType = Sort By Contact Type <ex> /contacts?sortBy=[{'name':'contactPerson','sortOrder':'desc'}]</ex>
+ * @param "Filter" (optional.String) -  Contact Filter Example Pattern: <ex> /contacts?filter=[{'columnName':'contactType','columnValue':'3','columnPredicateOperator':'And'}]</ex>
 @return ContactResponse
 */
-func (a *ContactsApiService) ContactsGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *ContactsGetOpts) (ContactResponse, *_nethttp.Response, error) {
+func (a *ContactsApiService) ContactsGet(ctx _context.Context, authorization string, localVarOptionals *ContactsGetOpts) (ContactResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -60,8 +62,12 @@ func (a *ContactsApiService) ContactsGet(ctx _context.Context, currentPage int32
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	localVarQueryParams.Add("currentPage", parameterToString(currentPage, ""))
-	localVarQueryParams.Add("pageSize", parameterToString(pageSize, ""))
+	if localVarOptionals != nil && localVarOptionals.CurrentPage.IsSet() {
+		localVarQueryParams.Add("currentPage", parameterToString(localVarOptionals.CurrentPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PageSize.IsSet() {
+		localVarQueryParams.Add("pageSize", parameterToString(localVarOptionals.PageSize.Value(), ""))
+	}
 	if localVarOptionals != nil && localVarOptionals.SortBy.IsSet() {
 		localVarQueryParams.Add("sortBy", parameterToString(localVarOptionals.SortBy.Value(), ""))
 	}

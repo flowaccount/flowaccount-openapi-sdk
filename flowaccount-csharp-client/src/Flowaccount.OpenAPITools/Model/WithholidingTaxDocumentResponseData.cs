@@ -33,6 +33,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WithholidingTaxDocumentResponseData" /> class.
         /// </summary>
+        /// <param name="recordId">เลข Id เอกสารใบหัก ณ ที่จ่าย.</param>
         /// <param name="documentId">เลข Id เอกสารใบหัก ณ ที่จ่าย.</param>
         /// <param name="documentSerial">เลขที่เอกสารใบหัก ณ ที่จ่าย.</param>
         /// <param name="contactCode">รหัส ผู้จำหน่าย หรือ ผู้จำหน่าย/ลูกค้า.</param>
@@ -64,8 +65,9 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="statusString">ชื่อสถานะเอกสารฉบับนี้.</param>
         /// <param name="documentType">เลขประเภทเอกสารฉบับนี้.</param>
         /// <param name="allowDelete">สามารถลบเอกสาร :&lt;br&gt; true &#x3D; ลบได้ &lt;br&gt; false &#x3D; ลบไม่ได้.</param>
-        public WithholidingTaxDocumentResponseData(string documentId = default(string), string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int entity = 1, string textOther = default(string), List<WithholidingTaxItem> withholdingTaxItems = default(List<WithholidingTaxItem>), decimal total = default(decimal), decimal totalTaxWithheld = default(decimal), int taxPayment = 1, string taxPaymentOthers = default(string), string providentFundNumber = default(string), string providentFundAmount = default(string), string socialSecurityAmount = default(string), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, SimpleDocumentResponseAllOfDataCompany company = default(SimpleDocumentResponseAllOfDataCompany), int status = default(int), int statusString = default(int), int documentType = default(int), bool allowDelete = default(bool))
+        public WithholidingTaxDocumentResponseData(string recordId = default(string), string documentId = default(string), string documentSerial = default(string), string contactCode = default(string), string contactName = default(string), string contactAddress = default(string), string contactTaxId = default(string), string contactBranch = default(string), string contactPerson = default(string), string contactEmail = default(string), string contactNumber = default(string), string contactZipCode = default(string), int contactGroup = 1, DateTime publishedOn = default(DateTime), int entity = 1, string textOther = default(string), List<WithholidingTaxItem> withholdingTaxItems = default(List<WithholidingTaxItem>), decimal total = default(decimal), decimal totalTaxWithheld = default(decimal), int taxPayment = 1, string taxPaymentOthers = default(string), string providentFundNumber = default(string), string providentFundAmount = default(string), string socialSecurityAmount = default(string), string remarks = default(string), string internalNotes = default(string), bool showSignatureOrStamp = true, SimpleDocumentResponseAllOfDataCompany company = default(SimpleDocumentResponseAllOfDataCompany), int status = default(int), int statusString = default(int), int documentType = default(int), bool allowDelete = default(bool))
         {
+            this.RecordId = recordId;
             this.DocumentId = documentId;
             this.DocumentSerial = documentSerial;
             this.ContactCode = contactCode;
@@ -131,6 +133,13 @@ namespace Flowaccount.OpenAPITools.Model
             this.AllowDelete = allowDelete;
         }
         
+        /// <summary>
+        /// เลข Id เอกสารใบหัก ณ ที่จ่าย
+        /// </summary>
+        /// <value>เลข Id เอกสารใบหัก ณ ที่จ่าย</value>
+        [DataMember(Name="recordId", EmitDefaultValue=true)]
+        public string RecordId { get; set; }
+
         /// <summary>
         /// เลข Id เอกสารใบหัก ณ ที่จ่าย
         /// </summary>
@@ -356,6 +365,7 @@ namespace Flowaccount.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class WithholidingTaxDocumentResponseData {\n");
+            sb.Append("  RecordId: ").Append(RecordId).Append("\n");
             sb.Append("  DocumentId: ").Append(DocumentId).Append("\n");
             sb.Append("  DocumentSerial: ").Append(DocumentSerial).Append("\n");
             sb.Append("  ContactCode: ").Append(ContactCode).Append("\n");
@@ -421,6 +431,11 @@ namespace Flowaccount.OpenAPITools.Model
                 return false;
 
             return 
+                (
+                    this.RecordId == input.RecordId ||
+                    (this.RecordId != null &&
+                    this.RecordId.Equals(input.RecordId))
+                ) && 
                 (
                     this.DocumentId == input.DocumentId ||
                     (this.DocumentId != null &&
@@ -588,6 +603,8 @@ namespace Flowaccount.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.RecordId != null)
+                    hashCode = hashCode * 59 + this.RecordId.GetHashCode();
                 if (this.DocumentId != null)
                     hashCode = hashCode * 59 + this.DocumentId.GetHashCode();
                 if (this.DocumentSerial != null)

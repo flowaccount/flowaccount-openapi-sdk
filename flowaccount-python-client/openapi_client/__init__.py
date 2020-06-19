@@ -56,6 +56,7 @@ from openapi_client.models.bank_account import BankAccount
 from openapi_client.models.bank_account_response import BankAccountResponse
 from openapi_client.models.bank_account_response_data import BankAccountResponseData
 from openapi_client.models.business_category import BusinessCategory
+from openapi_client.models.business_category_data import BusinessCategoryData
 from openapi_client.models.company_info import CompanyInfo
 from openapi_client.models.company_info_response import CompanyInfoResponse
 from openapi_client.models.company_info_response_data import CompanyInfoResponseData

@@ -12,6 +12,7 @@
 
 package org.openapitools.client.model;
 
+import java.util.*;
 import org.openapitools.client.model.AttachmentResponseData;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ public class AttachmentResponse {
   @SerializedName("code")
   private Integer code = null;
   @SerializedName("data")
-  private AttachmentResponseData data = null;
+  private List<AttachmentResponseData> data = null;
 
   /**
    * action success
@@ -62,12 +63,13 @@ public class AttachmentResponse {
   }
 
   /**
+   * ข้อมูลไฟล์แนบเอกสาร
    **/
-  @ApiModelProperty(value = "")
-  public AttachmentResponseData getData() {
+  @ApiModelProperty(value = "ข้อมูลไฟล์แนบเอกสาร")
+  public List<AttachmentResponseData> getData() {
     return data;
   }
-  public void setData(AttachmentResponseData data) {
+  public void setData(List<AttachmentResponseData> data) {
     this.data = data;
   }
 

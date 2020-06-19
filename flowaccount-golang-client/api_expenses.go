@@ -29,7 +29,7 @@ var (
 type ExpensesApiService service
 
 /*
-ExpensesCategoriesAccountingGet Accounting categorys expenses document.
+ExpensesCategoriesAccountingGet Accounting categories expenses document.
 เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักบัญชี)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -106,7 +106,7 @@ func (a *ExpensesApiService) ExpensesCategoriesAccountingGet(ctx _context.Contex
 }
 
 /*
-ExpensesCategoriesBusinessGet Business categorys expenses document.
+ExpensesCategoriesBusinessGet Business categories expenses document.
 เรียกดูข้อมูลหมวดหมู่เอกสารค่าใช้จ่าย (สำหรับนักธุรกิจ)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -272,12 +272,12 @@ type ExpensesGetOpts struct {
 ExpensesGet Get list all expenses documents.
 เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param currentPage Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
- * @param pageSize Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
+ * @param currentPage Query current page expenses document. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
+ * @param pageSize Query expenses document list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
  * @param authorization
  * @param optional nil or *ExpensesGetOpts - Optional Parameters:
- * @param "SortBy" (optional.String) -  Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
- * @param "Filter" (optional.String) - 
+ * @param "SortBy" (optional.String) -  Query sort by expense document. <br>Example Pattern: <ex> /expenses?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/expenses?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/expenses?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
+ * @param "Filter" (optional.String) -  Query filter expenses document. <br>Example Pattern: <ex> /expenses?filter=[{'columnName':'Status','columnValue':'processed','columnPredicateOperator':'And'}] </ex>
 @return AllExpenseDocumentResponse
 */
 func (a *ExpensesApiService) ExpensesGet(ctx _context.Context, currentPage int32, pageSize int32, authorization string, localVarOptionals *ExpensesGetOpts) (AllExpenseDocumentResponse, *_nethttp.Response, error) {
@@ -364,7 +364,7 @@ type ExpensesIdAttachmentPostOpts struct {
 }
 
 /*
-ExpensesIdAttachmentPost Add Attachment to expenses.
+ExpensesIdAttachmentPost Attachment to expenses document.
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารค่าใช้จ่ายตามเลขที่เอกสารที่ต้องการ
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -546,16 +546,16 @@ ExpensesIdGet Get expenses document.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
  * @param id
-@return ExpenseInlineDocumentResponse
+@return AllExpenseDocumentResponse
 */
-func (a *ExpensesApiService) ExpensesIdGet(ctx _context.Context, authorization string, id string) (ExpenseInlineDocumentResponse, *_nethttp.Response, error) {
+func (a *ExpensesApiService) ExpensesIdGet(ctx _context.Context, authorization string, id string) (AllExpenseDocumentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ExpenseInlineDocumentResponse
+		localVarReturnValue  AllExpenseDocumentResponse
 	)
 
 	// create path and map variables
@@ -621,7 +621,7 @@ func (a *ExpensesApiService) ExpensesIdGet(ctx _context.Context, authorization s
 }
 
 /*
-ExpensesIdPaymentPost Change paid status of expenses document.
+ExpensesIdPaymentPost Change status is paid expenses document.
 ชำระเงิน เอกสารค่าใช้จ่ายเปลี่ยน สถานะเป็น ชำระเงินแล้ว
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -787,7 +787,7 @@ func (a *ExpensesApiService) ExpensesIdPut(ctx _context.Context, authorization s
 }
 
 /*
-ExpensesIdStatusStatusIdPost Change status of expenses document.
+ExpensesIdStatusStatusIdPost Change status expenses document.
 เปลี่ยนสถานะของเอกสารค่าใช้จ่าย สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -870,7 +870,7 @@ func (a *ExpensesApiService) ExpensesIdStatusStatusIdPost(ctx _context.Context, 
 }
 
 /*
-ExpensesInlinePost Create expenses document with discount and tax inline.
+ExpensesInlinePost Create expenses document inline discount or inline vat.
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -950,7 +950,7 @@ func (a *ExpensesApiService) ExpensesInlinePost(ctx _context.Context, authorizat
 }
 
 /*
-ExpensesInlineWithPaymentPost Create expenses document with discount and tax inline with payment.
+ExpensesInlineWithPaymentPost Create expenses document inline discount or inline vat with payment.
 สร้างเอกสารค่าใช้จ่าย แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -1110,7 +1110,7 @@ func (a *ExpensesApiService) ExpensesPost(ctx _context.Context, authorization st
 }
 
 /*
-ExpensesSharedocumentPost Share link expenses documents.
+ExpensesSharedocumentPost Share link expenses document.
 แชร์ลิงค์ เอกสารค่าใช้จ่าย ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization
@@ -1190,7 +1190,7 @@ func (a *ExpensesApiService) ExpensesSharedocumentPost(ctx _context.Context, aut
 }
 
 /*
-ExpensesWithPaymentPost Create expenses document with-payment.
+ExpensesWithPaymentPost Create expenses document with payment.
 สร้างเอกสารค่าใช้จ่าย พร้อมชำระเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ ชำระเงินแล้ว (paid)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param authorization

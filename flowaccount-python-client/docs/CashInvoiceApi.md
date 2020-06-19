@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cash_invoices_email_document_post**](CashInvoiceApi.md#cash_invoices_email_document_post) | **POST** /cash-invoices/email-document | Send email cash invoices document.
-[**cash_invoices_get**](CashInvoiceApi.md#cash_invoices_get) | **GET** /cash-invoices | Get list all cash invoices documents
-[**cash_invoices_id_attachment_post**](CashInvoiceApi.md#cash_invoices_id_attachment_post) | **POST** /cash-invoices/{id}/attachment | Add Attachment to cash invoices document.
+[**cash_invoices_get**](CashInvoiceApi.md#cash_invoices_get) | **GET** /cash-invoices | Get all cash invoices documents
+[**cash_invoices_id_attachment_post**](CashInvoiceApi.md#cash_invoices_id_attachment_post) | **POST** /cash-invoices/{id}/attachment | Attachment cash invoices document.
 [**cash_invoices_id_delete**](CashInvoiceApi.md#cash_invoices_id_delete) | **DELETE** /cash-invoices/{id} | Delete cash invoices document.
 [**cash_invoices_id_get**](CashInvoiceApi.md#cash_invoices_id_get) | **GET** /cash-invoices/{id} | Get cash invoices document.
-[**cash_invoices_id_payment_post**](CashInvoiceApi.md#cash_invoices_id_payment_post) | **POST** /cash-invoices/{id}/payment | Change paid status of cash invoices document.
+[**cash_invoices_id_payment_post**](CashInvoiceApi.md#cash_invoices_id_payment_post) | **POST** /cash-invoices/{id}/payment | Change status is paid cash invoices document.
 [**cash_invoices_id_put**](CashInvoiceApi.md#cash_invoices_id_put) | **PUT** /cash-invoices/{id} | Edit cash invoices document.
-[**cash_invoices_id_status_status_id_post**](CashInvoiceApi.md#cash_invoices_id_status_status_id_post) | **POST** /cash-invoices/{id}/status/{statusId} | Change status of cash invoices document.
-[**cash_invoices_inline_post**](CashInvoiceApi.md#cash_invoices_inline_post) | **POST** /cash-invoices/inline | Create cash invoices document with discount and tax inline.
-[**cash_invoices_inline_with_payment_post**](CashInvoiceApi.md#cash_invoices_inline_with_payment_post) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document with discount and tax inline with payment.
+[**cash_invoices_id_status_status_id_post**](CashInvoiceApi.md#cash_invoices_id_status_status_id_post) | **POST** /cash-invoices/{id}/status/{statusId} | Change status cash invoices document.
+[**cash_invoices_inline_post**](CashInvoiceApi.md#cash_invoices_inline_post) | **POST** /cash-invoices/inline | Create cash invoices document inline discount or inline vat.
+[**cash_invoices_inline_with_payment_post**](CashInvoiceApi.md#cash_invoices_inline_with_payment_post) | **POST** /cash-invoices/inline/with-payment | Create cash invoices document inline discount or inline vat with payment.
 [**cash_invoices_post**](CashInvoiceApi.md#cash_invoices_post) | **POST** /cash-invoices | Create cash invoices document.
 [**cash_invoices_sharedocument_post**](CashInvoiceApi.md#cash_invoices_sharedocument_post) | **POST** /cash-invoices/sharedocument | Share link cash invoices document.
 [**cash_invoices_with_payment_post**](CashInvoiceApi.md#cash_invoices_with_payment_post) | **POST** /cash-invoices/with-payment | Create cash invoices document with payment.
@@ -88,7 +88,7 @@ No authorization required
 # **cash_invoices_get**
 > AllDocumentResponse cash_invoices_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
 
-Get list all cash invoices documents
+Get all cash invoices documents
 
 เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
 
@@ -115,10 +115,10 @@ with openapi_client.ApiClient() as api_client:
 page_size = 56 # int | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?pageSize=20 </ex>
 authorization = 'Bearer accessToken' # str |  (default to 'Bearer accessToken')
 sort_by = 'sort_by_example' # str | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/cash-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/cash-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex> (optional)
-filter = 'filter_example' # str |  (optional)
+filter = 'filter_example' # str | Query filter cash-invoices. <br>Example Pattern: <ex> /cash-invoices?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex> (optional)
 
     try:
-        # Get list all cash invoices documents
+        # Get all cash invoices documents
         api_response = api_instance.cash_invoices_get(current_page, page_size, authorization, sort_by=sort_by, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **str**|  | [default to &#39;Bearer accessToken&#39;]
  **sort_by** | **str**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;publishedOn&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}] &lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Contact.NameLocal&#39;,&#39;sortOrder&#39;:&#39;desc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Value&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt;&lt;ex&gt;/cash-invoices?sortBy&#x3D;[{&#39;name&#39;:&#39;Status&#39;,&#39;sortOrder&#39;:&#39;asc&#39;},{&#39;name&#39;:&#39;documentSerial&#39;,&#39;sortOrder&#39;:&#39;desc&#39;}]&lt;/ex&gt; | [optional] 
- **filter** | **str**|  | [optional] 
+ **filter** | **str**| Query filter cash-invoices. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?filter&#x3D;[{&#39;columnName&#39;:&#39;Contact.NameLocal&#39;,&#39;columnValue&#39;:&#39;Contact Name&#39;,&#39;columnPredicateOperator&#39;:&#39;And&#39;}] &lt;/ex&gt; | [optional] 
 
 ### Return type
 
@@ -160,7 +160,7 @@ No authorization required
 # **cash_invoices_id_attachment_post**
 > AttachmentResponse cash_invoices_id_attachment_post(authorization, id, file=file)
 
-Add Attachment to cash invoices document.
+Attachment cash invoices document.
 
 แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) ตามเลขที่เอกสารที่ต้องการ
 
@@ -188,7 +188,7 @@ id = 'id_example' # str | documentId หรือ recordId ของเอกส
 file = '/path/to/file' # file | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional)
 
     try:
-        # Add Attachment to cash invoices document.
+        # Attachment cash invoices document.
         api_response = api_instance.cash_invoices_id_attachment_post(authorization, id, file=file)
         pprint(api_response)
     except ApiException as e:
@@ -360,7 +360,7 @@ No authorization required
 # **cash_invoices_id_payment_post**
 > InlineDocumentResponse cash_invoices_id_payment_post(authorization, id, payment_receiving_document)
 
-Change paid status of cash invoices document.
+Change status is paid cash invoices document.
 
 เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
 
@@ -388,7 +388,7 @@ id = 'id_example' # str | ID เอกสารใช้ recordId หรือ d
 payment_receiving_document = openapi_client.PaymentReceivingDocument() # PaymentReceivingDocument | 
 
     try:
-        # Change paid status of cash invoices document.
+        # Change status is paid cash invoices document.
         api_response = api_instance.cash_invoices_id_payment_post(authorization, id, payment_receiving_document)
         pprint(api_response)
     except ApiException as e:
@@ -496,7 +496,7 @@ No authorization required
 # **cash_invoices_id_status_status_id_post**
 > InlineDocumentResponse cash_invoices_id_status_status_id_post(authorization, id, status_id)
 
-Change status of cash invoices document.
+Change status cash invoices document.
 
 เปลี่ยนสถานะของเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
@@ -524,7 +524,7 @@ id = 'id_example' # str | ID เอกสารใช้ recordId
 status_id = 'status_id_example' # str | เปลี่ยนสถานะเอกสารได้ 3 สถานะ <br> awaiting = รอดำเนินการ <br> invoicedelivered = รอเก็บเงิน <br> void = ยกเลิก
 
     try:
-        # Change status of cash invoices document.
+        # Change status cash invoices document.
         api_response = api_instance.cash_invoices_id_status_status_id_post(authorization, id, status_id)
         pprint(api_response)
     except ApiException as e:
@@ -564,7 +564,7 @@ No authorization required
 # **cash_invoices_inline_post**
 > InlineDocumentResponse cash_invoices_inline_post(authorization, inline_document)
 
-Create cash invoices document with discount and tax inline.
+Create cash invoices document inline discount or inline vat.
 
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
 
@@ -591,7 +591,7 @@ with openapi_client.ApiClient() as api_client:
 inline_document = openapi_client.InlineDocument() # InlineDocument | 
 
     try:
-        # Create cash invoices document with discount and tax inline.
+        # Create cash invoices document inline discount or inline vat.
         api_response = api_instance.cash_invoices_inline_post(authorization, inline_document)
         pprint(api_response)
     except ApiException as e:
@@ -630,7 +630,7 @@ No authorization required
 # **cash_invoices_inline_with_payment_post**
 > InlineDocumentResponse cash_invoices_inline_with_payment_post(authorization, inline_document_with_payment_receiving)
 
-Create cash invoices document with discount and tax inline with payment.
+Create cash invoices document inline discount or inline vat with payment.
 
 สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
 
@@ -657,7 +657,7 @@ with openapi_client.ApiClient() as api_client:
 inline_document_with_payment_receiving = openapi_client.InlineDocumentWithPaymentReceiving() # InlineDocumentWithPaymentReceiving | 
 
     try:
-        # Create cash invoices document with discount and tax inline with payment.
+        # Create cash invoices document inline discount or inline vat with payment.
         api_response = api_instance.cash_invoices_inline_with_payment_post(authorization, inline_document_with_payment_receiving)
         pprint(api_response)
     except ApiException as e:

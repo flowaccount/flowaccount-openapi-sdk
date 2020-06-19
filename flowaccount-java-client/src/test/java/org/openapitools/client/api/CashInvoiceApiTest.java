@@ -65,7 +65,7 @@ public class CashInvoiceApiTest {
     }
     
     /**
-     * Get list all cash invoices documents
+     * Get all cash invoices documents
      *
      * เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
      *
@@ -85,7 +85,7 @@ public class CashInvoiceApiTest {
     }
     
     /**
-     * Add Attachment to cash invoices document.
+     * Attachment cash invoices document.
      *
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (ขายสด) ตามเลขที่เอกสารที่ต้องการ
      *
@@ -137,7 +137,7 @@ public class CashInvoiceApiTest {
     }
     
     /**
-     * Change paid status of cash invoices document.
+     * Change status is paid cash invoices document.
      *
      * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      *
@@ -173,7 +173,7 @@ public class CashInvoiceApiTest {
     }
     
     /**
-     * Change status of cash invoices document.
+     * Change status cash invoices document.
      *
      * เปลี่ยนสถานะของเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน(เงินสด) สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      *
@@ -191,7 +191,7 @@ public class CashInvoiceApiTest {
     }
     
     /**
-     * Create cash invoices document with discount and tax inline.
+     * Create cash invoices document inline discount or inline vat.
      *
      * สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting)
      *
@@ -208,7 +208,7 @@ public class CashInvoiceApiTest {
     }
     
     /**
-     * Create cash invoices document with discount and tax inline with payment.
+     * Create cash invoices document inline discount or inline vat with payment.
      *
      * สร้างเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน &lt;br&gt;เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      *

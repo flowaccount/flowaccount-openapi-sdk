@@ -44,12 +44,12 @@ public class ContactsApiTest {
      */
     @Test
     public void contactsGetTest() throws ApiException {
+        String authorization = null;
         Integer currentPage = null;
         Integer pageSize = null;
-        String authorization = null;
         String sortBy = null;
         String filter = null;
-        ContactResponse response = api.contactsGet(currentPage, pageSize, authorization, sortBy, filter);
+        ContactResponse response = api.contactsGet(authorization, currentPage, pageSize, sortBy, filter);
 
         // TODO: test validations
     }

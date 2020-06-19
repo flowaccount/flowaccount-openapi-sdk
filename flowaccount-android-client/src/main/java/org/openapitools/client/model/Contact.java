@@ -24,6 +24,8 @@ public class Contact {
   private Long contactGroup = 3;
   @SerializedName("contactType")
   private Long contactType = 3;
+  @SerializedName("contactCode")
+  private Long contactCode = null;
   @SerializedName("contactName")
   private String contactName = null;
   @SerializedName("contactAddress")
@@ -94,6 +96,17 @@ public class Contact {
   }
   public void setContactType(Long contactType) {
     this.contactType = contactType;
+  }
+
+  /**
+   * รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>
+   **/
+  @ApiModelProperty(value = "รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>")
+  public Long getContactCode() {
+    return contactCode;
+  }
+  public void setContactCode(Long contactCode) {
+    this.contactCode = contactCode;
   }
 
   /**
@@ -318,6 +331,7 @@ public class Contact {
     return (this.id == null ? contact.id == null : this.id.equals(contact.id)) &&
         (this.contactGroup == null ? contact.contactGroup == null : this.contactGroup.equals(contact.contactGroup)) &&
         (this.contactType == null ? contact.contactType == null : this.contactType.equals(contact.contactType)) &&
+        (this.contactCode == null ? contact.contactCode == null : this.contactCode.equals(contact.contactCode)) &&
         (this.contactName == null ? contact.contactName == null : this.contactName.equals(contact.contactName)) &&
         (this.contactAddress == null ? contact.contactAddress == null : this.contactAddress.equals(contact.contactAddress)) &&
         (this.contactZipCode == null ? contact.contactZipCode == null : this.contactZipCode.equals(contact.contactZipCode)) &&
@@ -345,6 +359,7 @@ public class Contact {
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.contactGroup == null ? 0: this.contactGroup.hashCode());
     result = 31 * result + (this.contactType == null ? 0: this.contactType.hashCode());
+    result = 31 * result + (this.contactCode == null ? 0: this.contactCode.hashCode());
     result = 31 * result + (this.contactName == null ? 0: this.contactName.hashCode());
     result = 31 * result + (this.contactAddress == null ? 0: this.contactAddress.hashCode());
     result = 31 * result + (this.contactZipCode == null ? 0: this.contactZipCode.hashCode());
@@ -375,6 +390,7 @@ public class Contact {
     sb.append("  id: ").append(id).append("\n");
     sb.append("  contactGroup: ").append(contactGroup).append("\n");
     sb.append("  contactType: ").append(contactType).append("\n");
+    sb.append("  contactCode: ").append(contactCode).append("\n");
     sb.append("  contactName: ").append(contactName).append("\n");
     sb.append("  contactAddress: ").append(contactAddress).append("\n");
     sb.append("  contactZipCode: ").append(contactZipCode).append("\n");

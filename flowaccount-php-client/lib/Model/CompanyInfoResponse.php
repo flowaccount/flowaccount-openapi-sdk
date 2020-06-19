@@ -60,7 +60,7 @@ class CompanyInfoResponse implements ModelInterface, ArrayAccess
         'status' => 'bool',
         'message' => 'string',
         'code' => 'int',
-        'data' => '\OpenAPI\Client\Model\CompanyInfoResponseData[]'
+        'data' => '\OpenAPI\Client\Model\CompanyInfoResponseData'
     ];
 
     /**
@@ -297,7 +297,7 @@ class CompanyInfoResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CompanyInfoResponseData[]|null
+     * @return \OpenAPI\Client\Model\CompanyInfoResponseData|null
      */
     public function getData()
     {
@@ -307,7 +307,7 @@ class CompanyInfoResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CompanyInfoResponseData[]|null $data ข้อมูลบริษัทเรา
+     * @param \OpenAPI\Client\Model\CompanyInfoResponseData|null $data data
      *
      * @return $this
      */

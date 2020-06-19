@@ -79,6 +79,13 @@ class WithholidingTaxDocumentResponseDataTest extends TestCase
     }
 
     /**
+     * Test attribute "record_id"
+     */
+    public function testPropertyRecordId()
+    {
+    }
+
+    /**
      * Test attribute "document_id"
      */
     public function testPropertyDocumentId()

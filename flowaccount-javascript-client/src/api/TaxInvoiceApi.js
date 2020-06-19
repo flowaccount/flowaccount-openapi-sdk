@@ -105,14 +105,14 @@ export default class TaxInvoiceApi {
      */
 
     /**
-     * Get list all tax invocie documents.
+     * Get all tax invocie documents.
      * เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
      * @param {Number} currentPage Query current page document tax invoices. <br>Example Pattern: <ex>/tax-invoices?currentPage=1 </ex><ex>/tax-invoices?currentPage=1&pageSize=20</ex>
      * @param {Number} pageSize Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?pageSize=20 </ex>
      * @param {String} authorization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?sortBy=[{'name':'publishedOn','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}] </ex><ex>/tax-invoices?sortBy=[{'name':'Contact.NameLocal','sortOrder':'desc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Value','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex><ex>/tax-invoices?sortBy=[{'name':'Status','sortOrder':'asc'},{'name':'documentSerial','sortOrder':'desc'}]</ex>
-     * @param {String} opts.filter 
+     * @param {String} opts.filter Query filter tax-invoices. <br>Example Pattern: <ex> /tax-invoices?filter=[{'columnName':'Contact.NameLocal','columnValue':'Contact Name','columnPredicateOperator':'And'}] </ex>
      * @param {module:api/TaxInvoiceApi~taxInvoicesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AllDocumentResponse}
      */
@@ -166,7 +166,7 @@ export default class TaxInvoiceApi {
      */
 
     /**
-     * Add Attachment to tax Invoices document.
+     * Attachment tax Invoices document.
      * แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
      * @param {String} authorization 
      * @param {String} id documentId หรือ recordId ของเอกสารที่ต้องการแนบ
@@ -317,7 +317,7 @@ export default class TaxInvoiceApi {
      */
 
     /**
-     * Change paid status of tax-invoice document.
+     * Change status is paid tax-invoice document.
      * เก็บเงิน เอกสารใบกำกับภาษี/ใบเสร็จรับเงิน เปลี่ยนสถานะเป็น เก็บเงินแล้ว
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId หรือ documentId
@@ -425,7 +425,7 @@ export default class TaxInvoiceApi {
      */
 
     /**
-     * Change status of tax invoices document.
+     * Change status tax invoices document.
      * เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
      * @param {String} authorization 
      * @param {String} id ID เอกสารใช้ recordId
@@ -480,7 +480,7 @@ export default class TaxInvoiceApi {
      */
 
     /**
-     * Create tax invocie document with discount and tax inline.
+     * Create tax invocie document inline discount or inline vat.
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
      * @param {String} authorization 
      * @param {module:model/InlineDocument} inlineDocument 
@@ -528,7 +528,7 @@ export default class TaxInvoiceApi {
      */
 
     /**
-     * Create tax invocie document with discount and tax inline with payment.
+     * Create tax invocie document inline discount or inline vat with payment.
      * สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้าพร้อมเก็บเงิน <br>เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ เก็บเงินแล้ว (paid)
      * @param {String} authorization 
      * @param {module:model/InlineDocumentWithPaymentReceiving} inlineDocumentWithPaymentReceiving 

@@ -8,6 +8,11 @@ class WithholidingTaxDocumentResponseData {
 WithholidingTaxDocumentResponseData.discriminator = undefined;
 WithholidingTaxDocumentResponseData.attributeTypeMap = [
     {
+        "name": "recordId",
+        "baseName": "recordId",
+        "type": "string"
+    },
+    {
         "name": "documentId",
         "baseName": "documentId",
         "type": "string"

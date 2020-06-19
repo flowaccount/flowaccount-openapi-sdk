@@ -114,6 +114,14 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'SellPrice'
         }
         /// <summary>
+        /// Test the property 'SellPriceWithVat'
+        /// </summary>
+        [Test]
+        public void SellPriceWithVatTest()
+        {
+            // TODO unit test for the property 'SellPriceWithVat'
+        }
+        /// <summary>
         /// Test the property 'SellVatType'
         /// </summary>
         [Test]
@@ -178,6 +186,14 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'BuyVatType'
         }
         /// <summary>
+        /// Test the property 'BuyVatTypeWithVat'
+        /// </summary>
+        [Test]
+        public void BuyVatTypeWithVatTest()
+        {
+            // TODO unit test for the property 'BuyVatTypeWithVat'
+        }
+        /// <summary>
         /// Test the property 'InventoryPublishedOn'
         /// </summary>
         [Test]
@@ -192,6 +208,22 @@ namespace Flowaccount.OpenAPITools.Test
         public void InventoryQuantityTest()
         {
             // TODO unit test for the property 'InventoryQuantity'
+        }
+        /// <summary>
+        /// Test the property 'InventoryPrice'
+        /// </summary>
+        [Test]
+        public void InventoryPriceTest()
+        {
+            // TODO unit test for the property 'InventoryPrice'
+        }
+        /// <summary>
+        /// Test the property 'InventoryTotal'
+        /// </summary>
+        [Test]
+        public void InventoryTotalTest()
+        {
+            // TODO unit test for the property 'InventoryTotal'
         }
         /// <summary>
         /// Test the property 'AverageBuyPrice'

@@ -37,22 +37,28 @@ class TestBusinessCategory(unittest.TestCase):
         # model = openapi_client.models.business_category.BusinessCategory()  # noqa: E501
         if include_optional :
             return BusinessCategory(
-                id = 56, 
-                system_code = 56, 
-                category_id = 56, 
-                category_name_local = '0', 
-                category_name_foreign = '0', 
-                debit_id = 56, 
-                debit_category = 56, 
-                debit_code = '0', 
-                debit_name_local = '0', 
-                debit_name_foreign = '0', 
-                credit_id = 56, 
-                credit_category = 56, 
-                credit_code = '0', 
-                credit_name_local = '0', 
-                credit_name_foreign = '0', 
-                keywords = '0'
+                status = True, 
+                message = '0', 
+                code = 56, 
+                data = [
+                    openapi_client.models.business_category_data.BusinessCategory_data(
+                        id = 56, 
+                        system_code = 56, 
+                        category_id = 56, 
+                        category_name_local = '0', 
+                        category_name_foreign = '0', 
+                        debit_id = 56, 
+                        debit_category = 56, 
+                        debit_code = '0', 
+                        debit_name_local = '0', 
+                        debit_name_foreign = '0', 
+                        credit_id = 56, 
+                        credit_category = 56, 
+                        credit_code = '0', 
+                        credit_name_local = '0', 
+                        credit_name_foreign = '0', 
+                        keywords = '0', )
+                    ]
             )
         else :
             return BusinessCategory(

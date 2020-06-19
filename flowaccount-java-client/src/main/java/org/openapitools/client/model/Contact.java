@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Contact
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-17T00:38:54.499089+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T11:31:57.605116+07:00[Asia/Bangkok]")
 public class Contact {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -40,6 +40,10 @@ public class Contact {
   public static final String SERIALIZED_NAME_CONTACT_TYPE = "contactType";
   @SerializedName(SERIALIZED_NAME_CONTACT_TYPE)
   private Long contactType = 3l;
+
+  public static final String SERIALIZED_NAME_CONTACT_CODE = "contactCode";
+  @SerializedName(SERIALIZED_NAME_CONTACT_CODE)
+  private Long contactCode;
 
   public static final String SERIALIZED_NAME_CONTACT_NAME = "contactName";
   @SerializedName(SERIALIZED_NAME_CONTACT_NAME)
@@ -182,6 +186,29 @@ public class Contact {
 
   public void setContactType(Long contactType) {
     this.contactType = contactType;
+  }
+
+
+  public Contact contactCode(Long contactCode) {
+    
+    this.contactCode = contactCode;
+    return this;
+  }
+
+   /**
+   * รหัสผู้ติดต่อ ​&lt;br&gt;&lt;ex&gt;Example: C0001&lt;/ex&gt;
+   * @return contactCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "รหัสผู้ติดต่อ ​<br><ex>Example: C0001</ex>")
+
+  public Long getContactCode() {
+    return contactCode;
+  }
+
+
+  public void setContactCode(Long contactCode) {
+    this.contactCode = contactCode;
   }
 
 
@@ -633,6 +660,7 @@ public class Contact {
     return Objects.equals(this.id, contact.id) &&
         Objects.equals(this.contactGroup, contact.contactGroup) &&
         Objects.equals(this.contactType, contact.contactType) &&
+        Objects.equals(this.contactCode, contact.contactCode) &&
         Objects.equals(this.contactName, contact.contactName) &&
         Objects.equals(this.contactAddress, contact.contactAddress) &&
         Objects.equals(this.contactZipCode, contact.contactZipCode) &&
@@ -656,7 +684,7 @@ public class Contact {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, contactGroup, contactType, contactName, contactAddress, contactZipCode, contactTaxId, contactBranchCode, contactBranch, contactPerson, contactEmail, contactMobile, contactBankId, contactBankAccountNumber, contactBankBranch, contactBankAccountType, contactCreditDays, contactOffice, contactFax, contactWebsite, conatactShippingAddress, contactNote);
+    return Objects.hash(id, contactGroup, contactType, contactCode, contactName, contactAddress, contactZipCode, contactTaxId, contactBranchCode, contactBranch, contactPerson, contactEmail, contactMobile, contactBankId, contactBankAccountNumber, contactBankBranch, contactBankAccountType, contactCreditDays, contactOffice, contactFax, contactWebsite, conatactShippingAddress, contactNote);
   }
 
 
@@ -667,6 +695,7 @@ public class Contact {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    contactGroup: ").append(toIndentedString(contactGroup)).append("\n");
     sb.append("    contactType: ").append(toIndentedString(contactType)).append("\n");
+    sb.append("    contactCode: ").append(toIndentedString(contactCode)).append("\n");
     sb.append("    contactName: ").append(toIndentedString(contactName)).append("\n");
     sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
     sb.append("    contactZipCode: ").append(toIndentedString(contactZipCode)).append("\n");
