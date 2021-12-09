@@ -5,6 +5,7 @@ import {
   CashInvoiceApi,
 } from "@flowaccount/openapi-sdk";
 import { config } from "./config.js";
+import moment from "moment";
 
 const start = async function () {
   const accessToken = await getAccessToken();
@@ -29,8 +30,8 @@ function createCashInvoice(accessToken) {
     // document
     const model = new SimpleDocument();
     model.contactName = "contact name";
-    model.publishedOn = new Date();
-    model.dueDate = new Date();
+    model.publishedOn = moment(new Date()).format("YYYY-MM-DD");
+    model.dueDate = moment(new Date()).format("YYYY-MM-DD");
     model.items = [item];
     model.subTotal = 100;
     model.totalAfterDiscount = 100;

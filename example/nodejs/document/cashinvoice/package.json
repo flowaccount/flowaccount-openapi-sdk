@@ -10,6 +10,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@flowaccount/openapi-sdk": "^0.0.39"
+    "@flowaccount/openapi-sdk": "^0.0.39",
+    "moment": "^2.29.1"
   }
 }
