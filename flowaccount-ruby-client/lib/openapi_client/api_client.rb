@@ -163,7 +163,20 @@ module OpenapiClient
     # @param [String] mime MIME
     # @return [Boolean] True if the MIME is application/json
     def json_mime?(mime)
-      (mime == '*/*') || !(mime =~ /Application\/.*json(?!p)(;.*)?/i).nil?
+      return false if mime.nil? || mime.empty?
+      return true if mime == '*/*'
+      # Normalize once for case-insensitive comparison
+      m = mime.downcase
+      # Strip any parameters (after ';')
+     type_subtype = m.split(';', 2)[0].strip
+      # Fast path for the most common case
+      return true if type_subtype == 'application/json'
+      # Support structured syntax suffix (e.g., application/hal+json, application/problem+json)
+      if (slash = type_subtype.index('/'))
+        subtype = type_subtype[(slash + 1)..-1]
+        return true if subtype == 'json' || subtype.end_with?('+json')
+      end
+      false
     end
 
     # Deserialize the response to the given return type.
@@ -284,7 +297,13 @@ module OpenapiClient
     # @param [String] filename the filename to be sanitized
     # @return [String] the sanitized filename
     def sanitize_filename(filename)
-      filename.gsub(/.*[\/\\]/, '')
+  # Previous implementation used a greedy regex with gsub: /.*[\/\\]/ which
+  # can exhibit poor performance on very long strings lacking a path separator
+  # (e.g., "aaaa....a"). Instead, find the last occurrence of a path separator
+  # in O(n) using rindex and slice once.
+  return '' if filename.nil?
+  idx = filename.rindex(/[\/\\]/)
+  idx ? filename[(idx + 1)..-1] : filename
     end
 
     def build_request_url(path)
